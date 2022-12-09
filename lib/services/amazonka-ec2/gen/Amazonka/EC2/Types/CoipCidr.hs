@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCoipCidr' smart constructor.
 data CoipCidr = CoipCidr'
-  { -- | The ID of the local gateway route table.
-    localGatewayRouteTableId :: Prelude.Maybe Prelude.Text,
-    -- | An address range in a customer-owned IP address space.
+  { -- | An address range in a customer-owned IP address space.
     cidr :: Prelude.Maybe Prelude.Text,
     -- | The ID of the address pool.
-    coipPoolId :: Prelude.Maybe Prelude.Text
+    coipPoolId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the local gateway route table.
+    localGatewayRouteTableId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,24 +46,19 @@ data CoipCidr = CoipCidr'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'localGatewayRouteTableId', 'coipCidr_localGatewayRouteTableId' - The ID of the local gateway route table.
---
 -- 'cidr', 'coipCidr_cidr' - An address range in a customer-owned IP address space.
 --
 -- 'coipPoolId', 'coipCidr_coipPoolId' - The ID of the address pool.
+--
+-- 'localGatewayRouteTableId', 'coipCidr_localGatewayRouteTableId' - The ID of the local gateway route table.
 newCoipCidr ::
   CoipCidr
 newCoipCidr =
   CoipCidr'
-    { localGatewayRouteTableId =
-        Prelude.Nothing,
-      cidr = Prelude.Nothing,
-      coipPoolId = Prelude.Nothing
+    { cidr = Prelude.Nothing,
+      coipPoolId = Prelude.Nothing,
+      localGatewayRouteTableId = Prelude.Nothing
     }
-
--- | The ID of the local gateway route table.
-coipCidr_localGatewayRouteTableId :: Lens.Lens' CoipCidr (Prelude.Maybe Prelude.Text)
-coipCidr_localGatewayRouteTableId = Lens.lens (\CoipCidr' {localGatewayRouteTableId} -> localGatewayRouteTableId) (\s@CoipCidr' {} a -> s {localGatewayRouteTableId = a} :: CoipCidr)
 
 -- | An address range in a customer-owned IP address space.
 coipCidr_cidr :: Lens.Lens' CoipCidr (Prelude.Maybe Prelude.Text)
@@ -73,22 +68,25 @@ coipCidr_cidr = Lens.lens (\CoipCidr' {cidr} -> cidr) (\s@CoipCidr' {} a -> s {c
 coipCidr_coipPoolId :: Lens.Lens' CoipCidr (Prelude.Maybe Prelude.Text)
 coipCidr_coipPoolId = Lens.lens (\CoipCidr' {coipPoolId} -> coipPoolId) (\s@CoipCidr' {} a -> s {coipPoolId = a} :: CoipCidr)
 
+-- | The ID of the local gateway route table.
+coipCidr_localGatewayRouteTableId :: Lens.Lens' CoipCidr (Prelude.Maybe Prelude.Text)
+coipCidr_localGatewayRouteTableId = Lens.lens (\CoipCidr' {localGatewayRouteTableId} -> localGatewayRouteTableId) (\s@CoipCidr' {} a -> s {localGatewayRouteTableId = a} :: CoipCidr)
+
 instance Data.FromXML CoipCidr where
   parseXML x =
     CoipCidr'
-      Prelude.<$> (x Data..@? "localGatewayRouteTableId")
-      Prelude.<*> (x Data..@? "cidr")
+      Prelude.<$> (x Data..@? "cidr")
       Prelude.<*> (x Data..@? "coipPoolId")
+      Prelude.<*> (x Data..@? "localGatewayRouteTableId")
 
 instance Prelude.Hashable CoipCidr where
   hashWithSalt _salt CoipCidr' {..} =
-    _salt
-      `Prelude.hashWithSalt` localGatewayRouteTableId
-      `Prelude.hashWithSalt` cidr
+    _salt `Prelude.hashWithSalt` cidr
       `Prelude.hashWithSalt` coipPoolId
+      `Prelude.hashWithSalt` localGatewayRouteTableId
 
 instance Prelude.NFData CoipCidr where
   rnf CoipCidr' {..} =
-    Prelude.rnf localGatewayRouteTableId
-      `Prelude.seq` Prelude.rnf cidr
+    Prelude.rnf cidr
       `Prelude.seq` Prelude.rnf coipPoolId
+      `Prelude.seq` Prelude.rnf localGatewayRouteTableId

@@ -47,11 +47,11 @@ module Amazonka.EC2.DescribeStoreImageTasks
     newDescribeStoreImageTasks,
 
     -- * Request Lenses
-    describeStoreImageTasks_nextToken,
-    describeStoreImageTasks_imageIds,
-    describeStoreImageTasks_filters,
     describeStoreImageTasks_dryRun,
+    describeStoreImageTasks_filters,
+    describeStoreImageTasks_imageIds,
     describeStoreImageTasks_maxResults,
+    describeStoreImageTasks_nextToken,
 
     -- * Destructuring the Response
     DescribeStoreImageTasksResponse (..),
@@ -74,11 +74,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeStoreImageTasks' smart constructor.
 data DescribeStoreImageTasks = DescribeStoreImageTasks'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The AMI IDs for which to show progress. Up to 20 AMI IDs can be included
-    -- in a request.
-    imageIds :: Prelude.Maybe [Prelude.Text],
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The filters.
     --
     -- -   @task-state@ - Returns tasks in a certain state (@InProgress@ |
@@ -87,16 +87,16 @@ data DescribeStoreImageTasks = DescribeStoreImageTasks'
     -- -   @bucket@ - Returns task information for tasks that targeted a
     --     specific bucket. For the filter value, specify the bucket name.
     filters :: Prelude.Maybe [Filter],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The AMI IDs for which to show progress. Up to 20 AMI IDs can be included
+    -- in a request.
+    imageIds :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to return in a single call. To retrieve
     -- the remaining results, make another call with the returned @NextToken@
     -- value. This value can be between 1 and 200. You cannot specify this
     -- parameter and the @ImageIDs@ parameter in the same call.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -108,10 +108,10 @@ data DescribeStoreImageTasks = DescribeStoreImageTasks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeStoreImageTasks_nextToken' - The token for the next page of results.
---
--- 'imageIds', 'describeStoreImageTasks_imageIds' - The AMI IDs for which to show progress. Up to 20 AMI IDs can be included
--- in a request.
+-- 'dryRun', 'describeStoreImageTasks_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeStoreImageTasks_filters' - The filters.
 --
@@ -121,35 +121,32 @@ data DescribeStoreImageTasks = DescribeStoreImageTasks'
 -- -   @bucket@ - Returns task information for tasks that targeted a
 --     specific bucket. For the filter value, specify the bucket name.
 --
--- 'dryRun', 'describeStoreImageTasks_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- 'imageIds', 'describeStoreImageTasks_imageIds' - The AMI IDs for which to show progress. Up to 20 AMI IDs can be included
+-- in a request.
 --
 -- 'maxResults', 'describeStoreImageTasks_maxResults' - The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another call with the returned @NextToken@
 -- value. This value can be between 1 and 200. You cannot specify this
 -- parameter and the @ImageIDs@ parameter in the same call.
+--
+-- 'nextToken', 'describeStoreImageTasks_nextToken' - The token for the next page of results.
 newDescribeStoreImageTasks ::
   DescribeStoreImageTasks
 newDescribeStoreImageTasks =
   DescribeStoreImageTasks'
-    { nextToken =
-        Prelude.Nothing,
-      imageIds = Prelude.Nothing,
+    { dryRun = Prelude.Nothing,
       filters = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      imageIds = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
 
--- | The token for the next page of results.
-describeStoreImageTasks_nextToken :: Lens.Lens' DescribeStoreImageTasks (Prelude.Maybe Prelude.Text)
-describeStoreImageTasks_nextToken = Lens.lens (\DescribeStoreImageTasks' {nextToken} -> nextToken) (\s@DescribeStoreImageTasks' {} a -> s {nextToken = a} :: DescribeStoreImageTasks)
-
--- | The AMI IDs for which to show progress. Up to 20 AMI IDs can be included
--- in a request.
-describeStoreImageTasks_imageIds :: Lens.Lens' DescribeStoreImageTasks (Prelude.Maybe [Prelude.Text])
-describeStoreImageTasks_imageIds = Lens.lens (\DescribeStoreImageTasks' {imageIds} -> imageIds) (\s@DescribeStoreImageTasks' {} a -> s {imageIds = a} :: DescribeStoreImageTasks) Prelude.. Lens.mapping Lens.coerced
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeStoreImageTasks_dryRun :: Lens.Lens' DescribeStoreImageTasks (Prelude.Maybe Prelude.Bool)
+describeStoreImageTasks_dryRun = Lens.lens (\DescribeStoreImageTasks' {dryRun} -> dryRun) (\s@DescribeStoreImageTasks' {} a -> s {dryRun = a} :: DescribeStoreImageTasks)
 
 -- | The filters.
 --
@@ -161,12 +158,10 @@ describeStoreImageTasks_imageIds = Lens.lens (\DescribeStoreImageTasks' {imageId
 describeStoreImageTasks_filters :: Lens.Lens' DescribeStoreImageTasks (Prelude.Maybe [Filter])
 describeStoreImageTasks_filters = Lens.lens (\DescribeStoreImageTasks' {filters} -> filters) (\s@DescribeStoreImageTasks' {} a -> s {filters = a} :: DescribeStoreImageTasks) Prelude.. Lens.mapping Lens.coerced
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeStoreImageTasks_dryRun :: Lens.Lens' DescribeStoreImageTasks (Prelude.Maybe Prelude.Bool)
-describeStoreImageTasks_dryRun = Lens.lens (\DescribeStoreImageTasks' {dryRun} -> dryRun) (\s@DescribeStoreImageTasks' {} a -> s {dryRun = a} :: DescribeStoreImageTasks)
+-- | The AMI IDs for which to show progress. Up to 20 AMI IDs can be included
+-- in a request.
+describeStoreImageTasks_imageIds :: Lens.Lens' DescribeStoreImageTasks (Prelude.Maybe [Prelude.Text])
+describeStoreImageTasks_imageIds = Lens.lens (\DescribeStoreImageTasks' {imageIds} -> imageIds) (\s@DescribeStoreImageTasks' {} a -> s {imageIds = a} :: DescribeStoreImageTasks) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another call with the returned @NextToken@
@@ -174,6 +169,10 @@ describeStoreImageTasks_dryRun = Lens.lens (\DescribeStoreImageTasks' {dryRun} -
 -- parameter and the @ImageIDs@ parameter in the same call.
 describeStoreImageTasks_maxResults :: Lens.Lens' DescribeStoreImageTasks (Prelude.Maybe Prelude.Natural)
 describeStoreImageTasks_maxResults = Lens.lens (\DescribeStoreImageTasks' {maxResults} -> maxResults) (\s@DescribeStoreImageTasks' {} a -> s {maxResults = a} :: DescribeStoreImageTasks)
+
+-- | The token for the next page of results.
+describeStoreImageTasks_nextToken :: Lens.Lens' DescribeStoreImageTasks (Prelude.Maybe Prelude.Text)
+describeStoreImageTasks_nextToken = Lens.lens (\DescribeStoreImageTasks' {nextToken} -> nextToken) (\s@DescribeStoreImageTasks' {} a -> s {nextToken = a} :: DescribeStoreImageTasks)
 
 instance Core.AWSPager DescribeStoreImageTasks where
   page rq rs
@@ -217,19 +216,19 @@ instance Core.AWSRequest DescribeStoreImageTasks where
 
 instance Prelude.Hashable DescribeStoreImageTasks where
   hashWithSalt _salt DescribeStoreImageTasks' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` imageIds
+    _salt `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` imageIds
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeStoreImageTasks where
   rnf DescribeStoreImageTasks' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf imageIds
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf imageIds
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeStoreImageTasks where
   toHeaders = Prelude.const Prelude.mempty
@@ -244,13 +243,13 @@ instance Data.ToQuery DescribeStoreImageTasks where
           Data.=: ("DescribeStoreImageTasks" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
-        Data.toQuery
-          (Data.toQueryList "ImageId" Prelude.<$> imageIds),
+        "DryRun" Data.=: dryRun,
         Data.toQuery
           (Data.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Data.=: dryRun,
-        "MaxResults" Data.=: maxResults
+        Data.toQuery
+          (Data.toQueryList "ImageId" Prelude.<$> imageIds),
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newDescribeStoreImageTasksResponse' smart constructor.

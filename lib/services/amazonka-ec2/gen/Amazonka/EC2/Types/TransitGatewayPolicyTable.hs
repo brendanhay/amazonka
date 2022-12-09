@@ -31,16 +31,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTransitGatewayPolicyTable' smart constructor.
 data TransitGatewayPolicyTable = TransitGatewayPolicyTable'
-  { -- | he key-value pairs associated with the transit gateway policy table.
+  { -- | The timestamp when the transit gateway policy table was created.
+    creationTime :: Prelude.Maybe Data.ISO8601,
+    -- | The state of the transit gateway policy table
+    state :: Prelude.Maybe TransitGatewayPolicyTableState,
+    -- | he key-value pairs associated with the transit gateway policy table.
     tags :: Prelude.Maybe [Tag],
     -- | The ID of the transit gateway.
     transitGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the transit gateway policy table.
-    transitGatewayPolicyTableId :: Prelude.Maybe Prelude.Text,
-    -- | The state of the transit gateway policy table
-    state :: Prelude.Maybe TransitGatewayPolicyTableState,
-    -- | The timestamp when the transit gateway policy table was created.
-    creationTime :: Prelude.Maybe Data.ISO8601
+    transitGatewayPolicyTableId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,25 +52,34 @@ data TransitGatewayPolicyTable = TransitGatewayPolicyTable'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'creationTime', 'transitGatewayPolicyTable_creationTime' - The timestamp when the transit gateway policy table was created.
+--
+-- 'state', 'transitGatewayPolicyTable_state' - The state of the transit gateway policy table
+--
 -- 'tags', 'transitGatewayPolicyTable_tags' - he key-value pairs associated with the transit gateway policy table.
 --
 -- 'transitGatewayId', 'transitGatewayPolicyTable_transitGatewayId' - The ID of the transit gateway.
 --
 -- 'transitGatewayPolicyTableId', 'transitGatewayPolicyTable_transitGatewayPolicyTableId' - The ID of the transit gateway policy table.
---
--- 'state', 'transitGatewayPolicyTable_state' - The state of the transit gateway policy table
---
--- 'creationTime', 'transitGatewayPolicyTable_creationTime' - The timestamp when the transit gateway policy table was created.
 newTransitGatewayPolicyTable ::
   TransitGatewayPolicyTable
 newTransitGatewayPolicyTable =
   TransitGatewayPolicyTable'
-    { tags = Prelude.Nothing,
-      transitGatewayId = Prelude.Nothing,
-      transitGatewayPolicyTableId = Prelude.Nothing,
+    { creationTime =
+        Prelude.Nothing,
       state = Prelude.Nothing,
-      creationTime = Prelude.Nothing
+      tags = Prelude.Nothing,
+      transitGatewayId = Prelude.Nothing,
+      transitGatewayPolicyTableId = Prelude.Nothing
     }
+
+-- | The timestamp when the transit gateway policy table was created.
+transitGatewayPolicyTable_creationTime :: Lens.Lens' TransitGatewayPolicyTable (Prelude.Maybe Prelude.UTCTime)
+transitGatewayPolicyTable_creationTime = Lens.lens (\TransitGatewayPolicyTable' {creationTime} -> creationTime) (\s@TransitGatewayPolicyTable' {} a -> s {creationTime = a} :: TransitGatewayPolicyTable) Prelude.. Lens.mapping Data._Time
+
+-- | The state of the transit gateway policy table
+transitGatewayPolicyTable_state :: Lens.Lens' TransitGatewayPolicyTable (Prelude.Maybe TransitGatewayPolicyTableState)
+transitGatewayPolicyTable_state = Lens.lens (\TransitGatewayPolicyTable' {state} -> state) (\s@TransitGatewayPolicyTable' {} a -> s {state = a} :: TransitGatewayPolicyTable)
 
 -- | he key-value pairs associated with the transit gateway policy table.
 transitGatewayPolicyTable_tags :: Lens.Lens' TransitGatewayPolicyTable (Prelude.Maybe [Tag])
@@ -84,37 +93,29 @@ transitGatewayPolicyTable_transitGatewayId = Lens.lens (\TransitGatewayPolicyTab
 transitGatewayPolicyTable_transitGatewayPolicyTableId :: Lens.Lens' TransitGatewayPolicyTable (Prelude.Maybe Prelude.Text)
 transitGatewayPolicyTable_transitGatewayPolicyTableId = Lens.lens (\TransitGatewayPolicyTable' {transitGatewayPolicyTableId} -> transitGatewayPolicyTableId) (\s@TransitGatewayPolicyTable' {} a -> s {transitGatewayPolicyTableId = a} :: TransitGatewayPolicyTable)
 
--- | The state of the transit gateway policy table
-transitGatewayPolicyTable_state :: Lens.Lens' TransitGatewayPolicyTable (Prelude.Maybe TransitGatewayPolicyTableState)
-transitGatewayPolicyTable_state = Lens.lens (\TransitGatewayPolicyTable' {state} -> state) (\s@TransitGatewayPolicyTable' {} a -> s {state = a} :: TransitGatewayPolicyTable)
-
--- | The timestamp when the transit gateway policy table was created.
-transitGatewayPolicyTable_creationTime :: Lens.Lens' TransitGatewayPolicyTable (Prelude.Maybe Prelude.UTCTime)
-transitGatewayPolicyTable_creationTime = Lens.lens (\TransitGatewayPolicyTable' {creationTime} -> creationTime) (\s@TransitGatewayPolicyTable' {} a -> s {creationTime = a} :: TransitGatewayPolicyTable) Prelude.. Lens.mapping Data._Time
-
 instance Data.FromXML TransitGatewayPolicyTable where
   parseXML x =
     TransitGatewayPolicyTable'
-      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<$> (x Data..@? "creationTime")
+      Prelude.<*> (x Data..@? "state")
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "transitGatewayId")
       Prelude.<*> (x Data..@? "transitGatewayPolicyTableId")
-      Prelude.<*> (x Data..@? "state")
-      Prelude.<*> (x Data..@? "creationTime")
 
 instance Prelude.Hashable TransitGatewayPolicyTable where
   hashWithSalt _salt TransitGatewayPolicyTable' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` transitGatewayId
       `Prelude.hashWithSalt` transitGatewayPolicyTableId
-      `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` creationTime
 
 instance Prelude.NFData TransitGatewayPolicyTable where
   rnf TransitGatewayPolicyTable' {..} =
-    Prelude.rnf tags
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf transitGatewayId
       `Prelude.seq` Prelude.rnf transitGatewayPolicyTableId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf creationTime

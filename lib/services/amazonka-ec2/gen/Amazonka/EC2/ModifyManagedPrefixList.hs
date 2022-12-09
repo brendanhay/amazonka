@@ -34,12 +34,12 @@ module Amazonka.EC2.ModifyManagedPrefixList
     newModifyManagedPrefixList,
 
     -- * Request Lenses
-    modifyManagedPrefixList_removeEntries,
     modifyManagedPrefixList_addEntries,
-    modifyManagedPrefixList_dryRun,
     modifyManagedPrefixList_currentVersion,
+    modifyManagedPrefixList_dryRun,
     modifyManagedPrefixList_maxEntries,
     modifyManagedPrefixList_prefixListName,
+    modifyManagedPrefixList_removeEntries,
     modifyManagedPrefixList_prefixListId,
 
     -- * Destructuring the Response
@@ -62,17 +62,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyManagedPrefixList' smart constructor.
 data ModifyManagedPrefixList = ModifyManagedPrefixList'
-  { -- | One or more entries to remove from the prefix list.
-    removeEntries :: Prelude.Maybe [RemovePrefixListEntry],
-    -- | One or more entries to add to the prefix list.
+  { -- | One or more entries to add to the prefix list.
     addEntries :: Prelude.Maybe [AddPrefixListEntry],
+    -- | The current version of the prefix list.
+    currentVersion :: Prelude.Maybe Prelude.Integer,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The current version of the prefix list.
-    currentVersion :: Prelude.Maybe Prelude.Integer,
     -- | The maximum number of entries for the prefix list. You cannot modify the
     -- entries of a prefix list and modify the size of a prefix list at the
     -- same time.
@@ -84,6 +82,8 @@ data ModifyManagedPrefixList = ModifyManagedPrefixList'
     maxEntries :: Prelude.Maybe Prelude.Int,
     -- | A name for the prefix list.
     prefixListName :: Prelude.Maybe Prelude.Text,
+    -- | One or more entries to remove from the prefix list.
+    removeEntries :: Prelude.Maybe [RemovePrefixListEntry],
     -- | The ID of the prefix list.
     prefixListId :: Prelude.Text
   }
@@ -97,16 +97,14 @@ data ModifyManagedPrefixList = ModifyManagedPrefixList'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'removeEntries', 'modifyManagedPrefixList_removeEntries' - One or more entries to remove from the prefix list.
---
 -- 'addEntries', 'modifyManagedPrefixList_addEntries' - One or more entries to add to the prefix list.
+--
+-- 'currentVersion', 'modifyManagedPrefixList_currentVersion' - The current version of the prefix list.
 --
 -- 'dryRun', 'modifyManagedPrefixList_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'currentVersion', 'modifyManagedPrefixList_currentVersion' - The current version of the prefix list.
 --
 -- 'maxEntries', 'modifyManagedPrefixList_maxEntries' - The maximum number of entries for the prefix list. You cannot modify the
 -- entries of a prefix list and modify the size of a prefix list at the
@@ -119,6 +117,8 @@ data ModifyManagedPrefixList = ModifyManagedPrefixList'
 --
 -- 'prefixListName', 'modifyManagedPrefixList_prefixListName' - A name for the prefix list.
 --
+-- 'removeEntries', 'modifyManagedPrefixList_removeEntries' - One or more entries to remove from the prefix list.
+--
 -- 'prefixListId', 'modifyManagedPrefixList_prefixListId' - The ID of the prefix list.
 newModifyManagedPrefixList ::
   -- | 'prefixListId'
@@ -126,23 +126,23 @@ newModifyManagedPrefixList ::
   ModifyManagedPrefixList
 newModifyManagedPrefixList pPrefixListId_ =
   ModifyManagedPrefixList'
-    { removeEntries =
+    { addEntries =
         Prelude.Nothing,
-      addEntries = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       currentVersion = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       maxEntries = Prelude.Nothing,
       prefixListName = Prelude.Nothing,
+      removeEntries = Prelude.Nothing,
       prefixListId = pPrefixListId_
     }
-
--- | One or more entries to remove from the prefix list.
-modifyManagedPrefixList_removeEntries :: Lens.Lens' ModifyManagedPrefixList (Prelude.Maybe [RemovePrefixListEntry])
-modifyManagedPrefixList_removeEntries = Lens.lens (\ModifyManagedPrefixList' {removeEntries} -> removeEntries) (\s@ModifyManagedPrefixList' {} a -> s {removeEntries = a} :: ModifyManagedPrefixList) Prelude.. Lens.mapping Lens.coerced
 
 -- | One or more entries to add to the prefix list.
 modifyManagedPrefixList_addEntries :: Lens.Lens' ModifyManagedPrefixList (Prelude.Maybe [AddPrefixListEntry])
 modifyManagedPrefixList_addEntries = Lens.lens (\ModifyManagedPrefixList' {addEntries} -> addEntries) (\s@ModifyManagedPrefixList' {} a -> s {addEntries = a} :: ModifyManagedPrefixList) Prelude.. Lens.mapping Lens.coerced
+
+-- | The current version of the prefix list.
+modifyManagedPrefixList_currentVersion :: Lens.Lens' ModifyManagedPrefixList (Prelude.Maybe Prelude.Integer)
+modifyManagedPrefixList_currentVersion = Lens.lens (\ModifyManagedPrefixList' {currentVersion} -> currentVersion) (\s@ModifyManagedPrefixList' {} a -> s {currentVersion = a} :: ModifyManagedPrefixList)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -150,10 +150,6 @@ modifyManagedPrefixList_addEntries = Lens.lens (\ModifyManagedPrefixList' {addEn
 -- Otherwise, it is @UnauthorizedOperation@.
 modifyManagedPrefixList_dryRun :: Lens.Lens' ModifyManagedPrefixList (Prelude.Maybe Prelude.Bool)
 modifyManagedPrefixList_dryRun = Lens.lens (\ModifyManagedPrefixList' {dryRun} -> dryRun) (\s@ModifyManagedPrefixList' {} a -> s {dryRun = a} :: ModifyManagedPrefixList)
-
--- | The current version of the prefix list.
-modifyManagedPrefixList_currentVersion :: Lens.Lens' ModifyManagedPrefixList (Prelude.Maybe Prelude.Integer)
-modifyManagedPrefixList_currentVersion = Lens.lens (\ModifyManagedPrefixList' {currentVersion} -> currentVersion) (\s@ModifyManagedPrefixList' {} a -> s {currentVersion = a} :: ModifyManagedPrefixList)
 
 -- | The maximum number of entries for the prefix list. You cannot modify the
 -- entries of a prefix list and modify the size of a prefix list at the
@@ -169,6 +165,10 @@ modifyManagedPrefixList_maxEntries = Lens.lens (\ModifyManagedPrefixList' {maxEn
 -- | A name for the prefix list.
 modifyManagedPrefixList_prefixListName :: Lens.Lens' ModifyManagedPrefixList (Prelude.Maybe Prelude.Text)
 modifyManagedPrefixList_prefixListName = Lens.lens (\ModifyManagedPrefixList' {prefixListName} -> prefixListName) (\s@ModifyManagedPrefixList' {} a -> s {prefixListName = a} :: ModifyManagedPrefixList)
+
+-- | One or more entries to remove from the prefix list.
+modifyManagedPrefixList_removeEntries :: Lens.Lens' ModifyManagedPrefixList (Prelude.Maybe [RemovePrefixListEntry])
+modifyManagedPrefixList_removeEntries = Lens.lens (\ModifyManagedPrefixList' {removeEntries} -> removeEntries) (\s@ModifyManagedPrefixList' {} a -> s {removeEntries = a} :: ModifyManagedPrefixList) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the prefix list.
 modifyManagedPrefixList_prefixListId :: Lens.Lens' ModifyManagedPrefixList Prelude.Text
@@ -190,22 +190,22 @@ instance Core.AWSRequest ModifyManagedPrefixList where
 
 instance Prelude.Hashable ModifyManagedPrefixList where
   hashWithSalt _salt ModifyManagedPrefixList' {..} =
-    _salt `Prelude.hashWithSalt` removeEntries
-      `Prelude.hashWithSalt` addEntries
-      `Prelude.hashWithSalt` dryRun
+    _salt `Prelude.hashWithSalt` addEntries
       `Prelude.hashWithSalt` currentVersion
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxEntries
       `Prelude.hashWithSalt` prefixListName
+      `Prelude.hashWithSalt` removeEntries
       `Prelude.hashWithSalt` prefixListId
 
 instance Prelude.NFData ModifyManagedPrefixList where
   rnf ModifyManagedPrefixList' {..} =
-    Prelude.rnf removeEntries
-      `Prelude.seq` Prelude.rnf addEntries
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf addEntries
       `Prelude.seq` Prelude.rnf currentVersion
+      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxEntries
       `Prelude.seq` Prelude.rnf prefixListName
+      `Prelude.seq` Prelude.rnf removeEntries
       `Prelude.seq` Prelude.rnf prefixListId
 
 instance Data.ToHeaders ModifyManagedPrefixList where
@@ -222,15 +222,15 @@ instance Data.ToQuery ModifyManagedPrefixList where
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
         Data.toQuery
+          (Data.toQueryList "AddEntry" Prelude.<$> addEntries),
+        "CurrentVersion" Data.=: currentVersion,
+        "DryRun" Data.=: dryRun,
+        "MaxEntries" Data.=: maxEntries,
+        "PrefixListName" Data.=: prefixListName,
+        Data.toQuery
           ( Data.toQueryList "RemoveEntry"
               Prelude.<$> removeEntries
           ),
-        Data.toQuery
-          (Data.toQueryList "AddEntry" Prelude.<$> addEntries),
-        "DryRun" Data.=: dryRun,
-        "CurrentVersion" Data.=: currentVersion,
-        "MaxEntries" Data.=: maxEntries,
-        "PrefixListName" Data.=: prefixListName,
         "PrefixListId" Data.=: prefixListId
       ]
 

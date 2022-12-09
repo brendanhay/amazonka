@@ -35,9 +35,9 @@ module Amazonka.EC2.RestoreSnapshotTier
     newRestoreSnapshotTier,
 
     -- * Request Lenses
-    restoreSnapshotTier_temporaryRestoreDays,
     restoreSnapshotTier_dryRun,
     restoreSnapshotTier_permanentRestore,
+    restoreSnapshotTier_temporaryRestoreDays,
     restoreSnapshotTier_snapshotId,
 
     -- * Destructuring the Response
@@ -45,10 +45,10 @@ module Amazonka.EC2.RestoreSnapshotTier
     newRestoreSnapshotTierResponse,
 
     -- * Response Lenses
+    restoreSnapshotTierResponse_isPermanentRestore,
+    restoreSnapshotTierResponse_restoreDuration,
     restoreSnapshotTierResponse_restoreStartTime,
     restoreSnapshotTierResponse_snapshotId,
-    restoreSnapshotTierResponse_restoreDuration,
-    restoreSnapshotTierResponse_isPermanentRestore,
     restoreSnapshotTierResponse_httpStatus,
   )
 where
@@ -63,14 +63,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRestoreSnapshotTier' smart constructor.
 data RestoreSnapshotTier = RestoreSnapshotTier'
-  { -- | Specifies the number of days for which to temporarily restore an
-    -- archived snapshot. Required for temporary restores only. The snapshot
-    -- will be automatically re-archived after this period.
-    --
-    -- To temporarily restore an archived snapshot, specify the number of days
-    -- and omit the __PermanentRestore__ parameter or set it to @false@.
-    temporaryRestoreDays :: Prelude.Maybe Prelude.Int,
-    -- | Checks whether you have the required permissions for the action, without
+  { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
@@ -79,6 +72,13 @@ data RestoreSnapshotTier = RestoreSnapshotTier'
     -- permanently restore an archived snapshot, specify @true@ and omit the
     -- __RestoreSnapshotTierRequest$TemporaryRestoreDays__ parameter.
     permanentRestore :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies the number of days for which to temporarily restore an
+    -- archived snapshot. Required for temporary restores only. The snapshot
+    -- will be automatically re-archived after this period.
+    --
+    -- To temporarily restore an archived snapshot, specify the number of days
+    -- and omit the __PermanentRestore__ parameter or set it to @false@.
+    temporaryRestoreDays :: Prelude.Maybe Prelude.Int,
     -- | The ID of the snapshot to restore.
     snapshotId :: Prelude.Text
   }
@@ -92,13 +92,6 @@ data RestoreSnapshotTier = RestoreSnapshotTier'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'temporaryRestoreDays', 'restoreSnapshotTier_temporaryRestoreDays' - Specifies the number of days for which to temporarily restore an
--- archived snapshot. Required for temporary restores only. The snapshot
--- will be automatically re-archived after this period.
---
--- To temporarily restore an archived snapshot, specify the number of days
--- and omit the __PermanentRestore__ parameter or set it to @false@.
---
 -- 'dryRun', 'restoreSnapshotTier_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -108,6 +101,13 @@ data RestoreSnapshotTier = RestoreSnapshotTier'
 -- permanently restore an archived snapshot, specify @true@ and omit the
 -- __RestoreSnapshotTierRequest$TemporaryRestoreDays__ parameter.
 --
+-- 'temporaryRestoreDays', 'restoreSnapshotTier_temporaryRestoreDays' - Specifies the number of days for which to temporarily restore an
+-- archived snapshot. Required for temporary restores only. The snapshot
+-- will be automatically re-archived after this period.
+--
+-- To temporarily restore an archived snapshot, specify the number of days
+-- and omit the __PermanentRestore__ parameter or set it to @false@.
+--
 -- 'snapshotId', 'restoreSnapshotTier_snapshotId' - The ID of the snapshot to restore.
 newRestoreSnapshotTier ::
   -- | 'snapshotId'
@@ -115,21 +115,11 @@ newRestoreSnapshotTier ::
   RestoreSnapshotTier
 newRestoreSnapshotTier pSnapshotId_ =
   RestoreSnapshotTier'
-    { temporaryRestoreDays =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+    { dryRun = Prelude.Nothing,
       permanentRestore = Prelude.Nothing,
+      temporaryRestoreDays = Prelude.Nothing,
       snapshotId = pSnapshotId_
     }
-
--- | Specifies the number of days for which to temporarily restore an
--- archived snapshot. Required for temporary restores only. The snapshot
--- will be automatically re-archived after this period.
---
--- To temporarily restore an archived snapshot, specify the number of days
--- and omit the __PermanentRestore__ parameter or set it to @false@.
-restoreSnapshotTier_temporaryRestoreDays :: Lens.Lens' RestoreSnapshotTier (Prelude.Maybe Prelude.Int)
-restoreSnapshotTier_temporaryRestoreDays = Lens.lens (\RestoreSnapshotTier' {temporaryRestoreDays} -> temporaryRestoreDays) (\s@RestoreSnapshotTier' {} a -> s {temporaryRestoreDays = a} :: RestoreSnapshotTier)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -143,6 +133,15 @@ restoreSnapshotTier_dryRun = Lens.lens (\RestoreSnapshotTier' {dryRun} -> dryRun
 -- __RestoreSnapshotTierRequest$TemporaryRestoreDays__ parameter.
 restoreSnapshotTier_permanentRestore :: Lens.Lens' RestoreSnapshotTier (Prelude.Maybe Prelude.Bool)
 restoreSnapshotTier_permanentRestore = Lens.lens (\RestoreSnapshotTier' {permanentRestore} -> permanentRestore) (\s@RestoreSnapshotTier' {} a -> s {permanentRestore = a} :: RestoreSnapshotTier)
+
+-- | Specifies the number of days for which to temporarily restore an
+-- archived snapshot. Required for temporary restores only. The snapshot
+-- will be automatically re-archived after this period.
+--
+-- To temporarily restore an archived snapshot, specify the number of days
+-- and omit the __PermanentRestore__ parameter or set it to @false@.
+restoreSnapshotTier_temporaryRestoreDays :: Lens.Lens' RestoreSnapshotTier (Prelude.Maybe Prelude.Int)
+restoreSnapshotTier_temporaryRestoreDays = Lens.lens (\RestoreSnapshotTier' {temporaryRestoreDays} -> temporaryRestoreDays) (\s@RestoreSnapshotTier' {} a -> s {temporaryRestoreDays = a} :: RestoreSnapshotTier)
 
 -- | The ID of the snapshot to restore.
 restoreSnapshotTier_snapshotId :: Lens.Lens' RestoreSnapshotTier Prelude.Text
@@ -158,25 +157,25 @@ instance Core.AWSRequest RestoreSnapshotTier where
     Response.receiveXML
       ( \s h x ->
           RestoreSnapshotTierResponse'
-            Prelude.<$> (x Data..@? "restoreStartTime")
-            Prelude.<*> (x Data..@? "snapshotId")
+            Prelude.<$> (x Data..@? "isPermanentRestore")
             Prelude.<*> (x Data..@? "restoreDuration")
-            Prelude.<*> (x Data..@? "isPermanentRestore")
+            Prelude.<*> (x Data..@? "restoreStartTime")
+            Prelude.<*> (x Data..@? "snapshotId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable RestoreSnapshotTier where
   hashWithSalt _salt RestoreSnapshotTier' {..} =
-    _salt `Prelude.hashWithSalt` temporaryRestoreDays
-      `Prelude.hashWithSalt` dryRun
+    _salt `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` permanentRestore
+      `Prelude.hashWithSalt` temporaryRestoreDays
       `Prelude.hashWithSalt` snapshotId
 
 instance Prelude.NFData RestoreSnapshotTier where
   rnf RestoreSnapshotTier' {..} =
-    Prelude.rnf temporaryRestoreDays
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf permanentRestore
+      `Prelude.seq` Prelude.rnf temporaryRestoreDays
       `Prelude.seq` Prelude.rnf snapshotId
 
 instance Data.ToHeaders RestoreSnapshotTier where
@@ -192,24 +191,24 @@ instance Data.ToQuery RestoreSnapshotTier where
           Data.=: ("RestoreSnapshotTier" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "TemporaryRestoreDays" Data.=: temporaryRestoreDays,
         "DryRun" Data.=: dryRun,
         "PermanentRestore" Data.=: permanentRestore,
+        "TemporaryRestoreDays" Data.=: temporaryRestoreDays,
         "SnapshotId" Data.=: snapshotId
       ]
 
 -- | /See:/ 'newRestoreSnapshotTierResponse' smart constructor.
 data RestoreSnapshotTierResponse = RestoreSnapshotTierResponse'
-  { -- | The date and time when the snapshot restore process started.
-    restoreStartTime :: Prelude.Maybe Data.ISO8601,
-    -- | The ID of the snapshot.
-    snapshotId :: Prelude.Maybe Prelude.Text,
+  { -- | Indicates whether the snapshot is permanently restored. @true@ indicates
+    -- a permanent restore. @false@ indicates a temporary restore.
+    isPermanentRestore :: Prelude.Maybe Prelude.Bool,
     -- | For temporary restores only. The number of days for which the archived
     -- snapshot is temporarily restored.
     restoreDuration :: Prelude.Maybe Prelude.Int,
-    -- | Indicates whether the snapshot is permanently restored. @true@ indicates
-    -- a permanent restore. @false@ indicates a temporary restore.
-    isPermanentRestore :: Prelude.Maybe Prelude.Bool,
+    -- | The date and time when the snapshot restore process started.
+    restoreStartTime :: Prelude.Maybe Data.ISO8601,
+    -- | The ID of the snapshot.
+    snapshotId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -223,15 +222,15 @@ data RestoreSnapshotTierResponse = RestoreSnapshotTierResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'restoreStartTime', 'restoreSnapshotTierResponse_restoreStartTime' - The date and time when the snapshot restore process started.
---
--- 'snapshotId', 'restoreSnapshotTierResponse_snapshotId' - The ID of the snapshot.
+-- 'isPermanentRestore', 'restoreSnapshotTierResponse_isPermanentRestore' - Indicates whether the snapshot is permanently restored. @true@ indicates
+-- a permanent restore. @false@ indicates a temporary restore.
 --
 -- 'restoreDuration', 'restoreSnapshotTierResponse_restoreDuration' - For temporary restores only. The number of days for which the archived
 -- snapshot is temporarily restored.
 --
--- 'isPermanentRestore', 'restoreSnapshotTierResponse_isPermanentRestore' - Indicates whether the snapshot is permanently restored. @true@ indicates
--- a permanent restore. @false@ indicates a temporary restore.
+-- 'restoreStartTime', 'restoreSnapshotTierResponse_restoreStartTime' - The date and time when the snapshot restore process started.
+--
+-- 'snapshotId', 'restoreSnapshotTierResponse_snapshotId' - The ID of the snapshot.
 --
 -- 'httpStatus', 'restoreSnapshotTierResponse_httpStatus' - The response's http status code.
 newRestoreSnapshotTierResponse ::
@@ -240,13 +239,23 @@ newRestoreSnapshotTierResponse ::
   RestoreSnapshotTierResponse
 newRestoreSnapshotTierResponse pHttpStatus_ =
   RestoreSnapshotTierResponse'
-    { restoreStartTime =
+    { isPermanentRestore =
         Prelude.Nothing,
-      snapshotId = Prelude.Nothing,
       restoreDuration = Prelude.Nothing,
-      isPermanentRestore = Prelude.Nothing,
+      restoreStartTime = Prelude.Nothing,
+      snapshotId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Indicates whether the snapshot is permanently restored. @true@ indicates
+-- a permanent restore. @false@ indicates a temporary restore.
+restoreSnapshotTierResponse_isPermanentRestore :: Lens.Lens' RestoreSnapshotTierResponse (Prelude.Maybe Prelude.Bool)
+restoreSnapshotTierResponse_isPermanentRestore = Lens.lens (\RestoreSnapshotTierResponse' {isPermanentRestore} -> isPermanentRestore) (\s@RestoreSnapshotTierResponse' {} a -> s {isPermanentRestore = a} :: RestoreSnapshotTierResponse)
+
+-- | For temporary restores only. The number of days for which the archived
+-- snapshot is temporarily restored.
+restoreSnapshotTierResponse_restoreDuration :: Lens.Lens' RestoreSnapshotTierResponse (Prelude.Maybe Prelude.Int)
+restoreSnapshotTierResponse_restoreDuration = Lens.lens (\RestoreSnapshotTierResponse' {restoreDuration} -> restoreDuration) (\s@RestoreSnapshotTierResponse' {} a -> s {restoreDuration = a} :: RestoreSnapshotTierResponse)
 
 -- | The date and time when the snapshot restore process started.
 restoreSnapshotTierResponse_restoreStartTime :: Lens.Lens' RestoreSnapshotTierResponse (Prelude.Maybe Prelude.UTCTime)
@@ -256,24 +265,14 @@ restoreSnapshotTierResponse_restoreStartTime = Lens.lens (\RestoreSnapshotTierRe
 restoreSnapshotTierResponse_snapshotId :: Lens.Lens' RestoreSnapshotTierResponse (Prelude.Maybe Prelude.Text)
 restoreSnapshotTierResponse_snapshotId = Lens.lens (\RestoreSnapshotTierResponse' {snapshotId} -> snapshotId) (\s@RestoreSnapshotTierResponse' {} a -> s {snapshotId = a} :: RestoreSnapshotTierResponse)
 
--- | For temporary restores only. The number of days for which the archived
--- snapshot is temporarily restored.
-restoreSnapshotTierResponse_restoreDuration :: Lens.Lens' RestoreSnapshotTierResponse (Prelude.Maybe Prelude.Int)
-restoreSnapshotTierResponse_restoreDuration = Lens.lens (\RestoreSnapshotTierResponse' {restoreDuration} -> restoreDuration) (\s@RestoreSnapshotTierResponse' {} a -> s {restoreDuration = a} :: RestoreSnapshotTierResponse)
-
--- | Indicates whether the snapshot is permanently restored. @true@ indicates
--- a permanent restore. @false@ indicates a temporary restore.
-restoreSnapshotTierResponse_isPermanentRestore :: Lens.Lens' RestoreSnapshotTierResponse (Prelude.Maybe Prelude.Bool)
-restoreSnapshotTierResponse_isPermanentRestore = Lens.lens (\RestoreSnapshotTierResponse' {isPermanentRestore} -> isPermanentRestore) (\s@RestoreSnapshotTierResponse' {} a -> s {isPermanentRestore = a} :: RestoreSnapshotTierResponse)
-
 -- | The response's http status code.
 restoreSnapshotTierResponse_httpStatus :: Lens.Lens' RestoreSnapshotTierResponse Prelude.Int
 restoreSnapshotTierResponse_httpStatus = Lens.lens (\RestoreSnapshotTierResponse' {httpStatus} -> httpStatus) (\s@RestoreSnapshotTierResponse' {} a -> s {httpStatus = a} :: RestoreSnapshotTierResponse)
 
 instance Prelude.NFData RestoreSnapshotTierResponse where
   rnf RestoreSnapshotTierResponse' {..} =
-    Prelude.rnf restoreStartTime
-      `Prelude.seq` Prelude.rnf snapshotId
+    Prelude.rnf isPermanentRestore
       `Prelude.seq` Prelude.rnf restoreDuration
-      `Prelude.seq` Prelude.rnf isPermanentRestore
+      `Prelude.seq` Prelude.rnf restoreStartTime
+      `Prelude.seq` Prelude.rnf snapshotId
       `Prelude.seq` Prelude.rnf httpStatus

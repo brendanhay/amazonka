@@ -138,7 +138,8 @@ instance Data.ToQuery DeleteCoipPool where
 
 -- | /See:/ 'newDeleteCoipPoolResponse' smart constructor.
 data DeleteCoipPoolResponse = DeleteCoipPoolResponse'
-  { coipPool :: Prelude.Maybe CoipPool,
+  { -- | Information about the CoIP address pool.
+    coipPool :: Prelude.Maybe CoipPool,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -152,7 +153,7 @@ data DeleteCoipPoolResponse = DeleteCoipPoolResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'coipPool', 'deleteCoipPoolResponse_coipPool' - Undocumented member.
+-- 'coipPool', 'deleteCoipPoolResponse_coipPool' - Information about the CoIP address pool.
 --
 -- 'httpStatus', 'deleteCoipPoolResponse_httpStatus' - The response's http status code.
 newDeleteCoipPoolResponse ::
@@ -165,7 +166,7 @@ newDeleteCoipPoolResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | Information about the CoIP address pool.
 deleteCoipPoolResponse_coipPool :: Lens.Lens' DeleteCoipPoolResponse (Prelude.Maybe CoipPool)
 deleteCoipPoolResponse_coipPool = Lens.lens (\DeleteCoipPoolResponse' {coipPool} -> coipPool) (\s@DeleteCoipPoolResponse' {} a -> s {coipPool = a} :: DeleteCoipPoolResponse)
 

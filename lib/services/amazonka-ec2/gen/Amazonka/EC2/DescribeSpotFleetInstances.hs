@@ -29,9 +29,9 @@ module Amazonka.EC2.DescribeSpotFleetInstances
     newDescribeSpotFleetInstances,
 
     -- * Request Lenses
-    describeSpotFleetInstances_nextToken,
     describeSpotFleetInstances_dryRun,
     describeSpotFleetInstances_maxResults,
+    describeSpotFleetInstances_nextToken,
     describeSpotFleetInstances_spotFleetRequestId,
 
     -- * Destructuring the Response
@@ -58,9 +58,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeSpotFleetInstances' smart constructor.
 data DescribeSpotFleetInstances = DescribeSpotFleetInstances'
-  { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
+  { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
@@ -70,6 +68,8 @@ data DescribeSpotFleetInstances = DescribeSpotFleetInstances'
     -- remaining results, make another call with the returned @NextToken@
     -- value.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Spot Fleet request.
     spotFleetRequestId :: Prelude.Text
   }
@@ -83,8 +83,6 @@ data DescribeSpotFleetInstances = DescribeSpotFleetInstances'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeSpotFleetInstances_nextToken' - The token for the next set of results.
---
 -- 'dryRun', 'describeSpotFleetInstances_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -95,6 +93,8 @@ data DescribeSpotFleetInstances = DescribeSpotFleetInstances'
 -- remaining results, make another call with the returned @NextToken@
 -- value.
 --
+-- 'nextToken', 'describeSpotFleetInstances_nextToken' - The token for the next set of results.
+--
 -- 'spotFleetRequestId', 'describeSpotFleetInstances_spotFleetRequestId' - The ID of the Spot Fleet request.
 newDescribeSpotFleetInstances ::
   -- | 'spotFleetRequestId'
@@ -102,16 +102,12 @@ newDescribeSpotFleetInstances ::
   DescribeSpotFleetInstances
 newDescribeSpotFleetInstances pSpotFleetRequestId_ =
   DescribeSpotFleetInstances'
-    { nextToken =
+    { dryRun =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       spotFleetRequestId = pSpotFleetRequestId_
     }
-
--- | The token for the next set of results.
-describeSpotFleetInstances_nextToken :: Lens.Lens' DescribeSpotFleetInstances (Prelude.Maybe Prelude.Text)
-describeSpotFleetInstances_nextToken = Lens.lens (\DescribeSpotFleetInstances' {nextToken} -> nextToken) (\s@DescribeSpotFleetInstances' {} a -> s {nextToken = a} :: DescribeSpotFleetInstances)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -126,6 +122,10 @@ describeSpotFleetInstances_dryRun = Lens.lens (\DescribeSpotFleetInstances' {dry
 -- value.
 describeSpotFleetInstances_maxResults :: Lens.Lens' DescribeSpotFleetInstances (Prelude.Maybe Prelude.Natural)
 describeSpotFleetInstances_maxResults = Lens.lens (\DescribeSpotFleetInstances' {maxResults} -> maxResults) (\s@DescribeSpotFleetInstances' {} a -> s {maxResults = a} :: DescribeSpotFleetInstances)
+
+-- | The token for the next set of results.
+describeSpotFleetInstances_nextToken :: Lens.Lens' DescribeSpotFleetInstances (Prelude.Maybe Prelude.Text)
+describeSpotFleetInstances_nextToken = Lens.lens (\DescribeSpotFleetInstances' {nextToken} -> nextToken) (\s@DescribeSpotFleetInstances' {} a -> s {nextToken = a} :: DescribeSpotFleetInstances)
 
 -- | The ID of the Spot Fleet request.
 describeSpotFleetInstances_spotFleetRequestId :: Lens.Lens' DescribeSpotFleetInstances Prelude.Text
@@ -174,16 +174,16 @@ instance Core.AWSRequest DescribeSpotFleetInstances where
 
 instance Prelude.Hashable DescribeSpotFleetInstances where
   hashWithSalt _salt DescribeSpotFleetInstances' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` dryRun
+    _salt `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` spotFleetRequestId
 
 instance Prelude.NFData DescribeSpotFleetInstances where
   rnf DescribeSpotFleetInstances' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf spotFleetRequestId
 
 instance Data.ToHeaders DescribeSpotFleetInstances where
@@ -199,9 +199,9 @@ instance Data.ToQuery DescribeSpotFleetInstances where
           Data.=: ("DescribeSpotFleetInstances" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
         "DryRun" Data.=: dryRun,
         "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken,
         "SpotFleetRequestId" Data.=: spotFleetRequestId
       ]
 

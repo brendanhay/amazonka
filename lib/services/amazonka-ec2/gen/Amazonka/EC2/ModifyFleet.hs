@@ -57,11 +57,11 @@ module Amazonka.EC2.ModifyFleet
     newModifyFleet,
 
     -- * Request Lenses
-    modifyFleet_excessCapacityTerminationPolicy,
-    modifyFleet_targetCapacitySpecification,
     modifyFleet_context,
-    modifyFleet_launchTemplateConfigs,
     modifyFleet_dryRun,
+    modifyFleet_excessCapacityTerminationPolicy,
+    modifyFleet_launchTemplateConfigs,
+    modifyFleet_targetCapacitySpecification,
     modifyFleet_fleetId,
 
     -- * Destructuring the Response
@@ -84,21 +84,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyFleet' smart constructor.
 data ModifyFleet = ModifyFleet'
-  { -- | Indicates whether running instances should be terminated if the total
-    -- target capacity of the EC2 Fleet is decreased below the current size of
-    -- the EC2 Fleet.
-    excessCapacityTerminationPolicy :: Prelude.Maybe FleetExcessCapacityTerminationPolicy,
-    -- | The size of the EC2 Fleet.
-    targetCapacitySpecification :: Prelude.Maybe TargetCapacitySpecificationRequest,
-    -- | Reserved.
+  { -- | Reserved.
     context :: Prelude.Maybe Prelude.Text,
-    -- | The launch template and overrides.
-    launchTemplateConfigs :: Prelude.Maybe [FleetLaunchTemplateConfigRequest],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates whether running instances should be terminated if the total
+    -- target capacity of the EC2 Fleet is decreased below the current size of
+    -- the EC2 Fleet.
+    excessCapacityTerminationPolicy :: Prelude.Maybe FleetExcessCapacityTerminationPolicy,
+    -- | The launch template and overrides.
+    launchTemplateConfigs :: Prelude.Maybe [FleetLaunchTemplateConfigRequest],
+    -- | The size of the EC2 Fleet.
+    targetCapacitySpecification :: Prelude.Maybe TargetCapacitySpecificationRequest,
     -- | The ID of the EC2 Fleet.
     fleetId :: Prelude.Text
   }
@@ -112,20 +112,20 @@ data ModifyFleet = ModifyFleet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'excessCapacityTerminationPolicy', 'modifyFleet_excessCapacityTerminationPolicy' - Indicates whether running instances should be terminated if the total
--- target capacity of the EC2 Fleet is decreased below the current size of
--- the EC2 Fleet.
---
--- 'targetCapacitySpecification', 'modifyFleet_targetCapacitySpecification' - The size of the EC2 Fleet.
---
 -- 'context', 'modifyFleet_context' - Reserved.
---
--- 'launchTemplateConfigs', 'modifyFleet_launchTemplateConfigs' - The launch template and overrides.
 --
 -- 'dryRun', 'modifyFleet_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'excessCapacityTerminationPolicy', 'modifyFleet_excessCapacityTerminationPolicy' - Indicates whether running instances should be terminated if the total
+-- target capacity of the EC2 Fleet is decreased below the current size of
+-- the EC2 Fleet.
+--
+-- 'launchTemplateConfigs', 'modifyFleet_launchTemplateConfigs' - The launch template and overrides.
+--
+-- 'targetCapacitySpecification', 'modifyFleet_targetCapacitySpecification' - The size of the EC2 Fleet.
 --
 -- 'fleetId', 'modifyFleet_fleetId' - The ID of the EC2 Fleet.
 newModifyFleet ::
@@ -134,32 +134,17 @@ newModifyFleet ::
   ModifyFleet
 newModifyFleet pFleetId_ =
   ModifyFleet'
-    { excessCapacityTerminationPolicy =
-        Prelude.Nothing,
-      targetCapacitySpecification = Prelude.Nothing,
-      context = Prelude.Nothing,
-      launchTemplateConfigs = Prelude.Nothing,
+    { context = Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      excessCapacityTerminationPolicy = Prelude.Nothing,
+      launchTemplateConfigs = Prelude.Nothing,
+      targetCapacitySpecification = Prelude.Nothing,
       fleetId = pFleetId_
     }
-
--- | Indicates whether running instances should be terminated if the total
--- target capacity of the EC2 Fleet is decreased below the current size of
--- the EC2 Fleet.
-modifyFleet_excessCapacityTerminationPolicy :: Lens.Lens' ModifyFleet (Prelude.Maybe FleetExcessCapacityTerminationPolicy)
-modifyFleet_excessCapacityTerminationPolicy = Lens.lens (\ModifyFleet' {excessCapacityTerminationPolicy} -> excessCapacityTerminationPolicy) (\s@ModifyFleet' {} a -> s {excessCapacityTerminationPolicy = a} :: ModifyFleet)
-
--- | The size of the EC2 Fleet.
-modifyFleet_targetCapacitySpecification :: Lens.Lens' ModifyFleet (Prelude.Maybe TargetCapacitySpecificationRequest)
-modifyFleet_targetCapacitySpecification = Lens.lens (\ModifyFleet' {targetCapacitySpecification} -> targetCapacitySpecification) (\s@ModifyFleet' {} a -> s {targetCapacitySpecification = a} :: ModifyFleet)
 
 -- | Reserved.
 modifyFleet_context :: Lens.Lens' ModifyFleet (Prelude.Maybe Prelude.Text)
 modifyFleet_context = Lens.lens (\ModifyFleet' {context} -> context) (\s@ModifyFleet' {} a -> s {context = a} :: ModifyFleet)
-
--- | The launch template and overrides.
-modifyFleet_launchTemplateConfigs :: Lens.Lens' ModifyFleet (Prelude.Maybe [FleetLaunchTemplateConfigRequest])
-modifyFleet_launchTemplateConfigs = Lens.lens (\ModifyFleet' {launchTemplateConfigs} -> launchTemplateConfigs) (\s@ModifyFleet' {} a -> s {launchTemplateConfigs = a} :: ModifyFleet) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -167,6 +152,20 @@ modifyFleet_launchTemplateConfigs = Lens.lens (\ModifyFleet' {launchTemplateConf
 -- Otherwise, it is @UnauthorizedOperation@.
 modifyFleet_dryRun :: Lens.Lens' ModifyFleet (Prelude.Maybe Prelude.Bool)
 modifyFleet_dryRun = Lens.lens (\ModifyFleet' {dryRun} -> dryRun) (\s@ModifyFleet' {} a -> s {dryRun = a} :: ModifyFleet)
+
+-- | Indicates whether running instances should be terminated if the total
+-- target capacity of the EC2 Fleet is decreased below the current size of
+-- the EC2 Fleet.
+modifyFleet_excessCapacityTerminationPolicy :: Lens.Lens' ModifyFleet (Prelude.Maybe FleetExcessCapacityTerminationPolicy)
+modifyFleet_excessCapacityTerminationPolicy = Lens.lens (\ModifyFleet' {excessCapacityTerminationPolicy} -> excessCapacityTerminationPolicy) (\s@ModifyFleet' {} a -> s {excessCapacityTerminationPolicy = a} :: ModifyFleet)
+
+-- | The launch template and overrides.
+modifyFleet_launchTemplateConfigs :: Lens.Lens' ModifyFleet (Prelude.Maybe [FleetLaunchTemplateConfigRequest])
+modifyFleet_launchTemplateConfigs = Lens.lens (\ModifyFleet' {launchTemplateConfigs} -> launchTemplateConfigs) (\s@ModifyFleet' {} a -> s {launchTemplateConfigs = a} :: ModifyFleet) Prelude.. Lens.mapping Lens.coerced
+
+-- | The size of the EC2 Fleet.
+modifyFleet_targetCapacitySpecification :: Lens.Lens' ModifyFleet (Prelude.Maybe TargetCapacitySpecificationRequest)
+modifyFleet_targetCapacitySpecification = Lens.lens (\ModifyFleet' {targetCapacitySpecification} -> targetCapacitySpecification) (\s@ModifyFleet' {} a -> s {targetCapacitySpecification = a} :: ModifyFleet)
 
 -- | The ID of the EC2 Fleet.
 modifyFleet_fleetId :: Lens.Lens' ModifyFleet Prelude.Text
@@ -186,21 +185,20 @@ instance Core.AWSRequest ModifyFleet where
 
 instance Prelude.Hashable ModifyFleet where
   hashWithSalt _salt ModifyFleet' {..} =
-    _salt
-      `Prelude.hashWithSalt` excessCapacityTerminationPolicy
-      `Prelude.hashWithSalt` targetCapacitySpecification
-      `Prelude.hashWithSalt` context
-      `Prelude.hashWithSalt` launchTemplateConfigs
+    _salt `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` excessCapacityTerminationPolicy
+      `Prelude.hashWithSalt` launchTemplateConfigs
+      `Prelude.hashWithSalt` targetCapacitySpecification
       `Prelude.hashWithSalt` fleetId
 
 instance Prelude.NFData ModifyFleet where
   rnf ModifyFleet' {..} =
-    Prelude.rnf excessCapacityTerminationPolicy
-      `Prelude.seq` Prelude.rnf targetCapacitySpecification
-      `Prelude.seq` Prelude.rnf context
-      `Prelude.seq` Prelude.rnf launchTemplateConfigs
+    Prelude.rnf context
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf excessCapacityTerminationPolicy
+      `Prelude.seq` Prelude.rnf launchTemplateConfigs
+      `Prelude.seq` Prelude.rnf targetCapacitySpecification
       `Prelude.seq` Prelude.rnf fleetId
 
 instance Data.ToHeaders ModifyFleet where
@@ -216,16 +214,16 @@ instance Data.ToQuery ModifyFleet where
           Data.=: ("ModifyFleet" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "Context" Data.=: context,
+        "DryRun" Data.=: dryRun,
         "ExcessCapacityTerminationPolicy"
           Data.=: excessCapacityTerminationPolicy,
-        "TargetCapacitySpecification"
-          Data.=: targetCapacitySpecification,
-        "Context" Data.=: context,
         Data.toQuery
           ( Data.toQueryList "LaunchTemplateConfig"
               Prelude.<$> launchTemplateConfigs
           ),
-        "DryRun" Data.=: dryRun,
+        "TargetCapacitySpecification"
+          Data.=: targetCapacitySpecification,
         "FleetId" Data.=: fleetId
       ]
 

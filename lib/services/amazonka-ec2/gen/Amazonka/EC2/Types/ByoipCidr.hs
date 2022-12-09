@@ -34,10 +34,10 @@ import qualified Amazonka.Prelude as Prelude
 data ByoipCidr = ByoipCidr'
   { -- | The address range, in CIDR notation.
     cidr :: Prelude.Maybe Prelude.Text,
-    -- | The state of the address pool.
-    state :: Prelude.Maybe ByoipCidrState,
     -- | The description of the address range.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The state of the address pool.
+    state :: Prelude.Maybe ByoipCidrState,
     -- | Upon success, contains the ID of the address pool. Otherwise, contains
     -- an error message.
     statusMessage :: Prelude.Maybe Prelude.Text
@@ -54,9 +54,9 @@ data ByoipCidr = ByoipCidr'
 --
 -- 'cidr', 'byoipCidr_cidr' - The address range, in CIDR notation.
 --
--- 'state', 'byoipCidr_state' - The state of the address pool.
---
 -- 'description', 'byoipCidr_description' - The description of the address range.
+--
+-- 'state', 'byoipCidr_state' - The state of the address pool.
 --
 -- 'statusMessage', 'byoipCidr_statusMessage' - Upon success, contains the ID of the address pool. Otherwise, contains
 -- an error message.
@@ -65,8 +65,8 @@ newByoipCidr ::
 newByoipCidr =
   ByoipCidr'
     { cidr = Prelude.Nothing,
-      state = Prelude.Nothing,
       description = Prelude.Nothing,
+      state = Prelude.Nothing,
       statusMessage = Prelude.Nothing
     }
 
@@ -74,13 +74,13 @@ newByoipCidr =
 byoipCidr_cidr :: Lens.Lens' ByoipCidr (Prelude.Maybe Prelude.Text)
 byoipCidr_cidr = Lens.lens (\ByoipCidr' {cidr} -> cidr) (\s@ByoipCidr' {} a -> s {cidr = a} :: ByoipCidr)
 
--- | The state of the address pool.
-byoipCidr_state :: Lens.Lens' ByoipCidr (Prelude.Maybe ByoipCidrState)
-byoipCidr_state = Lens.lens (\ByoipCidr' {state} -> state) (\s@ByoipCidr' {} a -> s {state = a} :: ByoipCidr)
-
 -- | The description of the address range.
 byoipCidr_description :: Lens.Lens' ByoipCidr (Prelude.Maybe Prelude.Text)
 byoipCidr_description = Lens.lens (\ByoipCidr' {description} -> description) (\s@ByoipCidr' {} a -> s {description = a} :: ByoipCidr)
+
+-- | The state of the address pool.
+byoipCidr_state :: Lens.Lens' ByoipCidr (Prelude.Maybe ByoipCidrState)
+byoipCidr_state = Lens.lens (\ByoipCidr' {state} -> state) (\s@ByoipCidr' {} a -> s {state = a} :: ByoipCidr)
 
 -- | Upon success, contains the ID of the address pool. Otherwise, contains
 -- an error message.
@@ -91,20 +91,20 @@ instance Data.FromXML ByoipCidr where
   parseXML x =
     ByoipCidr'
       Prelude.<$> (x Data..@? "cidr")
-      Prelude.<*> (x Data..@? "state")
       Prelude.<*> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "state")
       Prelude.<*> (x Data..@? "statusMessage")
 
 instance Prelude.Hashable ByoipCidr where
   hashWithSalt _salt ByoipCidr' {..} =
     _salt `Prelude.hashWithSalt` cidr
-      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` statusMessage
 
 instance Prelude.NFData ByoipCidr where
   rnf ByoipCidr' {..} =
     Prelude.rnf cidr
-      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf statusMessage

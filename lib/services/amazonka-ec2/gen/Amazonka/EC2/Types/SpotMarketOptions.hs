@@ -33,6 +33,9 @@ import qualified Amazonka.Prelude as Prelude
 data SpotMarketOptions = SpotMarketOptions'
   { -- | Deprecated.
     blockDurationMinutes :: Prelude.Maybe Prelude.Int,
+    -- | The behavior when a Spot Instance is interrupted. The default is
+    -- @terminate@.
+    instanceInterruptionBehavior :: Prelude.Maybe InstanceInterruptionBehavior,
     -- | The maximum hourly price that you\'re willing to pay for a Spot
     -- Instance. We do not recommend using this parameter because it can lead
     -- to increased interruptions. If you do not specify this parameter, you
@@ -41,9 +44,6 @@ data SpotMarketOptions = SpotMarketOptions'
     -- If you specify a maximum price, your Spot Instances will be interrupted
     -- more frequently than if you do not specify this parameter.
     maxPrice :: Prelude.Maybe Prelude.Text,
-    -- | The behavior when a Spot Instance is interrupted. The default is
-    -- @terminate@.
-    instanceInterruptionBehavior :: Prelude.Maybe InstanceInterruptionBehavior,
     -- | The Spot Instance request type. For
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances RunInstances>,
     -- persistent Spot Instance requests are only supported when the instance
@@ -73,6 +73,9 @@ data SpotMarketOptions = SpotMarketOptions'
 --
 -- 'blockDurationMinutes', 'spotMarketOptions_blockDurationMinutes' - Deprecated.
 --
+-- 'instanceInterruptionBehavior', 'spotMarketOptions_instanceInterruptionBehavior' - The behavior when a Spot Instance is interrupted. The default is
+-- @terminate@.
+--
 -- 'maxPrice', 'spotMarketOptions_maxPrice' - The maximum hourly price that you\'re willing to pay for a Spot
 -- Instance. We do not recommend using this parameter because it can lead
 -- to increased interruptions. If you do not specify this parameter, you
@@ -80,9 +83,6 @@ data SpotMarketOptions = SpotMarketOptions'
 --
 -- If you specify a maximum price, your Spot Instances will be interrupted
 -- more frequently than if you do not specify this parameter.
---
--- 'instanceInterruptionBehavior', 'spotMarketOptions_instanceInterruptionBehavior' - The behavior when a Spot Instance is interrupted. The default is
--- @terminate@.
 --
 -- 'spotInstanceType', 'spotMarketOptions_spotInstanceType' - The Spot Instance request type. For
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances RunInstances>,
@@ -105,8 +105,8 @@ newSpotMarketOptions =
   SpotMarketOptions'
     { blockDurationMinutes =
         Prelude.Nothing,
-      maxPrice = Prelude.Nothing,
       instanceInterruptionBehavior = Prelude.Nothing,
+      maxPrice = Prelude.Nothing,
       spotInstanceType = Prelude.Nothing,
       validUntil = Prelude.Nothing
     }
@@ -114,6 +114,11 @@ newSpotMarketOptions =
 -- | Deprecated.
 spotMarketOptions_blockDurationMinutes :: Lens.Lens' SpotMarketOptions (Prelude.Maybe Prelude.Int)
 spotMarketOptions_blockDurationMinutes = Lens.lens (\SpotMarketOptions' {blockDurationMinutes} -> blockDurationMinutes) (\s@SpotMarketOptions' {} a -> s {blockDurationMinutes = a} :: SpotMarketOptions)
+
+-- | The behavior when a Spot Instance is interrupted. The default is
+-- @terminate@.
+spotMarketOptions_instanceInterruptionBehavior :: Lens.Lens' SpotMarketOptions (Prelude.Maybe InstanceInterruptionBehavior)
+spotMarketOptions_instanceInterruptionBehavior = Lens.lens (\SpotMarketOptions' {instanceInterruptionBehavior} -> instanceInterruptionBehavior) (\s@SpotMarketOptions' {} a -> s {instanceInterruptionBehavior = a} :: SpotMarketOptions)
 
 -- | The maximum hourly price that you\'re willing to pay for a Spot
 -- Instance. We do not recommend using this parameter because it can lead
@@ -124,11 +129,6 @@ spotMarketOptions_blockDurationMinutes = Lens.lens (\SpotMarketOptions' {blockDu
 -- more frequently than if you do not specify this parameter.
 spotMarketOptions_maxPrice :: Lens.Lens' SpotMarketOptions (Prelude.Maybe Prelude.Text)
 spotMarketOptions_maxPrice = Lens.lens (\SpotMarketOptions' {maxPrice} -> maxPrice) (\s@SpotMarketOptions' {} a -> s {maxPrice = a} :: SpotMarketOptions)
-
--- | The behavior when a Spot Instance is interrupted. The default is
--- @terminate@.
-spotMarketOptions_instanceInterruptionBehavior :: Lens.Lens' SpotMarketOptions (Prelude.Maybe InstanceInterruptionBehavior)
-spotMarketOptions_instanceInterruptionBehavior = Lens.lens (\SpotMarketOptions' {instanceInterruptionBehavior} -> instanceInterruptionBehavior) (\s@SpotMarketOptions' {} a -> s {instanceInterruptionBehavior = a} :: SpotMarketOptions)
 
 -- | The Spot Instance request type. For
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances RunInstances>,
@@ -153,16 +153,16 @@ spotMarketOptions_validUntil = Lens.lens (\SpotMarketOptions' {validUntil} -> va
 instance Prelude.Hashable SpotMarketOptions where
   hashWithSalt _salt SpotMarketOptions' {..} =
     _salt `Prelude.hashWithSalt` blockDurationMinutes
-      `Prelude.hashWithSalt` maxPrice
       `Prelude.hashWithSalt` instanceInterruptionBehavior
+      `Prelude.hashWithSalt` maxPrice
       `Prelude.hashWithSalt` spotInstanceType
       `Prelude.hashWithSalt` validUntil
 
 instance Prelude.NFData SpotMarketOptions where
   rnf SpotMarketOptions' {..} =
     Prelude.rnf blockDurationMinutes
-      `Prelude.seq` Prelude.rnf maxPrice
       `Prelude.seq` Prelude.rnf instanceInterruptionBehavior
+      `Prelude.seq` Prelude.rnf maxPrice
       `Prelude.seq` Prelude.rnf spotInstanceType
       `Prelude.seq` Prelude.rnf validUntil
 
@@ -170,9 +170,9 @@ instance Data.ToQuery SpotMarketOptions where
   toQuery SpotMarketOptions' {..} =
     Prelude.mconcat
       [ "BlockDurationMinutes" Data.=: blockDurationMinutes,
-        "MaxPrice" Data.=: maxPrice,
         "InstanceInterruptionBehavior"
           Data.=: instanceInterruptionBehavior,
+        "MaxPrice" Data.=: maxPrice,
         "SpotInstanceType" Data.=: spotInstanceType,
         "ValidUntil" Data.=: validUntil
       ]

@@ -33,12 +33,12 @@ data ConnectionLogResponseOptions = ConnectionLogResponseOptions'
   { -- | The name of the Amazon CloudWatch Logs log group to which connection
     -- logging data is published.
     cloudwatchLogGroup :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether client connection logging is enabled for the Client
-    -- VPN endpoint.
-    enabled :: Prelude.Maybe Prelude.Bool,
     -- | The name of the Amazon CloudWatch Logs log stream to which connection
     -- logging data is published.
-    cloudwatchLogStream :: Prelude.Maybe Prelude.Text
+    cloudwatchLogStream :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether client connection logging is enabled for the Client
+    -- VPN endpoint.
+    enabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,19 +53,19 @@ data ConnectionLogResponseOptions = ConnectionLogResponseOptions'
 -- 'cloudwatchLogGroup', 'connectionLogResponseOptions_cloudwatchLogGroup' - The name of the Amazon CloudWatch Logs log group to which connection
 -- logging data is published.
 --
--- 'enabled', 'connectionLogResponseOptions_enabled' - Indicates whether client connection logging is enabled for the Client
--- VPN endpoint.
---
 -- 'cloudwatchLogStream', 'connectionLogResponseOptions_cloudwatchLogStream' - The name of the Amazon CloudWatch Logs log stream to which connection
 -- logging data is published.
+--
+-- 'enabled', 'connectionLogResponseOptions_enabled' - Indicates whether client connection logging is enabled for the Client
+-- VPN endpoint.
 newConnectionLogResponseOptions ::
   ConnectionLogResponseOptions
 newConnectionLogResponseOptions =
   ConnectionLogResponseOptions'
     { cloudwatchLogGroup =
         Prelude.Nothing,
-      enabled = Prelude.Nothing,
-      cloudwatchLogStream = Prelude.Nothing
+      cloudwatchLogStream = Prelude.Nothing,
+      enabled = Prelude.Nothing
     }
 
 -- | The name of the Amazon CloudWatch Logs log group to which connection
@@ -73,22 +73,22 @@ newConnectionLogResponseOptions =
 connectionLogResponseOptions_cloudwatchLogGroup :: Lens.Lens' ConnectionLogResponseOptions (Prelude.Maybe Prelude.Text)
 connectionLogResponseOptions_cloudwatchLogGroup = Lens.lens (\ConnectionLogResponseOptions' {cloudwatchLogGroup} -> cloudwatchLogGroup) (\s@ConnectionLogResponseOptions' {} a -> s {cloudwatchLogGroup = a} :: ConnectionLogResponseOptions)
 
--- | Indicates whether client connection logging is enabled for the Client
--- VPN endpoint.
-connectionLogResponseOptions_enabled :: Lens.Lens' ConnectionLogResponseOptions (Prelude.Maybe Prelude.Bool)
-connectionLogResponseOptions_enabled = Lens.lens (\ConnectionLogResponseOptions' {enabled} -> enabled) (\s@ConnectionLogResponseOptions' {} a -> s {enabled = a} :: ConnectionLogResponseOptions)
-
 -- | The name of the Amazon CloudWatch Logs log stream to which connection
 -- logging data is published.
 connectionLogResponseOptions_cloudwatchLogStream :: Lens.Lens' ConnectionLogResponseOptions (Prelude.Maybe Prelude.Text)
 connectionLogResponseOptions_cloudwatchLogStream = Lens.lens (\ConnectionLogResponseOptions' {cloudwatchLogStream} -> cloudwatchLogStream) (\s@ConnectionLogResponseOptions' {} a -> s {cloudwatchLogStream = a} :: ConnectionLogResponseOptions)
 
+-- | Indicates whether client connection logging is enabled for the Client
+-- VPN endpoint.
+connectionLogResponseOptions_enabled :: Lens.Lens' ConnectionLogResponseOptions (Prelude.Maybe Prelude.Bool)
+connectionLogResponseOptions_enabled = Lens.lens (\ConnectionLogResponseOptions' {enabled} -> enabled) (\s@ConnectionLogResponseOptions' {} a -> s {enabled = a} :: ConnectionLogResponseOptions)
+
 instance Data.FromXML ConnectionLogResponseOptions where
   parseXML x =
     ConnectionLogResponseOptions'
       Prelude.<$> (x Data..@? "CloudwatchLogGroup")
-      Prelude.<*> (x Data..@? "Enabled")
       Prelude.<*> (x Data..@? "CloudwatchLogStream")
+      Prelude.<*> (x Data..@? "Enabled")
 
 instance
   Prelude.Hashable
@@ -96,11 +96,11 @@ instance
   where
   hashWithSalt _salt ConnectionLogResponseOptions' {..} =
     _salt `Prelude.hashWithSalt` cloudwatchLogGroup
-      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` cloudwatchLogStream
+      `Prelude.hashWithSalt` enabled
 
 instance Prelude.NFData ConnectionLogResponseOptions where
   rnf ConnectionLogResponseOptions' {..} =
     Prelude.rnf cloudwatchLogGroup
-      `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf cloudwatchLogStream
+      `Prelude.seq` Prelude.rnf enabled

@@ -35,10 +35,10 @@ data InstanceEventWindowTimeRangeRequest = InstanceEventWindowTimeRangeRequest'
     endHour :: Prelude.Maybe Prelude.Natural,
     -- | The day on which the time range ends.
     endWeekDay :: Prelude.Maybe WeekDay,
-    -- | The day on which the time range begins.
-    startWeekDay :: Prelude.Maybe WeekDay,
     -- | The hour when the time range begins.
-    startHour :: Prelude.Maybe Prelude.Natural
+    startHour :: Prelude.Maybe Prelude.Natural,
+    -- | The day on which the time range begins.
+    startWeekDay :: Prelude.Maybe WeekDay
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,9 +54,9 @@ data InstanceEventWindowTimeRangeRequest = InstanceEventWindowTimeRangeRequest'
 --
 -- 'endWeekDay', 'instanceEventWindowTimeRangeRequest_endWeekDay' - The day on which the time range ends.
 --
--- 'startWeekDay', 'instanceEventWindowTimeRangeRequest_startWeekDay' - The day on which the time range begins.
---
 -- 'startHour', 'instanceEventWindowTimeRangeRequest_startHour' - The hour when the time range begins.
+--
+-- 'startWeekDay', 'instanceEventWindowTimeRangeRequest_startWeekDay' - The day on which the time range begins.
 newInstanceEventWindowTimeRangeRequest ::
   InstanceEventWindowTimeRangeRequest
 newInstanceEventWindowTimeRangeRequest =
@@ -64,8 +64,8 @@ newInstanceEventWindowTimeRangeRequest =
     { endHour =
         Prelude.Nothing,
       endWeekDay = Prelude.Nothing,
-      startWeekDay = Prelude.Nothing,
-      startHour = Prelude.Nothing
+      startHour = Prelude.Nothing,
+      startWeekDay = Prelude.Nothing
     }
 
 -- | The hour when the time range ends.
@@ -76,13 +76,13 @@ instanceEventWindowTimeRangeRequest_endHour = Lens.lens (\InstanceEventWindowTim
 instanceEventWindowTimeRangeRequest_endWeekDay :: Lens.Lens' InstanceEventWindowTimeRangeRequest (Prelude.Maybe WeekDay)
 instanceEventWindowTimeRangeRequest_endWeekDay = Lens.lens (\InstanceEventWindowTimeRangeRequest' {endWeekDay} -> endWeekDay) (\s@InstanceEventWindowTimeRangeRequest' {} a -> s {endWeekDay = a} :: InstanceEventWindowTimeRangeRequest)
 
--- | The day on which the time range begins.
-instanceEventWindowTimeRangeRequest_startWeekDay :: Lens.Lens' InstanceEventWindowTimeRangeRequest (Prelude.Maybe WeekDay)
-instanceEventWindowTimeRangeRequest_startWeekDay = Lens.lens (\InstanceEventWindowTimeRangeRequest' {startWeekDay} -> startWeekDay) (\s@InstanceEventWindowTimeRangeRequest' {} a -> s {startWeekDay = a} :: InstanceEventWindowTimeRangeRequest)
-
 -- | The hour when the time range begins.
 instanceEventWindowTimeRangeRequest_startHour :: Lens.Lens' InstanceEventWindowTimeRangeRequest (Prelude.Maybe Prelude.Natural)
 instanceEventWindowTimeRangeRequest_startHour = Lens.lens (\InstanceEventWindowTimeRangeRequest' {startHour} -> startHour) (\s@InstanceEventWindowTimeRangeRequest' {} a -> s {startHour = a} :: InstanceEventWindowTimeRangeRequest)
+
+-- | The day on which the time range begins.
+instanceEventWindowTimeRangeRequest_startWeekDay :: Lens.Lens' InstanceEventWindowTimeRangeRequest (Prelude.Maybe WeekDay)
+instanceEventWindowTimeRangeRequest_startWeekDay = Lens.lens (\InstanceEventWindowTimeRangeRequest' {startWeekDay} -> startWeekDay) (\s@InstanceEventWindowTimeRangeRequest' {} a -> s {startWeekDay = a} :: InstanceEventWindowTimeRangeRequest)
 
 instance
   Prelude.Hashable
@@ -93,8 +93,8 @@ instance
     InstanceEventWindowTimeRangeRequest' {..} =
       _salt `Prelude.hashWithSalt` endHour
         `Prelude.hashWithSalt` endWeekDay
-        `Prelude.hashWithSalt` startWeekDay
         `Prelude.hashWithSalt` startHour
+        `Prelude.hashWithSalt` startWeekDay
 
 instance
   Prelude.NFData
@@ -103,8 +103,8 @@ instance
   rnf InstanceEventWindowTimeRangeRequest' {..} =
     Prelude.rnf endHour
       `Prelude.seq` Prelude.rnf endWeekDay
-      `Prelude.seq` Prelude.rnf startWeekDay
       `Prelude.seq` Prelude.rnf startHour
+      `Prelude.seq` Prelude.rnf startWeekDay
 
 instance
   Data.ToQuery
@@ -114,6 +114,6 @@ instance
     Prelude.mconcat
       [ "EndHour" Data.=: endHour,
         "EndWeekDay" Data.=: endWeekDay,
-        "StartWeekDay" Data.=: startWeekDay,
-        "StartHour" Data.=: startHour
+        "StartHour" Data.=: startHour,
+        "StartWeekDay" Data.=: startWeekDay
       ]

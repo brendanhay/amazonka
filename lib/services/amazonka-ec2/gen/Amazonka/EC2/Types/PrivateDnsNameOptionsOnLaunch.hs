@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPrivateDnsNameOptionsOnLaunch' smart constructor.
 data PrivateDnsNameOptionsOnLaunch = PrivateDnsNameOptionsOnLaunch'
-  { -- | Indicates whether to respond to DNS queries for instance hostnames with
-    -- DNS A records.
-    enableResourceNameDnsARecord :: Prelude.Maybe Prelude.Bool,
-    -- | Indicates whether to respond to DNS queries for instance hostname with
+  { -- | Indicates whether to respond to DNS queries for instance hostname with
     -- DNS AAAA records.
     enableResourceNameDnsAAAARecord :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates whether to respond to DNS queries for instance hostnames with
+    -- DNS A records.
+    enableResourceNameDnsARecord :: Prelude.Maybe Prelude.Bool,
     -- | The type of hostname for EC2 instances. For IPv4 only subnets, an
     -- instance DNS name must be based on the instance IPv4 address. For IPv6
     -- only subnets, an instance DNS name must be based on the instance ID. For
@@ -53,11 +53,11 @@ data PrivateDnsNameOptionsOnLaunch = PrivateDnsNameOptionsOnLaunch'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enableResourceNameDnsARecord', 'privateDnsNameOptionsOnLaunch_enableResourceNameDnsARecord' - Indicates whether to respond to DNS queries for instance hostnames with
--- DNS A records.
---
 -- 'enableResourceNameDnsAAAARecord', 'privateDnsNameOptionsOnLaunch_enableResourceNameDnsAAAARecord' - Indicates whether to respond to DNS queries for instance hostname with
 -- DNS AAAA records.
+--
+-- 'enableResourceNameDnsARecord', 'privateDnsNameOptionsOnLaunch_enableResourceNameDnsARecord' - Indicates whether to respond to DNS queries for instance hostnames with
+-- DNS A records.
 --
 -- 'hostnameType', 'privateDnsNameOptionsOnLaunch_hostnameType' - The type of hostname for EC2 instances. For IPv4 only subnets, an
 -- instance DNS name must be based on the instance IPv4 address. For IPv6
@@ -68,22 +68,22 @@ newPrivateDnsNameOptionsOnLaunch ::
   PrivateDnsNameOptionsOnLaunch
 newPrivateDnsNameOptionsOnLaunch =
   PrivateDnsNameOptionsOnLaunch'
-    { enableResourceNameDnsARecord =
+    { enableResourceNameDnsAAAARecord =
         Prelude.Nothing,
-      enableResourceNameDnsAAAARecord =
+      enableResourceNameDnsARecord =
         Prelude.Nothing,
       hostnameType = Prelude.Nothing
     }
-
--- | Indicates whether to respond to DNS queries for instance hostnames with
--- DNS A records.
-privateDnsNameOptionsOnLaunch_enableResourceNameDnsARecord :: Lens.Lens' PrivateDnsNameOptionsOnLaunch (Prelude.Maybe Prelude.Bool)
-privateDnsNameOptionsOnLaunch_enableResourceNameDnsARecord = Lens.lens (\PrivateDnsNameOptionsOnLaunch' {enableResourceNameDnsARecord} -> enableResourceNameDnsARecord) (\s@PrivateDnsNameOptionsOnLaunch' {} a -> s {enableResourceNameDnsARecord = a} :: PrivateDnsNameOptionsOnLaunch)
 
 -- | Indicates whether to respond to DNS queries for instance hostname with
 -- DNS AAAA records.
 privateDnsNameOptionsOnLaunch_enableResourceNameDnsAAAARecord :: Lens.Lens' PrivateDnsNameOptionsOnLaunch (Prelude.Maybe Prelude.Bool)
 privateDnsNameOptionsOnLaunch_enableResourceNameDnsAAAARecord = Lens.lens (\PrivateDnsNameOptionsOnLaunch' {enableResourceNameDnsAAAARecord} -> enableResourceNameDnsAAAARecord) (\s@PrivateDnsNameOptionsOnLaunch' {} a -> s {enableResourceNameDnsAAAARecord = a} :: PrivateDnsNameOptionsOnLaunch)
+
+-- | Indicates whether to respond to DNS queries for instance hostnames with
+-- DNS A records.
+privateDnsNameOptionsOnLaunch_enableResourceNameDnsARecord :: Lens.Lens' PrivateDnsNameOptionsOnLaunch (Prelude.Maybe Prelude.Bool)
+privateDnsNameOptionsOnLaunch_enableResourceNameDnsARecord = Lens.lens (\PrivateDnsNameOptionsOnLaunch' {enableResourceNameDnsARecord} -> enableResourceNameDnsARecord) (\s@PrivateDnsNameOptionsOnLaunch' {} a -> s {enableResourceNameDnsARecord = a} :: PrivateDnsNameOptionsOnLaunch)
 
 -- | The type of hostname for EC2 instances. For IPv4 only subnets, an
 -- instance DNS name must be based on the instance IPv4 address. For IPv6
@@ -96,8 +96,8 @@ privateDnsNameOptionsOnLaunch_hostnameType = Lens.lens (\PrivateDnsNameOptionsOn
 instance Data.FromXML PrivateDnsNameOptionsOnLaunch where
   parseXML x =
     PrivateDnsNameOptionsOnLaunch'
-      Prelude.<$> (x Data..@? "enableResourceNameDnsARecord")
-      Prelude.<*> (x Data..@? "enableResourceNameDnsAAAARecord")
+      Prelude.<$> (x Data..@? "enableResourceNameDnsAAAARecord")
+      Prelude.<*> (x Data..@? "enableResourceNameDnsARecord")
       Prelude.<*> (x Data..@? "hostnameType")
 
 instance
@@ -106,12 +106,12 @@ instance
   where
   hashWithSalt _salt PrivateDnsNameOptionsOnLaunch' {..} =
     _salt
-      `Prelude.hashWithSalt` enableResourceNameDnsARecord
       `Prelude.hashWithSalt` enableResourceNameDnsAAAARecord
+      `Prelude.hashWithSalt` enableResourceNameDnsARecord
       `Prelude.hashWithSalt` hostnameType
 
 instance Prelude.NFData PrivateDnsNameOptionsOnLaunch where
   rnf PrivateDnsNameOptionsOnLaunch' {..} =
-    Prelude.rnf enableResourceNameDnsARecord
-      `Prelude.seq` Prelude.rnf enableResourceNameDnsAAAARecord
+    Prelude.rnf enableResourceNameDnsAAAARecord
+      `Prelude.seq` Prelude.rnf enableResourceNameDnsARecord
       `Prelude.seq` Prelude.rnf hostnameType

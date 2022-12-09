@@ -30,10 +30,10 @@ module Amazonka.EC2.DescribeTransitGatewayVpcAttachments
     newDescribeTransitGatewayVpcAttachments,
 
     -- * Request Lenses
-    describeTransitGatewayVpcAttachments_nextToken,
-    describeTransitGatewayVpcAttachments_filters,
     describeTransitGatewayVpcAttachments_dryRun,
+    describeTransitGatewayVpcAttachments_filters,
     describeTransitGatewayVpcAttachments_maxResults,
+    describeTransitGatewayVpcAttachments_nextToken,
     describeTransitGatewayVpcAttachments_transitGatewayAttachmentIds,
 
     -- * Destructuring the Response
@@ -57,8 +57,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeTransitGatewayVpcAttachments' smart constructor.
 data DescribeTransitGatewayVpcAttachments = DescribeTransitGatewayVpcAttachments'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | One or more filters. The possible values are:
     --
     -- -   @state@ - The state of the attachment. Valid values are @available@
@@ -72,15 +75,12 @@ data DescribeTransitGatewayVpcAttachments = DescribeTransitGatewayVpcAttachments
     --
     -- -   @vpc-id@ - The ID of the VPC.
     filters :: Prelude.Maybe [Filter],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The IDs of the attachments.
     transitGatewayAttachmentIds :: Prelude.Maybe [Prelude.Text]
   }
@@ -94,7 +94,10 @@ data DescribeTransitGatewayVpcAttachments = DescribeTransitGatewayVpcAttachments
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeTransitGatewayVpcAttachments_nextToken' - The token for the next page of results.
+-- 'dryRun', 'describeTransitGatewayVpcAttachments_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeTransitGatewayVpcAttachments_filters' - One or more filters. The possible values are:
 --
@@ -109,32 +112,32 @@ data DescribeTransitGatewayVpcAttachments = DescribeTransitGatewayVpcAttachments
 --
 -- -   @vpc-id@ - The ID of the VPC.
 --
--- 'dryRun', 'describeTransitGatewayVpcAttachments_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'maxResults', 'describeTransitGatewayVpcAttachments_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
+--
+-- 'nextToken', 'describeTransitGatewayVpcAttachments_nextToken' - The token for the next page of results.
 --
 -- 'transitGatewayAttachmentIds', 'describeTransitGatewayVpcAttachments_transitGatewayAttachmentIds' - The IDs of the attachments.
 newDescribeTransitGatewayVpcAttachments ::
   DescribeTransitGatewayVpcAttachments
 newDescribeTransitGatewayVpcAttachments =
   DescribeTransitGatewayVpcAttachments'
-    { nextToken =
+    { dryRun =
         Prelude.Nothing,
       filters = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       transitGatewayAttachmentIds =
         Prelude.Nothing
     }
 
--- | The token for the next page of results.
-describeTransitGatewayVpcAttachments_nextToken :: Lens.Lens' DescribeTransitGatewayVpcAttachments (Prelude.Maybe Prelude.Text)
-describeTransitGatewayVpcAttachments_nextToken = Lens.lens (\DescribeTransitGatewayVpcAttachments' {nextToken} -> nextToken) (\s@DescribeTransitGatewayVpcAttachments' {} a -> s {nextToken = a} :: DescribeTransitGatewayVpcAttachments)
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeTransitGatewayVpcAttachments_dryRun :: Lens.Lens' DescribeTransitGatewayVpcAttachments (Prelude.Maybe Prelude.Bool)
+describeTransitGatewayVpcAttachments_dryRun = Lens.lens (\DescribeTransitGatewayVpcAttachments' {dryRun} -> dryRun) (\s@DescribeTransitGatewayVpcAttachments' {} a -> s {dryRun = a} :: DescribeTransitGatewayVpcAttachments)
 
 -- | One or more filters. The possible values are:
 --
@@ -151,18 +154,15 @@ describeTransitGatewayVpcAttachments_nextToken = Lens.lens (\DescribeTransitGate
 describeTransitGatewayVpcAttachments_filters :: Lens.Lens' DescribeTransitGatewayVpcAttachments (Prelude.Maybe [Filter])
 describeTransitGatewayVpcAttachments_filters = Lens.lens (\DescribeTransitGatewayVpcAttachments' {filters} -> filters) (\s@DescribeTransitGatewayVpcAttachments' {} a -> s {filters = a} :: DescribeTransitGatewayVpcAttachments) Prelude.. Lens.mapping Lens.coerced
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeTransitGatewayVpcAttachments_dryRun :: Lens.Lens' DescribeTransitGatewayVpcAttachments (Prelude.Maybe Prelude.Bool)
-describeTransitGatewayVpcAttachments_dryRun = Lens.lens (\DescribeTransitGatewayVpcAttachments' {dryRun} -> dryRun) (\s@DescribeTransitGatewayVpcAttachments' {} a -> s {dryRun = a} :: DescribeTransitGatewayVpcAttachments)
-
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
 describeTransitGatewayVpcAttachments_maxResults :: Lens.Lens' DescribeTransitGatewayVpcAttachments (Prelude.Maybe Prelude.Natural)
 describeTransitGatewayVpcAttachments_maxResults = Lens.lens (\DescribeTransitGatewayVpcAttachments' {maxResults} -> maxResults) (\s@DescribeTransitGatewayVpcAttachments' {} a -> s {maxResults = a} :: DescribeTransitGatewayVpcAttachments)
+
+-- | The token for the next page of results.
+describeTransitGatewayVpcAttachments_nextToken :: Lens.Lens' DescribeTransitGatewayVpcAttachments (Prelude.Maybe Prelude.Text)
+describeTransitGatewayVpcAttachments_nextToken = Lens.lens (\DescribeTransitGatewayVpcAttachments' {nextToken} -> nextToken) (\s@DescribeTransitGatewayVpcAttachments' {} a -> s {nextToken = a} :: DescribeTransitGatewayVpcAttachments)
 
 -- | The IDs of the attachments.
 describeTransitGatewayVpcAttachments_transitGatewayAttachmentIds :: Lens.Lens' DescribeTransitGatewayVpcAttachments (Prelude.Maybe [Prelude.Text])
@@ -221,10 +221,10 @@ instance
   hashWithSalt
     _salt
     DescribeTransitGatewayVpcAttachments' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` transitGatewayAttachmentIds
 
 instance
@@ -232,10 +232,10 @@ instance
     DescribeTransitGatewayVpcAttachments
   where
   rnf DescribeTransitGatewayVpcAttachments' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf transitGatewayAttachmentIds
 
 instance
@@ -262,11 +262,11 @@ instance
                   ),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
         Data.toQuery
           (Data.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Data.=: dryRun,
         "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken,
         Data.toQuery
           ( Data.toQueryList "TransitGatewayAttachmentIds"
               Prelude.<$> transitGatewayAttachmentIds

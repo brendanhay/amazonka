@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPtrUpdateStatus' smart constructor.
 data PtrUpdateStatus = PtrUpdateStatus'
-  { -- | The status of the PTR record update.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The reason for the PTR record update.
+  { -- | The reason for the PTR record update.
     reason :: Prelude.Maybe Prelude.Text,
+    -- | The status of the PTR record update.
+    status :: Prelude.Maybe Prelude.Text,
     -- | The value for the PTR record update.
     value :: Prelude.Maybe Prelude.Text
   }
@@ -46,27 +46,27 @@ data PtrUpdateStatus = PtrUpdateStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'ptrUpdateStatus_status' - The status of the PTR record update.
---
 -- 'reason', 'ptrUpdateStatus_reason' - The reason for the PTR record update.
+--
+-- 'status', 'ptrUpdateStatus_status' - The status of the PTR record update.
 --
 -- 'value', 'ptrUpdateStatus_value' - The value for the PTR record update.
 newPtrUpdateStatus ::
   PtrUpdateStatus
 newPtrUpdateStatus =
   PtrUpdateStatus'
-    { status = Prelude.Nothing,
-      reason = Prelude.Nothing,
+    { reason = Prelude.Nothing,
+      status = Prelude.Nothing,
       value = Prelude.Nothing
     }
-
--- | The status of the PTR record update.
-ptrUpdateStatus_status :: Lens.Lens' PtrUpdateStatus (Prelude.Maybe Prelude.Text)
-ptrUpdateStatus_status = Lens.lens (\PtrUpdateStatus' {status} -> status) (\s@PtrUpdateStatus' {} a -> s {status = a} :: PtrUpdateStatus)
 
 -- | The reason for the PTR record update.
 ptrUpdateStatus_reason :: Lens.Lens' PtrUpdateStatus (Prelude.Maybe Prelude.Text)
 ptrUpdateStatus_reason = Lens.lens (\PtrUpdateStatus' {reason} -> reason) (\s@PtrUpdateStatus' {} a -> s {reason = a} :: PtrUpdateStatus)
+
+-- | The status of the PTR record update.
+ptrUpdateStatus_status :: Lens.Lens' PtrUpdateStatus (Prelude.Maybe Prelude.Text)
+ptrUpdateStatus_status = Lens.lens (\PtrUpdateStatus' {status} -> status) (\s@PtrUpdateStatus' {} a -> s {status = a} :: PtrUpdateStatus)
 
 -- | The value for the PTR record update.
 ptrUpdateStatus_value :: Lens.Lens' PtrUpdateStatus (Prelude.Maybe Prelude.Text)
@@ -75,18 +75,18 @@ ptrUpdateStatus_value = Lens.lens (\PtrUpdateStatus' {value} -> value) (\s@PtrUp
 instance Data.FromXML PtrUpdateStatus where
   parseXML x =
     PtrUpdateStatus'
-      Prelude.<$> (x Data..@? "status")
-      Prelude.<*> (x Data..@? "reason")
+      Prelude.<$> (x Data..@? "reason")
+      Prelude.<*> (x Data..@? "status")
       Prelude.<*> (x Data..@? "value")
 
 instance Prelude.Hashable PtrUpdateStatus where
   hashWithSalt _salt PtrUpdateStatus' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` reason
+    _salt `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData PtrUpdateStatus where
   rnf PtrUpdateStatus' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf reason
+    Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf value

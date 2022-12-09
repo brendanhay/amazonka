@@ -36,10 +36,10 @@ data NetworkInterfacePrivateIpAddress = NetworkInterfacePrivateIpAddress'
     -- | Indicates whether this IPv4 address is the primary private IPv4 address
     -- of the network interface.
     primary :: Prelude.Maybe Prelude.Bool,
-    -- | The private IPv4 address.
-    privateIpAddress :: Prelude.Maybe Prelude.Text,
     -- | The private DNS name.
-    privateDnsName :: Prelude.Maybe Prelude.Text
+    privateDnsName :: Prelude.Maybe Prelude.Text,
+    -- | The private IPv4 address.
+    privateIpAddress :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,9 +57,9 @@ data NetworkInterfacePrivateIpAddress = NetworkInterfacePrivateIpAddress'
 -- 'primary', 'networkInterfacePrivateIpAddress_primary' - Indicates whether this IPv4 address is the primary private IPv4 address
 -- of the network interface.
 --
--- 'privateIpAddress', 'networkInterfacePrivateIpAddress_privateIpAddress' - The private IPv4 address.
---
 -- 'privateDnsName', 'networkInterfacePrivateIpAddress_privateDnsName' - The private DNS name.
+--
+-- 'privateIpAddress', 'networkInterfacePrivateIpAddress_privateIpAddress' - The private IPv4 address.
 newNetworkInterfacePrivateIpAddress ::
   NetworkInterfacePrivateIpAddress
 newNetworkInterfacePrivateIpAddress =
@@ -67,8 +67,8 @@ newNetworkInterfacePrivateIpAddress =
     { association =
         Prelude.Nothing,
       primary = Prelude.Nothing,
-      privateIpAddress = Prelude.Nothing,
-      privateDnsName = Prelude.Nothing
+      privateDnsName = Prelude.Nothing,
+      privateIpAddress = Prelude.Nothing
     }
 
 -- | The association information for an Elastic IP address (IPv4) associated
@@ -81,13 +81,13 @@ networkInterfacePrivateIpAddress_association = Lens.lens (\NetworkInterfacePriva
 networkInterfacePrivateIpAddress_primary :: Lens.Lens' NetworkInterfacePrivateIpAddress (Prelude.Maybe Prelude.Bool)
 networkInterfacePrivateIpAddress_primary = Lens.lens (\NetworkInterfacePrivateIpAddress' {primary} -> primary) (\s@NetworkInterfacePrivateIpAddress' {} a -> s {primary = a} :: NetworkInterfacePrivateIpAddress)
 
--- | The private IPv4 address.
-networkInterfacePrivateIpAddress_privateIpAddress :: Lens.Lens' NetworkInterfacePrivateIpAddress (Prelude.Maybe Prelude.Text)
-networkInterfacePrivateIpAddress_privateIpAddress = Lens.lens (\NetworkInterfacePrivateIpAddress' {privateIpAddress} -> privateIpAddress) (\s@NetworkInterfacePrivateIpAddress' {} a -> s {privateIpAddress = a} :: NetworkInterfacePrivateIpAddress)
-
 -- | The private DNS name.
 networkInterfacePrivateIpAddress_privateDnsName :: Lens.Lens' NetworkInterfacePrivateIpAddress (Prelude.Maybe Prelude.Text)
 networkInterfacePrivateIpAddress_privateDnsName = Lens.lens (\NetworkInterfacePrivateIpAddress' {privateDnsName} -> privateDnsName) (\s@NetworkInterfacePrivateIpAddress' {} a -> s {privateDnsName = a} :: NetworkInterfacePrivateIpAddress)
+
+-- | The private IPv4 address.
+networkInterfacePrivateIpAddress_privateIpAddress :: Lens.Lens' NetworkInterfacePrivateIpAddress (Prelude.Maybe Prelude.Text)
+networkInterfacePrivateIpAddress_privateIpAddress = Lens.lens (\NetworkInterfacePrivateIpAddress' {privateIpAddress} -> privateIpAddress) (\s@NetworkInterfacePrivateIpAddress' {} a -> s {privateIpAddress = a} :: NetworkInterfacePrivateIpAddress)
 
 instance
   Data.FromXML
@@ -97,8 +97,8 @@ instance
     NetworkInterfacePrivateIpAddress'
       Prelude.<$> (x Data..@? "association")
       Prelude.<*> (x Data..@? "primary")
-      Prelude.<*> (x Data..@? "privateIpAddress")
       Prelude.<*> (x Data..@? "privateDnsName")
+      Prelude.<*> (x Data..@? "privateIpAddress")
 
 instance
   Prelude.Hashable
@@ -109,8 +109,8 @@ instance
     NetworkInterfacePrivateIpAddress' {..} =
       _salt `Prelude.hashWithSalt` association
         `Prelude.hashWithSalt` primary
-        `Prelude.hashWithSalt` privateIpAddress
         `Prelude.hashWithSalt` privateDnsName
+        `Prelude.hashWithSalt` privateIpAddress
 
 instance
   Prelude.NFData
@@ -119,5 +119,5 @@ instance
   rnf NetworkInterfacePrivateIpAddress' {..} =
     Prelude.rnf association
       `Prelude.seq` Prelude.rnf primary
-      `Prelude.seq` Prelude.rnf privateIpAddress
       `Prelude.seq` Prelude.rnf privateDnsName
+      `Prelude.seq` Prelude.rnf privateIpAddress

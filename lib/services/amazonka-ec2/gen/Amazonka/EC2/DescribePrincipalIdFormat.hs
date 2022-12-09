@@ -47,9 +47,9 @@ module Amazonka.EC2.DescribePrincipalIdFormat
     newDescribePrincipalIdFormat,
 
     -- * Request Lenses
-    describePrincipalIdFormat_nextToken,
     describePrincipalIdFormat_dryRun,
     describePrincipalIdFormat_maxResults,
+    describePrincipalIdFormat_nextToken,
     describePrincipalIdFormat_resources,
 
     -- * Destructuring the Response
@@ -73,9 +73,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribePrincipalIdFormat' smart constructor.
 data DescribePrincipalIdFormat = DescribePrincipalIdFormat'
-  { -- | The token to request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
+  { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
@@ -84,6 +82,8 @@ data DescribePrincipalIdFormat = DescribePrincipalIdFormat'
     -- the remaining results, make another call with the returned NextToken
     -- value.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@
     -- | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ |
     -- @export-task@ | @flow-log@ | @image@ | @import-task@ | @instance@ |
@@ -106,8 +106,6 @@ data DescribePrincipalIdFormat = DescribePrincipalIdFormat'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describePrincipalIdFormat_nextToken' - The token to request the next page of results.
---
 -- 'dryRun', 'describePrincipalIdFormat_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -116,6 +114,8 @@ data DescribePrincipalIdFormat = DescribePrincipalIdFormat'
 -- 'maxResults', 'describePrincipalIdFormat_maxResults' - The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another call with the returned NextToken
 -- value.
+--
+-- 'nextToken', 'describePrincipalIdFormat_nextToken' - The token to request the next page of results.
 --
 -- 'resources', 'describePrincipalIdFormat_resources' - The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@
 -- | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ |
@@ -131,16 +131,12 @@ newDescribePrincipalIdFormat ::
   DescribePrincipalIdFormat
 newDescribePrincipalIdFormat =
   DescribePrincipalIdFormat'
-    { nextToken =
+    { dryRun =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       resources = Prelude.Nothing
     }
-
--- | The token to request the next page of results.
-describePrincipalIdFormat_nextToken :: Lens.Lens' DescribePrincipalIdFormat (Prelude.Maybe Prelude.Text)
-describePrincipalIdFormat_nextToken = Lens.lens (\DescribePrincipalIdFormat' {nextToken} -> nextToken) (\s@DescribePrincipalIdFormat' {} a -> s {nextToken = a} :: DescribePrincipalIdFormat)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -154,6 +150,10 @@ describePrincipalIdFormat_dryRun = Lens.lens (\DescribePrincipalIdFormat' {dryRu
 -- value.
 describePrincipalIdFormat_maxResults :: Lens.Lens' DescribePrincipalIdFormat (Prelude.Maybe Prelude.Natural)
 describePrincipalIdFormat_maxResults = Lens.lens (\DescribePrincipalIdFormat' {maxResults} -> maxResults) (\s@DescribePrincipalIdFormat' {} a -> s {maxResults = a} :: DescribePrincipalIdFormat)
+
+-- | The token to request the next page of results.
+describePrincipalIdFormat_nextToken :: Lens.Lens' DescribePrincipalIdFormat (Prelude.Maybe Prelude.Text)
+describePrincipalIdFormat_nextToken = Lens.lens (\DescribePrincipalIdFormat' {nextToken} -> nextToken) (\s@DescribePrincipalIdFormat' {} a -> s {nextToken = a} :: DescribePrincipalIdFormat)
 
 -- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@
 -- | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ |
@@ -209,16 +209,16 @@ instance Core.AWSRequest DescribePrincipalIdFormat where
 
 instance Prelude.Hashable DescribePrincipalIdFormat where
   hashWithSalt _salt DescribePrincipalIdFormat' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` dryRun
+    _salt `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resources
 
 instance Prelude.NFData DescribePrincipalIdFormat where
   rnf DescribePrincipalIdFormat' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resources
 
 instance Data.ToHeaders DescribePrincipalIdFormat where
@@ -234,9 +234,9 @@ instance Data.ToQuery DescribePrincipalIdFormat where
           Data.=: ("DescribePrincipalIdFormat" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
         "DryRun" Data.=: dryRun,
         "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken,
         Data.toQuery
           (Data.toQueryList "Resource" Prelude.<$> resources)
       ]

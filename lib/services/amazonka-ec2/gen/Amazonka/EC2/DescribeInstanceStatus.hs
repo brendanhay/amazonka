@@ -53,20 +53,20 @@ module Amazonka.EC2.DescribeInstanceStatus
     newDescribeInstanceStatus,
 
     -- * Request Lenses
-    describeInstanceStatus_nextToken,
+    describeInstanceStatus_dryRun,
     describeInstanceStatus_filters,
     describeInstanceStatus_includeAllInstances,
-    describeInstanceStatus_dryRun,
-    describeInstanceStatus_maxResults,
     describeInstanceStatus_instanceIds,
+    describeInstanceStatus_maxResults,
+    describeInstanceStatus_nextToken,
 
     -- * Destructuring the Response
     DescribeInstanceStatusResponse (..),
     newDescribeInstanceStatusResponse,
 
     -- * Response Lenses
-    describeInstanceStatusResponse_nextToken,
     describeInstanceStatusResponse_instanceStatuses,
+    describeInstanceStatusResponse_nextToken,
     describeInstanceStatusResponse_httpStatus,
   )
 where
@@ -81,8 +81,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeInstanceStatus' smart constructor.
 data DescribeInstanceStatus = DescribeInstanceStatus'
-  { -- | The token to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The filters.
     --
     -- -   @availability-zone@ - The Availability Zone of the instance.
@@ -136,22 +139,19 @@ data DescribeInstanceStatus = DescribeInstanceStatus'
     --
     -- Default: @false@
     includeAllInstances :: Prelude.Maybe Prelude.Bool,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return in a single call. To retrieve
-    -- the remaining results, make another call with the returned @NextToken@
-    -- value. This value can be between 5 and 1000. You cannot specify this
-    -- parameter and the instance IDs parameter in the same call.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The instance IDs.
     --
     -- Default: Describes all your instances.
     --
     -- Constraints: Maximum 100 explicitly specified instance IDs.
-    instanceIds :: Prelude.Maybe [Prelude.Text]
+    instanceIds :: Prelude.Maybe [Prelude.Text],
+    -- | The maximum number of results to return in a single call. To retrieve
+    -- the remaining results, make another call with the returned @NextToken@
+    -- value. This value can be between 5 and 1000. You cannot specify this
+    -- parameter and the instance IDs parameter in the same call.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The token to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -163,7 +163,10 @@ data DescribeInstanceStatus = DescribeInstanceStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeInstanceStatus_nextToken' - The token to retrieve the next page of results.
+-- 'dryRun', 'describeInstanceStatus_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeInstanceStatus_filters' - The filters.
 --
@@ -218,37 +221,36 @@ data DescribeInstanceStatus = DescribeInstanceStatus'
 --
 -- Default: @false@
 --
--- 'dryRun', 'describeInstanceStatus_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- 'instanceIds', 'describeInstanceStatus_instanceIds' - The instance IDs.
+--
+-- Default: Describes all your instances.
+--
+-- Constraints: Maximum 100 explicitly specified instance IDs.
 --
 -- 'maxResults', 'describeInstanceStatus_maxResults' - The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another call with the returned @NextToken@
 -- value. This value can be between 5 and 1000. You cannot specify this
 -- parameter and the instance IDs parameter in the same call.
 --
--- 'instanceIds', 'describeInstanceStatus_instanceIds' - The instance IDs.
---
--- Default: Describes all your instances.
---
--- Constraints: Maximum 100 explicitly specified instance IDs.
+-- 'nextToken', 'describeInstanceStatus_nextToken' - The token to retrieve the next page of results.
 newDescribeInstanceStatus ::
   DescribeInstanceStatus
 newDescribeInstanceStatus =
   DescribeInstanceStatus'
-    { nextToken =
-        Prelude.Nothing,
+    { dryRun = Prelude.Nothing,
       filters = Prelude.Nothing,
       includeAllInstances = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+      instanceIds = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      instanceIds = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
 
--- | The token to retrieve the next page of results.
-describeInstanceStatus_nextToken :: Lens.Lens' DescribeInstanceStatus (Prelude.Maybe Prelude.Text)
-describeInstanceStatus_nextToken = Lens.lens (\DescribeInstanceStatus' {nextToken} -> nextToken) (\s@DescribeInstanceStatus' {} a -> s {nextToken = a} :: DescribeInstanceStatus)
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeInstanceStatus_dryRun :: Lens.Lens' DescribeInstanceStatus (Prelude.Maybe Prelude.Bool)
+describeInstanceStatus_dryRun = Lens.lens (\DescribeInstanceStatus' {dryRun} -> dryRun) (\s@DescribeInstanceStatus' {} a -> s {dryRun = a} :: DescribeInstanceStatus)
 
 -- | The filters.
 --
@@ -307,12 +309,13 @@ describeInstanceStatus_filters = Lens.lens (\DescribeInstanceStatus' {filters} -
 describeInstanceStatus_includeAllInstances :: Lens.Lens' DescribeInstanceStatus (Prelude.Maybe Prelude.Bool)
 describeInstanceStatus_includeAllInstances = Lens.lens (\DescribeInstanceStatus' {includeAllInstances} -> includeAllInstances) (\s@DescribeInstanceStatus' {} a -> s {includeAllInstances = a} :: DescribeInstanceStatus)
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeInstanceStatus_dryRun :: Lens.Lens' DescribeInstanceStatus (Prelude.Maybe Prelude.Bool)
-describeInstanceStatus_dryRun = Lens.lens (\DescribeInstanceStatus' {dryRun} -> dryRun) (\s@DescribeInstanceStatus' {} a -> s {dryRun = a} :: DescribeInstanceStatus)
+-- | The instance IDs.
+--
+-- Default: Describes all your instances.
+--
+-- Constraints: Maximum 100 explicitly specified instance IDs.
+describeInstanceStatus_instanceIds :: Lens.Lens' DescribeInstanceStatus (Prelude.Maybe [Prelude.Text])
+describeInstanceStatus_instanceIds = Lens.lens (\DescribeInstanceStatus' {instanceIds} -> instanceIds) (\s@DescribeInstanceStatus' {} a -> s {instanceIds = a} :: DescribeInstanceStatus) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another call with the returned @NextToken@
@@ -321,13 +324,9 @@ describeInstanceStatus_dryRun = Lens.lens (\DescribeInstanceStatus' {dryRun} -> 
 describeInstanceStatus_maxResults :: Lens.Lens' DescribeInstanceStatus (Prelude.Maybe Prelude.Int)
 describeInstanceStatus_maxResults = Lens.lens (\DescribeInstanceStatus' {maxResults} -> maxResults) (\s@DescribeInstanceStatus' {} a -> s {maxResults = a} :: DescribeInstanceStatus)
 
--- | The instance IDs.
---
--- Default: Describes all your instances.
---
--- Constraints: Maximum 100 explicitly specified instance IDs.
-describeInstanceStatus_instanceIds :: Lens.Lens' DescribeInstanceStatus (Prelude.Maybe [Prelude.Text])
-describeInstanceStatus_instanceIds = Lens.lens (\DescribeInstanceStatus' {instanceIds} -> instanceIds) (\s@DescribeInstanceStatus' {} a -> s {instanceIds = a} :: DescribeInstanceStatus) Prelude.. Lens.mapping Lens.coerced
+-- | The token to retrieve the next page of results.
+describeInstanceStatus_nextToken :: Lens.Lens' DescribeInstanceStatus (Prelude.Maybe Prelude.Text)
+describeInstanceStatus_nextToken = Lens.lens (\DescribeInstanceStatus' {nextToken} -> nextToken) (\s@DescribeInstanceStatus' {} a -> s {nextToken = a} :: DescribeInstanceStatus)
 
 instance Core.AWSPager DescribeInstanceStatus where
   page rq rs
@@ -361,31 +360,31 @@ instance Core.AWSRequest DescribeInstanceStatus where
     Response.receiveXML
       ( \s h x ->
           DescribeInstanceStatusResponse'
-            Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "instanceStatusSet"
+            Prelude.<$> ( x Data..@? "instanceStatusSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
+            Prelude.<*> (x Data..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeInstanceStatus where
   hashWithSalt _salt DescribeInstanceStatus' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` includeAllInstances
-      `Prelude.hashWithSalt` dryRun
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` instanceIds
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeInstanceStatus where
   rnf DescribeInstanceStatus' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf includeAllInstances
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf instanceIds
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeInstanceStatus where
   toHeaders = Prelude.const Prelude.mempty
@@ -400,25 +399,25 @@ instance Data.ToQuery DescribeInstanceStatus where
           Data.=: ("DescribeInstanceStatus" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
         Data.toQuery
           (Data.toQueryList "Filter" Prelude.<$> filters),
         "IncludeAllInstances" Data.=: includeAllInstances,
-        "DryRun" Data.=: dryRun,
-        "MaxResults" Data.=: maxResults,
         Data.toQuery
           ( Data.toQueryList "InstanceId"
               Prelude.<$> instanceIds
-          )
+          ),
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newDescribeInstanceStatusResponse' smart constructor.
 data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
+  { -- | Information about the status of the instances.
+    instanceStatuses :: Prelude.Maybe [InstanceStatus],
+    -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the status of the instances.
-    instanceStatuses :: Prelude.Maybe [InstanceStatus],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -432,10 +431,10 @@ data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'instanceStatuses', 'describeInstanceStatusResponse_instanceStatuses' - Information about the status of the instances.
+--
 -- 'nextToken', 'describeInstanceStatusResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
---
--- 'instanceStatuses', 'describeInstanceStatusResponse_instanceStatuses' - Information about the status of the instances.
 --
 -- 'httpStatus', 'describeInstanceStatusResponse_httpStatus' - The response's http status code.
 newDescribeInstanceStatusResponse ::
@@ -444,20 +443,20 @@ newDescribeInstanceStatusResponse ::
   DescribeInstanceStatusResponse
 newDescribeInstanceStatusResponse pHttpStatus_ =
   DescribeInstanceStatusResponse'
-    { nextToken =
+    { instanceStatuses =
         Prelude.Nothing,
-      instanceStatuses = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the status of the instances.
+describeInstanceStatusResponse_instanceStatuses :: Lens.Lens' DescribeInstanceStatusResponse (Prelude.Maybe [InstanceStatus])
+describeInstanceStatusResponse_instanceStatuses = Lens.lens (\DescribeInstanceStatusResponse' {instanceStatuses} -> instanceStatuses) (\s@DescribeInstanceStatusResponse' {} a -> s {instanceStatuses = a} :: DescribeInstanceStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 describeInstanceStatusResponse_nextToken :: Lens.Lens' DescribeInstanceStatusResponse (Prelude.Maybe Prelude.Text)
 describeInstanceStatusResponse_nextToken = Lens.lens (\DescribeInstanceStatusResponse' {nextToken} -> nextToken) (\s@DescribeInstanceStatusResponse' {} a -> s {nextToken = a} :: DescribeInstanceStatusResponse)
-
--- | Information about the status of the instances.
-describeInstanceStatusResponse_instanceStatuses :: Lens.Lens' DescribeInstanceStatusResponse (Prelude.Maybe [InstanceStatus])
-describeInstanceStatusResponse_instanceStatuses = Lens.lens (\DescribeInstanceStatusResponse' {instanceStatuses} -> instanceStatuses) (\s@DescribeInstanceStatusResponse' {} a -> s {instanceStatuses = a} :: DescribeInstanceStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeInstanceStatusResponse_httpStatus :: Lens.Lens' DescribeInstanceStatusResponse Prelude.Int
@@ -468,6 +467,6 @@ instance
     DescribeInstanceStatusResponse
   where
   rnf DescribeInstanceStatusResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceStatuses
+    Prelude.rnf instanceStatuses
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

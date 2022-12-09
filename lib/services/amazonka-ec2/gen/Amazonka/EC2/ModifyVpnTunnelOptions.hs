@@ -178,7 +178,8 @@ instance Data.ToQuery ModifyVpnTunnelOptions where
 
 -- | /See:/ 'newModifyVpnTunnelOptionsResponse' smart constructor.
 data ModifyVpnTunnelOptionsResponse = ModifyVpnTunnelOptionsResponse'
-  { vpnConnection :: Prelude.Maybe VpnConnection,
+  { -- | Information about the VPN connection.
+    vpnConnection :: Prelude.Maybe VpnConnection,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -192,7 +193,7 @@ data ModifyVpnTunnelOptionsResponse = ModifyVpnTunnelOptionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpnConnection', 'modifyVpnTunnelOptionsResponse_vpnConnection' - Undocumented member.
+-- 'vpnConnection', 'modifyVpnTunnelOptionsResponse_vpnConnection' - Information about the VPN connection.
 --
 -- 'httpStatus', 'modifyVpnTunnelOptionsResponse_httpStatus' - The response's http status code.
 newModifyVpnTunnelOptionsResponse ::
@@ -206,7 +207,7 @@ newModifyVpnTunnelOptionsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | Information about the VPN connection.
 modifyVpnTunnelOptionsResponse_vpnConnection :: Lens.Lens' ModifyVpnTunnelOptionsResponse (Prelude.Maybe VpnConnection)
 modifyVpnTunnelOptionsResponse_vpnConnection = Lens.lens (\ModifyVpnTunnelOptionsResponse' {vpnConnection} -> vpnConnection) (\s@ModifyVpnTunnelOptionsResponse' {} a -> s {vpnConnection = a} :: ModifyVpnTunnelOptionsResponse)
 

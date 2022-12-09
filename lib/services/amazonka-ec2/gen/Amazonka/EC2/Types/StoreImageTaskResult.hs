@@ -32,19 +32,19 @@ import qualified Amazonka.Prelude as Prelude
 data StoreImageTaskResult = StoreImageTaskResult'
   { -- | The ID of the AMI that is being stored.
     amiId :: Prelude.Maybe Prelude.Text,
-    -- | The time the task started.
-    taskStartTime :: Prelude.Maybe Data.ISO8601,
     -- | The name of the Amazon S3 bucket that contains the stored AMI object.
     bucket :: Prelude.Maybe Prelude.Text,
+    -- | The progress of the task as a percentage.
+    progressPercentage :: Prelude.Maybe Prelude.Int,
+    -- | The name of the stored AMI object in the bucket.
+    s3objectKey :: Prelude.Maybe Prelude.Text,
     -- | If the tasks fails, the reason for the failure is returned. If the task
     -- succeeds, @null@ is returned.
     storeTaskFailureReason :: Prelude.Maybe Prelude.Text,
-    -- | The name of the stored AMI object in the bucket.
-    s3objectKey :: Prelude.Maybe Prelude.Text,
     -- | The state of the store task (@InProgress@, @Completed@, or @Failed@).
     storeTaskState :: Prelude.Maybe Prelude.Text,
-    -- | The progress of the task as a percentage.
-    progressPercentage :: Prelude.Maybe Prelude.Int
+    -- | The time the task started.
+    taskStartTime :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,87 +58,87 @@ data StoreImageTaskResult = StoreImageTaskResult'
 --
 -- 'amiId', 'storeImageTaskResult_amiId' - The ID of the AMI that is being stored.
 --
--- 'taskStartTime', 'storeImageTaskResult_taskStartTime' - The time the task started.
---
 -- 'bucket', 'storeImageTaskResult_bucket' - The name of the Amazon S3 bucket that contains the stored AMI object.
+--
+-- 'progressPercentage', 'storeImageTaskResult_progressPercentage' - The progress of the task as a percentage.
+--
+-- 's3objectKey', 'storeImageTaskResult_s3objectKey' - The name of the stored AMI object in the bucket.
 --
 -- 'storeTaskFailureReason', 'storeImageTaskResult_storeTaskFailureReason' - If the tasks fails, the reason for the failure is returned. If the task
 -- succeeds, @null@ is returned.
 --
--- 's3objectKey', 'storeImageTaskResult_s3objectKey' - The name of the stored AMI object in the bucket.
---
 -- 'storeTaskState', 'storeImageTaskResult_storeTaskState' - The state of the store task (@InProgress@, @Completed@, or @Failed@).
 --
--- 'progressPercentage', 'storeImageTaskResult_progressPercentage' - The progress of the task as a percentage.
+-- 'taskStartTime', 'storeImageTaskResult_taskStartTime' - The time the task started.
 newStoreImageTaskResult ::
   StoreImageTaskResult
 newStoreImageTaskResult =
   StoreImageTaskResult'
     { amiId = Prelude.Nothing,
-      taskStartTime = Prelude.Nothing,
       bucket = Prelude.Nothing,
-      storeTaskFailureReason = Prelude.Nothing,
+      progressPercentage = Prelude.Nothing,
       s3objectKey = Prelude.Nothing,
+      storeTaskFailureReason = Prelude.Nothing,
       storeTaskState = Prelude.Nothing,
-      progressPercentage = Prelude.Nothing
+      taskStartTime = Prelude.Nothing
     }
 
 -- | The ID of the AMI that is being stored.
 storeImageTaskResult_amiId :: Lens.Lens' StoreImageTaskResult (Prelude.Maybe Prelude.Text)
 storeImageTaskResult_amiId = Lens.lens (\StoreImageTaskResult' {amiId} -> amiId) (\s@StoreImageTaskResult' {} a -> s {amiId = a} :: StoreImageTaskResult)
 
--- | The time the task started.
-storeImageTaskResult_taskStartTime :: Lens.Lens' StoreImageTaskResult (Prelude.Maybe Prelude.UTCTime)
-storeImageTaskResult_taskStartTime = Lens.lens (\StoreImageTaskResult' {taskStartTime} -> taskStartTime) (\s@StoreImageTaskResult' {} a -> s {taskStartTime = a} :: StoreImageTaskResult) Prelude.. Lens.mapping Data._Time
-
 -- | The name of the Amazon S3 bucket that contains the stored AMI object.
 storeImageTaskResult_bucket :: Lens.Lens' StoreImageTaskResult (Prelude.Maybe Prelude.Text)
 storeImageTaskResult_bucket = Lens.lens (\StoreImageTaskResult' {bucket} -> bucket) (\s@StoreImageTaskResult' {} a -> s {bucket = a} :: StoreImageTaskResult)
+
+-- | The progress of the task as a percentage.
+storeImageTaskResult_progressPercentage :: Lens.Lens' StoreImageTaskResult (Prelude.Maybe Prelude.Int)
+storeImageTaskResult_progressPercentage = Lens.lens (\StoreImageTaskResult' {progressPercentage} -> progressPercentage) (\s@StoreImageTaskResult' {} a -> s {progressPercentage = a} :: StoreImageTaskResult)
+
+-- | The name of the stored AMI object in the bucket.
+storeImageTaskResult_s3objectKey :: Lens.Lens' StoreImageTaskResult (Prelude.Maybe Prelude.Text)
+storeImageTaskResult_s3objectKey = Lens.lens (\StoreImageTaskResult' {s3objectKey} -> s3objectKey) (\s@StoreImageTaskResult' {} a -> s {s3objectKey = a} :: StoreImageTaskResult)
 
 -- | If the tasks fails, the reason for the failure is returned. If the task
 -- succeeds, @null@ is returned.
 storeImageTaskResult_storeTaskFailureReason :: Lens.Lens' StoreImageTaskResult (Prelude.Maybe Prelude.Text)
 storeImageTaskResult_storeTaskFailureReason = Lens.lens (\StoreImageTaskResult' {storeTaskFailureReason} -> storeTaskFailureReason) (\s@StoreImageTaskResult' {} a -> s {storeTaskFailureReason = a} :: StoreImageTaskResult)
 
--- | The name of the stored AMI object in the bucket.
-storeImageTaskResult_s3objectKey :: Lens.Lens' StoreImageTaskResult (Prelude.Maybe Prelude.Text)
-storeImageTaskResult_s3objectKey = Lens.lens (\StoreImageTaskResult' {s3objectKey} -> s3objectKey) (\s@StoreImageTaskResult' {} a -> s {s3objectKey = a} :: StoreImageTaskResult)
-
 -- | The state of the store task (@InProgress@, @Completed@, or @Failed@).
 storeImageTaskResult_storeTaskState :: Lens.Lens' StoreImageTaskResult (Prelude.Maybe Prelude.Text)
 storeImageTaskResult_storeTaskState = Lens.lens (\StoreImageTaskResult' {storeTaskState} -> storeTaskState) (\s@StoreImageTaskResult' {} a -> s {storeTaskState = a} :: StoreImageTaskResult)
 
--- | The progress of the task as a percentage.
-storeImageTaskResult_progressPercentage :: Lens.Lens' StoreImageTaskResult (Prelude.Maybe Prelude.Int)
-storeImageTaskResult_progressPercentage = Lens.lens (\StoreImageTaskResult' {progressPercentage} -> progressPercentage) (\s@StoreImageTaskResult' {} a -> s {progressPercentage = a} :: StoreImageTaskResult)
+-- | The time the task started.
+storeImageTaskResult_taskStartTime :: Lens.Lens' StoreImageTaskResult (Prelude.Maybe Prelude.UTCTime)
+storeImageTaskResult_taskStartTime = Lens.lens (\StoreImageTaskResult' {taskStartTime} -> taskStartTime) (\s@StoreImageTaskResult' {} a -> s {taskStartTime = a} :: StoreImageTaskResult) Prelude.. Lens.mapping Data._Time
 
 instance Data.FromXML StoreImageTaskResult where
   parseXML x =
     StoreImageTaskResult'
       Prelude.<$> (x Data..@? "amiId")
-      Prelude.<*> (x Data..@? "taskStartTime")
       Prelude.<*> (x Data..@? "bucket")
-      Prelude.<*> (x Data..@? "storeTaskFailureReason")
-      Prelude.<*> (x Data..@? "s3objectKey")
-      Prelude.<*> (x Data..@? "storeTaskState")
       Prelude.<*> (x Data..@? "progressPercentage")
+      Prelude.<*> (x Data..@? "s3objectKey")
+      Prelude.<*> (x Data..@? "storeTaskFailureReason")
+      Prelude.<*> (x Data..@? "storeTaskState")
+      Prelude.<*> (x Data..@? "taskStartTime")
 
 instance Prelude.Hashable StoreImageTaskResult where
   hashWithSalt _salt StoreImageTaskResult' {..} =
     _salt `Prelude.hashWithSalt` amiId
-      `Prelude.hashWithSalt` taskStartTime
       `Prelude.hashWithSalt` bucket
-      `Prelude.hashWithSalt` storeTaskFailureReason
-      `Prelude.hashWithSalt` s3objectKey
-      `Prelude.hashWithSalt` storeTaskState
       `Prelude.hashWithSalt` progressPercentage
+      `Prelude.hashWithSalt` s3objectKey
+      `Prelude.hashWithSalt` storeTaskFailureReason
+      `Prelude.hashWithSalt` storeTaskState
+      `Prelude.hashWithSalt` taskStartTime
 
 instance Prelude.NFData StoreImageTaskResult where
   rnf StoreImageTaskResult' {..} =
     Prelude.rnf amiId
-      `Prelude.seq` Prelude.rnf taskStartTime
       `Prelude.seq` Prelude.rnf bucket
-      `Prelude.seq` Prelude.rnf storeTaskFailureReason
-      `Prelude.seq` Prelude.rnf s3objectKey
-      `Prelude.seq` Prelude.rnf storeTaskState
       `Prelude.seq` Prelude.rnf progressPercentage
+      `Prelude.seq` Prelude.rnf s3objectKey
+      `Prelude.seq` Prelude.rnf storeTaskFailureReason
+      `Prelude.seq` Prelude.rnf storeTaskState
+      `Prelude.seq` Prelude.rnf taskStartTime

@@ -31,8 +31,8 @@ module Amazonka.EC2.PurchaseHostReservation
 
     -- * Request Lenses
     purchaseHostReservation_clientToken,
-    purchaseHostReservation_limitPrice,
     purchaseHostReservation_currencyCode,
+    purchaseHostReservation_limitPrice,
     purchaseHostReservation_tagSpecifications,
     purchaseHostReservation_hostIdSet,
     purchaseHostReservation_offeringId,
@@ -43,10 +43,10 @@ module Amazonka.EC2.PurchaseHostReservation
 
     -- * Response Lenses
     purchaseHostReservationResponse_clientToken,
-    purchaseHostReservationResponse_totalHourlyPrice,
-    purchaseHostReservationResponse_totalUpfrontPrice,
     purchaseHostReservationResponse_currencyCode,
     purchaseHostReservationResponse_purchase,
+    purchaseHostReservationResponse_totalHourlyPrice,
+    purchaseHostReservationResponse_totalUpfrontPrice,
     purchaseHostReservationResponse_httpStatus,
   )
 where
@@ -65,6 +65,10 @@ data PurchaseHostReservation = PurchaseHostReservation'
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The currency in which the @totalUpfrontPrice@, @LimitPrice@, and
+    -- @totalHourlyPrice@ amounts are specified. At this time, the only
+    -- supported currency is @USD@.
+    currencyCode :: Prelude.Maybe CurrencyCodeValues,
     -- | The specified limit is checked against the total upfront cost of the
     -- reservation (calculated as the offering\'s upfront cost multiplied by
     -- the host count). If the total upfront cost is greater than the specified
@@ -73,10 +77,6 @@ data PurchaseHostReservation = PurchaseHostReservation'
     -- the only supported currency is @USD@. For example, to indicate a limit
     -- price of USD 100, specify 100.00.
     limitPrice :: Prelude.Maybe Prelude.Text,
-    -- | The currency in which the @totalUpfrontPrice@, @LimitPrice@, and
-    -- @totalHourlyPrice@ amounts are specified. At this time, the only
-    -- supported currency is @USD@.
-    currencyCode :: Prelude.Maybe CurrencyCodeValues,
     -- | The tags to apply to the Dedicated Host Reservation during purchase.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The IDs of the Dedicated Hosts with which the reservation will be
@@ -99,6 +99,10 @@ data PurchaseHostReservation = PurchaseHostReservation'
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 --
+-- 'currencyCode', 'purchaseHostReservation_currencyCode' - The currency in which the @totalUpfrontPrice@, @LimitPrice@, and
+-- @totalHourlyPrice@ amounts are specified. At this time, the only
+-- supported currency is @USD@.
+--
 -- 'limitPrice', 'purchaseHostReservation_limitPrice' - The specified limit is checked against the total upfront cost of the
 -- reservation (calculated as the offering\'s upfront cost multiplied by
 -- the host count). If the total upfront cost is greater than the specified
@@ -106,10 +110,6 @@ data PurchaseHostReservation = PurchaseHostReservation'
 -- does not exceed the expected upfront cost of the purchase. At this time,
 -- the only supported currency is @USD@. For example, to indicate a limit
 -- price of USD 100, specify 100.00.
---
--- 'currencyCode', 'purchaseHostReservation_currencyCode' - The currency in which the @totalUpfrontPrice@, @LimitPrice@, and
--- @totalHourlyPrice@ amounts are specified. At this time, the only
--- supported currency is @USD@.
 --
 -- 'tagSpecifications', 'purchaseHostReservation_tagSpecifications' - The tags to apply to the Dedicated Host Reservation during purchase.
 --
@@ -125,8 +125,8 @@ newPurchaseHostReservation pOfferingId_ =
   PurchaseHostReservation'
     { clientToken =
         Prelude.Nothing,
-      limitPrice = Prelude.Nothing,
       currencyCode = Prelude.Nothing,
+      limitPrice = Prelude.Nothing,
       tagSpecifications = Prelude.Nothing,
       hostIdSet = Prelude.mempty,
       offeringId = pOfferingId_
@@ -138,6 +138,12 @@ newPurchaseHostReservation pOfferingId_ =
 purchaseHostReservation_clientToken :: Lens.Lens' PurchaseHostReservation (Prelude.Maybe Prelude.Text)
 purchaseHostReservation_clientToken = Lens.lens (\PurchaseHostReservation' {clientToken} -> clientToken) (\s@PurchaseHostReservation' {} a -> s {clientToken = a} :: PurchaseHostReservation)
 
+-- | The currency in which the @totalUpfrontPrice@, @LimitPrice@, and
+-- @totalHourlyPrice@ amounts are specified. At this time, the only
+-- supported currency is @USD@.
+purchaseHostReservation_currencyCode :: Lens.Lens' PurchaseHostReservation (Prelude.Maybe CurrencyCodeValues)
+purchaseHostReservation_currencyCode = Lens.lens (\PurchaseHostReservation' {currencyCode} -> currencyCode) (\s@PurchaseHostReservation' {} a -> s {currencyCode = a} :: PurchaseHostReservation)
+
 -- | The specified limit is checked against the total upfront cost of the
 -- reservation (calculated as the offering\'s upfront cost multiplied by
 -- the host count). If the total upfront cost is greater than the specified
@@ -147,12 +153,6 @@ purchaseHostReservation_clientToken = Lens.lens (\PurchaseHostReservation' {clie
 -- price of USD 100, specify 100.00.
 purchaseHostReservation_limitPrice :: Lens.Lens' PurchaseHostReservation (Prelude.Maybe Prelude.Text)
 purchaseHostReservation_limitPrice = Lens.lens (\PurchaseHostReservation' {limitPrice} -> limitPrice) (\s@PurchaseHostReservation' {} a -> s {limitPrice = a} :: PurchaseHostReservation)
-
--- | The currency in which the @totalUpfrontPrice@, @LimitPrice@, and
--- @totalHourlyPrice@ amounts are specified. At this time, the only
--- supported currency is @USD@.
-purchaseHostReservation_currencyCode :: Lens.Lens' PurchaseHostReservation (Prelude.Maybe CurrencyCodeValues)
-purchaseHostReservation_currencyCode = Lens.lens (\PurchaseHostReservation' {currencyCode} -> currencyCode) (\s@PurchaseHostReservation' {} a -> s {currencyCode = a} :: PurchaseHostReservation)
 
 -- | The tags to apply to the Dedicated Host Reservation during purchase.
 purchaseHostReservation_tagSpecifications :: Lens.Lens' PurchaseHostReservation (Prelude.Maybe [TagSpecification])
@@ -178,20 +178,20 @@ instance Core.AWSRequest PurchaseHostReservation where
       ( \s h x ->
           PurchaseHostReservationResponse'
             Prelude.<$> (x Data..@? "clientToken")
-            Prelude.<*> (x Data..@? "totalHourlyPrice")
-            Prelude.<*> (x Data..@? "totalUpfrontPrice")
             Prelude.<*> (x Data..@? "currencyCode")
             Prelude.<*> ( x Data..@? "purchase" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
+            Prelude.<*> (x Data..@? "totalHourlyPrice")
+            Prelude.<*> (x Data..@? "totalUpfrontPrice")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable PurchaseHostReservation where
   hashWithSalt _salt PurchaseHostReservation' {..} =
     _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` limitPrice
       `Prelude.hashWithSalt` currencyCode
+      `Prelude.hashWithSalt` limitPrice
       `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` hostIdSet
       `Prelude.hashWithSalt` offeringId
@@ -199,8 +199,8 @@ instance Prelude.Hashable PurchaseHostReservation where
 instance Prelude.NFData PurchaseHostReservation where
   rnf PurchaseHostReservation' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf limitPrice
       `Prelude.seq` Prelude.rnf currencyCode
+      `Prelude.seq` Prelude.rnf limitPrice
       `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf hostIdSet
       `Prelude.seq` Prelude.rnf offeringId
@@ -219,8 +219,8 @@ instance Data.ToQuery PurchaseHostReservation where
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
         "ClientToken" Data.=: clientToken,
-        "LimitPrice" Data.=: limitPrice,
         "CurrencyCode" Data.=: currencyCode,
+        "LimitPrice" Data.=: limitPrice,
         Data.toQuery
           ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
@@ -235,17 +235,17 @@ data PurchaseHostReservationResponse = PurchaseHostReservationResponse'
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The total hourly price of the reservation calculated per hour.
-    totalHourlyPrice :: Prelude.Maybe Prelude.Text,
-    -- | The total amount charged to your account when you purchase the
-    -- reservation.
-    totalUpfrontPrice :: Prelude.Maybe Prelude.Text,
     -- | The currency in which the @totalUpfrontPrice@ and @totalHourlyPrice@
     -- amounts are specified. At this time, the only supported currency is
     -- @USD@.
     currencyCode :: Prelude.Maybe CurrencyCodeValues,
     -- | Describes the details of the purchase.
     purchase :: Prelude.Maybe [Purchase],
+    -- | The total hourly price of the reservation calculated per hour.
+    totalHourlyPrice :: Prelude.Maybe Prelude.Text,
+    -- | The total amount charged to your account when you purchase the
+    -- reservation.
+    totalUpfrontPrice :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -263,16 +263,16 @@ data PurchaseHostReservationResponse = PurchaseHostReservationResponse'
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 --
--- 'totalHourlyPrice', 'purchaseHostReservationResponse_totalHourlyPrice' - The total hourly price of the reservation calculated per hour.
---
--- 'totalUpfrontPrice', 'purchaseHostReservationResponse_totalUpfrontPrice' - The total amount charged to your account when you purchase the
--- reservation.
---
 -- 'currencyCode', 'purchaseHostReservationResponse_currencyCode' - The currency in which the @totalUpfrontPrice@ and @totalHourlyPrice@
 -- amounts are specified. At this time, the only supported currency is
 -- @USD@.
 --
 -- 'purchase', 'purchaseHostReservationResponse_purchase' - Describes the details of the purchase.
+--
+-- 'totalHourlyPrice', 'purchaseHostReservationResponse_totalHourlyPrice' - The total hourly price of the reservation calculated per hour.
+--
+-- 'totalUpfrontPrice', 'purchaseHostReservationResponse_totalUpfrontPrice' - The total amount charged to your account when you purchase the
+-- reservation.
 --
 -- 'httpStatus', 'purchaseHostReservationResponse_httpStatus' - The response's http status code.
 newPurchaseHostReservationResponse ::
@@ -283,10 +283,10 @@ newPurchaseHostReservationResponse pHttpStatus_ =
   PurchaseHostReservationResponse'
     { clientToken =
         Prelude.Nothing,
-      totalHourlyPrice = Prelude.Nothing,
-      totalUpfrontPrice = Prelude.Nothing,
       currencyCode = Prelude.Nothing,
       purchase = Prelude.Nothing,
+      totalHourlyPrice = Prelude.Nothing,
+      totalUpfrontPrice = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -295,15 +295,6 @@ newPurchaseHostReservationResponse pHttpStatus_ =
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 purchaseHostReservationResponse_clientToken :: Lens.Lens' PurchaseHostReservationResponse (Prelude.Maybe Prelude.Text)
 purchaseHostReservationResponse_clientToken = Lens.lens (\PurchaseHostReservationResponse' {clientToken} -> clientToken) (\s@PurchaseHostReservationResponse' {} a -> s {clientToken = a} :: PurchaseHostReservationResponse)
-
--- | The total hourly price of the reservation calculated per hour.
-purchaseHostReservationResponse_totalHourlyPrice :: Lens.Lens' PurchaseHostReservationResponse (Prelude.Maybe Prelude.Text)
-purchaseHostReservationResponse_totalHourlyPrice = Lens.lens (\PurchaseHostReservationResponse' {totalHourlyPrice} -> totalHourlyPrice) (\s@PurchaseHostReservationResponse' {} a -> s {totalHourlyPrice = a} :: PurchaseHostReservationResponse)
-
--- | The total amount charged to your account when you purchase the
--- reservation.
-purchaseHostReservationResponse_totalUpfrontPrice :: Lens.Lens' PurchaseHostReservationResponse (Prelude.Maybe Prelude.Text)
-purchaseHostReservationResponse_totalUpfrontPrice = Lens.lens (\PurchaseHostReservationResponse' {totalUpfrontPrice} -> totalUpfrontPrice) (\s@PurchaseHostReservationResponse' {} a -> s {totalUpfrontPrice = a} :: PurchaseHostReservationResponse)
 
 -- | The currency in which the @totalUpfrontPrice@ and @totalHourlyPrice@
 -- amounts are specified. At this time, the only supported currency is
@@ -315,6 +306,15 @@ purchaseHostReservationResponse_currencyCode = Lens.lens (\PurchaseHostReservati
 purchaseHostReservationResponse_purchase :: Lens.Lens' PurchaseHostReservationResponse (Prelude.Maybe [Purchase])
 purchaseHostReservationResponse_purchase = Lens.lens (\PurchaseHostReservationResponse' {purchase} -> purchase) (\s@PurchaseHostReservationResponse' {} a -> s {purchase = a} :: PurchaseHostReservationResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The total hourly price of the reservation calculated per hour.
+purchaseHostReservationResponse_totalHourlyPrice :: Lens.Lens' PurchaseHostReservationResponse (Prelude.Maybe Prelude.Text)
+purchaseHostReservationResponse_totalHourlyPrice = Lens.lens (\PurchaseHostReservationResponse' {totalHourlyPrice} -> totalHourlyPrice) (\s@PurchaseHostReservationResponse' {} a -> s {totalHourlyPrice = a} :: PurchaseHostReservationResponse)
+
+-- | The total amount charged to your account when you purchase the
+-- reservation.
+purchaseHostReservationResponse_totalUpfrontPrice :: Lens.Lens' PurchaseHostReservationResponse (Prelude.Maybe Prelude.Text)
+purchaseHostReservationResponse_totalUpfrontPrice = Lens.lens (\PurchaseHostReservationResponse' {totalUpfrontPrice} -> totalUpfrontPrice) (\s@PurchaseHostReservationResponse' {} a -> s {totalUpfrontPrice = a} :: PurchaseHostReservationResponse)
+
 -- | The response's http status code.
 purchaseHostReservationResponse_httpStatus :: Lens.Lens' PurchaseHostReservationResponse Prelude.Int
 purchaseHostReservationResponse_httpStatus = Lens.lens (\PurchaseHostReservationResponse' {httpStatus} -> httpStatus) (\s@PurchaseHostReservationResponse' {} a -> s {httpStatus = a} :: PurchaseHostReservationResponse)
@@ -325,8 +325,8 @@ instance
   where
   rnf PurchaseHostReservationResponse' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf totalHourlyPrice
-      `Prelude.seq` Prelude.rnf totalUpfrontPrice
       `Prelude.seq` Prelude.rnf currencyCode
       `Prelude.seq` Prelude.rnf purchase
+      `Prelude.seq` Prelude.rnf totalHourlyPrice
+      `Prelude.seq` Prelude.rnf totalUpfrontPrice
       `Prelude.seq` Prelude.rnf httpStatus

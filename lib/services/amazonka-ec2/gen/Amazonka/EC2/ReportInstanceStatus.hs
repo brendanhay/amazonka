@@ -34,9 +34,9 @@ module Amazonka.EC2.ReportInstanceStatus
     newReportInstanceStatus,
 
     -- * Request Lenses
-    reportInstanceStatus_endTime,
     reportInstanceStatus_description,
     reportInstanceStatus_dryRun,
+    reportInstanceStatus_endTime,
     reportInstanceStatus_startTime,
     reportInstanceStatus_instances,
     reportInstanceStatus_reasonCodes,
@@ -58,15 +58,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newReportInstanceStatus' smart constructor.
 data ReportInstanceStatus = ReportInstanceStatus'
-  { -- | The time at which the reported instance health state ended.
-    endTime :: Prelude.Maybe Data.ISO8601,
-    -- | Descriptive text about the health state of your instance.
+  { -- | Descriptive text about the health state of your instance.
     description :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The time at which the reported instance health state ended.
+    endTime :: Prelude.Maybe Data.ISO8601,
     -- | The time at which the reported instance health state began.
     startTime :: Prelude.Maybe Data.ISO8601,
     -- | The instances.
@@ -111,14 +111,14 @@ data ReportInstanceStatus = ReportInstanceStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'endTime', 'reportInstanceStatus_endTime' - The time at which the reported instance health state ended.
---
 -- 'description', 'reportInstanceStatus_description' - Descriptive text about the health state of your instance.
 --
 -- 'dryRun', 'reportInstanceStatus_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'endTime', 'reportInstanceStatus_endTime' - The time at which the reported instance health state ended.
 --
 -- 'startTime', 'reportInstanceStatus_startTime' - The time at which the reported instance health state began.
 --
@@ -158,18 +158,15 @@ newReportInstanceStatus ::
   ReportInstanceStatus
 newReportInstanceStatus pStatus_ =
   ReportInstanceStatus'
-    { endTime = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description =
+        Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      endTime = Prelude.Nothing,
       startTime = Prelude.Nothing,
       instances = Prelude.mempty,
       reasonCodes = Prelude.mempty,
       status = pStatus_
     }
-
--- | The time at which the reported instance health state ended.
-reportInstanceStatus_endTime :: Lens.Lens' ReportInstanceStatus (Prelude.Maybe Prelude.UTCTime)
-reportInstanceStatus_endTime = Lens.lens (\ReportInstanceStatus' {endTime} -> endTime) (\s@ReportInstanceStatus' {} a -> s {endTime = a} :: ReportInstanceStatus) Prelude.. Lens.mapping Data._Time
 
 -- | Descriptive text about the health state of your instance.
 reportInstanceStatus_description :: Lens.Lens' ReportInstanceStatus (Prelude.Maybe Prelude.Text)
@@ -181,6 +178,10 @@ reportInstanceStatus_description = Lens.lens (\ReportInstanceStatus' {descriptio
 -- Otherwise, it is @UnauthorizedOperation@.
 reportInstanceStatus_dryRun :: Lens.Lens' ReportInstanceStatus (Prelude.Maybe Prelude.Bool)
 reportInstanceStatus_dryRun = Lens.lens (\ReportInstanceStatus' {dryRun} -> dryRun) (\s@ReportInstanceStatus' {} a -> s {dryRun = a} :: ReportInstanceStatus)
+
+-- | The time at which the reported instance health state ended.
+reportInstanceStatus_endTime :: Lens.Lens' ReportInstanceStatus (Prelude.Maybe Prelude.UTCTime)
+reportInstanceStatus_endTime = Lens.lens (\ReportInstanceStatus' {endTime} -> endTime) (\s@ReportInstanceStatus' {} a -> s {endTime = a} :: ReportInstanceStatus) Prelude.. Lens.mapping Data._Time
 
 -- | The time at which the reported instance health state began.
 reportInstanceStatus_startTime :: Lens.Lens' ReportInstanceStatus (Prelude.Maybe Prelude.UTCTime)
@@ -234,9 +235,9 @@ instance Core.AWSRequest ReportInstanceStatus where
 
 instance Prelude.Hashable ReportInstanceStatus where
   hashWithSalt _salt ReportInstanceStatus' {..} =
-    _salt `Prelude.hashWithSalt` endTime
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` instances
       `Prelude.hashWithSalt` reasonCodes
@@ -244,9 +245,9 @@ instance Prelude.Hashable ReportInstanceStatus where
 
 instance Prelude.NFData ReportInstanceStatus where
   rnf ReportInstanceStatus' {..} =
-    Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf instances
       `Prelude.seq` Prelude.rnf reasonCodes
@@ -265,9 +266,9 @@ instance Data.ToQuery ReportInstanceStatus where
           Data.=: ("ReportInstanceStatus" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "EndTime" Data.=: endTime,
         "Description" Data.=: description,
         "DryRun" Data.=: dryRun,
+        "EndTime" Data.=: endTime,
         "StartTime" Data.=: startTime,
         Data.toQueryList "InstanceId" instances,
         Data.toQueryList "ReasonCode" reasonCodes,

@@ -69,9 +69,9 @@ module Amazonka.EC2.ModifyVpnConnection
     newModifyVpnConnection,
 
     -- * Request Lenses
-    modifyVpnConnection_transitGatewayId,
-    modifyVpnConnection_dryRun,
     modifyVpnConnection_customerGatewayId,
+    modifyVpnConnection_dryRun,
+    modifyVpnConnection_transitGatewayId,
     modifyVpnConnection_vpnGatewayId,
     modifyVpnConnection_vpnConnectionId,
 
@@ -95,15 +95,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyVpnConnection' smart constructor.
 data ModifyVpnConnection = ModifyVpnConnection'
-  { -- | The ID of the transit gateway.
-    transitGatewayId :: Prelude.Maybe Prelude.Text,
+  { -- | The ID of the customer gateway at your end of the VPN connection.
+    customerGatewayId :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the customer gateway at your end of the VPN connection.
-    customerGatewayId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the transit gateway.
+    transitGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the virtual private gateway at the Amazon Web Services side of
     -- the VPN connection.
     vpnGatewayId :: Prelude.Maybe Prelude.Text,
@@ -120,14 +120,14 @@ data ModifyVpnConnection = ModifyVpnConnection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'transitGatewayId', 'modifyVpnConnection_transitGatewayId' - The ID of the transit gateway.
+-- 'customerGatewayId', 'modifyVpnConnection_customerGatewayId' - The ID of the customer gateway at your end of the VPN connection.
 --
 -- 'dryRun', 'modifyVpnConnection_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'customerGatewayId', 'modifyVpnConnection_customerGatewayId' - The ID of the customer gateway at your end of the VPN connection.
+-- 'transitGatewayId', 'modifyVpnConnection_transitGatewayId' - The ID of the transit gateway.
 --
 -- 'vpnGatewayId', 'modifyVpnConnection_vpnGatewayId' - The ID of the virtual private gateway at the Amazon Web Services side of
 -- the VPN connection.
@@ -139,17 +139,17 @@ newModifyVpnConnection ::
   ModifyVpnConnection
 newModifyVpnConnection pVpnConnectionId_ =
   ModifyVpnConnection'
-    { transitGatewayId =
+    { customerGatewayId =
         Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      customerGatewayId = Prelude.Nothing,
+      transitGatewayId = Prelude.Nothing,
       vpnGatewayId = Prelude.Nothing,
       vpnConnectionId = pVpnConnectionId_
     }
 
--- | The ID of the transit gateway.
-modifyVpnConnection_transitGatewayId :: Lens.Lens' ModifyVpnConnection (Prelude.Maybe Prelude.Text)
-modifyVpnConnection_transitGatewayId = Lens.lens (\ModifyVpnConnection' {transitGatewayId} -> transitGatewayId) (\s@ModifyVpnConnection' {} a -> s {transitGatewayId = a} :: ModifyVpnConnection)
+-- | The ID of the customer gateway at your end of the VPN connection.
+modifyVpnConnection_customerGatewayId :: Lens.Lens' ModifyVpnConnection (Prelude.Maybe Prelude.Text)
+modifyVpnConnection_customerGatewayId = Lens.lens (\ModifyVpnConnection' {customerGatewayId} -> customerGatewayId) (\s@ModifyVpnConnection' {} a -> s {customerGatewayId = a} :: ModifyVpnConnection)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -158,9 +158,9 @@ modifyVpnConnection_transitGatewayId = Lens.lens (\ModifyVpnConnection' {transit
 modifyVpnConnection_dryRun :: Lens.Lens' ModifyVpnConnection (Prelude.Maybe Prelude.Bool)
 modifyVpnConnection_dryRun = Lens.lens (\ModifyVpnConnection' {dryRun} -> dryRun) (\s@ModifyVpnConnection' {} a -> s {dryRun = a} :: ModifyVpnConnection)
 
--- | The ID of the customer gateway at your end of the VPN connection.
-modifyVpnConnection_customerGatewayId :: Lens.Lens' ModifyVpnConnection (Prelude.Maybe Prelude.Text)
-modifyVpnConnection_customerGatewayId = Lens.lens (\ModifyVpnConnection' {customerGatewayId} -> customerGatewayId) (\s@ModifyVpnConnection' {} a -> s {customerGatewayId = a} :: ModifyVpnConnection)
+-- | The ID of the transit gateway.
+modifyVpnConnection_transitGatewayId :: Lens.Lens' ModifyVpnConnection (Prelude.Maybe Prelude.Text)
+modifyVpnConnection_transitGatewayId = Lens.lens (\ModifyVpnConnection' {transitGatewayId} -> transitGatewayId) (\s@ModifyVpnConnection' {} a -> s {transitGatewayId = a} :: ModifyVpnConnection)
 
 -- | The ID of the virtual private gateway at the Amazon Web Services side of
 -- the VPN connection.
@@ -187,17 +187,17 @@ instance Core.AWSRequest ModifyVpnConnection where
 
 instance Prelude.Hashable ModifyVpnConnection where
   hashWithSalt _salt ModifyVpnConnection' {..} =
-    _salt `Prelude.hashWithSalt` transitGatewayId
+    _salt `Prelude.hashWithSalt` customerGatewayId
       `Prelude.hashWithSalt` dryRun
-      `Prelude.hashWithSalt` customerGatewayId
+      `Prelude.hashWithSalt` transitGatewayId
       `Prelude.hashWithSalt` vpnGatewayId
       `Prelude.hashWithSalt` vpnConnectionId
 
 instance Prelude.NFData ModifyVpnConnection where
   rnf ModifyVpnConnection' {..} =
-    Prelude.rnf transitGatewayId
+    Prelude.rnf customerGatewayId
       `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf customerGatewayId
+      `Prelude.seq` Prelude.rnf transitGatewayId
       `Prelude.seq` Prelude.rnf vpnGatewayId
       `Prelude.seq` Prelude.rnf vpnConnectionId
 
@@ -214,16 +214,17 @@ instance Data.ToQuery ModifyVpnConnection where
           Data.=: ("ModifyVpnConnection" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "TransitGatewayId" Data.=: transitGatewayId,
-        "DryRun" Data.=: dryRun,
         "CustomerGatewayId" Data.=: customerGatewayId,
+        "DryRun" Data.=: dryRun,
+        "TransitGatewayId" Data.=: transitGatewayId,
         "VpnGatewayId" Data.=: vpnGatewayId,
         "VpnConnectionId" Data.=: vpnConnectionId
       ]
 
 -- | /See:/ 'newModifyVpnConnectionResponse' smart constructor.
 data ModifyVpnConnectionResponse = ModifyVpnConnectionResponse'
-  { vpnConnection :: Prelude.Maybe VpnConnection,
+  { -- | Information about the VPN connection.
+    vpnConnection :: Prelude.Maybe VpnConnection,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -237,7 +238,7 @@ data ModifyVpnConnectionResponse = ModifyVpnConnectionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpnConnection', 'modifyVpnConnectionResponse_vpnConnection' - Undocumented member.
+-- 'vpnConnection', 'modifyVpnConnectionResponse_vpnConnection' - Information about the VPN connection.
 --
 -- 'httpStatus', 'modifyVpnConnectionResponse_httpStatus' - The response's http status code.
 newModifyVpnConnectionResponse ::
@@ -251,7 +252,7 @@ newModifyVpnConnectionResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | Information about the VPN connection.
 modifyVpnConnectionResponse_vpnConnection :: Lens.Lens' ModifyVpnConnectionResponse (Prelude.Maybe VpnConnection)
 modifyVpnConnectionResponse_vpnConnection = Lens.lens (\ModifyVpnConnectionResponse' {vpnConnection} -> vpnConnection) (\s@ModifyVpnConnectionResponse' {} a -> s {vpnConnection = a} :: ModifyVpnConnectionResponse)
 

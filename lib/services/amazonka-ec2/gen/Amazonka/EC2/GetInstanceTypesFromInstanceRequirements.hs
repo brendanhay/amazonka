@@ -46,9 +46,9 @@ module Amazonka.EC2.GetInstanceTypesFromInstanceRequirements
     newGetInstanceTypesFromInstanceRequirements,
 
     -- * Request Lenses
-    getInstanceTypesFromInstanceRequirements_nextToken,
     getInstanceTypesFromInstanceRequirements_dryRun,
     getInstanceTypesFromInstanceRequirements_maxResults,
+    getInstanceTypesFromInstanceRequirements_nextToken,
     getInstanceTypesFromInstanceRequirements_architectureTypes,
     getInstanceTypesFromInstanceRequirements_virtualizationTypes,
     getInstanceTypesFromInstanceRequirements_instanceRequirements,
@@ -58,8 +58,8 @@ module Amazonka.EC2.GetInstanceTypesFromInstanceRequirements
     newGetInstanceTypesFromInstanceRequirementsResponse,
 
     -- * Response Lenses
-    getInstanceTypesFromInstanceRequirementsResponse_nextToken,
     getInstanceTypesFromInstanceRequirementsResponse_instanceTypes,
+    getInstanceTypesFromInstanceRequirementsResponse_nextToken,
     getInstanceTypesFromInstanceRequirementsResponse_httpStatus,
   )
 where
@@ -74,9 +74,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetInstanceTypesFromInstanceRequirements' smart constructor.
 data GetInstanceTypesFromInstanceRequirements = GetInstanceTypesFromInstanceRequirements'
-  { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
+  { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
@@ -86,6 +84,8 @@ data GetInstanceTypesFromInstanceRequirements = GetInstanceTypesFromInstanceRequ
     -- remaining results, make another call with  the returned @NextToken@
     -- value.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The processor architecture type.
     architectureTypes :: [ArchitectureType],
     -- | The virtualization type.
@@ -103,8 +103,6 @@ data GetInstanceTypesFromInstanceRequirements = GetInstanceTypesFromInstanceRequ
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getInstanceTypesFromInstanceRequirements_nextToken' - The token for the next set of results.
---
 -- 'dryRun', 'getInstanceTypesFromInstanceRequirements_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -114,6 +112,8 @@ data GetInstanceTypesFromInstanceRequirements = GetInstanceTypesFromInstanceRequ
 -- value between 1 and  1000. The default value is 1000. To retrieve the
 -- remaining results, make another call with  the returned @NextToken@
 -- value.
+--
+-- 'nextToken', 'getInstanceTypesFromInstanceRequirements_nextToken' - The token for the next set of results.
 --
 -- 'architectureTypes', 'getInstanceTypesFromInstanceRequirements_architectureTypes' - The processor architecture type.
 --
@@ -127,10 +127,10 @@ newGetInstanceTypesFromInstanceRequirements ::
 newGetInstanceTypesFromInstanceRequirements
   pInstanceRequirements_ =
     GetInstanceTypesFromInstanceRequirements'
-      { nextToken =
+      { dryRun =
           Prelude.Nothing,
-        dryRun = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         architectureTypes =
           Prelude.mempty,
         virtualizationTypes =
@@ -138,10 +138,6 @@ newGetInstanceTypesFromInstanceRequirements
         instanceRequirements =
           pInstanceRequirements_
       }
-
--- | The token for the next set of results.
-getInstanceTypesFromInstanceRequirements_nextToken :: Lens.Lens' GetInstanceTypesFromInstanceRequirements (Prelude.Maybe Prelude.Text)
-getInstanceTypesFromInstanceRequirements_nextToken = Lens.lens (\GetInstanceTypesFromInstanceRequirements' {nextToken} -> nextToken) (\s@GetInstanceTypesFromInstanceRequirements' {} a -> s {nextToken = a} :: GetInstanceTypesFromInstanceRequirements)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -156,6 +152,10 @@ getInstanceTypesFromInstanceRequirements_dryRun = Lens.lens (\GetInstanceTypesFr
 -- value.
 getInstanceTypesFromInstanceRequirements_maxResults :: Lens.Lens' GetInstanceTypesFromInstanceRequirements (Prelude.Maybe Prelude.Int)
 getInstanceTypesFromInstanceRequirements_maxResults = Lens.lens (\GetInstanceTypesFromInstanceRequirements' {maxResults} -> maxResults) (\s@GetInstanceTypesFromInstanceRequirements' {} a -> s {maxResults = a} :: GetInstanceTypesFromInstanceRequirements)
+
+-- | The token for the next set of results.
+getInstanceTypesFromInstanceRequirements_nextToken :: Lens.Lens' GetInstanceTypesFromInstanceRequirements (Prelude.Maybe Prelude.Text)
+getInstanceTypesFromInstanceRequirements_nextToken = Lens.lens (\GetInstanceTypesFromInstanceRequirements' {nextToken} -> nextToken) (\s@GetInstanceTypesFromInstanceRequirements' {} a -> s {nextToken = a} :: GetInstanceTypesFromInstanceRequirements)
 
 -- | The processor architecture type.
 getInstanceTypesFromInstanceRequirements_architectureTypes :: Lens.Lens' GetInstanceTypesFromInstanceRequirements [ArchitectureType]
@@ -208,10 +208,10 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetInstanceTypesFromInstanceRequirementsResponse'
-            Prelude.<$> (x Data..@? "nextToken")
-              Prelude.<*> ( x Data..@? "instanceTypeSet" Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may (Data.parseXMLList "item")
-                          )
+            Prelude.<$> ( x Data..@? "instanceTypeSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
+                        )
+              Prelude.<*> (x Data..@? "nextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -222,9 +222,9 @@ instance
   hashWithSalt
     _salt
     GetInstanceTypesFromInstanceRequirements' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` dryRun
+      _salt `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` architectureTypes
         `Prelude.hashWithSalt` virtualizationTypes
         `Prelude.hashWithSalt` instanceRequirements
@@ -234,9 +234,9 @@ instance
     GetInstanceTypesFromInstanceRequirements
   where
   rnf GetInstanceTypesFromInstanceRequirements' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf architectureTypes
       `Prelude.seq` Prelude.rnf virtualizationTypes
       `Prelude.seq` Prelude.rnf instanceRequirements
@@ -265,9 +265,9 @@ instance
                   ),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
         "DryRun" Data.=: dryRun,
         "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken,
         Data.toQueryList
           "ArchitectureType"
           architectureTypes,
@@ -279,10 +279,10 @@ instance
 
 -- | /See:/ 'newGetInstanceTypesFromInstanceRequirementsResponse' smart constructor.
 data GetInstanceTypesFromInstanceRequirementsResponse = GetInstanceTypesFromInstanceRequirementsResponse'
-  { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The instance types with the specified instance attributes.
+  { -- | The instance types with the specified instance attributes.
     instanceTypes :: Prelude.Maybe [InstanceTypeInfoFromInstanceRequirements],
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -296,9 +296,9 @@ data GetInstanceTypesFromInstanceRequirementsResponse = GetInstanceTypesFromInst
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getInstanceTypesFromInstanceRequirementsResponse_nextToken' - The token for the next set of results.
---
 -- 'instanceTypes', 'getInstanceTypesFromInstanceRequirementsResponse_instanceTypes' - The instance types with the specified instance attributes.
+--
+-- 'nextToken', 'getInstanceTypesFromInstanceRequirementsResponse_nextToken' - The token for the next set of results.
 --
 -- 'httpStatus', 'getInstanceTypesFromInstanceRequirementsResponse_httpStatus' - The response's http status code.
 newGetInstanceTypesFromInstanceRequirementsResponse ::
@@ -308,20 +308,20 @@ newGetInstanceTypesFromInstanceRequirementsResponse ::
 newGetInstanceTypesFromInstanceRequirementsResponse
   pHttpStatus_ =
     GetInstanceTypesFromInstanceRequirementsResponse'
-      { nextToken =
+      { instanceTypes =
           Prelude.Nothing,
-        instanceTypes =
+        nextToken =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
--- | The token for the next set of results.
-getInstanceTypesFromInstanceRequirementsResponse_nextToken :: Lens.Lens' GetInstanceTypesFromInstanceRequirementsResponse (Prelude.Maybe Prelude.Text)
-getInstanceTypesFromInstanceRequirementsResponse_nextToken = Lens.lens (\GetInstanceTypesFromInstanceRequirementsResponse' {nextToken} -> nextToken) (\s@GetInstanceTypesFromInstanceRequirementsResponse' {} a -> s {nextToken = a} :: GetInstanceTypesFromInstanceRequirementsResponse)
-
 -- | The instance types with the specified instance attributes.
 getInstanceTypesFromInstanceRequirementsResponse_instanceTypes :: Lens.Lens' GetInstanceTypesFromInstanceRequirementsResponse (Prelude.Maybe [InstanceTypeInfoFromInstanceRequirements])
 getInstanceTypesFromInstanceRequirementsResponse_instanceTypes = Lens.lens (\GetInstanceTypesFromInstanceRequirementsResponse' {instanceTypes} -> instanceTypes) (\s@GetInstanceTypesFromInstanceRequirementsResponse' {} a -> s {instanceTypes = a} :: GetInstanceTypesFromInstanceRequirementsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next set of results.
+getInstanceTypesFromInstanceRequirementsResponse_nextToken :: Lens.Lens' GetInstanceTypesFromInstanceRequirementsResponse (Prelude.Maybe Prelude.Text)
+getInstanceTypesFromInstanceRequirementsResponse_nextToken = Lens.lens (\GetInstanceTypesFromInstanceRequirementsResponse' {nextToken} -> nextToken) (\s@GetInstanceTypesFromInstanceRequirementsResponse' {} a -> s {nextToken = a} :: GetInstanceTypesFromInstanceRequirementsResponse)
 
 -- | The response's http status code.
 getInstanceTypesFromInstanceRequirementsResponse_httpStatus :: Lens.Lens' GetInstanceTypesFromInstanceRequirementsResponse Prelude.Int
@@ -333,6 +333,6 @@ instance
   where
   rnf
     GetInstanceTypesFromInstanceRequirementsResponse' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf instanceTypes
+      Prelude.rnf instanceTypes
+        `Prelude.seq` Prelude.rnf nextToken
         `Prelude.seq` Prelude.rnf httpStatus

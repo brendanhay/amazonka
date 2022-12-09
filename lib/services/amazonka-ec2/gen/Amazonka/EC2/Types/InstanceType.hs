@@ -204,6 +204,7 @@ module Amazonka.EC2.Types.InstanceType
         InstanceType_H1_8xlarge,
         InstanceType_Hi1_4xlarge,
         InstanceType_Hpc6a_48xlarge,
+        InstanceType_Hpc6id_32xlarge,
         InstanceType_Hs1_8xlarge,
         InstanceType_I2_2xlarge,
         InstanceType_I2_4xlarge,
@@ -1181,6 +1182,9 @@ pattern InstanceType_Hi1_4xlarge = InstanceType' "hi1.4xlarge"
 
 pattern InstanceType_Hpc6a_48xlarge :: InstanceType
 pattern InstanceType_Hpc6a_48xlarge = InstanceType' "hpc6a.48xlarge"
+
+pattern InstanceType_Hpc6id_32xlarge :: InstanceType
+pattern InstanceType_Hpc6id_32xlarge = InstanceType' "hpc6id.32xlarge"
 
 pattern InstanceType_Hs1_8xlarge :: InstanceType
 pattern InstanceType_Hs1_8xlarge = InstanceType' "hs1.8xlarge"
@@ -2534,6 +2538,7 @@ pattern InstanceType_Z1d_xlarge = InstanceType' "z1d.xlarge"
   InstanceType_H1_8xlarge,
   InstanceType_Hi1_4xlarge,
   InstanceType_Hpc6a_48xlarge,
+  InstanceType_Hpc6id_32xlarge,
   InstanceType_Hs1_8xlarge,
   InstanceType_I2_2xlarge,
   InstanceType_I2_4xlarge,

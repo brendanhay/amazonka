@@ -37,16 +37,16 @@ module Amazonka.EC2.RestoreSnapshotFromRecycleBin
     newRestoreSnapshotFromRecycleBinResponse,
 
     -- * Response Lenses
-    restoreSnapshotFromRecycleBinResponse_progress,
-    restoreSnapshotFromRecycleBinResponse_outpostArn,
-    restoreSnapshotFromRecycleBinResponse_ownerId,
-    restoreSnapshotFromRecycleBinResponse_snapshotId,
-    restoreSnapshotFromRecycleBinResponse_state,
-    restoreSnapshotFromRecycleBinResponse_volumeSize,
     restoreSnapshotFromRecycleBinResponse_description,
     restoreSnapshotFromRecycleBinResponse_encrypted,
-    restoreSnapshotFromRecycleBinResponse_volumeId,
+    restoreSnapshotFromRecycleBinResponse_outpostArn,
+    restoreSnapshotFromRecycleBinResponse_ownerId,
+    restoreSnapshotFromRecycleBinResponse_progress,
+    restoreSnapshotFromRecycleBinResponse_snapshotId,
     restoreSnapshotFromRecycleBinResponse_startTime,
+    restoreSnapshotFromRecycleBinResponse_state,
+    restoreSnapshotFromRecycleBinResponse_volumeId,
+    restoreSnapshotFromRecycleBinResponse_volumeSize,
     restoreSnapshotFromRecycleBinResponse_httpStatus,
   )
 where
@@ -120,16 +120,16 @@ instance
     Response.receiveXML
       ( \s h x ->
           RestoreSnapshotFromRecycleBinResponse'
-            Prelude.<$> (x Data..@? "progress")
+            Prelude.<$> (x Data..@? "description")
+            Prelude.<*> (x Data..@? "encrypted")
             Prelude.<*> (x Data..@? "outpostArn")
             Prelude.<*> (x Data..@? "ownerId")
+            Prelude.<*> (x Data..@? "progress")
             Prelude.<*> (x Data..@? "snapshotId")
-            Prelude.<*> (x Data..@? "status")
-            Prelude.<*> (x Data..@? "volumeSize")
-            Prelude.<*> (x Data..@? "description")
-            Prelude.<*> (x Data..@? "encrypted")
-            Prelude.<*> (x Data..@? "volumeId")
             Prelude.<*> (x Data..@? "startTime")
+            Prelude.<*> (x Data..@? "status")
+            Prelude.<*> (x Data..@? "volumeId")
+            Prelude.<*> (x Data..@? "volumeSize")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,8 +167,10 @@ instance Data.ToQuery RestoreSnapshotFromRecycleBin where
 
 -- | /See:/ 'newRestoreSnapshotFromRecycleBinResponse' smart constructor.
 data RestoreSnapshotFromRecycleBinResponse = RestoreSnapshotFromRecycleBinResponse'
-  { -- | The progress of the snapshot, as a percentage.
-    progress :: Prelude.Maybe Prelude.Text,
+  { -- | The description for the snapshot.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the snapshot is encrypted.
+    encrypted :: Prelude.Maybe Prelude.Bool,
     -- | The ARN of the Outpost on which the snapshot is stored. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html Amazon EBS local snapshots on Outposts>
@@ -176,20 +178,18 @@ data RestoreSnapshotFromRecycleBinResponse = RestoreSnapshotFromRecycleBinRespon
     outpostArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon Web Services account that owns the EBS snapshot.
     ownerId :: Prelude.Maybe Prelude.Text,
+    -- | The progress of the snapshot, as a percentage.
+    progress :: Prelude.Maybe Prelude.Text,
     -- | The ID of the snapshot.
     snapshotId :: Prelude.Maybe Prelude.Text,
-    -- | The state of the snapshot.
-    state :: Prelude.Maybe SnapshotState,
-    -- | The size of the volume, in GiB.
-    volumeSize :: Prelude.Maybe Prelude.Int,
-    -- | The description for the snapshot.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the snapshot is encrypted.
-    encrypted :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the volume that was used to create the snapshot.
-    volumeId :: Prelude.Maybe Prelude.Text,
     -- | The time stamp when the snapshot was initiated.
     startTime :: Prelude.Maybe Data.ISO8601,
+    -- | The state of the snapshot.
+    state :: Prelude.Maybe SnapshotState,
+    -- | The ID of the volume that was used to create the snapshot.
+    volumeId :: Prelude.Maybe Prelude.Text,
+    -- | The size of the volume, in GiB.
+    volumeSize :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -203,7 +203,9 @@ data RestoreSnapshotFromRecycleBinResponse = RestoreSnapshotFromRecycleBinRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'progress', 'restoreSnapshotFromRecycleBinResponse_progress' - The progress of the snapshot, as a percentage.
+-- 'description', 'restoreSnapshotFromRecycleBinResponse_description' - The description for the snapshot.
+--
+-- 'encrypted', 'restoreSnapshotFromRecycleBinResponse_encrypted' - Indicates whether the snapshot is encrypted.
 --
 -- 'outpostArn', 'restoreSnapshotFromRecycleBinResponse_outpostArn' - The ARN of the Outpost on which the snapshot is stored. For more
 -- information, see
@@ -212,19 +214,17 @@ data RestoreSnapshotFromRecycleBinResponse = RestoreSnapshotFromRecycleBinRespon
 --
 -- 'ownerId', 'restoreSnapshotFromRecycleBinResponse_ownerId' - The ID of the Amazon Web Services account that owns the EBS snapshot.
 --
+-- 'progress', 'restoreSnapshotFromRecycleBinResponse_progress' - The progress of the snapshot, as a percentage.
+--
 -- 'snapshotId', 'restoreSnapshotFromRecycleBinResponse_snapshotId' - The ID of the snapshot.
+--
+-- 'startTime', 'restoreSnapshotFromRecycleBinResponse_startTime' - The time stamp when the snapshot was initiated.
 --
 -- 'state', 'restoreSnapshotFromRecycleBinResponse_state' - The state of the snapshot.
 --
--- 'volumeSize', 'restoreSnapshotFromRecycleBinResponse_volumeSize' - The size of the volume, in GiB.
---
--- 'description', 'restoreSnapshotFromRecycleBinResponse_description' - The description for the snapshot.
---
--- 'encrypted', 'restoreSnapshotFromRecycleBinResponse_encrypted' - Indicates whether the snapshot is encrypted.
---
 -- 'volumeId', 'restoreSnapshotFromRecycleBinResponse_volumeId' - The ID of the volume that was used to create the snapshot.
 --
--- 'startTime', 'restoreSnapshotFromRecycleBinResponse_startTime' - The time stamp when the snapshot was initiated.
+-- 'volumeSize', 'restoreSnapshotFromRecycleBinResponse_volumeSize' - The size of the volume, in GiB.
 --
 -- 'httpStatus', 'restoreSnapshotFromRecycleBinResponse_httpStatus' - The response's http status code.
 newRestoreSnapshotFromRecycleBinResponse ::
@@ -233,23 +233,27 @@ newRestoreSnapshotFromRecycleBinResponse ::
   RestoreSnapshotFromRecycleBinResponse
 newRestoreSnapshotFromRecycleBinResponse pHttpStatus_ =
   RestoreSnapshotFromRecycleBinResponse'
-    { progress =
+    { description =
         Prelude.Nothing,
+      encrypted = Prelude.Nothing,
       outpostArn = Prelude.Nothing,
       ownerId = Prelude.Nothing,
+      progress = Prelude.Nothing,
       snapshotId = Prelude.Nothing,
-      state = Prelude.Nothing,
-      volumeSize = Prelude.Nothing,
-      description = Prelude.Nothing,
-      encrypted = Prelude.Nothing,
-      volumeId = Prelude.Nothing,
       startTime = Prelude.Nothing,
+      state = Prelude.Nothing,
+      volumeId = Prelude.Nothing,
+      volumeSize = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The progress of the snapshot, as a percentage.
-restoreSnapshotFromRecycleBinResponse_progress :: Lens.Lens' RestoreSnapshotFromRecycleBinResponse (Prelude.Maybe Prelude.Text)
-restoreSnapshotFromRecycleBinResponse_progress = Lens.lens (\RestoreSnapshotFromRecycleBinResponse' {progress} -> progress) (\s@RestoreSnapshotFromRecycleBinResponse' {} a -> s {progress = a} :: RestoreSnapshotFromRecycleBinResponse)
+-- | The description for the snapshot.
+restoreSnapshotFromRecycleBinResponse_description :: Lens.Lens' RestoreSnapshotFromRecycleBinResponse (Prelude.Maybe Prelude.Text)
+restoreSnapshotFromRecycleBinResponse_description = Lens.lens (\RestoreSnapshotFromRecycleBinResponse' {description} -> description) (\s@RestoreSnapshotFromRecycleBinResponse' {} a -> s {description = a} :: RestoreSnapshotFromRecycleBinResponse)
+
+-- | Indicates whether the snapshot is encrypted.
+restoreSnapshotFromRecycleBinResponse_encrypted :: Lens.Lens' RestoreSnapshotFromRecycleBinResponse (Prelude.Maybe Prelude.Bool)
+restoreSnapshotFromRecycleBinResponse_encrypted = Lens.lens (\RestoreSnapshotFromRecycleBinResponse' {encrypted} -> encrypted) (\s@RestoreSnapshotFromRecycleBinResponse' {} a -> s {encrypted = a} :: RestoreSnapshotFromRecycleBinResponse)
 
 -- | The ARN of the Outpost on which the snapshot is stored. For more
 -- information, see
@@ -262,33 +266,29 @@ restoreSnapshotFromRecycleBinResponse_outpostArn = Lens.lens (\RestoreSnapshotFr
 restoreSnapshotFromRecycleBinResponse_ownerId :: Lens.Lens' RestoreSnapshotFromRecycleBinResponse (Prelude.Maybe Prelude.Text)
 restoreSnapshotFromRecycleBinResponse_ownerId = Lens.lens (\RestoreSnapshotFromRecycleBinResponse' {ownerId} -> ownerId) (\s@RestoreSnapshotFromRecycleBinResponse' {} a -> s {ownerId = a} :: RestoreSnapshotFromRecycleBinResponse)
 
+-- | The progress of the snapshot, as a percentage.
+restoreSnapshotFromRecycleBinResponse_progress :: Lens.Lens' RestoreSnapshotFromRecycleBinResponse (Prelude.Maybe Prelude.Text)
+restoreSnapshotFromRecycleBinResponse_progress = Lens.lens (\RestoreSnapshotFromRecycleBinResponse' {progress} -> progress) (\s@RestoreSnapshotFromRecycleBinResponse' {} a -> s {progress = a} :: RestoreSnapshotFromRecycleBinResponse)
+
 -- | The ID of the snapshot.
 restoreSnapshotFromRecycleBinResponse_snapshotId :: Lens.Lens' RestoreSnapshotFromRecycleBinResponse (Prelude.Maybe Prelude.Text)
 restoreSnapshotFromRecycleBinResponse_snapshotId = Lens.lens (\RestoreSnapshotFromRecycleBinResponse' {snapshotId} -> snapshotId) (\s@RestoreSnapshotFromRecycleBinResponse' {} a -> s {snapshotId = a} :: RestoreSnapshotFromRecycleBinResponse)
+
+-- | The time stamp when the snapshot was initiated.
+restoreSnapshotFromRecycleBinResponse_startTime :: Lens.Lens' RestoreSnapshotFromRecycleBinResponse (Prelude.Maybe Prelude.UTCTime)
+restoreSnapshotFromRecycleBinResponse_startTime = Lens.lens (\RestoreSnapshotFromRecycleBinResponse' {startTime} -> startTime) (\s@RestoreSnapshotFromRecycleBinResponse' {} a -> s {startTime = a} :: RestoreSnapshotFromRecycleBinResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The state of the snapshot.
 restoreSnapshotFromRecycleBinResponse_state :: Lens.Lens' RestoreSnapshotFromRecycleBinResponse (Prelude.Maybe SnapshotState)
 restoreSnapshotFromRecycleBinResponse_state = Lens.lens (\RestoreSnapshotFromRecycleBinResponse' {state} -> state) (\s@RestoreSnapshotFromRecycleBinResponse' {} a -> s {state = a} :: RestoreSnapshotFromRecycleBinResponse)
 
--- | The size of the volume, in GiB.
-restoreSnapshotFromRecycleBinResponse_volumeSize :: Lens.Lens' RestoreSnapshotFromRecycleBinResponse (Prelude.Maybe Prelude.Int)
-restoreSnapshotFromRecycleBinResponse_volumeSize = Lens.lens (\RestoreSnapshotFromRecycleBinResponse' {volumeSize} -> volumeSize) (\s@RestoreSnapshotFromRecycleBinResponse' {} a -> s {volumeSize = a} :: RestoreSnapshotFromRecycleBinResponse)
-
--- | The description for the snapshot.
-restoreSnapshotFromRecycleBinResponse_description :: Lens.Lens' RestoreSnapshotFromRecycleBinResponse (Prelude.Maybe Prelude.Text)
-restoreSnapshotFromRecycleBinResponse_description = Lens.lens (\RestoreSnapshotFromRecycleBinResponse' {description} -> description) (\s@RestoreSnapshotFromRecycleBinResponse' {} a -> s {description = a} :: RestoreSnapshotFromRecycleBinResponse)
-
--- | Indicates whether the snapshot is encrypted.
-restoreSnapshotFromRecycleBinResponse_encrypted :: Lens.Lens' RestoreSnapshotFromRecycleBinResponse (Prelude.Maybe Prelude.Bool)
-restoreSnapshotFromRecycleBinResponse_encrypted = Lens.lens (\RestoreSnapshotFromRecycleBinResponse' {encrypted} -> encrypted) (\s@RestoreSnapshotFromRecycleBinResponse' {} a -> s {encrypted = a} :: RestoreSnapshotFromRecycleBinResponse)
-
 -- | The ID of the volume that was used to create the snapshot.
 restoreSnapshotFromRecycleBinResponse_volumeId :: Lens.Lens' RestoreSnapshotFromRecycleBinResponse (Prelude.Maybe Prelude.Text)
 restoreSnapshotFromRecycleBinResponse_volumeId = Lens.lens (\RestoreSnapshotFromRecycleBinResponse' {volumeId} -> volumeId) (\s@RestoreSnapshotFromRecycleBinResponse' {} a -> s {volumeId = a} :: RestoreSnapshotFromRecycleBinResponse)
 
--- | The time stamp when the snapshot was initiated.
-restoreSnapshotFromRecycleBinResponse_startTime :: Lens.Lens' RestoreSnapshotFromRecycleBinResponse (Prelude.Maybe Prelude.UTCTime)
-restoreSnapshotFromRecycleBinResponse_startTime = Lens.lens (\RestoreSnapshotFromRecycleBinResponse' {startTime} -> startTime) (\s@RestoreSnapshotFromRecycleBinResponse' {} a -> s {startTime = a} :: RestoreSnapshotFromRecycleBinResponse) Prelude.. Lens.mapping Data._Time
+-- | The size of the volume, in GiB.
+restoreSnapshotFromRecycleBinResponse_volumeSize :: Lens.Lens' RestoreSnapshotFromRecycleBinResponse (Prelude.Maybe Prelude.Int)
+restoreSnapshotFromRecycleBinResponse_volumeSize = Lens.lens (\RestoreSnapshotFromRecycleBinResponse' {volumeSize} -> volumeSize) (\s@RestoreSnapshotFromRecycleBinResponse' {} a -> s {volumeSize = a} :: RestoreSnapshotFromRecycleBinResponse)
 
 -- | The response's http status code.
 restoreSnapshotFromRecycleBinResponse_httpStatus :: Lens.Lens' RestoreSnapshotFromRecycleBinResponse Prelude.Int
@@ -299,14 +299,14 @@ instance
     RestoreSnapshotFromRecycleBinResponse
   where
   rnf RestoreSnapshotFromRecycleBinResponse' {..} =
-    Prelude.rnf progress
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf encrypted
       `Prelude.seq` Prelude.rnf outpostArn
       `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf progress
       `Prelude.seq` Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf volumeSize
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf encrypted
-      `Prelude.seq` Prelude.rnf volumeId
       `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf volumeId
+      `Prelude.seq` Prelude.rnf volumeSize
       `Prelude.seq` Prelude.rnf httpStatus

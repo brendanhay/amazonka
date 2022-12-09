@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGpuInfo' smart constructor.
 data GpuInfo = GpuInfo'
-  { -- | The total size of the memory for the GPU accelerators for the instance
+  { -- | Describes the GPU accelerators for the instance type.
+    gpus :: Prelude.Maybe [GpuDeviceInfo],
+    -- | The total size of the memory for the GPU accelerators for the instance
     -- type, in MiB.
-    totalGpuMemoryInMiB :: Prelude.Maybe Prelude.Int,
-    -- | Describes the GPU accelerators for the instance type.
-    gpus :: Prelude.Maybe [GpuDeviceInfo]
+    totalGpuMemoryInMiB :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,41 +46,41 @@ data GpuInfo = GpuInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'gpus', 'gpuInfo_gpus' - Describes the GPU accelerators for the instance type.
+--
 -- 'totalGpuMemoryInMiB', 'gpuInfo_totalGpuMemoryInMiB' - The total size of the memory for the GPU accelerators for the instance
 -- type, in MiB.
---
--- 'gpus', 'gpuInfo_gpus' - Describes the GPU accelerators for the instance type.
 newGpuInfo ::
   GpuInfo
 newGpuInfo =
   GpuInfo'
-    { totalGpuMemoryInMiB = Prelude.Nothing,
-      gpus = Prelude.Nothing
+    { gpus = Prelude.Nothing,
+      totalGpuMemoryInMiB = Prelude.Nothing
     }
+
+-- | Describes the GPU accelerators for the instance type.
+gpuInfo_gpus :: Lens.Lens' GpuInfo (Prelude.Maybe [GpuDeviceInfo])
+gpuInfo_gpus = Lens.lens (\GpuInfo' {gpus} -> gpus) (\s@GpuInfo' {} a -> s {gpus = a} :: GpuInfo) Prelude.. Lens.mapping Lens.coerced
 
 -- | The total size of the memory for the GPU accelerators for the instance
 -- type, in MiB.
 gpuInfo_totalGpuMemoryInMiB :: Lens.Lens' GpuInfo (Prelude.Maybe Prelude.Int)
 gpuInfo_totalGpuMemoryInMiB = Lens.lens (\GpuInfo' {totalGpuMemoryInMiB} -> totalGpuMemoryInMiB) (\s@GpuInfo' {} a -> s {totalGpuMemoryInMiB = a} :: GpuInfo)
 
--- | Describes the GPU accelerators for the instance type.
-gpuInfo_gpus :: Lens.Lens' GpuInfo (Prelude.Maybe [GpuDeviceInfo])
-gpuInfo_gpus = Lens.lens (\GpuInfo' {gpus} -> gpus) (\s@GpuInfo' {} a -> s {gpus = a} :: GpuInfo) Prelude.. Lens.mapping Lens.coerced
-
 instance Data.FromXML GpuInfo where
   parseXML x =
     GpuInfo'
-      Prelude.<$> (x Data..@? "totalGpuMemoryInMiB")
-      Prelude.<*> ( x Data..@? "gpus" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "gpus" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
+      Prelude.<*> (x Data..@? "totalGpuMemoryInMiB")
 
 instance Prelude.Hashable GpuInfo where
   hashWithSalt _salt GpuInfo' {..} =
-    _salt `Prelude.hashWithSalt` totalGpuMemoryInMiB
-      `Prelude.hashWithSalt` gpus
+    _salt `Prelude.hashWithSalt` gpus
+      `Prelude.hashWithSalt` totalGpuMemoryInMiB
 
 instance Prelude.NFData GpuInfo where
   rnf GpuInfo' {..} =
-    Prelude.rnf totalGpuMemoryInMiB
-      `Prelude.seq` Prelude.rnf gpus
+    Prelude.rnf gpus
+      `Prelude.seq` Prelude.rnf totalGpuMemoryInMiB

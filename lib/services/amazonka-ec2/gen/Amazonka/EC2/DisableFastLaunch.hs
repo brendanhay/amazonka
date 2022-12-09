@@ -41,15 +41,15 @@ module Amazonka.EC2.DisableFastLaunch
     newDisableFastLaunchResponse,
 
     -- * Response Lenses
-    disableFastLaunchResponse_resourceType,
-    disableFastLaunchResponse_ownerId,
+    disableFastLaunchResponse_imageId,
     disableFastLaunchResponse_launchTemplate,
-    disableFastLaunchResponse_stateTransitionTime,
+    disableFastLaunchResponse_maxParallelLaunches,
+    disableFastLaunchResponse_ownerId,
+    disableFastLaunchResponse_resourceType,
+    disableFastLaunchResponse_snapshotConfiguration,
     disableFastLaunchResponse_state,
     disableFastLaunchResponse_stateTransitionReason,
-    disableFastLaunchResponse_snapshotConfiguration,
-    disableFastLaunchResponse_maxParallelLaunches,
-    disableFastLaunchResponse_imageId,
+    disableFastLaunchResponse_stateTransitionTime,
     disableFastLaunchResponse_httpStatus,
   )
 where
@@ -137,15 +137,15 @@ instance Core.AWSRequest DisableFastLaunch where
     Response.receiveXML
       ( \s h x ->
           DisableFastLaunchResponse'
-            Prelude.<$> (x Data..@? "resourceType")
-            Prelude.<*> (x Data..@? "ownerId")
+            Prelude.<$> (x Data..@? "imageId")
             Prelude.<*> (x Data..@? "launchTemplate")
-            Prelude.<*> (x Data..@? "stateTransitionTime")
+            Prelude.<*> (x Data..@? "maxParallelLaunches")
+            Prelude.<*> (x Data..@? "ownerId")
+            Prelude.<*> (x Data..@? "resourceType")
+            Prelude.<*> (x Data..@? "snapshotConfiguration")
             Prelude.<*> (x Data..@? "state")
             Prelude.<*> (x Data..@? "stateTransitionReason")
-            Prelude.<*> (x Data..@? "snapshotConfiguration")
-            Prelude.<*> (x Data..@? "maxParallelLaunches")
-            Prelude.<*> (x Data..@? "imageId")
+            Prelude.<*> (x Data..@? "stateTransitionTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,32 +181,32 @@ instance Data.ToQuery DisableFastLaunch where
 
 -- | /See:/ 'newDisableFastLaunchResponse' smart constructor.
 data DisableFastLaunchResponse = DisableFastLaunchResponse'
-  { -- | The pre-provisioning resource type that must be cleaned after turning
-    -- off faster launching for the Windows AMI. Supported values include:
-    -- @snapshot@.
-    resourceType :: Prelude.Maybe FastLaunchResourceType,
-    -- | The owner of the Windows AMI for which faster launching was turned off.
-    ownerId :: Prelude.Maybe Prelude.Text,
+  { -- | The ID of the image for which faster-launching has been turned off.
+    imageId :: Prelude.Maybe Prelude.Text,
     -- | The launch template that was used to launch Windows instances from
     -- pre-provisioned snapshots.
     launchTemplate :: Prelude.Maybe FastLaunchLaunchTemplateSpecificationResponse,
-    -- | The time that the state changed for faster launching for the Windows
-    -- AMI.
-    stateTransitionTime :: Prelude.Maybe Data.ISO8601,
+    -- | The maximum number of parallel instances to launch for creating
+    -- resources.
+    maxParallelLaunches :: Prelude.Maybe Prelude.Int,
+    -- | The owner of the Windows AMI for which faster launching was turned off.
+    ownerId :: Prelude.Maybe Prelude.Text,
+    -- | The pre-provisioning resource type that must be cleaned after turning
+    -- off faster launching for the Windows AMI. Supported values include:
+    -- @snapshot@.
+    resourceType :: Prelude.Maybe FastLaunchResourceType,
+    -- | Parameters that were used for faster launching for the Windows AMI
+    -- before faster launching was turned off. This informs the clean-up
+    -- process.
+    snapshotConfiguration :: Prelude.Maybe FastLaunchSnapshotConfigurationResponse,
     -- | The current state of faster launching for the specified Windows AMI.
     state :: Prelude.Maybe FastLaunchStateCode,
     -- | The reason that the state changed for faster launching for the Windows
     -- AMI.
     stateTransitionReason :: Prelude.Maybe Prelude.Text,
-    -- | Parameters that were used for faster launching for the Windows AMI
-    -- before faster launching was turned off. This informs the clean-up
-    -- process.
-    snapshotConfiguration :: Prelude.Maybe FastLaunchSnapshotConfigurationResponse,
-    -- | The maximum number of parallel instances to launch for creating
-    -- resources.
-    maxParallelLaunches :: Prelude.Maybe Prelude.Int,
-    -- | The ID of the image for which faster-launching has been turned off.
-    imageId :: Prelude.Maybe Prelude.Text,
+    -- | The time that the state changed for faster launching for the Windows
+    -- AMI.
+    stateTransitionTime :: Prelude.Maybe Data.ISO8601,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -220,31 +220,31 @@ data DisableFastLaunchResponse = DisableFastLaunchResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'disableFastLaunchResponse_resourceType' - The pre-provisioning resource type that must be cleaned after turning
--- off faster launching for the Windows AMI. Supported values include:
--- @snapshot@.
---
--- 'ownerId', 'disableFastLaunchResponse_ownerId' - The owner of the Windows AMI for which faster launching was turned off.
+-- 'imageId', 'disableFastLaunchResponse_imageId' - The ID of the image for which faster-launching has been turned off.
 --
 -- 'launchTemplate', 'disableFastLaunchResponse_launchTemplate' - The launch template that was used to launch Windows instances from
 -- pre-provisioned snapshots.
 --
--- 'stateTransitionTime', 'disableFastLaunchResponse_stateTransitionTime' - The time that the state changed for faster launching for the Windows
--- AMI.
+-- 'maxParallelLaunches', 'disableFastLaunchResponse_maxParallelLaunches' - The maximum number of parallel instances to launch for creating
+-- resources.
+--
+-- 'ownerId', 'disableFastLaunchResponse_ownerId' - The owner of the Windows AMI for which faster launching was turned off.
+--
+-- 'resourceType', 'disableFastLaunchResponse_resourceType' - The pre-provisioning resource type that must be cleaned after turning
+-- off faster launching for the Windows AMI. Supported values include:
+-- @snapshot@.
+--
+-- 'snapshotConfiguration', 'disableFastLaunchResponse_snapshotConfiguration' - Parameters that were used for faster launching for the Windows AMI
+-- before faster launching was turned off. This informs the clean-up
+-- process.
 --
 -- 'state', 'disableFastLaunchResponse_state' - The current state of faster launching for the specified Windows AMI.
 --
 -- 'stateTransitionReason', 'disableFastLaunchResponse_stateTransitionReason' - The reason that the state changed for faster launching for the Windows
 -- AMI.
 --
--- 'snapshotConfiguration', 'disableFastLaunchResponse_snapshotConfiguration' - Parameters that were used for faster launching for the Windows AMI
--- before faster launching was turned off. This informs the clean-up
--- process.
---
--- 'maxParallelLaunches', 'disableFastLaunchResponse_maxParallelLaunches' - The maximum number of parallel instances to launch for creating
--- resources.
---
--- 'imageId', 'disableFastLaunchResponse_imageId' - The ID of the image for which faster-launching has been turned off.
+-- 'stateTransitionTime', 'disableFastLaunchResponse_stateTransitionTime' - The time that the state changed for faster launching for the Windows
+-- AMI.
 --
 -- 'httpStatus', 'disableFastLaunchResponse_httpStatus' - The response's http status code.
 newDisableFastLaunchResponse ::
@@ -253,18 +253,36 @@ newDisableFastLaunchResponse ::
   DisableFastLaunchResponse
 newDisableFastLaunchResponse pHttpStatus_ =
   DisableFastLaunchResponse'
-    { resourceType =
+    { imageId =
         Prelude.Nothing,
-      ownerId = Prelude.Nothing,
       launchTemplate = Prelude.Nothing,
-      stateTransitionTime = Prelude.Nothing,
+      maxParallelLaunches = Prelude.Nothing,
+      ownerId = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
+      snapshotConfiguration = Prelude.Nothing,
       state = Prelude.Nothing,
       stateTransitionReason = Prelude.Nothing,
-      snapshotConfiguration = Prelude.Nothing,
-      maxParallelLaunches = Prelude.Nothing,
-      imageId = Prelude.Nothing,
+      stateTransitionTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The ID of the image for which faster-launching has been turned off.
+disableFastLaunchResponse_imageId :: Lens.Lens' DisableFastLaunchResponse (Prelude.Maybe Prelude.Text)
+disableFastLaunchResponse_imageId = Lens.lens (\DisableFastLaunchResponse' {imageId} -> imageId) (\s@DisableFastLaunchResponse' {} a -> s {imageId = a} :: DisableFastLaunchResponse)
+
+-- | The launch template that was used to launch Windows instances from
+-- pre-provisioned snapshots.
+disableFastLaunchResponse_launchTemplate :: Lens.Lens' DisableFastLaunchResponse (Prelude.Maybe FastLaunchLaunchTemplateSpecificationResponse)
+disableFastLaunchResponse_launchTemplate = Lens.lens (\DisableFastLaunchResponse' {launchTemplate} -> launchTemplate) (\s@DisableFastLaunchResponse' {} a -> s {launchTemplate = a} :: DisableFastLaunchResponse)
+
+-- | The maximum number of parallel instances to launch for creating
+-- resources.
+disableFastLaunchResponse_maxParallelLaunches :: Lens.Lens' DisableFastLaunchResponse (Prelude.Maybe Prelude.Int)
+disableFastLaunchResponse_maxParallelLaunches = Lens.lens (\DisableFastLaunchResponse' {maxParallelLaunches} -> maxParallelLaunches) (\s@DisableFastLaunchResponse' {} a -> s {maxParallelLaunches = a} :: DisableFastLaunchResponse)
+
+-- | The owner of the Windows AMI for which faster launching was turned off.
+disableFastLaunchResponse_ownerId :: Lens.Lens' DisableFastLaunchResponse (Prelude.Maybe Prelude.Text)
+disableFastLaunchResponse_ownerId = Lens.lens (\DisableFastLaunchResponse' {ownerId} -> ownerId) (\s@DisableFastLaunchResponse' {} a -> s {ownerId = a} :: DisableFastLaunchResponse)
 
 -- | The pre-provisioning resource type that must be cleaned after turning
 -- off faster launching for the Windows AMI. Supported values include:
@@ -272,19 +290,11 @@ newDisableFastLaunchResponse pHttpStatus_ =
 disableFastLaunchResponse_resourceType :: Lens.Lens' DisableFastLaunchResponse (Prelude.Maybe FastLaunchResourceType)
 disableFastLaunchResponse_resourceType = Lens.lens (\DisableFastLaunchResponse' {resourceType} -> resourceType) (\s@DisableFastLaunchResponse' {} a -> s {resourceType = a} :: DisableFastLaunchResponse)
 
--- | The owner of the Windows AMI for which faster launching was turned off.
-disableFastLaunchResponse_ownerId :: Lens.Lens' DisableFastLaunchResponse (Prelude.Maybe Prelude.Text)
-disableFastLaunchResponse_ownerId = Lens.lens (\DisableFastLaunchResponse' {ownerId} -> ownerId) (\s@DisableFastLaunchResponse' {} a -> s {ownerId = a} :: DisableFastLaunchResponse)
-
--- | The launch template that was used to launch Windows instances from
--- pre-provisioned snapshots.
-disableFastLaunchResponse_launchTemplate :: Lens.Lens' DisableFastLaunchResponse (Prelude.Maybe FastLaunchLaunchTemplateSpecificationResponse)
-disableFastLaunchResponse_launchTemplate = Lens.lens (\DisableFastLaunchResponse' {launchTemplate} -> launchTemplate) (\s@DisableFastLaunchResponse' {} a -> s {launchTemplate = a} :: DisableFastLaunchResponse)
-
--- | The time that the state changed for faster launching for the Windows
--- AMI.
-disableFastLaunchResponse_stateTransitionTime :: Lens.Lens' DisableFastLaunchResponse (Prelude.Maybe Prelude.UTCTime)
-disableFastLaunchResponse_stateTransitionTime = Lens.lens (\DisableFastLaunchResponse' {stateTransitionTime} -> stateTransitionTime) (\s@DisableFastLaunchResponse' {} a -> s {stateTransitionTime = a} :: DisableFastLaunchResponse) Prelude.. Lens.mapping Data._Time
+-- | Parameters that were used for faster launching for the Windows AMI
+-- before faster launching was turned off. This informs the clean-up
+-- process.
+disableFastLaunchResponse_snapshotConfiguration :: Lens.Lens' DisableFastLaunchResponse (Prelude.Maybe FastLaunchSnapshotConfigurationResponse)
+disableFastLaunchResponse_snapshotConfiguration = Lens.lens (\DisableFastLaunchResponse' {snapshotConfiguration} -> snapshotConfiguration) (\s@DisableFastLaunchResponse' {} a -> s {snapshotConfiguration = a} :: DisableFastLaunchResponse)
 
 -- | The current state of faster launching for the specified Windows AMI.
 disableFastLaunchResponse_state :: Lens.Lens' DisableFastLaunchResponse (Prelude.Maybe FastLaunchStateCode)
@@ -295,20 +305,10 @@ disableFastLaunchResponse_state = Lens.lens (\DisableFastLaunchResponse' {state}
 disableFastLaunchResponse_stateTransitionReason :: Lens.Lens' DisableFastLaunchResponse (Prelude.Maybe Prelude.Text)
 disableFastLaunchResponse_stateTransitionReason = Lens.lens (\DisableFastLaunchResponse' {stateTransitionReason} -> stateTransitionReason) (\s@DisableFastLaunchResponse' {} a -> s {stateTransitionReason = a} :: DisableFastLaunchResponse)
 
--- | Parameters that were used for faster launching for the Windows AMI
--- before faster launching was turned off. This informs the clean-up
--- process.
-disableFastLaunchResponse_snapshotConfiguration :: Lens.Lens' DisableFastLaunchResponse (Prelude.Maybe FastLaunchSnapshotConfigurationResponse)
-disableFastLaunchResponse_snapshotConfiguration = Lens.lens (\DisableFastLaunchResponse' {snapshotConfiguration} -> snapshotConfiguration) (\s@DisableFastLaunchResponse' {} a -> s {snapshotConfiguration = a} :: DisableFastLaunchResponse)
-
--- | The maximum number of parallel instances to launch for creating
--- resources.
-disableFastLaunchResponse_maxParallelLaunches :: Lens.Lens' DisableFastLaunchResponse (Prelude.Maybe Prelude.Int)
-disableFastLaunchResponse_maxParallelLaunches = Lens.lens (\DisableFastLaunchResponse' {maxParallelLaunches} -> maxParallelLaunches) (\s@DisableFastLaunchResponse' {} a -> s {maxParallelLaunches = a} :: DisableFastLaunchResponse)
-
--- | The ID of the image for which faster-launching has been turned off.
-disableFastLaunchResponse_imageId :: Lens.Lens' DisableFastLaunchResponse (Prelude.Maybe Prelude.Text)
-disableFastLaunchResponse_imageId = Lens.lens (\DisableFastLaunchResponse' {imageId} -> imageId) (\s@DisableFastLaunchResponse' {} a -> s {imageId = a} :: DisableFastLaunchResponse)
+-- | The time that the state changed for faster launching for the Windows
+-- AMI.
+disableFastLaunchResponse_stateTransitionTime :: Lens.Lens' DisableFastLaunchResponse (Prelude.Maybe Prelude.UTCTime)
+disableFastLaunchResponse_stateTransitionTime = Lens.lens (\DisableFastLaunchResponse' {stateTransitionTime} -> stateTransitionTime) (\s@DisableFastLaunchResponse' {} a -> s {stateTransitionTime = a} :: DisableFastLaunchResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 disableFastLaunchResponse_httpStatus :: Lens.Lens' DisableFastLaunchResponse Prelude.Int
@@ -316,13 +316,13 @@ disableFastLaunchResponse_httpStatus = Lens.lens (\DisableFastLaunchResponse' {h
 
 instance Prelude.NFData DisableFastLaunchResponse where
   rnf DisableFastLaunchResponse' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf ownerId
+    Prelude.rnf imageId
       `Prelude.seq` Prelude.rnf launchTemplate
-      `Prelude.seq` Prelude.rnf stateTransitionTime
+      `Prelude.seq` Prelude.rnf maxParallelLaunches
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf snapshotConfiguration
       `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf stateTransitionReason
-      `Prelude.seq` Prelude.rnf snapshotConfiguration
-      `Prelude.seq` Prelude.rnf maxParallelLaunches
-      `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf stateTransitionTime
       `Prelude.seq` Prelude.rnf httpStatus

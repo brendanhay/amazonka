@@ -40,15 +40,15 @@ module Amazonka.EC2.AssociateVpcCidrBlock
     newAssociateVpcCidrBlock,
 
     -- * Request Lenses
-    associateVpcCidrBlock_ipv6CidrBlockNetworkBorderGroup,
-    associateVpcCidrBlock_ipv4IpamPoolId,
-    associateVpcCidrBlock_ipv6Pool,
-    associateVpcCidrBlock_ipv4NetmaskLength,
-    associateVpcCidrBlock_ipv6IpamPoolId,
     associateVpcCidrBlock_amazonProvidedIpv6CidrBlock,
-    associateVpcCidrBlock_ipv6NetmaskLength,
     associateVpcCidrBlock_cidrBlock,
+    associateVpcCidrBlock_ipv4IpamPoolId,
+    associateVpcCidrBlock_ipv4NetmaskLength,
     associateVpcCidrBlock_ipv6CidrBlock,
+    associateVpcCidrBlock_ipv6CidrBlockNetworkBorderGroup,
+    associateVpcCidrBlock_ipv6IpamPoolId,
+    associateVpcCidrBlock_ipv6NetmaskLength,
+    associateVpcCidrBlock_ipv6Pool,
     associateVpcCidrBlock_vpcId,
 
     -- * Destructuring the Response
@@ -73,7 +73,29 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAssociateVpcCidrBlock' smart constructor.
 data AssociateVpcCidrBlock = AssociateVpcCidrBlock'
-  { -- | The name of the location from which we advertise the IPV6 CIDR block.
+  { -- | Requests an Amazon-provided IPv6 CIDR block with a \/56 prefix length
+    -- for the VPC. You cannot specify the range of IPv6 addresses, or the size
+    -- of the CIDR block.
+    amazonProvidedIpv6CidrBlock :: Prelude.Maybe Prelude.Bool,
+    -- | An IPv4 CIDR block to associate with the VPC.
+    cidrBlock :: Prelude.Maybe Prelude.Text,
+    -- | Associate a CIDR allocated from an IPv4 IPAM pool to a VPC. For more
+    -- information about Amazon VPC IP Address Manager (IPAM), see
+    -- <https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html What is IPAM?>
+    -- in the /Amazon VPC IPAM User Guide/.
+    ipv4IpamPoolId :: Prelude.Maybe Prelude.Text,
+    -- | The netmask length of the IPv4 CIDR you would like to associate from an
+    -- Amazon VPC IP Address Manager (IPAM) pool. For more information about
+    -- IPAM, see
+    -- <https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html What is IPAM?>
+    -- in the /Amazon VPC IPAM User Guide/.
+    ipv4NetmaskLength :: Prelude.Maybe Prelude.Int,
+    -- | An IPv6 CIDR block from the IPv6 address pool. You must also specify
+    -- @Ipv6Pool@ in the request.
+    --
+    -- To let Amazon choose the IPv6 CIDR block for you, omit this parameter.
+    ipv6CidrBlock :: Prelude.Maybe Prelude.Text,
+    -- | The name of the location from which we advertise the IPV6 CIDR block.
     -- Use this parameter to limit the CIDR block to this location.
     --
     -- You must set @AmazonProvidedIpv6CidrBlock@ to @true@ to use this
@@ -81,42 +103,20 @@ data AssociateVpcCidrBlock = AssociateVpcCidrBlock'
     --
     -- You can have one IPv6 CIDR block association per network border group.
     ipv6CidrBlockNetworkBorderGroup :: Prelude.Maybe Prelude.Text,
-    -- | Associate a CIDR allocated from an IPv4 IPAM pool to a VPC. For more
-    -- information about Amazon VPC IP Address Manager (IPAM), see
-    -- <https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html What is IPAM?>
-    -- in the /Amazon VPC IPAM User Guide/.
-    ipv4IpamPoolId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of an IPv6 address pool from which to allocate the IPv6 CIDR
-    -- block.
-    ipv6Pool :: Prelude.Maybe Prelude.Text,
-    -- | The netmask length of the IPv4 CIDR you would like to associate from an
-    -- Amazon VPC IP Address Manager (IPAM) pool. For more information about
-    -- IPAM, see
-    -- <https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html What is IPAM?>
-    -- in the /Amazon VPC IPAM User Guide/.
-    ipv4NetmaskLength :: Prelude.Maybe Prelude.Int,
     -- | Associates a CIDR allocated from an IPv6 IPAM pool to a VPC. For more
     -- information about Amazon VPC IP Address Manager (IPAM), see
     -- <https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html What is IPAM?>
     -- in the /Amazon VPC IPAM User Guide/.
     ipv6IpamPoolId :: Prelude.Maybe Prelude.Text,
-    -- | Requests an Amazon-provided IPv6 CIDR block with a \/56 prefix length
-    -- for the VPC. You cannot specify the range of IPv6 addresses, or the size
-    -- of the CIDR block.
-    amazonProvidedIpv6CidrBlock :: Prelude.Maybe Prelude.Bool,
     -- | The netmask length of the IPv6 CIDR you would like to associate from an
     -- Amazon VPC IP Address Manager (IPAM) pool. For more information about
     -- IPAM, see
     -- <https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html What is IPAM?>
     -- in the /Amazon VPC IPAM User Guide/.
     ipv6NetmaskLength :: Prelude.Maybe Prelude.Int,
-    -- | An IPv4 CIDR block to associate with the VPC.
-    cidrBlock :: Prelude.Maybe Prelude.Text,
-    -- | An IPv6 CIDR block from the IPv6 address pool. You must also specify
-    -- @Ipv6Pool@ in the request.
-    --
-    -- To let Amazon choose the IPv6 CIDR block for you, omit this parameter.
-    ipv6CidrBlock :: Prelude.Maybe Prelude.Text,
+    -- | The ID of an IPv6 address pool from which to allocate the IPv6 CIDR
+    -- block.
+    ipv6Pool :: Prelude.Maybe Prelude.Text,
     -- | The ID of the VPC.
     vpcId :: Prelude.Text
   }
@@ -130,6 +130,28 @@ data AssociateVpcCidrBlock = AssociateVpcCidrBlock'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'amazonProvidedIpv6CidrBlock', 'associateVpcCidrBlock_amazonProvidedIpv6CidrBlock' - Requests an Amazon-provided IPv6 CIDR block with a \/56 prefix length
+-- for the VPC. You cannot specify the range of IPv6 addresses, or the size
+-- of the CIDR block.
+--
+-- 'cidrBlock', 'associateVpcCidrBlock_cidrBlock' - An IPv4 CIDR block to associate with the VPC.
+--
+-- 'ipv4IpamPoolId', 'associateVpcCidrBlock_ipv4IpamPoolId' - Associate a CIDR allocated from an IPv4 IPAM pool to a VPC. For more
+-- information about Amazon VPC IP Address Manager (IPAM), see
+-- <https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html What is IPAM?>
+-- in the /Amazon VPC IPAM User Guide/.
+--
+-- 'ipv4NetmaskLength', 'associateVpcCidrBlock_ipv4NetmaskLength' - The netmask length of the IPv4 CIDR you would like to associate from an
+-- Amazon VPC IP Address Manager (IPAM) pool. For more information about
+-- IPAM, see
+-- <https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html What is IPAM?>
+-- in the /Amazon VPC IPAM User Guide/.
+--
+-- 'ipv6CidrBlock', 'associateVpcCidrBlock_ipv6CidrBlock' - An IPv6 CIDR block from the IPv6 address pool. You must also specify
+-- @Ipv6Pool@ in the request.
+--
+-- To let Amazon choose the IPv6 CIDR block for you, omit this parameter.
+--
 -- 'ipv6CidrBlockNetworkBorderGroup', 'associateVpcCidrBlock_ipv6CidrBlockNetworkBorderGroup' - The name of the location from which we advertise the IPV6 CIDR block.
 -- Use this parameter to limit the CIDR block to this location.
 --
@@ -138,28 +160,10 @@ data AssociateVpcCidrBlock = AssociateVpcCidrBlock'
 --
 -- You can have one IPv6 CIDR block association per network border group.
 --
--- 'ipv4IpamPoolId', 'associateVpcCidrBlock_ipv4IpamPoolId' - Associate a CIDR allocated from an IPv4 IPAM pool to a VPC. For more
--- information about Amazon VPC IP Address Manager (IPAM), see
--- <https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html What is IPAM?>
--- in the /Amazon VPC IPAM User Guide/.
---
--- 'ipv6Pool', 'associateVpcCidrBlock_ipv6Pool' - The ID of an IPv6 address pool from which to allocate the IPv6 CIDR
--- block.
---
--- 'ipv4NetmaskLength', 'associateVpcCidrBlock_ipv4NetmaskLength' - The netmask length of the IPv4 CIDR you would like to associate from an
--- Amazon VPC IP Address Manager (IPAM) pool. For more information about
--- IPAM, see
--- <https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html What is IPAM?>
--- in the /Amazon VPC IPAM User Guide/.
---
 -- 'ipv6IpamPoolId', 'associateVpcCidrBlock_ipv6IpamPoolId' - Associates a CIDR allocated from an IPv6 IPAM pool to a VPC. For more
 -- information about Amazon VPC IP Address Manager (IPAM), see
 -- <https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html What is IPAM?>
 -- in the /Amazon VPC IPAM User Guide/.
---
--- 'amazonProvidedIpv6CidrBlock', 'associateVpcCidrBlock_amazonProvidedIpv6CidrBlock' - Requests an Amazon-provided IPv6 CIDR block with a \/56 prefix length
--- for the VPC. You cannot specify the range of IPv6 addresses, or the size
--- of the CIDR block.
 --
 -- 'ipv6NetmaskLength', 'associateVpcCidrBlock_ipv6NetmaskLength' - The netmask length of the IPv6 CIDR you would like to associate from an
 -- Amazon VPC IP Address Manager (IPAM) pool. For more information about
@@ -167,12 +171,8 @@ data AssociateVpcCidrBlock = AssociateVpcCidrBlock'
 -- <https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html What is IPAM?>
 -- in the /Amazon VPC IPAM User Guide/.
 --
--- 'cidrBlock', 'associateVpcCidrBlock_cidrBlock' - An IPv4 CIDR block to associate with the VPC.
---
--- 'ipv6CidrBlock', 'associateVpcCidrBlock_ipv6CidrBlock' - An IPv6 CIDR block from the IPv6 address pool. You must also specify
--- @Ipv6Pool@ in the request.
---
--- To let Amazon choose the IPv6 CIDR block for you, omit this parameter.
+-- 'ipv6Pool', 'associateVpcCidrBlock_ipv6Pool' - The ID of an IPv6 address pool from which to allocate the IPv6 CIDR
+-- block.
 --
 -- 'vpcId', 'associateVpcCidrBlock_vpcId' - The ID of the VPC.
 newAssociateVpcCidrBlock ::
@@ -181,18 +181,50 @@ newAssociateVpcCidrBlock ::
   AssociateVpcCidrBlock
 newAssociateVpcCidrBlock pVpcId_ =
   AssociateVpcCidrBlock'
-    { ipv6CidrBlockNetworkBorderGroup =
+    { amazonProvidedIpv6CidrBlock =
         Prelude.Nothing,
-      ipv4IpamPoolId = Prelude.Nothing,
-      ipv6Pool = Prelude.Nothing,
-      ipv4NetmaskLength = Prelude.Nothing,
-      ipv6IpamPoolId = Prelude.Nothing,
-      amazonProvidedIpv6CidrBlock = Prelude.Nothing,
-      ipv6NetmaskLength = Prelude.Nothing,
       cidrBlock = Prelude.Nothing,
+      ipv4IpamPoolId = Prelude.Nothing,
+      ipv4NetmaskLength = Prelude.Nothing,
       ipv6CidrBlock = Prelude.Nothing,
+      ipv6CidrBlockNetworkBorderGroup = Prelude.Nothing,
+      ipv6IpamPoolId = Prelude.Nothing,
+      ipv6NetmaskLength = Prelude.Nothing,
+      ipv6Pool = Prelude.Nothing,
       vpcId = pVpcId_
     }
+
+-- | Requests an Amazon-provided IPv6 CIDR block with a \/56 prefix length
+-- for the VPC. You cannot specify the range of IPv6 addresses, or the size
+-- of the CIDR block.
+associateVpcCidrBlock_amazonProvidedIpv6CidrBlock :: Lens.Lens' AssociateVpcCidrBlock (Prelude.Maybe Prelude.Bool)
+associateVpcCidrBlock_amazonProvidedIpv6CidrBlock = Lens.lens (\AssociateVpcCidrBlock' {amazonProvidedIpv6CidrBlock} -> amazonProvidedIpv6CidrBlock) (\s@AssociateVpcCidrBlock' {} a -> s {amazonProvidedIpv6CidrBlock = a} :: AssociateVpcCidrBlock)
+
+-- | An IPv4 CIDR block to associate with the VPC.
+associateVpcCidrBlock_cidrBlock :: Lens.Lens' AssociateVpcCidrBlock (Prelude.Maybe Prelude.Text)
+associateVpcCidrBlock_cidrBlock = Lens.lens (\AssociateVpcCidrBlock' {cidrBlock} -> cidrBlock) (\s@AssociateVpcCidrBlock' {} a -> s {cidrBlock = a} :: AssociateVpcCidrBlock)
+
+-- | Associate a CIDR allocated from an IPv4 IPAM pool to a VPC. For more
+-- information about Amazon VPC IP Address Manager (IPAM), see
+-- <https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html What is IPAM?>
+-- in the /Amazon VPC IPAM User Guide/.
+associateVpcCidrBlock_ipv4IpamPoolId :: Lens.Lens' AssociateVpcCidrBlock (Prelude.Maybe Prelude.Text)
+associateVpcCidrBlock_ipv4IpamPoolId = Lens.lens (\AssociateVpcCidrBlock' {ipv4IpamPoolId} -> ipv4IpamPoolId) (\s@AssociateVpcCidrBlock' {} a -> s {ipv4IpamPoolId = a} :: AssociateVpcCidrBlock)
+
+-- | The netmask length of the IPv4 CIDR you would like to associate from an
+-- Amazon VPC IP Address Manager (IPAM) pool. For more information about
+-- IPAM, see
+-- <https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html What is IPAM?>
+-- in the /Amazon VPC IPAM User Guide/.
+associateVpcCidrBlock_ipv4NetmaskLength :: Lens.Lens' AssociateVpcCidrBlock (Prelude.Maybe Prelude.Int)
+associateVpcCidrBlock_ipv4NetmaskLength = Lens.lens (\AssociateVpcCidrBlock' {ipv4NetmaskLength} -> ipv4NetmaskLength) (\s@AssociateVpcCidrBlock' {} a -> s {ipv4NetmaskLength = a} :: AssociateVpcCidrBlock)
+
+-- | An IPv6 CIDR block from the IPv6 address pool. You must also specify
+-- @Ipv6Pool@ in the request.
+--
+-- To let Amazon choose the IPv6 CIDR block for you, omit this parameter.
+associateVpcCidrBlock_ipv6CidrBlock :: Lens.Lens' AssociateVpcCidrBlock (Prelude.Maybe Prelude.Text)
+associateVpcCidrBlock_ipv6CidrBlock = Lens.lens (\AssociateVpcCidrBlock' {ipv6CidrBlock} -> ipv6CidrBlock) (\s@AssociateVpcCidrBlock' {} a -> s {ipv6CidrBlock = a} :: AssociateVpcCidrBlock)
 
 -- | The name of the location from which we advertise the IPV6 CIDR block.
 -- Use this parameter to limit the CIDR block to this location.
@@ -204,38 +236,12 @@ newAssociateVpcCidrBlock pVpcId_ =
 associateVpcCidrBlock_ipv6CidrBlockNetworkBorderGroup :: Lens.Lens' AssociateVpcCidrBlock (Prelude.Maybe Prelude.Text)
 associateVpcCidrBlock_ipv6CidrBlockNetworkBorderGroup = Lens.lens (\AssociateVpcCidrBlock' {ipv6CidrBlockNetworkBorderGroup} -> ipv6CidrBlockNetworkBorderGroup) (\s@AssociateVpcCidrBlock' {} a -> s {ipv6CidrBlockNetworkBorderGroup = a} :: AssociateVpcCidrBlock)
 
--- | Associate a CIDR allocated from an IPv4 IPAM pool to a VPC. For more
--- information about Amazon VPC IP Address Manager (IPAM), see
--- <https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html What is IPAM?>
--- in the /Amazon VPC IPAM User Guide/.
-associateVpcCidrBlock_ipv4IpamPoolId :: Lens.Lens' AssociateVpcCidrBlock (Prelude.Maybe Prelude.Text)
-associateVpcCidrBlock_ipv4IpamPoolId = Lens.lens (\AssociateVpcCidrBlock' {ipv4IpamPoolId} -> ipv4IpamPoolId) (\s@AssociateVpcCidrBlock' {} a -> s {ipv4IpamPoolId = a} :: AssociateVpcCidrBlock)
-
--- | The ID of an IPv6 address pool from which to allocate the IPv6 CIDR
--- block.
-associateVpcCidrBlock_ipv6Pool :: Lens.Lens' AssociateVpcCidrBlock (Prelude.Maybe Prelude.Text)
-associateVpcCidrBlock_ipv6Pool = Lens.lens (\AssociateVpcCidrBlock' {ipv6Pool} -> ipv6Pool) (\s@AssociateVpcCidrBlock' {} a -> s {ipv6Pool = a} :: AssociateVpcCidrBlock)
-
--- | The netmask length of the IPv4 CIDR you would like to associate from an
--- Amazon VPC IP Address Manager (IPAM) pool. For more information about
--- IPAM, see
--- <https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html What is IPAM?>
--- in the /Amazon VPC IPAM User Guide/.
-associateVpcCidrBlock_ipv4NetmaskLength :: Lens.Lens' AssociateVpcCidrBlock (Prelude.Maybe Prelude.Int)
-associateVpcCidrBlock_ipv4NetmaskLength = Lens.lens (\AssociateVpcCidrBlock' {ipv4NetmaskLength} -> ipv4NetmaskLength) (\s@AssociateVpcCidrBlock' {} a -> s {ipv4NetmaskLength = a} :: AssociateVpcCidrBlock)
-
 -- | Associates a CIDR allocated from an IPv6 IPAM pool to a VPC. For more
 -- information about Amazon VPC IP Address Manager (IPAM), see
 -- <https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html What is IPAM?>
 -- in the /Amazon VPC IPAM User Guide/.
 associateVpcCidrBlock_ipv6IpamPoolId :: Lens.Lens' AssociateVpcCidrBlock (Prelude.Maybe Prelude.Text)
 associateVpcCidrBlock_ipv6IpamPoolId = Lens.lens (\AssociateVpcCidrBlock' {ipv6IpamPoolId} -> ipv6IpamPoolId) (\s@AssociateVpcCidrBlock' {} a -> s {ipv6IpamPoolId = a} :: AssociateVpcCidrBlock)
-
--- | Requests an Amazon-provided IPv6 CIDR block with a \/56 prefix length
--- for the VPC. You cannot specify the range of IPv6 addresses, or the size
--- of the CIDR block.
-associateVpcCidrBlock_amazonProvidedIpv6CidrBlock :: Lens.Lens' AssociateVpcCidrBlock (Prelude.Maybe Prelude.Bool)
-associateVpcCidrBlock_amazonProvidedIpv6CidrBlock = Lens.lens (\AssociateVpcCidrBlock' {amazonProvidedIpv6CidrBlock} -> amazonProvidedIpv6CidrBlock) (\s@AssociateVpcCidrBlock' {} a -> s {amazonProvidedIpv6CidrBlock = a} :: AssociateVpcCidrBlock)
 
 -- | The netmask length of the IPv6 CIDR you would like to associate from an
 -- Amazon VPC IP Address Manager (IPAM) pool. For more information about
@@ -245,16 +251,10 @@ associateVpcCidrBlock_amazonProvidedIpv6CidrBlock = Lens.lens (\AssociateVpcCidr
 associateVpcCidrBlock_ipv6NetmaskLength :: Lens.Lens' AssociateVpcCidrBlock (Prelude.Maybe Prelude.Int)
 associateVpcCidrBlock_ipv6NetmaskLength = Lens.lens (\AssociateVpcCidrBlock' {ipv6NetmaskLength} -> ipv6NetmaskLength) (\s@AssociateVpcCidrBlock' {} a -> s {ipv6NetmaskLength = a} :: AssociateVpcCidrBlock)
 
--- | An IPv4 CIDR block to associate with the VPC.
-associateVpcCidrBlock_cidrBlock :: Lens.Lens' AssociateVpcCidrBlock (Prelude.Maybe Prelude.Text)
-associateVpcCidrBlock_cidrBlock = Lens.lens (\AssociateVpcCidrBlock' {cidrBlock} -> cidrBlock) (\s@AssociateVpcCidrBlock' {} a -> s {cidrBlock = a} :: AssociateVpcCidrBlock)
-
--- | An IPv6 CIDR block from the IPv6 address pool. You must also specify
--- @Ipv6Pool@ in the request.
---
--- To let Amazon choose the IPv6 CIDR block for you, omit this parameter.
-associateVpcCidrBlock_ipv6CidrBlock :: Lens.Lens' AssociateVpcCidrBlock (Prelude.Maybe Prelude.Text)
-associateVpcCidrBlock_ipv6CidrBlock = Lens.lens (\AssociateVpcCidrBlock' {ipv6CidrBlock} -> ipv6CidrBlock) (\s@AssociateVpcCidrBlock' {} a -> s {ipv6CidrBlock = a} :: AssociateVpcCidrBlock)
+-- | The ID of an IPv6 address pool from which to allocate the IPv6 CIDR
+-- block.
+associateVpcCidrBlock_ipv6Pool :: Lens.Lens' AssociateVpcCidrBlock (Prelude.Maybe Prelude.Text)
+associateVpcCidrBlock_ipv6Pool = Lens.lens (\AssociateVpcCidrBlock' {ipv6Pool} -> ipv6Pool) (\s@AssociateVpcCidrBlock' {} a -> s {ipv6Pool = a} :: AssociateVpcCidrBlock)
 
 -- | The ID of the VPC.
 associateVpcCidrBlock_vpcId :: Lens.Lens' AssociateVpcCidrBlock Prelude.Text
@@ -279,28 +279,28 @@ instance Core.AWSRequest AssociateVpcCidrBlock where
 instance Prelude.Hashable AssociateVpcCidrBlock where
   hashWithSalt _salt AssociateVpcCidrBlock' {..} =
     _salt
-      `Prelude.hashWithSalt` ipv6CidrBlockNetworkBorderGroup
-      `Prelude.hashWithSalt` ipv4IpamPoolId
-      `Prelude.hashWithSalt` ipv6Pool
-      `Prelude.hashWithSalt` ipv4NetmaskLength
-      `Prelude.hashWithSalt` ipv6IpamPoolId
       `Prelude.hashWithSalt` amazonProvidedIpv6CidrBlock
-      `Prelude.hashWithSalt` ipv6NetmaskLength
       `Prelude.hashWithSalt` cidrBlock
+      `Prelude.hashWithSalt` ipv4IpamPoolId
+      `Prelude.hashWithSalt` ipv4NetmaskLength
       `Prelude.hashWithSalt` ipv6CidrBlock
+      `Prelude.hashWithSalt` ipv6CidrBlockNetworkBorderGroup
+      `Prelude.hashWithSalt` ipv6IpamPoolId
+      `Prelude.hashWithSalt` ipv6NetmaskLength
+      `Prelude.hashWithSalt` ipv6Pool
       `Prelude.hashWithSalt` vpcId
 
 instance Prelude.NFData AssociateVpcCidrBlock where
   rnf AssociateVpcCidrBlock' {..} =
-    Prelude.rnf ipv6CidrBlockNetworkBorderGroup
-      `Prelude.seq` Prelude.rnf ipv4IpamPoolId
-      `Prelude.seq` Prelude.rnf ipv6Pool
-      `Prelude.seq` Prelude.rnf ipv4NetmaskLength
-      `Prelude.seq` Prelude.rnf ipv6IpamPoolId
-      `Prelude.seq` Prelude.rnf amazonProvidedIpv6CidrBlock
-      `Prelude.seq` Prelude.rnf ipv6NetmaskLength
+    Prelude.rnf amazonProvidedIpv6CidrBlock
       `Prelude.seq` Prelude.rnf cidrBlock
+      `Prelude.seq` Prelude.rnf ipv4IpamPoolId
+      `Prelude.seq` Prelude.rnf ipv4NetmaskLength
       `Prelude.seq` Prelude.rnf ipv6CidrBlock
+      `Prelude.seq` Prelude.rnf ipv6CidrBlockNetworkBorderGroup
+      `Prelude.seq` Prelude.rnf ipv6IpamPoolId
+      `Prelude.seq` Prelude.rnf ipv6NetmaskLength
+      `Prelude.seq` Prelude.rnf ipv6Pool
       `Prelude.seq` Prelude.rnf vpcId
 
 instance Data.ToHeaders AssociateVpcCidrBlock where
@@ -316,17 +316,17 @@ instance Data.ToQuery AssociateVpcCidrBlock where
           Data.=: ("AssociateVpcCidrBlock" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "Ipv6CidrBlockNetworkBorderGroup"
-          Data.=: ipv6CidrBlockNetworkBorderGroup,
-        "Ipv4IpamPoolId" Data.=: ipv4IpamPoolId,
-        "Ipv6Pool" Data.=: ipv6Pool,
-        "Ipv4NetmaskLength" Data.=: ipv4NetmaskLength,
-        "Ipv6IpamPoolId" Data.=: ipv6IpamPoolId,
         "AmazonProvidedIpv6CidrBlock"
           Data.=: amazonProvidedIpv6CidrBlock,
-        "Ipv6NetmaskLength" Data.=: ipv6NetmaskLength,
         "CidrBlock" Data.=: cidrBlock,
+        "Ipv4IpamPoolId" Data.=: ipv4IpamPoolId,
+        "Ipv4NetmaskLength" Data.=: ipv4NetmaskLength,
         "Ipv6CidrBlock" Data.=: ipv6CidrBlock,
+        "Ipv6CidrBlockNetworkBorderGroup"
+          Data.=: ipv6CidrBlockNetworkBorderGroup,
+        "Ipv6IpamPoolId" Data.=: ipv6IpamPoolId,
+        "Ipv6NetmaskLength" Data.=: ipv6NetmaskLength,
+        "Ipv6Pool" Data.=: ipv6Pool,
         "VpcId" Data.=: vpcId
       ]
 

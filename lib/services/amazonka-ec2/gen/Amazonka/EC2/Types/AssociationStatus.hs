@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAssociationStatus' smart constructor.
 data AssociationStatus = AssociationStatus'
-  { -- | A message about the status of the target network association, if
+  { -- | The state of the target network association.
+    code :: Prelude.Maybe AssociationStatusCode,
+    -- | A message about the status of the target network association, if
     -- applicable.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The state of the target network association.
-    code :: Prelude.Maybe AssociationStatusCode
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,38 +46,38 @@ data AssociationStatus = AssociationStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'code', 'associationStatus_code' - The state of the target network association.
+--
 -- 'message', 'associationStatus_message' - A message about the status of the target network association, if
 -- applicable.
---
--- 'code', 'associationStatus_code' - The state of the target network association.
 newAssociationStatus ::
   AssociationStatus
 newAssociationStatus =
   AssociationStatus'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      message = Prelude.Nothing
     }
+
+-- | The state of the target network association.
+associationStatus_code :: Lens.Lens' AssociationStatus (Prelude.Maybe AssociationStatusCode)
+associationStatus_code = Lens.lens (\AssociationStatus' {code} -> code) (\s@AssociationStatus' {} a -> s {code = a} :: AssociationStatus)
 
 -- | A message about the status of the target network association, if
 -- applicable.
 associationStatus_message :: Lens.Lens' AssociationStatus (Prelude.Maybe Prelude.Text)
 associationStatus_message = Lens.lens (\AssociationStatus' {message} -> message) (\s@AssociationStatus' {} a -> s {message = a} :: AssociationStatus)
 
--- | The state of the target network association.
-associationStatus_code :: Lens.Lens' AssociationStatus (Prelude.Maybe AssociationStatusCode)
-associationStatus_code = Lens.lens (\AssociationStatus' {code} -> code) (\s@AssociationStatus' {} a -> s {code = a} :: AssociationStatus)
-
 instance Data.FromXML AssociationStatus where
   parseXML x =
     AssociationStatus'
-      Prelude.<$> (x Data..@? "message")
-      Prelude.<*> (x Data..@? "code")
+      Prelude.<$> (x Data..@? "code")
+      Prelude.<*> (x Data..@? "message")
 
 instance Prelude.Hashable AssociationStatus where
   hashWithSalt _salt AssociationStatus' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` code
+    _salt `Prelude.hashWithSalt` code
+      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData AssociationStatus where
   rnf AssociationStatus' {..} =
-    Prelude.rnf message `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

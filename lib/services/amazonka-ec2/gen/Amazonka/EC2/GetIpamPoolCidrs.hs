@@ -29,10 +29,10 @@ module Amazonka.EC2.GetIpamPoolCidrs
     newGetIpamPoolCidrs,
 
     -- * Request Lenses
-    getIpamPoolCidrs_nextToken,
-    getIpamPoolCidrs_filters,
     getIpamPoolCidrs_dryRun,
+    getIpamPoolCidrs_filters,
     getIpamPoolCidrs_maxResults,
+    getIpamPoolCidrs_nextToken,
     getIpamPoolCidrs_ipamPoolId,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Amazonka.EC2.GetIpamPoolCidrs
     newGetIpamPoolCidrsResponse,
 
     -- * Response Lenses
-    getIpamPoolCidrsResponse_nextToken,
     getIpamPoolCidrsResponse_ipamPoolCidrs,
+    getIpamPoolCidrsResponse_nextToken,
     getIpamPoolCidrsResponse_httpStatus,
   )
 where
@@ -56,19 +56,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetIpamPoolCidrs' smart constructor.
 data GetIpamPoolCidrs = GetIpamPoolCidrs'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | One or more filters for the request. For more information about
-    -- filtering, see
-    -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Filtering CLI output>.
-    filters :: Prelude.Maybe [Filter],
-    -- | A check for whether you have the required permissions for the action
+  { -- | A check for whether you have the required permissions for the action
     -- without actually making the request and provides an error response. If
     -- you have the required permissions, the error response is
     -- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | One or more filters for the request. For more information about
+    -- filtering, see
+    -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Filtering CLI output>.
+    filters :: Prelude.Maybe [Filter],
     -- | The maximum number of results to return in the request.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the IPAM pool you want the CIDR for.
     ipamPoolId :: Prelude.Text
   }
@@ -82,18 +82,18 @@ data GetIpamPoolCidrs = GetIpamPoolCidrs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getIpamPoolCidrs_nextToken' - The token for the next page of results.
---
--- 'filters', 'getIpamPoolCidrs_filters' - One or more filters for the request. For more information about
--- filtering, see
--- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Filtering CLI output>.
---
 -- 'dryRun', 'getIpamPoolCidrs_dryRun' - A check for whether you have the required permissions for the action
 -- without actually making the request and provides an error response. If
 -- you have the required permissions, the error response is
 -- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
 --
+-- 'filters', 'getIpamPoolCidrs_filters' - One or more filters for the request. For more information about
+-- filtering, see
+-- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Filtering CLI output>.
+--
 -- 'maxResults', 'getIpamPoolCidrs_maxResults' - The maximum number of results to return in the request.
+--
+-- 'nextToken', 'getIpamPoolCidrs_nextToken' - The token for the next page of results.
 --
 -- 'ipamPoolId', 'getIpamPoolCidrs_ipamPoolId' - The ID of the IPAM pool you want the CIDR for.
 newGetIpamPoolCidrs ::
@@ -102,22 +102,12 @@ newGetIpamPoolCidrs ::
   GetIpamPoolCidrs
 newGetIpamPoolCidrs pIpamPoolId_ =
   GetIpamPoolCidrs'
-    { nextToken = Prelude.Nothing,
+    { dryRun = Prelude.Nothing,
       filters = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       ipamPoolId = pIpamPoolId_
     }
-
--- | The token for the next page of results.
-getIpamPoolCidrs_nextToken :: Lens.Lens' GetIpamPoolCidrs (Prelude.Maybe Prelude.Text)
-getIpamPoolCidrs_nextToken = Lens.lens (\GetIpamPoolCidrs' {nextToken} -> nextToken) (\s@GetIpamPoolCidrs' {} a -> s {nextToken = a} :: GetIpamPoolCidrs)
-
--- | One or more filters for the request. For more information about
--- filtering, see
--- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Filtering CLI output>.
-getIpamPoolCidrs_filters :: Lens.Lens' GetIpamPoolCidrs (Prelude.Maybe [Filter])
-getIpamPoolCidrs_filters = Lens.lens (\GetIpamPoolCidrs' {filters} -> filters) (\s@GetIpamPoolCidrs' {} a -> s {filters = a} :: GetIpamPoolCidrs) Prelude.. Lens.mapping Lens.coerced
 
 -- | A check for whether you have the required permissions for the action
 -- without actually making the request and provides an error response. If
@@ -126,9 +116,19 @@ getIpamPoolCidrs_filters = Lens.lens (\GetIpamPoolCidrs' {filters} -> filters) (
 getIpamPoolCidrs_dryRun :: Lens.Lens' GetIpamPoolCidrs (Prelude.Maybe Prelude.Bool)
 getIpamPoolCidrs_dryRun = Lens.lens (\GetIpamPoolCidrs' {dryRun} -> dryRun) (\s@GetIpamPoolCidrs' {} a -> s {dryRun = a} :: GetIpamPoolCidrs)
 
+-- | One or more filters for the request. For more information about
+-- filtering, see
+-- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Filtering CLI output>.
+getIpamPoolCidrs_filters :: Lens.Lens' GetIpamPoolCidrs (Prelude.Maybe [Filter])
+getIpamPoolCidrs_filters = Lens.lens (\GetIpamPoolCidrs' {filters} -> filters) (\s@GetIpamPoolCidrs' {} a -> s {filters = a} :: GetIpamPoolCidrs) Prelude.. Lens.mapping Lens.coerced
+
 -- | The maximum number of results to return in the request.
 getIpamPoolCidrs_maxResults :: Lens.Lens' GetIpamPoolCidrs (Prelude.Maybe Prelude.Natural)
 getIpamPoolCidrs_maxResults = Lens.lens (\GetIpamPoolCidrs' {maxResults} -> maxResults) (\s@GetIpamPoolCidrs' {} a -> s {maxResults = a} :: GetIpamPoolCidrs)
+
+-- | The token for the next page of results.
+getIpamPoolCidrs_nextToken :: Lens.Lens' GetIpamPoolCidrs (Prelude.Maybe Prelude.Text)
+getIpamPoolCidrs_nextToken = Lens.lens (\GetIpamPoolCidrs' {nextToken} -> nextToken) (\s@GetIpamPoolCidrs' {} a -> s {nextToken = a} :: GetIpamPoolCidrs)
 
 -- | The ID of the IPAM pool you want the CIDR for.
 getIpamPoolCidrs_ipamPoolId :: Lens.Lens' GetIpamPoolCidrs Prelude.Text
@@ -166,27 +166,27 @@ instance Core.AWSRequest GetIpamPoolCidrs where
     Response.receiveXML
       ( \s h x ->
           GetIpamPoolCidrsResponse'
-            Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "ipamPoolCidrSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "ipamPoolCidrSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
+            Prelude.<*> (x Data..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetIpamPoolCidrs where
   hashWithSalt _salt GetIpamPoolCidrs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` ipamPoolId
 
 instance Prelude.NFData GetIpamPoolCidrs where
   rnf GetIpamPoolCidrs' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf ipamPoolId
 
 instance Data.ToHeaders GetIpamPoolCidrs where
@@ -202,21 +202,21 @@ instance Data.ToQuery GetIpamPoolCidrs where
           Data.=: ("GetIpamPoolCidrs" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
         Data.toQuery
           (Data.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Data.=: dryRun,
         "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken,
         "IpamPoolId" Data.=: ipamPoolId
       ]
 
 -- | /See:/ 'newGetIpamPoolCidrsResponse' smart constructor.
 data GetIpamPoolCidrsResponse = GetIpamPoolCidrsResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
+  { -- | Information about the CIDRs provisioned to an IPAM pool.
+    ipamPoolCidrs :: Prelude.Maybe [IpamPoolCidr],
+    -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the CIDRs provisioned to an IPAM pool.
-    ipamPoolCidrs :: Prelude.Maybe [IpamPoolCidr],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -230,10 +230,10 @@ data GetIpamPoolCidrsResponse = GetIpamPoolCidrsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ipamPoolCidrs', 'getIpamPoolCidrsResponse_ipamPoolCidrs' - Information about the CIDRs provisioned to an IPAM pool.
+--
 -- 'nextToken', 'getIpamPoolCidrsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
---
--- 'ipamPoolCidrs', 'getIpamPoolCidrsResponse_ipamPoolCidrs' - Information about the CIDRs provisioned to an IPAM pool.
 --
 -- 'httpStatus', 'getIpamPoolCidrsResponse_httpStatus' - The response's http status code.
 newGetIpamPoolCidrsResponse ::
@@ -242,20 +242,20 @@ newGetIpamPoolCidrsResponse ::
   GetIpamPoolCidrsResponse
 newGetIpamPoolCidrsResponse pHttpStatus_ =
   GetIpamPoolCidrsResponse'
-    { nextToken =
+    { ipamPoolCidrs =
         Prelude.Nothing,
-      ipamPoolCidrs = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the CIDRs provisioned to an IPAM pool.
+getIpamPoolCidrsResponse_ipamPoolCidrs :: Lens.Lens' GetIpamPoolCidrsResponse (Prelude.Maybe [IpamPoolCidr])
+getIpamPoolCidrsResponse_ipamPoolCidrs = Lens.lens (\GetIpamPoolCidrsResponse' {ipamPoolCidrs} -> ipamPoolCidrs) (\s@GetIpamPoolCidrsResponse' {} a -> s {ipamPoolCidrs = a} :: GetIpamPoolCidrsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 getIpamPoolCidrsResponse_nextToken :: Lens.Lens' GetIpamPoolCidrsResponse (Prelude.Maybe Prelude.Text)
 getIpamPoolCidrsResponse_nextToken = Lens.lens (\GetIpamPoolCidrsResponse' {nextToken} -> nextToken) (\s@GetIpamPoolCidrsResponse' {} a -> s {nextToken = a} :: GetIpamPoolCidrsResponse)
-
--- | Information about the CIDRs provisioned to an IPAM pool.
-getIpamPoolCidrsResponse_ipamPoolCidrs :: Lens.Lens' GetIpamPoolCidrsResponse (Prelude.Maybe [IpamPoolCidr])
-getIpamPoolCidrsResponse_ipamPoolCidrs = Lens.lens (\GetIpamPoolCidrsResponse' {ipamPoolCidrs} -> ipamPoolCidrs) (\s@GetIpamPoolCidrsResponse' {} a -> s {ipamPoolCidrs = a} :: GetIpamPoolCidrsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getIpamPoolCidrsResponse_httpStatus :: Lens.Lens' GetIpamPoolCidrsResponse Prelude.Int
@@ -263,6 +263,6 @@ getIpamPoolCidrsResponse_httpStatus = Lens.lens (\GetIpamPoolCidrsResponse' {htt
 
 instance Prelude.NFData GetIpamPoolCidrsResponse where
   rnf GetIpamPoolCidrsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf ipamPoolCidrs
+    Prelude.rnf ipamPoolCidrs
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

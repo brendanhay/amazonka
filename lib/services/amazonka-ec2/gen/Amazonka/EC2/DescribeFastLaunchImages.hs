@@ -30,19 +30,19 @@ module Amazonka.EC2.DescribeFastLaunchImages
     newDescribeFastLaunchImages,
 
     -- * Request Lenses
-    describeFastLaunchImages_nextToken,
-    describeFastLaunchImages_imageIds,
-    describeFastLaunchImages_filters,
     describeFastLaunchImages_dryRun,
+    describeFastLaunchImages_filters,
+    describeFastLaunchImages_imageIds,
     describeFastLaunchImages_maxResults,
+    describeFastLaunchImages_nextToken,
 
     -- * Destructuring the Response
     DescribeFastLaunchImagesResponse (..),
     newDescribeFastLaunchImagesResponse,
 
     -- * Response Lenses
-    describeFastLaunchImagesResponse_nextToken,
     describeFastLaunchImagesResponse_fastLaunchImages,
+    describeFastLaunchImagesResponse_nextToken,
     describeFastLaunchImagesResponse_httpStatus,
   )
 where
@@ -57,10 +57,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeFastLaunchImages' smart constructor.
 data DescribeFastLaunchImages = DescribeFastLaunchImages'
-  { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Details for one or more Windows AMI image IDs.
-    imageIds :: Prelude.Maybe [Prelude.Text],
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | Use the following filters to streamline results.
     --
     -- -   @resource-type@ - The resource type for pre-provisioning.
@@ -72,16 +73,15 @@ data DescribeFastLaunchImages = DescribeFastLaunchImages'
     --
     -- -   @state@ - The current state of fast launching for the Windows AMI.
     filters :: Prelude.Maybe [Filter],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | Details for one or more Windows AMI image IDs.
+    imageIds :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to return in a single call. To retrieve
     -- the remaining results, make another request with the returned NextToken
     -- value. If this parameter is not specified, then all results are
     -- returned.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,9 +93,10 @@ data DescribeFastLaunchImages = DescribeFastLaunchImages'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeFastLaunchImages_nextToken' - The token for the next set of results.
---
--- 'imageIds', 'describeFastLaunchImages_imageIds' - Details for one or more Windows AMI image IDs.
+-- 'dryRun', 'describeFastLaunchImages_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeFastLaunchImages_filters' - Use the following filters to streamline results.
 --
@@ -108,34 +109,31 @@ data DescribeFastLaunchImages = DescribeFastLaunchImages'
 --
 -- -   @state@ - The current state of fast launching for the Windows AMI.
 --
--- 'dryRun', 'describeFastLaunchImages_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- 'imageIds', 'describeFastLaunchImages_imageIds' - Details for one or more Windows AMI image IDs.
 --
 -- 'maxResults', 'describeFastLaunchImages_maxResults' - The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another request with the returned NextToken
 -- value. If this parameter is not specified, then all results are
 -- returned.
+--
+-- 'nextToken', 'describeFastLaunchImages_nextToken' - The token for the next set of results.
 newDescribeFastLaunchImages ::
   DescribeFastLaunchImages
 newDescribeFastLaunchImages =
   DescribeFastLaunchImages'
-    { nextToken =
-        Prelude.Nothing,
-      imageIds = Prelude.Nothing,
+    { dryRun = Prelude.Nothing,
       filters = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      imageIds = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
 
--- | The token for the next set of results.
-describeFastLaunchImages_nextToken :: Lens.Lens' DescribeFastLaunchImages (Prelude.Maybe Prelude.Text)
-describeFastLaunchImages_nextToken = Lens.lens (\DescribeFastLaunchImages' {nextToken} -> nextToken) (\s@DescribeFastLaunchImages' {} a -> s {nextToken = a} :: DescribeFastLaunchImages)
-
--- | Details for one or more Windows AMI image IDs.
-describeFastLaunchImages_imageIds :: Lens.Lens' DescribeFastLaunchImages (Prelude.Maybe [Prelude.Text])
-describeFastLaunchImages_imageIds = Lens.lens (\DescribeFastLaunchImages' {imageIds} -> imageIds) (\s@DescribeFastLaunchImages' {} a -> s {imageIds = a} :: DescribeFastLaunchImages) Prelude.. Lens.mapping Lens.coerced
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeFastLaunchImages_dryRun :: Lens.Lens' DescribeFastLaunchImages (Prelude.Maybe Prelude.Bool)
+describeFastLaunchImages_dryRun = Lens.lens (\DescribeFastLaunchImages' {dryRun} -> dryRun) (\s@DescribeFastLaunchImages' {} a -> s {dryRun = a} :: DescribeFastLaunchImages)
 
 -- | Use the following filters to streamline results.
 --
@@ -150,12 +148,9 @@ describeFastLaunchImages_imageIds = Lens.lens (\DescribeFastLaunchImages' {image
 describeFastLaunchImages_filters :: Lens.Lens' DescribeFastLaunchImages (Prelude.Maybe [Filter])
 describeFastLaunchImages_filters = Lens.lens (\DescribeFastLaunchImages' {filters} -> filters) (\s@DescribeFastLaunchImages' {} a -> s {filters = a} :: DescribeFastLaunchImages) Prelude.. Lens.mapping Lens.coerced
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeFastLaunchImages_dryRun :: Lens.Lens' DescribeFastLaunchImages (Prelude.Maybe Prelude.Bool)
-describeFastLaunchImages_dryRun = Lens.lens (\DescribeFastLaunchImages' {dryRun} -> dryRun) (\s@DescribeFastLaunchImages' {} a -> s {dryRun = a} :: DescribeFastLaunchImages)
+-- | Details for one or more Windows AMI image IDs.
+describeFastLaunchImages_imageIds :: Lens.Lens' DescribeFastLaunchImages (Prelude.Maybe [Prelude.Text])
+describeFastLaunchImages_imageIds = Lens.lens (\DescribeFastLaunchImages' {imageIds} -> imageIds) (\s@DescribeFastLaunchImages' {} a -> s {imageIds = a} :: DescribeFastLaunchImages) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another request with the returned NextToken
@@ -163,6 +158,10 @@ describeFastLaunchImages_dryRun = Lens.lens (\DescribeFastLaunchImages' {dryRun}
 -- returned.
 describeFastLaunchImages_maxResults :: Lens.Lens' DescribeFastLaunchImages (Prelude.Maybe Prelude.Natural)
 describeFastLaunchImages_maxResults = Lens.lens (\DescribeFastLaunchImages' {maxResults} -> maxResults) (\s@DescribeFastLaunchImages' {} a -> s {maxResults = a} :: DescribeFastLaunchImages)
+
+-- | The token for the next set of results.
+describeFastLaunchImages_nextToken :: Lens.Lens' DescribeFastLaunchImages (Prelude.Maybe Prelude.Text)
+describeFastLaunchImages_nextToken = Lens.lens (\DescribeFastLaunchImages' {nextToken} -> nextToken) (\s@DescribeFastLaunchImages' {} a -> s {nextToken = a} :: DescribeFastLaunchImages)
 
 instance Core.AWSPager DescribeFastLaunchImages where
   page rq rs
@@ -196,29 +195,29 @@ instance Core.AWSRequest DescribeFastLaunchImages where
     Response.receiveXML
       ( \s h x ->
           DescribeFastLaunchImagesResponse'
-            Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "fastLaunchImageSet"
+            Prelude.<$> ( x Data..@? "fastLaunchImageSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
+            Prelude.<*> (x Data..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeFastLaunchImages where
   hashWithSalt _salt DescribeFastLaunchImages' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` imageIds
+    _salt `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` imageIds
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeFastLaunchImages where
   rnf DescribeFastLaunchImages' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf imageIds
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf imageIds
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeFastLaunchImages where
   toHeaders = Prelude.const Prelude.mempty
@@ -233,23 +232,23 @@ instance Data.ToQuery DescribeFastLaunchImages where
           Data.=: ("DescribeFastLaunchImages" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
-        Data.toQuery
-          (Data.toQueryList "ImageId" Prelude.<$> imageIds),
+        "DryRun" Data.=: dryRun,
         Data.toQuery
           (Data.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Data.=: dryRun,
-        "MaxResults" Data.=: maxResults
+        Data.toQuery
+          (Data.toQueryList "ImageId" Prelude.<$> imageIds),
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newDescribeFastLaunchImagesResponse' smart constructor.
 data DescribeFastLaunchImagesResponse = DescribeFastLaunchImagesResponse'
-  { -- | The token to use for the next set of results. This value is null when
-    -- there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A collection of details about the fast-launch enabled Windows images
+  { -- | A collection of details about the fast-launch enabled Windows images
     -- that meet the requested criteria.
     fastLaunchImages :: Prelude.Maybe [DescribeFastLaunchImagesSuccessItem],
+    -- | The token to use for the next set of results. This value is null when
+    -- there are no more results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -263,11 +262,11 @@ data DescribeFastLaunchImagesResponse = DescribeFastLaunchImagesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeFastLaunchImagesResponse_nextToken' - The token to use for the next set of results. This value is null when
--- there are no more results to return.
---
 -- 'fastLaunchImages', 'describeFastLaunchImagesResponse_fastLaunchImages' - A collection of details about the fast-launch enabled Windows images
 -- that meet the requested criteria.
+--
+-- 'nextToken', 'describeFastLaunchImagesResponse_nextToken' - The token to use for the next set of results. This value is null when
+-- there are no more results to return.
 --
 -- 'httpStatus', 'describeFastLaunchImagesResponse_httpStatus' - The response's http status code.
 newDescribeFastLaunchImagesResponse ::
@@ -276,21 +275,21 @@ newDescribeFastLaunchImagesResponse ::
   DescribeFastLaunchImagesResponse
 newDescribeFastLaunchImagesResponse pHttpStatus_ =
   DescribeFastLaunchImagesResponse'
-    { nextToken =
+    { fastLaunchImages =
         Prelude.Nothing,
-      fastLaunchImages = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token to use for the next set of results. This value is null when
--- there are no more results to return.
-describeFastLaunchImagesResponse_nextToken :: Lens.Lens' DescribeFastLaunchImagesResponse (Prelude.Maybe Prelude.Text)
-describeFastLaunchImagesResponse_nextToken = Lens.lens (\DescribeFastLaunchImagesResponse' {nextToken} -> nextToken) (\s@DescribeFastLaunchImagesResponse' {} a -> s {nextToken = a} :: DescribeFastLaunchImagesResponse)
 
 -- | A collection of details about the fast-launch enabled Windows images
 -- that meet the requested criteria.
 describeFastLaunchImagesResponse_fastLaunchImages :: Lens.Lens' DescribeFastLaunchImagesResponse (Prelude.Maybe [DescribeFastLaunchImagesSuccessItem])
 describeFastLaunchImagesResponse_fastLaunchImages = Lens.lens (\DescribeFastLaunchImagesResponse' {fastLaunchImages} -> fastLaunchImages) (\s@DescribeFastLaunchImagesResponse' {} a -> s {fastLaunchImages = a} :: DescribeFastLaunchImagesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to use for the next set of results. This value is null when
+-- there are no more results to return.
+describeFastLaunchImagesResponse_nextToken :: Lens.Lens' DescribeFastLaunchImagesResponse (Prelude.Maybe Prelude.Text)
+describeFastLaunchImagesResponse_nextToken = Lens.lens (\DescribeFastLaunchImagesResponse' {nextToken} -> nextToken) (\s@DescribeFastLaunchImagesResponse' {} a -> s {nextToken = a} :: DescribeFastLaunchImagesResponse)
 
 -- | The response's http status code.
 describeFastLaunchImagesResponse_httpStatus :: Lens.Lens' DescribeFastLaunchImagesResponse Prelude.Int
@@ -301,6 +300,6 @@ instance
     DescribeFastLaunchImagesResponse
   where
   rnf DescribeFastLaunchImagesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf fastLaunchImages
+    Prelude.rnf fastLaunchImages
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

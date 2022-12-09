@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCloudWatchLogOptionsSpecification' smart constructor.
 data CloudWatchLogOptionsSpecification = CloudWatchLogOptionsSpecification'
-  { -- | The Amazon Resource Name (ARN) of the CloudWatch log group to send logs
-    -- to.
-    logGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | Enable or disable VPN tunnel logging feature. Default value is @False@.
+  { -- | Enable or disable VPN tunnel logging feature. Default value is @False@.
     --
     -- Valid values: @True@ | @False@
     logEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Resource Name (ARN) of the CloudWatch log group to send logs
+    -- to.
+    logGroupArn :: Prelude.Maybe Prelude.Text,
     -- | Set log format. Default format is @json@.
     --
     -- Valid values: @json@ | @text@
@@ -51,12 +51,12 @@ data CloudWatchLogOptionsSpecification = CloudWatchLogOptionsSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'logGroupArn', 'cloudWatchLogOptionsSpecification_logGroupArn' - The Amazon Resource Name (ARN) of the CloudWatch log group to send logs
--- to.
---
 -- 'logEnabled', 'cloudWatchLogOptionsSpecification_logEnabled' - Enable or disable VPN tunnel logging feature. Default value is @False@.
 --
 -- Valid values: @True@ | @False@
+--
+-- 'logGroupArn', 'cloudWatchLogOptionsSpecification_logGroupArn' - The Amazon Resource Name (ARN) of the CloudWatch log group to send logs
+-- to.
 --
 -- 'logOutputFormat', 'cloudWatchLogOptionsSpecification_logOutputFormat' - Set log format. Default format is @json@.
 --
@@ -65,22 +65,22 @@ newCloudWatchLogOptionsSpecification ::
   CloudWatchLogOptionsSpecification
 newCloudWatchLogOptionsSpecification =
   CloudWatchLogOptionsSpecification'
-    { logGroupArn =
+    { logEnabled =
         Prelude.Nothing,
-      logEnabled = Prelude.Nothing,
+      logGroupArn = Prelude.Nothing,
       logOutputFormat = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the CloudWatch log group to send logs
--- to.
-cloudWatchLogOptionsSpecification_logGroupArn :: Lens.Lens' CloudWatchLogOptionsSpecification (Prelude.Maybe Prelude.Text)
-cloudWatchLogOptionsSpecification_logGroupArn = Lens.lens (\CloudWatchLogOptionsSpecification' {logGroupArn} -> logGroupArn) (\s@CloudWatchLogOptionsSpecification' {} a -> s {logGroupArn = a} :: CloudWatchLogOptionsSpecification)
 
 -- | Enable or disable VPN tunnel logging feature. Default value is @False@.
 --
 -- Valid values: @True@ | @False@
 cloudWatchLogOptionsSpecification_logEnabled :: Lens.Lens' CloudWatchLogOptionsSpecification (Prelude.Maybe Prelude.Bool)
 cloudWatchLogOptionsSpecification_logEnabled = Lens.lens (\CloudWatchLogOptionsSpecification' {logEnabled} -> logEnabled) (\s@CloudWatchLogOptionsSpecification' {} a -> s {logEnabled = a} :: CloudWatchLogOptionsSpecification)
+
+-- | The Amazon Resource Name (ARN) of the CloudWatch log group to send logs
+-- to.
+cloudWatchLogOptionsSpecification_logGroupArn :: Lens.Lens' CloudWatchLogOptionsSpecification (Prelude.Maybe Prelude.Text)
+cloudWatchLogOptionsSpecification_logGroupArn = Lens.lens (\CloudWatchLogOptionsSpecification' {logGroupArn} -> logGroupArn) (\s@CloudWatchLogOptionsSpecification' {} a -> s {logGroupArn = a} :: CloudWatchLogOptionsSpecification)
 
 -- | Set log format. Default format is @json@.
 --
@@ -95,8 +95,8 @@ instance
   hashWithSalt
     _salt
     CloudWatchLogOptionsSpecification' {..} =
-      _salt `Prelude.hashWithSalt` logGroupArn
-        `Prelude.hashWithSalt` logEnabled
+      _salt `Prelude.hashWithSalt` logEnabled
+        `Prelude.hashWithSalt` logGroupArn
         `Prelude.hashWithSalt` logOutputFormat
 
 instance
@@ -104,8 +104,8 @@ instance
     CloudWatchLogOptionsSpecification
   where
   rnf CloudWatchLogOptionsSpecification' {..} =
-    Prelude.rnf logGroupArn
-      `Prelude.seq` Prelude.rnf logEnabled
+    Prelude.rnf logEnabled
+      `Prelude.seq` Prelude.rnf logGroupArn
       `Prelude.seq` Prelude.rnf logOutputFormat
 
 instance
@@ -114,7 +114,7 @@ instance
   where
   toQuery CloudWatchLogOptionsSpecification' {..} =
     Prelude.mconcat
-      [ "LogGroupArn" Data.=: logGroupArn,
-        "LogEnabled" Data.=: logEnabled,
+      [ "LogEnabled" Data.=: logEnabled,
+        "LogGroupArn" Data.=: logGroupArn,
         "LogOutputFormat" Data.=: logOutputFormat
       ]

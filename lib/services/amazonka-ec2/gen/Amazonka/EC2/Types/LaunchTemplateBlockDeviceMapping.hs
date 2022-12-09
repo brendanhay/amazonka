@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLaunchTemplateBlockDeviceMapping' smart constructor.
 data LaunchTemplateBlockDeviceMapping = LaunchTemplateBlockDeviceMapping'
-  { -- | Information about the block device for an EBS volume.
-    ebs :: Prelude.Maybe LaunchTemplateEbsBlockDevice,
-    -- | The device name.
+  { -- | The device name.
     deviceName :: Prelude.Maybe Prelude.Text,
+    -- | Information about the block device for an EBS volume.
+    ebs :: Prelude.Maybe LaunchTemplateEbsBlockDevice,
     -- | To omit the device from the block device mapping, specify an empty
     -- string.
     noDevice :: Prelude.Maybe Prelude.Text,
@@ -50,9 +50,9 @@ data LaunchTemplateBlockDeviceMapping = LaunchTemplateBlockDeviceMapping'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ebs', 'launchTemplateBlockDeviceMapping_ebs' - Information about the block device for an EBS volume.
---
 -- 'deviceName', 'launchTemplateBlockDeviceMapping_deviceName' - The device name.
+--
+-- 'ebs', 'launchTemplateBlockDeviceMapping_ebs' - Information about the block device for an EBS volume.
 --
 -- 'noDevice', 'launchTemplateBlockDeviceMapping_noDevice' - To omit the device from the block device mapping, specify an empty
 -- string.
@@ -62,20 +62,20 @@ newLaunchTemplateBlockDeviceMapping ::
   LaunchTemplateBlockDeviceMapping
 newLaunchTemplateBlockDeviceMapping =
   LaunchTemplateBlockDeviceMapping'
-    { ebs =
+    { deviceName =
         Prelude.Nothing,
-      deviceName = Prelude.Nothing,
+      ebs = Prelude.Nothing,
       noDevice = Prelude.Nothing,
       virtualName = Prelude.Nothing
     }
 
--- | Information about the block device for an EBS volume.
-launchTemplateBlockDeviceMapping_ebs :: Lens.Lens' LaunchTemplateBlockDeviceMapping (Prelude.Maybe LaunchTemplateEbsBlockDevice)
-launchTemplateBlockDeviceMapping_ebs = Lens.lens (\LaunchTemplateBlockDeviceMapping' {ebs} -> ebs) (\s@LaunchTemplateBlockDeviceMapping' {} a -> s {ebs = a} :: LaunchTemplateBlockDeviceMapping)
-
 -- | The device name.
 launchTemplateBlockDeviceMapping_deviceName :: Lens.Lens' LaunchTemplateBlockDeviceMapping (Prelude.Maybe Prelude.Text)
 launchTemplateBlockDeviceMapping_deviceName = Lens.lens (\LaunchTemplateBlockDeviceMapping' {deviceName} -> deviceName) (\s@LaunchTemplateBlockDeviceMapping' {} a -> s {deviceName = a} :: LaunchTemplateBlockDeviceMapping)
+
+-- | Information about the block device for an EBS volume.
+launchTemplateBlockDeviceMapping_ebs :: Lens.Lens' LaunchTemplateBlockDeviceMapping (Prelude.Maybe LaunchTemplateEbsBlockDevice)
+launchTemplateBlockDeviceMapping_ebs = Lens.lens (\LaunchTemplateBlockDeviceMapping' {ebs} -> ebs) (\s@LaunchTemplateBlockDeviceMapping' {} a -> s {ebs = a} :: LaunchTemplateBlockDeviceMapping)
 
 -- | To omit the device from the block device mapping, specify an empty
 -- string.
@@ -92,8 +92,8 @@ instance
   where
   parseXML x =
     LaunchTemplateBlockDeviceMapping'
-      Prelude.<$> (x Data..@? "ebs")
-      Prelude.<*> (x Data..@? "deviceName")
+      Prelude.<$> (x Data..@? "deviceName")
+      Prelude.<*> (x Data..@? "ebs")
       Prelude.<*> (x Data..@? "noDevice")
       Prelude.<*> (x Data..@? "virtualName")
 
@@ -104,8 +104,8 @@ instance
   hashWithSalt
     _salt
     LaunchTemplateBlockDeviceMapping' {..} =
-      _salt `Prelude.hashWithSalt` ebs
-        `Prelude.hashWithSalt` deviceName
+      _salt `Prelude.hashWithSalt` deviceName
+        `Prelude.hashWithSalt` ebs
         `Prelude.hashWithSalt` noDevice
         `Prelude.hashWithSalt` virtualName
 
@@ -114,7 +114,7 @@ instance
     LaunchTemplateBlockDeviceMapping
   where
   rnf LaunchTemplateBlockDeviceMapping' {..} =
-    Prelude.rnf ebs
-      `Prelude.seq` Prelude.rnf deviceName
+    Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf ebs
       `Prelude.seq` Prelude.rnf noDevice
       `Prelude.seq` Prelude.rnf virtualName

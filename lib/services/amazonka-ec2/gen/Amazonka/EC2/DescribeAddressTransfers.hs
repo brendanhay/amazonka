@@ -32,17 +32,17 @@ module Amazonka.EC2.DescribeAddressTransfers
 
     -- * Request Lenses
     describeAddressTransfers_allocationIds,
-    describeAddressTransfers_nextToken,
     describeAddressTransfers_dryRun,
     describeAddressTransfers_maxResults,
+    describeAddressTransfers_nextToken,
 
     -- * Destructuring the Response
     DescribeAddressTransfersResponse (..),
     newDescribeAddressTransfersResponse,
 
     -- * Response Lenses
-    describeAddressTransfersResponse_nextToken,
     describeAddressTransfersResponse_addressTransfers,
+    describeAddressTransfersResponse_nextToken,
     describeAddressTransfersResponse_httpStatus,
   )
 where
@@ -59,9 +59,6 @@ import qualified Amazonka.Response as Response
 data DescribeAddressTransfers = DescribeAddressTransfers'
   { -- | The allocation IDs of Elastic IP addresses.
     allocationIds :: Prelude.Maybe [Prelude.Text],
-    -- | Specify the pagination token from a previous request to retrieve the
-    -- next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -69,7 +66,10 @@ data DescribeAddressTransfers = DescribeAddressTransfers'
     dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of address transfers to return in one page of
     -- results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Specify the pagination token from a previous request to retrieve the
+    -- next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,9 +83,6 @@ data DescribeAddressTransfers = DescribeAddressTransfers'
 --
 -- 'allocationIds', 'describeAddressTransfers_allocationIds' - The allocation IDs of Elastic IP addresses.
 --
--- 'nextToken', 'describeAddressTransfers_nextToken' - Specify the pagination token from a previous request to retrieve the
--- next page of results.
---
 -- 'dryRun', 'describeAddressTransfers_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -93,25 +90,23 @@ data DescribeAddressTransfers = DescribeAddressTransfers'
 --
 -- 'maxResults', 'describeAddressTransfers_maxResults' - The maximum number of address transfers to return in one page of
 -- results.
+--
+-- 'nextToken', 'describeAddressTransfers_nextToken' - Specify the pagination token from a previous request to retrieve the
+-- next page of results.
 newDescribeAddressTransfers ::
   DescribeAddressTransfers
 newDescribeAddressTransfers =
   DescribeAddressTransfers'
     { allocationIds =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
 
 -- | The allocation IDs of Elastic IP addresses.
 describeAddressTransfers_allocationIds :: Lens.Lens' DescribeAddressTransfers (Prelude.Maybe [Prelude.Text])
 describeAddressTransfers_allocationIds = Lens.lens (\DescribeAddressTransfers' {allocationIds} -> allocationIds) (\s@DescribeAddressTransfers' {} a -> s {allocationIds = a} :: DescribeAddressTransfers) Prelude.. Lens.mapping Lens.coerced
-
--- | Specify the pagination token from a previous request to retrieve the
--- next page of results.
-describeAddressTransfers_nextToken :: Lens.Lens' DescribeAddressTransfers (Prelude.Maybe Prelude.Text)
-describeAddressTransfers_nextToken = Lens.lens (\DescribeAddressTransfers' {nextToken} -> nextToken) (\s@DescribeAddressTransfers' {} a -> s {nextToken = a} :: DescribeAddressTransfers)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -124,6 +119,11 @@ describeAddressTransfers_dryRun = Lens.lens (\DescribeAddressTransfers' {dryRun}
 -- results.
 describeAddressTransfers_maxResults :: Lens.Lens' DescribeAddressTransfers (Prelude.Maybe Prelude.Natural)
 describeAddressTransfers_maxResults = Lens.lens (\DescribeAddressTransfers' {maxResults} -> maxResults) (\s@DescribeAddressTransfers' {} a -> s {maxResults = a} :: DescribeAddressTransfers)
+
+-- | Specify the pagination token from a previous request to retrieve the
+-- next page of results.
+describeAddressTransfers_nextToken :: Lens.Lens' DescribeAddressTransfers (Prelude.Maybe Prelude.Text)
+describeAddressTransfers_nextToken = Lens.lens (\DescribeAddressTransfers' {nextToken} -> nextToken) (\s@DescribeAddressTransfers' {} a -> s {nextToken = a} :: DescribeAddressTransfers)
 
 instance Core.AWSPager DescribeAddressTransfers where
   page rq rs
@@ -157,27 +157,27 @@ instance Core.AWSRequest DescribeAddressTransfers where
     Response.receiveXML
       ( \s h x ->
           DescribeAddressTransfersResponse'
-            Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "addressTransferSet"
+            Prelude.<$> ( x Data..@? "addressTransferSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
+            Prelude.<*> (x Data..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeAddressTransfers where
   hashWithSalt _salt DescribeAddressTransfers' {..} =
     _salt `Prelude.hashWithSalt` allocationIds
-      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeAddressTransfers where
   rnf DescribeAddressTransfers' {..} =
     Prelude.rnf allocationIds
-      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeAddressTransfers where
   toHeaders = Prelude.const Prelude.mempty
@@ -196,18 +196,18 @@ instance Data.ToQuery DescribeAddressTransfers where
           ( Data.toQueryList "AllocationId"
               Prelude.<$> allocationIds
           ),
-        "NextToken" Data.=: nextToken,
         "DryRun" Data.=: dryRun,
-        "MaxResults" Data.=: maxResults
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newDescribeAddressTransfersResponse' smart constructor.
 data DescribeAddressTransfersResponse = DescribeAddressTransfersResponse'
-  { -- | Specify the pagination token from a previous request to retrieve the
+  { -- | The Elastic IP address transfer.
+    addressTransfers :: Prelude.Maybe [AddressTransfer],
+    -- | Specify the pagination token from a previous request to retrieve the
     -- next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The Elastic IP address transfer.
-    addressTransfers :: Prelude.Maybe [AddressTransfer],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -221,10 +221,10 @@ data DescribeAddressTransfersResponse = DescribeAddressTransfersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'addressTransfers', 'describeAddressTransfersResponse_addressTransfers' - The Elastic IP address transfer.
+--
 -- 'nextToken', 'describeAddressTransfersResponse_nextToken' - Specify the pagination token from a previous request to retrieve the
 -- next page of results.
---
--- 'addressTransfers', 'describeAddressTransfersResponse_addressTransfers' - The Elastic IP address transfer.
 --
 -- 'httpStatus', 'describeAddressTransfersResponse_httpStatus' - The response's http status code.
 newDescribeAddressTransfersResponse ::
@@ -233,20 +233,20 @@ newDescribeAddressTransfersResponse ::
   DescribeAddressTransfersResponse
 newDescribeAddressTransfersResponse pHttpStatus_ =
   DescribeAddressTransfersResponse'
-    { nextToken =
+    { addressTransfers =
         Prelude.Nothing,
-      addressTransfers = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Elastic IP address transfer.
+describeAddressTransfersResponse_addressTransfers :: Lens.Lens' DescribeAddressTransfersResponse (Prelude.Maybe [AddressTransfer])
+describeAddressTransfersResponse_addressTransfers = Lens.lens (\DescribeAddressTransfersResponse' {addressTransfers} -> addressTransfers) (\s@DescribeAddressTransfersResponse' {} a -> s {addressTransfers = a} :: DescribeAddressTransfersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specify the pagination token from a previous request to retrieve the
 -- next page of results.
 describeAddressTransfersResponse_nextToken :: Lens.Lens' DescribeAddressTransfersResponse (Prelude.Maybe Prelude.Text)
 describeAddressTransfersResponse_nextToken = Lens.lens (\DescribeAddressTransfersResponse' {nextToken} -> nextToken) (\s@DescribeAddressTransfersResponse' {} a -> s {nextToken = a} :: DescribeAddressTransfersResponse)
-
--- | The Elastic IP address transfer.
-describeAddressTransfersResponse_addressTransfers :: Lens.Lens' DescribeAddressTransfersResponse (Prelude.Maybe [AddressTransfer])
-describeAddressTransfersResponse_addressTransfers = Lens.lens (\DescribeAddressTransfersResponse' {addressTransfers} -> addressTransfers) (\s@DescribeAddressTransfersResponse' {} a -> s {addressTransfers = a} :: DescribeAddressTransfersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeAddressTransfersResponse_httpStatus :: Lens.Lens' DescribeAddressTransfersResponse Prelude.Int
@@ -257,6 +257,6 @@ instance
     DescribeAddressTransfersResponse
   where
   rnf DescribeAddressTransfersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf addressTransfers
+    Prelude.rnf addressTransfers
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

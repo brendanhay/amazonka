@@ -29,10 +29,10 @@ module Amazonka.EC2.ListSnapshotsInRecycleBin
     newListSnapshotsInRecycleBin,
 
     -- * Request Lenses
-    listSnapshotsInRecycleBin_nextToken,
-    listSnapshotsInRecycleBin_snapshotIds,
     listSnapshotsInRecycleBin_dryRun,
     listSnapshotsInRecycleBin_maxResults,
+    listSnapshotsInRecycleBin_nextToken,
+    listSnapshotsInRecycleBin_snapshotIds,
 
     -- * Destructuring the Response
     ListSnapshotsInRecycleBinResponse (..),
@@ -55,12 +55,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSnapshotsInRecycleBin' smart constructor.
 data ListSnapshotsInRecycleBin = ListSnapshotsInRecycleBin'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The IDs of the snapshots to list. Omit this parameter to list all of the
-    -- snapshots that are in the Recycle Bin.
-    snapshotIds :: Prelude.Maybe [Prelude.Text],
-    -- | Checks whether you have the required permissions for the action, without
+  { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
@@ -68,7 +63,12 @@ data ListSnapshotsInRecycleBin = ListSnapshotsInRecycleBin'
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The IDs of the snapshots to list. Omit this parameter to list all of the
+    -- snapshots that are in the Recycle Bin.
+    snapshotIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,11 +80,6 @@ data ListSnapshotsInRecycleBin = ListSnapshotsInRecycleBin'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSnapshotsInRecycleBin_nextToken' - The token for the next page of results.
---
--- 'snapshotIds', 'listSnapshotsInRecycleBin_snapshotIds' - The IDs of the snapshots to list. Omit this parameter to list all of the
--- snapshots that are in the Recycle Bin.
---
 -- 'dryRun', 'listSnapshotsInRecycleBin_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -93,25 +88,21 @@ data ListSnapshotsInRecycleBin = ListSnapshotsInRecycleBin'
 -- 'maxResults', 'listSnapshotsInRecycleBin_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
+--
+-- 'nextToken', 'listSnapshotsInRecycleBin_nextToken' - The token for the next page of results.
+--
+-- 'snapshotIds', 'listSnapshotsInRecycleBin_snapshotIds' - The IDs of the snapshots to list. Omit this parameter to list all of the
+-- snapshots that are in the Recycle Bin.
 newListSnapshotsInRecycleBin ::
   ListSnapshotsInRecycleBin
 newListSnapshotsInRecycleBin =
   ListSnapshotsInRecycleBin'
-    { nextToken =
+    { dryRun =
         Prelude.Nothing,
-      snapshotIds = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      snapshotIds = Prelude.Nothing
     }
-
--- | The token for the next page of results.
-listSnapshotsInRecycleBin_nextToken :: Lens.Lens' ListSnapshotsInRecycleBin (Prelude.Maybe Prelude.Text)
-listSnapshotsInRecycleBin_nextToken = Lens.lens (\ListSnapshotsInRecycleBin' {nextToken} -> nextToken) (\s@ListSnapshotsInRecycleBin' {} a -> s {nextToken = a} :: ListSnapshotsInRecycleBin)
-
--- | The IDs of the snapshots to list. Omit this parameter to list all of the
--- snapshots that are in the Recycle Bin.
-listSnapshotsInRecycleBin_snapshotIds :: Lens.Lens' ListSnapshotsInRecycleBin (Prelude.Maybe [Prelude.Text])
-listSnapshotsInRecycleBin_snapshotIds = Lens.lens (\ListSnapshotsInRecycleBin' {snapshotIds} -> snapshotIds) (\s@ListSnapshotsInRecycleBin' {} a -> s {snapshotIds = a} :: ListSnapshotsInRecycleBin) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -125,6 +116,15 @@ listSnapshotsInRecycleBin_dryRun = Lens.lens (\ListSnapshotsInRecycleBin' {dryRu
 -- value.
 listSnapshotsInRecycleBin_maxResults :: Lens.Lens' ListSnapshotsInRecycleBin (Prelude.Maybe Prelude.Natural)
 listSnapshotsInRecycleBin_maxResults = Lens.lens (\ListSnapshotsInRecycleBin' {maxResults} -> maxResults) (\s@ListSnapshotsInRecycleBin' {} a -> s {maxResults = a} :: ListSnapshotsInRecycleBin)
+
+-- | The token for the next page of results.
+listSnapshotsInRecycleBin_nextToken :: Lens.Lens' ListSnapshotsInRecycleBin (Prelude.Maybe Prelude.Text)
+listSnapshotsInRecycleBin_nextToken = Lens.lens (\ListSnapshotsInRecycleBin' {nextToken} -> nextToken) (\s@ListSnapshotsInRecycleBin' {} a -> s {nextToken = a} :: ListSnapshotsInRecycleBin)
+
+-- | The IDs of the snapshots to list. Omit this parameter to list all of the
+-- snapshots that are in the Recycle Bin.
+listSnapshotsInRecycleBin_snapshotIds :: Lens.Lens' ListSnapshotsInRecycleBin (Prelude.Maybe [Prelude.Text])
+listSnapshotsInRecycleBin_snapshotIds = Lens.lens (\ListSnapshotsInRecycleBin' {snapshotIds} -> snapshotIds) (\s@ListSnapshotsInRecycleBin' {} a -> s {snapshotIds = a} :: ListSnapshotsInRecycleBin) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager ListSnapshotsInRecycleBin where
   page rq rs
@@ -167,17 +167,17 @@ instance Core.AWSRequest ListSnapshotsInRecycleBin where
 
 instance Prelude.Hashable ListSnapshotsInRecycleBin where
   hashWithSalt _salt ListSnapshotsInRecycleBin' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` snapshotIds
-      `Prelude.hashWithSalt` dryRun
+    _salt `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` snapshotIds
 
 instance Prelude.NFData ListSnapshotsInRecycleBin where
   rnf ListSnapshotsInRecycleBin' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf snapshotIds
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf snapshotIds
 
 instance Data.ToHeaders ListSnapshotsInRecycleBin where
   toHeaders = Prelude.const Prelude.mempty
@@ -192,13 +192,13 @@ instance Data.ToQuery ListSnapshotsInRecycleBin where
           Data.=: ("ListSnapshotsInRecycleBin" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Data.=: dryRun,
+        "MaxResults" Data.=: maxResults,
         "NextToken" Data.=: nextToken,
         Data.toQuery
           ( Data.toQueryList "SnapshotId"
               Prelude.<$> snapshotIds
-          ),
-        "DryRun" Data.=: dryRun,
-        "MaxResults" Data.=: maxResults
+          )
       ]
 
 -- | /See:/ 'newListSnapshotsInRecycleBinResponse' smart constructor.

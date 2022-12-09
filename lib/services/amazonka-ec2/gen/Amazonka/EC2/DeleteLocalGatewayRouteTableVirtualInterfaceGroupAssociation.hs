@@ -173,7 +173,8 @@ instance
 
 -- | /See:/ 'newDeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse' smart constructor.
 data DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse = DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse'
-  { localGatewayRouteTableVirtualInterfaceGroupAssociation :: Prelude.Maybe LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
+  { -- | Information about the association.
+    localGatewayRouteTableVirtualInterfaceGroupAssociation :: Prelude.Maybe LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -187,7 +188,7 @@ data DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse = Dele
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'localGatewayRouteTableVirtualInterfaceGroupAssociation', 'deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse_localGatewayRouteTableVirtualInterfaceGroupAssociation' - Undocumented member.
+-- 'localGatewayRouteTableVirtualInterfaceGroupAssociation', 'deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse_localGatewayRouteTableVirtualInterfaceGroupAssociation' - Information about the association.
 --
 -- 'httpStatus', 'deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse_httpStatus' - The response's http status code.
 newDeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse ::
@@ -203,7 +204,7 @@ newDeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse
           pHttpStatus_
       }
 
--- | Undocumented member.
+-- | Information about the association.
 deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse_localGatewayRouteTableVirtualInterfaceGroupAssociation :: Lens.Lens' DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse (Prelude.Maybe LocalGatewayRouteTableVirtualInterfaceGroupAssociation)
 deleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse_localGatewayRouteTableVirtualInterfaceGroupAssociation = Lens.lens (\DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse' {localGatewayRouteTableVirtualInterfaceGroupAssociation} -> localGatewayRouteTableVirtualInterfaceGroupAssociation) (\s@DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse' {} a -> s {localGatewayRouteTableVirtualInterfaceGroupAssociation = a} :: DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse)
 

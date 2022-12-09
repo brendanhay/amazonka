@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newScheduledInstancesBlockDeviceMapping' smart constructor.
 data ScheduledInstancesBlockDeviceMapping = ScheduledInstancesBlockDeviceMapping'
-  { -- | Parameters used to set up EBS volumes automatically when the instance is
+  { -- | The device name (for example, @\/dev\/sdh@ or @xvdh@).
+    deviceName :: Prelude.Maybe Prelude.Text,
+    -- | Parameters used to set up EBS volumes automatically when the instance is
     -- launched.
     ebs :: Prelude.Maybe ScheduledInstancesEbs,
-    -- | The device name (for example, @\/dev\/sdh@ or @xvdh@).
-    deviceName :: Prelude.Maybe Prelude.Text,
     -- | To omit the device from the block device mapping, specify an empty
     -- string.
     noDevice :: Prelude.Maybe Prelude.Text,
@@ -60,10 +60,10 @@ data ScheduledInstancesBlockDeviceMapping = ScheduledInstancesBlockDeviceMapping
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deviceName', 'scheduledInstancesBlockDeviceMapping_deviceName' - The device name (for example, @\/dev\/sdh@ or @xvdh@).
+--
 -- 'ebs', 'scheduledInstancesBlockDeviceMapping_ebs' - Parameters used to set up EBS volumes automatically when the instance is
 -- launched.
---
--- 'deviceName', 'scheduledInstancesBlockDeviceMapping_deviceName' - The device name (for example, @\/dev\/sdh@ or @xvdh@).
 --
 -- 'noDevice', 'scheduledInstancesBlockDeviceMapping_noDevice' - To omit the device from the block device mapping, specify an empty
 -- string.
@@ -82,21 +82,21 @@ newScheduledInstancesBlockDeviceMapping ::
   ScheduledInstancesBlockDeviceMapping
 newScheduledInstancesBlockDeviceMapping =
   ScheduledInstancesBlockDeviceMapping'
-    { ebs =
+    { deviceName =
         Prelude.Nothing,
-      deviceName = Prelude.Nothing,
+      ebs = Prelude.Nothing,
       noDevice = Prelude.Nothing,
       virtualName = Prelude.Nothing
     }
+
+-- | The device name (for example, @\/dev\/sdh@ or @xvdh@).
+scheduledInstancesBlockDeviceMapping_deviceName :: Lens.Lens' ScheduledInstancesBlockDeviceMapping (Prelude.Maybe Prelude.Text)
+scheduledInstancesBlockDeviceMapping_deviceName = Lens.lens (\ScheduledInstancesBlockDeviceMapping' {deviceName} -> deviceName) (\s@ScheduledInstancesBlockDeviceMapping' {} a -> s {deviceName = a} :: ScheduledInstancesBlockDeviceMapping)
 
 -- | Parameters used to set up EBS volumes automatically when the instance is
 -- launched.
 scheduledInstancesBlockDeviceMapping_ebs :: Lens.Lens' ScheduledInstancesBlockDeviceMapping (Prelude.Maybe ScheduledInstancesEbs)
 scheduledInstancesBlockDeviceMapping_ebs = Lens.lens (\ScheduledInstancesBlockDeviceMapping' {ebs} -> ebs) (\s@ScheduledInstancesBlockDeviceMapping' {} a -> s {ebs = a} :: ScheduledInstancesBlockDeviceMapping)
-
--- | The device name (for example, @\/dev\/sdh@ or @xvdh@).
-scheduledInstancesBlockDeviceMapping_deviceName :: Lens.Lens' ScheduledInstancesBlockDeviceMapping (Prelude.Maybe Prelude.Text)
-scheduledInstancesBlockDeviceMapping_deviceName = Lens.lens (\ScheduledInstancesBlockDeviceMapping' {deviceName} -> deviceName) (\s@ScheduledInstancesBlockDeviceMapping' {} a -> s {deviceName = a} :: ScheduledInstancesBlockDeviceMapping)
 
 -- | To omit the device from the block device mapping, specify an empty
 -- string.
@@ -123,8 +123,8 @@ instance
   hashWithSalt
     _salt
     ScheduledInstancesBlockDeviceMapping' {..} =
-      _salt `Prelude.hashWithSalt` ebs
-        `Prelude.hashWithSalt` deviceName
+      _salt `Prelude.hashWithSalt` deviceName
+        `Prelude.hashWithSalt` ebs
         `Prelude.hashWithSalt` noDevice
         `Prelude.hashWithSalt` virtualName
 
@@ -133,8 +133,8 @@ instance
     ScheduledInstancesBlockDeviceMapping
   where
   rnf ScheduledInstancesBlockDeviceMapping' {..} =
-    Prelude.rnf ebs
-      `Prelude.seq` Prelude.rnf deviceName
+    Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf ebs
       `Prelude.seq` Prelude.rnf noDevice
       `Prelude.seq` Prelude.rnf virtualName
 
@@ -144,8 +144,8 @@ instance
   where
   toQuery ScheduledInstancesBlockDeviceMapping' {..} =
     Prelude.mconcat
-      [ "Ebs" Data.=: ebs,
-        "DeviceName" Data.=: deviceName,
+      [ "DeviceName" Data.=: deviceName,
+        "Ebs" Data.=: ebs,
         "NoDevice" Data.=: noDevice,
         "VirtualName" Data.=: virtualName
       ]

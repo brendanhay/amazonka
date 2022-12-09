@@ -35,12 +35,12 @@ data TransitGatewayPolicyTableAssociation = TransitGatewayPolicyTableAssociation
     resourceId :: Prelude.Maybe Prelude.Text,
     -- | The resource type for the transit gateway policy table association.
     resourceType :: Prelude.Maybe TransitGatewayAttachmentResourceType,
-    -- | The ID of the transit gateway policy table.
-    transitGatewayPolicyTableId :: Prelude.Maybe Prelude.Text,
     -- | The state of the transit gateway policy table association.
     state :: Prelude.Maybe TransitGatewayAssociationState,
     -- | The ID of the transit gateway attachment.
-    transitGatewayAttachmentId :: Prelude.Maybe Prelude.Text
+    transitGatewayAttachmentId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the transit gateway policy table.
+    transitGatewayPolicyTableId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,11 +56,11 @@ data TransitGatewayPolicyTableAssociation = TransitGatewayPolicyTableAssociation
 --
 -- 'resourceType', 'transitGatewayPolicyTableAssociation_resourceType' - The resource type for the transit gateway policy table association.
 --
--- 'transitGatewayPolicyTableId', 'transitGatewayPolicyTableAssociation_transitGatewayPolicyTableId' - The ID of the transit gateway policy table.
---
 -- 'state', 'transitGatewayPolicyTableAssociation_state' - The state of the transit gateway policy table association.
 --
 -- 'transitGatewayAttachmentId', 'transitGatewayPolicyTableAssociation_transitGatewayAttachmentId' - The ID of the transit gateway attachment.
+--
+-- 'transitGatewayPolicyTableId', 'transitGatewayPolicyTableAssociation_transitGatewayPolicyTableId' - The ID of the transit gateway policy table.
 newTransitGatewayPolicyTableAssociation ::
   TransitGatewayPolicyTableAssociation
 newTransitGatewayPolicyTableAssociation =
@@ -68,10 +68,10 @@ newTransitGatewayPolicyTableAssociation =
     { resourceId =
         Prelude.Nothing,
       resourceType = Prelude.Nothing,
-      transitGatewayPolicyTableId =
-        Prelude.Nothing,
       state = Prelude.Nothing,
       transitGatewayAttachmentId =
+        Prelude.Nothing,
+      transitGatewayPolicyTableId =
         Prelude.Nothing
     }
 
@@ -83,10 +83,6 @@ transitGatewayPolicyTableAssociation_resourceId = Lens.lens (\TransitGatewayPoli
 transitGatewayPolicyTableAssociation_resourceType :: Lens.Lens' TransitGatewayPolicyTableAssociation (Prelude.Maybe TransitGatewayAttachmentResourceType)
 transitGatewayPolicyTableAssociation_resourceType = Lens.lens (\TransitGatewayPolicyTableAssociation' {resourceType} -> resourceType) (\s@TransitGatewayPolicyTableAssociation' {} a -> s {resourceType = a} :: TransitGatewayPolicyTableAssociation)
 
--- | The ID of the transit gateway policy table.
-transitGatewayPolicyTableAssociation_transitGatewayPolicyTableId :: Lens.Lens' TransitGatewayPolicyTableAssociation (Prelude.Maybe Prelude.Text)
-transitGatewayPolicyTableAssociation_transitGatewayPolicyTableId = Lens.lens (\TransitGatewayPolicyTableAssociation' {transitGatewayPolicyTableId} -> transitGatewayPolicyTableId) (\s@TransitGatewayPolicyTableAssociation' {} a -> s {transitGatewayPolicyTableId = a} :: TransitGatewayPolicyTableAssociation)
-
 -- | The state of the transit gateway policy table association.
 transitGatewayPolicyTableAssociation_state :: Lens.Lens' TransitGatewayPolicyTableAssociation (Prelude.Maybe TransitGatewayAssociationState)
 transitGatewayPolicyTableAssociation_state = Lens.lens (\TransitGatewayPolicyTableAssociation' {state} -> state) (\s@TransitGatewayPolicyTableAssociation' {} a -> s {state = a} :: TransitGatewayPolicyTableAssociation)
@@ -94,6 +90,10 @@ transitGatewayPolicyTableAssociation_state = Lens.lens (\TransitGatewayPolicyTab
 -- | The ID of the transit gateway attachment.
 transitGatewayPolicyTableAssociation_transitGatewayAttachmentId :: Lens.Lens' TransitGatewayPolicyTableAssociation (Prelude.Maybe Prelude.Text)
 transitGatewayPolicyTableAssociation_transitGatewayAttachmentId = Lens.lens (\TransitGatewayPolicyTableAssociation' {transitGatewayAttachmentId} -> transitGatewayAttachmentId) (\s@TransitGatewayPolicyTableAssociation' {} a -> s {transitGatewayAttachmentId = a} :: TransitGatewayPolicyTableAssociation)
+
+-- | The ID of the transit gateway policy table.
+transitGatewayPolicyTableAssociation_transitGatewayPolicyTableId :: Lens.Lens' TransitGatewayPolicyTableAssociation (Prelude.Maybe Prelude.Text)
+transitGatewayPolicyTableAssociation_transitGatewayPolicyTableId = Lens.lens (\TransitGatewayPolicyTableAssociation' {transitGatewayPolicyTableId} -> transitGatewayPolicyTableId) (\s@TransitGatewayPolicyTableAssociation' {} a -> s {transitGatewayPolicyTableId = a} :: TransitGatewayPolicyTableAssociation)
 
 instance
   Data.FromXML
@@ -103,9 +103,9 @@ instance
     TransitGatewayPolicyTableAssociation'
       Prelude.<$> (x Data..@? "resourceId")
       Prelude.<*> (x Data..@? "resourceType")
-      Prelude.<*> (x Data..@? "transitGatewayPolicyTableId")
       Prelude.<*> (x Data..@? "state")
       Prelude.<*> (x Data..@? "transitGatewayAttachmentId")
+      Prelude.<*> (x Data..@? "transitGatewayPolicyTableId")
 
 instance
   Prelude.Hashable
@@ -116,9 +116,9 @@ instance
     TransitGatewayPolicyTableAssociation' {..} =
       _salt `Prelude.hashWithSalt` resourceId
         `Prelude.hashWithSalt` resourceType
-        `Prelude.hashWithSalt` transitGatewayPolicyTableId
         `Prelude.hashWithSalt` state
         `Prelude.hashWithSalt` transitGatewayAttachmentId
+        `Prelude.hashWithSalt` transitGatewayPolicyTableId
 
 instance
   Prelude.NFData
@@ -127,6 +127,6 @@ instance
   rnf TransitGatewayPolicyTableAssociation' {..} =
     Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf transitGatewayPolicyTableId
       `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
+      `Prelude.seq` Prelude.rnf transitGatewayPolicyTableId

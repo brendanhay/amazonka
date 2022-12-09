@@ -64,11 +64,11 @@ module Amazonka.EC2.AttachVolume
     newVolumeAttachment,
 
     -- * Response Lenses
+    volumeAttachment_attachTime,
     volumeAttachment_deleteOnTermination,
     volumeAttachment_device,
-    volumeAttachment_state,
     volumeAttachment_instanceId,
-    volumeAttachment_attachTime,
+    volumeAttachment_state,
     volumeAttachment_volumeId,
   )
 where

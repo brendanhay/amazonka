@@ -53,19 +53,19 @@ module Amazonka.EC2.CreateCapacityReservation
     newCreateCapacityReservation,
 
     -- * Request Lenses
-    createCapacityReservation_ebsOptimized,
-    createCapacityReservation_ephemeralStorage,
-    createCapacityReservation_clientToken,
-    createCapacityReservation_placementGroupArn,
-    createCapacityReservation_outpostArn,
-    createCapacityReservation_endDate,
     createCapacityReservation_availabilityZone,
-    createCapacityReservation_dryRun,
-    createCapacityReservation_tagSpecifications,
-    createCapacityReservation_instanceMatchCriteria,
-    createCapacityReservation_endDateType,
-    createCapacityReservation_tenancy,
     createCapacityReservation_availabilityZoneId,
+    createCapacityReservation_clientToken,
+    createCapacityReservation_dryRun,
+    createCapacityReservation_ebsOptimized,
+    createCapacityReservation_endDate,
+    createCapacityReservation_endDateType,
+    createCapacityReservation_ephemeralStorage,
+    createCapacityReservation_instanceMatchCriteria,
+    createCapacityReservation_outpostArn,
+    createCapacityReservation_placementGroupArn,
+    createCapacityReservation_tagSpecifications,
+    createCapacityReservation_tenancy,
     createCapacityReservation_instanceType,
     createCapacityReservation_instancePlatform,
     createCapacityReservation_instanceCount,
@@ -90,26 +90,26 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateCapacityReservation' smart constructor.
 data CreateCapacityReservation = CreateCapacityReservation'
-  { -- | Indicates whether the Capacity Reservation supports EBS-optimized
+  { -- | The Availability Zone in which to create the Capacity Reservation.
+    availabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Availability Zone in which to create the Capacity
+    -- Reservation.
+    availabilityZoneId :: Prelude.Maybe Prelude.Text,
+    -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensure Idempotency>.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates whether the Capacity Reservation supports EBS-optimized
     -- instances. This optimization provides dedicated throughput to Amazon EBS
     -- and an optimized configuration stack to provide optimal I\/O
     -- performance. This optimization isn\'t available with all instance types.
     -- Additional usage charges apply when using an EBS- optimized instance.
     ebsOptimized :: Prelude.Maybe Prelude.Bool,
-    -- | /Deprecated./
-    ephemeralStorage :: Prelude.Maybe Prelude.Bool,
-    -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensure Idempotency>.
-    clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the cluster placement group in which
-    -- to create the Capacity Reservation. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html Capacity Reservations for cluster placement groups>
-    -- in the /Amazon EC2 User Guide/.
-    placementGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the Outpost on which to create the
-    -- Capacity Reservation.
-    outpostArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time at which the Capacity Reservation expires. When a
     -- Capacity Reservation expires, the reserved capacity is released and you
     -- can no longer launch instances into it. The Capacity Reservation\'s
@@ -123,15 +123,19 @@ data CreateCapacityReservation = CreateCapacityReservation'
     -- 5\/31\/2019, 13:30:55, the Capacity Reservation is guaranteed to end
     -- between 13:30:55 and 14:30:55 on 5\/31\/2019.
     endDate :: Prelude.Maybe Data.ISO8601,
-    -- | The Availability Zone in which to create the Capacity Reservation.
-    availabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The tags to apply to the Capacity Reservation during launch.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    -- | Indicates the way in which the Capacity Reservation ends. A Capacity
+    -- Reservation can have one of the following end types:
+    --
+    -- -   @unlimited@ - The Capacity Reservation remains active until you
+    --     explicitly cancel it. Do not provide an @EndDate@ if the
+    --     @EndDateType@ is @unlimited@.
+    --
+    -- -   @limited@ - The Capacity Reservation expires automatically at a
+    --     specified date and time. You must provide an @EndDate@ value if the
+    --     @EndDateType@ value is @limited@.
+    endDateType :: Prelude.Maybe EndDateType,
+    -- | /Deprecated./
+    ephemeralStorage :: Prelude.Maybe Prelude.Bool,
     -- | Indicates the type of instance launches that the Capacity Reservation
     -- accepts. The options include:
     --
@@ -148,17 +152,16 @@ data CreateCapacityReservation = CreateCapacityReservation'
     --
     -- Default: @open@
     instanceMatchCriteria :: Prelude.Maybe InstanceMatchCriteria,
-    -- | Indicates the way in which the Capacity Reservation ends. A Capacity
-    -- Reservation can have one of the following end types:
-    --
-    -- -   @unlimited@ - The Capacity Reservation remains active until you
-    --     explicitly cancel it. Do not provide an @EndDate@ if the
-    --     @EndDateType@ is @unlimited@.
-    --
-    -- -   @limited@ - The Capacity Reservation expires automatically at a
-    --     specified date and time. You must provide an @EndDate@ value if the
-    --     @EndDateType@ value is @limited@.
-    endDateType :: Prelude.Maybe EndDateType,
+    -- | The Amazon Resource Name (ARN) of the Outpost on which to create the
+    -- Capacity Reservation.
+    outpostArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the cluster placement group in which
+    -- to create the Capacity Reservation. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html Capacity Reservations for cluster placement groups>
+    -- in the /Amazon EC2 User Guide/.
+    placementGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | The tags to apply to the Capacity Reservation during launch.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | Indicates the tenancy of the Capacity Reservation. A Capacity
     -- Reservation can have one of the following tenancy settings:
     --
@@ -168,9 +171,6 @@ data CreateCapacityReservation = CreateCapacityReservation'
     -- -   @dedicated@ - The Capacity Reservation is created on single-tenant
     --     hardware that is dedicated to a single Amazon Web Services account.
     tenancy :: Prelude.Maybe CapacityReservationTenancy,
-    -- | The ID of the Availability Zone in which to create the Capacity
-    -- Reservation.
-    availabilityZoneId :: Prelude.Maybe Prelude.Text,
     -- | The instance type for which to reserve capacity. For more information,
     -- see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
@@ -193,25 +193,25 @@ data CreateCapacityReservation = CreateCapacityReservation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ebsOptimized', 'createCapacityReservation_ebsOptimized' - Indicates whether the Capacity Reservation supports EBS-optimized
--- instances. This optimization provides dedicated throughput to Amazon EBS
--- and an optimized configuration stack to provide optimal I\/O
--- performance. This optimization isn\'t available with all instance types.
--- Additional usage charges apply when using an EBS- optimized instance.
+-- 'availabilityZone', 'createCapacityReservation_availabilityZone' - The Availability Zone in which to create the Capacity Reservation.
 --
--- 'ephemeralStorage', 'createCapacityReservation_ephemeralStorage' - /Deprecated./
+-- 'availabilityZoneId', 'createCapacityReservation_availabilityZoneId' - The ID of the Availability Zone in which to create the Capacity
+-- Reservation.
 --
 -- 'clientToken', 'createCapacityReservation_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensure Idempotency>.
 --
--- 'placementGroupArn', 'createCapacityReservation_placementGroupArn' - The Amazon Resource Name (ARN) of the cluster placement group in which
--- to create the Capacity Reservation. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html Capacity Reservations for cluster placement groups>
--- in the /Amazon EC2 User Guide/.
+-- 'dryRun', 'createCapacityReservation_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'outpostArn', 'createCapacityReservation_outpostArn' - The Amazon Resource Name (ARN) of the Outpost on which to create the
--- Capacity Reservation.
+-- 'ebsOptimized', 'createCapacityReservation_ebsOptimized' - Indicates whether the Capacity Reservation supports EBS-optimized
+-- instances. This optimization provides dedicated throughput to Amazon EBS
+-- and an optimized configuration stack to provide optimal I\/O
+-- performance. This optimization isn\'t available with all instance types.
+-- Additional usage charges apply when using an EBS- optimized instance.
 --
 -- 'endDate', 'createCapacityReservation_endDate' - The date and time at which the Capacity Reservation expires. When a
 -- Capacity Reservation expires, the reserved capacity is released and you
@@ -226,14 +226,18 @@ data CreateCapacityReservation = CreateCapacityReservation'
 -- 5\/31\/2019, 13:30:55, the Capacity Reservation is guaranteed to end
 -- between 13:30:55 and 14:30:55 on 5\/31\/2019.
 --
--- 'availabilityZone', 'createCapacityReservation_availabilityZone' - The Availability Zone in which to create the Capacity Reservation.
+-- 'endDateType', 'createCapacityReservation_endDateType' - Indicates the way in which the Capacity Reservation ends. A Capacity
+-- Reservation can have one of the following end types:
 --
--- 'dryRun', 'createCapacityReservation_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- -   @unlimited@ - The Capacity Reservation remains active until you
+--     explicitly cancel it. Do not provide an @EndDate@ if the
+--     @EndDateType@ is @unlimited@.
 --
--- 'tagSpecifications', 'createCapacityReservation_tagSpecifications' - The tags to apply to the Capacity Reservation during launch.
+-- -   @limited@ - The Capacity Reservation expires automatically at a
+--     specified date and time. You must provide an @EndDate@ value if the
+--     @EndDateType@ value is @limited@.
+--
+-- 'ephemeralStorage', 'createCapacityReservation_ephemeralStorage' - /Deprecated./
 --
 -- 'instanceMatchCriteria', 'createCapacityReservation_instanceMatchCriteria' - Indicates the type of instance launches that the Capacity Reservation
 -- accepts. The options include:
@@ -251,16 +255,15 @@ data CreateCapacityReservation = CreateCapacityReservation'
 --
 -- Default: @open@
 --
--- 'endDateType', 'createCapacityReservation_endDateType' - Indicates the way in which the Capacity Reservation ends. A Capacity
--- Reservation can have one of the following end types:
+-- 'outpostArn', 'createCapacityReservation_outpostArn' - The Amazon Resource Name (ARN) of the Outpost on which to create the
+-- Capacity Reservation.
 --
--- -   @unlimited@ - The Capacity Reservation remains active until you
---     explicitly cancel it. Do not provide an @EndDate@ if the
---     @EndDateType@ is @unlimited@.
+-- 'placementGroupArn', 'createCapacityReservation_placementGroupArn' - The Amazon Resource Name (ARN) of the cluster placement group in which
+-- to create the Capacity Reservation. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html Capacity Reservations for cluster placement groups>
+-- in the /Amazon EC2 User Guide/.
 --
--- -   @limited@ - The Capacity Reservation expires automatically at a
---     specified date and time. You must provide an @EndDate@ value if the
---     @EndDateType@ value is @limited@.
+-- 'tagSpecifications', 'createCapacityReservation_tagSpecifications' - The tags to apply to the Capacity Reservation during launch.
 --
 -- 'tenancy', 'createCapacityReservation_tenancy' - Indicates the tenancy of the Capacity Reservation. A Capacity
 -- Reservation can have one of the following tenancy settings:
@@ -270,9 +273,6 @@ data CreateCapacityReservation = CreateCapacityReservation'
 --
 -- -   @dedicated@ - The Capacity Reservation is created on single-tenant
 --     hardware that is dedicated to a single Amazon Web Services account.
---
--- 'availabilityZoneId', 'createCapacityReservation_availabilityZoneId' - The ID of the Availability Zone in which to create the Capacity
--- Reservation.
 --
 -- 'instanceType', 'createCapacityReservation_instanceType' - The instance type for which to reserve capacity. For more information,
 -- see
@@ -297,24 +297,46 @@ newCreateCapacityReservation
   pInstancePlatform_
   pInstanceCount_ =
     CreateCapacityReservation'
-      { ebsOptimized =
+      { availabilityZone =
           Prelude.Nothing,
-        ephemeralStorage = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
-        placementGroupArn = Prelude.Nothing,
-        outpostArn = Prelude.Nothing,
-        endDate = Prelude.Nothing,
-        availabilityZone = Prelude.Nothing,
-        dryRun = Prelude.Nothing,
-        tagSpecifications = Prelude.Nothing,
-        instanceMatchCriteria = Prelude.Nothing,
-        endDateType = Prelude.Nothing,
-        tenancy = Prelude.Nothing,
         availabilityZoneId = Prelude.Nothing,
+        clientToken = Prelude.Nothing,
+        dryRun = Prelude.Nothing,
+        ebsOptimized = Prelude.Nothing,
+        endDate = Prelude.Nothing,
+        endDateType = Prelude.Nothing,
+        ephemeralStorage = Prelude.Nothing,
+        instanceMatchCriteria = Prelude.Nothing,
+        outpostArn = Prelude.Nothing,
+        placementGroupArn = Prelude.Nothing,
+        tagSpecifications = Prelude.Nothing,
+        tenancy = Prelude.Nothing,
         instanceType = pInstanceType_,
         instancePlatform = pInstancePlatform_,
         instanceCount = pInstanceCount_
       }
+
+-- | The Availability Zone in which to create the Capacity Reservation.
+createCapacityReservation_availabilityZone :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe Prelude.Text)
+createCapacityReservation_availabilityZone = Lens.lens (\CreateCapacityReservation' {availabilityZone} -> availabilityZone) (\s@CreateCapacityReservation' {} a -> s {availabilityZone = a} :: CreateCapacityReservation)
+
+-- | The ID of the Availability Zone in which to create the Capacity
+-- Reservation.
+createCapacityReservation_availabilityZoneId :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe Prelude.Text)
+createCapacityReservation_availabilityZoneId = Lens.lens (\CreateCapacityReservation' {availabilityZoneId} -> availabilityZoneId) (\s@CreateCapacityReservation' {} a -> s {availabilityZoneId = a} :: CreateCapacityReservation)
+
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensure Idempotency>.
+createCapacityReservation_clientToken :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe Prelude.Text)
+createCapacityReservation_clientToken = Lens.lens (\CreateCapacityReservation' {clientToken} -> clientToken) (\s@CreateCapacityReservation' {} a -> s {clientToken = a} :: CreateCapacityReservation)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+createCapacityReservation_dryRun :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe Prelude.Bool)
+createCapacityReservation_dryRun = Lens.lens (\CreateCapacityReservation' {dryRun} -> dryRun) (\s@CreateCapacityReservation' {} a -> s {dryRun = a} :: CreateCapacityReservation)
 
 -- | Indicates whether the Capacity Reservation supports EBS-optimized
 -- instances. This optimization provides dedicated throughput to Amazon EBS
@@ -323,28 +345,6 @@ newCreateCapacityReservation
 -- Additional usage charges apply when using an EBS- optimized instance.
 createCapacityReservation_ebsOptimized :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe Prelude.Bool)
 createCapacityReservation_ebsOptimized = Lens.lens (\CreateCapacityReservation' {ebsOptimized} -> ebsOptimized) (\s@CreateCapacityReservation' {} a -> s {ebsOptimized = a} :: CreateCapacityReservation)
-
--- | /Deprecated./
-createCapacityReservation_ephemeralStorage :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe Prelude.Bool)
-createCapacityReservation_ephemeralStorage = Lens.lens (\CreateCapacityReservation' {ephemeralStorage} -> ephemeralStorage) (\s@CreateCapacityReservation' {} a -> s {ephemeralStorage = a} :: CreateCapacityReservation)
-
--- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensure Idempotency>.
-createCapacityReservation_clientToken :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe Prelude.Text)
-createCapacityReservation_clientToken = Lens.lens (\CreateCapacityReservation' {clientToken} -> clientToken) (\s@CreateCapacityReservation' {} a -> s {clientToken = a} :: CreateCapacityReservation)
-
--- | The Amazon Resource Name (ARN) of the cluster placement group in which
--- to create the Capacity Reservation. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html Capacity Reservations for cluster placement groups>
--- in the /Amazon EC2 User Guide/.
-createCapacityReservation_placementGroupArn :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe Prelude.Text)
-createCapacityReservation_placementGroupArn = Lens.lens (\CreateCapacityReservation' {placementGroupArn} -> placementGroupArn) (\s@CreateCapacityReservation' {} a -> s {placementGroupArn = a} :: CreateCapacityReservation)
-
--- | The Amazon Resource Name (ARN) of the Outpost on which to create the
--- Capacity Reservation.
-createCapacityReservation_outpostArn :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe Prelude.Text)
-createCapacityReservation_outpostArn = Lens.lens (\CreateCapacityReservation' {outpostArn} -> outpostArn) (\s@CreateCapacityReservation' {} a -> s {outpostArn = a} :: CreateCapacityReservation)
 
 -- | The date and time at which the Capacity Reservation expires. When a
 -- Capacity Reservation expires, the reserved capacity is released and you
@@ -361,20 +361,22 @@ createCapacityReservation_outpostArn = Lens.lens (\CreateCapacityReservation' {o
 createCapacityReservation_endDate :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe Prelude.UTCTime)
 createCapacityReservation_endDate = Lens.lens (\CreateCapacityReservation' {endDate} -> endDate) (\s@CreateCapacityReservation' {} a -> s {endDate = a} :: CreateCapacityReservation) Prelude.. Lens.mapping Data._Time
 
--- | The Availability Zone in which to create the Capacity Reservation.
-createCapacityReservation_availabilityZone :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe Prelude.Text)
-createCapacityReservation_availabilityZone = Lens.lens (\CreateCapacityReservation' {availabilityZone} -> availabilityZone) (\s@CreateCapacityReservation' {} a -> s {availabilityZone = a} :: CreateCapacityReservation)
+-- | Indicates the way in which the Capacity Reservation ends. A Capacity
+-- Reservation can have one of the following end types:
+--
+-- -   @unlimited@ - The Capacity Reservation remains active until you
+--     explicitly cancel it. Do not provide an @EndDate@ if the
+--     @EndDateType@ is @unlimited@.
+--
+-- -   @limited@ - The Capacity Reservation expires automatically at a
+--     specified date and time. You must provide an @EndDate@ value if the
+--     @EndDateType@ value is @limited@.
+createCapacityReservation_endDateType :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe EndDateType)
+createCapacityReservation_endDateType = Lens.lens (\CreateCapacityReservation' {endDateType} -> endDateType) (\s@CreateCapacityReservation' {} a -> s {endDateType = a} :: CreateCapacityReservation)
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-createCapacityReservation_dryRun :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe Prelude.Bool)
-createCapacityReservation_dryRun = Lens.lens (\CreateCapacityReservation' {dryRun} -> dryRun) (\s@CreateCapacityReservation' {} a -> s {dryRun = a} :: CreateCapacityReservation)
-
--- | The tags to apply to the Capacity Reservation during launch.
-createCapacityReservation_tagSpecifications :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe [TagSpecification])
-createCapacityReservation_tagSpecifications = Lens.lens (\CreateCapacityReservation' {tagSpecifications} -> tagSpecifications) (\s@CreateCapacityReservation' {} a -> s {tagSpecifications = a} :: CreateCapacityReservation) Prelude.. Lens.mapping Lens.coerced
+-- | /Deprecated./
+createCapacityReservation_ephemeralStorage :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe Prelude.Bool)
+createCapacityReservation_ephemeralStorage = Lens.lens (\CreateCapacityReservation' {ephemeralStorage} -> ephemeralStorage) (\s@CreateCapacityReservation' {} a -> s {ephemeralStorage = a} :: CreateCapacityReservation)
 
 -- | Indicates the type of instance launches that the Capacity Reservation
 -- accepts. The options include:
@@ -394,18 +396,21 @@ createCapacityReservation_tagSpecifications = Lens.lens (\CreateCapacityReservat
 createCapacityReservation_instanceMatchCriteria :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe InstanceMatchCriteria)
 createCapacityReservation_instanceMatchCriteria = Lens.lens (\CreateCapacityReservation' {instanceMatchCriteria} -> instanceMatchCriteria) (\s@CreateCapacityReservation' {} a -> s {instanceMatchCriteria = a} :: CreateCapacityReservation)
 
--- | Indicates the way in which the Capacity Reservation ends. A Capacity
--- Reservation can have one of the following end types:
---
--- -   @unlimited@ - The Capacity Reservation remains active until you
---     explicitly cancel it. Do not provide an @EndDate@ if the
---     @EndDateType@ is @unlimited@.
---
--- -   @limited@ - The Capacity Reservation expires automatically at a
---     specified date and time. You must provide an @EndDate@ value if the
---     @EndDateType@ value is @limited@.
-createCapacityReservation_endDateType :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe EndDateType)
-createCapacityReservation_endDateType = Lens.lens (\CreateCapacityReservation' {endDateType} -> endDateType) (\s@CreateCapacityReservation' {} a -> s {endDateType = a} :: CreateCapacityReservation)
+-- | The Amazon Resource Name (ARN) of the Outpost on which to create the
+-- Capacity Reservation.
+createCapacityReservation_outpostArn :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe Prelude.Text)
+createCapacityReservation_outpostArn = Lens.lens (\CreateCapacityReservation' {outpostArn} -> outpostArn) (\s@CreateCapacityReservation' {} a -> s {outpostArn = a} :: CreateCapacityReservation)
+
+-- | The Amazon Resource Name (ARN) of the cluster placement group in which
+-- to create the Capacity Reservation. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html Capacity Reservations for cluster placement groups>
+-- in the /Amazon EC2 User Guide/.
+createCapacityReservation_placementGroupArn :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe Prelude.Text)
+createCapacityReservation_placementGroupArn = Lens.lens (\CreateCapacityReservation' {placementGroupArn} -> placementGroupArn) (\s@CreateCapacityReservation' {} a -> s {placementGroupArn = a} :: CreateCapacityReservation)
+
+-- | The tags to apply to the Capacity Reservation during launch.
+createCapacityReservation_tagSpecifications :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe [TagSpecification])
+createCapacityReservation_tagSpecifications = Lens.lens (\CreateCapacityReservation' {tagSpecifications} -> tagSpecifications) (\s@CreateCapacityReservation' {} a -> s {tagSpecifications = a} :: CreateCapacityReservation) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates the tenancy of the Capacity Reservation. A Capacity
 -- Reservation can have one of the following tenancy settings:
@@ -417,11 +422,6 @@ createCapacityReservation_endDateType = Lens.lens (\CreateCapacityReservation' {
 --     hardware that is dedicated to a single Amazon Web Services account.
 createCapacityReservation_tenancy :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe CapacityReservationTenancy)
 createCapacityReservation_tenancy = Lens.lens (\CreateCapacityReservation' {tenancy} -> tenancy) (\s@CreateCapacityReservation' {} a -> s {tenancy = a} :: CreateCapacityReservation)
-
--- | The ID of the Availability Zone in which to create the Capacity
--- Reservation.
-createCapacityReservation_availabilityZoneId :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe Prelude.Text)
-createCapacityReservation_availabilityZoneId = Lens.lens (\CreateCapacityReservation' {availabilityZoneId} -> availabilityZoneId) (\s@CreateCapacityReservation' {} a -> s {availabilityZoneId = a} :: CreateCapacityReservation)
 
 -- | The instance type for which to reserve capacity. For more information,
 -- see
@@ -456,38 +456,38 @@ instance Core.AWSRequest CreateCapacityReservation where
 
 instance Prelude.Hashable CreateCapacityReservation where
   hashWithSalt _salt CreateCapacityReservation' {..} =
-    _salt `Prelude.hashWithSalt` ebsOptimized
-      `Prelude.hashWithSalt` ephemeralStorage
-      `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` placementGroupArn
-      `Prelude.hashWithSalt` outpostArn
-      `Prelude.hashWithSalt` endDate
-      `Prelude.hashWithSalt` availabilityZone
-      `Prelude.hashWithSalt` dryRun
-      `Prelude.hashWithSalt` tagSpecifications
-      `Prelude.hashWithSalt` instanceMatchCriteria
-      `Prelude.hashWithSalt` endDateType
-      `Prelude.hashWithSalt` tenancy
+    _salt `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` availabilityZoneId
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` ebsOptimized
+      `Prelude.hashWithSalt` endDate
+      `Prelude.hashWithSalt` endDateType
+      `Prelude.hashWithSalt` ephemeralStorage
+      `Prelude.hashWithSalt` instanceMatchCriteria
+      `Prelude.hashWithSalt` outpostArn
+      `Prelude.hashWithSalt` placementGroupArn
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` tenancy
       `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` instancePlatform
       `Prelude.hashWithSalt` instanceCount
 
 instance Prelude.NFData CreateCapacityReservation where
   rnf CreateCapacityReservation' {..} =
-    Prelude.rnf ebsOptimized
-      `Prelude.seq` Prelude.rnf ephemeralStorage
-      `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf placementGroupArn
-      `Prelude.seq` Prelude.rnf outpostArn
-      `Prelude.seq` Prelude.rnf endDate
-      `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf instanceMatchCriteria
-      `Prelude.seq` Prelude.rnf endDateType
-      `Prelude.seq` Prelude.rnf tenancy
+    Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf availabilityZoneId
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf ebsOptimized
+      `Prelude.seq` Prelude.rnf endDate
+      `Prelude.seq` Prelude.rnf endDateType
+      `Prelude.seq` Prelude.rnf ephemeralStorage
+      `Prelude.seq` Prelude.rnf instanceMatchCriteria
+      `Prelude.seq` Prelude.rnf outpostArn
+      `Prelude.seq` Prelude.rnf placementGroupArn
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf tenancy
       `Prelude.seq` Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf instancePlatform
       `Prelude.seq` Prelude.rnf instanceCount
@@ -505,23 +505,23 @@ instance Data.ToQuery CreateCapacityReservation where
           Data.=: ("CreateCapacityReservation" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "EbsOptimized" Data.=: ebsOptimized,
-        "EphemeralStorage" Data.=: ephemeralStorage,
-        "ClientToken" Data.=: clientToken,
-        "PlacementGroupArn" Data.=: placementGroupArn,
-        "OutpostArn" Data.=: outpostArn,
-        "EndDate" Data.=: endDate,
         "AvailabilityZone" Data.=: availabilityZone,
+        "AvailabilityZoneId" Data.=: availabilityZoneId,
+        "ClientToken" Data.=: clientToken,
         "DryRun" Data.=: dryRun,
+        "EbsOptimized" Data.=: ebsOptimized,
+        "EndDate" Data.=: endDate,
+        "EndDateType" Data.=: endDateType,
+        "EphemeralStorage" Data.=: ephemeralStorage,
+        "InstanceMatchCriteria"
+          Data.=: instanceMatchCriteria,
+        "OutpostArn" Data.=: outpostArn,
+        "PlacementGroupArn" Data.=: placementGroupArn,
         Data.toQuery
           ( Data.toQueryList "TagSpecifications"
               Prelude.<$> tagSpecifications
           ),
-        "InstanceMatchCriteria"
-          Data.=: instanceMatchCriteria,
-        "EndDateType" Data.=: endDateType,
         "Tenancy" Data.=: tenancy,
-        "AvailabilityZoneId" Data.=: availabilityZoneId,
         "InstanceType" Data.=: instanceType,
         "InstancePlatform" Data.=: instancePlatform,
         "InstanceCount" Data.=: instanceCount

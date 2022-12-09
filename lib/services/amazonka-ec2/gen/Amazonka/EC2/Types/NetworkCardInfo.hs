@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkCardInfo' smart constructor.
 data NetworkCardInfo = NetworkCardInfo'
-  { -- | The index of the network card.
+  { -- | The maximum number of network interfaces for the network card.
+    maximumNetworkInterfaces :: Prelude.Maybe Prelude.Int,
+    -- | The index of the network card.
     networkCardIndex :: Prelude.Maybe Prelude.Int,
     -- | The network performance of the network card.
-    networkPerformance :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of network interfaces for the network card.
-    maximumNetworkInterfaces :: Prelude.Maybe Prelude.Int
+    networkPerformance :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,20 +46,24 @@ data NetworkCardInfo = NetworkCardInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maximumNetworkInterfaces', 'networkCardInfo_maximumNetworkInterfaces' - The maximum number of network interfaces for the network card.
+--
 -- 'networkCardIndex', 'networkCardInfo_networkCardIndex' - The index of the network card.
 --
 -- 'networkPerformance', 'networkCardInfo_networkPerformance' - The network performance of the network card.
---
--- 'maximumNetworkInterfaces', 'networkCardInfo_maximumNetworkInterfaces' - The maximum number of network interfaces for the network card.
 newNetworkCardInfo ::
   NetworkCardInfo
 newNetworkCardInfo =
   NetworkCardInfo'
-    { networkCardIndex =
+    { maximumNetworkInterfaces =
         Prelude.Nothing,
-      networkPerformance = Prelude.Nothing,
-      maximumNetworkInterfaces = Prelude.Nothing
+      networkCardIndex = Prelude.Nothing,
+      networkPerformance = Prelude.Nothing
     }
+
+-- | The maximum number of network interfaces for the network card.
+networkCardInfo_maximumNetworkInterfaces :: Lens.Lens' NetworkCardInfo (Prelude.Maybe Prelude.Int)
+networkCardInfo_maximumNetworkInterfaces = Lens.lens (\NetworkCardInfo' {maximumNetworkInterfaces} -> maximumNetworkInterfaces) (\s@NetworkCardInfo' {} a -> s {maximumNetworkInterfaces = a} :: NetworkCardInfo)
 
 -- | The index of the network card.
 networkCardInfo_networkCardIndex :: Lens.Lens' NetworkCardInfo (Prelude.Maybe Prelude.Int)
@@ -69,25 +73,22 @@ networkCardInfo_networkCardIndex = Lens.lens (\NetworkCardInfo' {networkCardInde
 networkCardInfo_networkPerformance :: Lens.Lens' NetworkCardInfo (Prelude.Maybe Prelude.Text)
 networkCardInfo_networkPerformance = Lens.lens (\NetworkCardInfo' {networkPerformance} -> networkPerformance) (\s@NetworkCardInfo' {} a -> s {networkPerformance = a} :: NetworkCardInfo)
 
--- | The maximum number of network interfaces for the network card.
-networkCardInfo_maximumNetworkInterfaces :: Lens.Lens' NetworkCardInfo (Prelude.Maybe Prelude.Int)
-networkCardInfo_maximumNetworkInterfaces = Lens.lens (\NetworkCardInfo' {maximumNetworkInterfaces} -> maximumNetworkInterfaces) (\s@NetworkCardInfo' {} a -> s {maximumNetworkInterfaces = a} :: NetworkCardInfo)
-
 instance Data.FromXML NetworkCardInfo where
   parseXML x =
     NetworkCardInfo'
-      Prelude.<$> (x Data..@? "networkCardIndex")
+      Prelude.<$> (x Data..@? "maximumNetworkInterfaces")
+      Prelude.<*> (x Data..@? "networkCardIndex")
       Prelude.<*> (x Data..@? "networkPerformance")
-      Prelude.<*> (x Data..@? "maximumNetworkInterfaces")
 
 instance Prelude.Hashable NetworkCardInfo where
   hashWithSalt _salt NetworkCardInfo' {..} =
-    _salt `Prelude.hashWithSalt` networkCardIndex
-      `Prelude.hashWithSalt` networkPerformance
+    _salt
       `Prelude.hashWithSalt` maximumNetworkInterfaces
+      `Prelude.hashWithSalt` networkCardIndex
+      `Prelude.hashWithSalt` networkPerformance
 
 instance Prelude.NFData NetworkCardInfo where
   rnf NetworkCardInfo' {..} =
-    Prelude.rnf networkCardIndex
+    Prelude.rnf maximumNetworkInterfaces
+      `Prelude.seq` Prelude.rnf networkCardIndex
       `Prelude.seq` Prelude.rnf networkPerformance
-      `Prelude.seq` Prelude.rnf maximumNetworkInterfaces

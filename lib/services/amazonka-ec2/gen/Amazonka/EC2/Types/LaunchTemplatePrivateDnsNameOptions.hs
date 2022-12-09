@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newLaunchTemplatePrivateDnsNameOptions' smart constructor.
 data LaunchTemplatePrivateDnsNameOptions = LaunchTemplatePrivateDnsNameOptions'
   { -- | Indicates whether to respond to DNS queries for instance hostnames with
-    -- DNS A records.
-    enableResourceNameDnsARecord :: Prelude.Maybe Prelude.Bool,
-    -- | Indicates whether to respond to DNS queries for instance hostnames with
     -- DNS AAAA records.
     enableResourceNameDnsAAAARecord :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates whether to respond to DNS queries for instance hostnames with
+    -- DNS A records.
+    enableResourceNameDnsARecord :: Prelude.Maybe Prelude.Bool,
     -- | The type of hostname to assign to an instance.
     hostnameType :: Prelude.Maybe HostnameType
   }
@@ -49,33 +49,33 @@ data LaunchTemplatePrivateDnsNameOptions = LaunchTemplatePrivateDnsNameOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enableResourceNameDnsARecord', 'launchTemplatePrivateDnsNameOptions_enableResourceNameDnsARecord' - Indicates whether to respond to DNS queries for instance hostnames with
--- DNS A records.
---
 -- 'enableResourceNameDnsAAAARecord', 'launchTemplatePrivateDnsNameOptions_enableResourceNameDnsAAAARecord' - Indicates whether to respond to DNS queries for instance hostnames with
 -- DNS AAAA records.
+--
+-- 'enableResourceNameDnsARecord', 'launchTemplatePrivateDnsNameOptions_enableResourceNameDnsARecord' - Indicates whether to respond to DNS queries for instance hostnames with
+-- DNS A records.
 --
 -- 'hostnameType', 'launchTemplatePrivateDnsNameOptions_hostnameType' - The type of hostname to assign to an instance.
 newLaunchTemplatePrivateDnsNameOptions ::
   LaunchTemplatePrivateDnsNameOptions
 newLaunchTemplatePrivateDnsNameOptions =
   LaunchTemplatePrivateDnsNameOptions'
-    { enableResourceNameDnsARecord =
+    { enableResourceNameDnsAAAARecord =
         Prelude.Nothing,
-      enableResourceNameDnsAAAARecord =
+      enableResourceNameDnsARecord =
         Prelude.Nothing,
       hostnameType = Prelude.Nothing
     }
 
 -- | Indicates whether to respond to DNS queries for instance hostnames with
--- DNS A records.
-launchTemplatePrivateDnsNameOptions_enableResourceNameDnsARecord :: Lens.Lens' LaunchTemplatePrivateDnsNameOptions (Prelude.Maybe Prelude.Bool)
-launchTemplatePrivateDnsNameOptions_enableResourceNameDnsARecord = Lens.lens (\LaunchTemplatePrivateDnsNameOptions' {enableResourceNameDnsARecord} -> enableResourceNameDnsARecord) (\s@LaunchTemplatePrivateDnsNameOptions' {} a -> s {enableResourceNameDnsARecord = a} :: LaunchTemplatePrivateDnsNameOptions)
-
--- | Indicates whether to respond to DNS queries for instance hostnames with
 -- DNS AAAA records.
 launchTemplatePrivateDnsNameOptions_enableResourceNameDnsAAAARecord :: Lens.Lens' LaunchTemplatePrivateDnsNameOptions (Prelude.Maybe Prelude.Bool)
 launchTemplatePrivateDnsNameOptions_enableResourceNameDnsAAAARecord = Lens.lens (\LaunchTemplatePrivateDnsNameOptions' {enableResourceNameDnsAAAARecord} -> enableResourceNameDnsAAAARecord) (\s@LaunchTemplatePrivateDnsNameOptions' {} a -> s {enableResourceNameDnsAAAARecord = a} :: LaunchTemplatePrivateDnsNameOptions)
+
+-- | Indicates whether to respond to DNS queries for instance hostnames with
+-- DNS A records.
+launchTemplatePrivateDnsNameOptions_enableResourceNameDnsARecord :: Lens.Lens' LaunchTemplatePrivateDnsNameOptions (Prelude.Maybe Prelude.Bool)
+launchTemplatePrivateDnsNameOptions_enableResourceNameDnsARecord = Lens.lens (\LaunchTemplatePrivateDnsNameOptions' {enableResourceNameDnsARecord} -> enableResourceNameDnsARecord) (\s@LaunchTemplatePrivateDnsNameOptions' {} a -> s {enableResourceNameDnsARecord = a} :: LaunchTemplatePrivateDnsNameOptions)
 
 -- | The type of hostname to assign to an instance.
 launchTemplatePrivateDnsNameOptions_hostnameType :: Lens.Lens' LaunchTemplatePrivateDnsNameOptions (Prelude.Maybe HostnameType)
@@ -87,8 +87,8 @@ instance
   where
   parseXML x =
     LaunchTemplatePrivateDnsNameOptions'
-      Prelude.<$> (x Data..@? "enableResourceNameDnsARecord")
-      Prelude.<*> (x Data..@? "enableResourceNameDnsAAAARecord")
+      Prelude.<$> (x Data..@? "enableResourceNameDnsAAAARecord")
+      Prelude.<*> (x Data..@? "enableResourceNameDnsARecord")
       Prelude.<*> (x Data..@? "hostnameType")
 
 instance
@@ -99,8 +99,8 @@ instance
     _salt
     LaunchTemplatePrivateDnsNameOptions' {..} =
       _salt
-        `Prelude.hashWithSalt` enableResourceNameDnsARecord
         `Prelude.hashWithSalt` enableResourceNameDnsAAAARecord
+        `Prelude.hashWithSalt` enableResourceNameDnsARecord
         `Prelude.hashWithSalt` hostnameType
 
 instance
@@ -108,6 +108,6 @@ instance
     LaunchTemplatePrivateDnsNameOptions
   where
   rnf LaunchTemplatePrivateDnsNameOptions' {..} =
-    Prelude.rnf enableResourceNameDnsARecord
-      `Prelude.seq` Prelude.rnf enableResourceNameDnsAAAARecord
+    Prelude.rnf enableResourceNameDnsAAAARecord
+      `Prelude.seq` Prelude.rnf enableResourceNameDnsARecord
       `Prelude.seq` Prelude.rnf hostnameType

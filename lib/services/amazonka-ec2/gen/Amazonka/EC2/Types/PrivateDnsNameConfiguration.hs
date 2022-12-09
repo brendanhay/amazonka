@@ -33,13 +33,13 @@ data PrivateDnsNameConfiguration = PrivateDnsNameConfiguration'
   { -- | The name of the record subdomain the service provider needs to create.
     -- The service provider adds the @value@ text to the @name@.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The endpoint service verification type, for example TXT.
-    type' :: Prelude.Maybe Prelude.Text,
     -- | The verification state of the VPC endpoint service.
     --
     -- >Consumers of the endpoint service can use the private name only when
     -- the state is @verified@.
     state :: Prelude.Maybe DnsNameState,
+    -- | The endpoint service verification type, for example TXT.
+    type' :: Prelude.Maybe Prelude.Text,
     -- | The value the service provider adds to the private DNS name domain
     -- record before verification.
     value :: Prelude.Maybe Prelude.Text
@@ -57,12 +57,12 @@ data PrivateDnsNameConfiguration = PrivateDnsNameConfiguration'
 -- 'name', 'privateDnsNameConfiguration_name' - The name of the record subdomain the service provider needs to create.
 -- The service provider adds the @value@ text to the @name@.
 --
--- 'type'', 'privateDnsNameConfiguration_type' - The endpoint service verification type, for example TXT.
---
 -- 'state', 'privateDnsNameConfiguration_state' - The verification state of the VPC endpoint service.
 --
 -- >Consumers of the endpoint service can use the private name only when
 -- the state is @verified@.
+--
+-- 'type'', 'privateDnsNameConfiguration_type' - The endpoint service verification type, for example TXT.
 --
 -- 'value', 'privateDnsNameConfiguration_value' - The value the service provider adds to the private DNS name domain
 -- record before verification.
@@ -72,8 +72,8 @@ newPrivateDnsNameConfiguration =
   PrivateDnsNameConfiguration'
     { name =
         Prelude.Nothing,
-      type' = Prelude.Nothing,
       state = Prelude.Nothing,
+      type' = Prelude.Nothing,
       value = Prelude.Nothing
     }
 
@@ -82,16 +82,16 @@ newPrivateDnsNameConfiguration =
 privateDnsNameConfiguration_name :: Lens.Lens' PrivateDnsNameConfiguration (Prelude.Maybe Prelude.Text)
 privateDnsNameConfiguration_name = Lens.lens (\PrivateDnsNameConfiguration' {name} -> name) (\s@PrivateDnsNameConfiguration' {} a -> s {name = a} :: PrivateDnsNameConfiguration)
 
--- | The endpoint service verification type, for example TXT.
-privateDnsNameConfiguration_type :: Lens.Lens' PrivateDnsNameConfiguration (Prelude.Maybe Prelude.Text)
-privateDnsNameConfiguration_type = Lens.lens (\PrivateDnsNameConfiguration' {type'} -> type') (\s@PrivateDnsNameConfiguration' {} a -> s {type' = a} :: PrivateDnsNameConfiguration)
-
 -- | The verification state of the VPC endpoint service.
 --
 -- >Consumers of the endpoint service can use the private name only when
 -- the state is @verified@.
 privateDnsNameConfiguration_state :: Lens.Lens' PrivateDnsNameConfiguration (Prelude.Maybe DnsNameState)
 privateDnsNameConfiguration_state = Lens.lens (\PrivateDnsNameConfiguration' {state} -> state) (\s@PrivateDnsNameConfiguration' {} a -> s {state = a} :: PrivateDnsNameConfiguration)
+
+-- | The endpoint service verification type, for example TXT.
+privateDnsNameConfiguration_type :: Lens.Lens' PrivateDnsNameConfiguration (Prelude.Maybe Prelude.Text)
+privateDnsNameConfiguration_type = Lens.lens (\PrivateDnsNameConfiguration' {type'} -> type') (\s@PrivateDnsNameConfiguration' {} a -> s {type' = a} :: PrivateDnsNameConfiguration)
 
 -- | The value the service provider adds to the private DNS name domain
 -- record before verification.
@@ -102,20 +102,20 @@ instance Data.FromXML PrivateDnsNameConfiguration where
   parseXML x =
     PrivateDnsNameConfiguration'
       Prelude.<$> (x Data..@? "name")
-      Prelude.<*> (x Data..@? "type")
       Prelude.<*> (x Data..@? "state")
+      Prelude.<*> (x Data..@? "type")
       Prelude.<*> (x Data..@? "value")
 
 instance Prelude.Hashable PrivateDnsNameConfiguration where
   hashWithSalt _salt PrivateDnsNameConfiguration' {..} =
     _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData PrivateDnsNameConfiguration where
   rnf PrivateDnsNameConfiguration' {..} =
     Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf value

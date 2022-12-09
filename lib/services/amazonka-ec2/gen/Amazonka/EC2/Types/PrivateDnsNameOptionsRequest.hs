@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newPrivateDnsNameOptionsRequest' smart constructor.
 data PrivateDnsNameOptionsRequest = PrivateDnsNameOptionsRequest'
   { -- | Indicates whether to respond to DNS queries for instance hostnames with
-    -- DNS A records.
-    enableResourceNameDnsARecord :: Prelude.Maybe Prelude.Bool,
-    -- | Indicates whether to respond to DNS queries for instance hostnames with
     -- DNS AAAA records.
     enableResourceNameDnsAAAARecord :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates whether to respond to DNS queries for instance hostnames with
+    -- DNS A records.
+    enableResourceNameDnsARecord :: Prelude.Maybe Prelude.Bool,
     -- | The type of hostname for EC2 instances. For IPv4 only subnets, an
     -- instance DNS name must be based on the instance IPv4 address. For IPv6
     -- only subnets, an instance DNS name must be based on the instance ID. For
@@ -53,11 +53,11 @@ data PrivateDnsNameOptionsRequest = PrivateDnsNameOptionsRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enableResourceNameDnsARecord', 'privateDnsNameOptionsRequest_enableResourceNameDnsARecord' - Indicates whether to respond to DNS queries for instance hostnames with
--- DNS A records.
---
 -- 'enableResourceNameDnsAAAARecord', 'privateDnsNameOptionsRequest_enableResourceNameDnsAAAARecord' - Indicates whether to respond to DNS queries for instance hostnames with
 -- DNS AAAA records.
+--
+-- 'enableResourceNameDnsARecord', 'privateDnsNameOptionsRequest_enableResourceNameDnsARecord' - Indicates whether to respond to DNS queries for instance hostnames with
+-- DNS A records.
 --
 -- 'hostnameType', 'privateDnsNameOptionsRequest_hostnameType' - The type of hostname for EC2 instances. For IPv4 only subnets, an
 -- instance DNS name must be based on the instance IPv4 address. For IPv6
@@ -68,22 +68,22 @@ newPrivateDnsNameOptionsRequest ::
   PrivateDnsNameOptionsRequest
 newPrivateDnsNameOptionsRequest =
   PrivateDnsNameOptionsRequest'
-    { enableResourceNameDnsARecord =
+    { enableResourceNameDnsAAAARecord =
         Prelude.Nothing,
-      enableResourceNameDnsAAAARecord =
+      enableResourceNameDnsARecord =
         Prelude.Nothing,
       hostnameType = Prelude.Nothing
     }
 
 -- | Indicates whether to respond to DNS queries for instance hostnames with
--- DNS A records.
-privateDnsNameOptionsRequest_enableResourceNameDnsARecord :: Lens.Lens' PrivateDnsNameOptionsRequest (Prelude.Maybe Prelude.Bool)
-privateDnsNameOptionsRequest_enableResourceNameDnsARecord = Lens.lens (\PrivateDnsNameOptionsRequest' {enableResourceNameDnsARecord} -> enableResourceNameDnsARecord) (\s@PrivateDnsNameOptionsRequest' {} a -> s {enableResourceNameDnsARecord = a} :: PrivateDnsNameOptionsRequest)
-
--- | Indicates whether to respond to DNS queries for instance hostnames with
 -- DNS AAAA records.
 privateDnsNameOptionsRequest_enableResourceNameDnsAAAARecord :: Lens.Lens' PrivateDnsNameOptionsRequest (Prelude.Maybe Prelude.Bool)
 privateDnsNameOptionsRequest_enableResourceNameDnsAAAARecord = Lens.lens (\PrivateDnsNameOptionsRequest' {enableResourceNameDnsAAAARecord} -> enableResourceNameDnsAAAARecord) (\s@PrivateDnsNameOptionsRequest' {} a -> s {enableResourceNameDnsAAAARecord = a} :: PrivateDnsNameOptionsRequest)
+
+-- | Indicates whether to respond to DNS queries for instance hostnames with
+-- DNS A records.
+privateDnsNameOptionsRequest_enableResourceNameDnsARecord :: Lens.Lens' PrivateDnsNameOptionsRequest (Prelude.Maybe Prelude.Bool)
+privateDnsNameOptionsRequest_enableResourceNameDnsARecord = Lens.lens (\PrivateDnsNameOptionsRequest' {enableResourceNameDnsARecord} -> enableResourceNameDnsARecord) (\s@PrivateDnsNameOptionsRequest' {} a -> s {enableResourceNameDnsARecord = a} :: PrivateDnsNameOptionsRequest)
 
 -- | The type of hostname for EC2 instances. For IPv4 only subnets, an
 -- instance DNS name must be based on the instance IPv4 address. For IPv6
@@ -99,22 +99,22 @@ instance
   where
   hashWithSalt _salt PrivateDnsNameOptionsRequest' {..} =
     _salt
-      `Prelude.hashWithSalt` enableResourceNameDnsARecord
       `Prelude.hashWithSalt` enableResourceNameDnsAAAARecord
+      `Prelude.hashWithSalt` enableResourceNameDnsARecord
       `Prelude.hashWithSalt` hostnameType
 
 instance Prelude.NFData PrivateDnsNameOptionsRequest where
   rnf PrivateDnsNameOptionsRequest' {..} =
-    Prelude.rnf enableResourceNameDnsARecord
-      `Prelude.seq` Prelude.rnf enableResourceNameDnsAAAARecord
+    Prelude.rnf enableResourceNameDnsAAAARecord
+      `Prelude.seq` Prelude.rnf enableResourceNameDnsARecord
       `Prelude.seq` Prelude.rnf hostnameType
 
 instance Data.ToQuery PrivateDnsNameOptionsRequest where
   toQuery PrivateDnsNameOptionsRequest' {..} =
     Prelude.mconcat
-      [ "EnableResourceNameDnsARecord"
-          Data.=: enableResourceNameDnsARecord,
-        "EnableResourceNameDnsAAAARecord"
+      [ "EnableResourceNameDnsAAAARecord"
           Data.=: enableResourceNameDnsAAAARecord,
+        "EnableResourceNameDnsARecord"
+          Data.=: enableResourceNameDnsARecord,
         "HostnameType" Data.=: hostnameType
       ]

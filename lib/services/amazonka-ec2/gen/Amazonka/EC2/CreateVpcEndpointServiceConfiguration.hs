@@ -47,13 +47,13 @@ module Amazonka.EC2.CreateVpcEndpointServiceConfiguration
     newCreateVpcEndpointServiceConfiguration,
 
     -- * Request Lenses
-    createVpcEndpointServiceConfiguration_clientToken,
-    createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns,
     createVpcEndpointServiceConfiguration_acceptanceRequired,
-    createVpcEndpointServiceConfiguration_supportedIpAddressTypes,
+    createVpcEndpointServiceConfiguration_clientToken,
     createVpcEndpointServiceConfiguration_dryRun,
+    createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns,
     createVpcEndpointServiceConfiguration_networkLoadBalancerArns,
     createVpcEndpointServiceConfiguration_privateDnsName,
+    createVpcEndpointServiceConfiguration_supportedIpAddressTypes,
     createVpcEndpointServiceConfiguration_tagSpecifications,
 
     -- * Destructuring the Response
@@ -77,29 +77,29 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateVpcEndpointServiceConfiguration' smart constructor.
 data CreateVpcEndpointServiceConfiguration = CreateVpcEndpointServiceConfiguration'
-  { -- | Unique, case-sensitive identifier that you provide to ensure the
+  { -- | Indicates whether requests from service consumers to create an endpoint
+    -- to your service must be accepted manually.
+    acceptanceRequired :: Prelude.Maybe Prelude.Bool,
+    -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.
-    gatewayLoadBalancerArns :: Prelude.Maybe [Prelude.Text],
-    -- | Indicates whether requests from service consumers to create an endpoint
-    -- to your service must be accepted manually.
-    acceptanceRequired :: Prelude.Maybe Prelude.Bool,
-    -- | The supported IP address types. The possible values are @ipv4@ and
-    -- @ipv6@.
-    supportedIpAddressTypes :: Prelude.Maybe [Prelude.Text],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.
+    gatewayLoadBalancerArns :: Prelude.Maybe [Prelude.Text],
     -- | The Amazon Resource Names (ARNs) of one or more Network Load Balancers
     -- for your service.
     networkLoadBalancerArns :: Prelude.Maybe [Prelude.Text],
     -- | (Interface endpoint configuration) The private DNS name to assign to the
     -- VPC endpoint service.
     privateDnsName :: Prelude.Maybe Prelude.Text,
+    -- | The supported IP address types. The possible values are @ipv4@ and
+    -- @ipv6@.
+    supportedIpAddressTypes :: Prelude.Maybe [Prelude.Text],
     -- | The tags to associate with the service.
     tagSpecifications :: Prelude.Maybe [TagSpecification]
   }
@@ -113,22 +113,19 @@ data CreateVpcEndpointServiceConfiguration = CreateVpcEndpointServiceConfigurati
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'createVpcEndpointServiceConfiguration_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
---
--- 'gatewayLoadBalancerArns', 'createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns' - The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.
---
 -- 'acceptanceRequired', 'createVpcEndpointServiceConfiguration_acceptanceRequired' - Indicates whether requests from service consumers to create an endpoint
 -- to your service must be accepted manually.
 --
--- 'supportedIpAddressTypes', 'createVpcEndpointServiceConfiguration_supportedIpAddressTypes' - The supported IP address types. The possible values are @ipv4@ and
--- @ipv6@.
+-- 'clientToken', 'createVpcEndpointServiceConfiguration_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
 --
 -- 'dryRun', 'createVpcEndpointServiceConfiguration_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'gatewayLoadBalancerArns', 'createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns' - The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.
 --
 -- 'networkLoadBalancerArns', 'createVpcEndpointServiceConfiguration_networkLoadBalancerArns' - The Amazon Resource Names (ARNs) of one or more Network Load Balancers
 -- for your service.
@@ -136,24 +133,32 @@ data CreateVpcEndpointServiceConfiguration = CreateVpcEndpointServiceConfigurati
 -- 'privateDnsName', 'createVpcEndpointServiceConfiguration_privateDnsName' - (Interface endpoint configuration) The private DNS name to assign to the
 -- VPC endpoint service.
 --
+-- 'supportedIpAddressTypes', 'createVpcEndpointServiceConfiguration_supportedIpAddressTypes' - The supported IP address types. The possible values are @ipv4@ and
+-- @ipv6@.
+--
 -- 'tagSpecifications', 'createVpcEndpointServiceConfiguration_tagSpecifications' - The tags to associate with the service.
 newCreateVpcEndpointServiceConfiguration ::
   CreateVpcEndpointServiceConfiguration
 newCreateVpcEndpointServiceConfiguration =
   CreateVpcEndpointServiceConfiguration'
-    { clientToken =
+    { acceptanceRequired =
         Prelude.Nothing,
+      clientToken = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       gatewayLoadBalancerArns =
         Prelude.Nothing,
-      acceptanceRequired = Prelude.Nothing,
-      supportedIpAddressTypes =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       networkLoadBalancerArns =
         Prelude.Nothing,
       privateDnsName = Prelude.Nothing,
+      supportedIpAddressTypes =
+        Prelude.Nothing,
       tagSpecifications = Prelude.Nothing
     }
+
+-- | Indicates whether requests from service consumers to create an endpoint
+-- to your service must be accepted manually.
+createVpcEndpointServiceConfiguration_acceptanceRequired :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe Prelude.Bool)
+createVpcEndpointServiceConfiguration_acceptanceRequired = Lens.lens (\CreateVpcEndpointServiceConfiguration' {acceptanceRequired} -> acceptanceRequired) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {acceptanceRequired = a} :: CreateVpcEndpointServiceConfiguration)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
@@ -161,26 +166,16 @@ newCreateVpcEndpointServiceConfiguration =
 createVpcEndpointServiceConfiguration_clientToken :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe Prelude.Text)
 createVpcEndpointServiceConfiguration_clientToken = Lens.lens (\CreateVpcEndpointServiceConfiguration' {clientToken} -> clientToken) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {clientToken = a} :: CreateVpcEndpointServiceConfiguration)
 
--- | The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.
-createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe [Prelude.Text])
-createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns = Lens.lens (\CreateVpcEndpointServiceConfiguration' {gatewayLoadBalancerArns} -> gatewayLoadBalancerArns) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {gatewayLoadBalancerArns = a} :: CreateVpcEndpointServiceConfiguration) Prelude.. Lens.mapping Lens.coerced
-
--- | Indicates whether requests from service consumers to create an endpoint
--- to your service must be accepted manually.
-createVpcEndpointServiceConfiguration_acceptanceRequired :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe Prelude.Bool)
-createVpcEndpointServiceConfiguration_acceptanceRequired = Lens.lens (\CreateVpcEndpointServiceConfiguration' {acceptanceRequired} -> acceptanceRequired) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {acceptanceRequired = a} :: CreateVpcEndpointServiceConfiguration)
-
--- | The supported IP address types. The possible values are @ipv4@ and
--- @ipv6@.
-createVpcEndpointServiceConfiguration_supportedIpAddressTypes :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe [Prelude.Text])
-createVpcEndpointServiceConfiguration_supportedIpAddressTypes = Lens.lens (\CreateVpcEndpointServiceConfiguration' {supportedIpAddressTypes} -> supportedIpAddressTypes) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {supportedIpAddressTypes = a} :: CreateVpcEndpointServiceConfiguration) Prelude.. Lens.mapping Lens.coerced
-
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 createVpcEndpointServiceConfiguration_dryRun :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe Prelude.Bool)
 createVpcEndpointServiceConfiguration_dryRun = Lens.lens (\CreateVpcEndpointServiceConfiguration' {dryRun} -> dryRun) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {dryRun = a} :: CreateVpcEndpointServiceConfiguration)
+
+-- | The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.
+createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe [Prelude.Text])
+createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns = Lens.lens (\CreateVpcEndpointServiceConfiguration' {gatewayLoadBalancerArns} -> gatewayLoadBalancerArns) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {gatewayLoadBalancerArns = a} :: CreateVpcEndpointServiceConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Names (ARNs) of one or more Network Load Balancers
 -- for your service.
@@ -191,6 +186,11 @@ createVpcEndpointServiceConfiguration_networkLoadBalancerArns = Lens.lens (\Crea
 -- VPC endpoint service.
 createVpcEndpointServiceConfiguration_privateDnsName :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe Prelude.Text)
 createVpcEndpointServiceConfiguration_privateDnsName = Lens.lens (\CreateVpcEndpointServiceConfiguration' {privateDnsName} -> privateDnsName) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {privateDnsName = a} :: CreateVpcEndpointServiceConfiguration)
+
+-- | The supported IP address types. The possible values are @ipv4@ and
+-- @ipv6@.
+createVpcEndpointServiceConfiguration_supportedIpAddressTypes :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe [Prelude.Text])
+createVpcEndpointServiceConfiguration_supportedIpAddressTypes = Lens.lens (\CreateVpcEndpointServiceConfiguration' {supportedIpAddressTypes} -> supportedIpAddressTypes) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {supportedIpAddressTypes = a} :: CreateVpcEndpointServiceConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The tags to associate with the service.
 createVpcEndpointServiceConfiguration_tagSpecifications :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe [TagSpecification])
@@ -222,13 +222,13 @@ instance
   hashWithSalt
     _salt
     CreateVpcEndpointServiceConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
-        `Prelude.hashWithSalt` gatewayLoadBalancerArns
-        `Prelude.hashWithSalt` acceptanceRequired
-        `Prelude.hashWithSalt` supportedIpAddressTypes
+      _salt `Prelude.hashWithSalt` acceptanceRequired
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` gatewayLoadBalancerArns
         `Prelude.hashWithSalt` networkLoadBalancerArns
         `Prelude.hashWithSalt` privateDnsName
+        `Prelude.hashWithSalt` supportedIpAddressTypes
         `Prelude.hashWithSalt` tagSpecifications
 
 instance
@@ -236,13 +236,13 @@ instance
     CreateVpcEndpointServiceConfiguration
   where
   rnf CreateVpcEndpointServiceConfiguration' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf gatewayLoadBalancerArns
-      `Prelude.seq` Prelude.rnf acceptanceRequired
-      `Prelude.seq` Prelude.rnf supportedIpAddressTypes
+    Prelude.rnf acceptanceRequired
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf gatewayLoadBalancerArns
       `Prelude.seq` Prelude.rnf networkLoadBalancerArns
       `Prelude.seq` Prelude.rnf privateDnsName
+      `Prelude.seq` Prelude.rnf supportedIpAddressTypes
       `Prelude.seq` Prelude.rnf tagSpecifications
 
 instance
@@ -269,22 +269,22 @@ instance
                   ),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "AcceptanceRequired" Data.=: acceptanceRequired,
         "ClientToken" Data.=: clientToken,
+        "DryRun" Data.=: dryRun,
         Data.toQuery
           ( Data.toQueryList "GatewayLoadBalancerArn"
               Prelude.<$> gatewayLoadBalancerArns
           ),
-        "AcceptanceRequired" Data.=: acceptanceRequired,
-        Data.toQuery
-          ( Data.toQueryList "SupportedIpAddressType"
-              Prelude.<$> supportedIpAddressTypes
-          ),
-        "DryRun" Data.=: dryRun,
         Data.toQuery
           ( Data.toQueryList "NetworkLoadBalancerArn"
               Prelude.<$> networkLoadBalancerArns
           ),
         "PrivateDnsName" Data.=: privateDnsName,
+        Data.toQuery
+          ( Data.toQueryList "SupportedIpAddressType"
+              Prelude.<$> supportedIpAddressTypes
+          ),
         Data.toQuery
           ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications

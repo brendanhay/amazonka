@@ -28,19 +28,19 @@ module Amazonka.EC2.ModifyClientVpnEndpoint
     newModifyClientVpnEndpoint,
 
     -- * Request Lenses
-    modifyClientVpnEndpoint_serverCertificateArn,
-    modifyClientVpnEndpoint_sessionTimeoutHours,
-    modifyClientVpnEndpoint_securityGroupIds,
-    modifyClientVpnEndpoint_dnsServers,
+    modifyClientVpnEndpoint_clientConnectOptions,
+    modifyClientVpnEndpoint_clientLoginBannerOptions,
     modifyClientVpnEndpoint_connectionLogOptions,
     modifyClientVpnEndpoint_description,
+    modifyClientVpnEndpoint_dnsServers,
     modifyClientVpnEndpoint_dryRun,
-    modifyClientVpnEndpoint_clientLoginBannerOptions,
-    modifyClientVpnEndpoint_clientConnectOptions,
+    modifyClientVpnEndpoint_securityGroupIds,
+    modifyClientVpnEndpoint_selfServicePortal,
+    modifyClientVpnEndpoint_serverCertificateArn,
+    modifyClientVpnEndpoint_sessionTimeoutHours,
     modifyClientVpnEndpoint_splitTunnel,
     modifyClientVpnEndpoint_vpcId,
     modifyClientVpnEndpoint_vpnPort,
-    modifyClientVpnEndpoint_selfServicePortal,
     modifyClientVpnEndpoint_clientVpnEndpointId,
 
     -- * Destructuring the Response
@@ -63,20 +63,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyClientVpnEndpoint' smart constructor.
 data ModifyClientVpnEndpoint = ModifyClientVpnEndpoint'
-  { -- | The ARN of the server certificate to be used. The server certificate
-    -- must be provisioned in Certificate Manager (ACM).
-    serverCertificateArn :: Prelude.Maybe Prelude.Text,
-    -- | The maximum VPN session duration time in hours.
-    --
-    -- Valid values: @8 | 10 | 12 | 24@
-    --
-    -- Default value: @24@
-    sessionTimeoutHours :: Prelude.Maybe Prelude.Int,
-    -- | The IDs of one or more security groups to apply to the target network.
-    securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | Information about the DNS servers to be used by Client VPN connections.
-    -- A Client VPN endpoint can have up to two DNS servers.
-    dnsServers :: Prelude.Maybe DnsServersOptionsModifyStructure,
+  { -- | The options for managing connection authorization for new client
+    -- connections.
+    clientConnectOptions :: Prelude.Maybe ClientConnectOptions,
+    -- | Options for enabling a customizable text banner that will be displayed
+    -- on Amazon Web Services provided clients when a VPN session is
+    -- established.
+    clientLoginBannerOptions :: Prelude.Maybe ClientLoginBannerOptions,
     -- | Information about the client connection logging options.
     --
     -- If you enable client connection logging, data about client connections
@@ -93,18 +86,28 @@ data ModifyClientVpnEndpoint = ModifyClientVpnEndpoint'
     connectionLogOptions :: Prelude.Maybe ConnectionLogOptions,
     -- | A brief description of the Client VPN endpoint.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Information about the DNS servers to be used by Client VPN connections.
+    -- A Client VPN endpoint can have up to two DNS servers.
+    dnsServers :: Prelude.Maybe DnsServersOptionsModifyStructure,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | Options for enabling a customizable text banner that will be displayed
-    -- on Amazon Web Services provided clients when a VPN session is
-    -- established.
-    clientLoginBannerOptions :: Prelude.Maybe ClientLoginBannerOptions,
-    -- | The options for managing connection authorization for new client
-    -- connections.
-    clientConnectOptions :: Prelude.Maybe ClientConnectOptions,
+    -- | The IDs of one or more security groups to apply to the target network.
+    securityGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- | Specify whether to enable the self-service portal for the Client VPN
+    -- endpoint.
+    selfServicePortal :: Prelude.Maybe SelfServicePortal,
+    -- | The ARN of the server certificate to be used. The server certificate
+    -- must be provisioned in Certificate Manager (ACM).
+    serverCertificateArn :: Prelude.Maybe Prelude.Text,
+    -- | The maximum VPN session duration time in hours.
+    --
+    -- Valid values: @8 | 10 | 12 | 24@
+    --
+    -- Default value: @24@
+    sessionTimeoutHours :: Prelude.Maybe Prelude.Int,
     -- | Indicates whether the VPN is split-tunnel.
     --
     -- For information about split-tunnel VPN endpoints, see
@@ -120,9 +123,6 @@ data ModifyClientVpnEndpoint = ModifyClientVpnEndpoint'
     --
     -- Default Value: @443@
     vpnPort :: Prelude.Maybe Prelude.Int,
-    -- | Specify whether to enable the self-service portal for the Client VPN
-    -- endpoint.
-    selfServicePortal :: Prelude.Maybe SelfServicePortal,
     -- | The ID of the Client VPN endpoint to modify.
     clientVpnEndpointId :: Prelude.Text
   }
@@ -136,19 +136,12 @@ data ModifyClientVpnEndpoint = ModifyClientVpnEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serverCertificateArn', 'modifyClientVpnEndpoint_serverCertificateArn' - The ARN of the server certificate to be used. The server certificate
--- must be provisioned in Certificate Manager (ACM).
+-- 'clientConnectOptions', 'modifyClientVpnEndpoint_clientConnectOptions' - The options for managing connection authorization for new client
+-- connections.
 --
--- 'sessionTimeoutHours', 'modifyClientVpnEndpoint_sessionTimeoutHours' - The maximum VPN session duration time in hours.
---
--- Valid values: @8 | 10 | 12 | 24@
---
--- Default value: @24@
---
--- 'securityGroupIds', 'modifyClientVpnEndpoint_securityGroupIds' - The IDs of one or more security groups to apply to the target network.
---
--- 'dnsServers', 'modifyClientVpnEndpoint_dnsServers' - Information about the DNS servers to be used by Client VPN connections.
--- A Client VPN endpoint can have up to two DNS servers.
+-- 'clientLoginBannerOptions', 'modifyClientVpnEndpoint_clientLoginBannerOptions' - Options for enabling a customizable text banner that will be displayed
+-- on Amazon Web Services provided clients when a VPN session is
+-- established.
 --
 -- 'connectionLogOptions', 'modifyClientVpnEndpoint_connectionLogOptions' - Information about the client connection logging options.
 --
@@ -166,17 +159,27 @@ data ModifyClientVpnEndpoint = ModifyClientVpnEndpoint'
 --
 -- 'description', 'modifyClientVpnEndpoint_description' - A brief description of the Client VPN endpoint.
 --
+-- 'dnsServers', 'modifyClientVpnEndpoint_dnsServers' - Information about the DNS servers to be used by Client VPN connections.
+-- A Client VPN endpoint can have up to two DNS servers.
+--
 -- 'dryRun', 'modifyClientVpnEndpoint_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'clientLoginBannerOptions', 'modifyClientVpnEndpoint_clientLoginBannerOptions' - Options for enabling a customizable text banner that will be displayed
--- on Amazon Web Services provided clients when a VPN session is
--- established.
+-- 'securityGroupIds', 'modifyClientVpnEndpoint_securityGroupIds' - The IDs of one or more security groups to apply to the target network.
 --
--- 'clientConnectOptions', 'modifyClientVpnEndpoint_clientConnectOptions' - The options for managing connection authorization for new client
--- connections.
+-- 'selfServicePortal', 'modifyClientVpnEndpoint_selfServicePortal' - Specify whether to enable the self-service portal for the Client VPN
+-- endpoint.
+--
+-- 'serverCertificateArn', 'modifyClientVpnEndpoint_serverCertificateArn' - The ARN of the server certificate to be used. The server certificate
+-- must be provisioned in Certificate Manager (ACM).
+--
+-- 'sessionTimeoutHours', 'modifyClientVpnEndpoint_sessionTimeoutHours' - The maximum VPN session duration time in hours.
+--
+-- Valid values: @8 | 10 | 12 | 24@
+--
+-- Default value: @24@
 --
 -- 'splitTunnel', 'modifyClientVpnEndpoint_splitTunnel' - Indicates whether the VPN is split-tunnel.
 --
@@ -193,9 +196,6 @@ data ModifyClientVpnEndpoint = ModifyClientVpnEndpoint'
 --
 -- Default Value: @443@
 --
--- 'selfServicePortal', 'modifyClientVpnEndpoint_selfServicePortal' - Specify whether to enable the self-service portal for the Client VPN
--- endpoint.
---
 -- 'clientVpnEndpointId', 'modifyClientVpnEndpoint_clientVpnEndpointId' - The ID of the Client VPN endpoint to modify.
 newModifyClientVpnEndpoint ::
   -- | 'clientVpnEndpointId'
@@ -203,44 +203,33 @@ newModifyClientVpnEndpoint ::
   ModifyClientVpnEndpoint
 newModifyClientVpnEndpoint pClientVpnEndpointId_ =
   ModifyClientVpnEndpoint'
-    { serverCertificateArn =
+    { clientConnectOptions =
         Prelude.Nothing,
-      sessionTimeoutHours = Prelude.Nothing,
-      securityGroupIds = Prelude.Nothing,
-      dnsServers = Prelude.Nothing,
+      clientLoginBannerOptions = Prelude.Nothing,
       connectionLogOptions = Prelude.Nothing,
       description = Prelude.Nothing,
+      dnsServers = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      clientLoginBannerOptions = Prelude.Nothing,
-      clientConnectOptions = Prelude.Nothing,
+      securityGroupIds = Prelude.Nothing,
+      selfServicePortal = Prelude.Nothing,
+      serverCertificateArn = Prelude.Nothing,
+      sessionTimeoutHours = Prelude.Nothing,
       splitTunnel = Prelude.Nothing,
       vpcId = Prelude.Nothing,
       vpnPort = Prelude.Nothing,
-      selfServicePortal = Prelude.Nothing,
       clientVpnEndpointId = pClientVpnEndpointId_
     }
 
--- | The ARN of the server certificate to be used. The server certificate
--- must be provisioned in Certificate Manager (ACM).
-modifyClientVpnEndpoint_serverCertificateArn :: Lens.Lens' ModifyClientVpnEndpoint (Prelude.Maybe Prelude.Text)
-modifyClientVpnEndpoint_serverCertificateArn = Lens.lens (\ModifyClientVpnEndpoint' {serverCertificateArn} -> serverCertificateArn) (\s@ModifyClientVpnEndpoint' {} a -> s {serverCertificateArn = a} :: ModifyClientVpnEndpoint)
+-- | The options for managing connection authorization for new client
+-- connections.
+modifyClientVpnEndpoint_clientConnectOptions :: Lens.Lens' ModifyClientVpnEndpoint (Prelude.Maybe ClientConnectOptions)
+modifyClientVpnEndpoint_clientConnectOptions = Lens.lens (\ModifyClientVpnEndpoint' {clientConnectOptions} -> clientConnectOptions) (\s@ModifyClientVpnEndpoint' {} a -> s {clientConnectOptions = a} :: ModifyClientVpnEndpoint)
 
--- | The maximum VPN session duration time in hours.
---
--- Valid values: @8 | 10 | 12 | 24@
---
--- Default value: @24@
-modifyClientVpnEndpoint_sessionTimeoutHours :: Lens.Lens' ModifyClientVpnEndpoint (Prelude.Maybe Prelude.Int)
-modifyClientVpnEndpoint_sessionTimeoutHours = Lens.lens (\ModifyClientVpnEndpoint' {sessionTimeoutHours} -> sessionTimeoutHours) (\s@ModifyClientVpnEndpoint' {} a -> s {sessionTimeoutHours = a} :: ModifyClientVpnEndpoint)
-
--- | The IDs of one or more security groups to apply to the target network.
-modifyClientVpnEndpoint_securityGroupIds :: Lens.Lens' ModifyClientVpnEndpoint (Prelude.Maybe [Prelude.Text])
-modifyClientVpnEndpoint_securityGroupIds = Lens.lens (\ModifyClientVpnEndpoint' {securityGroupIds} -> securityGroupIds) (\s@ModifyClientVpnEndpoint' {} a -> s {securityGroupIds = a} :: ModifyClientVpnEndpoint) Prelude.. Lens.mapping Lens.coerced
-
--- | Information about the DNS servers to be used by Client VPN connections.
--- A Client VPN endpoint can have up to two DNS servers.
-modifyClientVpnEndpoint_dnsServers :: Lens.Lens' ModifyClientVpnEndpoint (Prelude.Maybe DnsServersOptionsModifyStructure)
-modifyClientVpnEndpoint_dnsServers = Lens.lens (\ModifyClientVpnEndpoint' {dnsServers} -> dnsServers) (\s@ModifyClientVpnEndpoint' {} a -> s {dnsServers = a} :: ModifyClientVpnEndpoint)
+-- | Options for enabling a customizable text banner that will be displayed
+-- on Amazon Web Services provided clients when a VPN session is
+-- established.
+modifyClientVpnEndpoint_clientLoginBannerOptions :: Lens.Lens' ModifyClientVpnEndpoint (Prelude.Maybe ClientLoginBannerOptions)
+modifyClientVpnEndpoint_clientLoginBannerOptions = Lens.lens (\ModifyClientVpnEndpoint' {clientLoginBannerOptions} -> clientLoginBannerOptions) (\s@ModifyClientVpnEndpoint' {} a -> s {clientLoginBannerOptions = a} :: ModifyClientVpnEndpoint)
 
 -- | Information about the client connection logging options.
 --
@@ -262,6 +251,11 @@ modifyClientVpnEndpoint_connectionLogOptions = Lens.lens (\ModifyClientVpnEndpoi
 modifyClientVpnEndpoint_description :: Lens.Lens' ModifyClientVpnEndpoint (Prelude.Maybe Prelude.Text)
 modifyClientVpnEndpoint_description = Lens.lens (\ModifyClientVpnEndpoint' {description} -> description) (\s@ModifyClientVpnEndpoint' {} a -> s {description = a} :: ModifyClientVpnEndpoint)
 
+-- | Information about the DNS servers to be used by Client VPN connections.
+-- A Client VPN endpoint can have up to two DNS servers.
+modifyClientVpnEndpoint_dnsServers :: Lens.Lens' ModifyClientVpnEndpoint (Prelude.Maybe DnsServersOptionsModifyStructure)
+modifyClientVpnEndpoint_dnsServers = Lens.lens (\ModifyClientVpnEndpoint' {dnsServers} -> dnsServers) (\s@ModifyClientVpnEndpoint' {} a -> s {dnsServers = a} :: ModifyClientVpnEndpoint)
+
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -269,16 +263,27 @@ modifyClientVpnEndpoint_description = Lens.lens (\ModifyClientVpnEndpoint' {desc
 modifyClientVpnEndpoint_dryRun :: Lens.Lens' ModifyClientVpnEndpoint (Prelude.Maybe Prelude.Bool)
 modifyClientVpnEndpoint_dryRun = Lens.lens (\ModifyClientVpnEndpoint' {dryRun} -> dryRun) (\s@ModifyClientVpnEndpoint' {} a -> s {dryRun = a} :: ModifyClientVpnEndpoint)
 
--- | Options for enabling a customizable text banner that will be displayed
--- on Amazon Web Services provided clients when a VPN session is
--- established.
-modifyClientVpnEndpoint_clientLoginBannerOptions :: Lens.Lens' ModifyClientVpnEndpoint (Prelude.Maybe ClientLoginBannerOptions)
-modifyClientVpnEndpoint_clientLoginBannerOptions = Lens.lens (\ModifyClientVpnEndpoint' {clientLoginBannerOptions} -> clientLoginBannerOptions) (\s@ModifyClientVpnEndpoint' {} a -> s {clientLoginBannerOptions = a} :: ModifyClientVpnEndpoint)
+-- | The IDs of one or more security groups to apply to the target network.
+modifyClientVpnEndpoint_securityGroupIds :: Lens.Lens' ModifyClientVpnEndpoint (Prelude.Maybe [Prelude.Text])
+modifyClientVpnEndpoint_securityGroupIds = Lens.lens (\ModifyClientVpnEndpoint' {securityGroupIds} -> securityGroupIds) (\s@ModifyClientVpnEndpoint' {} a -> s {securityGroupIds = a} :: ModifyClientVpnEndpoint) Prelude.. Lens.mapping Lens.coerced
 
--- | The options for managing connection authorization for new client
--- connections.
-modifyClientVpnEndpoint_clientConnectOptions :: Lens.Lens' ModifyClientVpnEndpoint (Prelude.Maybe ClientConnectOptions)
-modifyClientVpnEndpoint_clientConnectOptions = Lens.lens (\ModifyClientVpnEndpoint' {clientConnectOptions} -> clientConnectOptions) (\s@ModifyClientVpnEndpoint' {} a -> s {clientConnectOptions = a} :: ModifyClientVpnEndpoint)
+-- | Specify whether to enable the self-service portal for the Client VPN
+-- endpoint.
+modifyClientVpnEndpoint_selfServicePortal :: Lens.Lens' ModifyClientVpnEndpoint (Prelude.Maybe SelfServicePortal)
+modifyClientVpnEndpoint_selfServicePortal = Lens.lens (\ModifyClientVpnEndpoint' {selfServicePortal} -> selfServicePortal) (\s@ModifyClientVpnEndpoint' {} a -> s {selfServicePortal = a} :: ModifyClientVpnEndpoint)
+
+-- | The ARN of the server certificate to be used. The server certificate
+-- must be provisioned in Certificate Manager (ACM).
+modifyClientVpnEndpoint_serverCertificateArn :: Lens.Lens' ModifyClientVpnEndpoint (Prelude.Maybe Prelude.Text)
+modifyClientVpnEndpoint_serverCertificateArn = Lens.lens (\ModifyClientVpnEndpoint' {serverCertificateArn} -> serverCertificateArn) (\s@ModifyClientVpnEndpoint' {} a -> s {serverCertificateArn = a} :: ModifyClientVpnEndpoint)
+
+-- | The maximum VPN session duration time in hours.
+--
+-- Valid values: @8 | 10 | 12 | 24@
+--
+-- Default value: @24@
+modifyClientVpnEndpoint_sessionTimeoutHours :: Lens.Lens' ModifyClientVpnEndpoint (Prelude.Maybe Prelude.Int)
+modifyClientVpnEndpoint_sessionTimeoutHours = Lens.lens (\ModifyClientVpnEndpoint' {sessionTimeoutHours} -> sessionTimeoutHours) (\s@ModifyClientVpnEndpoint' {} a -> s {sessionTimeoutHours = a} :: ModifyClientVpnEndpoint)
 
 -- | Indicates whether the VPN is split-tunnel.
 --
@@ -301,11 +306,6 @@ modifyClientVpnEndpoint_vpcId = Lens.lens (\ModifyClientVpnEndpoint' {vpcId} -> 
 modifyClientVpnEndpoint_vpnPort :: Lens.Lens' ModifyClientVpnEndpoint (Prelude.Maybe Prelude.Int)
 modifyClientVpnEndpoint_vpnPort = Lens.lens (\ModifyClientVpnEndpoint' {vpnPort} -> vpnPort) (\s@ModifyClientVpnEndpoint' {} a -> s {vpnPort = a} :: ModifyClientVpnEndpoint)
 
--- | Specify whether to enable the self-service portal for the Client VPN
--- endpoint.
-modifyClientVpnEndpoint_selfServicePortal :: Lens.Lens' ModifyClientVpnEndpoint (Prelude.Maybe SelfServicePortal)
-modifyClientVpnEndpoint_selfServicePortal = Lens.lens (\ModifyClientVpnEndpoint' {selfServicePortal} -> selfServicePortal) (\s@ModifyClientVpnEndpoint' {} a -> s {selfServicePortal = a} :: ModifyClientVpnEndpoint)
-
 -- | The ID of the Client VPN endpoint to modify.
 modifyClientVpnEndpoint_clientVpnEndpointId :: Lens.Lens' ModifyClientVpnEndpoint Prelude.Text
 modifyClientVpnEndpoint_clientVpnEndpointId = Lens.lens (\ModifyClientVpnEndpoint' {clientVpnEndpointId} -> clientVpnEndpointId) (\s@ModifyClientVpnEndpoint' {} a -> s {clientVpnEndpointId = a} :: ModifyClientVpnEndpoint)
@@ -326,36 +326,36 @@ instance Core.AWSRequest ModifyClientVpnEndpoint where
 
 instance Prelude.Hashable ModifyClientVpnEndpoint where
   hashWithSalt _salt ModifyClientVpnEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` serverCertificateArn
-      `Prelude.hashWithSalt` sessionTimeoutHours
-      `Prelude.hashWithSalt` securityGroupIds
-      `Prelude.hashWithSalt` dnsServers
+    _salt `Prelude.hashWithSalt` clientConnectOptions
+      `Prelude.hashWithSalt` clientLoginBannerOptions
       `Prelude.hashWithSalt` connectionLogOptions
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` dnsServers
       `Prelude.hashWithSalt` dryRun
-      `Prelude.hashWithSalt` clientLoginBannerOptions
-      `Prelude.hashWithSalt` clientConnectOptions
+      `Prelude.hashWithSalt` securityGroupIds
+      `Prelude.hashWithSalt` selfServicePortal
+      `Prelude.hashWithSalt` serverCertificateArn
+      `Prelude.hashWithSalt` sessionTimeoutHours
       `Prelude.hashWithSalt` splitTunnel
       `Prelude.hashWithSalt` vpcId
       `Prelude.hashWithSalt` vpnPort
-      `Prelude.hashWithSalt` selfServicePortal
       `Prelude.hashWithSalt` clientVpnEndpointId
 
 instance Prelude.NFData ModifyClientVpnEndpoint where
   rnf ModifyClientVpnEndpoint' {..} =
-    Prelude.rnf serverCertificateArn
-      `Prelude.seq` Prelude.rnf sessionTimeoutHours
-      `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf dnsServers
+    Prelude.rnf clientConnectOptions
+      `Prelude.seq` Prelude.rnf clientLoginBannerOptions
       `Prelude.seq` Prelude.rnf connectionLogOptions
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf dnsServers
       `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf clientLoginBannerOptions
-      `Prelude.seq` Prelude.rnf clientConnectOptions
+      `Prelude.seq` Prelude.rnf securityGroupIds
+      `Prelude.seq` Prelude.rnf selfServicePortal
+      `Prelude.seq` Prelude.rnf serverCertificateArn
+      `Prelude.seq` Prelude.rnf sessionTimeoutHours
       `Prelude.seq` Prelude.rnf splitTunnel
       `Prelude.seq` Prelude.rnf vpcId
       `Prelude.seq` Prelude.rnf vpnPort
-      `Prelude.seq` Prelude.rnf selfServicePortal
       `Prelude.seq` Prelude.rnf clientVpnEndpointId
 
 instance Data.ToHeaders ModifyClientVpnEndpoint where
@@ -371,23 +371,23 @@ instance Data.ToQuery ModifyClientVpnEndpoint where
           Data.=: ("ModifyClientVpnEndpoint" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "ServerCertificateArn" Data.=: serverCertificateArn,
-        "SessionTimeoutHours" Data.=: sessionTimeoutHours,
+        "ClientConnectOptions" Data.=: clientConnectOptions,
+        "ClientLoginBannerOptions"
+          Data.=: clientLoginBannerOptions,
+        "ConnectionLogOptions" Data.=: connectionLogOptions,
+        "Description" Data.=: description,
+        "DnsServers" Data.=: dnsServers,
+        "DryRun" Data.=: dryRun,
         Data.toQuery
           ( Data.toQueryList "SecurityGroupId"
               Prelude.<$> securityGroupIds
           ),
-        "DnsServers" Data.=: dnsServers,
-        "ConnectionLogOptions" Data.=: connectionLogOptions,
-        "Description" Data.=: description,
-        "DryRun" Data.=: dryRun,
-        "ClientLoginBannerOptions"
-          Data.=: clientLoginBannerOptions,
-        "ClientConnectOptions" Data.=: clientConnectOptions,
+        "SelfServicePortal" Data.=: selfServicePortal,
+        "ServerCertificateArn" Data.=: serverCertificateArn,
+        "SessionTimeoutHours" Data.=: sessionTimeoutHours,
         "SplitTunnel" Data.=: splitTunnel,
         "VpcId" Data.=: vpcId,
         "VpnPort" Data.=: vpnPort,
-        "SelfServicePortal" Data.=: selfServicePortal,
         "ClientVpnEndpointId" Data.=: clientVpnEndpointId
       ]
 

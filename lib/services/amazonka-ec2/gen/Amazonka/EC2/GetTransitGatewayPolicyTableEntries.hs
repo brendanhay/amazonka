@@ -27,10 +27,10 @@ module Amazonka.EC2.GetTransitGatewayPolicyTableEntries
     newGetTransitGatewayPolicyTableEntries,
 
     -- * Request Lenses
-    getTransitGatewayPolicyTableEntries_nextToken,
-    getTransitGatewayPolicyTableEntries_filters,
     getTransitGatewayPolicyTableEntries_dryRun,
+    getTransitGatewayPolicyTableEntries_filters,
     getTransitGatewayPolicyTableEntries_maxResults,
+    getTransitGatewayPolicyTableEntries_nextToken,
     getTransitGatewayPolicyTableEntries_transitGatewayPolicyTableId,
 
     -- * Destructuring the Response
@@ -53,19 +53,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetTransitGatewayPolicyTableEntries' smart constructor.
 data GetTransitGatewayPolicyTableEntries = GetTransitGatewayPolicyTableEntries'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The filters associated with the transit gateway policy table.
-    filters :: Prelude.Maybe [Filter],
-    -- | Checks whether you have the required permissions for the action, without
+  { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The filters associated with the transit gateway policy table.
+    filters :: Prelude.Maybe [Filter],
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the transit gateway policy table.
     transitGatewayPolicyTableId :: Prelude.Text
   }
@@ -79,18 +79,18 @@ data GetTransitGatewayPolicyTableEntries = GetTransitGatewayPolicyTableEntries'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getTransitGatewayPolicyTableEntries_nextToken' - The token for the next page of results.
---
--- 'filters', 'getTransitGatewayPolicyTableEntries_filters' - The filters associated with the transit gateway policy table.
---
 -- 'dryRun', 'getTransitGatewayPolicyTableEntries_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
+-- 'filters', 'getTransitGatewayPolicyTableEntries_filters' - The filters associated with the transit gateway policy table.
+--
 -- 'maxResults', 'getTransitGatewayPolicyTableEntries_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
+--
+-- 'nextToken', 'getTransitGatewayPolicyTableEntries_nextToken' - The token for the next page of results.
 --
 -- 'transitGatewayPolicyTableId', 'getTransitGatewayPolicyTableEntries_transitGatewayPolicyTableId' - The ID of the transit gateway policy table.
 newGetTransitGatewayPolicyTableEntries ::
@@ -100,22 +100,14 @@ newGetTransitGatewayPolicyTableEntries ::
 newGetTransitGatewayPolicyTableEntries
   pTransitGatewayPolicyTableId_ =
     GetTransitGatewayPolicyTableEntries'
-      { nextToken =
+      { dryRun =
           Prelude.Nothing,
         filters = Prelude.Nothing,
-        dryRun = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         transitGatewayPolicyTableId =
           pTransitGatewayPolicyTableId_
       }
-
--- | The token for the next page of results.
-getTransitGatewayPolicyTableEntries_nextToken :: Lens.Lens' GetTransitGatewayPolicyTableEntries (Prelude.Maybe Prelude.Text)
-getTransitGatewayPolicyTableEntries_nextToken = Lens.lens (\GetTransitGatewayPolicyTableEntries' {nextToken} -> nextToken) (\s@GetTransitGatewayPolicyTableEntries' {} a -> s {nextToken = a} :: GetTransitGatewayPolicyTableEntries)
-
--- | The filters associated with the transit gateway policy table.
-getTransitGatewayPolicyTableEntries_filters :: Lens.Lens' GetTransitGatewayPolicyTableEntries (Prelude.Maybe [Filter])
-getTransitGatewayPolicyTableEntries_filters = Lens.lens (\GetTransitGatewayPolicyTableEntries' {filters} -> filters) (\s@GetTransitGatewayPolicyTableEntries' {} a -> s {filters = a} :: GetTransitGatewayPolicyTableEntries) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -124,11 +116,19 @@ getTransitGatewayPolicyTableEntries_filters = Lens.lens (\GetTransitGatewayPolic
 getTransitGatewayPolicyTableEntries_dryRun :: Lens.Lens' GetTransitGatewayPolicyTableEntries (Prelude.Maybe Prelude.Bool)
 getTransitGatewayPolicyTableEntries_dryRun = Lens.lens (\GetTransitGatewayPolicyTableEntries' {dryRun} -> dryRun) (\s@GetTransitGatewayPolicyTableEntries' {} a -> s {dryRun = a} :: GetTransitGatewayPolicyTableEntries)
 
+-- | The filters associated with the transit gateway policy table.
+getTransitGatewayPolicyTableEntries_filters :: Lens.Lens' GetTransitGatewayPolicyTableEntries (Prelude.Maybe [Filter])
+getTransitGatewayPolicyTableEntries_filters = Lens.lens (\GetTransitGatewayPolicyTableEntries' {filters} -> filters) (\s@GetTransitGatewayPolicyTableEntries' {} a -> s {filters = a} :: GetTransitGatewayPolicyTableEntries) Prelude.. Lens.mapping Lens.coerced
+
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
 getTransitGatewayPolicyTableEntries_maxResults :: Lens.Lens' GetTransitGatewayPolicyTableEntries (Prelude.Maybe Prelude.Natural)
 getTransitGatewayPolicyTableEntries_maxResults = Lens.lens (\GetTransitGatewayPolicyTableEntries' {maxResults} -> maxResults) (\s@GetTransitGatewayPolicyTableEntries' {} a -> s {maxResults = a} :: GetTransitGatewayPolicyTableEntries)
+
+-- | The token for the next page of results.
+getTransitGatewayPolicyTableEntries_nextToken :: Lens.Lens' GetTransitGatewayPolicyTableEntries (Prelude.Maybe Prelude.Text)
+getTransitGatewayPolicyTableEntries_nextToken = Lens.lens (\GetTransitGatewayPolicyTableEntries' {nextToken} -> nextToken) (\s@GetTransitGatewayPolicyTableEntries' {} a -> s {nextToken = a} :: GetTransitGatewayPolicyTableEntries)
 
 -- | The ID of the transit gateway policy table.
 getTransitGatewayPolicyTableEntries_transitGatewayPolicyTableId :: Lens.Lens' GetTransitGatewayPolicyTableEntries Prelude.Text
@@ -161,10 +161,10 @@ instance
   hashWithSalt
     _salt
     GetTransitGatewayPolicyTableEntries' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` transitGatewayPolicyTableId
 
 instance
@@ -172,10 +172,10 @@ instance
     GetTransitGatewayPolicyTableEntries
   where
   rnf GetTransitGatewayPolicyTableEntries' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf transitGatewayPolicyTableId
 
 instance
@@ -202,11 +202,11 @@ instance
                   ),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
         Data.toQuery
           (Data.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Data.=: dryRun,
         "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken,
         "TransitGatewayPolicyTableId"
           Data.=: transitGatewayPolicyTableId
       ]

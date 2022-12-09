@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceMonitoring' smart constructor.
 data InstanceMonitoring = InstanceMonitoring'
-  { -- | The monitoring for the instance.
-    monitoring :: Prelude.Maybe Monitoring,
-    -- | The ID of the instance.
-    instanceId :: Prelude.Maybe Prelude.Text
+  { -- | The ID of the instance.
+    instanceId :: Prelude.Maybe Prelude.Text,
+    -- | The monitoring for the instance.
+    monitoring :: Prelude.Maybe Monitoring
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,37 +45,37 @@ data InstanceMonitoring = InstanceMonitoring'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'monitoring', 'instanceMonitoring_monitoring' - The monitoring for the instance.
---
 -- 'instanceId', 'instanceMonitoring_instanceId' - The ID of the instance.
+--
+-- 'monitoring', 'instanceMonitoring_monitoring' - The monitoring for the instance.
 newInstanceMonitoring ::
   InstanceMonitoring
 newInstanceMonitoring =
   InstanceMonitoring'
-    { monitoring = Prelude.Nothing,
-      instanceId = Prelude.Nothing
+    { instanceId = Prelude.Nothing,
+      monitoring = Prelude.Nothing
     }
-
--- | The monitoring for the instance.
-instanceMonitoring_monitoring :: Lens.Lens' InstanceMonitoring (Prelude.Maybe Monitoring)
-instanceMonitoring_monitoring = Lens.lens (\InstanceMonitoring' {monitoring} -> monitoring) (\s@InstanceMonitoring' {} a -> s {monitoring = a} :: InstanceMonitoring)
 
 -- | The ID of the instance.
 instanceMonitoring_instanceId :: Lens.Lens' InstanceMonitoring (Prelude.Maybe Prelude.Text)
 instanceMonitoring_instanceId = Lens.lens (\InstanceMonitoring' {instanceId} -> instanceId) (\s@InstanceMonitoring' {} a -> s {instanceId = a} :: InstanceMonitoring)
 
+-- | The monitoring for the instance.
+instanceMonitoring_monitoring :: Lens.Lens' InstanceMonitoring (Prelude.Maybe Monitoring)
+instanceMonitoring_monitoring = Lens.lens (\InstanceMonitoring' {monitoring} -> monitoring) (\s@InstanceMonitoring' {} a -> s {monitoring = a} :: InstanceMonitoring)
+
 instance Data.FromXML InstanceMonitoring where
   parseXML x =
     InstanceMonitoring'
-      Prelude.<$> (x Data..@? "monitoring")
-      Prelude.<*> (x Data..@? "instanceId")
+      Prelude.<$> (x Data..@? "instanceId")
+      Prelude.<*> (x Data..@? "monitoring")
 
 instance Prelude.Hashable InstanceMonitoring where
   hashWithSalt _salt InstanceMonitoring' {..} =
-    _salt `Prelude.hashWithSalt` monitoring
-      `Prelude.hashWithSalt` instanceId
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` monitoring
 
 instance Prelude.NFData InstanceMonitoring where
   rnf InstanceMonitoring' {..} =
-    Prelude.rnf monitoring
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf monitoring

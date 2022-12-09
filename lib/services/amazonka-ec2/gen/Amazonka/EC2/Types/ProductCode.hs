@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProductCode' smart constructor.
 data ProductCode = ProductCode'
-  { -- | The type of product code.
-    productCodeType :: Prelude.Maybe ProductCodeValues,
-    -- | The product code.
-    productCodeId :: Prelude.Maybe Prelude.Text
+  { -- | The product code.
+    productCodeId :: Prelude.Maybe Prelude.Text,
+    -- | The type of product code.
+    productCodeType :: Prelude.Maybe ProductCodeValues
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,37 +45,37 @@ data ProductCode = ProductCode'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'productCodeType', 'productCode_productCodeType' - The type of product code.
---
 -- 'productCodeId', 'productCode_productCodeId' - The product code.
+--
+-- 'productCodeType', 'productCode_productCodeType' - The type of product code.
 newProductCode ::
   ProductCode
 newProductCode =
   ProductCode'
-    { productCodeType = Prelude.Nothing,
-      productCodeId = Prelude.Nothing
+    { productCodeId = Prelude.Nothing,
+      productCodeType = Prelude.Nothing
     }
-
--- | The type of product code.
-productCode_productCodeType :: Lens.Lens' ProductCode (Prelude.Maybe ProductCodeValues)
-productCode_productCodeType = Lens.lens (\ProductCode' {productCodeType} -> productCodeType) (\s@ProductCode' {} a -> s {productCodeType = a} :: ProductCode)
 
 -- | The product code.
 productCode_productCodeId :: Lens.Lens' ProductCode (Prelude.Maybe Prelude.Text)
 productCode_productCodeId = Lens.lens (\ProductCode' {productCodeId} -> productCodeId) (\s@ProductCode' {} a -> s {productCodeId = a} :: ProductCode)
 
+-- | The type of product code.
+productCode_productCodeType :: Lens.Lens' ProductCode (Prelude.Maybe ProductCodeValues)
+productCode_productCodeType = Lens.lens (\ProductCode' {productCodeType} -> productCodeType) (\s@ProductCode' {} a -> s {productCodeType = a} :: ProductCode)
+
 instance Data.FromXML ProductCode where
   parseXML x =
     ProductCode'
-      Prelude.<$> (x Data..@? "type")
-      Prelude.<*> (x Data..@? "productCode")
+      Prelude.<$> (x Data..@? "productCode")
+      Prelude.<*> (x Data..@? "type")
 
 instance Prelude.Hashable ProductCode where
   hashWithSalt _salt ProductCode' {..} =
-    _salt `Prelude.hashWithSalt` productCodeType
-      `Prelude.hashWithSalt` productCodeId
+    _salt `Prelude.hashWithSalt` productCodeId
+      `Prelude.hashWithSalt` productCodeType
 
 instance Prelude.NFData ProductCode where
   rnf ProductCode' {..} =
-    Prelude.rnf productCodeType
-      `Prelude.seq` Prelude.rnf productCodeId
+    Prelude.rnf productCodeId
+      `Prelude.seq` Prelude.rnf productCodeType

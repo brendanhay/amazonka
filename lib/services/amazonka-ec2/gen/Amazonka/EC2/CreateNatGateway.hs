@@ -44,11 +44,11 @@ module Amazonka.EC2.CreateNatGateway
     newCreateNatGateway,
 
     -- * Request Lenses
-    createNatGateway_clientToken,
     createNatGateway_allocationId,
+    createNatGateway_clientToken,
+    createNatGateway_connectivityType,
     createNatGateway_dryRun,
     createNatGateway_privateIpAddress,
-    createNatGateway_connectivityType,
     createNatGateway_tagSpecifications,
     createNatGateway_subnetId,
 
@@ -73,17 +73,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateNatGateway' smart constructor.
 data CreateNatGateway = CreateNatGateway'
-  { -- | Unique, case-sensitive identifier that you provide to ensure the
+  { -- | [Public NAT gateways only] The allocation ID of an Elastic IP address to
+    -- associate with the NAT gateway. You cannot specify an Elastic IP address
+    -- with a private NAT gateway. If the Elastic IP address is associated with
+    -- another resource, you must first disassociate it.
+    allocationId :: Prelude.Maybe Prelude.Text,
+    -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
     --
     -- Constraint: Maximum 64 ASCII characters.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | [Public NAT gateways only] The allocation ID of an Elastic IP address to
-    -- associate with the NAT gateway. You cannot specify an Elastic IP address
-    -- with a private NAT gateway. If the Elastic IP address is associated with
-    -- another resource, you must first disassociate it.
-    allocationId :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the NAT gateway supports public or private
+    -- connectivity. The default is public connectivity.
+    connectivityType :: Prelude.Maybe ConnectivityType,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -93,9 +96,6 @@ data CreateNatGateway = CreateNatGateway'
     -- provide an address, a private IPv4 address will be automatically
     -- assigned.
     privateIpAddress :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the NAT gateway supports public or private
-    -- connectivity. The default is public connectivity.
-    connectivityType :: Prelude.Maybe ConnectivityType,
     -- | The tags to assign to the NAT gateway.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The subnet in which to create the NAT gateway.
@@ -111,16 +111,19 @@ data CreateNatGateway = CreateNatGateway'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'allocationId', 'createNatGateway_allocationId' - [Public NAT gateways only] The allocation ID of an Elastic IP address to
+-- associate with the NAT gateway. You cannot specify an Elastic IP address
+-- with a private NAT gateway. If the Elastic IP address is associated with
+-- another resource, you must first disassociate it.
+--
 -- 'clientToken', 'createNatGateway_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency>.
 --
 -- Constraint: Maximum 64 ASCII characters.
 --
--- 'allocationId', 'createNatGateway_allocationId' - [Public NAT gateways only] The allocation ID of an Elastic IP address to
--- associate with the NAT gateway. You cannot specify an Elastic IP address
--- with a private NAT gateway. If the Elastic IP address is associated with
--- another resource, you must first disassociate it.
+-- 'connectivityType', 'createNatGateway_connectivityType' - Indicates whether the NAT gateway supports public or private
+-- connectivity. The default is public connectivity.
 --
 -- 'dryRun', 'createNatGateway_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -131,9 +134,6 @@ data CreateNatGateway = CreateNatGateway'
 -- provide an address, a private IPv4 address will be automatically
 -- assigned.
 --
--- 'connectivityType', 'createNatGateway_connectivityType' - Indicates whether the NAT gateway supports public or private
--- connectivity. The default is public connectivity.
---
 -- 'tagSpecifications', 'createNatGateway_tagSpecifications' - The tags to assign to the NAT gateway.
 --
 -- 'subnetId', 'createNatGateway_subnetId' - The subnet in which to create the NAT gateway.
@@ -143,14 +143,21 @@ newCreateNatGateway ::
   CreateNatGateway
 newCreateNatGateway pSubnetId_ =
   CreateNatGateway'
-    { clientToken = Prelude.Nothing,
-      allocationId = Prelude.Nothing,
+    { allocationId = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
+      connectivityType = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       privateIpAddress = Prelude.Nothing,
-      connectivityType = Prelude.Nothing,
       tagSpecifications = Prelude.Nothing,
       subnetId = pSubnetId_
     }
+
+-- | [Public NAT gateways only] The allocation ID of an Elastic IP address to
+-- associate with the NAT gateway. You cannot specify an Elastic IP address
+-- with a private NAT gateway. If the Elastic IP address is associated with
+-- another resource, you must first disassociate it.
+createNatGateway_allocationId :: Lens.Lens' CreateNatGateway (Prelude.Maybe Prelude.Text)
+createNatGateway_allocationId = Lens.lens (\CreateNatGateway' {allocationId} -> allocationId) (\s@CreateNatGateway' {} a -> s {allocationId = a} :: CreateNatGateway)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
@@ -160,12 +167,10 @@ newCreateNatGateway pSubnetId_ =
 createNatGateway_clientToken :: Lens.Lens' CreateNatGateway (Prelude.Maybe Prelude.Text)
 createNatGateway_clientToken = Lens.lens (\CreateNatGateway' {clientToken} -> clientToken) (\s@CreateNatGateway' {} a -> s {clientToken = a} :: CreateNatGateway)
 
--- | [Public NAT gateways only] The allocation ID of an Elastic IP address to
--- associate with the NAT gateway. You cannot specify an Elastic IP address
--- with a private NAT gateway. If the Elastic IP address is associated with
--- another resource, you must first disassociate it.
-createNatGateway_allocationId :: Lens.Lens' CreateNatGateway (Prelude.Maybe Prelude.Text)
-createNatGateway_allocationId = Lens.lens (\CreateNatGateway' {allocationId} -> allocationId) (\s@CreateNatGateway' {} a -> s {allocationId = a} :: CreateNatGateway)
+-- | Indicates whether the NAT gateway supports public or private
+-- connectivity. The default is public connectivity.
+createNatGateway_connectivityType :: Lens.Lens' CreateNatGateway (Prelude.Maybe ConnectivityType)
+createNatGateway_connectivityType = Lens.lens (\CreateNatGateway' {connectivityType} -> connectivityType) (\s@CreateNatGateway' {} a -> s {connectivityType = a} :: CreateNatGateway)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -179,11 +184,6 @@ createNatGateway_dryRun = Lens.lens (\CreateNatGateway' {dryRun} -> dryRun) (\s@
 -- assigned.
 createNatGateway_privateIpAddress :: Lens.Lens' CreateNatGateway (Prelude.Maybe Prelude.Text)
 createNatGateway_privateIpAddress = Lens.lens (\CreateNatGateway' {privateIpAddress} -> privateIpAddress) (\s@CreateNatGateway' {} a -> s {privateIpAddress = a} :: CreateNatGateway)
-
--- | Indicates whether the NAT gateway supports public or private
--- connectivity. The default is public connectivity.
-createNatGateway_connectivityType :: Lens.Lens' CreateNatGateway (Prelude.Maybe ConnectivityType)
-createNatGateway_connectivityType = Lens.lens (\CreateNatGateway' {connectivityType} -> connectivityType) (\s@CreateNatGateway' {} a -> s {connectivityType = a} :: CreateNatGateway)
 
 -- | The tags to assign to the NAT gateway.
 createNatGateway_tagSpecifications :: Lens.Lens' CreateNatGateway (Prelude.Maybe [TagSpecification])
@@ -210,21 +210,21 @@ instance Core.AWSRequest CreateNatGateway where
 
 instance Prelude.Hashable CreateNatGateway where
   hashWithSalt _salt CreateNatGateway' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` allocationId
+    _salt `Prelude.hashWithSalt` allocationId
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` connectivityType
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` privateIpAddress
-      `Prelude.hashWithSalt` connectivityType
       `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` subnetId
 
 instance Prelude.NFData CreateNatGateway where
   rnf CreateNatGateway' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf allocationId
+    Prelude.rnf allocationId
+      `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf connectivityType
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf privateIpAddress
-      `Prelude.seq` Prelude.rnf connectivityType
       `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf subnetId
 
@@ -241,11 +241,11 @@ instance Data.ToQuery CreateNatGateway where
           Data.=: ("CreateNatGateway" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Data.=: clientToken,
         "AllocationId" Data.=: allocationId,
+        "ClientToken" Data.=: clientToken,
+        "ConnectivityType" Data.=: connectivityType,
         "DryRun" Data.=: dryRun,
         "PrivateIpAddress" Data.=: privateIpAddress,
-        "ConnectivityType" Data.=: connectivityType,
         Data.toQuery
           ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications

@@ -39,14 +39,14 @@ module Amazonka.EC2.GetSpotPlacementScores
     newGetSpotPlacementScores,
 
     -- * Request Lenses
-    getSpotPlacementScores_regionNames,
-    getSpotPlacementScores_nextToken,
-    getSpotPlacementScores_instanceTypes,
-    getSpotPlacementScores_singleAvailabilityZone,
     getSpotPlacementScores_dryRun,
-    getSpotPlacementScores_targetCapacityUnitType,
-    getSpotPlacementScores_maxResults,
     getSpotPlacementScores_instanceRequirementsWithMetadata,
+    getSpotPlacementScores_instanceTypes,
+    getSpotPlacementScores_maxResults,
+    getSpotPlacementScores_nextToken,
+    getSpotPlacementScores_regionNames,
+    getSpotPlacementScores_singleAvailabilityZone,
+    getSpotPlacementScores_targetCapacityUnitType,
     getSpotPlacementScores_targetCapacity,
 
     -- * Destructuring the Response
@@ -70,11 +70,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetSpotPlacementScores' smart constructor.
 data GetSpotPlacementScores = GetSpotPlacementScores'
-  { -- | The Regions used to narrow down the list of Regions to be scored. Enter
-    -- the Region code, for example, @us-east-1@.
-    regionNames :: Prelude.Maybe [Prelude.Text],
-    -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The attributes for the instance types. When you specify instance
+    -- attributes, Amazon EC2 will identify instance types with those
+    -- attributes.
+    --
+    -- If you specify @InstanceRequirementsWithMetadata@, you can\'t specify
+    -- @InstanceTypes@.
+    instanceRequirementsWithMetadata :: Prelude.Maybe InstanceRequirementsWithMetadataRequest,
     -- | The instance types. We recommend that you specify at least three
     -- instance types. If you specify one or two instance types, or specify
     -- variations of a single instance type (for example, an @m3.xlarge@ with
@@ -84,6 +91,16 @@ data GetSpotPlacementScores = GetSpotPlacementScores'
     -- If you specify @InstanceTypes@, you can\'t specify
     -- @InstanceRequirementsWithMetadata@.
     instanceTypes :: Prelude.Maybe [Prelude.Text],
+    -- | The maximum number of results to return in a single call. Specify a
+    -- value between 1 and  1000. The default value is 1000. To retrieve the
+    -- remaining results, make another call with  the returned @NextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The Regions used to narrow down the list of Regions to be scored. Enter
+    -- the Region code, for example, @us-east-1@.
+    regionNames :: Prelude.Maybe [Prelude.Text],
     -- | Specify @true@ so that the response returns a list of scored
     -- Availability Zones. Otherwise, the response returns a list of scored
     -- Regions.
@@ -91,27 +108,10 @@ data GetSpotPlacementScores = GetSpotPlacementScores'
     -- A list of scored Availability Zones is useful if you want to launch all
     -- of your Spot capacity into a single Availability Zone.
     singleAvailabilityZone :: Prelude.Maybe Prelude.Bool,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The unit for the target capacity.
     --
     -- Default: @units@ (translates to number of instances)
     targetCapacityUnitType :: Prelude.Maybe TargetCapacityUnitType,
-    -- | The maximum number of results to return in a single call. Specify a
-    -- value between 1 and  1000. The default value is 1000. To retrieve the
-    -- remaining results, make another call with  the returned @NextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The attributes for the instance types. When you specify instance
-    -- attributes, Amazon EC2 will identify instance types with those
-    -- attributes.
-    --
-    -- If you specify @InstanceRequirementsWithMetadata@, you can\'t specify
-    -- @InstanceTypes@.
-    instanceRequirementsWithMetadata :: Prelude.Maybe InstanceRequirementsWithMetadataRequest,
     -- | The target capacity.
     targetCapacity :: Prelude.Natural
   }
@@ -125,10 +125,17 @@ data GetSpotPlacementScores = GetSpotPlacementScores'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'regionNames', 'getSpotPlacementScores_regionNames' - The Regions used to narrow down the list of Regions to be scored. Enter
--- the Region code, for example, @us-east-1@.
+-- 'dryRun', 'getSpotPlacementScores_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'nextToken', 'getSpotPlacementScores_nextToken' - The token for the next set of results.
+-- 'instanceRequirementsWithMetadata', 'getSpotPlacementScores_instanceRequirementsWithMetadata' - The attributes for the instance types. When you specify instance
+-- attributes, Amazon EC2 will identify instance types with those
+-- attributes.
+--
+-- If you specify @InstanceRequirementsWithMetadata@, you can\'t specify
+-- @InstanceTypes@.
 --
 -- 'instanceTypes', 'getSpotPlacementScores_instanceTypes' - The instance types. We recommend that you specify at least three
 -- instance types. If you specify one or two instance types, or specify
@@ -139,6 +146,16 @@ data GetSpotPlacementScores = GetSpotPlacementScores'
 -- If you specify @InstanceTypes@, you can\'t specify
 -- @InstanceRequirementsWithMetadata@.
 --
+-- 'maxResults', 'getSpotPlacementScores_maxResults' - The maximum number of results to return in a single call. Specify a
+-- value between 1 and  1000. The default value is 1000. To retrieve the
+-- remaining results, make another call with  the returned @NextToken@
+-- value.
+--
+-- 'nextToken', 'getSpotPlacementScores_nextToken' - The token for the next set of results.
+--
+-- 'regionNames', 'getSpotPlacementScores_regionNames' - The Regions used to narrow down the list of Regions to be scored. Enter
+-- the Region code, for example, @us-east-1@.
+--
 -- 'singleAvailabilityZone', 'getSpotPlacementScores_singleAvailabilityZone' - Specify @true@ so that the response returns a list of scored
 -- Availability Zones. Otherwise, the response returns a list of scored
 -- Regions.
@@ -146,26 +163,9 @@ data GetSpotPlacementScores = GetSpotPlacementScores'
 -- A list of scored Availability Zones is useful if you want to launch all
 -- of your Spot capacity into a single Availability Zone.
 --
--- 'dryRun', 'getSpotPlacementScores_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'targetCapacityUnitType', 'getSpotPlacementScores_targetCapacityUnitType' - The unit for the target capacity.
 --
 -- Default: @units@ (translates to number of instances)
---
--- 'maxResults', 'getSpotPlacementScores_maxResults' - The maximum number of results to return in a single call. Specify a
--- value between 1 and  1000. The default value is 1000. To retrieve the
--- remaining results, make another call with  the returned @NextToken@
--- value.
---
--- 'instanceRequirementsWithMetadata', 'getSpotPlacementScores_instanceRequirementsWithMetadata' - The attributes for the instance types. When you specify instance
--- attributes, Amazon EC2 will identify instance types with those
--- attributes.
---
--- If you specify @InstanceRequirementsWithMetadata@, you can\'t specify
--- @InstanceTypes@.
 --
 -- 'targetCapacity', 'getSpotPlacementScores_targetCapacity' - The target capacity.
 newGetSpotPlacementScores ::
@@ -174,26 +174,32 @@ newGetSpotPlacementScores ::
   GetSpotPlacementScores
 newGetSpotPlacementScores pTargetCapacity_ =
   GetSpotPlacementScores'
-    { regionNames =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      instanceTypes = Prelude.Nothing,
-      singleAvailabilityZone = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      targetCapacityUnitType = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { dryRun = Prelude.Nothing,
       instanceRequirementsWithMetadata = Prelude.Nothing,
+      instanceTypes = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      regionNames = Prelude.Nothing,
+      singleAvailabilityZone = Prelude.Nothing,
+      targetCapacityUnitType = Prelude.Nothing,
       targetCapacity = pTargetCapacity_
     }
 
--- | The Regions used to narrow down the list of Regions to be scored. Enter
--- the Region code, for example, @us-east-1@.
-getSpotPlacementScores_regionNames :: Lens.Lens' GetSpotPlacementScores (Prelude.Maybe [Prelude.Text])
-getSpotPlacementScores_regionNames = Lens.lens (\GetSpotPlacementScores' {regionNames} -> regionNames) (\s@GetSpotPlacementScores' {} a -> s {regionNames = a} :: GetSpotPlacementScores) Prelude.. Lens.mapping Lens.coerced
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+getSpotPlacementScores_dryRun :: Lens.Lens' GetSpotPlacementScores (Prelude.Maybe Prelude.Bool)
+getSpotPlacementScores_dryRun = Lens.lens (\GetSpotPlacementScores' {dryRun} -> dryRun) (\s@GetSpotPlacementScores' {} a -> s {dryRun = a} :: GetSpotPlacementScores)
 
--- | The token for the next set of results.
-getSpotPlacementScores_nextToken :: Lens.Lens' GetSpotPlacementScores (Prelude.Maybe Prelude.Text)
-getSpotPlacementScores_nextToken = Lens.lens (\GetSpotPlacementScores' {nextToken} -> nextToken) (\s@GetSpotPlacementScores' {} a -> s {nextToken = a} :: GetSpotPlacementScores)
+-- | The attributes for the instance types. When you specify instance
+-- attributes, Amazon EC2 will identify instance types with those
+-- attributes.
+--
+-- If you specify @InstanceRequirementsWithMetadata@, you can\'t specify
+-- @InstanceTypes@.
+getSpotPlacementScores_instanceRequirementsWithMetadata :: Lens.Lens' GetSpotPlacementScores (Prelude.Maybe InstanceRequirementsWithMetadataRequest)
+getSpotPlacementScores_instanceRequirementsWithMetadata = Lens.lens (\GetSpotPlacementScores' {instanceRequirementsWithMetadata} -> instanceRequirementsWithMetadata) (\s@GetSpotPlacementScores' {} a -> s {instanceRequirementsWithMetadata = a} :: GetSpotPlacementScores)
 
 -- | The instance types. We recommend that you specify at least three
 -- instance types. If you specify one or two instance types, or specify
@@ -206,6 +212,22 @@ getSpotPlacementScores_nextToken = Lens.lens (\GetSpotPlacementScores' {nextToke
 getSpotPlacementScores_instanceTypes :: Lens.Lens' GetSpotPlacementScores (Prelude.Maybe [Prelude.Text])
 getSpotPlacementScores_instanceTypes = Lens.lens (\GetSpotPlacementScores' {instanceTypes} -> instanceTypes) (\s@GetSpotPlacementScores' {} a -> s {instanceTypes = a} :: GetSpotPlacementScores) Prelude.. Lens.mapping Lens.coerced
 
+-- | The maximum number of results to return in a single call. Specify a
+-- value between 1 and  1000. The default value is 1000. To retrieve the
+-- remaining results, make another call with  the returned @NextToken@
+-- value.
+getSpotPlacementScores_maxResults :: Lens.Lens' GetSpotPlacementScores (Prelude.Maybe Prelude.Natural)
+getSpotPlacementScores_maxResults = Lens.lens (\GetSpotPlacementScores' {maxResults} -> maxResults) (\s@GetSpotPlacementScores' {} a -> s {maxResults = a} :: GetSpotPlacementScores)
+
+-- | The token for the next set of results.
+getSpotPlacementScores_nextToken :: Lens.Lens' GetSpotPlacementScores (Prelude.Maybe Prelude.Text)
+getSpotPlacementScores_nextToken = Lens.lens (\GetSpotPlacementScores' {nextToken} -> nextToken) (\s@GetSpotPlacementScores' {} a -> s {nextToken = a} :: GetSpotPlacementScores)
+
+-- | The Regions used to narrow down the list of Regions to be scored. Enter
+-- the Region code, for example, @us-east-1@.
+getSpotPlacementScores_regionNames :: Lens.Lens' GetSpotPlacementScores (Prelude.Maybe [Prelude.Text])
+getSpotPlacementScores_regionNames = Lens.lens (\GetSpotPlacementScores' {regionNames} -> regionNames) (\s@GetSpotPlacementScores' {} a -> s {regionNames = a} :: GetSpotPlacementScores) Prelude.. Lens.mapping Lens.coerced
+
 -- | Specify @true@ so that the response returns a list of scored
 -- Availability Zones. Otherwise, the response returns a list of scored
 -- Regions.
@@ -215,34 +237,11 @@ getSpotPlacementScores_instanceTypes = Lens.lens (\GetSpotPlacementScores' {inst
 getSpotPlacementScores_singleAvailabilityZone :: Lens.Lens' GetSpotPlacementScores (Prelude.Maybe Prelude.Bool)
 getSpotPlacementScores_singleAvailabilityZone = Lens.lens (\GetSpotPlacementScores' {singleAvailabilityZone} -> singleAvailabilityZone) (\s@GetSpotPlacementScores' {} a -> s {singleAvailabilityZone = a} :: GetSpotPlacementScores)
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-getSpotPlacementScores_dryRun :: Lens.Lens' GetSpotPlacementScores (Prelude.Maybe Prelude.Bool)
-getSpotPlacementScores_dryRun = Lens.lens (\GetSpotPlacementScores' {dryRun} -> dryRun) (\s@GetSpotPlacementScores' {} a -> s {dryRun = a} :: GetSpotPlacementScores)
-
 -- | The unit for the target capacity.
 --
 -- Default: @units@ (translates to number of instances)
 getSpotPlacementScores_targetCapacityUnitType :: Lens.Lens' GetSpotPlacementScores (Prelude.Maybe TargetCapacityUnitType)
 getSpotPlacementScores_targetCapacityUnitType = Lens.lens (\GetSpotPlacementScores' {targetCapacityUnitType} -> targetCapacityUnitType) (\s@GetSpotPlacementScores' {} a -> s {targetCapacityUnitType = a} :: GetSpotPlacementScores)
-
--- | The maximum number of results to return in a single call. Specify a
--- value between 1 and  1000. The default value is 1000. To retrieve the
--- remaining results, make another call with  the returned @NextToken@
--- value.
-getSpotPlacementScores_maxResults :: Lens.Lens' GetSpotPlacementScores (Prelude.Maybe Prelude.Natural)
-getSpotPlacementScores_maxResults = Lens.lens (\GetSpotPlacementScores' {maxResults} -> maxResults) (\s@GetSpotPlacementScores' {} a -> s {maxResults = a} :: GetSpotPlacementScores)
-
--- | The attributes for the instance types. When you specify instance
--- attributes, Amazon EC2 will identify instance types with those
--- attributes.
---
--- If you specify @InstanceRequirementsWithMetadata@, you can\'t specify
--- @InstanceTypes@.
-getSpotPlacementScores_instanceRequirementsWithMetadata :: Lens.Lens' GetSpotPlacementScores (Prelude.Maybe InstanceRequirementsWithMetadataRequest)
-getSpotPlacementScores_instanceRequirementsWithMetadata = Lens.lens (\GetSpotPlacementScores' {instanceRequirementsWithMetadata} -> instanceRequirementsWithMetadata) (\s@GetSpotPlacementScores' {} a -> s {instanceRequirementsWithMetadata = a} :: GetSpotPlacementScores)
 
 -- | The target capacity.
 getSpotPlacementScores_targetCapacity :: Lens.Lens' GetSpotPlacementScores Prelude.Natural
@@ -290,26 +289,26 @@ instance Core.AWSRequest GetSpotPlacementScores where
 
 instance Prelude.Hashable GetSpotPlacementScores where
   hashWithSalt _salt GetSpotPlacementScores' {..} =
-    _salt `Prelude.hashWithSalt` regionNames
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` instanceTypes
-      `Prelude.hashWithSalt` singleAvailabilityZone
-      `Prelude.hashWithSalt` dryRun
-      `Prelude.hashWithSalt` targetCapacityUnitType
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` instanceRequirementsWithMetadata
+      `Prelude.hashWithSalt` instanceTypes
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` regionNames
+      `Prelude.hashWithSalt` singleAvailabilityZone
+      `Prelude.hashWithSalt` targetCapacityUnitType
       `Prelude.hashWithSalt` targetCapacity
 
 instance Prelude.NFData GetSpotPlacementScores where
   rnf GetSpotPlacementScores' {..} =
-    Prelude.rnf regionNames
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceTypes
-      `Prelude.seq` Prelude.rnf singleAvailabilityZone
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf targetCapacityUnitType
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf instanceRequirementsWithMetadata
+      `Prelude.seq` Prelude.rnf instanceTypes
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf regionNames
+      `Prelude.seq` Prelude.rnf singleAvailabilityZone
+      `Prelude.seq` Prelude.rnf targetCapacityUnitType
       `Prelude.seq` Prelude.rnf targetCapacity
 
 instance Data.ToHeaders GetSpotPlacementScores where
@@ -325,23 +324,23 @@ instance Data.ToQuery GetSpotPlacementScores where
           Data.=: ("GetSpotPlacementScores" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        Data.toQuery
-          ( Data.toQueryList "RegionName"
-              Prelude.<$> regionNames
-          ),
-        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
+        "InstanceRequirementsWithMetadata"
+          Data.=: instanceRequirementsWithMetadata,
         Data.toQuery
           ( Data.toQueryList "InstanceType"
               Prelude.<$> instanceTypes
           ),
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          ( Data.toQueryList "RegionName"
+              Prelude.<$> regionNames
+          ),
         "SingleAvailabilityZone"
           Data.=: singleAvailabilityZone,
-        "DryRun" Data.=: dryRun,
         "TargetCapacityUnitType"
           Data.=: targetCapacityUnitType,
-        "MaxResults" Data.=: maxResults,
-        "InstanceRequirementsWithMetadata"
-          Data.=: instanceRequirementsWithMetadata,
         "TargetCapacity" Data.=: targetCapacity
       ]
 

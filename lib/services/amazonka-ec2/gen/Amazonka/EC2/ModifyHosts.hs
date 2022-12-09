@@ -39,8 +39,8 @@ module Amazonka.EC2.ModifyHosts
     -- * Request Lenses
     modifyHosts_autoPlacement,
     modifyHosts_hostRecovery,
-    modifyHosts_instanceType,
     modifyHosts_instanceFamily,
+    modifyHosts_instanceType,
     modifyHosts_hostIds,
 
     -- * Destructuring the Response
@@ -48,8 +48,8 @@ module Amazonka.EC2.ModifyHosts
     newModifyHostsResponse,
 
     -- * Response Lenses
-    modifyHostsResponse_unsuccessful,
     modifyHostsResponse_successful,
+    modifyHostsResponse_unsuccessful,
     modifyHostsResponse_httpStatus,
   )
 where
@@ -71,15 +71,6 @@ data ModifyHosts = ModifyHosts'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html Host recovery>
     -- in the /Amazon EC2 User Guide/.
     hostRecovery :: Prelude.Maybe HostRecovery,
-    -- | Specifies the instance type to be supported by the Dedicated Host.
-    -- Specify this parameter to modify a Dedicated Host to support only a
-    -- specific instance type.
-    --
-    -- If you want to modify a Dedicated Host to support multiple instance
-    -- types in its current instance family, omit this parameter and specify
-    -- __InstanceFamily__ instead. You cannot specify __InstanceType__ and
-    -- __InstanceFamily__ in the same request.
-    instanceType :: Prelude.Maybe Prelude.Text,
     -- | Specifies the instance family to be supported by the Dedicated Host.
     -- Specify this parameter to modify a Dedicated Host to support multiple
     -- instance types within its current instance family.
@@ -89,6 +80,15 @@ data ModifyHosts = ModifyHosts'
     -- cannot specify __InstanceFamily__ and __InstanceType__ in the same
     -- request.
     instanceFamily :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the instance type to be supported by the Dedicated Host.
+    -- Specify this parameter to modify a Dedicated Host to support only a
+    -- specific instance type.
+    --
+    -- If you want to modify a Dedicated Host to support multiple instance
+    -- types in its current instance family, omit this parameter and specify
+    -- __InstanceFamily__ instead. You cannot specify __InstanceType__ and
+    -- __InstanceFamily__ in the same request.
+    instanceType :: Prelude.Maybe Prelude.Text,
     -- | The IDs of the Dedicated Hosts to modify.
     hostIds :: [Prelude.Text]
   }
@@ -109,15 +109,6 @@ data ModifyHosts = ModifyHosts'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html Host recovery>
 -- in the /Amazon EC2 User Guide/.
 --
--- 'instanceType', 'modifyHosts_instanceType' - Specifies the instance type to be supported by the Dedicated Host.
--- Specify this parameter to modify a Dedicated Host to support only a
--- specific instance type.
---
--- If you want to modify a Dedicated Host to support multiple instance
--- types in its current instance family, omit this parameter and specify
--- __InstanceFamily__ instead. You cannot specify __InstanceType__ and
--- __InstanceFamily__ in the same request.
---
 -- 'instanceFamily', 'modifyHosts_instanceFamily' - Specifies the instance family to be supported by the Dedicated Host.
 -- Specify this parameter to modify a Dedicated Host to support multiple
 -- instance types within its current instance family.
@@ -127,6 +118,15 @@ data ModifyHosts = ModifyHosts'
 -- cannot specify __InstanceFamily__ and __InstanceType__ in the same
 -- request.
 --
+-- 'instanceType', 'modifyHosts_instanceType' - Specifies the instance type to be supported by the Dedicated Host.
+-- Specify this parameter to modify a Dedicated Host to support only a
+-- specific instance type.
+--
+-- If you want to modify a Dedicated Host to support multiple instance
+-- types in its current instance family, omit this parameter and specify
+-- __InstanceFamily__ instead. You cannot specify __InstanceType__ and
+-- __InstanceFamily__ in the same request.
+--
 -- 'hostIds', 'modifyHosts_hostIds' - The IDs of the Dedicated Hosts to modify.
 newModifyHosts ::
   ModifyHosts
@@ -134,8 +134,8 @@ newModifyHosts =
   ModifyHosts'
     { autoPlacement = Prelude.Nothing,
       hostRecovery = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
       instanceFamily = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
       hostIds = Prelude.mempty
     }
 
@@ -150,17 +150,6 @@ modifyHosts_autoPlacement = Lens.lens (\ModifyHosts' {autoPlacement} -> autoPlac
 modifyHosts_hostRecovery :: Lens.Lens' ModifyHosts (Prelude.Maybe HostRecovery)
 modifyHosts_hostRecovery = Lens.lens (\ModifyHosts' {hostRecovery} -> hostRecovery) (\s@ModifyHosts' {} a -> s {hostRecovery = a} :: ModifyHosts)
 
--- | Specifies the instance type to be supported by the Dedicated Host.
--- Specify this parameter to modify a Dedicated Host to support only a
--- specific instance type.
---
--- If you want to modify a Dedicated Host to support multiple instance
--- types in its current instance family, omit this parameter and specify
--- __InstanceFamily__ instead. You cannot specify __InstanceType__ and
--- __InstanceFamily__ in the same request.
-modifyHosts_instanceType :: Lens.Lens' ModifyHosts (Prelude.Maybe Prelude.Text)
-modifyHosts_instanceType = Lens.lens (\ModifyHosts' {instanceType} -> instanceType) (\s@ModifyHosts' {} a -> s {instanceType = a} :: ModifyHosts)
-
 -- | Specifies the instance family to be supported by the Dedicated Host.
 -- Specify this parameter to modify a Dedicated Host to support multiple
 -- instance types within its current instance family.
@@ -171,6 +160,17 @@ modifyHosts_instanceType = Lens.lens (\ModifyHosts' {instanceType} -> instanceTy
 -- request.
 modifyHosts_instanceFamily :: Lens.Lens' ModifyHosts (Prelude.Maybe Prelude.Text)
 modifyHosts_instanceFamily = Lens.lens (\ModifyHosts' {instanceFamily} -> instanceFamily) (\s@ModifyHosts' {} a -> s {instanceFamily = a} :: ModifyHosts)
+
+-- | Specifies the instance type to be supported by the Dedicated Host.
+-- Specify this parameter to modify a Dedicated Host to support only a
+-- specific instance type.
+--
+-- If you want to modify a Dedicated Host to support multiple instance
+-- types in its current instance family, omit this parameter and specify
+-- __InstanceFamily__ instead. You cannot specify __InstanceType__ and
+-- __InstanceFamily__ in the same request.
+modifyHosts_instanceType :: Lens.Lens' ModifyHosts (Prelude.Maybe Prelude.Text)
+modifyHosts_instanceType = Lens.lens (\ModifyHosts' {instanceType} -> instanceType) (\s@ModifyHosts' {} a -> s {instanceType = a} :: ModifyHosts)
 
 -- | The IDs of the Dedicated Hosts to modify.
 modifyHosts_hostIds :: Lens.Lens' ModifyHosts [Prelude.Text]
@@ -184,10 +184,10 @@ instance Core.AWSRequest ModifyHosts where
     Response.receiveXML
       ( \s h x ->
           ModifyHostsResponse'
-            Prelude.<$> ( x Data..@? "unsuccessful" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "successful" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x Data..@? "successful" Core..!@ Prelude.mempty
+            Prelude.<*> ( x Data..@? "unsuccessful" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -197,16 +197,16 @@ instance Prelude.Hashable ModifyHosts where
   hashWithSalt _salt ModifyHosts' {..} =
     _salt `Prelude.hashWithSalt` autoPlacement
       `Prelude.hashWithSalt` hostRecovery
-      `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` instanceFamily
+      `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` hostIds
 
 instance Prelude.NFData ModifyHosts where
   rnf ModifyHosts' {..} =
     Prelude.rnf autoPlacement
       `Prelude.seq` Prelude.rnf hostRecovery
-      `Prelude.seq` Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf instanceFamily
+      `Prelude.seq` Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf hostIds
 
 instance Data.ToHeaders ModifyHosts where
@@ -224,18 +224,18 @@ instance Data.ToQuery ModifyHosts where
           Data.=: ("2016-11-15" :: Prelude.ByteString),
         "AutoPlacement" Data.=: autoPlacement,
         "HostRecovery" Data.=: hostRecovery,
-        "InstanceType" Data.=: instanceType,
         "InstanceFamily" Data.=: instanceFamily,
+        "InstanceType" Data.=: instanceType,
         Data.toQueryList "HostId" hostIds
       ]
 
 -- | /See:/ 'newModifyHostsResponse' smart constructor.
 data ModifyHostsResponse = ModifyHostsResponse'
-  { -- | The IDs of the Dedicated Hosts that could not be modified. Check whether
+  { -- | The IDs of the Dedicated Hosts that were successfully modified.
+    successful :: Prelude.Maybe [Prelude.Text],
+    -- | The IDs of the Dedicated Hosts that could not be modified. Check whether
     -- the setting you requested can be used.
     unsuccessful :: Prelude.Maybe [UnsuccessfulItem],
-    -- | The IDs of the Dedicated Hosts that were successfully modified.
-    successful :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -249,10 +249,10 @@ data ModifyHostsResponse = ModifyHostsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'successful', 'modifyHostsResponse_successful' - The IDs of the Dedicated Hosts that were successfully modified.
+--
 -- 'unsuccessful', 'modifyHostsResponse_unsuccessful' - The IDs of the Dedicated Hosts that could not be modified. Check whether
 -- the setting you requested can be used.
---
--- 'successful', 'modifyHostsResponse_successful' - The IDs of the Dedicated Hosts that were successfully modified.
 --
 -- 'httpStatus', 'modifyHostsResponse_httpStatus' - The response's http status code.
 newModifyHostsResponse ::
@@ -261,20 +261,19 @@ newModifyHostsResponse ::
   ModifyHostsResponse
 newModifyHostsResponse pHttpStatus_ =
   ModifyHostsResponse'
-    { unsuccessful =
-        Prelude.Nothing,
-      successful = Prelude.Nothing,
+    { successful = Prelude.Nothing,
+      unsuccessful = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The IDs of the Dedicated Hosts that were successfully modified.
+modifyHostsResponse_successful :: Lens.Lens' ModifyHostsResponse (Prelude.Maybe [Prelude.Text])
+modifyHostsResponse_successful = Lens.lens (\ModifyHostsResponse' {successful} -> successful) (\s@ModifyHostsResponse' {} a -> s {successful = a} :: ModifyHostsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The IDs of the Dedicated Hosts that could not be modified. Check whether
 -- the setting you requested can be used.
 modifyHostsResponse_unsuccessful :: Lens.Lens' ModifyHostsResponse (Prelude.Maybe [UnsuccessfulItem])
 modifyHostsResponse_unsuccessful = Lens.lens (\ModifyHostsResponse' {unsuccessful} -> unsuccessful) (\s@ModifyHostsResponse' {} a -> s {unsuccessful = a} :: ModifyHostsResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The IDs of the Dedicated Hosts that were successfully modified.
-modifyHostsResponse_successful :: Lens.Lens' ModifyHostsResponse (Prelude.Maybe [Prelude.Text])
-modifyHostsResponse_successful = Lens.lens (\ModifyHostsResponse' {successful} -> successful) (\s@ModifyHostsResponse' {} a -> s {successful = a} :: ModifyHostsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 modifyHostsResponse_httpStatus :: Lens.Lens' ModifyHostsResponse Prelude.Int
@@ -282,6 +281,6 @@ modifyHostsResponse_httpStatus = Lens.lens (\ModifyHostsResponse' {httpStatus} -
 
 instance Prelude.NFData ModifyHostsResponse where
   rnf ModifyHostsResponse' {..} =
-    Prelude.rnf unsuccessful
-      `Prelude.seq` Prelude.rnf successful
+    Prelude.rnf successful
+      `Prelude.seq` Prelude.rnf unsuccessful
       `Prelude.seq` Prelude.rnf httpStatus

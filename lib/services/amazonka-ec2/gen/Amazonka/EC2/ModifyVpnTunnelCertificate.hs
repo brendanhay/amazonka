@@ -158,7 +158,8 @@ instance Data.ToQuery ModifyVpnTunnelCertificate where
 
 -- | /See:/ 'newModifyVpnTunnelCertificateResponse' smart constructor.
 data ModifyVpnTunnelCertificateResponse = ModifyVpnTunnelCertificateResponse'
-  { vpnConnection :: Prelude.Maybe VpnConnection,
+  { -- | Information about the VPN connection.
+    vpnConnection :: Prelude.Maybe VpnConnection,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -172,7 +173,7 @@ data ModifyVpnTunnelCertificateResponse = ModifyVpnTunnelCertificateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpnConnection', 'modifyVpnTunnelCertificateResponse_vpnConnection' - Undocumented member.
+-- 'vpnConnection', 'modifyVpnTunnelCertificateResponse_vpnConnection' - Information about the VPN connection.
 --
 -- 'httpStatus', 'modifyVpnTunnelCertificateResponse_httpStatus' - The response's http status code.
 newModifyVpnTunnelCertificateResponse ::
@@ -186,7 +187,7 @@ newModifyVpnTunnelCertificateResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | Information about the VPN connection.
 modifyVpnTunnelCertificateResponse_vpnConnection :: Lens.Lens' ModifyVpnTunnelCertificateResponse (Prelude.Maybe VpnConnection)
 modifyVpnTunnelCertificateResponse_vpnConnection = Lens.lens (\ModifyVpnTunnelCertificateResponse' {vpnConnection} -> vpnConnection) (\s@ModifyVpnTunnelCertificateResponse' {} a -> s {vpnConnection = a} :: ModifyVpnTunnelCertificateResponse)
 

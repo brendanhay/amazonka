@@ -57,10 +57,10 @@ module Amazonka.EC2.AssignPrivateIpAddresses
     newAssignPrivateIpAddresses,
 
     -- * Request Lenses
-    assignPrivateIpAddresses_ipv4PrefixCount,
-    assignPrivateIpAddresses_privateIpAddresses,
     assignPrivateIpAddresses_allowReassignment,
+    assignPrivateIpAddresses_ipv4PrefixCount,
     assignPrivateIpAddresses_ipv4Prefixes,
+    assignPrivateIpAddresses_privateIpAddresses,
     assignPrivateIpAddresses_secondaryPrivateIpAddressCount,
     assignPrivateIpAddresses_networkInterfaceId,
 
@@ -88,10 +88,17 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newAssignPrivateIpAddresses' smart constructor.
 data AssignPrivateIpAddresses = AssignPrivateIpAddresses'
-  { -- | The number of IPv4 prefixes that Amazon Web Services automatically
+  { -- | Indicates whether to allow an IP address that is already assigned to
+    -- another network interface or instance to be reassigned to the specified
+    -- network interface.
+    allowReassignment :: Prelude.Maybe Prelude.Bool,
+    -- | The number of IPv4 prefixes that Amazon Web Services automatically
     -- assigns to the network interface. You cannot use this option if you use
     -- the @Ipv4 Prefixes@ option.
     ipv4PrefixCount :: Prelude.Maybe Prelude.Int,
+    -- | One or more IPv4 prefixes assigned to the network interface. You cannot
+    -- use this option if you use the @Ipv4PrefixCount@ option.
+    ipv4Prefixes :: Prelude.Maybe [Prelude.Text],
     -- | The IP addresses to be assigned as a secondary private IP address to the
     -- network interface. You can\'t specify this parameter when also
     -- specifying a number of secondary IP addresses.
@@ -99,13 +106,6 @@ data AssignPrivateIpAddresses = AssignPrivateIpAddresses'
     -- If you don\'t specify an IP address, Amazon EC2 automatically selects an
     -- IP address within the subnet range.
     privateIpAddresses :: Prelude.Maybe [Prelude.Text],
-    -- | Indicates whether to allow an IP address that is already assigned to
-    -- another network interface or instance to be reassigned to the specified
-    -- network interface.
-    allowReassignment :: Prelude.Maybe Prelude.Bool,
-    -- | One or more IPv4 prefixes assigned to the network interface. You cannot
-    -- use this option if you use the @Ipv4PrefixCount@ option.
-    ipv4Prefixes :: Prelude.Maybe [Prelude.Text],
     -- | The number of secondary IP addresses to assign to the network interface.
     -- You can\'t specify this parameter when also specifying private IP
     -- addresses.
@@ -123,9 +123,16 @@ data AssignPrivateIpAddresses = AssignPrivateIpAddresses'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'allowReassignment', 'assignPrivateIpAddresses_allowReassignment' - Indicates whether to allow an IP address that is already assigned to
+-- another network interface or instance to be reassigned to the specified
+-- network interface.
+--
 -- 'ipv4PrefixCount', 'assignPrivateIpAddresses_ipv4PrefixCount' - The number of IPv4 prefixes that Amazon Web Services automatically
 -- assigns to the network interface. You cannot use this option if you use
 -- the @Ipv4 Prefixes@ option.
+--
+-- 'ipv4Prefixes', 'assignPrivateIpAddresses_ipv4Prefixes' - One or more IPv4 prefixes assigned to the network interface. You cannot
+-- use this option if you use the @Ipv4PrefixCount@ option.
 --
 -- 'privateIpAddresses', 'assignPrivateIpAddresses_privateIpAddresses' - The IP addresses to be assigned as a secondary private IP address to the
 -- network interface. You can\'t specify this parameter when also
@@ -133,13 +140,6 @@ data AssignPrivateIpAddresses = AssignPrivateIpAddresses'
 --
 -- If you don\'t specify an IP address, Amazon EC2 automatically selects an
 -- IP address within the subnet range.
---
--- 'allowReassignment', 'assignPrivateIpAddresses_allowReassignment' - Indicates whether to allow an IP address that is already assigned to
--- another network interface or instance to be reassigned to the specified
--- network interface.
---
--- 'ipv4Prefixes', 'assignPrivateIpAddresses_ipv4Prefixes' - One or more IPv4 prefixes assigned to the network interface. You cannot
--- use this option if you use the @Ipv4PrefixCount@ option.
 --
 -- 'secondaryPrivateIpAddressCount', 'assignPrivateIpAddresses_secondaryPrivateIpAddressCount' - The number of secondary IP addresses to assign to the network interface.
 -- You can\'t specify this parameter when also specifying private IP
@@ -152,20 +152,31 @@ newAssignPrivateIpAddresses ::
   AssignPrivateIpAddresses
 newAssignPrivateIpAddresses pNetworkInterfaceId_ =
   AssignPrivateIpAddresses'
-    { ipv4PrefixCount =
+    { allowReassignment =
         Prelude.Nothing,
-      privateIpAddresses = Prelude.Nothing,
-      allowReassignment = Prelude.Nothing,
+      ipv4PrefixCount = Prelude.Nothing,
       ipv4Prefixes = Prelude.Nothing,
+      privateIpAddresses = Prelude.Nothing,
       secondaryPrivateIpAddressCount = Prelude.Nothing,
       networkInterfaceId = pNetworkInterfaceId_
     }
+
+-- | Indicates whether to allow an IP address that is already assigned to
+-- another network interface or instance to be reassigned to the specified
+-- network interface.
+assignPrivateIpAddresses_allowReassignment :: Lens.Lens' AssignPrivateIpAddresses (Prelude.Maybe Prelude.Bool)
+assignPrivateIpAddresses_allowReassignment = Lens.lens (\AssignPrivateIpAddresses' {allowReassignment} -> allowReassignment) (\s@AssignPrivateIpAddresses' {} a -> s {allowReassignment = a} :: AssignPrivateIpAddresses)
 
 -- | The number of IPv4 prefixes that Amazon Web Services automatically
 -- assigns to the network interface. You cannot use this option if you use
 -- the @Ipv4 Prefixes@ option.
 assignPrivateIpAddresses_ipv4PrefixCount :: Lens.Lens' AssignPrivateIpAddresses (Prelude.Maybe Prelude.Int)
 assignPrivateIpAddresses_ipv4PrefixCount = Lens.lens (\AssignPrivateIpAddresses' {ipv4PrefixCount} -> ipv4PrefixCount) (\s@AssignPrivateIpAddresses' {} a -> s {ipv4PrefixCount = a} :: AssignPrivateIpAddresses)
+
+-- | One or more IPv4 prefixes assigned to the network interface. You cannot
+-- use this option if you use the @Ipv4PrefixCount@ option.
+assignPrivateIpAddresses_ipv4Prefixes :: Lens.Lens' AssignPrivateIpAddresses (Prelude.Maybe [Prelude.Text])
+assignPrivateIpAddresses_ipv4Prefixes = Lens.lens (\AssignPrivateIpAddresses' {ipv4Prefixes} -> ipv4Prefixes) (\s@AssignPrivateIpAddresses' {} a -> s {ipv4Prefixes = a} :: AssignPrivateIpAddresses) Prelude.. Lens.mapping Lens.coerced
 
 -- | The IP addresses to be assigned as a secondary private IP address to the
 -- network interface. You can\'t specify this parameter when also
@@ -175,17 +186,6 @@ assignPrivateIpAddresses_ipv4PrefixCount = Lens.lens (\AssignPrivateIpAddresses'
 -- IP address within the subnet range.
 assignPrivateIpAddresses_privateIpAddresses :: Lens.Lens' AssignPrivateIpAddresses (Prelude.Maybe [Prelude.Text])
 assignPrivateIpAddresses_privateIpAddresses = Lens.lens (\AssignPrivateIpAddresses' {privateIpAddresses} -> privateIpAddresses) (\s@AssignPrivateIpAddresses' {} a -> s {privateIpAddresses = a} :: AssignPrivateIpAddresses) Prelude.. Lens.mapping Lens.coerced
-
--- | Indicates whether to allow an IP address that is already assigned to
--- another network interface or instance to be reassigned to the specified
--- network interface.
-assignPrivateIpAddresses_allowReassignment :: Lens.Lens' AssignPrivateIpAddresses (Prelude.Maybe Prelude.Bool)
-assignPrivateIpAddresses_allowReassignment = Lens.lens (\AssignPrivateIpAddresses' {allowReassignment} -> allowReassignment) (\s@AssignPrivateIpAddresses' {} a -> s {allowReassignment = a} :: AssignPrivateIpAddresses)
-
--- | One or more IPv4 prefixes assigned to the network interface. You cannot
--- use this option if you use the @Ipv4PrefixCount@ option.
-assignPrivateIpAddresses_ipv4Prefixes :: Lens.Lens' AssignPrivateIpAddresses (Prelude.Maybe [Prelude.Text])
-assignPrivateIpAddresses_ipv4Prefixes = Lens.lens (\AssignPrivateIpAddresses' {ipv4Prefixes} -> ipv4Prefixes) (\s@AssignPrivateIpAddresses' {} a -> s {ipv4Prefixes = a} :: AssignPrivateIpAddresses) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of secondary IP addresses to assign to the network interface.
 -- You can\'t specify this parameter when also specifying private IP
@@ -221,19 +221,19 @@ instance Core.AWSRequest AssignPrivateIpAddresses where
 
 instance Prelude.Hashable AssignPrivateIpAddresses where
   hashWithSalt _salt AssignPrivateIpAddresses' {..} =
-    _salt `Prelude.hashWithSalt` ipv4PrefixCount
-      `Prelude.hashWithSalt` privateIpAddresses
-      `Prelude.hashWithSalt` allowReassignment
+    _salt `Prelude.hashWithSalt` allowReassignment
+      `Prelude.hashWithSalt` ipv4PrefixCount
       `Prelude.hashWithSalt` ipv4Prefixes
+      `Prelude.hashWithSalt` privateIpAddresses
       `Prelude.hashWithSalt` secondaryPrivateIpAddressCount
       `Prelude.hashWithSalt` networkInterfaceId
 
 instance Prelude.NFData AssignPrivateIpAddresses where
   rnf AssignPrivateIpAddresses' {..} =
-    Prelude.rnf ipv4PrefixCount
-      `Prelude.seq` Prelude.rnf privateIpAddresses
-      `Prelude.seq` Prelude.rnf allowReassignment
+    Prelude.rnf allowReassignment
+      `Prelude.seq` Prelude.rnf ipv4PrefixCount
       `Prelude.seq` Prelude.rnf ipv4Prefixes
+      `Prelude.seq` Prelude.rnf privateIpAddresses
       `Prelude.seq` Prelude.rnf secondaryPrivateIpAddressCount
       `Prelude.seq` Prelude.rnf networkInterfaceId
 
@@ -250,15 +250,15 @@ instance Data.ToQuery AssignPrivateIpAddresses where
           Data.=: ("AssignPrivateIpAddresses" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "Ipv4PrefixCount" Data.=: ipv4PrefixCount,
-        Data.toQuery
-          ( Data.toQueryList "PrivateIpAddress"
-              Prelude.<$> privateIpAddresses
-          ),
         "AllowReassignment" Data.=: allowReassignment,
+        "Ipv4PrefixCount" Data.=: ipv4PrefixCount,
         Data.toQuery
           ( Data.toQueryList "Ipv4Prefix"
               Prelude.<$> ipv4Prefixes
+          ),
+        Data.toQuery
+          ( Data.toQueryList "PrivateIpAddress"
+              Prelude.<$> privateIpAddresses
           ),
         "SecondaryPrivateIpAddressCount"
           Data.=: secondaryPrivateIpAddressCount,

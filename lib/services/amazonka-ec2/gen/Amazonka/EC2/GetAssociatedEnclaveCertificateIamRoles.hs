@@ -31,8 +31,8 @@ module Amazonka.EC2.GetAssociatedEnclaveCertificateIamRoles
     newGetAssociatedEnclaveCertificateIamRoles,
 
     -- * Request Lenses
-    getAssociatedEnclaveCertificateIamRoles_dryRun,
     getAssociatedEnclaveCertificateIamRoles_certificateArn,
+    getAssociatedEnclaveCertificateIamRoles_dryRun,
 
     -- * Destructuring the Response
     GetAssociatedEnclaveCertificateIamRolesResponse (..),
@@ -54,14 +54,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetAssociatedEnclaveCertificateIamRoles' smart constructor.
 data GetAssociatedEnclaveCertificateIamRoles = GetAssociatedEnclaveCertificateIamRoles'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | The ARN of the ACM certificate for which to view the associated IAM
+    -- roles, encryption keys, and Amazon S3 object information.
+    certificateArn :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ARN of the ACM certificate for which to view the associated IAM
-    -- roles, encryption keys, and Amazon S3 object information.
-    certificateArn :: Prelude.Maybe Prelude.Text
+    dryRun :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,21 +73,26 @@ data GetAssociatedEnclaveCertificateIamRoles = GetAssociatedEnclaveCertificateIa
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'certificateArn', 'getAssociatedEnclaveCertificateIamRoles_certificateArn' - The ARN of the ACM certificate for which to view the associated IAM
+-- roles, encryption keys, and Amazon S3 object information.
+--
 -- 'dryRun', 'getAssociatedEnclaveCertificateIamRoles_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'certificateArn', 'getAssociatedEnclaveCertificateIamRoles_certificateArn' - The ARN of the ACM certificate for which to view the associated IAM
--- roles, encryption keys, and Amazon S3 object information.
 newGetAssociatedEnclaveCertificateIamRoles ::
   GetAssociatedEnclaveCertificateIamRoles
 newGetAssociatedEnclaveCertificateIamRoles =
   GetAssociatedEnclaveCertificateIamRoles'
-    { dryRun =
+    { certificateArn =
         Prelude.Nothing,
-      certificateArn = Prelude.Nothing
+      dryRun = Prelude.Nothing
     }
+
+-- | The ARN of the ACM certificate for which to view the associated IAM
+-- roles, encryption keys, and Amazon S3 object information.
+getAssociatedEnclaveCertificateIamRoles_certificateArn :: Lens.Lens' GetAssociatedEnclaveCertificateIamRoles (Prelude.Maybe Prelude.Text)
+getAssociatedEnclaveCertificateIamRoles_certificateArn = Lens.lens (\GetAssociatedEnclaveCertificateIamRoles' {certificateArn} -> certificateArn) (\s@GetAssociatedEnclaveCertificateIamRoles' {} a -> s {certificateArn = a} :: GetAssociatedEnclaveCertificateIamRoles)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -95,11 +100,6 @@ newGetAssociatedEnclaveCertificateIamRoles =
 -- Otherwise, it is @UnauthorizedOperation@.
 getAssociatedEnclaveCertificateIamRoles_dryRun :: Lens.Lens' GetAssociatedEnclaveCertificateIamRoles (Prelude.Maybe Prelude.Bool)
 getAssociatedEnclaveCertificateIamRoles_dryRun = Lens.lens (\GetAssociatedEnclaveCertificateIamRoles' {dryRun} -> dryRun) (\s@GetAssociatedEnclaveCertificateIamRoles' {} a -> s {dryRun = a} :: GetAssociatedEnclaveCertificateIamRoles)
-
--- | The ARN of the ACM certificate for which to view the associated IAM
--- roles, encryption keys, and Amazon S3 object information.
-getAssociatedEnclaveCertificateIamRoles_certificateArn :: Lens.Lens' GetAssociatedEnclaveCertificateIamRoles (Prelude.Maybe Prelude.Text)
-getAssociatedEnclaveCertificateIamRoles_certificateArn = Lens.lens (\GetAssociatedEnclaveCertificateIamRoles' {certificateArn} -> certificateArn) (\s@GetAssociatedEnclaveCertificateIamRoles' {} a -> s {certificateArn = a} :: GetAssociatedEnclaveCertificateIamRoles)
 
 instance
   Core.AWSRequest
@@ -129,16 +129,16 @@ instance
   hashWithSalt
     _salt
     GetAssociatedEnclaveCertificateIamRoles' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
-        `Prelude.hashWithSalt` certificateArn
+      _salt `Prelude.hashWithSalt` certificateArn
+        `Prelude.hashWithSalt` dryRun
 
 instance
   Prelude.NFData
     GetAssociatedEnclaveCertificateIamRoles
   where
   rnf GetAssociatedEnclaveCertificateIamRoles' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf certificateArn
+    Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf dryRun
 
 instance
   Data.ToHeaders
@@ -164,8 +164,8 @@ instance
                   ),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Data.=: dryRun,
-        "CertificateArn" Data.=: certificateArn
+        "CertificateArn" Data.=: certificateArn,
+        "DryRun" Data.=: dryRun
       ]
 
 -- | /See:/ 'newGetAssociatedEnclaveCertificateIamRolesResponse' smart constructor.

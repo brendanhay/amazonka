@@ -29,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIdFormat' smart constructor.
 data IdFormat = IdFormat'
-  { -- | Indicates whether longer IDs (17-character IDs) are enabled for the
-    -- resource.
-    useLongIds :: Prelude.Maybe Prelude.Bool,
-    -- | The date in UTC at which you are permanently switched over to using
+  { -- | The date in UTC at which you are permanently switched over to using
     -- longer IDs. If a deadline is not yet available for this resource type,
     -- this field is not returned.
     deadline :: Prelude.Maybe Data.ISO8601,
     -- | The type of resource.
-    resource :: Prelude.Maybe Prelude.Text
+    resource :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether longer IDs (17-character IDs) are enabled for the
+    -- resource.
+    useLongIds :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,27 +49,22 @@ data IdFormat = IdFormat'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'useLongIds', 'idFormat_useLongIds' - Indicates whether longer IDs (17-character IDs) are enabled for the
--- resource.
---
 -- 'deadline', 'idFormat_deadline' - The date in UTC at which you are permanently switched over to using
 -- longer IDs. If a deadline is not yet available for this resource type,
 -- this field is not returned.
 --
 -- 'resource', 'idFormat_resource' - The type of resource.
+--
+-- 'useLongIds', 'idFormat_useLongIds' - Indicates whether longer IDs (17-character IDs) are enabled for the
+-- resource.
 newIdFormat ::
   IdFormat
 newIdFormat =
   IdFormat'
-    { useLongIds = Prelude.Nothing,
-      deadline = Prelude.Nothing,
-      resource = Prelude.Nothing
+    { deadline = Prelude.Nothing,
+      resource = Prelude.Nothing,
+      useLongIds = Prelude.Nothing
     }
-
--- | Indicates whether longer IDs (17-character IDs) are enabled for the
--- resource.
-idFormat_useLongIds :: Lens.Lens' IdFormat (Prelude.Maybe Prelude.Bool)
-idFormat_useLongIds = Lens.lens (\IdFormat' {useLongIds} -> useLongIds) (\s@IdFormat' {} a -> s {useLongIds = a} :: IdFormat)
 
 -- | The date in UTC at which you are permanently switched over to using
 -- longer IDs. If a deadline is not yet available for this resource type,
@@ -81,21 +76,26 @@ idFormat_deadline = Lens.lens (\IdFormat' {deadline} -> deadline) (\s@IdFormat' 
 idFormat_resource :: Lens.Lens' IdFormat (Prelude.Maybe Prelude.Text)
 idFormat_resource = Lens.lens (\IdFormat' {resource} -> resource) (\s@IdFormat' {} a -> s {resource = a} :: IdFormat)
 
+-- | Indicates whether longer IDs (17-character IDs) are enabled for the
+-- resource.
+idFormat_useLongIds :: Lens.Lens' IdFormat (Prelude.Maybe Prelude.Bool)
+idFormat_useLongIds = Lens.lens (\IdFormat' {useLongIds} -> useLongIds) (\s@IdFormat' {} a -> s {useLongIds = a} :: IdFormat)
+
 instance Data.FromXML IdFormat where
   parseXML x =
     IdFormat'
-      Prelude.<$> (x Data..@? "useLongIds")
-      Prelude.<*> (x Data..@? "deadline")
+      Prelude.<$> (x Data..@? "deadline")
       Prelude.<*> (x Data..@? "resource")
+      Prelude.<*> (x Data..@? "useLongIds")
 
 instance Prelude.Hashable IdFormat where
   hashWithSalt _salt IdFormat' {..} =
-    _salt `Prelude.hashWithSalt` useLongIds
-      `Prelude.hashWithSalt` deadline
+    _salt `Prelude.hashWithSalt` deadline
       `Prelude.hashWithSalt` resource
+      `Prelude.hashWithSalt` useLongIds
 
 instance Prelude.NFData IdFormat where
   rnf IdFormat' {..} =
-    Prelude.rnf useLongIds
-      `Prelude.seq` Prelude.rnf deadline
+    Prelude.rnf deadline
       `Prelude.seq` Prelude.rnf resource
+      `Prelude.seq` Prelude.rnf useLongIds

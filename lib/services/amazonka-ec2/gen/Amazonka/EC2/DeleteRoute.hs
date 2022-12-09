@@ -27,10 +27,10 @@ module Amazonka.EC2.DeleteRoute
     newDeleteRoute,
 
     -- * Request Lenses
-    deleteRoute_destinationPrefixListId,
-    deleteRoute_dryRun,
     deleteRoute_destinationCidrBlock,
     deleteRoute_destinationIpv6CidrBlock,
+    deleteRoute_destinationPrefixListId,
+    deleteRoute_dryRun,
     deleteRoute_routeTableId,
 
     -- * Destructuring the Response
@@ -49,19 +49,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteRoute' smart constructor.
 data DeleteRoute = DeleteRoute'
-  { -- | The ID of the prefix list for the route.
+  { -- | The IPv4 CIDR range for the route. The value you specify must match the
+    -- CIDR for the route exactly.
+    destinationCidrBlock :: Prelude.Maybe Prelude.Text,
+    -- | The IPv6 CIDR range for the route. The value you specify must match the
+    -- CIDR for the route exactly.
+    destinationIpv6CidrBlock :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the prefix list for the route.
     destinationPrefixListId :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The IPv4 CIDR range for the route. The value you specify must match the
-    -- CIDR for the route exactly.
-    destinationCidrBlock :: Prelude.Maybe Prelude.Text,
-    -- | The IPv6 CIDR range for the route. The value you specify must match the
-    -- CIDR for the route exactly.
-    destinationIpv6CidrBlock :: Prelude.Maybe Prelude.Text,
     -- | The ID of the route table.
     routeTableId :: Prelude.Text
   }
@@ -75,18 +75,18 @@ data DeleteRoute = DeleteRoute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'destinationCidrBlock', 'deleteRoute_destinationCidrBlock' - The IPv4 CIDR range for the route. The value you specify must match the
+-- CIDR for the route exactly.
+--
+-- 'destinationIpv6CidrBlock', 'deleteRoute_destinationIpv6CidrBlock' - The IPv6 CIDR range for the route. The value you specify must match the
+-- CIDR for the route exactly.
+--
 -- 'destinationPrefixListId', 'deleteRoute_destinationPrefixListId' - The ID of the prefix list for the route.
 --
 -- 'dryRun', 'deleteRoute_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'destinationCidrBlock', 'deleteRoute_destinationCidrBlock' - The IPv4 CIDR range for the route. The value you specify must match the
--- CIDR for the route exactly.
---
--- 'destinationIpv6CidrBlock', 'deleteRoute_destinationIpv6CidrBlock' - The IPv6 CIDR range for the route. The value you specify must match the
--- CIDR for the route exactly.
 --
 -- 'routeTableId', 'deleteRoute_routeTableId' - The ID of the route table.
 newDeleteRoute ::
@@ -95,13 +95,23 @@ newDeleteRoute ::
   DeleteRoute
 newDeleteRoute pRouteTableId_ =
   DeleteRoute'
-    { destinationPrefixListId =
+    { destinationCidrBlock =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      destinationCidrBlock = Prelude.Nothing,
       destinationIpv6CidrBlock = Prelude.Nothing,
+      destinationPrefixListId = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       routeTableId = pRouteTableId_
     }
+
+-- | The IPv4 CIDR range for the route. The value you specify must match the
+-- CIDR for the route exactly.
+deleteRoute_destinationCidrBlock :: Lens.Lens' DeleteRoute (Prelude.Maybe Prelude.Text)
+deleteRoute_destinationCidrBlock = Lens.lens (\DeleteRoute' {destinationCidrBlock} -> destinationCidrBlock) (\s@DeleteRoute' {} a -> s {destinationCidrBlock = a} :: DeleteRoute)
+
+-- | The IPv6 CIDR range for the route. The value you specify must match the
+-- CIDR for the route exactly.
+deleteRoute_destinationIpv6CidrBlock :: Lens.Lens' DeleteRoute (Prelude.Maybe Prelude.Text)
+deleteRoute_destinationIpv6CidrBlock = Lens.lens (\DeleteRoute' {destinationIpv6CidrBlock} -> destinationIpv6CidrBlock) (\s@DeleteRoute' {} a -> s {destinationIpv6CidrBlock = a} :: DeleteRoute)
 
 -- | The ID of the prefix list for the route.
 deleteRoute_destinationPrefixListId :: Lens.Lens' DeleteRoute (Prelude.Maybe Prelude.Text)
@@ -113,16 +123,6 @@ deleteRoute_destinationPrefixListId = Lens.lens (\DeleteRoute' {destinationPrefi
 -- Otherwise, it is @UnauthorizedOperation@.
 deleteRoute_dryRun :: Lens.Lens' DeleteRoute (Prelude.Maybe Prelude.Bool)
 deleteRoute_dryRun = Lens.lens (\DeleteRoute' {dryRun} -> dryRun) (\s@DeleteRoute' {} a -> s {dryRun = a} :: DeleteRoute)
-
--- | The IPv4 CIDR range for the route. The value you specify must match the
--- CIDR for the route exactly.
-deleteRoute_destinationCidrBlock :: Lens.Lens' DeleteRoute (Prelude.Maybe Prelude.Text)
-deleteRoute_destinationCidrBlock = Lens.lens (\DeleteRoute' {destinationCidrBlock} -> destinationCidrBlock) (\s@DeleteRoute' {} a -> s {destinationCidrBlock = a} :: DeleteRoute)
-
--- | The IPv6 CIDR range for the route. The value you specify must match the
--- CIDR for the route exactly.
-deleteRoute_destinationIpv6CidrBlock :: Lens.Lens' DeleteRoute (Prelude.Maybe Prelude.Text)
-deleteRoute_destinationIpv6CidrBlock = Lens.lens (\DeleteRoute' {destinationIpv6CidrBlock} -> destinationIpv6CidrBlock) (\s@DeleteRoute' {} a -> s {destinationIpv6CidrBlock = a} :: DeleteRoute)
 
 -- | The ID of the route table.
 deleteRoute_routeTableId :: Lens.Lens' DeleteRoute Prelude.Text
@@ -136,19 +136,18 @@ instance Core.AWSRequest DeleteRoute where
 
 instance Prelude.Hashable DeleteRoute where
   hashWithSalt _salt DeleteRoute' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` destinationCidrBlock
+      `Prelude.hashWithSalt` destinationIpv6CidrBlock
       `Prelude.hashWithSalt` destinationPrefixListId
       `Prelude.hashWithSalt` dryRun
-      `Prelude.hashWithSalt` destinationCidrBlock
-      `Prelude.hashWithSalt` destinationIpv6CidrBlock
       `Prelude.hashWithSalt` routeTableId
 
 instance Prelude.NFData DeleteRoute where
   rnf DeleteRoute' {..} =
-    Prelude.rnf destinationPrefixListId
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf destinationCidrBlock
+    Prelude.rnf destinationCidrBlock
       `Prelude.seq` Prelude.rnf destinationIpv6CidrBlock
+      `Prelude.seq` Prelude.rnf destinationPrefixListId
+      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf routeTableId
 
 instance Data.ToHeaders DeleteRoute where
@@ -164,12 +163,12 @@ instance Data.ToQuery DeleteRoute where
           Data.=: ("DeleteRoute" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "DestinationPrefixListId"
-          Data.=: destinationPrefixListId,
-        "DryRun" Data.=: dryRun,
         "DestinationCidrBlock" Data.=: destinationCidrBlock,
         "DestinationIpv6CidrBlock"
           Data.=: destinationIpv6CidrBlock,
+        "DestinationPrefixListId"
+          Data.=: destinationPrefixListId,
+        "DryRun" Data.=: dryRun,
         "RouteTableId" Data.=: routeTableId
       ]
 

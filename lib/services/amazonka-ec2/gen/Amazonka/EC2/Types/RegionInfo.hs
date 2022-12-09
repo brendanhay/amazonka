@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRegionInfo' smart constructor.
 data RegionInfo = RegionInfo'
-  { -- | The Region opt-in status. The possible values are @opt-in-not-required@,
+  { -- | The Region service endpoint.
+    endpoint :: Prelude.Maybe Prelude.Text,
+    -- | The Region opt-in status. The possible values are @opt-in-not-required@,
     -- @opted-in@, and @not-opted-in@.
     optInStatus :: Prelude.Maybe Prelude.Text,
     -- | The name of the Region.
-    regionName :: Prelude.Maybe Prelude.Text,
-    -- | The Region service endpoint.
-    endpoint :: Prelude.Maybe Prelude.Text
+    regionName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,20 +47,24 @@ data RegionInfo = RegionInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'endpoint', 'regionInfo_endpoint' - The Region service endpoint.
+--
 -- 'optInStatus', 'regionInfo_optInStatus' - The Region opt-in status. The possible values are @opt-in-not-required@,
 -- @opted-in@, and @not-opted-in@.
 --
 -- 'regionName', 'regionInfo_regionName' - The name of the Region.
---
--- 'endpoint', 'regionInfo_endpoint' - The Region service endpoint.
 newRegionInfo ::
   RegionInfo
 newRegionInfo =
   RegionInfo'
-    { optInStatus = Prelude.Nothing,
-      regionName = Prelude.Nothing,
-      endpoint = Prelude.Nothing
+    { endpoint = Prelude.Nothing,
+      optInStatus = Prelude.Nothing,
+      regionName = Prelude.Nothing
     }
+
+-- | The Region service endpoint.
+regionInfo_endpoint :: Lens.Lens' RegionInfo (Prelude.Maybe Prelude.Text)
+regionInfo_endpoint = Lens.lens (\RegionInfo' {endpoint} -> endpoint) (\s@RegionInfo' {} a -> s {endpoint = a} :: RegionInfo)
 
 -- | The Region opt-in status. The possible values are @opt-in-not-required@,
 -- @opted-in@, and @not-opted-in@.
@@ -71,25 +75,21 @@ regionInfo_optInStatus = Lens.lens (\RegionInfo' {optInStatus} -> optInStatus) (
 regionInfo_regionName :: Lens.Lens' RegionInfo (Prelude.Maybe Prelude.Text)
 regionInfo_regionName = Lens.lens (\RegionInfo' {regionName} -> regionName) (\s@RegionInfo' {} a -> s {regionName = a} :: RegionInfo)
 
--- | The Region service endpoint.
-regionInfo_endpoint :: Lens.Lens' RegionInfo (Prelude.Maybe Prelude.Text)
-regionInfo_endpoint = Lens.lens (\RegionInfo' {endpoint} -> endpoint) (\s@RegionInfo' {} a -> s {endpoint = a} :: RegionInfo)
-
 instance Data.FromXML RegionInfo where
   parseXML x =
     RegionInfo'
-      Prelude.<$> (x Data..@? "optInStatus")
+      Prelude.<$> (x Data..@? "regionEndpoint")
+      Prelude.<*> (x Data..@? "optInStatus")
       Prelude.<*> (x Data..@? "regionName")
-      Prelude.<*> (x Data..@? "regionEndpoint")
 
 instance Prelude.Hashable RegionInfo where
   hashWithSalt _salt RegionInfo' {..} =
-    _salt `Prelude.hashWithSalt` optInStatus
+    _salt `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` optInStatus
       `Prelude.hashWithSalt` regionName
-      `Prelude.hashWithSalt` endpoint
 
 instance Prelude.NFData RegionInfo where
   rnf RegionInfo' {..} =
-    Prelude.rnf optInStatus
+    Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf optInStatus
       `Prelude.seq` Prelude.rnf regionName
-      `Prelude.seq` Prelude.rnf endpoint

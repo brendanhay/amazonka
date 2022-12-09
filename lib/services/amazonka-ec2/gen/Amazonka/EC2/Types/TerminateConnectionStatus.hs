@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTerminateConnectionStatus' smart constructor.
 data TerminateConnectionStatus = TerminateConnectionStatus'
-  { -- | The state of the client connection.
-    previousStatus :: Prelude.Maybe ClientVpnConnectionStatus,
-    -- | The ID of the client connection.
+  { -- | The ID of the client connection.
     connectionId :: Prelude.Maybe Prelude.Text,
     -- | A message about the status of the client connection, if applicable.
-    currentStatus :: Prelude.Maybe ClientVpnConnectionStatus
+    currentStatus :: Prelude.Maybe ClientVpnConnectionStatus,
+    -- | The state of the client connection.
+    previousStatus :: Prelude.Maybe ClientVpnConnectionStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,24 +47,20 @@ data TerminateConnectionStatus = TerminateConnectionStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'previousStatus', 'terminateConnectionStatus_previousStatus' - The state of the client connection.
---
 -- 'connectionId', 'terminateConnectionStatus_connectionId' - The ID of the client connection.
 --
 -- 'currentStatus', 'terminateConnectionStatus_currentStatus' - A message about the status of the client connection, if applicable.
+--
+-- 'previousStatus', 'terminateConnectionStatus_previousStatus' - The state of the client connection.
 newTerminateConnectionStatus ::
   TerminateConnectionStatus
 newTerminateConnectionStatus =
   TerminateConnectionStatus'
-    { previousStatus =
+    { connectionId =
         Prelude.Nothing,
-      connectionId = Prelude.Nothing,
-      currentStatus = Prelude.Nothing
+      currentStatus = Prelude.Nothing,
+      previousStatus = Prelude.Nothing
     }
-
--- | The state of the client connection.
-terminateConnectionStatus_previousStatus :: Lens.Lens' TerminateConnectionStatus (Prelude.Maybe ClientVpnConnectionStatus)
-terminateConnectionStatus_previousStatus = Lens.lens (\TerminateConnectionStatus' {previousStatus} -> previousStatus) (\s@TerminateConnectionStatus' {} a -> s {previousStatus = a} :: TerminateConnectionStatus)
 
 -- | The ID of the client connection.
 terminateConnectionStatus_connectionId :: Lens.Lens' TerminateConnectionStatus (Prelude.Maybe Prelude.Text)
@@ -74,21 +70,25 @@ terminateConnectionStatus_connectionId = Lens.lens (\TerminateConnectionStatus' 
 terminateConnectionStatus_currentStatus :: Lens.Lens' TerminateConnectionStatus (Prelude.Maybe ClientVpnConnectionStatus)
 terminateConnectionStatus_currentStatus = Lens.lens (\TerminateConnectionStatus' {currentStatus} -> currentStatus) (\s@TerminateConnectionStatus' {} a -> s {currentStatus = a} :: TerminateConnectionStatus)
 
+-- | The state of the client connection.
+terminateConnectionStatus_previousStatus :: Lens.Lens' TerminateConnectionStatus (Prelude.Maybe ClientVpnConnectionStatus)
+terminateConnectionStatus_previousStatus = Lens.lens (\TerminateConnectionStatus' {previousStatus} -> previousStatus) (\s@TerminateConnectionStatus' {} a -> s {previousStatus = a} :: TerminateConnectionStatus)
+
 instance Data.FromXML TerminateConnectionStatus where
   parseXML x =
     TerminateConnectionStatus'
-      Prelude.<$> (x Data..@? "previousStatus")
-      Prelude.<*> (x Data..@? "connectionId")
+      Prelude.<$> (x Data..@? "connectionId")
       Prelude.<*> (x Data..@? "currentStatus")
+      Prelude.<*> (x Data..@? "previousStatus")
 
 instance Prelude.Hashable TerminateConnectionStatus where
   hashWithSalt _salt TerminateConnectionStatus' {..} =
-    _salt `Prelude.hashWithSalt` previousStatus
-      `Prelude.hashWithSalt` connectionId
+    _salt `Prelude.hashWithSalt` connectionId
       `Prelude.hashWithSalt` currentStatus
+      `Prelude.hashWithSalt` previousStatus
 
 instance Prelude.NFData TerminateConnectionStatus where
   rnf TerminateConnectionStatus' {..} =
-    Prelude.rnf previousStatus
-      `Prelude.seq` Prelude.rnf connectionId
+    Prelude.rnf connectionId
       `Prelude.seq` Prelude.rnf currentStatus
+      `Prelude.seq` Prelude.rnf previousStatus

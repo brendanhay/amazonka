@@ -29,18 +29,18 @@ module Amazonka.EC2.DescribeIamInstanceProfileAssociations
     newDescribeIamInstanceProfileAssociations,
 
     -- * Request Lenses
-    describeIamInstanceProfileAssociations_nextToken,
+    describeIamInstanceProfileAssociations_associationIds,
     describeIamInstanceProfileAssociations_filters,
     describeIamInstanceProfileAssociations_maxResults,
-    describeIamInstanceProfileAssociations_associationIds,
+    describeIamInstanceProfileAssociations_nextToken,
 
     -- * Destructuring the Response
     DescribeIamInstanceProfileAssociationsResponse (..),
     newDescribeIamInstanceProfileAssociationsResponse,
 
     -- * Response Lenses
-    describeIamInstanceProfileAssociationsResponse_nextToken,
     describeIamInstanceProfileAssociationsResponse_iamInstanceProfileAssociations,
+    describeIamInstanceProfileAssociationsResponse_nextToken,
     describeIamInstanceProfileAssociationsResponse_httpStatus,
   )
 where
@@ -55,8 +55,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeIamInstanceProfileAssociations' smart constructor.
 data DescribeIamInstanceProfileAssociations = DescribeIamInstanceProfileAssociations'
-  { -- | The token to request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The IAM instance profile associations.
+    associationIds :: Prelude.Maybe [Prelude.Text],
     -- | The filters.
     --
     -- -   @instance-id@ - The ID of the instance.
@@ -68,8 +68,8 @@ data DescribeIamInstanceProfileAssociations = DescribeIamInstanceProfileAssociat
     -- the remaining results, make another call with the returned @NextToken@
     -- value.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The IAM instance profile associations.
-    associationIds :: Prelude.Maybe [Prelude.Text]
+    -- | The token to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,7 +81,7 @@ data DescribeIamInstanceProfileAssociations = DescribeIamInstanceProfileAssociat
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeIamInstanceProfileAssociations_nextToken' - The token to request the next page of results.
+-- 'associationIds', 'describeIamInstanceProfileAssociations_associationIds' - The IAM instance profile associations.
 --
 -- 'filters', 'describeIamInstanceProfileAssociations_filters' - The filters.
 --
@@ -94,21 +94,21 @@ data DescribeIamInstanceProfileAssociations = DescribeIamInstanceProfileAssociat
 -- the remaining results, make another call with the returned @NextToken@
 -- value.
 --
--- 'associationIds', 'describeIamInstanceProfileAssociations_associationIds' - The IAM instance profile associations.
+-- 'nextToken', 'describeIamInstanceProfileAssociations_nextToken' - The token to request the next page of results.
 newDescribeIamInstanceProfileAssociations ::
   DescribeIamInstanceProfileAssociations
 newDescribeIamInstanceProfileAssociations =
   DescribeIamInstanceProfileAssociations'
-    { nextToken =
+    { associationIds =
         Prelude.Nothing,
       filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      associationIds = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
 
--- | The token to request the next page of results.
-describeIamInstanceProfileAssociations_nextToken :: Lens.Lens' DescribeIamInstanceProfileAssociations (Prelude.Maybe Prelude.Text)
-describeIamInstanceProfileAssociations_nextToken = Lens.lens (\DescribeIamInstanceProfileAssociations' {nextToken} -> nextToken) (\s@DescribeIamInstanceProfileAssociations' {} a -> s {nextToken = a} :: DescribeIamInstanceProfileAssociations)
+-- | The IAM instance profile associations.
+describeIamInstanceProfileAssociations_associationIds :: Lens.Lens' DescribeIamInstanceProfileAssociations (Prelude.Maybe [Prelude.Text])
+describeIamInstanceProfileAssociations_associationIds = Lens.lens (\DescribeIamInstanceProfileAssociations' {associationIds} -> associationIds) (\s@DescribeIamInstanceProfileAssociations' {} a -> s {associationIds = a} :: DescribeIamInstanceProfileAssociations) Prelude.. Lens.mapping Lens.coerced
 
 -- | The filters.
 --
@@ -125,9 +125,9 @@ describeIamInstanceProfileAssociations_filters = Lens.lens (\DescribeIamInstance
 describeIamInstanceProfileAssociations_maxResults :: Lens.Lens' DescribeIamInstanceProfileAssociations (Prelude.Maybe Prelude.Natural)
 describeIamInstanceProfileAssociations_maxResults = Lens.lens (\DescribeIamInstanceProfileAssociations' {maxResults} -> maxResults) (\s@DescribeIamInstanceProfileAssociations' {} a -> s {maxResults = a} :: DescribeIamInstanceProfileAssociations)
 
--- | The IAM instance profile associations.
-describeIamInstanceProfileAssociations_associationIds :: Lens.Lens' DescribeIamInstanceProfileAssociations (Prelude.Maybe [Prelude.Text])
-describeIamInstanceProfileAssociations_associationIds = Lens.lens (\DescribeIamInstanceProfileAssociations' {associationIds} -> associationIds) (\s@DescribeIamInstanceProfileAssociations' {} a -> s {associationIds = a} :: DescribeIamInstanceProfileAssociations) Prelude.. Lens.mapping Lens.coerced
+-- | The token to request the next page of results.
+describeIamInstanceProfileAssociations_nextToken :: Lens.Lens' DescribeIamInstanceProfileAssociations (Prelude.Maybe Prelude.Text)
+describeIamInstanceProfileAssociations_nextToken = Lens.lens (\DescribeIamInstanceProfileAssociations' {nextToken} -> nextToken) (\s@DescribeIamInstanceProfileAssociations' {} a -> s {nextToken = a} :: DescribeIamInstanceProfileAssociations)
 
 instance
   Core.AWSPager
@@ -168,11 +168,11 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeIamInstanceProfileAssociationsResponse'
-            Prelude.<$> (x Data..@? "nextToken")
-              Prelude.<*> ( x Data..@? "iamInstanceProfileAssociationSet"
-                              Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may (Data.parseXMLList "item")
-                          )
+            Prelude.<$> ( x Data..@? "iamInstanceProfileAssociationSet"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
+                        )
+              Prelude.<*> (x Data..@? "nextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -183,20 +183,20 @@ instance
   hashWithSalt
     _salt
     DescribeIamInstanceProfileAssociations' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` associationIds
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
-        `Prelude.hashWithSalt` associationIds
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     DescribeIamInstanceProfileAssociations
   where
   rnf DescribeIamInstanceProfileAssociations' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf associationIds
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf associationIds
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -222,23 +222,23 @@ instance
                   ),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
-        Data.toQuery
-          (Data.toQueryList "Filter" Prelude.<$> filters),
-        "MaxResults" Data.=: maxResults,
         Data.toQuery
           ( Data.toQueryList "AssociationId"
               Prelude.<$> associationIds
-          )
+          ),
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newDescribeIamInstanceProfileAssociationsResponse' smart constructor.
 data DescribeIamInstanceProfileAssociationsResponse = DescribeIamInstanceProfileAssociationsResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
+  { -- | Information about the IAM instance profile associations.
+    iamInstanceProfileAssociations :: Prelude.Maybe [IamInstanceProfileAssociation],
+    -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the IAM instance profile associations.
-    iamInstanceProfileAssociations :: Prelude.Maybe [IamInstanceProfileAssociation],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -252,10 +252,10 @@ data DescribeIamInstanceProfileAssociationsResponse = DescribeIamInstanceProfile
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'iamInstanceProfileAssociations', 'describeIamInstanceProfileAssociationsResponse_iamInstanceProfileAssociations' - Information about the IAM instance profile associations.
+--
 -- 'nextToken', 'describeIamInstanceProfileAssociationsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
---
--- 'iamInstanceProfileAssociations', 'describeIamInstanceProfileAssociationsResponse_iamInstanceProfileAssociations' - Information about the IAM instance profile associations.
 --
 -- 'httpStatus', 'describeIamInstanceProfileAssociationsResponse_httpStatus' - The response's http status code.
 newDescribeIamInstanceProfileAssociationsResponse ::
@@ -265,21 +265,20 @@ newDescribeIamInstanceProfileAssociationsResponse ::
 newDescribeIamInstanceProfileAssociationsResponse
   pHttpStatus_ =
     DescribeIamInstanceProfileAssociationsResponse'
-      { nextToken =
+      { iamInstanceProfileAssociations =
           Prelude.Nothing,
-        iamInstanceProfileAssociations =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | Information about the IAM instance profile associations.
+describeIamInstanceProfileAssociationsResponse_iamInstanceProfileAssociations :: Lens.Lens' DescribeIamInstanceProfileAssociationsResponse (Prelude.Maybe [IamInstanceProfileAssociation])
+describeIamInstanceProfileAssociationsResponse_iamInstanceProfileAssociations = Lens.lens (\DescribeIamInstanceProfileAssociationsResponse' {iamInstanceProfileAssociations} -> iamInstanceProfileAssociations) (\s@DescribeIamInstanceProfileAssociationsResponse' {} a -> s {iamInstanceProfileAssociations = a} :: DescribeIamInstanceProfileAssociationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 describeIamInstanceProfileAssociationsResponse_nextToken :: Lens.Lens' DescribeIamInstanceProfileAssociationsResponse (Prelude.Maybe Prelude.Text)
 describeIamInstanceProfileAssociationsResponse_nextToken = Lens.lens (\DescribeIamInstanceProfileAssociationsResponse' {nextToken} -> nextToken) (\s@DescribeIamInstanceProfileAssociationsResponse' {} a -> s {nextToken = a} :: DescribeIamInstanceProfileAssociationsResponse)
-
--- | Information about the IAM instance profile associations.
-describeIamInstanceProfileAssociationsResponse_iamInstanceProfileAssociations :: Lens.Lens' DescribeIamInstanceProfileAssociationsResponse (Prelude.Maybe [IamInstanceProfileAssociation])
-describeIamInstanceProfileAssociationsResponse_iamInstanceProfileAssociations = Lens.lens (\DescribeIamInstanceProfileAssociationsResponse' {iamInstanceProfileAssociations} -> iamInstanceProfileAssociations) (\s@DescribeIamInstanceProfileAssociationsResponse' {} a -> s {iamInstanceProfileAssociations = a} :: DescribeIamInstanceProfileAssociationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeIamInstanceProfileAssociationsResponse_httpStatus :: Lens.Lens' DescribeIamInstanceProfileAssociationsResponse Prelude.Int
@@ -291,6 +290,6 @@ instance
   where
   rnf
     DescribeIamInstanceProfileAssociationsResponse' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf iamInstanceProfileAssociations
+      Prelude.rnf iamInstanceProfileAssociations
+        `Prelude.seq` Prelude.rnf nextToken
         `Prelude.seq` Prelude.rnf httpStatus

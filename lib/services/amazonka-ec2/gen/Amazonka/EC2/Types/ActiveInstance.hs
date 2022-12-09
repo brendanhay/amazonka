@@ -30,17 +30,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newActiveInstance' smart constructor.
 data ActiveInstance = ActiveInstance'
-  { -- | The ID of the Spot Instance request.
-    spotInstanceRequestId :: Prelude.Maybe Prelude.Text,
-    -- | The health status of the instance. If the status of either the instance
+  { -- | The health status of the instance. If the status of either the instance
     -- status check or the system status check is @impaired@, the health status
     -- of the instance is @unhealthy@. Otherwise, the health status is
     -- @healthy@.
     instanceHealth :: Prelude.Maybe InstanceHealthStatus,
+    -- | The ID of the instance.
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | The instance type.
     instanceType :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the instance.
-    instanceId :: Prelude.Maybe Prelude.Text
+    -- | The ID of the Spot Instance request.
+    spotInstanceRequestId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,30 +52,25 @@ data ActiveInstance = ActiveInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'spotInstanceRequestId', 'activeInstance_spotInstanceRequestId' - The ID of the Spot Instance request.
---
 -- 'instanceHealth', 'activeInstance_instanceHealth' - The health status of the instance. If the status of either the instance
 -- status check or the system status check is @impaired@, the health status
 -- of the instance is @unhealthy@. Otherwise, the health status is
 -- @healthy@.
 --
+-- 'instanceId', 'activeInstance_instanceId' - The ID of the instance.
+--
 -- 'instanceType', 'activeInstance_instanceType' - The instance type.
 --
--- 'instanceId', 'activeInstance_instanceId' - The ID of the instance.
+-- 'spotInstanceRequestId', 'activeInstance_spotInstanceRequestId' - The ID of the Spot Instance request.
 newActiveInstance ::
   ActiveInstance
 newActiveInstance =
   ActiveInstance'
-    { spotInstanceRequestId =
-        Prelude.Nothing,
-      instanceHealth = Prelude.Nothing,
+    { instanceHealth = Prelude.Nothing,
+      instanceId = Prelude.Nothing,
       instanceType = Prelude.Nothing,
-      instanceId = Prelude.Nothing
+      spotInstanceRequestId = Prelude.Nothing
     }
-
--- | The ID of the Spot Instance request.
-activeInstance_spotInstanceRequestId :: Lens.Lens' ActiveInstance (Prelude.Maybe Prelude.Text)
-activeInstance_spotInstanceRequestId = Lens.lens (\ActiveInstance' {spotInstanceRequestId} -> spotInstanceRequestId) (\s@ActiveInstance' {} a -> s {spotInstanceRequestId = a} :: ActiveInstance)
 
 -- | The health status of the instance. If the status of either the instance
 -- status check or the system status check is @impaired@, the health status
@@ -84,32 +79,36 @@ activeInstance_spotInstanceRequestId = Lens.lens (\ActiveInstance' {spotInstance
 activeInstance_instanceHealth :: Lens.Lens' ActiveInstance (Prelude.Maybe InstanceHealthStatus)
 activeInstance_instanceHealth = Lens.lens (\ActiveInstance' {instanceHealth} -> instanceHealth) (\s@ActiveInstance' {} a -> s {instanceHealth = a} :: ActiveInstance)
 
--- | The instance type.
-activeInstance_instanceType :: Lens.Lens' ActiveInstance (Prelude.Maybe Prelude.Text)
-activeInstance_instanceType = Lens.lens (\ActiveInstance' {instanceType} -> instanceType) (\s@ActiveInstance' {} a -> s {instanceType = a} :: ActiveInstance)
-
 -- | The ID of the instance.
 activeInstance_instanceId :: Lens.Lens' ActiveInstance (Prelude.Maybe Prelude.Text)
 activeInstance_instanceId = Lens.lens (\ActiveInstance' {instanceId} -> instanceId) (\s@ActiveInstance' {} a -> s {instanceId = a} :: ActiveInstance)
 
+-- | The instance type.
+activeInstance_instanceType :: Lens.Lens' ActiveInstance (Prelude.Maybe Prelude.Text)
+activeInstance_instanceType = Lens.lens (\ActiveInstance' {instanceType} -> instanceType) (\s@ActiveInstance' {} a -> s {instanceType = a} :: ActiveInstance)
+
+-- | The ID of the Spot Instance request.
+activeInstance_spotInstanceRequestId :: Lens.Lens' ActiveInstance (Prelude.Maybe Prelude.Text)
+activeInstance_spotInstanceRequestId = Lens.lens (\ActiveInstance' {spotInstanceRequestId} -> spotInstanceRequestId) (\s@ActiveInstance' {} a -> s {spotInstanceRequestId = a} :: ActiveInstance)
+
 instance Data.FromXML ActiveInstance where
   parseXML x =
     ActiveInstance'
-      Prelude.<$> (x Data..@? "spotInstanceRequestId")
-      Prelude.<*> (x Data..@? "instanceHealth")
-      Prelude.<*> (x Data..@? "instanceType")
+      Prelude.<$> (x Data..@? "instanceHealth")
       Prelude.<*> (x Data..@? "instanceId")
+      Prelude.<*> (x Data..@? "instanceType")
+      Prelude.<*> (x Data..@? "spotInstanceRequestId")
 
 instance Prelude.Hashable ActiveInstance where
   hashWithSalt _salt ActiveInstance' {..} =
-    _salt `Prelude.hashWithSalt` spotInstanceRequestId
-      `Prelude.hashWithSalt` instanceHealth
-      `Prelude.hashWithSalt` instanceType
+    _salt `Prelude.hashWithSalt` instanceHealth
       `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` spotInstanceRequestId
 
 instance Prelude.NFData ActiveInstance where
   rnf ActiveInstance' {..} =
-    Prelude.rnf spotInstanceRequestId
-      `Prelude.seq` Prelude.rnf instanceHealth
-      `Prelude.seq` Prelude.rnf instanceType
+    Prelude.rnf instanceHealth
       `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf spotInstanceRequestId

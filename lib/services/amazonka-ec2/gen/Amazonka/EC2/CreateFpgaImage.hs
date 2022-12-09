@@ -37,11 +37,11 @@ module Amazonka.EC2.CreateFpgaImage
 
     -- * Request Lenses
     createFpgaImage_clientToken,
-    createFpgaImage_name,
     createFpgaImage_description,
     createFpgaImage_dryRun,
-    createFpgaImage_tagSpecifications,
     createFpgaImage_logsStorageLocation,
+    createFpgaImage_name,
+    createFpgaImage_tagSpecifications,
     createFpgaImage_inputStorageLocation,
 
     -- * Destructuring the Response
@@ -69,8 +69,6 @@ data CreateFpgaImage = CreateFpgaImage'
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html Ensuring Idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | A name for the AFI.
-    name :: Prelude.Maybe Prelude.Text,
     -- | A description for the AFI.
     description :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
@@ -78,10 +76,12 @@ data CreateFpgaImage = CreateFpgaImage'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The tags to apply to the FPGA image during creation.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The location in Amazon S3 for the output logs.
     logsStorageLocation :: Prelude.Maybe StorageLocation,
+    -- | A name for the AFI.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The tags to apply to the FPGA image during creation.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The location of the encrypted design checkpoint in Amazon S3. The input
     -- must be a tarball.
     inputStorageLocation :: StorageLocation
@@ -100,8 +100,6 @@ data CreateFpgaImage = CreateFpgaImage'
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html Ensuring Idempotency>.
 --
--- 'name', 'createFpgaImage_name' - A name for the AFI.
---
 -- 'description', 'createFpgaImage_description' - A description for the AFI.
 --
 -- 'dryRun', 'createFpgaImage_dryRun' - Checks whether you have the required permissions for the action, without
@@ -109,9 +107,11 @@ data CreateFpgaImage = CreateFpgaImage'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'tagSpecifications', 'createFpgaImage_tagSpecifications' - The tags to apply to the FPGA image during creation.
---
 -- 'logsStorageLocation', 'createFpgaImage_logsStorageLocation' - The location in Amazon S3 for the output logs.
+--
+-- 'name', 'createFpgaImage_name' - A name for the AFI.
+--
+-- 'tagSpecifications', 'createFpgaImage_tagSpecifications' - The tags to apply to the FPGA image during creation.
 --
 -- 'inputStorageLocation', 'createFpgaImage_inputStorageLocation' - The location of the encrypted design checkpoint in Amazon S3. The input
 -- must be a tarball.
@@ -122,11 +122,11 @@ newCreateFpgaImage ::
 newCreateFpgaImage pInputStorageLocation_ =
   CreateFpgaImage'
     { clientToken = Prelude.Nothing,
-      name = Prelude.Nothing,
       description = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      tagSpecifications = Prelude.Nothing,
       logsStorageLocation = Prelude.Nothing,
+      name = Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
       inputStorageLocation = pInputStorageLocation_
     }
 
@@ -135,10 +135,6 @@ newCreateFpgaImage pInputStorageLocation_ =
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html Ensuring Idempotency>.
 createFpgaImage_clientToken :: Lens.Lens' CreateFpgaImage (Prelude.Maybe Prelude.Text)
 createFpgaImage_clientToken = Lens.lens (\CreateFpgaImage' {clientToken} -> clientToken) (\s@CreateFpgaImage' {} a -> s {clientToken = a} :: CreateFpgaImage)
-
--- | A name for the AFI.
-createFpgaImage_name :: Lens.Lens' CreateFpgaImage (Prelude.Maybe Prelude.Text)
-createFpgaImage_name = Lens.lens (\CreateFpgaImage' {name} -> name) (\s@CreateFpgaImage' {} a -> s {name = a} :: CreateFpgaImage)
 
 -- | A description for the AFI.
 createFpgaImage_description :: Lens.Lens' CreateFpgaImage (Prelude.Maybe Prelude.Text)
@@ -151,13 +147,17 @@ createFpgaImage_description = Lens.lens (\CreateFpgaImage' {description} -> desc
 createFpgaImage_dryRun :: Lens.Lens' CreateFpgaImage (Prelude.Maybe Prelude.Bool)
 createFpgaImage_dryRun = Lens.lens (\CreateFpgaImage' {dryRun} -> dryRun) (\s@CreateFpgaImage' {} a -> s {dryRun = a} :: CreateFpgaImage)
 
--- | The tags to apply to the FPGA image during creation.
-createFpgaImage_tagSpecifications :: Lens.Lens' CreateFpgaImage (Prelude.Maybe [TagSpecification])
-createFpgaImage_tagSpecifications = Lens.lens (\CreateFpgaImage' {tagSpecifications} -> tagSpecifications) (\s@CreateFpgaImage' {} a -> s {tagSpecifications = a} :: CreateFpgaImage) Prelude.. Lens.mapping Lens.coerced
-
 -- | The location in Amazon S3 for the output logs.
 createFpgaImage_logsStorageLocation :: Lens.Lens' CreateFpgaImage (Prelude.Maybe StorageLocation)
 createFpgaImage_logsStorageLocation = Lens.lens (\CreateFpgaImage' {logsStorageLocation} -> logsStorageLocation) (\s@CreateFpgaImage' {} a -> s {logsStorageLocation = a} :: CreateFpgaImage)
+
+-- | A name for the AFI.
+createFpgaImage_name :: Lens.Lens' CreateFpgaImage (Prelude.Maybe Prelude.Text)
+createFpgaImage_name = Lens.lens (\CreateFpgaImage' {name} -> name) (\s@CreateFpgaImage' {} a -> s {name = a} :: CreateFpgaImage)
+
+-- | The tags to apply to the FPGA image during creation.
+createFpgaImage_tagSpecifications :: Lens.Lens' CreateFpgaImage (Prelude.Maybe [TagSpecification])
+createFpgaImage_tagSpecifications = Lens.lens (\CreateFpgaImage' {tagSpecifications} -> tagSpecifications) (\s@CreateFpgaImage' {} a -> s {tagSpecifications = a} :: CreateFpgaImage) Prelude.. Lens.mapping Lens.coerced
 
 -- | The location of the encrypted design checkpoint in Amazon S3. The input
 -- must be a tarball.
@@ -182,21 +182,21 @@ instance Core.AWSRequest CreateFpgaImage where
 instance Prelude.Hashable CreateFpgaImage where
   hashWithSalt _salt CreateFpgaImage' {..} =
     _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
-      `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` logsStorageLocation
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` inputStorageLocation
 
 instance Prelude.NFData CreateFpgaImage where
   rnf CreateFpgaImage' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf logsStorageLocation
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf inputStorageLocation
 
 instance Data.ToHeaders CreateFpgaImage where
@@ -213,14 +213,14 @@ instance Data.ToQuery CreateFpgaImage where
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
         "ClientToken" Data.=: clientToken,
-        "Name" Data.=: name,
         "Description" Data.=: description,
         "DryRun" Data.=: dryRun,
+        "LogsStorageLocation" Data.=: logsStorageLocation,
+        "Name" Data.=: name,
         Data.toQuery
           ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "LogsStorageLocation" Data.=: logsStorageLocation,
         "InputStorageLocation" Data.=: inputStorageLocation
       ]
 

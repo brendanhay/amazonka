@@ -30,16 +30,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVolumeAttachment' smart constructor.
 data VolumeAttachment = VolumeAttachment'
-  { -- | Indicates whether the EBS volume is deleted on instance termination.
+  { -- | The time stamp when the attachment initiated.
+    attachTime :: Prelude.Maybe Data.ISO8601,
+    -- | Indicates whether the EBS volume is deleted on instance termination.
     deleteOnTermination :: Prelude.Maybe Prelude.Bool,
     -- | The device name.
     device :: Prelude.Maybe Prelude.Text,
-    -- | The attachment state of the volume.
-    state :: Prelude.Maybe VolumeAttachmentState,
     -- | The ID of the instance.
     instanceId :: Prelude.Maybe Prelude.Text,
-    -- | The time stamp when the attachment initiated.
-    attachTime :: Prelude.Maybe Data.ISO8601,
+    -- | The attachment state of the volume.
+    state :: Prelude.Maybe VolumeAttachmentState,
     -- | The ID of the volume.
     volumeId :: Prelude.Maybe Prelude.Text
   }
@@ -53,29 +53,32 @@ data VolumeAttachment = VolumeAttachment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attachTime', 'volumeAttachment_attachTime' - The time stamp when the attachment initiated.
+--
 -- 'deleteOnTermination', 'volumeAttachment_deleteOnTermination' - Indicates whether the EBS volume is deleted on instance termination.
 --
 -- 'device', 'volumeAttachment_device' - The device name.
 --
--- 'state', 'volumeAttachment_state' - The attachment state of the volume.
---
 -- 'instanceId', 'volumeAttachment_instanceId' - The ID of the instance.
 --
--- 'attachTime', 'volumeAttachment_attachTime' - The time stamp when the attachment initiated.
+-- 'state', 'volumeAttachment_state' - The attachment state of the volume.
 --
 -- 'volumeId', 'volumeAttachment_volumeId' - The ID of the volume.
 newVolumeAttachment ::
   VolumeAttachment
 newVolumeAttachment =
   VolumeAttachment'
-    { deleteOnTermination =
-        Prelude.Nothing,
+    { attachTime = Prelude.Nothing,
+      deleteOnTermination = Prelude.Nothing,
       device = Prelude.Nothing,
-      state = Prelude.Nothing,
       instanceId = Prelude.Nothing,
-      attachTime = Prelude.Nothing,
+      state = Prelude.Nothing,
       volumeId = Prelude.Nothing
     }
+
+-- | The time stamp when the attachment initiated.
+volumeAttachment_attachTime :: Lens.Lens' VolumeAttachment (Prelude.Maybe Prelude.UTCTime)
+volumeAttachment_attachTime = Lens.lens (\VolumeAttachment' {attachTime} -> attachTime) (\s@VolumeAttachment' {} a -> s {attachTime = a} :: VolumeAttachment) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates whether the EBS volume is deleted on instance termination.
 volumeAttachment_deleteOnTermination :: Lens.Lens' VolumeAttachment (Prelude.Maybe Prelude.Bool)
@@ -85,17 +88,13 @@ volumeAttachment_deleteOnTermination = Lens.lens (\VolumeAttachment' {deleteOnTe
 volumeAttachment_device :: Lens.Lens' VolumeAttachment (Prelude.Maybe Prelude.Text)
 volumeAttachment_device = Lens.lens (\VolumeAttachment' {device} -> device) (\s@VolumeAttachment' {} a -> s {device = a} :: VolumeAttachment)
 
--- | The attachment state of the volume.
-volumeAttachment_state :: Lens.Lens' VolumeAttachment (Prelude.Maybe VolumeAttachmentState)
-volumeAttachment_state = Lens.lens (\VolumeAttachment' {state} -> state) (\s@VolumeAttachment' {} a -> s {state = a} :: VolumeAttachment)
-
 -- | The ID of the instance.
 volumeAttachment_instanceId :: Lens.Lens' VolumeAttachment (Prelude.Maybe Prelude.Text)
 volumeAttachment_instanceId = Lens.lens (\VolumeAttachment' {instanceId} -> instanceId) (\s@VolumeAttachment' {} a -> s {instanceId = a} :: VolumeAttachment)
 
--- | The time stamp when the attachment initiated.
-volumeAttachment_attachTime :: Lens.Lens' VolumeAttachment (Prelude.Maybe Prelude.UTCTime)
-volumeAttachment_attachTime = Lens.lens (\VolumeAttachment' {attachTime} -> attachTime) (\s@VolumeAttachment' {} a -> s {attachTime = a} :: VolumeAttachment) Prelude.. Lens.mapping Data._Time
+-- | The attachment state of the volume.
+volumeAttachment_state :: Lens.Lens' VolumeAttachment (Prelude.Maybe VolumeAttachmentState)
+volumeAttachment_state = Lens.lens (\VolumeAttachment' {state} -> state) (\s@VolumeAttachment' {} a -> s {state = a} :: VolumeAttachment)
 
 -- | The ID of the volume.
 volumeAttachment_volumeId :: Lens.Lens' VolumeAttachment (Prelude.Maybe Prelude.Text)
@@ -104,27 +103,27 @@ volumeAttachment_volumeId = Lens.lens (\VolumeAttachment' {volumeId} -> volumeId
 instance Data.FromXML VolumeAttachment where
   parseXML x =
     VolumeAttachment'
-      Prelude.<$> (x Data..@? "deleteOnTermination")
+      Prelude.<$> (x Data..@? "attachTime")
+      Prelude.<*> (x Data..@? "deleteOnTermination")
       Prelude.<*> (x Data..@? "device")
-      Prelude.<*> (x Data..@? "status")
       Prelude.<*> (x Data..@? "instanceId")
-      Prelude.<*> (x Data..@? "attachTime")
+      Prelude.<*> (x Data..@? "status")
       Prelude.<*> (x Data..@? "volumeId")
 
 instance Prelude.Hashable VolumeAttachment where
   hashWithSalt _salt VolumeAttachment' {..} =
-    _salt `Prelude.hashWithSalt` deleteOnTermination
+    _salt `Prelude.hashWithSalt` attachTime
+      `Prelude.hashWithSalt` deleteOnTermination
       `Prelude.hashWithSalt` device
-      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` instanceId
-      `Prelude.hashWithSalt` attachTime
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` volumeId
 
 instance Prelude.NFData VolumeAttachment where
   rnf VolumeAttachment' {..} =
-    Prelude.rnf deleteOnTermination
+    Prelude.rnf attachTime
+      `Prelude.seq` Prelude.rnf deleteOnTermination
       `Prelude.seq` Prelude.rnf device
-      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf attachTime
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf volumeId

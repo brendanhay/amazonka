@@ -60,8 +60,8 @@ module Amazonka.EC2.CreateSecurityGroup
 
     -- * Request Lenses
     createSecurityGroup_dryRun,
-    createSecurityGroup_vpcId,
     createSecurityGroup_tagSpecifications,
+    createSecurityGroup_vpcId,
     createSecurityGroup_description,
     createSecurityGroup_groupName,
 
@@ -91,10 +91,10 @@ data CreateSecurityGroup = CreateSecurityGroup'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | [EC2-VPC] The ID of the VPC. Required for EC2-VPC.
-    vpcId :: Prelude.Maybe Prelude.Text,
     -- | The tags to assign to the security group.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
+    -- | [EC2-VPC] The ID of the VPC. Required for EC2-VPC.
+    vpcId :: Prelude.Maybe Prelude.Text,
     -- | A description for the security group. This is informational only.
     --
     -- Constraints: Up to 255 characters in length
@@ -129,9 +129,9 @@ data CreateSecurityGroup = CreateSecurityGroup'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'vpcId', 'createSecurityGroup_vpcId' - [EC2-VPC] The ID of the VPC. Required for EC2-VPC.
---
 -- 'tagSpecifications', 'createSecurityGroup_tagSpecifications' - The tags to assign to the security group.
+--
+-- 'vpcId', 'createSecurityGroup_vpcId' - [EC2-VPC] The ID of the VPC. Required for EC2-VPC.
 --
 -- 'description', 'createSecurityGroup_description' - A description for the security group. This is informational only.
 --
@@ -159,8 +159,8 @@ newCreateSecurityGroup ::
 newCreateSecurityGroup pDescription_ pGroupName_ =
   CreateSecurityGroup'
     { dryRun = Prelude.Nothing,
-      vpcId = Prelude.Nothing,
       tagSpecifications = Prelude.Nothing,
+      vpcId = Prelude.Nothing,
       description = pDescription_,
       groupName = pGroupName_
     }
@@ -172,13 +172,13 @@ newCreateSecurityGroup pDescription_ pGroupName_ =
 createSecurityGroup_dryRun :: Lens.Lens' CreateSecurityGroup (Prelude.Maybe Prelude.Bool)
 createSecurityGroup_dryRun = Lens.lens (\CreateSecurityGroup' {dryRun} -> dryRun) (\s@CreateSecurityGroup' {} a -> s {dryRun = a} :: CreateSecurityGroup)
 
--- | [EC2-VPC] The ID of the VPC. Required for EC2-VPC.
-createSecurityGroup_vpcId :: Lens.Lens' CreateSecurityGroup (Prelude.Maybe Prelude.Text)
-createSecurityGroup_vpcId = Lens.lens (\CreateSecurityGroup' {vpcId} -> vpcId) (\s@CreateSecurityGroup' {} a -> s {vpcId = a} :: CreateSecurityGroup)
-
 -- | The tags to assign to the security group.
 createSecurityGroup_tagSpecifications :: Lens.Lens' CreateSecurityGroup (Prelude.Maybe [TagSpecification])
 createSecurityGroup_tagSpecifications = Lens.lens (\CreateSecurityGroup' {tagSpecifications} -> tagSpecifications) (\s@CreateSecurityGroup' {} a -> s {tagSpecifications = a} :: CreateSecurityGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | [EC2-VPC] The ID of the VPC. Required for EC2-VPC.
+createSecurityGroup_vpcId :: Lens.Lens' CreateSecurityGroup (Prelude.Maybe Prelude.Text)
+createSecurityGroup_vpcId = Lens.lens (\CreateSecurityGroup' {vpcId} -> vpcId) (\s@CreateSecurityGroup' {} a -> s {vpcId = a} :: CreateSecurityGroup)
 
 -- | A description for the security group. This is informational only.
 --
@@ -222,16 +222,16 @@ instance Core.AWSRequest CreateSecurityGroup where
 instance Prelude.Hashable CreateSecurityGroup where
   hashWithSalt _salt CreateSecurityGroup' {..} =
     _salt `Prelude.hashWithSalt` dryRun
-      `Prelude.hashWithSalt` vpcId
       `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` vpcId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` groupName
 
 instance Prelude.NFData CreateSecurityGroup where
   rnf CreateSecurityGroup' {..} =
     Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf vpcId
       `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf vpcId
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf groupName
 
@@ -249,11 +249,11 @@ instance Data.ToQuery CreateSecurityGroup where
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Data.=: dryRun,
-        "VpcId" Data.=: vpcId,
         Data.toQuery
           ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
+        "VpcId" Data.=: vpcId,
         "GroupDescription" Data.=: description,
         "GroupName" Data.=: groupName
       ]

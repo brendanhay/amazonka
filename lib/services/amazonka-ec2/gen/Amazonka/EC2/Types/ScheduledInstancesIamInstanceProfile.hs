@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newScheduledInstancesIamInstanceProfile' smart constructor.
 data ScheduledInstancesIamInstanceProfile = ScheduledInstancesIamInstanceProfile'
-  { -- | The name.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN).
-    arn :: Prelude.Maybe Prelude.Text
+  { -- | The Amazon Resource Name (ARN).
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The name.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data ScheduledInstancesIamInstanceProfile = ScheduledInstancesIamInstanceProfile
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'scheduledInstancesIamInstanceProfile_name' - The name.
---
 -- 'arn', 'scheduledInstancesIamInstanceProfile_arn' - The Amazon Resource Name (ARN).
+--
+-- 'name', 'scheduledInstancesIamInstanceProfile_name' - The name.
 newScheduledInstancesIamInstanceProfile ::
   ScheduledInstancesIamInstanceProfile
 newScheduledInstancesIamInstanceProfile =
   ScheduledInstancesIamInstanceProfile'
-    { name =
+    { arn =
         Prelude.Nothing,
-      arn = Prelude.Nothing
+      name = Prelude.Nothing
     }
-
--- | The name.
-scheduledInstancesIamInstanceProfile_name :: Lens.Lens' ScheduledInstancesIamInstanceProfile (Prelude.Maybe Prelude.Text)
-scheduledInstancesIamInstanceProfile_name = Lens.lens (\ScheduledInstancesIamInstanceProfile' {name} -> name) (\s@ScheduledInstancesIamInstanceProfile' {} a -> s {name = a} :: ScheduledInstancesIamInstanceProfile)
 
 -- | The Amazon Resource Name (ARN).
 scheduledInstancesIamInstanceProfile_arn :: Lens.Lens' ScheduledInstancesIamInstanceProfile (Prelude.Maybe Prelude.Text)
 scheduledInstancesIamInstanceProfile_arn = Lens.lens (\ScheduledInstancesIamInstanceProfile' {arn} -> arn) (\s@ScheduledInstancesIamInstanceProfile' {} a -> s {arn = a} :: ScheduledInstancesIamInstanceProfile)
+
+-- | The name.
+scheduledInstancesIamInstanceProfile_name :: Lens.Lens' ScheduledInstancesIamInstanceProfile (Prelude.Maybe Prelude.Text)
+scheduledInstancesIamInstanceProfile_name = Lens.lens (\ScheduledInstancesIamInstanceProfile' {name} -> name) (\s@ScheduledInstancesIamInstanceProfile' {} a -> s {name = a} :: ScheduledInstancesIamInstanceProfile)
 
 instance
   Prelude.Hashable
@@ -71,15 +71,15 @@ instance
   hashWithSalt
     _salt
     ScheduledInstancesIamInstanceProfile' {..} =
-      _salt `Prelude.hashWithSalt` name
-        `Prelude.hashWithSalt` arn
+      _salt `Prelude.hashWithSalt` arn
+        `Prelude.hashWithSalt` name
 
 instance
   Prelude.NFData
     ScheduledInstancesIamInstanceProfile
   where
   rnf ScheduledInstancesIamInstanceProfile' {..} =
-    Prelude.rnf name `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf name
 
 instance
   Data.ToQuery
@@ -87,4 +87,4 @@ instance
   where
   toQuery ScheduledInstancesIamInstanceProfile' {..} =
     Prelude.mconcat
-      ["Name" Data.=: name, "Arn" Data.=: arn]
+      ["Arn" Data.=: arn, "Name" Data.=: name]

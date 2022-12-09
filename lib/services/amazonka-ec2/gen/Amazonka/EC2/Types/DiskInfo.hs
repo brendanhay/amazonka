@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDiskInfo' smart constructor.
 data DiskInfo = DiskInfo'
-  { -- | The type of disk.
-    type' :: Prelude.Maybe DiskType,
+  { -- | The number of disks with this configuration.
+    count :: Prelude.Maybe Prelude.Int,
     -- | The size of the disk in GB.
     sizeInGB :: Prelude.Maybe Prelude.Integer,
-    -- | The number of disks with this configuration.
-    count :: Prelude.Maybe Prelude.Int
+    -- | The type of disk.
+    type' :: Prelude.Maybe DiskType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,47 +47,47 @@ data DiskInfo = DiskInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'diskInfo_type' - The type of disk.
+-- 'count', 'diskInfo_count' - The number of disks with this configuration.
 --
 -- 'sizeInGB', 'diskInfo_sizeInGB' - The size of the disk in GB.
 --
--- 'count', 'diskInfo_count' - The number of disks with this configuration.
+-- 'type'', 'diskInfo_type' - The type of disk.
 newDiskInfo ::
   DiskInfo
 newDiskInfo =
   DiskInfo'
-    { type' = Prelude.Nothing,
+    { count = Prelude.Nothing,
       sizeInGB = Prelude.Nothing,
-      count = Prelude.Nothing
+      type' = Prelude.Nothing
     }
-
--- | The type of disk.
-diskInfo_type :: Lens.Lens' DiskInfo (Prelude.Maybe DiskType)
-diskInfo_type = Lens.lens (\DiskInfo' {type'} -> type') (\s@DiskInfo' {} a -> s {type' = a} :: DiskInfo)
-
--- | The size of the disk in GB.
-diskInfo_sizeInGB :: Lens.Lens' DiskInfo (Prelude.Maybe Prelude.Integer)
-diskInfo_sizeInGB = Lens.lens (\DiskInfo' {sizeInGB} -> sizeInGB) (\s@DiskInfo' {} a -> s {sizeInGB = a} :: DiskInfo)
 
 -- | The number of disks with this configuration.
 diskInfo_count :: Lens.Lens' DiskInfo (Prelude.Maybe Prelude.Int)
 diskInfo_count = Lens.lens (\DiskInfo' {count} -> count) (\s@DiskInfo' {} a -> s {count = a} :: DiskInfo)
 
+-- | The size of the disk in GB.
+diskInfo_sizeInGB :: Lens.Lens' DiskInfo (Prelude.Maybe Prelude.Integer)
+diskInfo_sizeInGB = Lens.lens (\DiskInfo' {sizeInGB} -> sizeInGB) (\s@DiskInfo' {} a -> s {sizeInGB = a} :: DiskInfo)
+
+-- | The type of disk.
+diskInfo_type :: Lens.Lens' DiskInfo (Prelude.Maybe DiskType)
+diskInfo_type = Lens.lens (\DiskInfo' {type'} -> type') (\s@DiskInfo' {} a -> s {type' = a} :: DiskInfo)
+
 instance Data.FromXML DiskInfo where
   parseXML x =
     DiskInfo'
-      Prelude.<$> (x Data..@? "type")
+      Prelude.<$> (x Data..@? "count")
       Prelude.<*> (x Data..@? "sizeInGB")
-      Prelude.<*> (x Data..@? "count")
+      Prelude.<*> (x Data..@? "type")
 
 instance Prelude.Hashable DiskInfo where
   hashWithSalt _salt DiskInfo' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` sizeInGB
-      `Prelude.hashWithSalt` count
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData DiskInfo where
   rnf DiskInfo' {..} =
-    Prelude.rnf type'
+    Prelude.rnf count
       `Prelude.seq` Prelude.rnf sizeInGB
-      `Prelude.seq` Prelude.rnf count
+      `Prelude.seq` Prelude.rnf type'

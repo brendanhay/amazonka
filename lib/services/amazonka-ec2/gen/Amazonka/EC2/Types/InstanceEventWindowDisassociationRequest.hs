@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceEventWindowDisassociationRequest' smart constructor.
 data InstanceEventWindowDisassociationRequest = InstanceEventWindowDisassociationRequest'
-  { -- | The instance tags to disassociate from the event window. Any instances
-    -- associated with the tags will be disassociated from the event window.
-    instanceTags :: Prelude.Maybe [Tag],
-    -- | The IDs of the Dedicated Hosts to disassociate from the event window.
+  { -- | The IDs of the Dedicated Hosts to disassociate from the event window.
     dedicatedHostIds :: Prelude.Maybe [Prelude.Text],
     -- | The IDs of the instances to disassociate from the event window.
-    instanceIds :: Prelude.Maybe [Prelude.Text]
+    instanceIds :: Prelude.Maybe [Prelude.Text],
+    -- | The instance tags to disassociate from the event window. Any instances
+    -- associated with the tags will be disassociated from the event window.
+    instanceTags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,27 +48,21 @@ data InstanceEventWindowDisassociationRequest = InstanceEventWindowDisassociatio
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceTags', 'instanceEventWindowDisassociationRequest_instanceTags' - The instance tags to disassociate from the event window. Any instances
--- associated with the tags will be disassociated from the event window.
---
 -- 'dedicatedHostIds', 'instanceEventWindowDisassociationRequest_dedicatedHostIds' - The IDs of the Dedicated Hosts to disassociate from the event window.
 --
 -- 'instanceIds', 'instanceEventWindowDisassociationRequest_instanceIds' - The IDs of the instances to disassociate from the event window.
+--
+-- 'instanceTags', 'instanceEventWindowDisassociationRequest_instanceTags' - The instance tags to disassociate from the event window. Any instances
+-- associated with the tags will be disassociated from the event window.
 newInstanceEventWindowDisassociationRequest ::
   InstanceEventWindowDisassociationRequest
 newInstanceEventWindowDisassociationRequest =
   InstanceEventWindowDisassociationRequest'
-    { instanceTags =
+    { dedicatedHostIds =
         Prelude.Nothing,
-      dedicatedHostIds =
-        Prelude.Nothing,
-      instanceIds = Prelude.Nothing
+      instanceIds = Prelude.Nothing,
+      instanceTags = Prelude.Nothing
     }
-
--- | The instance tags to disassociate from the event window. Any instances
--- associated with the tags will be disassociated from the event window.
-instanceEventWindowDisassociationRequest_instanceTags :: Lens.Lens' InstanceEventWindowDisassociationRequest (Prelude.Maybe [Tag])
-instanceEventWindowDisassociationRequest_instanceTags = Lens.lens (\InstanceEventWindowDisassociationRequest' {instanceTags} -> instanceTags) (\s@InstanceEventWindowDisassociationRequest' {} a -> s {instanceTags = a} :: InstanceEventWindowDisassociationRequest) Prelude.. Lens.mapping Lens.coerced
 
 -- | The IDs of the Dedicated Hosts to disassociate from the event window.
 instanceEventWindowDisassociationRequest_dedicatedHostIds :: Lens.Lens' InstanceEventWindowDisassociationRequest (Prelude.Maybe [Prelude.Text])
@@ -78,6 +72,11 @@ instanceEventWindowDisassociationRequest_dedicatedHostIds = Lens.lens (\Instance
 instanceEventWindowDisassociationRequest_instanceIds :: Lens.Lens' InstanceEventWindowDisassociationRequest (Prelude.Maybe [Prelude.Text])
 instanceEventWindowDisassociationRequest_instanceIds = Lens.lens (\InstanceEventWindowDisassociationRequest' {instanceIds} -> instanceIds) (\s@InstanceEventWindowDisassociationRequest' {} a -> s {instanceIds = a} :: InstanceEventWindowDisassociationRequest) Prelude.. Lens.mapping Lens.coerced
 
+-- | The instance tags to disassociate from the event window. Any instances
+-- associated with the tags will be disassociated from the event window.
+instanceEventWindowDisassociationRequest_instanceTags :: Lens.Lens' InstanceEventWindowDisassociationRequest (Prelude.Maybe [Tag])
+instanceEventWindowDisassociationRequest_instanceTags = Lens.lens (\InstanceEventWindowDisassociationRequest' {instanceTags} -> instanceTags) (\s@InstanceEventWindowDisassociationRequest' {} a -> s {instanceTags = a} :: InstanceEventWindowDisassociationRequest) Prelude.. Lens.mapping Lens.coerced
+
 instance
   Prelude.Hashable
     InstanceEventWindowDisassociationRequest
@@ -85,18 +84,18 @@ instance
   hashWithSalt
     _salt
     InstanceEventWindowDisassociationRequest' {..} =
-      _salt `Prelude.hashWithSalt` instanceTags
-        `Prelude.hashWithSalt` dedicatedHostIds
+      _salt `Prelude.hashWithSalt` dedicatedHostIds
         `Prelude.hashWithSalt` instanceIds
+        `Prelude.hashWithSalt` instanceTags
 
 instance
   Prelude.NFData
     InstanceEventWindowDisassociationRequest
   where
   rnf InstanceEventWindowDisassociationRequest' {..} =
-    Prelude.rnf instanceTags
-      `Prelude.seq` Prelude.rnf dedicatedHostIds
+    Prelude.rnf dedicatedHostIds
       `Prelude.seq` Prelude.rnf instanceIds
+      `Prelude.seq` Prelude.rnf instanceTags
 
 instance
   Data.ToQuery
@@ -105,15 +104,15 @@ instance
   toQuery InstanceEventWindowDisassociationRequest' {..} =
     Prelude.mconcat
       [ Data.toQuery
-          ( Data.toQueryList "InstanceTag"
-              Prelude.<$> instanceTags
-          ),
-        Data.toQuery
           ( Data.toQueryList "DedicatedHostId"
               Prelude.<$> dedicatedHostIds
           ),
         Data.toQuery
           ( Data.toQueryList "InstanceId"
               Prelude.<$> instanceIds
+          ),
+        Data.toQuery
+          ( Data.toQueryList "InstanceTag"
+              Prelude.<$> instanceTags
           )
       ]

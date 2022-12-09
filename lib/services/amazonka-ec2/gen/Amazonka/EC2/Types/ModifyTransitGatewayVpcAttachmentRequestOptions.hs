@@ -32,14 +32,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newModifyTransitGatewayVpcAttachmentRequestOptions' smart constructor.
 data ModifyTransitGatewayVpcAttachmentRequestOptions = ModifyTransitGatewayVpcAttachmentRequestOptions'
-  { -- | Enable or disable DNS support. The default is @enable@.
-    dnsSupport :: Prelude.Maybe DnsSupportValue,
-    -- | Enable or disable IPv6 support. The default is @enable@.
-    ipv6Support :: Prelude.Maybe Ipv6SupportValue,
-    -- | Enable or disable support for appliance mode. If enabled, a traffic flow
+  { -- | Enable or disable support for appliance mode. If enabled, a traffic flow
     -- between a source and destination uses the same Availability Zone for the
     -- VPC attachment for the lifetime of that flow. The default is @disable@.
-    applianceModeSupport :: Prelude.Maybe ApplianceModeSupportValue
+    applianceModeSupport :: Prelude.Maybe ApplianceModeSupportValue,
+    -- | Enable or disable DNS support. The default is @enable@.
+    dnsSupport :: Prelude.Maybe DnsSupportValue,
+    -- | Enable or disable IPv6 support. The default is @enable@.
+    ipv6Support :: Prelude.Maybe Ipv6SupportValue
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,24 +51,30 @@ data ModifyTransitGatewayVpcAttachmentRequestOptions = ModifyTransitGatewayVpcAt
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dnsSupport', 'modifyTransitGatewayVpcAttachmentRequestOptions_dnsSupport' - Enable or disable DNS support. The default is @enable@.
---
--- 'ipv6Support', 'modifyTransitGatewayVpcAttachmentRequestOptions_ipv6Support' - Enable or disable IPv6 support. The default is @enable@.
---
 -- 'applianceModeSupport', 'modifyTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport' - Enable or disable support for appliance mode. If enabled, a traffic flow
 -- between a source and destination uses the same Availability Zone for the
 -- VPC attachment for the lifetime of that flow. The default is @disable@.
+--
+-- 'dnsSupport', 'modifyTransitGatewayVpcAttachmentRequestOptions_dnsSupport' - Enable or disable DNS support. The default is @enable@.
+--
+-- 'ipv6Support', 'modifyTransitGatewayVpcAttachmentRequestOptions_ipv6Support' - Enable or disable IPv6 support. The default is @enable@.
 newModifyTransitGatewayVpcAttachmentRequestOptions ::
   ModifyTransitGatewayVpcAttachmentRequestOptions
 newModifyTransitGatewayVpcAttachmentRequestOptions =
   ModifyTransitGatewayVpcAttachmentRequestOptions'
-    { dnsSupport =
+    { applianceModeSupport =
+        Prelude.Nothing,
+      dnsSupport =
         Prelude.Nothing,
       ipv6Support =
-        Prelude.Nothing,
-      applianceModeSupport =
         Prelude.Nothing
     }
+
+-- | Enable or disable support for appliance mode. If enabled, a traffic flow
+-- between a source and destination uses the same Availability Zone for the
+-- VPC attachment for the lifetime of that flow. The default is @disable@.
+modifyTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport :: Lens.Lens' ModifyTransitGatewayVpcAttachmentRequestOptions (Prelude.Maybe ApplianceModeSupportValue)
+modifyTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport = Lens.lens (\ModifyTransitGatewayVpcAttachmentRequestOptions' {applianceModeSupport} -> applianceModeSupport) (\s@ModifyTransitGatewayVpcAttachmentRequestOptions' {} a -> s {applianceModeSupport = a} :: ModifyTransitGatewayVpcAttachmentRequestOptions)
 
 -- | Enable or disable DNS support. The default is @enable@.
 modifyTransitGatewayVpcAttachmentRequestOptions_dnsSupport :: Lens.Lens' ModifyTransitGatewayVpcAttachmentRequestOptions (Prelude.Maybe DnsSupportValue)
@@ -78,12 +84,6 @@ modifyTransitGatewayVpcAttachmentRequestOptions_dnsSupport = Lens.lens (\ModifyT
 modifyTransitGatewayVpcAttachmentRequestOptions_ipv6Support :: Lens.Lens' ModifyTransitGatewayVpcAttachmentRequestOptions (Prelude.Maybe Ipv6SupportValue)
 modifyTransitGatewayVpcAttachmentRequestOptions_ipv6Support = Lens.lens (\ModifyTransitGatewayVpcAttachmentRequestOptions' {ipv6Support} -> ipv6Support) (\s@ModifyTransitGatewayVpcAttachmentRequestOptions' {} a -> s {ipv6Support = a} :: ModifyTransitGatewayVpcAttachmentRequestOptions)
 
--- | Enable or disable support for appliance mode. If enabled, a traffic flow
--- between a source and destination uses the same Availability Zone for the
--- VPC attachment for the lifetime of that flow. The default is @disable@.
-modifyTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport :: Lens.Lens' ModifyTransitGatewayVpcAttachmentRequestOptions (Prelude.Maybe ApplianceModeSupportValue)
-modifyTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport = Lens.lens (\ModifyTransitGatewayVpcAttachmentRequestOptions' {applianceModeSupport} -> applianceModeSupport) (\s@ModifyTransitGatewayVpcAttachmentRequestOptions' {} a -> s {applianceModeSupport = a} :: ModifyTransitGatewayVpcAttachmentRequestOptions)
-
 instance
   Prelude.Hashable
     ModifyTransitGatewayVpcAttachmentRequestOptions
@@ -91,9 +91,9 @@ instance
   hashWithSalt
     _salt
     ModifyTransitGatewayVpcAttachmentRequestOptions' {..} =
-      _salt `Prelude.hashWithSalt` dnsSupport
+      _salt `Prelude.hashWithSalt` applianceModeSupport
+        `Prelude.hashWithSalt` dnsSupport
         `Prelude.hashWithSalt` ipv6Support
-        `Prelude.hashWithSalt` applianceModeSupport
 
 instance
   Prelude.NFData
@@ -101,9 +101,9 @@ instance
   where
   rnf
     ModifyTransitGatewayVpcAttachmentRequestOptions' {..} =
-      Prelude.rnf dnsSupport
+      Prelude.rnf applianceModeSupport
+        `Prelude.seq` Prelude.rnf dnsSupport
         `Prelude.seq` Prelude.rnf ipv6Support
-        `Prelude.seq` Prelude.rnf applianceModeSupport
 
 instance
   Data.ToQuery
@@ -112,7 +112,7 @@ instance
   toQuery
     ModifyTransitGatewayVpcAttachmentRequestOptions' {..} =
       Prelude.mconcat
-        [ "DnsSupport" Data.=: dnsSupport,
-          "Ipv6Support" Data.=: ipv6Support,
-          "ApplianceModeSupport" Data.=: applianceModeSupport
+        [ "ApplianceModeSupport" Data.=: applianceModeSupport,
+          "DnsSupport" Data.=: dnsSupport,
+          "Ipv6Support" Data.=: ipv6Support
         ]

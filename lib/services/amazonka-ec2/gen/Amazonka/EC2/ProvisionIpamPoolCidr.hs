@@ -34,8 +34,8 @@ module Amazonka.EC2.ProvisionIpamPoolCidr
 
     -- * Request Lenses
     provisionIpamPoolCidr_cidr,
-    provisionIpamPoolCidr_dryRun,
     provisionIpamPoolCidr_cidrAuthorizationContext,
+    provisionIpamPoolCidr_dryRun,
     provisionIpamPoolCidr_ipamPoolId,
 
     -- * Destructuring the Response
@@ -60,15 +60,15 @@ import qualified Amazonka.Response as Response
 data ProvisionIpamPoolCidr = ProvisionIpamPoolCidr'
   { -- | The CIDR you want to assign to the IPAM pool.
     cidr :: Prelude.Maybe Prelude.Text,
+    -- | A signed document that proves that you are authorized to bring a
+    -- specified IP address range to Amazon using BYOIP. This option applies to
+    -- public pools only.
+    cidrAuthorizationContext :: Prelude.Maybe IpamCidrAuthorizationContext,
     -- | A check for whether you have the required permissions for the action
     -- without actually making the request and provides an error response. If
     -- you have the required permissions, the error response is
     -- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | A signed document that proves that you are authorized to bring a
-    -- specified IP address range to Amazon using BYOIP. This option applies to
-    -- public pools only.
-    cidrAuthorizationContext :: Prelude.Maybe IpamCidrAuthorizationContext,
     -- | The ID of the IPAM pool to which you want to assign a CIDR.
     ipamPoolId :: Prelude.Text
   }
@@ -84,14 +84,14 @@ data ProvisionIpamPoolCidr = ProvisionIpamPoolCidr'
 --
 -- 'cidr', 'provisionIpamPoolCidr_cidr' - The CIDR you want to assign to the IPAM pool.
 --
+-- 'cidrAuthorizationContext', 'provisionIpamPoolCidr_cidrAuthorizationContext' - A signed document that proves that you are authorized to bring a
+-- specified IP address range to Amazon using BYOIP. This option applies to
+-- public pools only.
+--
 -- 'dryRun', 'provisionIpamPoolCidr_dryRun' - A check for whether you have the required permissions for the action
 -- without actually making the request and provides an error response. If
 -- you have the required permissions, the error response is
 -- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
---
--- 'cidrAuthorizationContext', 'provisionIpamPoolCidr_cidrAuthorizationContext' - A signed document that proves that you are authorized to bring a
--- specified IP address range to Amazon using BYOIP. This option applies to
--- public pools only.
 --
 -- 'ipamPoolId', 'provisionIpamPoolCidr_ipamPoolId' - The ID of the IPAM pool to which you want to assign a CIDR.
 newProvisionIpamPoolCidr ::
@@ -101,8 +101,8 @@ newProvisionIpamPoolCidr ::
 newProvisionIpamPoolCidr pIpamPoolId_ =
   ProvisionIpamPoolCidr'
     { cidr = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       cidrAuthorizationContext = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       ipamPoolId = pIpamPoolId_
     }
 
@@ -110,18 +110,18 @@ newProvisionIpamPoolCidr pIpamPoolId_ =
 provisionIpamPoolCidr_cidr :: Lens.Lens' ProvisionIpamPoolCidr (Prelude.Maybe Prelude.Text)
 provisionIpamPoolCidr_cidr = Lens.lens (\ProvisionIpamPoolCidr' {cidr} -> cidr) (\s@ProvisionIpamPoolCidr' {} a -> s {cidr = a} :: ProvisionIpamPoolCidr)
 
+-- | A signed document that proves that you are authorized to bring a
+-- specified IP address range to Amazon using BYOIP. This option applies to
+-- public pools only.
+provisionIpamPoolCidr_cidrAuthorizationContext :: Lens.Lens' ProvisionIpamPoolCidr (Prelude.Maybe IpamCidrAuthorizationContext)
+provisionIpamPoolCidr_cidrAuthorizationContext = Lens.lens (\ProvisionIpamPoolCidr' {cidrAuthorizationContext} -> cidrAuthorizationContext) (\s@ProvisionIpamPoolCidr' {} a -> s {cidrAuthorizationContext = a} :: ProvisionIpamPoolCidr)
+
 -- | A check for whether you have the required permissions for the action
 -- without actually making the request and provides an error response. If
 -- you have the required permissions, the error response is
 -- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
 provisionIpamPoolCidr_dryRun :: Lens.Lens' ProvisionIpamPoolCidr (Prelude.Maybe Prelude.Bool)
 provisionIpamPoolCidr_dryRun = Lens.lens (\ProvisionIpamPoolCidr' {dryRun} -> dryRun) (\s@ProvisionIpamPoolCidr' {} a -> s {dryRun = a} :: ProvisionIpamPoolCidr)
-
--- | A signed document that proves that you are authorized to bring a
--- specified IP address range to Amazon using BYOIP. This option applies to
--- public pools only.
-provisionIpamPoolCidr_cidrAuthorizationContext :: Lens.Lens' ProvisionIpamPoolCidr (Prelude.Maybe IpamCidrAuthorizationContext)
-provisionIpamPoolCidr_cidrAuthorizationContext = Lens.lens (\ProvisionIpamPoolCidr' {cidrAuthorizationContext} -> cidrAuthorizationContext) (\s@ProvisionIpamPoolCidr' {} a -> s {cidrAuthorizationContext = a} :: ProvisionIpamPoolCidr)
 
 -- | The ID of the IPAM pool to which you want to assign a CIDR.
 provisionIpamPoolCidr_ipamPoolId :: Lens.Lens' ProvisionIpamPoolCidr Prelude.Text
@@ -144,15 +144,15 @@ instance Core.AWSRequest ProvisionIpamPoolCidr where
 instance Prelude.Hashable ProvisionIpamPoolCidr where
   hashWithSalt _salt ProvisionIpamPoolCidr' {..} =
     _salt `Prelude.hashWithSalt` cidr
-      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` cidrAuthorizationContext
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` ipamPoolId
 
 instance Prelude.NFData ProvisionIpamPoolCidr where
   rnf ProvisionIpamPoolCidr' {..} =
     Prelude.rnf cidr
-      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf cidrAuthorizationContext
+      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf ipamPoolId
 
 instance Data.ToHeaders ProvisionIpamPoolCidr where
@@ -169,9 +169,9 @@ instance Data.ToQuery ProvisionIpamPoolCidr where
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
         "Cidr" Data.=: cidr,
-        "DryRun" Data.=: dryRun,
         "CidrAuthorizationContext"
           Data.=: cidrAuthorizationContext,
+        "DryRun" Data.=: dryRun,
         "IpamPoolId" Data.=: ipamPoolId
       ]
 

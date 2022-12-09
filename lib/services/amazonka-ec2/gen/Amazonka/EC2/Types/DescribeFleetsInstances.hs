@@ -33,7 +33,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDescribeFleetsInstances' smart constructor.
 data DescribeFleetsInstances = DescribeFleetsInstances'
-  { -- | The launch templates and overrides that were used for launching the
+  { -- | The IDs of the instances.
+    instanceIds :: Prelude.Maybe [Prelude.Text],
+    -- | The instance type.
+    instanceType :: Prelude.Maybe InstanceType,
+    -- | The launch templates and overrides that were used for launching the
     -- instances. The values that you specify in the Overrides replace the
     -- values in the launch template.
     launchTemplateAndOverrides :: Prelude.Maybe LaunchTemplateAndOverridesResponse,
@@ -42,11 +46,7 @@ data DescribeFleetsInstances = DescribeFleetsInstances'
     lifecycle :: Prelude.Maybe InstanceLifecycle,
     -- | The value is @Windows@ for Windows instances. Otherwise, the value is
     -- blank.
-    platform :: Prelude.Maybe PlatformValues,
-    -- | The instance type.
-    instanceType :: Prelude.Maybe InstanceType,
-    -- | The IDs of the instances.
-    instanceIds :: Prelude.Maybe [Prelude.Text]
+    platform :: Prelude.Maybe PlatformValues
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,6 +58,10 @@ data DescribeFleetsInstances = DescribeFleetsInstances'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'instanceIds', 'describeFleetsInstances_instanceIds' - The IDs of the instances.
+--
+-- 'instanceType', 'describeFleetsInstances_instanceType' - The instance type.
+--
 -- 'launchTemplateAndOverrides', 'describeFleetsInstances_launchTemplateAndOverrides' - The launch templates and overrides that were used for launching the
 -- instances. The values that you specify in the Overrides replace the
 -- values in the launch template.
@@ -67,21 +71,25 @@ data DescribeFleetsInstances = DescribeFleetsInstances'
 --
 -- 'platform', 'describeFleetsInstances_platform' - The value is @Windows@ for Windows instances. Otherwise, the value is
 -- blank.
---
--- 'instanceType', 'describeFleetsInstances_instanceType' - The instance type.
---
--- 'instanceIds', 'describeFleetsInstances_instanceIds' - The IDs of the instances.
 newDescribeFleetsInstances ::
   DescribeFleetsInstances
 newDescribeFleetsInstances =
   DescribeFleetsInstances'
-    { launchTemplateAndOverrides =
+    { instanceIds =
         Prelude.Nothing,
-      lifecycle = Prelude.Nothing,
-      platform = Prelude.Nothing,
       instanceType = Prelude.Nothing,
-      instanceIds = Prelude.Nothing
+      launchTemplateAndOverrides = Prelude.Nothing,
+      lifecycle = Prelude.Nothing,
+      platform = Prelude.Nothing
     }
+
+-- | The IDs of the instances.
+describeFleetsInstances_instanceIds :: Lens.Lens' DescribeFleetsInstances (Prelude.Maybe [Prelude.Text])
+describeFleetsInstances_instanceIds = Lens.lens (\DescribeFleetsInstances' {instanceIds} -> instanceIds) (\s@DescribeFleetsInstances' {} a -> s {instanceIds = a} :: DescribeFleetsInstances) Prelude.. Lens.mapping Lens.coerced
+
+-- | The instance type.
+describeFleetsInstances_instanceType :: Lens.Lens' DescribeFleetsInstances (Prelude.Maybe InstanceType)
+describeFleetsInstances_instanceType = Lens.lens (\DescribeFleetsInstances' {instanceType} -> instanceType) (\s@DescribeFleetsInstances' {} a -> s {instanceType = a} :: DescribeFleetsInstances)
 
 -- | The launch templates and overrides that were used for launching the
 -- instances. The values that you specify in the Overrides replace the
@@ -99,38 +107,29 @@ describeFleetsInstances_lifecycle = Lens.lens (\DescribeFleetsInstances' {lifecy
 describeFleetsInstances_platform :: Lens.Lens' DescribeFleetsInstances (Prelude.Maybe PlatformValues)
 describeFleetsInstances_platform = Lens.lens (\DescribeFleetsInstances' {platform} -> platform) (\s@DescribeFleetsInstances' {} a -> s {platform = a} :: DescribeFleetsInstances)
 
--- | The instance type.
-describeFleetsInstances_instanceType :: Lens.Lens' DescribeFleetsInstances (Prelude.Maybe InstanceType)
-describeFleetsInstances_instanceType = Lens.lens (\DescribeFleetsInstances' {instanceType} -> instanceType) (\s@DescribeFleetsInstances' {} a -> s {instanceType = a} :: DescribeFleetsInstances)
-
--- | The IDs of the instances.
-describeFleetsInstances_instanceIds :: Lens.Lens' DescribeFleetsInstances (Prelude.Maybe [Prelude.Text])
-describeFleetsInstances_instanceIds = Lens.lens (\DescribeFleetsInstances' {instanceIds} -> instanceIds) (\s@DescribeFleetsInstances' {} a -> s {instanceIds = a} :: DescribeFleetsInstances) Prelude.. Lens.mapping Lens.coerced
-
 instance Data.FromXML DescribeFleetsInstances where
   parseXML x =
     DescribeFleetsInstances'
-      Prelude.<$> (x Data..@? "launchTemplateAndOverrides")
-      Prelude.<*> (x Data..@? "lifecycle")
-      Prelude.<*> (x Data..@? "platform")
-      Prelude.<*> (x Data..@? "instanceType")
-      Prelude.<*> ( x Data..@? "instanceIds" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "instanceIds" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
+      Prelude.<*> (x Data..@? "instanceType")
+      Prelude.<*> (x Data..@? "launchTemplateAndOverrides")
+      Prelude.<*> (x Data..@? "lifecycle")
+      Prelude.<*> (x Data..@? "platform")
 
 instance Prelude.Hashable DescribeFleetsInstances where
   hashWithSalt _salt DescribeFleetsInstances' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` instanceIds
+      `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` launchTemplateAndOverrides
       `Prelude.hashWithSalt` lifecycle
       `Prelude.hashWithSalt` platform
-      `Prelude.hashWithSalt` instanceType
-      `Prelude.hashWithSalt` instanceIds
 
 instance Prelude.NFData DescribeFleetsInstances where
   rnf DescribeFleetsInstances' {..} =
-    Prelude.rnf launchTemplateAndOverrides
+    Prelude.rnf instanceIds
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf launchTemplateAndOverrides
       `Prelude.seq` Prelude.rnf lifecycle
       `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf instanceIds

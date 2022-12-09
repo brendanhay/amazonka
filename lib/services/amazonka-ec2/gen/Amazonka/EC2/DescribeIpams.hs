@@ -33,11 +33,11 @@ module Amazonka.EC2.DescribeIpams
     newDescribeIpams,
 
     -- * Request Lenses
-    describeIpams_nextToken,
-    describeIpams_filters,
     describeIpams_dryRun,
+    describeIpams_filters,
     describeIpams_ipamIds,
     describeIpams_maxResults,
+    describeIpams_nextToken,
 
     -- * Destructuring the Response
     DescribeIpamsResponse (..),
@@ -60,21 +60,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeIpams' smart constructor.
 data DescribeIpams = DescribeIpams'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | One or more filters for the request. For more information about
-    -- filtering, see
-    -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Filtering CLI output>.
-    filters :: Prelude.Maybe [Filter],
-    -- | A check for whether you have the required permissions for the action
+  { -- | A check for whether you have the required permissions for the action
     -- without actually making the request and provides an error response. If
     -- you have the required permissions, the error response is
     -- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | One or more filters for the request. For more information about
+    -- filtering, see
+    -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Filtering CLI output>.
+    filters :: Prelude.Maybe [Filter],
     -- | The IDs of the IPAMs you want information on.
     ipamIds :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to return in the request.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,40 +86,30 @@ data DescribeIpams = DescribeIpams'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeIpams_nextToken' - The token for the next page of results.
---
--- 'filters', 'describeIpams_filters' - One or more filters for the request. For more information about
--- filtering, see
--- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Filtering CLI output>.
---
 -- 'dryRun', 'describeIpams_dryRun' - A check for whether you have the required permissions for the action
 -- without actually making the request and provides an error response. If
 -- you have the required permissions, the error response is
 -- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
 --
+-- 'filters', 'describeIpams_filters' - One or more filters for the request. For more information about
+-- filtering, see
+-- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Filtering CLI output>.
+--
 -- 'ipamIds', 'describeIpams_ipamIds' - The IDs of the IPAMs you want information on.
 --
 -- 'maxResults', 'describeIpams_maxResults' - The maximum number of results to return in the request.
+--
+-- 'nextToken', 'describeIpams_nextToken' - The token for the next page of results.
 newDescribeIpams ::
   DescribeIpams
 newDescribeIpams =
   DescribeIpams'
-    { nextToken = Prelude.Nothing,
+    { dryRun = Prelude.Nothing,
       filters = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       ipamIds = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token for the next page of results.
-describeIpams_nextToken :: Lens.Lens' DescribeIpams (Prelude.Maybe Prelude.Text)
-describeIpams_nextToken = Lens.lens (\DescribeIpams' {nextToken} -> nextToken) (\s@DescribeIpams' {} a -> s {nextToken = a} :: DescribeIpams)
-
--- | One or more filters for the request. For more information about
--- filtering, see
--- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Filtering CLI output>.
-describeIpams_filters :: Lens.Lens' DescribeIpams (Prelude.Maybe [Filter])
-describeIpams_filters = Lens.lens (\DescribeIpams' {filters} -> filters) (\s@DescribeIpams' {} a -> s {filters = a} :: DescribeIpams) Prelude.. Lens.mapping Lens.coerced
 
 -- | A check for whether you have the required permissions for the action
 -- without actually making the request and provides an error response. If
@@ -128,6 +118,12 @@ describeIpams_filters = Lens.lens (\DescribeIpams' {filters} -> filters) (\s@Des
 describeIpams_dryRun :: Lens.Lens' DescribeIpams (Prelude.Maybe Prelude.Bool)
 describeIpams_dryRun = Lens.lens (\DescribeIpams' {dryRun} -> dryRun) (\s@DescribeIpams' {} a -> s {dryRun = a} :: DescribeIpams)
 
+-- | One or more filters for the request. For more information about
+-- filtering, see
+-- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html Filtering CLI output>.
+describeIpams_filters :: Lens.Lens' DescribeIpams (Prelude.Maybe [Filter])
+describeIpams_filters = Lens.lens (\DescribeIpams' {filters} -> filters) (\s@DescribeIpams' {} a -> s {filters = a} :: DescribeIpams) Prelude.. Lens.mapping Lens.coerced
+
 -- | The IDs of the IPAMs you want information on.
 describeIpams_ipamIds :: Lens.Lens' DescribeIpams (Prelude.Maybe [Prelude.Text])
 describeIpams_ipamIds = Lens.lens (\DescribeIpams' {ipamIds} -> ipamIds) (\s@DescribeIpams' {} a -> s {ipamIds = a} :: DescribeIpams) Prelude.. Lens.mapping Lens.coerced
@@ -135,6 +131,10 @@ describeIpams_ipamIds = Lens.lens (\DescribeIpams' {ipamIds} -> ipamIds) (\s@Des
 -- | The maximum number of results to return in the request.
 describeIpams_maxResults :: Lens.Lens' DescribeIpams (Prelude.Maybe Prelude.Natural)
 describeIpams_maxResults = Lens.lens (\DescribeIpams' {maxResults} -> maxResults) (\s@DescribeIpams' {} a -> s {maxResults = a} :: DescribeIpams)
+
+-- | The token for the next page of results.
+describeIpams_nextToken :: Lens.Lens' DescribeIpams (Prelude.Maybe Prelude.Text)
+describeIpams_nextToken = Lens.lens (\DescribeIpams' {nextToken} -> nextToken) (\s@DescribeIpams' {} a -> s {nextToken = a} :: DescribeIpams)
 
 instance Core.AWSPager DescribeIpams where
   page rq rs
@@ -174,19 +174,19 @@ instance Core.AWSRequest DescribeIpams where
 
 instance Prelude.Hashable DescribeIpams where
   hashWithSalt _salt DescribeIpams' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` ipamIds
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeIpams where
   rnf DescribeIpams' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf ipamIds
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeIpams where
   toHeaders = Prelude.const Prelude.mempty
@@ -201,13 +201,13 @@ instance Data.ToQuery DescribeIpams where
           Data.=: ("DescribeIpams" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
-        Data.toQuery
-          (Data.toQueryList "Filter" Prelude.<$> filters),
         "DryRun" Data.=: dryRun,
         Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        Data.toQuery
           (Data.toQueryList "IpamId" Prelude.<$> ipamIds),
-        "MaxResults" Data.=: maxResults
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newDescribeIpamsResponse' smart constructor.

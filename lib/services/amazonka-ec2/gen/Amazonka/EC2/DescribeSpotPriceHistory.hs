@@ -36,14 +36,14 @@ module Amazonka.EC2.DescribeSpotPriceHistory
     newDescribeSpotPriceHistory,
 
     -- * Request Lenses
-    describeSpotPriceHistory_nextToken,
-    describeSpotPriceHistory_instanceTypes,
-    describeSpotPriceHistory_productDescriptions,
-    describeSpotPriceHistory_filters,
     describeSpotPriceHistory_availabilityZone,
-    describeSpotPriceHistory_endTime,
     describeSpotPriceHistory_dryRun,
+    describeSpotPriceHistory_endTime,
+    describeSpotPriceHistory_filters,
+    describeSpotPriceHistory_instanceTypes,
     describeSpotPriceHistory_maxResults,
+    describeSpotPriceHistory_nextToken,
+    describeSpotPriceHistory_productDescriptions,
     describeSpotPriceHistory_startTime,
 
     -- * Destructuring the Response
@@ -69,12 +69,17 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeSpotPriceHistory' smart constructor.
 data DescribeSpotPriceHistory = DescribeSpotPriceHistory'
-  { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters the results by the specified instance types.
-    instanceTypes :: Prelude.Maybe [InstanceType],
-    -- | Filters the results by the specified basic product descriptions.
-    productDescriptions :: Prelude.Maybe [Prelude.Text],
+  { -- | Filters the results by the specified Availability Zone.
+    availabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The date and time, up to the current date, from which to stop retrieving
+    -- the price history data, in UTC format (for example,
+    -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
+    endTime :: Prelude.Maybe Data.ISO8601,
     -- | One or more filters.
     --
     -- -   @availability-zone@ - The Availability Zone for which prices should
@@ -96,22 +101,17 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory'
     --     wildcards (* and ?). Greater than or less than comparison is not
     --     supported.
     filters :: Prelude.Maybe [Filter],
-    -- | Filters the results by the specified Availability Zone.
-    availabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | The date and time, up to the current date, from which to stop retrieving
-    -- the price history data, in UTC format (for example,
-    -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-    endTime :: Prelude.Maybe Data.ISO8601,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | Filters the results by the specified instance types.
+    instanceTypes :: Prelude.Maybe [InstanceType],
     -- | The maximum number of results to return in a single call. Specify a
     -- value between 1 and 1000. The default value is 1000. To retrieve the
     -- remaining results, make another call with the returned @NextToken@
     -- value.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Filters the results by the specified basic product descriptions.
+    productDescriptions :: Prelude.Maybe [Prelude.Text],
     -- | The date and time, up to the past 90 days, from which to start
     -- retrieving the price history data, in UTC format (for example,
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
@@ -127,11 +127,16 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeSpotPriceHistory_nextToken' - The token for the next set of results.
+-- 'availabilityZone', 'describeSpotPriceHistory_availabilityZone' - Filters the results by the specified Availability Zone.
 --
--- 'instanceTypes', 'describeSpotPriceHistory_instanceTypes' - Filters the results by the specified instance types.
+-- 'dryRun', 'describeSpotPriceHistory_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'productDescriptions', 'describeSpotPriceHistory_productDescriptions' - Filters the results by the specified basic product descriptions.
+-- 'endTime', 'describeSpotPriceHistory_endTime' - The date and time, up to the current date, from which to stop retrieving
+-- the price history data, in UTC format (for example,
+-- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
 --
 -- 'filters', 'describeSpotPriceHistory_filters' - One or more filters.
 --
@@ -154,21 +159,16 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory'
 --     wildcards (* and ?). Greater than or less than comparison is not
 --     supported.
 --
--- 'availabilityZone', 'describeSpotPriceHistory_availabilityZone' - Filters the results by the specified Availability Zone.
---
--- 'endTime', 'describeSpotPriceHistory_endTime' - The date and time, up to the current date, from which to stop retrieving
--- the price history data, in UTC format (for example,
--- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
---
--- 'dryRun', 'describeSpotPriceHistory_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- 'instanceTypes', 'describeSpotPriceHistory_instanceTypes' - Filters the results by the specified instance types.
 --
 -- 'maxResults', 'describeSpotPriceHistory_maxResults' - The maximum number of results to return in a single call. Specify a
 -- value between 1 and 1000. The default value is 1000. To retrieve the
 -- remaining results, make another call with the returned @NextToken@
 -- value.
+--
+-- 'nextToken', 'describeSpotPriceHistory_nextToken' - The token for the next set of results.
+--
+-- 'productDescriptions', 'describeSpotPriceHistory_productDescriptions' - Filters the results by the specified basic product descriptions.
 --
 -- 'startTime', 'describeSpotPriceHistory_startTime' - The date and time, up to the past 90 days, from which to start
 -- retrieving the price history data, in UTC format (for example,
@@ -177,29 +177,34 @@ newDescribeSpotPriceHistory ::
   DescribeSpotPriceHistory
 newDescribeSpotPriceHistory =
   DescribeSpotPriceHistory'
-    { nextToken =
+    { availabilityZone =
         Prelude.Nothing,
-      instanceTypes = Prelude.Nothing,
-      productDescriptions = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      availabilityZone = Prelude.Nothing,
-      endTime = Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      instanceTypes = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      productDescriptions = Prelude.Nothing,
       startTime = Prelude.Nothing
     }
 
--- | The token for the next set of results.
-describeSpotPriceHistory_nextToken :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe Prelude.Text)
-describeSpotPriceHistory_nextToken = Lens.lens (\DescribeSpotPriceHistory' {nextToken} -> nextToken) (\s@DescribeSpotPriceHistory' {} a -> s {nextToken = a} :: DescribeSpotPriceHistory)
+-- | Filters the results by the specified Availability Zone.
+describeSpotPriceHistory_availabilityZone :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe Prelude.Text)
+describeSpotPriceHistory_availabilityZone = Lens.lens (\DescribeSpotPriceHistory' {availabilityZone} -> availabilityZone) (\s@DescribeSpotPriceHistory' {} a -> s {availabilityZone = a} :: DescribeSpotPriceHistory)
 
--- | Filters the results by the specified instance types.
-describeSpotPriceHistory_instanceTypes :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe [InstanceType])
-describeSpotPriceHistory_instanceTypes = Lens.lens (\DescribeSpotPriceHistory' {instanceTypes} -> instanceTypes) (\s@DescribeSpotPriceHistory' {} a -> s {instanceTypes = a} :: DescribeSpotPriceHistory) Prelude.. Lens.mapping Lens.coerced
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeSpotPriceHistory_dryRun :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe Prelude.Bool)
+describeSpotPriceHistory_dryRun = Lens.lens (\DescribeSpotPriceHistory' {dryRun} -> dryRun) (\s@DescribeSpotPriceHistory' {} a -> s {dryRun = a} :: DescribeSpotPriceHistory)
 
--- | Filters the results by the specified basic product descriptions.
-describeSpotPriceHistory_productDescriptions :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe [Prelude.Text])
-describeSpotPriceHistory_productDescriptions = Lens.lens (\DescribeSpotPriceHistory' {productDescriptions} -> productDescriptions) (\s@DescribeSpotPriceHistory' {} a -> s {productDescriptions = a} :: DescribeSpotPriceHistory) Prelude.. Lens.mapping Lens.coerced
+-- | The date and time, up to the current date, from which to stop retrieving
+-- the price history data, in UTC format (for example,
+-- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
+describeSpotPriceHistory_endTime :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe Prelude.UTCTime)
+describeSpotPriceHistory_endTime = Lens.lens (\DescribeSpotPriceHistory' {endTime} -> endTime) (\s@DescribeSpotPriceHistory' {} a -> s {endTime = a} :: DescribeSpotPriceHistory) Prelude.. Lens.mapping Data._Time
 
 -- | One or more filters.
 --
@@ -224,22 +229,9 @@ describeSpotPriceHistory_productDescriptions = Lens.lens (\DescribeSpotPriceHist
 describeSpotPriceHistory_filters :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe [Filter])
 describeSpotPriceHistory_filters = Lens.lens (\DescribeSpotPriceHistory' {filters} -> filters) (\s@DescribeSpotPriceHistory' {} a -> s {filters = a} :: DescribeSpotPriceHistory) Prelude.. Lens.mapping Lens.coerced
 
--- | Filters the results by the specified Availability Zone.
-describeSpotPriceHistory_availabilityZone :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe Prelude.Text)
-describeSpotPriceHistory_availabilityZone = Lens.lens (\DescribeSpotPriceHistory' {availabilityZone} -> availabilityZone) (\s@DescribeSpotPriceHistory' {} a -> s {availabilityZone = a} :: DescribeSpotPriceHistory)
-
--- | The date and time, up to the current date, from which to stop retrieving
--- the price history data, in UTC format (for example,
--- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-describeSpotPriceHistory_endTime :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe Prelude.UTCTime)
-describeSpotPriceHistory_endTime = Lens.lens (\DescribeSpotPriceHistory' {endTime} -> endTime) (\s@DescribeSpotPriceHistory' {} a -> s {endTime = a} :: DescribeSpotPriceHistory) Prelude.. Lens.mapping Data._Time
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeSpotPriceHistory_dryRun :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe Prelude.Bool)
-describeSpotPriceHistory_dryRun = Lens.lens (\DescribeSpotPriceHistory' {dryRun} -> dryRun) (\s@DescribeSpotPriceHistory' {} a -> s {dryRun = a} :: DescribeSpotPriceHistory)
+-- | Filters the results by the specified instance types.
+describeSpotPriceHistory_instanceTypes :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe [InstanceType])
+describeSpotPriceHistory_instanceTypes = Lens.lens (\DescribeSpotPriceHistory' {instanceTypes} -> instanceTypes) (\s@DescribeSpotPriceHistory' {} a -> s {instanceTypes = a} :: DescribeSpotPriceHistory) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of results to return in a single call. Specify a
 -- value between 1 and 1000. The default value is 1000. To retrieve the
@@ -247,6 +239,14 @@ describeSpotPriceHistory_dryRun = Lens.lens (\DescribeSpotPriceHistory' {dryRun}
 -- value.
 describeSpotPriceHistory_maxResults :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe Prelude.Int)
 describeSpotPriceHistory_maxResults = Lens.lens (\DescribeSpotPriceHistory' {maxResults} -> maxResults) (\s@DescribeSpotPriceHistory' {} a -> s {maxResults = a} :: DescribeSpotPriceHistory)
+
+-- | The token for the next set of results.
+describeSpotPriceHistory_nextToken :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe Prelude.Text)
+describeSpotPriceHistory_nextToken = Lens.lens (\DescribeSpotPriceHistory' {nextToken} -> nextToken) (\s@DescribeSpotPriceHistory' {} a -> s {nextToken = a} :: DescribeSpotPriceHistory)
+
+-- | Filters the results by the specified basic product descriptions.
+describeSpotPriceHistory_productDescriptions :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe [Prelude.Text])
+describeSpotPriceHistory_productDescriptions = Lens.lens (\DescribeSpotPriceHistory' {productDescriptions} -> productDescriptions) (\s@DescribeSpotPriceHistory' {} a -> s {productDescriptions = a} :: DescribeSpotPriceHistory) Prelude.. Lens.mapping Lens.coerced
 
 -- | The date and time, up to the past 90 days, from which to start
 -- retrieving the price history data, in UTC format (for example,
@@ -296,26 +296,26 @@ instance Core.AWSRequest DescribeSpotPriceHistory where
 
 instance Prelude.Hashable DescribeSpotPriceHistory where
   hashWithSalt _salt DescribeSpotPriceHistory' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` instanceTypes
-      `Prelude.hashWithSalt` productDescriptions
-      `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` availabilityZone
-      `Prelude.hashWithSalt` endTime
+    _salt `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` instanceTypes
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` productDescriptions
       `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData DescribeSpotPriceHistory where
   rnf DescribeSpotPriceHistory' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceTypes
-      `Prelude.seq` Prelude.rnf productDescriptions
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf availabilityZone
-      `Prelude.seq` Prelude.rnf endTime
+    Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf instanceTypes
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf productDescriptions
       `Prelude.seq` Prelude.rnf startTime
 
 instance Data.ToHeaders DescribeSpotPriceHistory where
@@ -331,21 +331,21 @@ instance Data.ToQuery DescribeSpotPriceHistory where
           Data.=: ("DescribeSpotPriceHistory" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
+        "AvailabilityZone" Data.=: availabilityZone,
+        "DryRun" Data.=: dryRun,
+        "EndTime" Data.=: endTime,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
         Data.toQuery
           ( Data.toQueryList "InstanceType"
               Prelude.<$> instanceTypes
           ),
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken,
         Data.toQuery
           ( Data.toQueryList "ProductDescription"
               Prelude.<$> productDescriptions
           ),
-        Data.toQuery
-          (Data.toQueryList "Filter" Prelude.<$> filters),
-        "AvailabilityZone" Data.=: availabilityZone,
-        "EndTime" Data.=: endTime,
-        "DryRun" Data.=: dryRun,
-        "MaxResults" Data.=: maxResults,
         "StartTime" Data.=: startTime
       ]
 

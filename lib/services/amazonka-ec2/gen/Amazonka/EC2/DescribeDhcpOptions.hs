@@ -33,11 +33,11 @@ module Amazonka.EC2.DescribeDhcpOptions
     newDescribeDhcpOptions,
 
     -- * Request Lenses
-    describeDhcpOptions_nextToken,
-    describeDhcpOptions_filters,
-    describeDhcpOptions_dryRun,
-    describeDhcpOptions_maxResults,
     describeDhcpOptions_dhcpOptionsIds,
+    describeDhcpOptions_dryRun,
+    describeDhcpOptions_filters,
+    describeDhcpOptions_maxResults,
+    describeDhcpOptions_nextToken,
 
     -- * Destructuring the Response
     DescribeDhcpOptionsResponse (..),
@@ -60,8 +60,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeDhcpOptions' smart constructor.
 data DescribeDhcpOptions = DescribeDhcpOptions'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The IDs of one or more DHCP options sets.
+    --
+    -- Default: Describes all your DHCP options sets.
+    dhcpOptionsIds :: Prelude.Maybe [Prelude.Text],
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | One or more filters.
     --
     -- -   @dhcp-options-id@ - The ID of a DHCP options set.
@@ -83,19 +90,12 @@ data DescribeDhcpOptions = DescribeDhcpOptions'
     --     filter to find all resources assigned a tag with a specific key,
     --     regardless of the tag value.
     filters :: Prelude.Maybe [Filter],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The IDs of one or more DHCP options sets.
-    --
-    -- Default: Describes all your DHCP options sets.
-    dhcpOptionsIds :: Prelude.Maybe [Prelude.Text]
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -107,7 +107,14 @@ data DescribeDhcpOptions = DescribeDhcpOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeDhcpOptions_nextToken' - The token for the next page of results.
+-- 'dhcpOptionsIds', 'describeDhcpOptions_dhcpOptionsIds' - The IDs of one or more DHCP options sets.
+--
+-- Default: Describes all your DHCP options sets.
+--
+-- 'dryRun', 'describeDhcpOptions_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeDhcpOptions_filters' - One or more filters.
 --
@@ -130,32 +137,35 @@ data DescribeDhcpOptions = DescribeDhcpOptions'
 --     filter to find all resources assigned a tag with a specific key,
 --     regardless of the tag value.
 --
--- 'dryRun', 'describeDhcpOptions_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'maxResults', 'describeDhcpOptions_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
 --
--- 'dhcpOptionsIds', 'describeDhcpOptions_dhcpOptionsIds' - The IDs of one or more DHCP options sets.
---
--- Default: Describes all your DHCP options sets.
+-- 'nextToken', 'describeDhcpOptions_nextToken' - The token for the next page of results.
 newDescribeDhcpOptions ::
   DescribeDhcpOptions
 newDescribeDhcpOptions =
   DescribeDhcpOptions'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
+    { dhcpOptionsIds =
+        Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      dhcpOptionsIds = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
 
--- | The token for the next page of results.
-describeDhcpOptions_nextToken :: Lens.Lens' DescribeDhcpOptions (Prelude.Maybe Prelude.Text)
-describeDhcpOptions_nextToken = Lens.lens (\DescribeDhcpOptions' {nextToken} -> nextToken) (\s@DescribeDhcpOptions' {} a -> s {nextToken = a} :: DescribeDhcpOptions)
+-- | The IDs of one or more DHCP options sets.
+--
+-- Default: Describes all your DHCP options sets.
+describeDhcpOptions_dhcpOptionsIds :: Lens.Lens' DescribeDhcpOptions (Prelude.Maybe [Prelude.Text])
+describeDhcpOptions_dhcpOptionsIds = Lens.lens (\DescribeDhcpOptions' {dhcpOptionsIds} -> dhcpOptionsIds) (\s@DescribeDhcpOptions' {} a -> s {dhcpOptionsIds = a} :: DescribeDhcpOptions) Prelude.. Lens.mapping Lens.coerced
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeDhcpOptions_dryRun :: Lens.Lens' DescribeDhcpOptions (Prelude.Maybe Prelude.Bool)
+describeDhcpOptions_dryRun = Lens.lens (\DescribeDhcpOptions' {dryRun} -> dryRun) (\s@DescribeDhcpOptions' {} a -> s {dryRun = a} :: DescribeDhcpOptions)
 
 -- | One or more filters.
 --
@@ -180,24 +190,15 @@ describeDhcpOptions_nextToken = Lens.lens (\DescribeDhcpOptions' {nextToken} -> 
 describeDhcpOptions_filters :: Lens.Lens' DescribeDhcpOptions (Prelude.Maybe [Filter])
 describeDhcpOptions_filters = Lens.lens (\DescribeDhcpOptions' {filters} -> filters) (\s@DescribeDhcpOptions' {} a -> s {filters = a} :: DescribeDhcpOptions) Prelude.. Lens.mapping Lens.coerced
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeDhcpOptions_dryRun :: Lens.Lens' DescribeDhcpOptions (Prelude.Maybe Prelude.Bool)
-describeDhcpOptions_dryRun = Lens.lens (\DescribeDhcpOptions' {dryRun} -> dryRun) (\s@DescribeDhcpOptions' {} a -> s {dryRun = a} :: DescribeDhcpOptions)
-
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
 describeDhcpOptions_maxResults :: Lens.Lens' DescribeDhcpOptions (Prelude.Maybe Prelude.Natural)
 describeDhcpOptions_maxResults = Lens.lens (\DescribeDhcpOptions' {maxResults} -> maxResults) (\s@DescribeDhcpOptions' {} a -> s {maxResults = a} :: DescribeDhcpOptions)
 
--- | The IDs of one or more DHCP options sets.
---
--- Default: Describes all your DHCP options sets.
-describeDhcpOptions_dhcpOptionsIds :: Lens.Lens' DescribeDhcpOptions (Prelude.Maybe [Prelude.Text])
-describeDhcpOptions_dhcpOptionsIds = Lens.lens (\DescribeDhcpOptions' {dhcpOptionsIds} -> dhcpOptionsIds) (\s@DescribeDhcpOptions' {} a -> s {dhcpOptionsIds = a} :: DescribeDhcpOptions) Prelude.. Lens.mapping Lens.coerced
+-- | The token for the next page of results.
+describeDhcpOptions_nextToken :: Lens.Lens' DescribeDhcpOptions (Prelude.Maybe Prelude.Text)
+describeDhcpOptions_nextToken = Lens.lens (\DescribeDhcpOptions' {nextToken} -> nextToken) (\s@DescribeDhcpOptions' {} a -> s {nextToken = a} :: DescribeDhcpOptions)
 
 instance Core.AWSPager DescribeDhcpOptions where
   page rq rs
@@ -240,19 +241,19 @@ instance Core.AWSRequest DescribeDhcpOptions where
 
 instance Prelude.Hashable DescribeDhcpOptions where
   hashWithSalt _salt DescribeDhcpOptions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` dhcpOptionsIds
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` dhcpOptionsIds
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeDhcpOptions where
   rnf DescribeDhcpOptions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf dhcpOptionsIds
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf dhcpOptionsIds
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeDhcpOptions where
   toHeaders = Prelude.const Prelude.mempty
@@ -267,15 +268,15 @@ instance Data.ToQuery DescribeDhcpOptions where
           Data.=: ("DescribeDhcpOptions" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
-        Data.toQuery
-          (Data.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Data.=: dryRun,
-        "MaxResults" Data.=: maxResults,
         Data.toQuery
           ( Data.toQueryList "DhcpOptionsId"
               Prelude.<$> dhcpOptionsIds
-          )
+          ),
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newDescribeDhcpOptionsResponse' smart constructor.

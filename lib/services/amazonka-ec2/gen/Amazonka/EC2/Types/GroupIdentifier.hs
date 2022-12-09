@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGroupIdentifier' smart constructor.
 data GroupIdentifier = GroupIdentifier'
-  { -- | The name of the security group.
-    groupName :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the security group.
-    groupId :: Prelude.Maybe Prelude.Text
+  { -- | The ID of the security group.
+    groupId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the security group.
+    groupName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,44 +44,44 @@ data GroupIdentifier = GroupIdentifier'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groupName', 'groupIdentifier_groupName' - The name of the security group.
---
 -- 'groupId', 'groupIdentifier_groupId' - The ID of the security group.
+--
+-- 'groupName', 'groupIdentifier_groupName' - The name of the security group.
 newGroupIdentifier ::
   GroupIdentifier
 newGroupIdentifier =
   GroupIdentifier'
-    { groupName = Prelude.Nothing,
-      groupId = Prelude.Nothing
+    { groupId = Prelude.Nothing,
+      groupName = Prelude.Nothing
     }
-
--- | The name of the security group.
-groupIdentifier_groupName :: Lens.Lens' GroupIdentifier (Prelude.Maybe Prelude.Text)
-groupIdentifier_groupName = Lens.lens (\GroupIdentifier' {groupName} -> groupName) (\s@GroupIdentifier' {} a -> s {groupName = a} :: GroupIdentifier)
 
 -- | The ID of the security group.
 groupIdentifier_groupId :: Lens.Lens' GroupIdentifier (Prelude.Maybe Prelude.Text)
 groupIdentifier_groupId = Lens.lens (\GroupIdentifier' {groupId} -> groupId) (\s@GroupIdentifier' {} a -> s {groupId = a} :: GroupIdentifier)
 
+-- | The name of the security group.
+groupIdentifier_groupName :: Lens.Lens' GroupIdentifier (Prelude.Maybe Prelude.Text)
+groupIdentifier_groupName = Lens.lens (\GroupIdentifier' {groupName} -> groupName) (\s@GroupIdentifier' {} a -> s {groupName = a} :: GroupIdentifier)
+
 instance Data.FromXML GroupIdentifier where
   parseXML x =
     GroupIdentifier'
-      Prelude.<$> (x Data..@? "groupName")
-      Prelude.<*> (x Data..@? "groupId")
+      Prelude.<$> (x Data..@? "groupId")
+      Prelude.<*> (x Data..@? "groupName")
 
 instance Prelude.Hashable GroupIdentifier where
   hashWithSalt _salt GroupIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` groupName
-      `Prelude.hashWithSalt` groupId
+    _salt `Prelude.hashWithSalt` groupId
+      `Prelude.hashWithSalt` groupName
 
 instance Prelude.NFData GroupIdentifier where
   rnf GroupIdentifier' {..} =
-    Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf groupId
+    Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf groupName
 
 instance Data.ToQuery GroupIdentifier where
   toQuery GroupIdentifier' {..} =
     Prelude.mconcat
-      [ "GroupName" Data.=: groupName,
-        "GroupId" Data.=: groupId
+      [ "GroupId" Data.=: groupId,
+        "GroupName" Data.=: groupName
       ]

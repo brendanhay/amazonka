@@ -55,9 +55,9 @@ module Amazonka.EC2.ReleaseAddress
 
     -- * Request Lenses
     releaseAddress_allocationId,
+    releaseAddress_dryRun,
     releaseAddress_networkBorderGroup,
     releaseAddress_publicIp,
-    releaseAddress_dryRun,
 
     -- * Destructuring the Response
     ReleaseAddressResponse (..),
@@ -77,6 +77,11 @@ import qualified Amazonka.Response as Response
 data ReleaseAddress = ReleaseAddress'
   { -- | [EC2-VPC] The allocation ID. Required for EC2-VPC.
     allocationId :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The set of Availability Zones, Local Zones, or Wavelength Zones from
     -- which Amazon Web Services advertises IP addresses.
     --
@@ -88,12 +93,7 @@ data ReleaseAddress = ReleaseAddress'
     -- @InvalidParameterCombination@ error.
     networkBorderGroup :: Prelude.Maybe Prelude.Text,
     -- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
-    publicIp :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool
+    publicIp :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -107,6 +107,11 @@ data ReleaseAddress = ReleaseAddress'
 --
 -- 'allocationId', 'releaseAddress_allocationId' - [EC2-VPC] The allocation ID. Required for EC2-VPC.
 --
+-- 'dryRun', 'releaseAddress_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
 -- 'networkBorderGroup', 'releaseAddress_networkBorderGroup' - The set of Availability Zones, Local Zones, or Wavelength Zones from
 -- which Amazon Web Services advertises IP addresses.
 --
@@ -118,24 +123,26 @@ data ReleaseAddress = ReleaseAddress'
 -- @InvalidParameterCombination@ error.
 --
 -- 'publicIp', 'releaseAddress_publicIp' - [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
---
--- 'dryRun', 'releaseAddress_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
 newReleaseAddress ::
   ReleaseAddress
 newReleaseAddress =
   ReleaseAddress'
     { allocationId = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       networkBorderGroup = Prelude.Nothing,
-      publicIp = Prelude.Nothing,
-      dryRun = Prelude.Nothing
+      publicIp = Prelude.Nothing
     }
 
 -- | [EC2-VPC] The allocation ID. Required for EC2-VPC.
 releaseAddress_allocationId :: Lens.Lens' ReleaseAddress (Prelude.Maybe Prelude.Text)
 releaseAddress_allocationId = Lens.lens (\ReleaseAddress' {allocationId} -> allocationId) (\s@ReleaseAddress' {} a -> s {allocationId = a} :: ReleaseAddress)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+releaseAddress_dryRun :: Lens.Lens' ReleaseAddress (Prelude.Maybe Prelude.Bool)
+releaseAddress_dryRun = Lens.lens (\ReleaseAddress' {dryRun} -> dryRun) (\s@ReleaseAddress' {} a -> s {dryRun = a} :: ReleaseAddress)
 
 -- | The set of Availability Zones, Local Zones, or Wavelength Zones from
 -- which Amazon Web Services advertises IP addresses.
@@ -153,13 +160,6 @@ releaseAddress_networkBorderGroup = Lens.lens (\ReleaseAddress' {networkBorderGr
 releaseAddress_publicIp :: Lens.Lens' ReleaseAddress (Prelude.Maybe Prelude.Text)
 releaseAddress_publicIp = Lens.lens (\ReleaseAddress' {publicIp} -> publicIp) (\s@ReleaseAddress' {} a -> s {publicIp = a} :: ReleaseAddress)
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-releaseAddress_dryRun :: Lens.Lens' ReleaseAddress (Prelude.Maybe Prelude.Bool)
-releaseAddress_dryRun = Lens.lens (\ReleaseAddress' {dryRun} -> dryRun) (\s@ReleaseAddress' {} a -> s {dryRun = a} :: ReleaseAddress)
-
 instance Core.AWSRequest ReleaseAddress where
   type
     AWSResponse ReleaseAddress =
@@ -172,16 +172,16 @@ instance Core.AWSRequest ReleaseAddress where
 instance Prelude.Hashable ReleaseAddress where
   hashWithSalt _salt ReleaseAddress' {..} =
     _salt `Prelude.hashWithSalt` allocationId
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` networkBorderGroup
       `Prelude.hashWithSalt` publicIp
-      `Prelude.hashWithSalt` dryRun
 
 instance Prelude.NFData ReleaseAddress where
   rnf ReleaseAddress' {..} =
     Prelude.rnf allocationId
+      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf networkBorderGroup
       `Prelude.seq` Prelude.rnf publicIp
-      `Prelude.seq` Prelude.rnf dryRun
 
 instance Data.ToHeaders ReleaseAddress where
   toHeaders = Prelude.const Prelude.mempty
@@ -197,9 +197,9 @@ instance Data.ToQuery ReleaseAddress where
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
         "AllocationId" Data.=: allocationId,
+        "DryRun" Data.=: dryRun,
         "NetworkBorderGroup" Data.=: networkBorderGroup,
-        "PublicIp" Data.=: publicIp,
-        "DryRun" Data.=: dryRun
+        "PublicIp" Data.=: publicIp
       ]
 
 -- | /See:/ 'newReleaseAddressResponse' smart constructor.

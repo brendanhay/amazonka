@@ -147,7 +147,8 @@ instance Data.ToQuery DeleteLocalGatewayRouteTable where
 
 -- | /See:/ 'newDeleteLocalGatewayRouteTableResponse' smart constructor.
 data DeleteLocalGatewayRouteTableResponse = DeleteLocalGatewayRouteTableResponse'
-  { localGatewayRouteTable :: Prelude.Maybe LocalGatewayRouteTable,
+  { -- | Information about the local gateway route table.
+    localGatewayRouteTable :: Prelude.Maybe LocalGatewayRouteTable,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -161,7 +162,7 @@ data DeleteLocalGatewayRouteTableResponse = DeleteLocalGatewayRouteTableResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'localGatewayRouteTable', 'deleteLocalGatewayRouteTableResponse_localGatewayRouteTable' - Undocumented member.
+-- 'localGatewayRouteTable', 'deleteLocalGatewayRouteTableResponse_localGatewayRouteTable' - Information about the local gateway route table.
 --
 -- 'httpStatus', 'deleteLocalGatewayRouteTableResponse_httpStatus' - The response's http status code.
 newDeleteLocalGatewayRouteTableResponse ::
@@ -175,7 +176,7 @@ newDeleteLocalGatewayRouteTableResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | Information about the local gateway route table.
 deleteLocalGatewayRouteTableResponse_localGatewayRouteTable :: Lens.Lens' DeleteLocalGatewayRouteTableResponse (Prelude.Maybe LocalGatewayRouteTable)
 deleteLocalGatewayRouteTableResponse_localGatewayRouteTable = Lens.lens (\DeleteLocalGatewayRouteTableResponse' {localGatewayRouteTable} -> localGatewayRouteTable) (\s@DeleteLocalGatewayRouteTableResponse' {} a -> s {localGatewayRouteTable = a} :: DeleteLocalGatewayRouteTableResponse)
 

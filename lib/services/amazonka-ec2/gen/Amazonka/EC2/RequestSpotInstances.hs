@@ -42,19 +42,19 @@ module Amazonka.EC2.RequestSpotInstances
     newRequestSpotInstances,
 
     -- * Request Lenses
-    requestSpotInstances_clientToken,
-    requestSpotInstances_type,
-    requestSpotInstances_blockDurationMinutes,
     requestSpotInstances_availabilityZoneGroup,
-    requestSpotInstances_validFrom,
+    requestSpotInstances_blockDurationMinutes,
+    requestSpotInstances_clientToken,
     requestSpotInstances_dryRun,
-    requestSpotInstances_instanceInterruptionBehavior,
     requestSpotInstances_instanceCount,
-    requestSpotInstances_validUntil,
+    requestSpotInstances_instanceInterruptionBehavior,
     requestSpotInstances_launchGroup,
-    requestSpotInstances_tagSpecifications,
     requestSpotInstances_launchSpecification,
     requestSpotInstances_spotPrice,
+    requestSpotInstances_tagSpecifications,
+    requestSpotInstances_type,
+    requestSpotInstances_validFrom,
+    requestSpotInstances_validUntil,
 
     -- * Destructuring the Response
     RequestSpotInstancesResponse (..),
@@ -78,18 +78,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newRequestSpotInstances' smart constructor.
 data RequestSpotInstances = RequestSpotInstances'
-  { -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>
-    -- in the /Amazon EC2 User Guide for Linux Instances/.
-    clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The Spot Instance request type.
-    --
-    -- Default: @one-time@
-    type' :: Prelude.Maybe SpotInstanceType,
-    -- | Deprecated.
-    blockDurationMinutes :: Prelude.Maybe Prelude.Int,
-    -- | The user-specified name for a logical grouping of requests.
+  { -- | The user-specified name for a logical grouping of requests.
     --
     -- When you specify an Availability Zone group in a Spot Instance request,
     -- all Spot Instances in the request are launched in the same Availability
@@ -111,6 +100,50 @@ data RequestSpotInstances = RequestSpotInstances'
     --
     -- Default: Instances are launched in any available Availability Zone.
     availabilityZoneGroup :: Prelude.Maybe Prelude.Text,
+    -- | Deprecated.
+    blockDurationMinutes :: Prelude.Maybe Prelude.Int,
+    -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>
+    -- in the /Amazon EC2 User Guide for Linux Instances/.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of Spot Instances to launch.
+    --
+    -- Default: 1
+    instanceCount :: Prelude.Maybe Prelude.Int,
+    -- | The behavior when a Spot Instance is interrupted. The default is
+    -- @terminate@.
+    instanceInterruptionBehavior :: Prelude.Maybe InstanceInterruptionBehavior,
+    -- | The instance launch group. Launch groups are Spot Instances that launch
+    -- together and terminate together.
+    --
+    -- Default: Instances are launched and terminated individually
+    launchGroup :: Prelude.Maybe Prelude.Text,
+    -- | The launch specification.
+    launchSpecification :: Prelude.Maybe RequestSpotLaunchSpecification,
+    -- | The maximum price per unit hour that you are willing to pay for a Spot
+    -- Instance. We do not recommend using this parameter because it can lead
+    -- to increased interruptions. If you do not specify this parameter, you
+    -- will pay the current Spot price.
+    --
+    -- If you specify a maximum price, your instances will be interrupted more
+    -- frequently than if you do not specify this parameter.
+    spotPrice :: Prelude.Maybe Prelude.Text,
+    -- | The key-value pair for tagging the Spot Instance request on creation.
+    -- The value for @ResourceType@ must be @spot-instances-request@, otherwise
+    -- the Spot Instance request fails. To tag the Spot Instance request after
+    -- it has been created, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    -- | The Spot Instance request type.
+    --
+    -- Default: @one-time@
+    type' :: Prelude.Maybe SpotInstanceType,
     -- | The start date of the request. If this is a one-time request, the
     -- request becomes active at this date and time and remains active until
     -- all instances launch, the request expires, or the request is canceled.
@@ -121,18 +154,6 @@ data RequestSpotInstances = RequestSpotInstances'
     -- and time. You must specify a start date and time that occurs after the
     -- current date and time.
     validFrom :: Prelude.Maybe Data.ISO8601,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The behavior when a Spot Instance is interrupted. The default is
-    -- @terminate@.
-    instanceInterruptionBehavior :: Prelude.Maybe InstanceInterruptionBehavior,
-    -- | The maximum number of Spot Instances to launch.
-    --
-    -- Default: 1
-    instanceCount :: Prelude.Maybe Prelude.Int,
     -- | The end date of the request, in UTC format
     -- (/YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
     --
@@ -144,28 +165,7 @@ data RequestSpotInstances = RequestSpotInstances'
     --     instances launch, the request is canceled, or the @ValidUntil@ date
     --     and time is reached. By default, the request is valid for 7 days
     --     from the date the request was created.
-    validUntil :: Prelude.Maybe Data.ISO8601,
-    -- | The instance launch group. Launch groups are Spot Instances that launch
-    -- together and terminate together.
-    --
-    -- Default: Instances are launched and terminated individually
-    launchGroup :: Prelude.Maybe Prelude.Text,
-    -- | The key-value pair for tagging the Spot Instance request on creation.
-    -- The value for @ResourceType@ must be @spot-instances-request@, otherwise
-    -- the Spot Instance request fails. To tag the Spot Instance request after
-    -- it has been created, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | The launch specification.
-    launchSpecification :: Prelude.Maybe RequestSpotLaunchSpecification,
-    -- | The maximum price per unit hour that you are willing to pay for a Spot
-    -- Instance. We do not recommend using this parameter because it can lead
-    -- to increased interruptions. If you do not specify this parameter, you
-    -- will pay the current Spot price.
-    --
-    -- If you specify a maximum price, your instances will be interrupted more
-    -- frequently than if you do not specify this parameter.
-    spotPrice :: Prelude.Maybe Prelude.Text
+    validUntil :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -176,17 +176,6 @@ data RequestSpotInstances = RequestSpotInstances'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'clientToken', 'requestSpotInstances_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>
--- in the /Amazon EC2 User Guide for Linux Instances/.
---
--- 'type'', 'requestSpotInstances_type' - The Spot Instance request type.
---
--- Default: @one-time@
---
--- 'blockDurationMinutes', 'requestSpotInstances_blockDurationMinutes' - Deprecated.
 --
 -- 'availabilityZoneGroup', 'requestSpotInstances_availabilityZoneGroup' - The user-specified name for a logical grouping of requests.
 --
@@ -210,6 +199,50 @@ data RequestSpotInstances = RequestSpotInstances'
 --
 -- Default: Instances are launched in any available Availability Zone.
 --
+-- 'blockDurationMinutes', 'requestSpotInstances_blockDurationMinutes' - Deprecated.
+--
+-- 'clientToken', 'requestSpotInstances_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>
+-- in the /Amazon EC2 User Guide for Linux Instances/.
+--
+-- 'dryRun', 'requestSpotInstances_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'instanceCount', 'requestSpotInstances_instanceCount' - The maximum number of Spot Instances to launch.
+--
+-- Default: 1
+--
+-- 'instanceInterruptionBehavior', 'requestSpotInstances_instanceInterruptionBehavior' - The behavior when a Spot Instance is interrupted. The default is
+-- @terminate@.
+--
+-- 'launchGroup', 'requestSpotInstances_launchGroup' - The instance launch group. Launch groups are Spot Instances that launch
+-- together and terminate together.
+--
+-- Default: Instances are launched and terminated individually
+--
+-- 'launchSpecification', 'requestSpotInstances_launchSpecification' - The launch specification.
+--
+-- 'spotPrice', 'requestSpotInstances_spotPrice' - The maximum price per unit hour that you are willing to pay for a Spot
+-- Instance. We do not recommend using this parameter because it can lead
+-- to increased interruptions. If you do not specify this parameter, you
+-- will pay the current Spot price.
+--
+-- If you specify a maximum price, your instances will be interrupted more
+-- frequently than if you do not specify this parameter.
+--
+-- 'tagSpecifications', 'requestSpotInstances_tagSpecifications' - The key-value pair for tagging the Spot Instance request on creation.
+-- The value for @ResourceType@ must be @spot-instances-request@, otherwise
+-- the Spot Instance request fails. To tag the Spot Instance request after
+-- it has been created, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
+--
+-- 'type'', 'requestSpotInstances_type' - The Spot Instance request type.
+--
+-- Default: @one-time@
+--
 -- 'validFrom', 'requestSpotInstances_validFrom' - The start date of the request. If this is a one-time request, the
 -- request becomes active at this date and time and remains active until
 -- all instances launch, the request expires, or the request is canceled.
@@ -219,18 +252,6 @@ data RequestSpotInstances = RequestSpotInstances'
 -- The specified start date and time cannot be equal to the current date
 -- and time. You must specify a start date and time that occurs after the
 -- current date and time.
---
--- 'dryRun', 'requestSpotInstances_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
--- 'instanceInterruptionBehavior', 'requestSpotInstances_instanceInterruptionBehavior' - The behavior when a Spot Instance is interrupted. The default is
--- @terminate@.
---
--- 'instanceCount', 'requestSpotInstances_instanceCount' - The maximum number of Spot Instances to launch.
---
--- Default: 1
 --
 -- 'validUntil', 'requestSpotInstances_validUntil' - The end date of the request, in UTC format
 -- (/YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
@@ -243,63 +264,25 @@ data RequestSpotInstances = RequestSpotInstances'
 --     instances launch, the request is canceled, or the @ValidUntil@ date
 --     and time is reached. By default, the request is valid for 7 days
 --     from the date the request was created.
---
--- 'launchGroup', 'requestSpotInstances_launchGroup' - The instance launch group. Launch groups are Spot Instances that launch
--- together and terminate together.
---
--- Default: Instances are launched and terminated individually
---
--- 'tagSpecifications', 'requestSpotInstances_tagSpecifications' - The key-value pair for tagging the Spot Instance request on creation.
--- The value for @ResourceType@ must be @spot-instances-request@, otherwise
--- the Spot Instance request fails. To tag the Spot Instance request after
--- it has been created, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
---
--- 'launchSpecification', 'requestSpotInstances_launchSpecification' - The launch specification.
---
--- 'spotPrice', 'requestSpotInstances_spotPrice' - The maximum price per unit hour that you are willing to pay for a Spot
--- Instance. We do not recommend using this parameter because it can lead
--- to increased interruptions. If you do not specify this parameter, you
--- will pay the current Spot price.
---
--- If you specify a maximum price, your instances will be interrupted more
--- frequently than if you do not specify this parameter.
 newRequestSpotInstances ::
   RequestSpotInstances
 newRequestSpotInstances =
   RequestSpotInstances'
-    { clientToken =
+    { availabilityZoneGroup =
         Prelude.Nothing,
-      type' = Prelude.Nothing,
       blockDurationMinutes = Prelude.Nothing,
-      availabilityZoneGroup = Prelude.Nothing,
-      validFrom = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      instanceInterruptionBehavior = Prelude.Nothing,
       instanceCount = Prelude.Nothing,
-      validUntil = Prelude.Nothing,
+      instanceInterruptionBehavior = Prelude.Nothing,
       launchGroup = Prelude.Nothing,
-      tagSpecifications = Prelude.Nothing,
       launchSpecification = Prelude.Nothing,
-      spotPrice = Prelude.Nothing
+      spotPrice = Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      validFrom = Prelude.Nothing,
+      validUntil = Prelude.Nothing
     }
-
--- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>
--- in the /Amazon EC2 User Guide for Linux Instances/.
-requestSpotInstances_clientToken :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.Text)
-requestSpotInstances_clientToken = Lens.lens (\RequestSpotInstances' {clientToken} -> clientToken) (\s@RequestSpotInstances' {} a -> s {clientToken = a} :: RequestSpotInstances)
-
--- | The Spot Instance request type.
---
--- Default: @one-time@
-requestSpotInstances_type :: Lens.Lens' RequestSpotInstances (Prelude.Maybe SpotInstanceType)
-requestSpotInstances_type = Lens.lens (\RequestSpotInstances' {type'} -> type') (\s@RequestSpotInstances' {} a -> s {type' = a} :: RequestSpotInstances)
-
--- | Deprecated.
-requestSpotInstances_blockDurationMinutes :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.Int)
-requestSpotInstances_blockDurationMinutes = Lens.lens (\RequestSpotInstances' {blockDurationMinutes} -> blockDurationMinutes) (\s@RequestSpotInstances' {} a -> s {blockDurationMinutes = a} :: RequestSpotInstances)
 
 -- | The user-specified name for a logical grouping of requests.
 --
@@ -325,17 +308,16 @@ requestSpotInstances_blockDurationMinutes = Lens.lens (\RequestSpotInstances' {b
 requestSpotInstances_availabilityZoneGroup :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.Text)
 requestSpotInstances_availabilityZoneGroup = Lens.lens (\RequestSpotInstances' {availabilityZoneGroup} -> availabilityZoneGroup) (\s@RequestSpotInstances' {} a -> s {availabilityZoneGroup = a} :: RequestSpotInstances)
 
--- | The start date of the request. If this is a one-time request, the
--- request becomes active at this date and time and remains active until
--- all instances launch, the request expires, or the request is canceled.
--- If the request is persistent, the request becomes active at this date
--- and time and remains active until it expires or is canceled.
---
--- The specified start date and time cannot be equal to the current date
--- and time. You must specify a start date and time that occurs after the
--- current date and time.
-requestSpotInstances_validFrom :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.UTCTime)
-requestSpotInstances_validFrom = Lens.lens (\RequestSpotInstances' {validFrom} -> validFrom) (\s@RequestSpotInstances' {} a -> s {validFrom = a} :: RequestSpotInstances) Prelude.. Lens.mapping Data._Time
+-- | Deprecated.
+requestSpotInstances_blockDurationMinutes :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.Int)
+requestSpotInstances_blockDurationMinutes = Lens.lens (\RequestSpotInstances' {blockDurationMinutes} -> blockDurationMinutes) (\s@RequestSpotInstances' {} a -> s {blockDurationMinutes = a} :: RequestSpotInstances)
+
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>
+-- in the /Amazon EC2 User Guide for Linux Instances/.
+requestSpotInstances_clientToken :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.Text)
+requestSpotInstances_clientToken = Lens.lens (\RequestSpotInstances' {clientToken} -> clientToken) (\s@RequestSpotInstances' {} a -> s {clientToken = a} :: RequestSpotInstances)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -344,30 +326,16 @@ requestSpotInstances_validFrom = Lens.lens (\RequestSpotInstances' {validFrom} -
 requestSpotInstances_dryRun :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.Bool)
 requestSpotInstances_dryRun = Lens.lens (\RequestSpotInstances' {dryRun} -> dryRun) (\s@RequestSpotInstances' {} a -> s {dryRun = a} :: RequestSpotInstances)
 
--- | The behavior when a Spot Instance is interrupted. The default is
--- @terminate@.
-requestSpotInstances_instanceInterruptionBehavior :: Lens.Lens' RequestSpotInstances (Prelude.Maybe InstanceInterruptionBehavior)
-requestSpotInstances_instanceInterruptionBehavior = Lens.lens (\RequestSpotInstances' {instanceInterruptionBehavior} -> instanceInterruptionBehavior) (\s@RequestSpotInstances' {} a -> s {instanceInterruptionBehavior = a} :: RequestSpotInstances)
-
 -- | The maximum number of Spot Instances to launch.
 --
 -- Default: 1
 requestSpotInstances_instanceCount :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.Int)
 requestSpotInstances_instanceCount = Lens.lens (\RequestSpotInstances' {instanceCount} -> instanceCount) (\s@RequestSpotInstances' {} a -> s {instanceCount = a} :: RequestSpotInstances)
 
--- | The end date of the request, in UTC format
--- (/YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
---
--- -   For a persistent request, the request remains active until the
---     @ValidUntil@ date and time is reached. Otherwise, the request
---     remains active until you cancel it.
---
--- -   For a one-time request, the request remains active until all
---     instances launch, the request is canceled, or the @ValidUntil@ date
---     and time is reached. By default, the request is valid for 7 days
---     from the date the request was created.
-requestSpotInstances_validUntil :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.UTCTime)
-requestSpotInstances_validUntil = Lens.lens (\RequestSpotInstances' {validUntil} -> validUntil) (\s@RequestSpotInstances' {} a -> s {validUntil = a} :: RequestSpotInstances) Prelude.. Lens.mapping Data._Time
+-- | The behavior when a Spot Instance is interrupted. The default is
+-- @terminate@.
+requestSpotInstances_instanceInterruptionBehavior :: Lens.Lens' RequestSpotInstances (Prelude.Maybe InstanceInterruptionBehavior)
+requestSpotInstances_instanceInterruptionBehavior = Lens.lens (\RequestSpotInstances' {instanceInterruptionBehavior} -> instanceInterruptionBehavior) (\s@RequestSpotInstances' {} a -> s {instanceInterruptionBehavior = a} :: RequestSpotInstances)
 
 -- | The instance launch group. Launch groups are Spot Instances that launch
 -- together and terminate together.
@@ -375,14 +343,6 @@ requestSpotInstances_validUntil = Lens.lens (\RequestSpotInstances' {validUntil}
 -- Default: Instances are launched and terminated individually
 requestSpotInstances_launchGroup :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.Text)
 requestSpotInstances_launchGroup = Lens.lens (\RequestSpotInstances' {launchGroup} -> launchGroup) (\s@RequestSpotInstances' {} a -> s {launchGroup = a} :: RequestSpotInstances)
-
--- | The key-value pair for tagging the Spot Instance request on creation.
--- The value for @ResourceType@ must be @spot-instances-request@, otherwise
--- the Spot Instance request fails. To tag the Spot Instance request after
--- it has been created, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
-requestSpotInstances_tagSpecifications :: Lens.Lens' RequestSpotInstances (Prelude.Maybe [TagSpecification])
-requestSpotInstances_tagSpecifications = Lens.lens (\RequestSpotInstances' {tagSpecifications} -> tagSpecifications) (\s@RequestSpotInstances' {} a -> s {tagSpecifications = a} :: RequestSpotInstances) Prelude.. Lens.mapping Lens.coerced
 
 -- | The launch specification.
 requestSpotInstances_launchSpecification :: Lens.Lens' RequestSpotInstances (Prelude.Maybe RequestSpotLaunchSpecification)
@@ -397,6 +357,46 @@ requestSpotInstances_launchSpecification = Lens.lens (\RequestSpotInstances' {la
 -- frequently than if you do not specify this parameter.
 requestSpotInstances_spotPrice :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.Text)
 requestSpotInstances_spotPrice = Lens.lens (\RequestSpotInstances' {spotPrice} -> spotPrice) (\s@RequestSpotInstances' {} a -> s {spotPrice = a} :: RequestSpotInstances)
+
+-- | The key-value pair for tagging the Spot Instance request on creation.
+-- The value for @ResourceType@ must be @spot-instances-request@, otherwise
+-- the Spot Instance request fails. To tag the Spot Instance request after
+-- it has been created, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
+requestSpotInstances_tagSpecifications :: Lens.Lens' RequestSpotInstances (Prelude.Maybe [TagSpecification])
+requestSpotInstances_tagSpecifications = Lens.lens (\RequestSpotInstances' {tagSpecifications} -> tagSpecifications) (\s@RequestSpotInstances' {} a -> s {tagSpecifications = a} :: RequestSpotInstances) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Spot Instance request type.
+--
+-- Default: @one-time@
+requestSpotInstances_type :: Lens.Lens' RequestSpotInstances (Prelude.Maybe SpotInstanceType)
+requestSpotInstances_type = Lens.lens (\RequestSpotInstances' {type'} -> type') (\s@RequestSpotInstances' {} a -> s {type' = a} :: RequestSpotInstances)
+
+-- | The start date of the request. If this is a one-time request, the
+-- request becomes active at this date and time and remains active until
+-- all instances launch, the request expires, or the request is canceled.
+-- If the request is persistent, the request becomes active at this date
+-- and time and remains active until it expires or is canceled.
+--
+-- The specified start date and time cannot be equal to the current date
+-- and time. You must specify a start date and time that occurs after the
+-- current date and time.
+requestSpotInstances_validFrom :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.UTCTime)
+requestSpotInstances_validFrom = Lens.lens (\RequestSpotInstances' {validFrom} -> validFrom) (\s@RequestSpotInstances' {} a -> s {validFrom = a} :: RequestSpotInstances) Prelude.. Lens.mapping Data._Time
+
+-- | The end date of the request, in UTC format
+-- (/YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
+--
+-- -   For a persistent request, the request remains active until the
+--     @ValidUntil@ date and time is reached. Otherwise, the request
+--     remains active until you cancel it.
+--
+-- -   For a one-time request, the request remains active until all
+--     instances launch, the request is canceled, or the @ValidUntil@ date
+--     and time is reached. By default, the request is valid for 7 days
+--     from the date the request was created.
+requestSpotInstances_validUntil :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.UTCTime)
+requestSpotInstances_validUntil = Lens.lens (\RequestSpotInstances' {validUntil} -> validUntil) (\s@RequestSpotInstances' {} a -> s {validUntil = a} :: RequestSpotInstances) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSRequest RequestSpotInstances where
   type
@@ -417,35 +417,35 @@ instance Core.AWSRequest RequestSpotInstances where
 
 instance Prelude.Hashable RequestSpotInstances where
   hashWithSalt _salt RequestSpotInstances' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` availabilityZoneGroup
       `Prelude.hashWithSalt` blockDurationMinutes
-      `Prelude.hashWithSalt` availabilityZoneGroup
-      `Prelude.hashWithSalt` validFrom
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dryRun
-      `Prelude.hashWithSalt` instanceInterruptionBehavior
       `Prelude.hashWithSalt` instanceCount
-      `Prelude.hashWithSalt` validUntil
+      `Prelude.hashWithSalt` instanceInterruptionBehavior
       `Prelude.hashWithSalt` launchGroup
-      `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` launchSpecification
       `Prelude.hashWithSalt` spotPrice
+      `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` validFrom
+      `Prelude.hashWithSalt` validUntil
 
 instance Prelude.NFData RequestSpotInstances where
   rnf RequestSpotInstances' {..} =
-    Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf availabilityZoneGroup
       `Prelude.seq` Prelude.rnf blockDurationMinutes
-      `Prelude.seq` Prelude.rnf availabilityZoneGroup
-      `Prelude.seq` Prelude.rnf validFrom
+      `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf instanceInterruptionBehavior
       `Prelude.seq` Prelude.rnf instanceCount
-      `Prelude.seq` Prelude.rnf validUntil
+      `Prelude.seq` Prelude.rnf instanceInterruptionBehavior
       `Prelude.seq` Prelude.rnf launchGroup
-      `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf launchSpecification
       `Prelude.seq` Prelude.rnf spotPrice
+      `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf validFrom
+      `Prelude.seq` Prelude.rnf validUntil
 
 instance Data.ToHeaders RequestSpotInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -460,24 +460,24 @@ instance Data.ToQuery RequestSpotInstances where
           Data.=: ("RequestSpotInstances" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "ClientToken" Data.=: clientToken,
-        "Type" Data.=: type',
-        "BlockDurationMinutes" Data.=: blockDurationMinutes,
         "AvailabilityZoneGroup"
           Data.=: availabilityZoneGroup,
-        "ValidFrom" Data.=: validFrom,
+        "BlockDurationMinutes" Data.=: blockDurationMinutes,
+        "ClientToken" Data.=: clientToken,
         "DryRun" Data.=: dryRun,
+        "InstanceCount" Data.=: instanceCount,
         "InstanceInterruptionBehavior"
           Data.=: instanceInterruptionBehavior,
-        "InstanceCount" Data.=: instanceCount,
-        "ValidUntil" Data.=: validUntil,
         "LaunchGroup" Data.=: launchGroup,
+        "LaunchSpecification" Data.=: launchSpecification,
+        "SpotPrice" Data.=: spotPrice,
         Data.toQuery
           ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "LaunchSpecification" Data.=: launchSpecification,
-        "SpotPrice" Data.=: spotPrice
+        "Type" Data.=: type',
+        "ValidFrom" Data.=: validFrom,
+        "ValidUntil" Data.=: validUntil
       ]
 
 -- | Contains the output of RequestSpotInstances.

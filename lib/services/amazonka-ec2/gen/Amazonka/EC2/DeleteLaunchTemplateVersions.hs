@@ -41,8 +41,8 @@ module Amazonka.EC2.DeleteLaunchTemplateVersions
     newDeleteLaunchTemplateVersionsResponse,
 
     -- * Response Lenses
-    deleteLaunchTemplateVersionsResponse_unsuccessfullyDeletedLaunchTemplateVersions,
     deleteLaunchTemplateVersionsResponse_successfullyDeletedLaunchTemplateVersions,
+    deleteLaunchTemplateVersionsResponse_unsuccessfullyDeletedLaunchTemplateVersions,
     deleteLaunchTemplateVersionsResponse_httpStatus,
   )
 where
@@ -148,12 +148,12 @@ instance Core.AWSRequest DeleteLaunchTemplateVersions where
       ( \s h x ->
           DeleteLaunchTemplateVersionsResponse'
             Prelude.<$> ( x
-                            Data..@? "unsuccessfullyDeletedLaunchTemplateVersionSet"
+                            Data..@? "successfullyDeletedLaunchTemplateVersionSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> ( x
-                            Data..@? "successfullyDeletedLaunchTemplateVersionSet"
+                            Data..@? "unsuccessfullyDeletedLaunchTemplateVersionSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -200,12 +200,12 @@ instance Data.ToQuery DeleteLaunchTemplateVersions where
 
 -- | /See:/ 'newDeleteLaunchTemplateVersionsResponse' smart constructor.
 data DeleteLaunchTemplateVersionsResponse = DeleteLaunchTemplateVersionsResponse'
-  { -- | Information about the launch template versions that could not be
-    -- deleted.
-    unsuccessfullyDeletedLaunchTemplateVersions :: Prelude.Maybe [DeleteLaunchTemplateVersionsResponseErrorItem],
-    -- | Information about the launch template versions that were successfully
+  { -- | Information about the launch template versions that were successfully
     -- deleted.
     successfullyDeletedLaunchTemplateVersions :: Prelude.Maybe [DeleteLaunchTemplateVersionsResponseSuccessItem],
+    -- | Information about the launch template versions that could not be
+    -- deleted.
+    unsuccessfullyDeletedLaunchTemplateVersions :: Prelude.Maybe [DeleteLaunchTemplateVersionsResponseErrorItem],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -219,10 +219,10 @@ data DeleteLaunchTemplateVersionsResponse = DeleteLaunchTemplateVersionsResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'unsuccessfullyDeletedLaunchTemplateVersions', 'deleteLaunchTemplateVersionsResponse_unsuccessfullyDeletedLaunchTemplateVersions' - Information about the launch template versions that could not be
+-- 'successfullyDeletedLaunchTemplateVersions', 'deleteLaunchTemplateVersionsResponse_successfullyDeletedLaunchTemplateVersions' - Information about the launch template versions that were successfully
 -- deleted.
 --
--- 'successfullyDeletedLaunchTemplateVersions', 'deleteLaunchTemplateVersionsResponse_successfullyDeletedLaunchTemplateVersions' - Information about the launch template versions that were successfully
+-- 'unsuccessfullyDeletedLaunchTemplateVersions', 'deleteLaunchTemplateVersionsResponse_unsuccessfullyDeletedLaunchTemplateVersions' - Information about the launch template versions that could not be
 -- deleted.
 --
 -- 'httpStatus', 'deleteLaunchTemplateVersionsResponse_httpStatus' - The response's http status code.
@@ -232,22 +232,22 @@ newDeleteLaunchTemplateVersionsResponse ::
   DeleteLaunchTemplateVersionsResponse
 newDeleteLaunchTemplateVersionsResponse pHttpStatus_ =
   DeleteLaunchTemplateVersionsResponse'
-    { unsuccessfullyDeletedLaunchTemplateVersions =
+    { successfullyDeletedLaunchTemplateVersions =
         Prelude.Nothing,
-      successfullyDeletedLaunchTemplateVersions =
+      unsuccessfullyDeletedLaunchTemplateVersions =
         Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the launch template versions that could not be
--- deleted.
-deleteLaunchTemplateVersionsResponse_unsuccessfullyDeletedLaunchTemplateVersions :: Lens.Lens' DeleteLaunchTemplateVersionsResponse (Prelude.Maybe [DeleteLaunchTemplateVersionsResponseErrorItem])
-deleteLaunchTemplateVersionsResponse_unsuccessfullyDeletedLaunchTemplateVersions = Lens.lens (\DeleteLaunchTemplateVersionsResponse' {unsuccessfullyDeletedLaunchTemplateVersions} -> unsuccessfullyDeletedLaunchTemplateVersions) (\s@DeleteLaunchTemplateVersionsResponse' {} a -> s {unsuccessfullyDeletedLaunchTemplateVersions = a} :: DeleteLaunchTemplateVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about the launch template versions that were successfully
 -- deleted.
 deleteLaunchTemplateVersionsResponse_successfullyDeletedLaunchTemplateVersions :: Lens.Lens' DeleteLaunchTemplateVersionsResponse (Prelude.Maybe [DeleteLaunchTemplateVersionsResponseSuccessItem])
 deleteLaunchTemplateVersionsResponse_successfullyDeletedLaunchTemplateVersions = Lens.lens (\DeleteLaunchTemplateVersionsResponse' {successfullyDeletedLaunchTemplateVersions} -> successfullyDeletedLaunchTemplateVersions) (\s@DeleteLaunchTemplateVersionsResponse' {} a -> s {successfullyDeletedLaunchTemplateVersions = a} :: DeleteLaunchTemplateVersionsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Information about the launch template versions that could not be
+-- deleted.
+deleteLaunchTemplateVersionsResponse_unsuccessfullyDeletedLaunchTemplateVersions :: Lens.Lens' DeleteLaunchTemplateVersionsResponse (Prelude.Maybe [DeleteLaunchTemplateVersionsResponseErrorItem])
+deleteLaunchTemplateVersionsResponse_unsuccessfullyDeletedLaunchTemplateVersions = Lens.lens (\DeleteLaunchTemplateVersionsResponse' {unsuccessfullyDeletedLaunchTemplateVersions} -> unsuccessfullyDeletedLaunchTemplateVersions) (\s@DeleteLaunchTemplateVersionsResponse' {} a -> s {unsuccessfullyDeletedLaunchTemplateVersions = a} :: DeleteLaunchTemplateVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteLaunchTemplateVersionsResponse_httpStatus :: Lens.Lens' DeleteLaunchTemplateVersionsResponse Prelude.Int
@@ -259,6 +259,7 @@ instance
   where
   rnf DeleteLaunchTemplateVersionsResponse' {..} =
     Prelude.rnf
-      unsuccessfullyDeletedLaunchTemplateVersions
-      `Prelude.seq` Prelude.rnf successfullyDeletedLaunchTemplateVersions
+      successfullyDeletedLaunchTemplateVersions
+      `Prelude.seq` Prelude.rnf
+        unsuccessfullyDeletedLaunchTemplateVersions
       `Prelude.seq` Prelude.rnf httpStatus

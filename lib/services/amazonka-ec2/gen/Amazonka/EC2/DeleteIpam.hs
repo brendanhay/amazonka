@@ -32,8 +32,8 @@ module Amazonka.EC2.DeleteIpam
     newDeleteIpam,
 
     -- * Request Lenses
-    deleteIpam_dryRun,
     deleteIpam_cascade,
+    deleteIpam_dryRun,
     deleteIpam_ipamId,
 
     -- * Destructuring the Response
@@ -56,12 +56,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteIpam' smart constructor.
 data DeleteIpam = DeleteIpam'
-  { -- | A check for whether you have the required permissions for the action
-    -- without actually making the request and provides an error response. If
-    -- you have the required permissions, the error response is
-    -- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | Enables you to quickly delete an IPAM, private scopes, pools in private
+  { -- | Enables you to quickly delete an IPAM, private scopes, pools in private
     -- scopes, and any allocations in the pools in private scopes. You cannot
     -- delete the IPAM with this option if there is a pool in your public
     -- scope. If you use this option, IPAM does the following:
@@ -82,6 +77,11 @@ data DeleteIpam = DeleteIpam'
     --
     -- -   Deletes the default public and private scopes and the IPAM.
     cascade :: Prelude.Maybe Prelude.Bool,
+    -- | A check for whether you have the required permissions for the action
+    -- without actually making the request and provides an error response. If
+    -- you have the required permissions, the error response is
+    -- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the IPAM to delete.
     ipamId :: Prelude.Text
   }
@@ -94,11 +94,6 @@ data DeleteIpam = DeleteIpam'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'dryRun', 'deleteIpam_dryRun' - A check for whether you have the required permissions for the action
--- without actually making the request and provides an error response. If
--- you have the required permissions, the error response is
--- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'cascade', 'deleteIpam_cascade' - Enables you to quickly delete an IPAM, private scopes, pools in private
 -- scopes, and any allocations in the pools in private scopes. You cannot
@@ -121,6 +116,11 @@ data DeleteIpam = DeleteIpam'
 --
 -- -   Deletes the default public and private scopes and the IPAM.
 --
+-- 'dryRun', 'deleteIpam_dryRun' - A check for whether you have the required permissions for the action
+-- without actually making the request and provides an error response. If
+-- you have the required permissions, the error response is
+-- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
+--
 -- 'ipamId', 'deleteIpam_ipamId' - The ID of the IPAM to delete.
 newDeleteIpam ::
   -- | 'ipamId'
@@ -128,17 +128,10 @@ newDeleteIpam ::
   DeleteIpam
 newDeleteIpam pIpamId_ =
   DeleteIpam'
-    { dryRun = Prelude.Nothing,
-      cascade = Prelude.Nothing,
+    { cascade = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       ipamId = pIpamId_
     }
-
--- | A check for whether you have the required permissions for the action
--- without actually making the request and provides an error response. If
--- you have the required permissions, the error response is
--- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
-deleteIpam_dryRun :: Lens.Lens' DeleteIpam (Prelude.Maybe Prelude.Bool)
-deleteIpam_dryRun = Lens.lens (\DeleteIpam' {dryRun} -> dryRun) (\s@DeleteIpam' {} a -> s {dryRun = a} :: DeleteIpam)
 
 -- | Enables you to quickly delete an IPAM, private scopes, pools in private
 -- scopes, and any allocations in the pools in private scopes. You cannot
@@ -163,6 +156,13 @@ deleteIpam_dryRun = Lens.lens (\DeleteIpam' {dryRun} -> dryRun) (\s@DeleteIpam' 
 deleteIpam_cascade :: Lens.Lens' DeleteIpam (Prelude.Maybe Prelude.Bool)
 deleteIpam_cascade = Lens.lens (\DeleteIpam' {cascade} -> cascade) (\s@DeleteIpam' {} a -> s {cascade = a} :: DeleteIpam)
 
+-- | A check for whether you have the required permissions for the action
+-- without actually making the request and provides an error response. If
+-- you have the required permissions, the error response is
+-- @DryRunOperation@. Otherwise, it is @UnauthorizedOperation@.
+deleteIpam_dryRun :: Lens.Lens' DeleteIpam (Prelude.Maybe Prelude.Bool)
+deleteIpam_dryRun = Lens.lens (\DeleteIpam' {dryRun} -> dryRun) (\s@DeleteIpam' {} a -> s {dryRun = a} :: DeleteIpam)
+
 -- | The ID of the IPAM to delete.
 deleteIpam_ipamId :: Lens.Lens' DeleteIpam Prelude.Text
 deleteIpam_ipamId = Lens.lens (\DeleteIpam' {ipamId} -> ipamId) (\s@DeleteIpam' {} a -> s {ipamId = a} :: DeleteIpam)
@@ -181,14 +181,14 @@ instance Core.AWSRequest DeleteIpam where
 
 instance Prelude.Hashable DeleteIpam where
   hashWithSalt _salt DeleteIpam' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
-      `Prelude.hashWithSalt` cascade
+    _salt `Prelude.hashWithSalt` cascade
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` ipamId
 
 instance Prelude.NFData DeleteIpam where
   rnf DeleteIpam' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf cascade
+    Prelude.rnf cascade
+      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf ipamId
 
 instance Data.ToHeaders DeleteIpam where
@@ -204,8 +204,8 @@ instance Data.ToQuery DeleteIpam where
           Data.=: ("DeleteIpam" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Data.=: dryRun,
         "Cascade" Data.=: cascade,
+        "DryRun" Data.=: dryRun,
         "IpamId" Data.=: ipamId
       ]
 

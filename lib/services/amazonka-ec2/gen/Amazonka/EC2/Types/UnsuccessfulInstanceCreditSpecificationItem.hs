@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUnsuccessfulInstanceCreditSpecificationItem' smart constructor.
 data UnsuccessfulInstanceCreditSpecificationItem = UnsuccessfulInstanceCreditSpecificationItem'
-  { -- | The ID of the instance.
-    instanceId :: Prelude.Maybe Prelude.Text,
-    -- | The applicable error for the burstable performance instance whose credit
+  { -- | The applicable error for the burstable performance instance whose credit
     -- option for CPU usage was not modified.
-    error :: Prelude.Maybe UnsuccessfulInstanceCreditSpecificationItemError
+    error :: Prelude.Maybe UnsuccessfulInstanceCreditSpecificationItemError,
+    -- | The ID of the instance.
+    instanceId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,27 +47,27 @@ data UnsuccessfulInstanceCreditSpecificationItem = UnsuccessfulInstanceCreditSpe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'unsuccessfulInstanceCreditSpecificationItem_instanceId' - The ID of the instance.
---
 -- 'error', 'unsuccessfulInstanceCreditSpecificationItem_error' - The applicable error for the burstable performance instance whose credit
 -- option for CPU usage was not modified.
+--
+-- 'instanceId', 'unsuccessfulInstanceCreditSpecificationItem_instanceId' - The ID of the instance.
 newUnsuccessfulInstanceCreditSpecificationItem ::
   UnsuccessfulInstanceCreditSpecificationItem
 newUnsuccessfulInstanceCreditSpecificationItem =
   UnsuccessfulInstanceCreditSpecificationItem'
-    { instanceId =
+    { error =
         Prelude.Nothing,
-      error = Prelude.Nothing
+      instanceId = Prelude.Nothing
     }
-
--- | The ID of the instance.
-unsuccessfulInstanceCreditSpecificationItem_instanceId :: Lens.Lens' UnsuccessfulInstanceCreditSpecificationItem (Prelude.Maybe Prelude.Text)
-unsuccessfulInstanceCreditSpecificationItem_instanceId = Lens.lens (\UnsuccessfulInstanceCreditSpecificationItem' {instanceId} -> instanceId) (\s@UnsuccessfulInstanceCreditSpecificationItem' {} a -> s {instanceId = a} :: UnsuccessfulInstanceCreditSpecificationItem)
 
 -- | The applicable error for the burstable performance instance whose credit
 -- option for CPU usage was not modified.
 unsuccessfulInstanceCreditSpecificationItem_error :: Lens.Lens' UnsuccessfulInstanceCreditSpecificationItem (Prelude.Maybe UnsuccessfulInstanceCreditSpecificationItemError)
 unsuccessfulInstanceCreditSpecificationItem_error = Lens.lens (\UnsuccessfulInstanceCreditSpecificationItem' {error} -> error) (\s@UnsuccessfulInstanceCreditSpecificationItem' {} a -> s {error = a} :: UnsuccessfulInstanceCreditSpecificationItem)
+
+-- | The ID of the instance.
+unsuccessfulInstanceCreditSpecificationItem_instanceId :: Lens.Lens' UnsuccessfulInstanceCreditSpecificationItem (Prelude.Maybe Prelude.Text)
+unsuccessfulInstanceCreditSpecificationItem_instanceId = Lens.lens (\UnsuccessfulInstanceCreditSpecificationItem' {instanceId} -> instanceId) (\s@UnsuccessfulInstanceCreditSpecificationItem' {} a -> s {instanceId = a} :: UnsuccessfulInstanceCreditSpecificationItem)
 
 instance
   Data.FromXML
@@ -75,8 +75,8 @@ instance
   where
   parseXML x =
     UnsuccessfulInstanceCreditSpecificationItem'
-      Prelude.<$> (x Data..@? "instanceId")
-        Prelude.<*> (x Data..@? "error")
+      Prelude.<$> (x Data..@? "error")
+        Prelude.<*> (x Data..@? "instanceId")
 
 instance
   Prelude.Hashable
@@ -85,13 +85,13 @@ instance
   hashWithSalt
     _salt
     UnsuccessfulInstanceCreditSpecificationItem' {..} =
-      _salt `Prelude.hashWithSalt` instanceId
-        `Prelude.hashWithSalt` error
+      _salt `Prelude.hashWithSalt` error
+        `Prelude.hashWithSalt` instanceId
 
 instance
   Prelude.NFData
     UnsuccessfulInstanceCreditSpecificationItem
   where
   rnf UnsuccessfulInstanceCreditSpecificationItem' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf error
+    Prelude.rnf error
+      `Prelude.seq` Prelude.rnf instanceId

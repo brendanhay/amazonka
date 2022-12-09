@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDisableFastSnapshotRestoreErrorItem' smart constructor.
 data DisableFastSnapshotRestoreErrorItem = DisableFastSnapshotRestoreErrorItem'
-  { -- | The ID of the snapshot.
-    snapshotId :: Prelude.Maybe Prelude.Text,
-    -- | The errors.
-    fastSnapshotRestoreStateErrors :: Prelude.Maybe [DisableFastSnapshotRestoreStateErrorItem]
+  { -- | The errors.
+    fastSnapshotRestoreStateErrors :: Prelude.Maybe [DisableFastSnapshotRestoreStateErrorItem],
+    -- | The ID of the snapshot.
+    snapshotId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,26 +46,25 @@ data DisableFastSnapshotRestoreErrorItem = DisableFastSnapshotRestoreErrorItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'snapshotId', 'disableFastSnapshotRestoreErrorItem_snapshotId' - The ID of the snapshot.
---
 -- 'fastSnapshotRestoreStateErrors', 'disableFastSnapshotRestoreErrorItem_fastSnapshotRestoreStateErrors' - The errors.
+--
+-- 'snapshotId', 'disableFastSnapshotRestoreErrorItem_snapshotId' - The ID of the snapshot.
 newDisableFastSnapshotRestoreErrorItem ::
   DisableFastSnapshotRestoreErrorItem
 newDisableFastSnapshotRestoreErrorItem =
   DisableFastSnapshotRestoreErrorItem'
-    { snapshotId =
+    { fastSnapshotRestoreStateErrors =
         Prelude.Nothing,
-      fastSnapshotRestoreStateErrors =
-        Prelude.Nothing
+      snapshotId = Prelude.Nothing
     }
-
--- | The ID of the snapshot.
-disableFastSnapshotRestoreErrorItem_snapshotId :: Lens.Lens' DisableFastSnapshotRestoreErrorItem (Prelude.Maybe Prelude.Text)
-disableFastSnapshotRestoreErrorItem_snapshotId = Lens.lens (\DisableFastSnapshotRestoreErrorItem' {snapshotId} -> snapshotId) (\s@DisableFastSnapshotRestoreErrorItem' {} a -> s {snapshotId = a} :: DisableFastSnapshotRestoreErrorItem)
 
 -- | The errors.
 disableFastSnapshotRestoreErrorItem_fastSnapshotRestoreStateErrors :: Lens.Lens' DisableFastSnapshotRestoreErrorItem (Prelude.Maybe [DisableFastSnapshotRestoreStateErrorItem])
 disableFastSnapshotRestoreErrorItem_fastSnapshotRestoreStateErrors = Lens.lens (\DisableFastSnapshotRestoreErrorItem' {fastSnapshotRestoreStateErrors} -> fastSnapshotRestoreStateErrors) (\s@DisableFastSnapshotRestoreErrorItem' {} a -> s {fastSnapshotRestoreStateErrors = a} :: DisableFastSnapshotRestoreErrorItem) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID of the snapshot.
+disableFastSnapshotRestoreErrorItem_snapshotId :: Lens.Lens' DisableFastSnapshotRestoreErrorItem (Prelude.Maybe Prelude.Text)
+disableFastSnapshotRestoreErrorItem_snapshotId = Lens.lens (\DisableFastSnapshotRestoreErrorItem' {snapshotId} -> snapshotId) (\s@DisableFastSnapshotRestoreErrorItem' {} a -> s {snapshotId = a} :: DisableFastSnapshotRestoreErrorItem)
 
 instance
   Data.FromXML
@@ -73,11 +72,11 @@ instance
   where
   parseXML x =
     DisableFastSnapshotRestoreErrorItem'
-      Prelude.<$> (x Data..@? "snapshotId")
-      Prelude.<*> ( x Data..@? "fastSnapshotRestoreStateErrorSet"
+      Prelude.<$> ( x Data..@? "fastSnapshotRestoreStateErrorSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
+      Prelude.<*> (x Data..@? "snapshotId")
 
 instance
   Prelude.Hashable
@@ -86,13 +85,14 @@ instance
   hashWithSalt
     _salt
     DisableFastSnapshotRestoreErrorItem' {..} =
-      _salt `Prelude.hashWithSalt` snapshotId
+      _salt
         `Prelude.hashWithSalt` fastSnapshotRestoreStateErrors
+        `Prelude.hashWithSalt` snapshotId
 
 instance
   Prelude.NFData
     DisableFastSnapshotRestoreErrorItem
   where
   rnf DisableFastSnapshotRestoreErrorItem' {..} =
-    Prelude.rnf snapshotId
-      `Prelude.seq` Prelude.rnf fastSnapshotRestoreStateErrors
+    Prelude.rnf fastSnapshotRestoreStateErrors
+      `Prelude.seq` Prelude.rnf snapshotId

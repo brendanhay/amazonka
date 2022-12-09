@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newClientCertificateRevocationListStatus' smart constructor.
 data ClientCertificateRevocationListStatus = ClientCertificateRevocationListStatus'
-  { -- | A message about the status of the client certificate revocation list, if
+  { -- | The state of the client certificate revocation list.
+    code :: Prelude.Maybe ClientCertificateRevocationListStatusCode,
+    -- | A message about the status of the client certificate revocation list, if
     -- applicable.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The state of the client certificate revocation list.
-    code :: Prelude.Maybe ClientCertificateRevocationListStatusCode
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,27 +46,27 @@ data ClientCertificateRevocationListStatus = ClientCertificateRevocationListStat
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'code', 'clientCertificateRevocationListStatus_code' - The state of the client certificate revocation list.
+--
 -- 'message', 'clientCertificateRevocationListStatus_message' - A message about the status of the client certificate revocation list, if
 -- applicable.
---
--- 'code', 'clientCertificateRevocationListStatus_code' - The state of the client certificate revocation list.
 newClientCertificateRevocationListStatus ::
   ClientCertificateRevocationListStatus
 newClientCertificateRevocationListStatus =
   ClientCertificateRevocationListStatus'
-    { message =
+    { code =
         Prelude.Nothing,
-      code = Prelude.Nothing
+      message = Prelude.Nothing
     }
+
+-- | The state of the client certificate revocation list.
+clientCertificateRevocationListStatus_code :: Lens.Lens' ClientCertificateRevocationListStatus (Prelude.Maybe ClientCertificateRevocationListStatusCode)
+clientCertificateRevocationListStatus_code = Lens.lens (\ClientCertificateRevocationListStatus' {code} -> code) (\s@ClientCertificateRevocationListStatus' {} a -> s {code = a} :: ClientCertificateRevocationListStatus)
 
 -- | A message about the status of the client certificate revocation list, if
 -- applicable.
 clientCertificateRevocationListStatus_message :: Lens.Lens' ClientCertificateRevocationListStatus (Prelude.Maybe Prelude.Text)
 clientCertificateRevocationListStatus_message = Lens.lens (\ClientCertificateRevocationListStatus' {message} -> message) (\s@ClientCertificateRevocationListStatus' {} a -> s {message = a} :: ClientCertificateRevocationListStatus)
-
--- | The state of the client certificate revocation list.
-clientCertificateRevocationListStatus_code :: Lens.Lens' ClientCertificateRevocationListStatus (Prelude.Maybe ClientCertificateRevocationListStatusCode)
-clientCertificateRevocationListStatus_code = Lens.lens (\ClientCertificateRevocationListStatus' {code} -> code) (\s@ClientCertificateRevocationListStatus' {} a -> s {code = a} :: ClientCertificateRevocationListStatus)
 
 instance
   Data.FromXML
@@ -74,8 +74,8 @@ instance
   where
   parseXML x =
     ClientCertificateRevocationListStatus'
-      Prelude.<$> (x Data..@? "message")
-      Prelude.<*> (x Data..@? "code")
+      Prelude.<$> (x Data..@? "code")
+      Prelude.<*> (x Data..@? "message")
 
 instance
   Prelude.Hashable
@@ -84,12 +84,12 @@ instance
   hashWithSalt
     _salt
     ClientCertificateRevocationListStatus' {..} =
-      _salt `Prelude.hashWithSalt` message
-        `Prelude.hashWithSalt` code
+      _salt `Prelude.hashWithSalt` code
+        `Prelude.hashWithSalt` message
 
 instance
   Prelude.NFData
     ClientCertificateRevocationListStatus
   where
   rnf ClientCertificateRevocationListStatus' {..} =
-    Prelude.rnf message `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code `Prelude.seq` Prelude.rnf message

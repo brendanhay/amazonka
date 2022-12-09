@@ -31,14 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAvailableCapacity' smart constructor.
 data AvailableCapacity = AvailableCapacity'
-  { -- | The number of vCPUs available for launching instances onto the Dedicated
-    -- Host.
-    availableVCpus :: Prelude.Maybe Prelude.Int,
-    -- | The number of instances that can be launched onto the Dedicated Host
+  { -- | The number of instances that can be launched onto the Dedicated Host
     -- depending on the host\'s available capacity. For Dedicated Hosts that
     -- support multiple instance types, this parameter represents the number of
     -- instances for each instance size that is supported on the host.
-    availableInstanceCapacity :: Prelude.Maybe [InstanceCapacity]
+    availableInstanceCapacity :: Prelude.Maybe [InstanceCapacity],
+    -- | The number of vCPUs available for launching instances onto the Dedicated
+    -- Host.
+    availableVCpus :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,26 +50,21 @@ data AvailableCapacity = AvailableCapacity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'availableVCpus', 'availableCapacity_availableVCpus' - The number of vCPUs available for launching instances onto the Dedicated
--- Host.
---
 -- 'availableInstanceCapacity', 'availableCapacity_availableInstanceCapacity' - The number of instances that can be launched onto the Dedicated Host
 -- depending on the host\'s available capacity. For Dedicated Hosts that
 -- support multiple instance types, this parameter represents the number of
 -- instances for each instance size that is supported on the host.
+--
+-- 'availableVCpus', 'availableCapacity_availableVCpus' - The number of vCPUs available for launching instances onto the Dedicated
+-- Host.
 newAvailableCapacity ::
   AvailableCapacity
 newAvailableCapacity =
   AvailableCapacity'
-    { availableVCpus =
+    { availableInstanceCapacity =
         Prelude.Nothing,
-      availableInstanceCapacity = Prelude.Nothing
+      availableVCpus = Prelude.Nothing
     }
-
--- | The number of vCPUs available for launching instances onto the Dedicated
--- Host.
-availableCapacity_availableVCpus :: Lens.Lens' AvailableCapacity (Prelude.Maybe Prelude.Int)
-availableCapacity_availableVCpus = Lens.lens (\AvailableCapacity' {availableVCpus} -> availableVCpus) (\s@AvailableCapacity' {} a -> s {availableVCpus = a} :: AvailableCapacity)
 
 -- | The number of instances that can be launched onto the Dedicated Host
 -- depending on the host\'s available capacity. For Dedicated Hosts that
@@ -78,21 +73,27 @@ availableCapacity_availableVCpus = Lens.lens (\AvailableCapacity' {availableVCpu
 availableCapacity_availableInstanceCapacity :: Lens.Lens' AvailableCapacity (Prelude.Maybe [InstanceCapacity])
 availableCapacity_availableInstanceCapacity = Lens.lens (\AvailableCapacity' {availableInstanceCapacity} -> availableInstanceCapacity) (\s@AvailableCapacity' {} a -> s {availableInstanceCapacity = a} :: AvailableCapacity) Prelude.. Lens.mapping Lens.coerced
 
+-- | The number of vCPUs available for launching instances onto the Dedicated
+-- Host.
+availableCapacity_availableVCpus :: Lens.Lens' AvailableCapacity (Prelude.Maybe Prelude.Int)
+availableCapacity_availableVCpus = Lens.lens (\AvailableCapacity' {availableVCpus} -> availableVCpus) (\s@AvailableCapacity' {} a -> s {availableVCpus = a} :: AvailableCapacity)
+
 instance Data.FromXML AvailableCapacity where
   parseXML x =
     AvailableCapacity'
-      Prelude.<$> (x Data..@? "availableVCpus")
-      Prelude.<*> ( x Data..@? "availableInstanceCapacity"
+      Prelude.<$> ( x Data..@? "availableInstanceCapacity"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
+      Prelude.<*> (x Data..@? "availableVCpus")
 
 instance Prelude.Hashable AvailableCapacity where
   hashWithSalt _salt AvailableCapacity' {..} =
-    _salt `Prelude.hashWithSalt` availableVCpus
+    _salt
       `Prelude.hashWithSalt` availableInstanceCapacity
+      `Prelude.hashWithSalt` availableVCpus
 
 instance Prelude.NFData AvailableCapacity where
   rnf AvailableCapacity' {..} =
-    Prelude.rnf availableVCpus
-      `Prelude.seq` Prelude.rnf availableInstanceCapacity
+    Prelude.rnf availableInstanceCapacity
+      `Prelude.seq` Prelude.rnf availableVCpus

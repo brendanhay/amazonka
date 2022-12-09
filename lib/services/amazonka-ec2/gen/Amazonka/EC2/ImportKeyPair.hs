@@ -47,10 +47,10 @@ module Amazonka.EC2.ImportKeyPair
     newImportKeyPairResponse,
 
     -- * Response Lenses
-    importKeyPairResponse_tags,
     importKeyPairResponse_keyFingerprint,
     importKeyPairResponse_keyName,
     importKeyPairResponse_keyPairId,
+    importKeyPairResponse_tags,
     importKeyPairResponse_httpStatus,
   )
 where
@@ -152,12 +152,12 @@ instance Core.AWSRequest ImportKeyPair where
     Response.receiveXML
       ( \s h x ->
           ImportKeyPairResponse'
-            Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Data.parseXMLList "item")
-                        )
-            Prelude.<*> (x Data..@? "keyFingerprint")
+            Prelude.<$> (x Data..@? "keyFingerprint")
             Prelude.<*> (x Data..@? "keyName")
             Prelude.<*> (x Data..@? "keyPairId")
+            Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
+                        )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -199,9 +199,7 @@ instance Data.ToQuery ImportKeyPair where
 
 -- | /See:/ 'newImportKeyPairResponse' smart constructor.
 data ImportKeyPairResponse = ImportKeyPairResponse'
-  { -- | The tags applied to the imported key pair.
-    tags :: Prelude.Maybe [Tag],
-    -- | -   For RSA key pairs, the key fingerprint is the MD5 public key
+  { -- | -   For RSA key pairs, the key fingerprint is the MD5 public key
     --     fingerprint as specified in section 4 of RFC 4716.
     --
     -- -   For ED25519 key pairs, the key fingerprint is the base64-encoded
@@ -212,6 +210,8 @@ data ImportKeyPairResponse = ImportKeyPairResponse'
     keyName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the resulting key pair.
     keyPairId :: Prelude.Maybe Prelude.Text,
+    -- | The tags applied to the imported key pair.
+    tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -225,8 +225,6 @@ data ImportKeyPairResponse = ImportKeyPairResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'importKeyPairResponse_tags' - The tags applied to the imported key pair.
---
 -- 'keyFingerprint', 'importKeyPairResponse_keyFingerprint' - -   For RSA key pairs, the key fingerprint is the MD5 public key
 --     fingerprint as specified in section 4 of RFC 4716.
 --
@@ -238,6 +236,8 @@ data ImportKeyPairResponse = ImportKeyPairResponse'
 --
 -- 'keyPairId', 'importKeyPairResponse_keyPairId' - The ID of the resulting key pair.
 --
+-- 'tags', 'importKeyPairResponse_tags' - The tags applied to the imported key pair.
+--
 -- 'httpStatus', 'importKeyPairResponse_httpStatus' - The response's http status code.
 newImportKeyPairResponse ::
   -- | 'httpStatus'
@@ -245,16 +245,13 @@ newImportKeyPairResponse ::
   ImportKeyPairResponse
 newImportKeyPairResponse pHttpStatus_ =
   ImportKeyPairResponse'
-    { tags = Prelude.Nothing,
-      keyFingerprint = Prelude.Nothing,
+    { keyFingerprint =
+        Prelude.Nothing,
       keyName = Prelude.Nothing,
       keyPairId = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The tags applied to the imported key pair.
-importKeyPairResponse_tags :: Lens.Lens' ImportKeyPairResponse (Prelude.Maybe [Tag])
-importKeyPairResponse_tags = Lens.lens (\ImportKeyPairResponse' {tags} -> tags) (\s@ImportKeyPairResponse' {} a -> s {tags = a} :: ImportKeyPairResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | -   For RSA key pairs, the key fingerprint is the MD5 public key
 --     fingerprint as specified in section 4 of RFC 4716.
@@ -273,14 +270,18 @@ importKeyPairResponse_keyName = Lens.lens (\ImportKeyPairResponse' {keyName} -> 
 importKeyPairResponse_keyPairId :: Lens.Lens' ImportKeyPairResponse (Prelude.Maybe Prelude.Text)
 importKeyPairResponse_keyPairId = Lens.lens (\ImportKeyPairResponse' {keyPairId} -> keyPairId) (\s@ImportKeyPairResponse' {} a -> s {keyPairId = a} :: ImportKeyPairResponse)
 
+-- | The tags applied to the imported key pair.
+importKeyPairResponse_tags :: Lens.Lens' ImportKeyPairResponse (Prelude.Maybe [Tag])
+importKeyPairResponse_tags = Lens.lens (\ImportKeyPairResponse' {tags} -> tags) (\s@ImportKeyPairResponse' {} a -> s {tags = a} :: ImportKeyPairResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 importKeyPairResponse_httpStatus :: Lens.Lens' ImportKeyPairResponse Prelude.Int
 importKeyPairResponse_httpStatus = Lens.lens (\ImportKeyPairResponse' {httpStatus} -> httpStatus) (\s@ImportKeyPairResponse' {} a -> s {httpStatus = a} :: ImportKeyPairResponse)
 
 instance Prelude.NFData ImportKeyPairResponse where
   rnf ImportKeyPairResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf keyFingerprint
+    Prelude.rnf keyFingerprint
       `Prelude.seq` Prelude.rnf keyName
       `Prelude.seq` Prelude.rnf keyPairId
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

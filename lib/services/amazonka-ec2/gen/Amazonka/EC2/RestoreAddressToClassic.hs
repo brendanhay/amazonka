@@ -43,8 +43,8 @@ module Amazonka.EC2.RestoreAddressToClassic
     newRestoreAddressToClassicResponse,
 
     -- * Response Lenses
-    restoreAddressToClassicResponse_status,
     restoreAddressToClassicResponse_publicIp,
+    restoreAddressToClassicResponse_status,
     restoreAddressToClassicResponse_httpStatus,
   )
 where
@@ -114,8 +114,8 @@ instance Core.AWSRequest RestoreAddressToClassic where
     Response.receiveXML
       ( \s h x ->
           RestoreAddressToClassicResponse'
-            Prelude.<$> (x Data..@? "status")
-            Prelude.<*> (x Data..@? "publicIp")
+            Prelude.<$> (x Data..@? "publicIp")
+            Prelude.<*> (x Data..@? "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,10 +148,10 @@ instance Data.ToQuery RestoreAddressToClassic where
 
 -- | /See:/ 'newRestoreAddressToClassicResponse' smart constructor.
 data RestoreAddressToClassicResponse = RestoreAddressToClassicResponse'
-  { -- | The move status for the IP address.
-    status :: Prelude.Maybe AddressStatus,
-    -- | The Elastic IP address.
+  { -- | The Elastic IP address.
     publicIp :: Prelude.Maybe Prelude.Text,
+    -- | The move status for the IP address.
+    status :: Prelude.Maybe AddressStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -165,9 +165,9 @@ data RestoreAddressToClassicResponse = RestoreAddressToClassicResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'restoreAddressToClassicResponse_status' - The move status for the IP address.
---
 -- 'publicIp', 'restoreAddressToClassicResponse_publicIp' - The Elastic IP address.
+--
+-- 'status', 'restoreAddressToClassicResponse_status' - The move status for the IP address.
 --
 -- 'httpStatus', 'restoreAddressToClassicResponse_httpStatus' - The response's http status code.
 newRestoreAddressToClassicResponse ::
@@ -176,19 +176,19 @@ newRestoreAddressToClassicResponse ::
   RestoreAddressToClassicResponse
 newRestoreAddressToClassicResponse pHttpStatus_ =
   RestoreAddressToClassicResponse'
-    { status =
+    { publicIp =
         Prelude.Nothing,
-      publicIp = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The move status for the IP address.
-restoreAddressToClassicResponse_status :: Lens.Lens' RestoreAddressToClassicResponse (Prelude.Maybe AddressStatus)
-restoreAddressToClassicResponse_status = Lens.lens (\RestoreAddressToClassicResponse' {status} -> status) (\s@RestoreAddressToClassicResponse' {} a -> s {status = a} :: RestoreAddressToClassicResponse)
 
 -- | The Elastic IP address.
 restoreAddressToClassicResponse_publicIp :: Lens.Lens' RestoreAddressToClassicResponse (Prelude.Maybe Prelude.Text)
 restoreAddressToClassicResponse_publicIp = Lens.lens (\RestoreAddressToClassicResponse' {publicIp} -> publicIp) (\s@RestoreAddressToClassicResponse' {} a -> s {publicIp = a} :: RestoreAddressToClassicResponse)
+
+-- | The move status for the IP address.
+restoreAddressToClassicResponse_status :: Lens.Lens' RestoreAddressToClassicResponse (Prelude.Maybe AddressStatus)
+restoreAddressToClassicResponse_status = Lens.lens (\RestoreAddressToClassicResponse' {status} -> status) (\s@RestoreAddressToClassicResponse' {} a -> s {status = a} :: RestoreAddressToClassicResponse)
 
 -- | The response's http status code.
 restoreAddressToClassicResponse_httpStatus :: Lens.Lens' RestoreAddressToClassicResponse Prelude.Int
@@ -199,6 +199,6 @@ instance
     RestoreAddressToClassicResponse
   where
   rnf RestoreAddressToClassicResponse' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf publicIp
+    Prelude.rnf publicIp
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

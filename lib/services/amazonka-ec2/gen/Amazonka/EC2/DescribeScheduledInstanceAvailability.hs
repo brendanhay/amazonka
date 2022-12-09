@@ -39,12 +39,12 @@ module Amazonka.EC2.DescribeScheduledInstanceAvailability
     newDescribeScheduledInstanceAvailability,
 
     -- * Request Lenses
-    describeScheduledInstanceAvailability_nextToken,
-    describeScheduledInstanceAvailability_filters,
     describeScheduledInstanceAvailability_dryRun,
+    describeScheduledInstanceAvailability_filters,
     describeScheduledInstanceAvailability_maxResults,
     describeScheduledInstanceAvailability_maxSlotDurationInHours,
     describeScheduledInstanceAvailability_minSlotDurationInHours,
+    describeScheduledInstanceAvailability_nextToken,
     describeScheduledInstanceAvailability_firstSlotStartTimeRange,
     describeScheduledInstanceAvailability_recurrence,
 
@@ -71,8 +71,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeScheduledInstanceAvailability' smart constructor.
 data DescribeScheduledInstanceAvailability = DescribeScheduledInstanceAvailability'
-  { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The filters.
     --
     -- -   @availability-zone@ - The Availability Zone (for example,
@@ -85,11 +88,6 @@ data DescribeScheduledInstanceAvailability = DescribeScheduledInstanceAvailabili
     --
     -- -   @platform@ - The platform (@Linux\/UNIX@ or @Windows@).
     filters :: Prelude.Maybe [Filter],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return in a single call. This value can
     -- be between 5 and 300. The default value is 300. To retrieve the
     -- remaining results, make another call with the returned @NextToken@
@@ -103,6 +101,8 @@ data DescribeScheduledInstanceAvailability = DescribeScheduledInstanceAvailabili
     -- hours, the minimum weekly schedule is 24 hours, and the minimum monthly
     -- schedule is 100 hours.
     minSlotDurationInHours :: Prelude.Maybe Prelude.Int,
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The time period for the first schedule to start.
     firstSlotStartTimeRange :: SlotDateTimeRangeRequest,
     -- | The schedule recurrence.
@@ -118,7 +118,10 @@ data DescribeScheduledInstanceAvailability = DescribeScheduledInstanceAvailabili
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeScheduledInstanceAvailability_nextToken' - The token for the next set of results.
+-- 'dryRun', 'describeScheduledInstanceAvailability_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeScheduledInstanceAvailability_filters' - The filters.
 --
@@ -131,11 +134,6 @@ data DescribeScheduledInstanceAvailability = DescribeScheduledInstanceAvailabili
 --     @EC2-VPC@).
 --
 -- -   @platform@ - The platform (@Linux\/UNIX@ or @Windows@).
---
--- 'dryRun', 'describeScheduledInstanceAvailability_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'maxResults', 'describeScheduledInstanceAvailability_maxResults' - The maximum number of results to return in a single call. This value can
 -- be between 5 and 300. The default value is 300. To retrieve the
@@ -150,6 +148,8 @@ data DescribeScheduledInstanceAvailability = DescribeScheduledInstanceAvailabili
 -- hours, the minimum weekly schedule is 24 hours, and the minimum monthly
 -- schedule is 100 hours.
 --
+-- 'nextToken', 'describeScheduledInstanceAvailability_nextToken' - The token for the next set of results.
+--
 -- 'firstSlotStartTimeRange', 'describeScheduledInstanceAvailability_firstSlotStartTimeRange' - The time period for the first schedule to start.
 --
 -- 'recurrence', 'describeScheduledInstanceAvailability_recurrence' - The schedule recurrence.
@@ -163,23 +163,26 @@ newDescribeScheduledInstanceAvailability
   pFirstSlotStartTimeRange_
   pRecurrence_ =
     DescribeScheduledInstanceAvailability'
-      { nextToken =
+      { dryRun =
           Prelude.Nothing,
         filters = Prelude.Nothing,
-        dryRun = Prelude.Nothing,
         maxResults = Prelude.Nothing,
         maxSlotDurationInHours =
           Prelude.Nothing,
         minSlotDurationInHours =
           Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         firstSlotStartTimeRange =
           pFirstSlotStartTimeRange_,
         recurrence = pRecurrence_
       }
 
--- | The token for the next set of results.
-describeScheduledInstanceAvailability_nextToken :: Lens.Lens' DescribeScheduledInstanceAvailability (Prelude.Maybe Prelude.Text)
-describeScheduledInstanceAvailability_nextToken = Lens.lens (\DescribeScheduledInstanceAvailability' {nextToken} -> nextToken) (\s@DescribeScheduledInstanceAvailability' {} a -> s {nextToken = a} :: DescribeScheduledInstanceAvailability)
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeScheduledInstanceAvailability_dryRun :: Lens.Lens' DescribeScheduledInstanceAvailability (Prelude.Maybe Prelude.Bool)
+describeScheduledInstanceAvailability_dryRun = Lens.lens (\DescribeScheduledInstanceAvailability' {dryRun} -> dryRun) (\s@DescribeScheduledInstanceAvailability' {} a -> s {dryRun = a} :: DescribeScheduledInstanceAvailability)
 
 -- | The filters.
 --
@@ -194,13 +197,6 @@ describeScheduledInstanceAvailability_nextToken = Lens.lens (\DescribeScheduledI
 -- -   @platform@ - The platform (@Linux\/UNIX@ or @Windows@).
 describeScheduledInstanceAvailability_filters :: Lens.Lens' DescribeScheduledInstanceAvailability (Prelude.Maybe [Filter])
 describeScheduledInstanceAvailability_filters = Lens.lens (\DescribeScheduledInstanceAvailability' {filters} -> filters) (\s@DescribeScheduledInstanceAvailability' {} a -> s {filters = a} :: DescribeScheduledInstanceAvailability) Prelude.. Lens.mapping Lens.coerced
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeScheduledInstanceAvailability_dryRun :: Lens.Lens' DescribeScheduledInstanceAvailability (Prelude.Maybe Prelude.Bool)
-describeScheduledInstanceAvailability_dryRun = Lens.lens (\DescribeScheduledInstanceAvailability' {dryRun} -> dryRun) (\s@DescribeScheduledInstanceAvailability' {} a -> s {dryRun = a} :: DescribeScheduledInstanceAvailability)
 
 -- | The maximum number of results to return in a single call. This value can
 -- be between 5 and 300. The default value is 300. To retrieve the
@@ -220,6 +216,10 @@ describeScheduledInstanceAvailability_maxSlotDurationInHours = Lens.lens (\Descr
 -- schedule is 100 hours.
 describeScheduledInstanceAvailability_minSlotDurationInHours :: Lens.Lens' DescribeScheduledInstanceAvailability (Prelude.Maybe Prelude.Int)
 describeScheduledInstanceAvailability_minSlotDurationInHours = Lens.lens (\DescribeScheduledInstanceAvailability' {minSlotDurationInHours} -> minSlotDurationInHours) (\s@DescribeScheduledInstanceAvailability' {} a -> s {minSlotDurationInHours = a} :: DescribeScheduledInstanceAvailability)
+
+-- | The token for the next set of results.
+describeScheduledInstanceAvailability_nextToken :: Lens.Lens' DescribeScheduledInstanceAvailability (Prelude.Maybe Prelude.Text)
+describeScheduledInstanceAvailability_nextToken = Lens.lens (\DescribeScheduledInstanceAvailability' {nextToken} -> nextToken) (\s@DescribeScheduledInstanceAvailability' {} a -> s {nextToken = a} :: DescribeScheduledInstanceAvailability)
 
 -- | The time period for the first schedule to start.
 describeScheduledInstanceAvailability_firstSlotStartTimeRange :: Lens.Lens' DescribeScheduledInstanceAvailability SlotDateTimeRangeRequest
@@ -283,12 +283,12 @@ instance
   hashWithSalt
     _salt
     DescribeScheduledInstanceAvailability' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` maxSlotDurationInHours
         `Prelude.hashWithSalt` minSlotDurationInHours
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` firstSlotStartTimeRange
         `Prelude.hashWithSalt` recurrence
 
@@ -297,12 +297,12 @@ instance
     DescribeScheduledInstanceAvailability
   where
   rnf DescribeScheduledInstanceAvailability' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf maxSlotDurationInHours
       `Prelude.seq` Prelude.rnf minSlotDurationInHours
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf firstSlotStartTimeRange
       `Prelude.seq` Prelude.rnf recurrence
 
@@ -330,15 +330,15 @@ instance
                   ),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
         Data.toQuery
           (Data.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Data.=: dryRun,
         "MaxResults" Data.=: maxResults,
         "MaxSlotDurationInHours"
           Data.=: maxSlotDurationInHours,
         "MinSlotDurationInHours"
           Data.=: minSlotDurationInHours,
+        "NextToken" Data.=: nextToken,
         "FirstSlotStartTimeRange"
           Data.=: firstSlotStartTimeRange,
         "Recurrence" Data.=: recurrence

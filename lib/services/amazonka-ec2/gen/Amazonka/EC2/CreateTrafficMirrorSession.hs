@@ -42,10 +42,10 @@ module Amazonka.EC2.CreateTrafficMirrorSession
     -- * Request Lenses
     createTrafficMirrorSession_clientToken,
     createTrafficMirrorSession_description,
-    createTrafficMirrorSession_packetLength,
     createTrafficMirrorSession_dryRun,
-    createTrafficMirrorSession_virtualNetworkId,
+    createTrafficMirrorSession_packetLength,
     createTrafficMirrorSession_tagSpecifications,
+    createTrafficMirrorSession_virtualNetworkId,
     createTrafficMirrorSession_networkInterfaceId,
     createTrafficMirrorSession_trafficMirrorTargetId,
     createTrafficMirrorSession_trafficMirrorFilterId,
@@ -78,6 +78,11 @@ data CreateTrafficMirrorSession = CreateTrafficMirrorSession'
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description of the Traffic Mirror session.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The number of bytes in each packet to mirror. These are bytes after the
     -- VXLAN header. Do not specify this parameter when you want to mirror the
     -- entire packet. To mirror a subset of the packet, set this to the length
@@ -88,18 +93,13 @@ data CreateTrafficMirrorSession = CreateTrafficMirrorSession'
     -- If you do not want to mirror the entire packet, use the @PacketLength@
     -- parameter to specify the number of bytes in each packet to mirror.
     packetLength :: Prelude.Maybe Prelude.Int,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The tags to assign to a Traffic Mirror session.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The VXLAN ID for the Traffic Mirror session. For more information about
     -- the VXLAN protocol, see <https://tools.ietf.org/html/rfc7348 RFC 7348>.
     -- If you do not specify a @VirtualNetworkId@, an account-wide unique id is
     -- chosen at random.
     virtualNetworkId :: Prelude.Maybe Prelude.Int,
-    -- | The tags to assign to a Traffic Mirror session.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The ID of the source network interface.
     networkInterfaceId :: Prelude.Text,
     -- | The ID of the Traffic Mirror target.
@@ -129,6 +129,11 @@ data CreateTrafficMirrorSession = CreateTrafficMirrorSession'
 --
 -- 'description', 'createTrafficMirrorSession_description' - The description of the Traffic Mirror session.
 --
+-- 'dryRun', 'createTrafficMirrorSession_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
 -- 'packetLength', 'createTrafficMirrorSession_packetLength' - The number of bytes in each packet to mirror. These are bytes after the
 -- VXLAN header. Do not specify this parameter when you want to mirror the
 -- entire packet. To mirror a subset of the packet, set this to the length
@@ -139,17 +144,12 @@ data CreateTrafficMirrorSession = CreateTrafficMirrorSession'
 -- If you do not want to mirror the entire packet, use the @PacketLength@
 -- parameter to specify the number of bytes in each packet to mirror.
 --
--- 'dryRun', 'createTrafficMirrorSession_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- 'tagSpecifications', 'createTrafficMirrorSession_tagSpecifications' - The tags to assign to a Traffic Mirror session.
 --
 -- 'virtualNetworkId', 'createTrafficMirrorSession_virtualNetworkId' - The VXLAN ID for the Traffic Mirror session. For more information about
 -- the VXLAN protocol, see <https://tools.ietf.org/html/rfc7348 RFC 7348>.
 -- If you do not specify a @VirtualNetworkId@, an account-wide unique id is
 -- chosen at random.
---
--- 'tagSpecifications', 'createTrafficMirrorSession_tagSpecifications' - The tags to assign to a Traffic Mirror session.
 --
 -- 'networkInterfaceId', 'createTrafficMirrorSession_networkInterfaceId' - The ID of the source network interface.
 --
@@ -181,10 +181,10 @@ newCreateTrafficMirrorSession
       { clientToken =
           Prelude.Nothing,
         description = Prelude.Nothing,
-        packetLength = Prelude.Nothing,
         dryRun = Prelude.Nothing,
-        virtualNetworkId = Prelude.Nothing,
+        packetLength = Prelude.Nothing,
         tagSpecifications = Prelude.Nothing,
+        virtualNetworkId = Prelude.Nothing,
         networkInterfaceId = pNetworkInterfaceId_,
         trafficMirrorTargetId = pTrafficMirrorTargetId_,
         trafficMirrorFilterId = pTrafficMirrorFilterId_,
@@ -201,6 +201,13 @@ createTrafficMirrorSession_clientToken = Lens.lens (\CreateTrafficMirrorSession'
 createTrafficMirrorSession_description :: Lens.Lens' CreateTrafficMirrorSession (Prelude.Maybe Prelude.Text)
 createTrafficMirrorSession_description = Lens.lens (\CreateTrafficMirrorSession' {description} -> description) (\s@CreateTrafficMirrorSession' {} a -> s {description = a} :: CreateTrafficMirrorSession)
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+createTrafficMirrorSession_dryRun :: Lens.Lens' CreateTrafficMirrorSession (Prelude.Maybe Prelude.Bool)
+createTrafficMirrorSession_dryRun = Lens.lens (\CreateTrafficMirrorSession' {dryRun} -> dryRun) (\s@CreateTrafficMirrorSession' {} a -> s {dryRun = a} :: CreateTrafficMirrorSession)
+
 -- | The number of bytes in each packet to mirror. These are bytes after the
 -- VXLAN header. Do not specify this parameter when you want to mirror the
 -- entire packet. To mirror a subset of the packet, set this to the length
@@ -213,12 +220,9 @@ createTrafficMirrorSession_description = Lens.lens (\CreateTrafficMirrorSession'
 createTrafficMirrorSession_packetLength :: Lens.Lens' CreateTrafficMirrorSession (Prelude.Maybe Prelude.Int)
 createTrafficMirrorSession_packetLength = Lens.lens (\CreateTrafficMirrorSession' {packetLength} -> packetLength) (\s@CreateTrafficMirrorSession' {} a -> s {packetLength = a} :: CreateTrafficMirrorSession)
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-createTrafficMirrorSession_dryRun :: Lens.Lens' CreateTrafficMirrorSession (Prelude.Maybe Prelude.Bool)
-createTrafficMirrorSession_dryRun = Lens.lens (\CreateTrafficMirrorSession' {dryRun} -> dryRun) (\s@CreateTrafficMirrorSession' {} a -> s {dryRun = a} :: CreateTrafficMirrorSession)
+-- | The tags to assign to a Traffic Mirror session.
+createTrafficMirrorSession_tagSpecifications :: Lens.Lens' CreateTrafficMirrorSession (Prelude.Maybe [TagSpecification])
+createTrafficMirrorSession_tagSpecifications = Lens.lens (\CreateTrafficMirrorSession' {tagSpecifications} -> tagSpecifications) (\s@CreateTrafficMirrorSession' {} a -> s {tagSpecifications = a} :: CreateTrafficMirrorSession) Prelude.. Lens.mapping Lens.coerced
 
 -- | The VXLAN ID for the Traffic Mirror session. For more information about
 -- the VXLAN protocol, see <https://tools.ietf.org/html/rfc7348 RFC 7348>.
@@ -226,10 +230,6 @@ createTrafficMirrorSession_dryRun = Lens.lens (\CreateTrafficMirrorSession' {dry
 -- chosen at random.
 createTrafficMirrorSession_virtualNetworkId :: Lens.Lens' CreateTrafficMirrorSession (Prelude.Maybe Prelude.Int)
 createTrafficMirrorSession_virtualNetworkId = Lens.lens (\CreateTrafficMirrorSession' {virtualNetworkId} -> virtualNetworkId) (\s@CreateTrafficMirrorSession' {} a -> s {virtualNetworkId = a} :: CreateTrafficMirrorSession)
-
--- | The tags to assign to a Traffic Mirror session.
-createTrafficMirrorSession_tagSpecifications :: Lens.Lens' CreateTrafficMirrorSession (Prelude.Maybe [TagSpecification])
-createTrafficMirrorSession_tagSpecifications = Lens.lens (\CreateTrafficMirrorSession' {tagSpecifications} -> tagSpecifications) (\s@CreateTrafficMirrorSession' {} a -> s {tagSpecifications = a} :: CreateTrafficMirrorSession) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the source network interface.
 createTrafficMirrorSession_networkInterfaceId :: Lens.Lens' CreateTrafficMirrorSession Prelude.Text
@@ -270,10 +270,10 @@ instance Prelude.Hashable CreateTrafficMirrorSession where
   hashWithSalt _salt CreateTrafficMirrorSession' {..} =
     _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` packetLength
       `Prelude.hashWithSalt` dryRun
-      `Prelude.hashWithSalt` virtualNetworkId
+      `Prelude.hashWithSalt` packetLength
       `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` virtualNetworkId
       `Prelude.hashWithSalt` networkInterfaceId
       `Prelude.hashWithSalt` trafficMirrorTargetId
       `Prelude.hashWithSalt` trafficMirrorFilterId
@@ -283,10 +283,10 @@ instance Prelude.NFData CreateTrafficMirrorSession where
   rnf CreateTrafficMirrorSession' {..} =
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf packetLength
       `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf virtualNetworkId
+      `Prelude.seq` Prelude.rnf packetLength
       `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf virtualNetworkId
       `Prelude.seq` Prelude.rnf networkInterfaceId
       `Prelude.seq` Prelude.rnf trafficMirrorTargetId
       `Prelude.seq` Prelude.rnf trafficMirrorFilterId
@@ -307,13 +307,13 @@ instance Data.ToQuery CreateTrafficMirrorSession where
           Data.=: ("2016-11-15" :: Prelude.ByteString),
         "ClientToken" Data.=: clientToken,
         "Description" Data.=: description,
-        "PacketLength" Data.=: packetLength,
         "DryRun" Data.=: dryRun,
-        "VirtualNetworkId" Data.=: virtualNetworkId,
+        "PacketLength" Data.=: packetLength,
         Data.toQuery
           ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
+        "VirtualNetworkId" Data.=: virtualNetworkId,
         "NetworkInterfaceId" Data.=: networkInterfaceId,
         "TrafficMirrorTargetId"
           Data.=: trafficMirrorTargetId,

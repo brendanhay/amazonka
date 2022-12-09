@@ -32,9 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLaunchTemplateTagSpecificationRequest' smart constructor.
 data LaunchTemplateTagSpecificationRequest = LaunchTemplateTagSpecificationRequest'
-  { -- | The tags to apply to the resource.
-    tags :: Prelude.Maybe [Tag],
-    -- | The type of resource to tag.
+  { -- | The type of resource to tag.
     --
     -- The @Valid Values@ are all the resource types that can be tagged.
     -- However, when creating a launch template, you can specify tags for the
@@ -43,7 +41,9 @@ data LaunchTemplateTagSpecificationRequest = LaunchTemplateTagSpecificationReque
     --
     -- To tag a resource after it has been created, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
-    resourceType :: Prelude.Maybe ResourceType
+    resourceType :: Prelude.Maybe ResourceType,
+    -- | The tags to apply to the resource.
+    tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,8 +55,6 @@ data LaunchTemplateTagSpecificationRequest = LaunchTemplateTagSpecificationReque
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'launchTemplateTagSpecificationRequest_tags' - The tags to apply to the resource.
---
 -- 'resourceType', 'launchTemplateTagSpecificationRequest_resourceType' - The type of resource to tag.
 --
 -- The @Valid Values@ are all the resource types that can be tagged.
@@ -66,18 +64,16 @@ data LaunchTemplateTagSpecificationRequest = LaunchTemplateTagSpecificationReque
 --
 -- To tag a resource after it has been created, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
+--
+-- 'tags', 'launchTemplateTagSpecificationRequest_tags' - The tags to apply to the resource.
 newLaunchTemplateTagSpecificationRequest ::
   LaunchTemplateTagSpecificationRequest
 newLaunchTemplateTagSpecificationRequest =
   LaunchTemplateTagSpecificationRequest'
-    { tags =
+    { resourceType =
         Prelude.Nothing,
-      resourceType = Prelude.Nothing
+      tags = Prelude.Nothing
     }
-
--- | The tags to apply to the resource.
-launchTemplateTagSpecificationRequest_tags :: Lens.Lens' LaunchTemplateTagSpecificationRequest (Prelude.Maybe [Tag])
-launchTemplateTagSpecificationRequest_tags = Lens.lens (\LaunchTemplateTagSpecificationRequest' {tags} -> tags) (\s@LaunchTemplateTagSpecificationRequest' {} a -> s {tags = a} :: LaunchTemplateTagSpecificationRequest) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of resource to tag.
 --
@@ -91,6 +87,10 @@ launchTemplateTagSpecificationRequest_tags = Lens.lens (\LaunchTemplateTagSpecif
 launchTemplateTagSpecificationRequest_resourceType :: Lens.Lens' LaunchTemplateTagSpecificationRequest (Prelude.Maybe ResourceType)
 launchTemplateTagSpecificationRequest_resourceType = Lens.lens (\LaunchTemplateTagSpecificationRequest' {resourceType} -> resourceType) (\s@LaunchTemplateTagSpecificationRequest' {} a -> s {resourceType = a} :: LaunchTemplateTagSpecificationRequest)
 
+-- | The tags to apply to the resource.
+launchTemplateTagSpecificationRequest_tags :: Lens.Lens' LaunchTemplateTagSpecificationRequest (Prelude.Maybe [Tag])
+launchTemplateTagSpecificationRequest_tags = Lens.lens (\LaunchTemplateTagSpecificationRequest' {tags} -> tags) (\s@LaunchTemplateTagSpecificationRequest' {} a -> s {tags = a} :: LaunchTemplateTagSpecificationRequest) Prelude.. Lens.mapping Lens.coerced
+
 instance
   Prelude.Hashable
     LaunchTemplateTagSpecificationRequest
@@ -98,16 +98,16 @@ instance
   hashWithSalt
     _salt
     LaunchTemplateTagSpecificationRequest' {..} =
-      _salt `Prelude.hashWithSalt` tags
-        `Prelude.hashWithSalt` resourceType
+      _salt `Prelude.hashWithSalt` resourceType
+        `Prelude.hashWithSalt` tags
 
 instance
   Prelude.NFData
     LaunchTemplateTagSpecificationRequest
   where
   rnf LaunchTemplateTagSpecificationRequest' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf resourceType
+    Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf tags
 
 instance
   Data.ToQuery
@@ -115,7 +115,7 @@ instance
   where
   toQuery LaunchTemplateTagSpecificationRequest' {..} =
     Prelude.mconcat
-      [ Data.toQuery
-          (Data.toQueryList "Tag" Prelude.<$> tags),
-        "ResourceType" Data.=: resourceType
+      [ "ResourceType" Data.=: resourceType,
+        Data.toQuery
+          (Data.toQueryList "Tag" Prelude.<$> tags)
       ]

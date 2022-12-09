@@ -37,10 +37,10 @@ module Amazonka.EC2.DescribeVpcAttribute
     newDescribeVpcAttributeResponse,
 
     -- * Response Lenses
-    describeVpcAttributeResponse_enableDnsSupport,
     describeVpcAttributeResponse_enableDnsHostnames,
-    describeVpcAttributeResponse_vpcId,
+    describeVpcAttributeResponse_enableDnsSupport,
     describeVpcAttributeResponse_enableNetworkAddressUsageMetrics,
+    describeVpcAttributeResponse_vpcId,
     describeVpcAttributeResponse_httpStatus,
   )
 where
@@ -121,10 +121,10 @@ instance Core.AWSRequest DescribeVpcAttribute where
     Response.receiveXML
       ( \s h x ->
           DescribeVpcAttributeResponse'
-            Prelude.<$> (x Data..@? "enableDnsSupport")
-            Prelude.<*> (x Data..@? "enableDnsHostnames")
-            Prelude.<*> (x Data..@? "vpcId")
+            Prelude.<$> (x Data..@? "enableDnsHostnames")
+            Prelude.<*> (x Data..@? "enableDnsSupport")
             Prelude.<*> (x Data..@? "enableNetworkAddressUsageMetrics")
+            Prelude.<*> (x Data..@? "vpcId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,20 +160,20 @@ instance Data.ToQuery DescribeVpcAttribute where
 
 -- | /See:/ 'newDescribeVpcAttributeResponse' smart constructor.
 data DescribeVpcAttributeResponse = DescribeVpcAttributeResponse'
-  { -- | Indicates whether DNS resolution is enabled for the VPC. If this
+  { -- | Indicates whether the instances launched in the VPC get DNS hostnames.
+    -- If this attribute is @true@, instances in the VPC get DNS hostnames;
+    -- otherwise, they do not.
+    enableDnsHostnames :: Prelude.Maybe AttributeBooleanValue,
+    -- | Indicates whether DNS resolution is enabled for the VPC. If this
     -- attribute is @true@, the Amazon DNS server resolves DNS hostnames for
     -- your instances to their corresponding IP addresses; otherwise, it does
     -- not.
     enableDnsSupport :: Prelude.Maybe AttributeBooleanValue,
-    -- | Indicates whether the instances launched in the VPC get DNS hostnames.
-    -- If this attribute is @true@, instances in the VPC get DNS hostnames;
-    -- otherwise, they do not.
-    enableDnsHostnames :: Prelude.Maybe AttributeBooleanValue,
-    -- | The ID of the VPC.
-    vpcId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether Network Address Usage metrics are enabled for your
     -- VPC.
     enableNetworkAddressUsageMetrics :: Prelude.Maybe AttributeBooleanValue,
+    -- | The ID of the VPC.
+    vpcId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -187,19 +187,19 @@ data DescribeVpcAttributeResponse = DescribeVpcAttributeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'enableDnsHostnames', 'describeVpcAttributeResponse_enableDnsHostnames' - Indicates whether the instances launched in the VPC get DNS hostnames.
+-- If this attribute is @true@, instances in the VPC get DNS hostnames;
+-- otherwise, they do not.
+--
 -- 'enableDnsSupport', 'describeVpcAttributeResponse_enableDnsSupport' - Indicates whether DNS resolution is enabled for the VPC. If this
 -- attribute is @true@, the Amazon DNS server resolves DNS hostnames for
 -- your instances to their corresponding IP addresses; otherwise, it does
 -- not.
 --
--- 'enableDnsHostnames', 'describeVpcAttributeResponse_enableDnsHostnames' - Indicates whether the instances launched in the VPC get DNS hostnames.
--- If this attribute is @true@, instances in the VPC get DNS hostnames;
--- otherwise, they do not.
---
--- 'vpcId', 'describeVpcAttributeResponse_vpcId' - The ID of the VPC.
---
 -- 'enableNetworkAddressUsageMetrics', 'describeVpcAttributeResponse_enableNetworkAddressUsageMetrics' - Indicates whether Network Address Usage metrics are enabled for your
 -- VPC.
+--
+-- 'vpcId', 'describeVpcAttributeResponse_vpcId' - The ID of the VPC.
 --
 -- 'httpStatus', 'describeVpcAttributeResponse_httpStatus' - The response's http status code.
 newDescribeVpcAttributeResponse ::
@@ -208,14 +208,20 @@ newDescribeVpcAttributeResponse ::
   DescribeVpcAttributeResponse
 newDescribeVpcAttributeResponse pHttpStatus_ =
   DescribeVpcAttributeResponse'
-    { enableDnsSupport =
+    { enableDnsHostnames =
         Prelude.Nothing,
-      enableDnsHostnames = Prelude.Nothing,
-      vpcId = Prelude.Nothing,
+      enableDnsSupport = Prelude.Nothing,
       enableNetworkAddressUsageMetrics =
         Prelude.Nothing,
+      vpcId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Indicates whether the instances launched in the VPC get DNS hostnames.
+-- If this attribute is @true@, instances in the VPC get DNS hostnames;
+-- otherwise, they do not.
+describeVpcAttributeResponse_enableDnsHostnames :: Lens.Lens' DescribeVpcAttributeResponse (Prelude.Maybe AttributeBooleanValue)
+describeVpcAttributeResponse_enableDnsHostnames = Lens.lens (\DescribeVpcAttributeResponse' {enableDnsHostnames} -> enableDnsHostnames) (\s@DescribeVpcAttributeResponse' {} a -> s {enableDnsHostnames = a} :: DescribeVpcAttributeResponse)
 
 -- | Indicates whether DNS resolution is enabled for the VPC. If this
 -- attribute is @true@, the Amazon DNS server resolves DNS hostnames for
@@ -224,20 +230,14 @@ newDescribeVpcAttributeResponse pHttpStatus_ =
 describeVpcAttributeResponse_enableDnsSupport :: Lens.Lens' DescribeVpcAttributeResponse (Prelude.Maybe AttributeBooleanValue)
 describeVpcAttributeResponse_enableDnsSupport = Lens.lens (\DescribeVpcAttributeResponse' {enableDnsSupport} -> enableDnsSupport) (\s@DescribeVpcAttributeResponse' {} a -> s {enableDnsSupport = a} :: DescribeVpcAttributeResponse)
 
--- | Indicates whether the instances launched in the VPC get DNS hostnames.
--- If this attribute is @true@, instances in the VPC get DNS hostnames;
--- otherwise, they do not.
-describeVpcAttributeResponse_enableDnsHostnames :: Lens.Lens' DescribeVpcAttributeResponse (Prelude.Maybe AttributeBooleanValue)
-describeVpcAttributeResponse_enableDnsHostnames = Lens.lens (\DescribeVpcAttributeResponse' {enableDnsHostnames} -> enableDnsHostnames) (\s@DescribeVpcAttributeResponse' {} a -> s {enableDnsHostnames = a} :: DescribeVpcAttributeResponse)
-
--- | The ID of the VPC.
-describeVpcAttributeResponse_vpcId :: Lens.Lens' DescribeVpcAttributeResponse (Prelude.Maybe Prelude.Text)
-describeVpcAttributeResponse_vpcId = Lens.lens (\DescribeVpcAttributeResponse' {vpcId} -> vpcId) (\s@DescribeVpcAttributeResponse' {} a -> s {vpcId = a} :: DescribeVpcAttributeResponse)
-
 -- | Indicates whether Network Address Usage metrics are enabled for your
 -- VPC.
 describeVpcAttributeResponse_enableNetworkAddressUsageMetrics :: Lens.Lens' DescribeVpcAttributeResponse (Prelude.Maybe AttributeBooleanValue)
 describeVpcAttributeResponse_enableNetworkAddressUsageMetrics = Lens.lens (\DescribeVpcAttributeResponse' {enableNetworkAddressUsageMetrics} -> enableNetworkAddressUsageMetrics) (\s@DescribeVpcAttributeResponse' {} a -> s {enableNetworkAddressUsageMetrics = a} :: DescribeVpcAttributeResponse)
+
+-- | The ID of the VPC.
+describeVpcAttributeResponse_vpcId :: Lens.Lens' DescribeVpcAttributeResponse (Prelude.Maybe Prelude.Text)
+describeVpcAttributeResponse_vpcId = Lens.lens (\DescribeVpcAttributeResponse' {vpcId} -> vpcId) (\s@DescribeVpcAttributeResponse' {} a -> s {vpcId = a} :: DescribeVpcAttributeResponse)
 
 -- | The response's http status code.
 describeVpcAttributeResponse_httpStatus :: Lens.Lens' DescribeVpcAttributeResponse Prelude.Int
@@ -245,8 +245,8 @@ describeVpcAttributeResponse_httpStatus = Lens.lens (\DescribeVpcAttributeRespon
 
 instance Prelude.NFData DescribeVpcAttributeResponse where
   rnf DescribeVpcAttributeResponse' {..} =
-    Prelude.rnf enableDnsSupport
-      `Prelude.seq` Prelude.rnf enableDnsHostnames
-      `Prelude.seq` Prelude.rnf vpcId
+    Prelude.rnf enableDnsHostnames
+      `Prelude.seq` Prelude.rnf enableDnsSupport
       `Prelude.seq` Prelude.rnf enableNetworkAddressUsageMetrics
+      `Prelude.seq` Prelude.rnf vpcId
       `Prelude.seq` Prelude.rnf httpStatus

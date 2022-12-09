@@ -32,15 +32,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSpotPlacementScore' smart constructor.
 data SpotPlacementScore = SpotPlacementScore'
-  { -- | The placement score, on a scale from @1@ to @10@. A score of @10@
+  { -- | The Availability Zone.
+    availabilityZoneId :: Prelude.Maybe Prelude.Text,
+    -- | The Region.
+    region :: Prelude.Maybe Prelude.Text,
+    -- | The placement score, on a scale from @1@ to @10@. A score of @10@
     -- indicates that your Spot request is highly likely to succeed in this
     -- Region or Availability Zone. A score of @1@ indicates that your Spot
     -- request is not likely to succeed.
-    score :: Prelude.Maybe Prelude.Int,
-    -- | The Region.
-    region :: Prelude.Maybe Prelude.Text,
-    -- | The Availability Zone.
-    availabilityZoneId :: Prelude.Maybe Prelude.Text
+    score :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,22 +52,31 @@ data SpotPlacementScore = SpotPlacementScore'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'availabilityZoneId', 'spotPlacementScore_availabilityZoneId' - The Availability Zone.
+--
+-- 'region', 'spotPlacementScore_region' - The Region.
+--
 -- 'score', 'spotPlacementScore_score' - The placement score, on a scale from @1@ to @10@. A score of @10@
 -- indicates that your Spot request is highly likely to succeed in this
 -- Region or Availability Zone. A score of @1@ indicates that your Spot
 -- request is not likely to succeed.
---
--- 'region', 'spotPlacementScore_region' - The Region.
---
--- 'availabilityZoneId', 'spotPlacementScore_availabilityZoneId' - The Availability Zone.
 newSpotPlacementScore ::
   SpotPlacementScore
 newSpotPlacementScore =
   SpotPlacementScore'
-    { score = Prelude.Nothing,
+    { availabilityZoneId =
+        Prelude.Nothing,
       region = Prelude.Nothing,
-      availabilityZoneId = Prelude.Nothing
+      score = Prelude.Nothing
     }
+
+-- | The Availability Zone.
+spotPlacementScore_availabilityZoneId :: Lens.Lens' SpotPlacementScore (Prelude.Maybe Prelude.Text)
+spotPlacementScore_availabilityZoneId = Lens.lens (\SpotPlacementScore' {availabilityZoneId} -> availabilityZoneId) (\s@SpotPlacementScore' {} a -> s {availabilityZoneId = a} :: SpotPlacementScore)
+
+-- | The Region.
+spotPlacementScore_region :: Lens.Lens' SpotPlacementScore (Prelude.Maybe Prelude.Text)
+spotPlacementScore_region = Lens.lens (\SpotPlacementScore' {region} -> region) (\s@SpotPlacementScore' {} a -> s {region = a} :: SpotPlacementScore)
 
 -- | The placement score, on a scale from @1@ to @10@. A score of @10@
 -- indicates that your Spot request is highly likely to succeed in this
@@ -76,29 +85,21 @@ newSpotPlacementScore =
 spotPlacementScore_score :: Lens.Lens' SpotPlacementScore (Prelude.Maybe Prelude.Int)
 spotPlacementScore_score = Lens.lens (\SpotPlacementScore' {score} -> score) (\s@SpotPlacementScore' {} a -> s {score = a} :: SpotPlacementScore)
 
--- | The Region.
-spotPlacementScore_region :: Lens.Lens' SpotPlacementScore (Prelude.Maybe Prelude.Text)
-spotPlacementScore_region = Lens.lens (\SpotPlacementScore' {region} -> region) (\s@SpotPlacementScore' {} a -> s {region = a} :: SpotPlacementScore)
-
--- | The Availability Zone.
-spotPlacementScore_availabilityZoneId :: Lens.Lens' SpotPlacementScore (Prelude.Maybe Prelude.Text)
-spotPlacementScore_availabilityZoneId = Lens.lens (\SpotPlacementScore' {availabilityZoneId} -> availabilityZoneId) (\s@SpotPlacementScore' {} a -> s {availabilityZoneId = a} :: SpotPlacementScore)
-
 instance Data.FromXML SpotPlacementScore where
   parseXML x =
     SpotPlacementScore'
-      Prelude.<$> (x Data..@? "score")
+      Prelude.<$> (x Data..@? "availabilityZoneId")
       Prelude.<*> (x Data..@? "region")
-      Prelude.<*> (x Data..@? "availabilityZoneId")
+      Prelude.<*> (x Data..@? "score")
 
 instance Prelude.Hashable SpotPlacementScore where
   hashWithSalt _salt SpotPlacementScore' {..} =
-    _salt `Prelude.hashWithSalt` score
+    _salt `Prelude.hashWithSalt` availabilityZoneId
       `Prelude.hashWithSalt` region
-      `Prelude.hashWithSalt` availabilityZoneId
+      `Prelude.hashWithSalt` score
 
 instance Prelude.NFData SpotPlacementScore where
   rnf SpotPlacementScore' {..} =
-    Prelude.rnf score
+    Prelude.rnf availabilityZoneId
       `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf availabilityZoneId
+      `Prelude.seq` Prelude.rnf score

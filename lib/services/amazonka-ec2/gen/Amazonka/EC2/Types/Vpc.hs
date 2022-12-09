@@ -34,16 +34,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVpc' smart constructor.
 data Vpc = Vpc'
-  { -- | Any tags assigned to the VPC.
-    tags :: Prelude.Maybe [Tag],
-    -- | The ID of the Amazon Web Services account that owns the VPC.
-    ownerId :: Prelude.Maybe Prelude.Text,
+  { -- | Information about the IPv4 CIDR blocks associated with the VPC.
+    cidrBlockAssociationSet :: Prelude.Maybe [VpcCidrBlockAssociation],
     -- | Information about the IPv6 CIDR blocks associated with the VPC.
     ipv6CidrBlockAssociationSet :: Prelude.Maybe [VpcIpv6CidrBlockAssociation],
     -- | Indicates whether the VPC is the default VPC.
     isDefault :: Prelude.Maybe Prelude.Bool,
-    -- | Information about the IPv4 CIDR blocks associated with the VPC.
-    cidrBlockAssociationSet :: Prelude.Maybe [VpcCidrBlockAssociation],
+    -- | The ID of the Amazon Web Services account that owns the VPC.
+    ownerId :: Prelude.Maybe Prelude.Text,
+    -- | Any tags assigned to the VPC.
+    tags :: Prelude.Maybe [Tag],
     -- | The primary IPv4 CIDR block for the VPC.
     cidrBlock :: Prelude.Text,
     -- | The ID of the set of DHCP options you\'ve associated with the VPC.
@@ -65,15 +65,15 @@ data Vpc = Vpc'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'vpc_tags' - Any tags assigned to the VPC.
---
--- 'ownerId', 'vpc_ownerId' - The ID of the Amazon Web Services account that owns the VPC.
+-- 'cidrBlockAssociationSet', 'vpc_cidrBlockAssociationSet' - Information about the IPv4 CIDR blocks associated with the VPC.
 --
 -- 'ipv6CidrBlockAssociationSet', 'vpc_ipv6CidrBlockAssociationSet' - Information about the IPv6 CIDR blocks associated with the VPC.
 --
 -- 'isDefault', 'vpc_isDefault' - Indicates whether the VPC is the default VPC.
 --
--- 'cidrBlockAssociationSet', 'vpc_cidrBlockAssociationSet' - Information about the IPv4 CIDR blocks associated with the VPC.
+-- 'ownerId', 'vpc_ownerId' - The ID of the Amazon Web Services account that owns the VPC.
+--
+-- 'tags', 'vpc_tags' - Any tags assigned to the VPC.
 --
 -- 'cidrBlock', 'vpc_cidrBlock' - The primary IPv4 CIDR block for the VPC.
 --
@@ -103,11 +103,11 @@ newVpc
   pState_
   pVpcId_ =
     Vpc'
-      { tags = Prelude.Nothing,
-        ownerId = Prelude.Nothing,
+      { cidrBlockAssociationSet = Prelude.Nothing,
         ipv6CidrBlockAssociationSet = Prelude.Nothing,
         isDefault = Prelude.Nothing,
-        cidrBlockAssociationSet = Prelude.Nothing,
+        ownerId = Prelude.Nothing,
+        tags = Prelude.Nothing,
         cidrBlock = pCidrBlock_,
         dhcpOptionsId = pDhcpOptionsId_,
         instanceTenancy = pInstanceTenancy_,
@@ -115,13 +115,9 @@ newVpc
         vpcId = pVpcId_
       }
 
--- | Any tags assigned to the VPC.
-vpc_tags :: Lens.Lens' Vpc (Prelude.Maybe [Tag])
-vpc_tags = Lens.lens (\Vpc' {tags} -> tags) (\s@Vpc' {} a -> s {tags = a} :: Vpc) Prelude.. Lens.mapping Lens.coerced
-
--- | The ID of the Amazon Web Services account that owns the VPC.
-vpc_ownerId :: Lens.Lens' Vpc (Prelude.Maybe Prelude.Text)
-vpc_ownerId = Lens.lens (\Vpc' {ownerId} -> ownerId) (\s@Vpc' {} a -> s {ownerId = a} :: Vpc)
+-- | Information about the IPv4 CIDR blocks associated with the VPC.
+vpc_cidrBlockAssociationSet :: Lens.Lens' Vpc (Prelude.Maybe [VpcCidrBlockAssociation])
+vpc_cidrBlockAssociationSet = Lens.lens (\Vpc' {cidrBlockAssociationSet} -> cidrBlockAssociationSet) (\s@Vpc' {} a -> s {cidrBlockAssociationSet = a} :: Vpc) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about the IPv6 CIDR blocks associated with the VPC.
 vpc_ipv6CidrBlockAssociationSet :: Lens.Lens' Vpc (Prelude.Maybe [VpcIpv6CidrBlockAssociation])
@@ -131,9 +127,13 @@ vpc_ipv6CidrBlockAssociationSet = Lens.lens (\Vpc' {ipv6CidrBlockAssociationSet}
 vpc_isDefault :: Lens.Lens' Vpc (Prelude.Maybe Prelude.Bool)
 vpc_isDefault = Lens.lens (\Vpc' {isDefault} -> isDefault) (\s@Vpc' {} a -> s {isDefault = a} :: Vpc)
 
--- | Information about the IPv4 CIDR blocks associated with the VPC.
-vpc_cidrBlockAssociationSet :: Lens.Lens' Vpc (Prelude.Maybe [VpcCidrBlockAssociation])
-vpc_cidrBlockAssociationSet = Lens.lens (\Vpc' {cidrBlockAssociationSet} -> cidrBlockAssociationSet) (\s@Vpc' {} a -> s {cidrBlockAssociationSet = a} :: Vpc) Prelude.. Lens.mapping Lens.coerced
+-- | The ID of the Amazon Web Services account that owns the VPC.
+vpc_ownerId :: Lens.Lens' Vpc (Prelude.Maybe Prelude.Text)
+vpc_ownerId = Lens.lens (\Vpc' {ownerId} -> ownerId) (\s@Vpc' {} a -> s {ownerId = a} :: Vpc)
+
+-- | Any tags assigned to the VPC.
+vpc_tags :: Lens.Lens' Vpc (Prelude.Maybe [Tag])
+vpc_tags = Lens.lens (\Vpc' {tags} -> tags) (\s@Vpc' {} a -> s {tags = a} :: Vpc) Prelude.. Lens.mapping Lens.coerced
 
 -- | The primary IPv4 CIDR block for the VPC.
 vpc_cidrBlock :: Lens.Lens' Vpc Prelude.Text
@@ -158,17 +158,17 @@ vpc_vpcId = Lens.lens (\Vpc' {vpcId} -> vpcId) (\s@Vpc' {} a -> s {vpcId = a} ::
 instance Data.FromXML Vpc where
   parseXML x =
     Vpc'
-      Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "cidrBlockAssociationSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Data..@? "ownerId")
       Prelude.<*> ( x Data..@? "ipv6CidrBlockAssociationSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "isDefault")
-      Prelude.<*> ( x Data..@? "cidrBlockAssociationSet"
-                      Core..!@ Prelude.mempty
+      Prelude.<*> (x Data..@? "ownerId")
+      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@ "cidrBlock")
@@ -179,11 +179,12 @@ instance Data.FromXML Vpc where
 
 instance Prelude.Hashable Vpc where
   hashWithSalt _salt Vpc' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` ownerId
+    _salt
+      `Prelude.hashWithSalt` cidrBlockAssociationSet
       `Prelude.hashWithSalt` ipv6CidrBlockAssociationSet
       `Prelude.hashWithSalt` isDefault
-      `Prelude.hashWithSalt` cidrBlockAssociationSet
+      `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` cidrBlock
       `Prelude.hashWithSalt` dhcpOptionsId
       `Prelude.hashWithSalt` instanceTenancy
@@ -192,11 +193,11 @@ instance Prelude.Hashable Vpc where
 
 instance Prelude.NFData Vpc where
   rnf Vpc' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf ownerId
+    Prelude.rnf cidrBlockAssociationSet
       `Prelude.seq` Prelude.rnf ipv6CidrBlockAssociationSet
       `Prelude.seq` Prelude.rnf isDefault
-      `Prelude.seq` Prelude.rnf cidrBlockAssociationSet
+      `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf cidrBlock
       `Prelude.seq` Prelude.rnf dhcpOptionsId
       `Prelude.seq` Prelude.rnf instanceTenancy

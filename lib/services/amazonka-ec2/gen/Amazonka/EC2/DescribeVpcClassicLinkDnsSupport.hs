@@ -41,9 +41,9 @@ module Amazonka.EC2.DescribeVpcClassicLinkDnsSupport
     newDescribeVpcClassicLinkDnsSupport,
 
     -- * Request Lenses
+    describeVpcClassicLinkDnsSupport_maxResults,
     describeVpcClassicLinkDnsSupport_nextToken,
     describeVpcClassicLinkDnsSupport_vpcIds,
-    describeVpcClassicLinkDnsSupport_maxResults,
 
     -- * Destructuring the Response
     DescribeVpcClassicLinkDnsSupportResponse (..),
@@ -66,14 +66,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeVpcClassicLinkDnsSupport' smart constructor.
 data DescribeVpcClassicLinkDnsSupport = DescribeVpcClassicLinkDnsSupport'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | One or more VPC IDs.
-    vpcIds :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of results to return with a single call. To retrieve
+  { -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more VPC IDs.
+    vpcIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,22 +85,28 @@ data DescribeVpcClassicLinkDnsSupport = DescribeVpcClassicLinkDnsSupport'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeVpcClassicLinkDnsSupport_nextToken' - The token for the next page of results.
---
--- 'vpcIds', 'describeVpcClassicLinkDnsSupport_vpcIds' - One or more VPC IDs.
---
 -- 'maxResults', 'describeVpcClassicLinkDnsSupport_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
+--
+-- 'nextToken', 'describeVpcClassicLinkDnsSupport_nextToken' - The token for the next page of results.
+--
+-- 'vpcIds', 'describeVpcClassicLinkDnsSupport_vpcIds' - One or more VPC IDs.
 newDescribeVpcClassicLinkDnsSupport ::
   DescribeVpcClassicLinkDnsSupport
 newDescribeVpcClassicLinkDnsSupport =
   DescribeVpcClassicLinkDnsSupport'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      vpcIds = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      vpcIds = Prelude.Nothing
     }
+
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+describeVpcClassicLinkDnsSupport_maxResults :: Lens.Lens' DescribeVpcClassicLinkDnsSupport (Prelude.Maybe Prelude.Natural)
+describeVpcClassicLinkDnsSupport_maxResults = Lens.lens (\DescribeVpcClassicLinkDnsSupport' {maxResults} -> maxResults) (\s@DescribeVpcClassicLinkDnsSupport' {} a -> s {maxResults = a} :: DescribeVpcClassicLinkDnsSupport)
 
 -- | The token for the next page of results.
 describeVpcClassicLinkDnsSupport_nextToken :: Lens.Lens' DescribeVpcClassicLinkDnsSupport (Prelude.Maybe Prelude.Text)
@@ -109,12 +115,6 @@ describeVpcClassicLinkDnsSupport_nextToken = Lens.lens (\DescribeVpcClassicLinkD
 -- | One or more VPC IDs.
 describeVpcClassicLinkDnsSupport_vpcIds :: Lens.Lens' DescribeVpcClassicLinkDnsSupport (Prelude.Maybe [Prelude.Text])
 describeVpcClassicLinkDnsSupport_vpcIds = Lens.lens (\DescribeVpcClassicLinkDnsSupport' {vpcIds} -> vpcIds) (\s@DescribeVpcClassicLinkDnsSupport' {} a -> s {vpcIds = a} :: DescribeVpcClassicLinkDnsSupport) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-describeVpcClassicLinkDnsSupport_maxResults :: Lens.Lens' DescribeVpcClassicLinkDnsSupport (Prelude.Maybe Prelude.Natural)
-describeVpcClassicLinkDnsSupport_maxResults = Lens.lens (\DescribeVpcClassicLinkDnsSupport' {maxResults} -> maxResults) (\s@DescribeVpcClassicLinkDnsSupport' {} a -> s {maxResults = a} :: DescribeVpcClassicLinkDnsSupport)
 
 instance
   Core.AWSPager
@@ -168,18 +168,18 @@ instance
   hashWithSalt
     _salt
     DescribeVpcClassicLinkDnsSupport' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` vpcIds
-        `Prelude.hashWithSalt` maxResults
 
 instance
   Prelude.NFData
     DescribeVpcClassicLinkDnsSupport
   where
   rnf DescribeVpcClassicLinkDnsSupport' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf vpcIds
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance
   Data.ToHeaders
@@ -202,10 +202,10 @@ instance
                   ),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "MaxResults" Data.=: maxResults,
         "NextToken" Data.=: nextToken,
         Data.toQuery
-          (Data.toQueryList "VpcIds" Prelude.<$> vpcIds),
-        "MaxResults" Data.=: maxResults
+          (Data.toQueryList "VpcIds" Prelude.<$> vpcIds)
       ]
 
 -- | /See:/ 'newDescribeVpcClassicLinkDnsSupportResponse' smart constructor.

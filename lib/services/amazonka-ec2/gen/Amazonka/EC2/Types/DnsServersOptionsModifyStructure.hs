@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDnsServersOptionsModifyStructure' smart constructor.
 data DnsServersOptionsModifyStructure = DnsServersOptionsModifyStructure'
-  { -- | Indicates whether DNS servers should be used. Specify @False@ to delete
-    -- the existing DNS servers.
-    enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The IPv4 address range, in CIDR notation, of the DNS servers to be used.
+  { -- | The IPv4 address range, in CIDR notation, of the DNS servers to be used.
     -- You can specify up to two DNS servers. Ensure that the DNS servers can
     -- be reached by the clients. The specified values overwrite the existing
     -- values.
-    customDnsServers :: Prelude.Maybe [Prelude.Text]
+    customDnsServers :: Prelude.Maybe [Prelude.Text],
+    -- | Indicates whether DNS servers should be used. Specify @False@ to delete
+    -- the existing DNS servers.
+    enabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,26 +48,21 @@ data DnsServersOptionsModifyStructure = DnsServersOptionsModifyStructure'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enabled', 'dnsServersOptionsModifyStructure_enabled' - Indicates whether DNS servers should be used. Specify @False@ to delete
--- the existing DNS servers.
---
 -- 'customDnsServers', 'dnsServersOptionsModifyStructure_customDnsServers' - The IPv4 address range, in CIDR notation, of the DNS servers to be used.
 -- You can specify up to two DNS servers. Ensure that the DNS servers can
 -- be reached by the clients. The specified values overwrite the existing
 -- values.
+--
+-- 'enabled', 'dnsServersOptionsModifyStructure_enabled' - Indicates whether DNS servers should be used. Specify @False@ to delete
+-- the existing DNS servers.
 newDnsServersOptionsModifyStructure ::
   DnsServersOptionsModifyStructure
 newDnsServersOptionsModifyStructure =
   DnsServersOptionsModifyStructure'
-    { enabled =
+    { customDnsServers =
         Prelude.Nothing,
-      customDnsServers = Prelude.Nothing
+      enabled = Prelude.Nothing
     }
-
--- | Indicates whether DNS servers should be used. Specify @False@ to delete
--- the existing DNS servers.
-dnsServersOptionsModifyStructure_enabled :: Lens.Lens' DnsServersOptionsModifyStructure (Prelude.Maybe Prelude.Bool)
-dnsServersOptionsModifyStructure_enabled = Lens.lens (\DnsServersOptionsModifyStructure' {enabled} -> enabled) (\s@DnsServersOptionsModifyStructure' {} a -> s {enabled = a} :: DnsServersOptionsModifyStructure)
 
 -- | The IPv4 address range, in CIDR notation, of the DNS servers to be used.
 -- You can specify up to two DNS servers. Ensure that the DNS servers can
@@ -76,6 +71,11 @@ dnsServersOptionsModifyStructure_enabled = Lens.lens (\DnsServersOptionsModifySt
 dnsServersOptionsModifyStructure_customDnsServers :: Lens.Lens' DnsServersOptionsModifyStructure (Prelude.Maybe [Prelude.Text])
 dnsServersOptionsModifyStructure_customDnsServers = Lens.lens (\DnsServersOptionsModifyStructure' {customDnsServers} -> customDnsServers) (\s@DnsServersOptionsModifyStructure' {} a -> s {customDnsServers = a} :: DnsServersOptionsModifyStructure) Prelude.. Lens.mapping Lens.coerced
 
+-- | Indicates whether DNS servers should be used. Specify @False@ to delete
+-- the existing DNS servers.
+dnsServersOptionsModifyStructure_enabled :: Lens.Lens' DnsServersOptionsModifyStructure (Prelude.Maybe Prelude.Bool)
+dnsServersOptionsModifyStructure_enabled = Lens.lens (\DnsServersOptionsModifyStructure' {enabled} -> enabled) (\s@DnsServersOptionsModifyStructure' {} a -> s {enabled = a} :: DnsServersOptionsModifyStructure)
+
 instance
   Prelude.Hashable
     DnsServersOptionsModifyStructure
@@ -83,16 +83,16 @@ instance
   hashWithSalt
     _salt
     DnsServersOptionsModifyStructure' {..} =
-      _salt `Prelude.hashWithSalt` enabled
-        `Prelude.hashWithSalt` customDnsServers
+      _salt `Prelude.hashWithSalt` customDnsServers
+        `Prelude.hashWithSalt` enabled
 
 instance
   Prelude.NFData
     DnsServersOptionsModifyStructure
   where
   rnf DnsServersOptionsModifyStructure' {..} =
-    Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf customDnsServers
+    Prelude.rnf customDnsServers
+      `Prelude.seq` Prelude.rnf enabled
 
 instance
   Data.ToQuery
@@ -100,9 +100,9 @@ instance
   where
   toQuery DnsServersOptionsModifyStructure' {..} =
     Prelude.mconcat
-      [ "Enabled" Data.=: enabled,
-        Data.toQuery
+      [ Data.toQuery
           ( Data.toQueryList "CustomDnsServers"
               Prelude.<$> customDnsServers
-          )
+          ),
+        "Enabled" Data.=: enabled
       ]

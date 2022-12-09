@@ -31,18 +31,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStaleSecurityGroup' smart constructor.
 data StaleSecurityGroup = StaleSecurityGroup'
-  { -- | Information about the stale inbound rules in the security group.
-    staleIpPermissions :: Prelude.Maybe [StaleIpPermission],
+  { -- | The description of the security group.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the security group.
+    groupId :: Prelude.Maybe Prelude.Text,
     -- | The name of the security group.
     groupName :: Prelude.Maybe Prelude.Text,
-    -- | The description of the security group.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | Information about the stale inbound rules in the security group.
+    staleIpPermissions :: Prelude.Maybe [StaleIpPermission],
     -- | Information about the stale outbound rules in the security group.
     staleIpPermissionsEgress :: Prelude.Maybe [StaleIpPermission],
     -- | The ID of the VPC for the security group.
-    vpcId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the security group.
-    groupId :: Prelude.Maybe Prelude.Text
+    vpcId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,41 +54,44 @@ data StaleSecurityGroup = StaleSecurityGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'staleIpPermissions', 'staleSecurityGroup_staleIpPermissions' - Information about the stale inbound rules in the security group.
+-- 'description', 'staleSecurityGroup_description' - The description of the security group.
+--
+-- 'groupId', 'staleSecurityGroup_groupId' - The ID of the security group.
 --
 -- 'groupName', 'staleSecurityGroup_groupName' - The name of the security group.
 --
--- 'description', 'staleSecurityGroup_description' - The description of the security group.
+-- 'staleIpPermissions', 'staleSecurityGroup_staleIpPermissions' - Information about the stale inbound rules in the security group.
 --
 -- 'staleIpPermissionsEgress', 'staleSecurityGroup_staleIpPermissionsEgress' - Information about the stale outbound rules in the security group.
 --
 -- 'vpcId', 'staleSecurityGroup_vpcId' - The ID of the VPC for the security group.
---
--- 'groupId', 'staleSecurityGroup_groupId' - The ID of the security group.
 newStaleSecurityGroup ::
   StaleSecurityGroup
 newStaleSecurityGroup =
   StaleSecurityGroup'
-    { staleIpPermissions =
-        Prelude.Nothing,
+    { description = Prelude.Nothing,
+      groupId = Prelude.Nothing,
       groupName = Prelude.Nothing,
-      description = Prelude.Nothing,
+      staleIpPermissions = Prelude.Nothing,
       staleIpPermissionsEgress = Prelude.Nothing,
-      vpcId = Prelude.Nothing,
-      groupId = Prelude.Nothing
+      vpcId = Prelude.Nothing
     }
 
--- | Information about the stale inbound rules in the security group.
-staleSecurityGroup_staleIpPermissions :: Lens.Lens' StaleSecurityGroup (Prelude.Maybe [StaleIpPermission])
-staleSecurityGroup_staleIpPermissions = Lens.lens (\StaleSecurityGroup' {staleIpPermissions} -> staleIpPermissions) (\s@StaleSecurityGroup' {} a -> s {staleIpPermissions = a} :: StaleSecurityGroup) Prelude.. Lens.mapping Lens.coerced
+-- | The description of the security group.
+staleSecurityGroup_description :: Lens.Lens' StaleSecurityGroup (Prelude.Maybe Prelude.Text)
+staleSecurityGroup_description = Lens.lens (\StaleSecurityGroup' {description} -> description) (\s@StaleSecurityGroup' {} a -> s {description = a} :: StaleSecurityGroup)
+
+-- | The ID of the security group.
+staleSecurityGroup_groupId :: Lens.Lens' StaleSecurityGroup (Prelude.Maybe Prelude.Text)
+staleSecurityGroup_groupId = Lens.lens (\StaleSecurityGroup' {groupId} -> groupId) (\s@StaleSecurityGroup' {} a -> s {groupId = a} :: StaleSecurityGroup)
 
 -- | The name of the security group.
 staleSecurityGroup_groupName :: Lens.Lens' StaleSecurityGroup (Prelude.Maybe Prelude.Text)
 staleSecurityGroup_groupName = Lens.lens (\StaleSecurityGroup' {groupName} -> groupName) (\s@StaleSecurityGroup' {} a -> s {groupName = a} :: StaleSecurityGroup)
 
--- | The description of the security group.
-staleSecurityGroup_description :: Lens.Lens' StaleSecurityGroup (Prelude.Maybe Prelude.Text)
-staleSecurityGroup_description = Lens.lens (\StaleSecurityGroup' {description} -> description) (\s@StaleSecurityGroup' {} a -> s {description = a} :: StaleSecurityGroup)
+-- | Information about the stale inbound rules in the security group.
+staleSecurityGroup_staleIpPermissions :: Lens.Lens' StaleSecurityGroup (Prelude.Maybe [StaleIpPermission])
+staleSecurityGroup_staleIpPermissions = Lens.lens (\StaleSecurityGroup' {staleIpPermissions} -> staleIpPermissions) (\s@StaleSecurityGroup' {} a -> s {staleIpPermissions = a} :: StaleSecurityGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about the stale outbound rules in the security group.
 staleSecurityGroup_staleIpPermissionsEgress :: Lens.Lens' StaleSecurityGroup (Prelude.Maybe [StaleIpPermission])
@@ -98,40 +101,36 @@ staleSecurityGroup_staleIpPermissionsEgress = Lens.lens (\StaleSecurityGroup' {s
 staleSecurityGroup_vpcId :: Lens.Lens' StaleSecurityGroup (Prelude.Maybe Prelude.Text)
 staleSecurityGroup_vpcId = Lens.lens (\StaleSecurityGroup' {vpcId} -> vpcId) (\s@StaleSecurityGroup' {} a -> s {vpcId = a} :: StaleSecurityGroup)
 
--- | The ID of the security group.
-staleSecurityGroup_groupId :: Lens.Lens' StaleSecurityGroup (Prelude.Maybe Prelude.Text)
-staleSecurityGroup_groupId = Lens.lens (\StaleSecurityGroup' {groupId} -> groupId) (\s@StaleSecurityGroup' {} a -> s {groupId = a} :: StaleSecurityGroup)
-
 instance Data.FromXML StaleSecurityGroup where
   parseXML x =
     StaleSecurityGroup'
-      Prelude.<$> ( x Data..@? "staleIpPermissions"
+      Prelude.<$> (x Data..@? "description")
+      Prelude.<*> (x Data..@? "groupId")
+      Prelude.<*> (x Data..@? "groupName")
+      Prelude.<*> ( x Data..@? "staleIpPermissions"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Data..@? "groupName")
-      Prelude.<*> (x Data..@? "description")
       Prelude.<*> ( x Data..@? "staleIpPermissionsEgress"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vpcId")
-      Prelude.<*> (x Data..@? "groupId")
 
 instance Prelude.Hashable StaleSecurityGroup where
   hashWithSalt _salt StaleSecurityGroup' {..} =
-    _salt `Prelude.hashWithSalt` staleIpPermissions
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` groupName
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` staleIpPermissions
       `Prelude.hashWithSalt` staleIpPermissionsEgress
       `Prelude.hashWithSalt` vpcId
-      `Prelude.hashWithSalt` groupId
 
 instance Prelude.NFData StaleSecurityGroup where
   rnf StaleSecurityGroup' {..} =
-    Prelude.rnf staleIpPermissions
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf groupId
       `Prelude.seq` Prelude.rnf groupName
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf staleIpPermissions
       `Prelude.seq` Prelude.rnf staleIpPermissionsEgress
       `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf groupId

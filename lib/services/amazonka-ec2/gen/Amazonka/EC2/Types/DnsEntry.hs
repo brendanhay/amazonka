@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDnsEntry' smart constructor.
 data DnsEntry = DnsEntry'
-  { -- | The ID of the private hosted zone.
-    hostedZoneId :: Prelude.Maybe Prelude.Text,
-    -- | The DNS name.
-    dnsName :: Prelude.Maybe Prelude.Text
+  { -- | The DNS name.
+    dnsName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the private hosted zone.
+    hostedZoneId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,37 +44,37 @@ data DnsEntry = DnsEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hostedZoneId', 'dnsEntry_hostedZoneId' - The ID of the private hosted zone.
---
 -- 'dnsName', 'dnsEntry_dnsName' - The DNS name.
+--
+-- 'hostedZoneId', 'dnsEntry_hostedZoneId' - The ID of the private hosted zone.
 newDnsEntry ::
   DnsEntry
 newDnsEntry =
   DnsEntry'
-    { hostedZoneId = Prelude.Nothing,
-      dnsName = Prelude.Nothing
+    { dnsName = Prelude.Nothing,
+      hostedZoneId = Prelude.Nothing
     }
-
--- | The ID of the private hosted zone.
-dnsEntry_hostedZoneId :: Lens.Lens' DnsEntry (Prelude.Maybe Prelude.Text)
-dnsEntry_hostedZoneId = Lens.lens (\DnsEntry' {hostedZoneId} -> hostedZoneId) (\s@DnsEntry' {} a -> s {hostedZoneId = a} :: DnsEntry)
 
 -- | The DNS name.
 dnsEntry_dnsName :: Lens.Lens' DnsEntry (Prelude.Maybe Prelude.Text)
 dnsEntry_dnsName = Lens.lens (\DnsEntry' {dnsName} -> dnsName) (\s@DnsEntry' {} a -> s {dnsName = a} :: DnsEntry)
 
+-- | The ID of the private hosted zone.
+dnsEntry_hostedZoneId :: Lens.Lens' DnsEntry (Prelude.Maybe Prelude.Text)
+dnsEntry_hostedZoneId = Lens.lens (\DnsEntry' {hostedZoneId} -> hostedZoneId) (\s@DnsEntry' {} a -> s {hostedZoneId = a} :: DnsEntry)
+
 instance Data.FromXML DnsEntry where
   parseXML x =
     DnsEntry'
-      Prelude.<$> (x Data..@? "hostedZoneId")
-      Prelude.<*> (x Data..@? "dnsName")
+      Prelude.<$> (x Data..@? "dnsName")
+      Prelude.<*> (x Data..@? "hostedZoneId")
 
 instance Prelude.Hashable DnsEntry where
   hashWithSalt _salt DnsEntry' {..} =
-    _salt `Prelude.hashWithSalt` hostedZoneId
-      `Prelude.hashWithSalt` dnsName
+    _salt `Prelude.hashWithSalt` dnsName
+      `Prelude.hashWithSalt` hostedZoneId
 
 instance Prelude.NFData DnsEntry where
   rnf DnsEntry' {..} =
-    Prelude.rnf hostedZoneId
-      `Prelude.seq` Prelude.rnf dnsName
+    Prelude.rnf dnsName
+      `Prelude.seq` Prelude.rnf hostedZoneId

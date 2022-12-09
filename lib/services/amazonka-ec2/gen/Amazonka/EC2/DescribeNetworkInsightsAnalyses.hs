@@ -29,22 +29,22 @@ module Amazonka.EC2.DescribeNetworkInsightsAnalyses
     newDescribeNetworkInsightsAnalyses,
 
     -- * Request Lenses
-    describeNetworkInsightsAnalyses_nextToken,
-    describeNetworkInsightsAnalyses_filters,
-    describeNetworkInsightsAnalyses_dryRun,
-    describeNetworkInsightsAnalyses_analysisStartTime,
     describeNetworkInsightsAnalyses_analysisEndTime,
-    describeNetworkInsightsAnalyses_networkInsightsAnalysisIds,
+    describeNetworkInsightsAnalyses_analysisStartTime,
+    describeNetworkInsightsAnalyses_dryRun,
+    describeNetworkInsightsAnalyses_filters,
     describeNetworkInsightsAnalyses_maxResults,
+    describeNetworkInsightsAnalyses_networkInsightsAnalysisIds,
     describeNetworkInsightsAnalyses_networkInsightsPathId,
+    describeNetworkInsightsAnalyses_nextToken,
 
     -- * Destructuring the Response
     DescribeNetworkInsightsAnalysesResponse (..),
     newDescribeNetworkInsightsAnalysesResponse,
 
     -- * Response Lenses
-    describeNetworkInsightsAnalysesResponse_nextToken,
     describeNetworkInsightsAnalysesResponse_networkInsightsAnalyses,
+    describeNetworkInsightsAnalysesResponse_nextToken,
     describeNetworkInsightsAnalysesResponse_httpStatus,
   )
 where
@@ -59,8 +59,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeNetworkInsightsAnalyses' smart constructor.
 data DescribeNetworkInsightsAnalyses = DescribeNetworkInsightsAnalyses'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The time when the network insights analyses ended.
+    analysisEndTime :: Prelude.Maybe Data.ISO8601,
+    -- | The time when the network insights analyses started.
+    analysisStartTime :: Prelude.Maybe Data.ISO8601,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The filters. The following are the possible values:
     --
     -- -   path-found - A Boolean value that indicates whether a feasible path
@@ -68,24 +75,17 @@ data DescribeNetworkInsightsAnalyses = DescribeNetworkInsightsAnalyses'
     --
     -- -   status - The status of the analysis (running | succeeded | failed).
     filters :: Prelude.Maybe [Filter],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The time when the network insights analyses started.
-    analysisStartTime :: Prelude.Maybe Data.ISO8601,
-    -- | The time when the network insights analyses ended.
-    analysisEndTime :: Prelude.Maybe Data.ISO8601,
-    -- | The ID of the network insights analyses. You must specify either
-    -- analysis IDs or a path ID.
-    networkInsightsAnalysisIds :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The ID of the network insights analyses. You must specify either
+    -- analysis IDs or a path ID.
+    networkInsightsAnalysisIds :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the path. You must specify either a path ID or analysis IDs.
-    networkInsightsPathId :: Prelude.Maybe Prelude.Text
+    networkInsightsPathId :: Prelude.Maybe Prelude.Text,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -97,7 +97,14 @@ data DescribeNetworkInsightsAnalyses = DescribeNetworkInsightsAnalyses'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeNetworkInsightsAnalyses_nextToken' - The token for the next page of results.
+-- 'analysisEndTime', 'describeNetworkInsightsAnalyses_analysisEndTime' - The time when the network insights analyses ended.
+--
+-- 'analysisStartTime', 'describeNetworkInsightsAnalyses_analysisStartTime' - The time when the network insights analyses started.
+--
+-- 'dryRun', 'describeNetworkInsightsAnalyses_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeNetworkInsightsAnalyses_filters' - The filters. The following are the possible values:
 --
@@ -106,42 +113,46 @@ data DescribeNetworkInsightsAnalyses = DescribeNetworkInsightsAnalyses'
 --
 -- -   status - The status of the analysis (running | succeeded | failed).
 --
--- 'dryRun', 'describeNetworkInsightsAnalyses_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
--- 'analysisStartTime', 'describeNetworkInsightsAnalyses_analysisStartTime' - The time when the network insights analyses started.
---
--- 'analysisEndTime', 'describeNetworkInsightsAnalyses_analysisEndTime' - The time when the network insights analyses ended.
---
--- 'networkInsightsAnalysisIds', 'describeNetworkInsightsAnalyses_networkInsightsAnalysisIds' - The ID of the network insights analyses. You must specify either
--- analysis IDs or a path ID.
---
 -- 'maxResults', 'describeNetworkInsightsAnalyses_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
 --
+-- 'networkInsightsAnalysisIds', 'describeNetworkInsightsAnalyses_networkInsightsAnalysisIds' - The ID of the network insights analyses. You must specify either
+-- analysis IDs or a path ID.
+--
 -- 'networkInsightsPathId', 'describeNetworkInsightsAnalyses_networkInsightsPathId' - The ID of the path. You must specify either a path ID or analysis IDs.
+--
+-- 'nextToken', 'describeNetworkInsightsAnalyses_nextToken' - The token for the next page of results.
 newDescribeNetworkInsightsAnalyses ::
   DescribeNetworkInsightsAnalyses
 newDescribeNetworkInsightsAnalyses =
   DescribeNetworkInsightsAnalyses'
-    { nextToken =
+    { analysisEndTime =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       analysisStartTime = Prelude.Nothing,
-      analysisEndTime = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       networkInsightsAnalysisIds =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      networkInsightsPathId = Prelude.Nothing
+      networkInsightsPathId = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
 
--- | The token for the next page of results.
-describeNetworkInsightsAnalyses_nextToken :: Lens.Lens' DescribeNetworkInsightsAnalyses (Prelude.Maybe Prelude.Text)
-describeNetworkInsightsAnalyses_nextToken = Lens.lens (\DescribeNetworkInsightsAnalyses' {nextToken} -> nextToken) (\s@DescribeNetworkInsightsAnalyses' {} a -> s {nextToken = a} :: DescribeNetworkInsightsAnalyses)
+-- | The time when the network insights analyses ended.
+describeNetworkInsightsAnalyses_analysisEndTime :: Lens.Lens' DescribeNetworkInsightsAnalyses (Prelude.Maybe Prelude.UTCTime)
+describeNetworkInsightsAnalyses_analysisEndTime = Lens.lens (\DescribeNetworkInsightsAnalyses' {analysisEndTime} -> analysisEndTime) (\s@DescribeNetworkInsightsAnalyses' {} a -> s {analysisEndTime = a} :: DescribeNetworkInsightsAnalyses) Prelude.. Lens.mapping Data._Time
+
+-- | The time when the network insights analyses started.
+describeNetworkInsightsAnalyses_analysisStartTime :: Lens.Lens' DescribeNetworkInsightsAnalyses (Prelude.Maybe Prelude.UTCTime)
+describeNetworkInsightsAnalyses_analysisStartTime = Lens.lens (\DescribeNetworkInsightsAnalyses' {analysisStartTime} -> analysisStartTime) (\s@DescribeNetworkInsightsAnalyses' {} a -> s {analysisStartTime = a} :: DescribeNetworkInsightsAnalyses) Prelude.. Lens.mapping Data._Time
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeNetworkInsightsAnalyses_dryRun :: Lens.Lens' DescribeNetworkInsightsAnalyses (Prelude.Maybe Prelude.Bool)
+describeNetworkInsightsAnalyses_dryRun = Lens.lens (\DescribeNetworkInsightsAnalyses' {dryRun} -> dryRun) (\s@DescribeNetworkInsightsAnalyses' {} a -> s {dryRun = a} :: DescribeNetworkInsightsAnalyses)
 
 -- | The filters. The following are the possible values:
 --
@@ -152,35 +163,24 @@ describeNetworkInsightsAnalyses_nextToken = Lens.lens (\DescribeNetworkInsightsA
 describeNetworkInsightsAnalyses_filters :: Lens.Lens' DescribeNetworkInsightsAnalyses (Prelude.Maybe [Filter])
 describeNetworkInsightsAnalyses_filters = Lens.lens (\DescribeNetworkInsightsAnalyses' {filters} -> filters) (\s@DescribeNetworkInsightsAnalyses' {} a -> s {filters = a} :: DescribeNetworkInsightsAnalyses) Prelude.. Lens.mapping Lens.coerced
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeNetworkInsightsAnalyses_dryRun :: Lens.Lens' DescribeNetworkInsightsAnalyses (Prelude.Maybe Prelude.Bool)
-describeNetworkInsightsAnalyses_dryRun = Lens.lens (\DescribeNetworkInsightsAnalyses' {dryRun} -> dryRun) (\s@DescribeNetworkInsightsAnalyses' {} a -> s {dryRun = a} :: DescribeNetworkInsightsAnalyses)
-
--- | The time when the network insights analyses started.
-describeNetworkInsightsAnalyses_analysisStartTime :: Lens.Lens' DescribeNetworkInsightsAnalyses (Prelude.Maybe Prelude.UTCTime)
-describeNetworkInsightsAnalyses_analysisStartTime = Lens.lens (\DescribeNetworkInsightsAnalyses' {analysisStartTime} -> analysisStartTime) (\s@DescribeNetworkInsightsAnalyses' {} a -> s {analysisStartTime = a} :: DescribeNetworkInsightsAnalyses) Prelude.. Lens.mapping Data._Time
-
--- | The time when the network insights analyses ended.
-describeNetworkInsightsAnalyses_analysisEndTime :: Lens.Lens' DescribeNetworkInsightsAnalyses (Prelude.Maybe Prelude.UTCTime)
-describeNetworkInsightsAnalyses_analysisEndTime = Lens.lens (\DescribeNetworkInsightsAnalyses' {analysisEndTime} -> analysisEndTime) (\s@DescribeNetworkInsightsAnalyses' {} a -> s {analysisEndTime = a} :: DescribeNetworkInsightsAnalyses) Prelude.. Lens.mapping Data._Time
-
--- | The ID of the network insights analyses. You must specify either
--- analysis IDs or a path ID.
-describeNetworkInsightsAnalyses_networkInsightsAnalysisIds :: Lens.Lens' DescribeNetworkInsightsAnalyses (Prelude.Maybe [Prelude.Text])
-describeNetworkInsightsAnalyses_networkInsightsAnalysisIds = Lens.lens (\DescribeNetworkInsightsAnalyses' {networkInsightsAnalysisIds} -> networkInsightsAnalysisIds) (\s@DescribeNetworkInsightsAnalyses' {} a -> s {networkInsightsAnalysisIds = a} :: DescribeNetworkInsightsAnalyses) Prelude.. Lens.mapping Lens.coerced
-
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
 describeNetworkInsightsAnalyses_maxResults :: Lens.Lens' DescribeNetworkInsightsAnalyses (Prelude.Maybe Prelude.Natural)
 describeNetworkInsightsAnalyses_maxResults = Lens.lens (\DescribeNetworkInsightsAnalyses' {maxResults} -> maxResults) (\s@DescribeNetworkInsightsAnalyses' {} a -> s {maxResults = a} :: DescribeNetworkInsightsAnalyses)
 
+-- | The ID of the network insights analyses. You must specify either
+-- analysis IDs or a path ID.
+describeNetworkInsightsAnalyses_networkInsightsAnalysisIds :: Lens.Lens' DescribeNetworkInsightsAnalyses (Prelude.Maybe [Prelude.Text])
+describeNetworkInsightsAnalyses_networkInsightsAnalysisIds = Lens.lens (\DescribeNetworkInsightsAnalyses' {networkInsightsAnalysisIds} -> networkInsightsAnalysisIds) (\s@DescribeNetworkInsightsAnalyses' {} a -> s {networkInsightsAnalysisIds = a} :: DescribeNetworkInsightsAnalyses) Prelude.. Lens.mapping Lens.coerced
+
 -- | The ID of the path. You must specify either a path ID or analysis IDs.
 describeNetworkInsightsAnalyses_networkInsightsPathId :: Lens.Lens' DescribeNetworkInsightsAnalyses (Prelude.Maybe Prelude.Text)
 describeNetworkInsightsAnalyses_networkInsightsPathId = Lens.lens (\DescribeNetworkInsightsAnalyses' {networkInsightsPathId} -> networkInsightsPathId) (\s@DescribeNetworkInsightsAnalyses' {} a -> s {networkInsightsPathId = a} :: DescribeNetworkInsightsAnalyses)
+
+-- | The token for the next page of results.
+describeNetworkInsightsAnalyses_nextToken :: Lens.Lens' DescribeNetworkInsightsAnalyses (Prelude.Maybe Prelude.Text)
+describeNetworkInsightsAnalyses_nextToken = Lens.lens (\DescribeNetworkInsightsAnalyses' {nextToken} -> nextToken) (\s@DescribeNetworkInsightsAnalyses' {} a -> s {nextToken = a} :: DescribeNetworkInsightsAnalyses)
 
 instance
   Core.AWSPager
@@ -220,11 +220,11 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeNetworkInsightsAnalysesResponse'
-            Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "networkInsightsAnalysisSet"
+            Prelude.<$> ( x Data..@? "networkInsightsAnalysisSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
+            Prelude.<*> (x Data..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -235,28 +235,28 @@ instance
   hashWithSalt
     _salt
     DescribeNetworkInsightsAnalyses' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` dryRun
+      _salt `Prelude.hashWithSalt` analysisEndTime
         `Prelude.hashWithSalt` analysisStartTime
-        `Prelude.hashWithSalt` analysisEndTime
-        `Prelude.hashWithSalt` networkInsightsAnalysisIds
+        `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` networkInsightsAnalysisIds
         `Prelude.hashWithSalt` networkInsightsPathId
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     DescribeNetworkInsightsAnalyses
   where
   rnf DescribeNetworkInsightsAnalyses' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf analysisEndTime
       `Prelude.seq` Prelude.rnf analysisStartTime
-      `Prelude.seq` Prelude.rnf analysisEndTime
-      `Prelude.seq` Prelude.rnf networkInsightsAnalysisIds
+      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf networkInsightsAnalysisIds
       `Prelude.seq` Prelude.rnf networkInsightsPathId
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -276,28 +276,28 @@ instance Data.ToQuery DescribeNetworkInsightsAnalyses where
                   ),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
+        "AnalysisEndTime" Data.=: analysisEndTime,
+        "AnalysisStartTime" Data.=: analysisStartTime,
+        "DryRun" Data.=: dryRun,
         Data.toQuery
           (Data.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Data.=: dryRun,
-        "AnalysisStartTime" Data.=: analysisStartTime,
-        "AnalysisEndTime" Data.=: analysisEndTime,
+        "MaxResults" Data.=: maxResults,
         Data.toQuery
           ( Data.toQueryList "NetworkInsightsAnalysisId"
               Prelude.<$> networkInsightsAnalysisIds
           ),
-        "MaxResults" Data.=: maxResults,
         "NetworkInsightsPathId"
-          Data.=: networkInsightsPathId
+          Data.=: networkInsightsPathId,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newDescribeNetworkInsightsAnalysesResponse' smart constructor.
 data DescribeNetworkInsightsAnalysesResponse = DescribeNetworkInsightsAnalysesResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
+  { -- | Information about the network insights analyses.
+    networkInsightsAnalyses :: Prelude.Maybe [NetworkInsightsAnalysis],
+    -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the network insights analyses.
-    networkInsightsAnalyses :: Prelude.Maybe [NetworkInsightsAnalysis],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -311,10 +311,10 @@ data DescribeNetworkInsightsAnalysesResponse = DescribeNetworkInsightsAnalysesRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'networkInsightsAnalyses', 'describeNetworkInsightsAnalysesResponse_networkInsightsAnalyses' - Information about the network insights analyses.
+--
 -- 'nextToken', 'describeNetworkInsightsAnalysesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
---
--- 'networkInsightsAnalyses', 'describeNetworkInsightsAnalysesResponse_networkInsightsAnalyses' - Information about the network insights analyses.
 --
 -- 'httpStatus', 'describeNetworkInsightsAnalysesResponse_httpStatus' - The response's http status code.
 newDescribeNetworkInsightsAnalysesResponse ::
@@ -324,21 +324,20 @@ newDescribeNetworkInsightsAnalysesResponse ::
 newDescribeNetworkInsightsAnalysesResponse
   pHttpStatus_ =
     DescribeNetworkInsightsAnalysesResponse'
-      { nextToken =
+      { networkInsightsAnalyses =
           Prelude.Nothing,
-        networkInsightsAnalyses =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | Information about the network insights analyses.
+describeNetworkInsightsAnalysesResponse_networkInsightsAnalyses :: Lens.Lens' DescribeNetworkInsightsAnalysesResponse (Prelude.Maybe [NetworkInsightsAnalysis])
+describeNetworkInsightsAnalysesResponse_networkInsightsAnalyses = Lens.lens (\DescribeNetworkInsightsAnalysesResponse' {networkInsightsAnalyses} -> networkInsightsAnalyses) (\s@DescribeNetworkInsightsAnalysesResponse' {} a -> s {networkInsightsAnalyses = a} :: DescribeNetworkInsightsAnalysesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 describeNetworkInsightsAnalysesResponse_nextToken :: Lens.Lens' DescribeNetworkInsightsAnalysesResponse (Prelude.Maybe Prelude.Text)
 describeNetworkInsightsAnalysesResponse_nextToken = Lens.lens (\DescribeNetworkInsightsAnalysesResponse' {nextToken} -> nextToken) (\s@DescribeNetworkInsightsAnalysesResponse' {} a -> s {nextToken = a} :: DescribeNetworkInsightsAnalysesResponse)
-
--- | Information about the network insights analyses.
-describeNetworkInsightsAnalysesResponse_networkInsightsAnalyses :: Lens.Lens' DescribeNetworkInsightsAnalysesResponse (Prelude.Maybe [NetworkInsightsAnalysis])
-describeNetworkInsightsAnalysesResponse_networkInsightsAnalyses = Lens.lens (\DescribeNetworkInsightsAnalysesResponse' {networkInsightsAnalyses} -> networkInsightsAnalyses) (\s@DescribeNetworkInsightsAnalysesResponse' {} a -> s {networkInsightsAnalyses = a} :: DescribeNetworkInsightsAnalysesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeNetworkInsightsAnalysesResponse_httpStatus :: Lens.Lens' DescribeNetworkInsightsAnalysesResponse Prelude.Int
@@ -349,6 +348,6 @@ instance
     DescribeNetworkInsightsAnalysesResponse
   where
   rnf DescribeNetworkInsightsAnalysesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf networkInsightsAnalyses
+    Prelude.rnf networkInsightsAnalyses
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

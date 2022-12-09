@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCoipAddressUsage' smart constructor.
 data CoipAddressUsage = CoipAddressUsage'
-  { -- | The Amazon Web Services account ID.
-    awsAccountId :: Prelude.Maybe Prelude.Text,
-    -- | The allocation ID of the address.
+  { -- | The allocation ID of the address.
     allocationId :: Prelude.Maybe Prelude.Text,
-    -- | The customer-owned IP address.
-    coIp :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services account ID.
+    awsAccountId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services service.
-    awsService :: Prelude.Maybe Prelude.Text
+    awsService :: Prelude.Maybe Prelude.Text,
+    -- | The customer-owned IP address.
+    coIp :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,57 +48,57 @@ data CoipAddressUsage = CoipAddressUsage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsAccountId', 'coipAddressUsage_awsAccountId' - The Amazon Web Services account ID.
---
 -- 'allocationId', 'coipAddressUsage_allocationId' - The allocation ID of the address.
 --
--- 'coIp', 'coipAddressUsage_coIp' - The customer-owned IP address.
+-- 'awsAccountId', 'coipAddressUsage_awsAccountId' - The Amazon Web Services account ID.
 --
 -- 'awsService', 'coipAddressUsage_awsService' - The Amazon Web Services service.
+--
+-- 'coIp', 'coipAddressUsage_coIp' - The customer-owned IP address.
 newCoipAddressUsage ::
   CoipAddressUsage
 newCoipAddressUsage =
   CoipAddressUsage'
-    { awsAccountId = Prelude.Nothing,
-      allocationId = Prelude.Nothing,
-      coIp = Prelude.Nothing,
-      awsService = Prelude.Nothing
+    { allocationId = Prelude.Nothing,
+      awsAccountId = Prelude.Nothing,
+      awsService = Prelude.Nothing,
+      coIp = Prelude.Nothing
     }
-
--- | The Amazon Web Services account ID.
-coipAddressUsage_awsAccountId :: Lens.Lens' CoipAddressUsage (Prelude.Maybe Prelude.Text)
-coipAddressUsage_awsAccountId = Lens.lens (\CoipAddressUsage' {awsAccountId} -> awsAccountId) (\s@CoipAddressUsage' {} a -> s {awsAccountId = a} :: CoipAddressUsage)
 
 -- | The allocation ID of the address.
 coipAddressUsage_allocationId :: Lens.Lens' CoipAddressUsage (Prelude.Maybe Prelude.Text)
 coipAddressUsage_allocationId = Lens.lens (\CoipAddressUsage' {allocationId} -> allocationId) (\s@CoipAddressUsage' {} a -> s {allocationId = a} :: CoipAddressUsage)
 
--- | The customer-owned IP address.
-coipAddressUsage_coIp :: Lens.Lens' CoipAddressUsage (Prelude.Maybe Prelude.Text)
-coipAddressUsage_coIp = Lens.lens (\CoipAddressUsage' {coIp} -> coIp) (\s@CoipAddressUsage' {} a -> s {coIp = a} :: CoipAddressUsage)
+-- | The Amazon Web Services account ID.
+coipAddressUsage_awsAccountId :: Lens.Lens' CoipAddressUsage (Prelude.Maybe Prelude.Text)
+coipAddressUsage_awsAccountId = Lens.lens (\CoipAddressUsage' {awsAccountId} -> awsAccountId) (\s@CoipAddressUsage' {} a -> s {awsAccountId = a} :: CoipAddressUsage)
 
 -- | The Amazon Web Services service.
 coipAddressUsage_awsService :: Lens.Lens' CoipAddressUsage (Prelude.Maybe Prelude.Text)
 coipAddressUsage_awsService = Lens.lens (\CoipAddressUsage' {awsService} -> awsService) (\s@CoipAddressUsage' {} a -> s {awsService = a} :: CoipAddressUsage)
 
+-- | The customer-owned IP address.
+coipAddressUsage_coIp :: Lens.Lens' CoipAddressUsage (Prelude.Maybe Prelude.Text)
+coipAddressUsage_coIp = Lens.lens (\CoipAddressUsage' {coIp} -> coIp) (\s@CoipAddressUsage' {} a -> s {coIp = a} :: CoipAddressUsage)
+
 instance Data.FromXML CoipAddressUsage where
   parseXML x =
     CoipAddressUsage'
-      Prelude.<$> (x Data..@? "awsAccountId")
-      Prelude.<*> (x Data..@? "allocationId")
-      Prelude.<*> (x Data..@? "coIp")
+      Prelude.<$> (x Data..@? "allocationId")
+      Prelude.<*> (x Data..@? "awsAccountId")
       Prelude.<*> (x Data..@? "awsService")
+      Prelude.<*> (x Data..@? "coIp")
 
 instance Prelude.Hashable CoipAddressUsage where
   hashWithSalt _salt CoipAddressUsage' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
-      `Prelude.hashWithSalt` allocationId
-      `Prelude.hashWithSalt` coIp
+    _salt `Prelude.hashWithSalt` allocationId
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` awsService
+      `Prelude.hashWithSalt` coIp
 
 instance Prelude.NFData CoipAddressUsage where
   rnf CoipAddressUsage' {..} =
-    Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf allocationId
-      `Prelude.seq` Prelude.rnf coIp
+    Prelude.rnf allocationId
+      `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf awsService
+      `Prelude.seq` Prelude.rnf coIp

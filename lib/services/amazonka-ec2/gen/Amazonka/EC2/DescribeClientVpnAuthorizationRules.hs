@@ -29,10 +29,10 @@ module Amazonka.EC2.DescribeClientVpnAuthorizationRules
     newDescribeClientVpnAuthorizationRules,
 
     -- * Request Lenses
-    describeClientVpnAuthorizationRules_nextToken,
-    describeClientVpnAuthorizationRules_filters,
     describeClientVpnAuthorizationRules_dryRun,
+    describeClientVpnAuthorizationRules_filters,
     describeClientVpnAuthorizationRules_maxResults,
+    describeClientVpnAuthorizationRules_nextToken,
     describeClientVpnAuthorizationRules_clientVpnEndpointId,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Amazonka.EC2.DescribeClientVpnAuthorizationRules
     newDescribeClientVpnAuthorizationRulesResponse,
 
     -- * Response Lenses
-    describeClientVpnAuthorizationRulesResponse_nextToken,
     describeClientVpnAuthorizationRulesResponse_authorizationRules,
+    describeClientVpnAuthorizationRulesResponse_nextToken,
     describeClientVpnAuthorizationRulesResponse_httpStatus,
   )
 where
@@ -56,8 +56,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeClientVpnAuthorizationRules' smart constructor.
 data DescribeClientVpnAuthorizationRules = DescribeClientVpnAuthorizationRules'
-  { -- | The token to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | One or more filters. Filter names and values are case-sensitive.
     --
     -- -   @description@ - The description of the authorization rule.
@@ -68,15 +71,12 @@ data DescribeClientVpnAuthorizationRules = DescribeClientVpnAuthorizationRules'
     -- -   @group-id@ - The ID of the Active Directory group to which the
     --     authorization rule grants access.
     filters :: Prelude.Maybe [Filter],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to return for the request in a single
     -- page. The remaining results can be seen by sending another request with
     -- the nextToken value.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Client VPN endpoint.
     clientVpnEndpointId :: Prelude.Text
   }
@@ -90,7 +90,10 @@ data DescribeClientVpnAuthorizationRules = DescribeClientVpnAuthorizationRules'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeClientVpnAuthorizationRules_nextToken' - The token to retrieve the next page of results.
+-- 'dryRun', 'describeClientVpnAuthorizationRules_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeClientVpnAuthorizationRules_filters' - One or more filters. Filter names and values are case-sensitive.
 --
@@ -102,14 +105,11 @@ data DescribeClientVpnAuthorizationRules = DescribeClientVpnAuthorizationRules'
 -- -   @group-id@ - The ID of the Active Directory group to which the
 --     authorization rule grants access.
 --
--- 'dryRun', 'describeClientVpnAuthorizationRules_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'maxResults', 'describeClientVpnAuthorizationRules_maxResults' - The maximum number of results to return for the request in a single
 -- page. The remaining results can be seen by sending another request with
 -- the nextToken value.
+--
+-- 'nextToken', 'describeClientVpnAuthorizationRules_nextToken' - The token to retrieve the next page of results.
 --
 -- 'clientVpnEndpointId', 'describeClientVpnAuthorizationRules_clientVpnEndpointId' - The ID of the Client VPN endpoint.
 newDescribeClientVpnAuthorizationRules ::
@@ -119,18 +119,21 @@ newDescribeClientVpnAuthorizationRules ::
 newDescribeClientVpnAuthorizationRules
   pClientVpnEndpointId_ =
     DescribeClientVpnAuthorizationRules'
-      { nextToken =
+      { dryRun =
           Prelude.Nothing,
         filters = Prelude.Nothing,
-        dryRun = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         clientVpnEndpointId =
           pClientVpnEndpointId_
       }
 
--- | The token to retrieve the next page of results.
-describeClientVpnAuthorizationRules_nextToken :: Lens.Lens' DescribeClientVpnAuthorizationRules (Prelude.Maybe Prelude.Text)
-describeClientVpnAuthorizationRules_nextToken = Lens.lens (\DescribeClientVpnAuthorizationRules' {nextToken} -> nextToken) (\s@DescribeClientVpnAuthorizationRules' {} a -> s {nextToken = a} :: DescribeClientVpnAuthorizationRules)
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeClientVpnAuthorizationRules_dryRun :: Lens.Lens' DescribeClientVpnAuthorizationRules (Prelude.Maybe Prelude.Bool)
+describeClientVpnAuthorizationRules_dryRun = Lens.lens (\DescribeClientVpnAuthorizationRules' {dryRun} -> dryRun) (\s@DescribeClientVpnAuthorizationRules' {} a -> s {dryRun = a} :: DescribeClientVpnAuthorizationRules)
 
 -- | One or more filters. Filter names and values are case-sensitive.
 --
@@ -144,18 +147,15 @@ describeClientVpnAuthorizationRules_nextToken = Lens.lens (\DescribeClientVpnAut
 describeClientVpnAuthorizationRules_filters :: Lens.Lens' DescribeClientVpnAuthorizationRules (Prelude.Maybe [Filter])
 describeClientVpnAuthorizationRules_filters = Lens.lens (\DescribeClientVpnAuthorizationRules' {filters} -> filters) (\s@DescribeClientVpnAuthorizationRules' {} a -> s {filters = a} :: DescribeClientVpnAuthorizationRules) Prelude.. Lens.mapping Lens.coerced
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeClientVpnAuthorizationRules_dryRun :: Lens.Lens' DescribeClientVpnAuthorizationRules (Prelude.Maybe Prelude.Bool)
-describeClientVpnAuthorizationRules_dryRun = Lens.lens (\DescribeClientVpnAuthorizationRules' {dryRun} -> dryRun) (\s@DescribeClientVpnAuthorizationRules' {} a -> s {dryRun = a} :: DescribeClientVpnAuthorizationRules)
-
 -- | The maximum number of results to return for the request in a single
 -- page. The remaining results can be seen by sending another request with
 -- the nextToken value.
 describeClientVpnAuthorizationRules_maxResults :: Lens.Lens' DescribeClientVpnAuthorizationRules (Prelude.Maybe Prelude.Natural)
 describeClientVpnAuthorizationRules_maxResults = Lens.lens (\DescribeClientVpnAuthorizationRules' {maxResults} -> maxResults) (\s@DescribeClientVpnAuthorizationRules' {} a -> s {maxResults = a} :: DescribeClientVpnAuthorizationRules)
+
+-- | The token to retrieve the next page of results.
+describeClientVpnAuthorizationRules_nextToken :: Lens.Lens' DescribeClientVpnAuthorizationRules (Prelude.Maybe Prelude.Text)
+describeClientVpnAuthorizationRules_nextToken = Lens.lens (\DescribeClientVpnAuthorizationRules' {nextToken} -> nextToken) (\s@DescribeClientVpnAuthorizationRules' {} a -> s {nextToken = a} :: DescribeClientVpnAuthorizationRules)
 
 -- | The ID of the Client VPN endpoint.
 describeClientVpnAuthorizationRules_clientVpnEndpointId :: Lens.Lens' DescribeClientVpnAuthorizationRules Prelude.Text
@@ -199,11 +199,11 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeClientVpnAuthorizationRulesResponse'
-            Prelude.<$> (x Data..@? "nextToken")
-              Prelude.<*> ( x Data..@? "authorizationRule"
-                              Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may (Data.parseXMLList "item")
-                          )
+            Prelude.<$> ( x Data..@? "authorizationRule"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
+                        )
+              Prelude.<*> (x Data..@? "nextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -214,10 +214,10 @@ instance
   hashWithSalt
     _salt
     DescribeClientVpnAuthorizationRules' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters
-        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` clientVpnEndpointId
 
 instance
@@ -225,10 +225,10 @@ instance
     DescribeClientVpnAuthorizationRules
   where
   rnf DescribeClientVpnAuthorizationRules' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf clientVpnEndpointId
 
 instance
@@ -255,21 +255,21 @@ instance
                   ),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
         Data.toQuery
           (Data.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Data.=: dryRun,
         "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken,
         "ClientVpnEndpointId" Data.=: clientVpnEndpointId
       ]
 
 -- | /See:/ 'newDescribeClientVpnAuthorizationRulesResponse' smart constructor.
 data DescribeClientVpnAuthorizationRulesResponse = DescribeClientVpnAuthorizationRulesResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
+  { -- | Information about the authorization rules.
+    authorizationRules :: Prelude.Maybe [AuthorizationRule],
+    -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the authorization rules.
-    authorizationRules :: Prelude.Maybe [AuthorizationRule],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -283,10 +283,10 @@ data DescribeClientVpnAuthorizationRulesResponse = DescribeClientVpnAuthorizatio
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'authorizationRules', 'describeClientVpnAuthorizationRulesResponse_authorizationRules' - Information about the authorization rules.
+--
 -- 'nextToken', 'describeClientVpnAuthorizationRulesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
---
--- 'authorizationRules', 'describeClientVpnAuthorizationRulesResponse_authorizationRules' - Information about the authorization rules.
 --
 -- 'httpStatus', 'describeClientVpnAuthorizationRulesResponse_httpStatus' - The response's http status code.
 newDescribeClientVpnAuthorizationRulesResponse ::
@@ -296,21 +296,20 @@ newDescribeClientVpnAuthorizationRulesResponse ::
 newDescribeClientVpnAuthorizationRulesResponse
   pHttpStatus_ =
     DescribeClientVpnAuthorizationRulesResponse'
-      { nextToken =
+      { authorizationRules =
           Prelude.Nothing,
-        authorizationRules =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | Information about the authorization rules.
+describeClientVpnAuthorizationRulesResponse_authorizationRules :: Lens.Lens' DescribeClientVpnAuthorizationRulesResponse (Prelude.Maybe [AuthorizationRule])
+describeClientVpnAuthorizationRulesResponse_authorizationRules = Lens.lens (\DescribeClientVpnAuthorizationRulesResponse' {authorizationRules} -> authorizationRules) (\s@DescribeClientVpnAuthorizationRulesResponse' {} a -> s {authorizationRules = a} :: DescribeClientVpnAuthorizationRulesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 describeClientVpnAuthorizationRulesResponse_nextToken :: Lens.Lens' DescribeClientVpnAuthorizationRulesResponse (Prelude.Maybe Prelude.Text)
 describeClientVpnAuthorizationRulesResponse_nextToken = Lens.lens (\DescribeClientVpnAuthorizationRulesResponse' {nextToken} -> nextToken) (\s@DescribeClientVpnAuthorizationRulesResponse' {} a -> s {nextToken = a} :: DescribeClientVpnAuthorizationRulesResponse)
-
--- | Information about the authorization rules.
-describeClientVpnAuthorizationRulesResponse_authorizationRules :: Lens.Lens' DescribeClientVpnAuthorizationRulesResponse (Prelude.Maybe [AuthorizationRule])
-describeClientVpnAuthorizationRulesResponse_authorizationRules = Lens.lens (\DescribeClientVpnAuthorizationRulesResponse' {authorizationRules} -> authorizationRules) (\s@DescribeClientVpnAuthorizationRulesResponse' {} a -> s {authorizationRules = a} :: DescribeClientVpnAuthorizationRulesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeClientVpnAuthorizationRulesResponse_httpStatus :: Lens.Lens' DescribeClientVpnAuthorizationRulesResponse Prelude.Int
@@ -321,6 +320,6 @@ instance
     DescribeClientVpnAuthorizationRulesResponse
   where
   rnf DescribeClientVpnAuthorizationRulesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf authorizationRules
+    Prelude.rnf authorizationRules
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

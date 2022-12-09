@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCapacityAllocation' smart constructor.
 data CapacityAllocation = CapacityAllocation'
-  { -- | The amount of instance capacity associated with the usage. For example a
+  { -- | The usage type. @used@ indicates that the instance capacity is in use by
+    -- instances that are running in the Capacity Reservation.
+    allocationType :: Prelude.Maybe AllocationType,
+    -- | The amount of instance capacity associated with the usage. For example a
     -- value of @4@ indicates that instance capacity for 4 instances is
     -- currently in use.
-    count :: Prelude.Maybe Prelude.Int,
-    -- | The usage type. @used@ indicates that the instance capacity is in use by
-    -- instances that are running in the Capacity Reservation.
-    allocationType :: Prelude.Maybe AllocationType
+    count :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,19 +48,25 @@ data CapacityAllocation = CapacityAllocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'allocationType', 'capacityAllocation_allocationType' - The usage type. @used@ indicates that the instance capacity is in use by
+-- instances that are running in the Capacity Reservation.
+--
 -- 'count', 'capacityAllocation_count' - The amount of instance capacity associated with the usage. For example a
 -- value of @4@ indicates that instance capacity for 4 instances is
 -- currently in use.
---
--- 'allocationType', 'capacityAllocation_allocationType' - The usage type. @used@ indicates that the instance capacity is in use by
--- instances that are running in the Capacity Reservation.
 newCapacityAllocation ::
   CapacityAllocation
 newCapacityAllocation =
   CapacityAllocation'
-    { count = Prelude.Nothing,
-      allocationType = Prelude.Nothing
+    { allocationType =
+        Prelude.Nothing,
+      count = Prelude.Nothing
     }
+
+-- | The usage type. @used@ indicates that the instance capacity is in use by
+-- instances that are running in the Capacity Reservation.
+capacityAllocation_allocationType :: Lens.Lens' CapacityAllocation (Prelude.Maybe AllocationType)
+capacityAllocation_allocationType = Lens.lens (\CapacityAllocation' {allocationType} -> allocationType) (\s@CapacityAllocation' {} a -> s {allocationType = a} :: CapacityAllocation)
 
 -- | The amount of instance capacity associated with the usage. For example a
 -- value of @4@ indicates that instance capacity for 4 instances is
@@ -68,23 +74,18 @@ newCapacityAllocation =
 capacityAllocation_count :: Lens.Lens' CapacityAllocation (Prelude.Maybe Prelude.Int)
 capacityAllocation_count = Lens.lens (\CapacityAllocation' {count} -> count) (\s@CapacityAllocation' {} a -> s {count = a} :: CapacityAllocation)
 
--- | The usage type. @used@ indicates that the instance capacity is in use by
--- instances that are running in the Capacity Reservation.
-capacityAllocation_allocationType :: Lens.Lens' CapacityAllocation (Prelude.Maybe AllocationType)
-capacityAllocation_allocationType = Lens.lens (\CapacityAllocation' {allocationType} -> allocationType) (\s@CapacityAllocation' {} a -> s {allocationType = a} :: CapacityAllocation)
-
 instance Data.FromXML CapacityAllocation where
   parseXML x =
     CapacityAllocation'
-      Prelude.<$> (x Data..@? "count")
-      Prelude.<*> (x Data..@? "allocationType")
+      Prelude.<$> (x Data..@? "allocationType")
+      Prelude.<*> (x Data..@? "count")
 
 instance Prelude.Hashable CapacityAllocation where
   hashWithSalt _salt CapacityAllocation' {..} =
-    _salt `Prelude.hashWithSalt` count
-      `Prelude.hashWithSalt` allocationType
+    _salt `Prelude.hashWithSalt` allocationType
+      `Prelude.hashWithSalt` count
 
 instance Prelude.NFData CapacityAllocation where
   rnf CapacityAllocation' {..} =
-    Prelude.rnf count
-      `Prelude.seq` Prelude.rnf allocationType
+    Prelude.rnf allocationType
+      `Prelude.seq` Prelude.rnf count

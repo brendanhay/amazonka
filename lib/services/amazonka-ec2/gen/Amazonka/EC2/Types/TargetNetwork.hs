@@ -30,20 +30,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTargetNetwork' smart constructor.
 data TargetNetwork = TargetNetwork'
-  { -- | The current state of the target network association.
-    status :: Prelude.Maybe AssociationStatus,
+  { -- | The ID of the association.
+    associationId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Client VPN endpoint with which the target network is
     -- associated.
     clientVpnEndpointId :: Prelude.Maybe Prelude.Text,
     -- | The IDs of the security groups applied to the target network
     -- association.
     securityGroups :: Prelude.Maybe [Prelude.Text],
-    -- | The ID of the VPC in which the target network (subnet) is located.
-    vpcId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the association.
-    associationId :: Prelude.Maybe Prelude.Text,
+    -- | The current state of the target network association.
+    status :: Prelude.Maybe AssociationStatus,
     -- | The ID of the subnet specified as the target network.
-    targetNetworkId :: Prelude.Maybe Prelude.Text
+    targetNetworkId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the VPC in which the target network (subnet) is located.
+    vpcId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,7 +55,7 @@ data TargetNetwork = TargetNetwork'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'targetNetwork_status' - The current state of the target network association.
+-- 'associationId', 'targetNetwork_associationId' - The ID of the association.
 --
 -- 'clientVpnEndpointId', 'targetNetwork_clientVpnEndpointId' - The ID of the Client VPN endpoint with which the target network is
 -- associated.
@@ -63,26 +63,26 @@ data TargetNetwork = TargetNetwork'
 -- 'securityGroups', 'targetNetwork_securityGroups' - The IDs of the security groups applied to the target network
 -- association.
 --
--- 'vpcId', 'targetNetwork_vpcId' - The ID of the VPC in which the target network (subnet) is located.
---
--- 'associationId', 'targetNetwork_associationId' - The ID of the association.
+-- 'status', 'targetNetwork_status' - The current state of the target network association.
 --
 -- 'targetNetworkId', 'targetNetwork_targetNetworkId' - The ID of the subnet specified as the target network.
+--
+-- 'vpcId', 'targetNetwork_vpcId' - The ID of the VPC in which the target network (subnet) is located.
 newTargetNetwork ::
   TargetNetwork
 newTargetNetwork =
   TargetNetwork'
-    { status = Prelude.Nothing,
+    { associationId = Prelude.Nothing,
       clientVpnEndpointId = Prelude.Nothing,
       securityGroups = Prelude.Nothing,
-      vpcId = Prelude.Nothing,
-      associationId = Prelude.Nothing,
-      targetNetworkId = Prelude.Nothing
+      status = Prelude.Nothing,
+      targetNetworkId = Prelude.Nothing,
+      vpcId = Prelude.Nothing
     }
 
--- | The current state of the target network association.
-targetNetwork_status :: Lens.Lens' TargetNetwork (Prelude.Maybe AssociationStatus)
-targetNetwork_status = Lens.lens (\TargetNetwork' {status} -> status) (\s@TargetNetwork' {} a -> s {status = a} :: TargetNetwork)
+-- | The ID of the association.
+targetNetwork_associationId :: Lens.Lens' TargetNetwork (Prelude.Maybe Prelude.Text)
+targetNetwork_associationId = Lens.lens (\TargetNetwork' {associationId} -> associationId) (\s@TargetNetwork' {} a -> s {associationId = a} :: TargetNetwork)
 
 -- | The ID of the Client VPN endpoint with which the target network is
 -- associated.
@@ -94,44 +94,44 @@ targetNetwork_clientVpnEndpointId = Lens.lens (\TargetNetwork' {clientVpnEndpoin
 targetNetwork_securityGroups :: Lens.Lens' TargetNetwork (Prelude.Maybe [Prelude.Text])
 targetNetwork_securityGroups = Lens.lens (\TargetNetwork' {securityGroups} -> securityGroups) (\s@TargetNetwork' {} a -> s {securityGroups = a} :: TargetNetwork) Prelude.. Lens.mapping Lens.coerced
 
--- | The ID of the VPC in which the target network (subnet) is located.
-targetNetwork_vpcId :: Lens.Lens' TargetNetwork (Prelude.Maybe Prelude.Text)
-targetNetwork_vpcId = Lens.lens (\TargetNetwork' {vpcId} -> vpcId) (\s@TargetNetwork' {} a -> s {vpcId = a} :: TargetNetwork)
-
--- | The ID of the association.
-targetNetwork_associationId :: Lens.Lens' TargetNetwork (Prelude.Maybe Prelude.Text)
-targetNetwork_associationId = Lens.lens (\TargetNetwork' {associationId} -> associationId) (\s@TargetNetwork' {} a -> s {associationId = a} :: TargetNetwork)
+-- | The current state of the target network association.
+targetNetwork_status :: Lens.Lens' TargetNetwork (Prelude.Maybe AssociationStatus)
+targetNetwork_status = Lens.lens (\TargetNetwork' {status} -> status) (\s@TargetNetwork' {} a -> s {status = a} :: TargetNetwork)
 
 -- | The ID of the subnet specified as the target network.
 targetNetwork_targetNetworkId :: Lens.Lens' TargetNetwork (Prelude.Maybe Prelude.Text)
 targetNetwork_targetNetworkId = Lens.lens (\TargetNetwork' {targetNetworkId} -> targetNetworkId) (\s@TargetNetwork' {} a -> s {targetNetworkId = a} :: TargetNetwork)
 
+-- | The ID of the VPC in which the target network (subnet) is located.
+targetNetwork_vpcId :: Lens.Lens' TargetNetwork (Prelude.Maybe Prelude.Text)
+targetNetwork_vpcId = Lens.lens (\TargetNetwork' {vpcId} -> vpcId) (\s@TargetNetwork' {} a -> s {vpcId = a} :: TargetNetwork)
+
 instance Data.FromXML TargetNetwork where
   parseXML x =
     TargetNetwork'
-      Prelude.<$> (x Data..@? "status")
+      Prelude.<$> (x Data..@? "associationId")
       Prelude.<*> (x Data..@? "clientVpnEndpointId")
       Prelude.<*> ( x Data..@? "securityGroups" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> (x Data..@? "vpcId")
-      Prelude.<*> (x Data..@? "associationId")
+      Prelude.<*> (x Data..@? "status")
       Prelude.<*> (x Data..@? "targetNetworkId")
+      Prelude.<*> (x Data..@? "vpcId")
 
 instance Prelude.Hashable TargetNetwork where
   hashWithSalt _salt TargetNetwork' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` clientVpnEndpointId
       `Prelude.hashWithSalt` securityGroups
-      `Prelude.hashWithSalt` vpcId
-      `Prelude.hashWithSalt` associationId
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` targetNetworkId
+      `Prelude.hashWithSalt` vpcId
 
 instance Prelude.NFData TargetNetwork where
   rnf TargetNetwork' {..} =
-    Prelude.rnf status
+    Prelude.rnf associationId
       `Prelude.seq` Prelude.rnf clientVpnEndpointId
       `Prelude.seq` Prelude.rnf securityGroups
-      `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf associationId
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf targetNetworkId
+      `Prelude.seq` Prelude.rnf vpcId

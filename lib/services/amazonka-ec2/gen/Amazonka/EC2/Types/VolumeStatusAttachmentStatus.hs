@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVolumeStatusAttachmentStatus' smart constructor.
 data VolumeStatusAttachmentStatus = VolumeStatusAttachmentStatus'
-  { -- | The maximum IOPS supported by the attached instance.
-    ioPerformance :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the attached instance.
-    instanceId :: Prelude.Maybe Prelude.Text
+  { -- | The ID of the attached instance.
+    instanceId :: Prelude.Maybe Prelude.Text,
+    -- | The maximum IOPS supported by the attached instance.
+    ioPerformance :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,41 +44,41 @@ data VolumeStatusAttachmentStatus = VolumeStatusAttachmentStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ioPerformance', 'volumeStatusAttachmentStatus_ioPerformance' - The maximum IOPS supported by the attached instance.
---
 -- 'instanceId', 'volumeStatusAttachmentStatus_instanceId' - The ID of the attached instance.
+--
+-- 'ioPerformance', 'volumeStatusAttachmentStatus_ioPerformance' - The maximum IOPS supported by the attached instance.
 newVolumeStatusAttachmentStatus ::
   VolumeStatusAttachmentStatus
 newVolumeStatusAttachmentStatus =
   VolumeStatusAttachmentStatus'
-    { ioPerformance =
+    { instanceId =
         Prelude.Nothing,
-      instanceId = Prelude.Nothing
+      ioPerformance = Prelude.Nothing
     }
-
--- | The maximum IOPS supported by the attached instance.
-volumeStatusAttachmentStatus_ioPerformance :: Lens.Lens' VolumeStatusAttachmentStatus (Prelude.Maybe Prelude.Text)
-volumeStatusAttachmentStatus_ioPerformance = Lens.lens (\VolumeStatusAttachmentStatus' {ioPerformance} -> ioPerformance) (\s@VolumeStatusAttachmentStatus' {} a -> s {ioPerformance = a} :: VolumeStatusAttachmentStatus)
 
 -- | The ID of the attached instance.
 volumeStatusAttachmentStatus_instanceId :: Lens.Lens' VolumeStatusAttachmentStatus (Prelude.Maybe Prelude.Text)
 volumeStatusAttachmentStatus_instanceId = Lens.lens (\VolumeStatusAttachmentStatus' {instanceId} -> instanceId) (\s@VolumeStatusAttachmentStatus' {} a -> s {instanceId = a} :: VolumeStatusAttachmentStatus)
 
+-- | The maximum IOPS supported by the attached instance.
+volumeStatusAttachmentStatus_ioPerformance :: Lens.Lens' VolumeStatusAttachmentStatus (Prelude.Maybe Prelude.Text)
+volumeStatusAttachmentStatus_ioPerformance = Lens.lens (\VolumeStatusAttachmentStatus' {ioPerformance} -> ioPerformance) (\s@VolumeStatusAttachmentStatus' {} a -> s {ioPerformance = a} :: VolumeStatusAttachmentStatus)
+
 instance Data.FromXML VolumeStatusAttachmentStatus where
   parseXML x =
     VolumeStatusAttachmentStatus'
-      Prelude.<$> (x Data..@? "ioPerformance")
-      Prelude.<*> (x Data..@? "instanceId")
+      Prelude.<$> (x Data..@? "instanceId")
+      Prelude.<*> (x Data..@? "ioPerformance")
 
 instance
   Prelude.Hashable
     VolumeStatusAttachmentStatus
   where
   hashWithSalt _salt VolumeStatusAttachmentStatus' {..} =
-    _salt `Prelude.hashWithSalt` ioPerformance
-      `Prelude.hashWithSalt` instanceId
+    _salt `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` ioPerformance
 
 instance Prelude.NFData VolumeStatusAttachmentStatus where
   rnf VolumeStatusAttachmentStatus' {..} =
-    Prelude.rnf ioPerformance
-      `Prelude.seq` Prelude.rnf instanceId
+    Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf ioPerformance

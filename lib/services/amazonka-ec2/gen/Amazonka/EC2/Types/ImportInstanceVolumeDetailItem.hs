@@ -31,20 +31,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImportInstanceVolumeDetailItem' smart constructor.
 data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem'
-  { -- | The number of bytes converted so far.
-    bytesConverted :: Prelude.Maybe Prelude.Integer,
-    -- | The status of the import of this particular disk image.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The Availability Zone where the resulting instance will reside.
+  { -- | The Availability Zone where the resulting instance will reside.
     availabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | The number of bytes converted so far.
+    bytesConverted :: Prelude.Maybe Prelude.Integer,
     -- | A description of the task.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The volume.
-    volume :: Prelude.Maybe DiskImageVolumeDescription,
     -- | The image.
     image :: Prelude.Maybe DiskImageDescription,
+    -- | The status of the import of this particular disk image.
+    status :: Prelude.Maybe Prelude.Text,
     -- | The status information or errors related to the disk image.
-    statusMessage :: Prelude.Maybe Prelude.Text
+    statusMessage :: Prelude.Maybe Prelude.Text,
+    -- | The volume.
+    volume :: Prelude.Maybe DiskImageVolumeDescription
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,71 +56,71 @@ data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bytesConverted', 'importInstanceVolumeDetailItem_bytesConverted' - The number of bytes converted so far.
---
--- 'status', 'importInstanceVolumeDetailItem_status' - The status of the import of this particular disk image.
---
 -- 'availabilityZone', 'importInstanceVolumeDetailItem_availabilityZone' - The Availability Zone where the resulting instance will reside.
+--
+-- 'bytesConverted', 'importInstanceVolumeDetailItem_bytesConverted' - The number of bytes converted so far.
 --
 -- 'description', 'importInstanceVolumeDetailItem_description' - A description of the task.
 --
--- 'volume', 'importInstanceVolumeDetailItem_volume' - The volume.
---
 -- 'image', 'importInstanceVolumeDetailItem_image' - The image.
 --
+-- 'status', 'importInstanceVolumeDetailItem_status' - The status of the import of this particular disk image.
+--
 -- 'statusMessage', 'importInstanceVolumeDetailItem_statusMessage' - The status information or errors related to the disk image.
+--
+-- 'volume', 'importInstanceVolumeDetailItem_volume' - The volume.
 newImportInstanceVolumeDetailItem ::
   ImportInstanceVolumeDetailItem
 newImportInstanceVolumeDetailItem =
   ImportInstanceVolumeDetailItem'
-    { bytesConverted =
+    { availabilityZone =
         Prelude.Nothing,
-      status = Prelude.Nothing,
-      availabilityZone = Prelude.Nothing,
+      bytesConverted = Prelude.Nothing,
       description = Prelude.Nothing,
-      volume = Prelude.Nothing,
       image = Prelude.Nothing,
-      statusMessage = Prelude.Nothing
+      status = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
+      volume = Prelude.Nothing
     }
-
--- | The number of bytes converted so far.
-importInstanceVolumeDetailItem_bytesConverted :: Lens.Lens' ImportInstanceVolumeDetailItem (Prelude.Maybe Prelude.Integer)
-importInstanceVolumeDetailItem_bytesConverted = Lens.lens (\ImportInstanceVolumeDetailItem' {bytesConverted} -> bytesConverted) (\s@ImportInstanceVolumeDetailItem' {} a -> s {bytesConverted = a} :: ImportInstanceVolumeDetailItem)
-
--- | The status of the import of this particular disk image.
-importInstanceVolumeDetailItem_status :: Lens.Lens' ImportInstanceVolumeDetailItem (Prelude.Maybe Prelude.Text)
-importInstanceVolumeDetailItem_status = Lens.lens (\ImportInstanceVolumeDetailItem' {status} -> status) (\s@ImportInstanceVolumeDetailItem' {} a -> s {status = a} :: ImportInstanceVolumeDetailItem)
 
 -- | The Availability Zone where the resulting instance will reside.
 importInstanceVolumeDetailItem_availabilityZone :: Lens.Lens' ImportInstanceVolumeDetailItem (Prelude.Maybe Prelude.Text)
 importInstanceVolumeDetailItem_availabilityZone = Lens.lens (\ImportInstanceVolumeDetailItem' {availabilityZone} -> availabilityZone) (\s@ImportInstanceVolumeDetailItem' {} a -> s {availabilityZone = a} :: ImportInstanceVolumeDetailItem)
 
+-- | The number of bytes converted so far.
+importInstanceVolumeDetailItem_bytesConverted :: Lens.Lens' ImportInstanceVolumeDetailItem (Prelude.Maybe Prelude.Integer)
+importInstanceVolumeDetailItem_bytesConverted = Lens.lens (\ImportInstanceVolumeDetailItem' {bytesConverted} -> bytesConverted) (\s@ImportInstanceVolumeDetailItem' {} a -> s {bytesConverted = a} :: ImportInstanceVolumeDetailItem)
+
 -- | A description of the task.
 importInstanceVolumeDetailItem_description :: Lens.Lens' ImportInstanceVolumeDetailItem (Prelude.Maybe Prelude.Text)
 importInstanceVolumeDetailItem_description = Lens.lens (\ImportInstanceVolumeDetailItem' {description} -> description) (\s@ImportInstanceVolumeDetailItem' {} a -> s {description = a} :: ImportInstanceVolumeDetailItem)
-
--- | The volume.
-importInstanceVolumeDetailItem_volume :: Lens.Lens' ImportInstanceVolumeDetailItem (Prelude.Maybe DiskImageVolumeDescription)
-importInstanceVolumeDetailItem_volume = Lens.lens (\ImportInstanceVolumeDetailItem' {volume} -> volume) (\s@ImportInstanceVolumeDetailItem' {} a -> s {volume = a} :: ImportInstanceVolumeDetailItem)
 
 -- | The image.
 importInstanceVolumeDetailItem_image :: Lens.Lens' ImportInstanceVolumeDetailItem (Prelude.Maybe DiskImageDescription)
 importInstanceVolumeDetailItem_image = Lens.lens (\ImportInstanceVolumeDetailItem' {image} -> image) (\s@ImportInstanceVolumeDetailItem' {} a -> s {image = a} :: ImportInstanceVolumeDetailItem)
 
+-- | The status of the import of this particular disk image.
+importInstanceVolumeDetailItem_status :: Lens.Lens' ImportInstanceVolumeDetailItem (Prelude.Maybe Prelude.Text)
+importInstanceVolumeDetailItem_status = Lens.lens (\ImportInstanceVolumeDetailItem' {status} -> status) (\s@ImportInstanceVolumeDetailItem' {} a -> s {status = a} :: ImportInstanceVolumeDetailItem)
+
 -- | The status information or errors related to the disk image.
 importInstanceVolumeDetailItem_statusMessage :: Lens.Lens' ImportInstanceVolumeDetailItem (Prelude.Maybe Prelude.Text)
 importInstanceVolumeDetailItem_statusMessage = Lens.lens (\ImportInstanceVolumeDetailItem' {statusMessage} -> statusMessage) (\s@ImportInstanceVolumeDetailItem' {} a -> s {statusMessage = a} :: ImportInstanceVolumeDetailItem)
 
+-- | The volume.
+importInstanceVolumeDetailItem_volume :: Lens.Lens' ImportInstanceVolumeDetailItem (Prelude.Maybe DiskImageVolumeDescription)
+importInstanceVolumeDetailItem_volume = Lens.lens (\ImportInstanceVolumeDetailItem' {volume} -> volume) (\s@ImportInstanceVolumeDetailItem' {} a -> s {volume = a} :: ImportInstanceVolumeDetailItem)
+
 instance Data.FromXML ImportInstanceVolumeDetailItem where
   parseXML x =
     ImportInstanceVolumeDetailItem'
-      Prelude.<$> (x Data..@? "bytesConverted")
-      Prelude.<*> (x Data..@? "status")
-      Prelude.<*> (x Data..@? "availabilityZone")
+      Prelude.<$> (x Data..@? "availabilityZone")
+      Prelude.<*> (x Data..@? "bytesConverted")
       Prelude.<*> (x Data..@? "description")
-      Prelude.<*> (x Data..@? "volume")
       Prelude.<*> (x Data..@? "image")
+      Prelude.<*> (x Data..@? "status")
       Prelude.<*> (x Data..@? "statusMessage")
+      Prelude.<*> (x Data..@? "volume")
 
 instance
   Prelude.Hashable
@@ -129,23 +129,23 @@ instance
   hashWithSalt
     _salt
     ImportInstanceVolumeDetailItem' {..} =
-      _salt `Prelude.hashWithSalt` bytesConverted
-        `Prelude.hashWithSalt` status
-        `Prelude.hashWithSalt` availabilityZone
+      _salt `Prelude.hashWithSalt` availabilityZone
+        `Prelude.hashWithSalt` bytesConverted
         `Prelude.hashWithSalt` description
-        `Prelude.hashWithSalt` volume
         `Prelude.hashWithSalt` image
+        `Prelude.hashWithSalt` status
         `Prelude.hashWithSalt` statusMessage
+        `Prelude.hashWithSalt` volume
 
 instance
   Prelude.NFData
     ImportInstanceVolumeDetailItem
   where
   rnf ImportInstanceVolumeDetailItem' {..} =
-    Prelude.rnf bytesConverted
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf availabilityZone
+    Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf bytesConverted
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf volume
       `Prelude.seq` Prelude.rnf image
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf volume

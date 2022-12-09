@@ -37,11 +37,11 @@ module Amazonka.EC2.DescribeClassicLinkInstances
     newDescribeClassicLinkInstances,
 
     -- * Request Lenses
-    describeClassicLinkInstances_nextToken,
-    describeClassicLinkInstances_filters,
     describeClassicLinkInstances_dryRun,
-    describeClassicLinkInstances_maxResults,
+    describeClassicLinkInstances_filters,
     describeClassicLinkInstances_instanceIds,
+    describeClassicLinkInstances_maxResults,
+    describeClassicLinkInstances_nextToken,
 
     -- * Destructuring the Response
     DescribeClassicLinkInstancesResponse (..),
@@ -64,8 +64,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeClassicLinkInstances' smart constructor.
 data DescribeClassicLinkInstances = DescribeClassicLinkInstances'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | One or more filters.
     --
     -- -   @group-id@ - The ID of a VPC security group that\'s associated with
@@ -87,11 +90,9 @@ data DescribeClassicLinkInstances = DescribeClassicLinkInstances'
     --
     --     @vpc-id@ - The ID of the VPC that the instance is linked to.
     filters :: Prelude.Maybe [Filter],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | One or more instance IDs. Must be instances linked to a VPC through
+    -- ClassicLink.
+    instanceIds :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
@@ -99,9 +100,8 @@ data DescribeClassicLinkInstances = DescribeClassicLinkInstances'
     -- Constraint: If the value is greater than 1000, we return only 1000
     -- items.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | One or more instance IDs. Must be instances linked to a VPC through
-    -- ClassicLink.
-    instanceIds :: Prelude.Maybe [Prelude.Text]
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -113,7 +113,10 @@ data DescribeClassicLinkInstances = DescribeClassicLinkInstances'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeClassicLinkInstances_nextToken' - The token for the next page of results.
+-- 'dryRun', 'describeClassicLinkInstances_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeClassicLinkInstances_filters' - One or more filters.
 --
@@ -136,10 +139,8 @@ data DescribeClassicLinkInstances = DescribeClassicLinkInstances'
 --
 --     @vpc-id@ - The ID of the VPC that the instance is linked to.
 --
--- 'dryRun', 'describeClassicLinkInstances_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- 'instanceIds', 'describeClassicLinkInstances_instanceIds' - One or more instance IDs. Must be instances linked to a VPC through
+-- ClassicLink.
 --
 -- 'maxResults', 'describeClassicLinkInstances_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
@@ -148,23 +149,25 @@ data DescribeClassicLinkInstances = DescribeClassicLinkInstances'
 -- Constraint: If the value is greater than 1000, we return only 1000
 -- items.
 --
--- 'instanceIds', 'describeClassicLinkInstances_instanceIds' - One or more instance IDs. Must be instances linked to a VPC through
--- ClassicLink.
+-- 'nextToken', 'describeClassicLinkInstances_nextToken' - The token for the next page of results.
 newDescribeClassicLinkInstances ::
   DescribeClassicLinkInstances
 newDescribeClassicLinkInstances =
   DescribeClassicLinkInstances'
-    { nextToken =
+    { dryRun =
         Prelude.Nothing,
       filters = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+      instanceIds = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      instanceIds = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
 
--- | The token for the next page of results.
-describeClassicLinkInstances_nextToken :: Lens.Lens' DescribeClassicLinkInstances (Prelude.Maybe Prelude.Text)
-describeClassicLinkInstances_nextToken = Lens.lens (\DescribeClassicLinkInstances' {nextToken} -> nextToken) (\s@DescribeClassicLinkInstances' {} a -> s {nextToken = a} :: DescribeClassicLinkInstances)
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeClassicLinkInstances_dryRun :: Lens.Lens' DescribeClassicLinkInstances (Prelude.Maybe Prelude.Bool)
+describeClassicLinkInstances_dryRun = Lens.lens (\DescribeClassicLinkInstances' {dryRun} -> dryRun) (\s@DescribeClassicLinkInstances' {} a -> s {dryRun = a} :: DescribeClassicLinkInstances)
 
 -- | One or more filters.
 --
@@ -189,12 +192,10 @@ describeClassicLinkInstances_nextToken = Lens.lens (\DescribeClassicLinkInstance
 describeClassicLinkInstances_filters :: Lens.Lens' DescribeClassicLinkInstances (Prelude.Maybe [Filter])
 describeClassicLinkInstances_filters = Lens.lens (\DescribeClassicLinkInstances' {filters} -> filters) (\s@DescribeClassicLinkInstances' {} a -> s {filters = a} :: DescribeClassicLinkInstances) Prelude.. Lens.mapping Lens.coerced
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeClassicLinkInstances_dryRun :: Lens.Lens' DescribeClassicLinkInstances (Prelude.Maybe Prelude.Bool)
-describeClassicLinkInstances_dryRun = Lens.lens (\DescribeClassicLinkInstances' {dryRun} -> dryRun) (\s@DescribeClassicLinkInstances' {} a -> s {dryRun = a} :: DescribeClassicLinkInstances)
+-- | One or more instance IDs. Must be instances linked to a VPC through
+-- ClassicLink.
+describeClassicLinkInstances_instanceIds :: Lens.Lens' DescribeClassicLinkInstances (Prelude.Maybe [Prelude.Text])
+describeClassicLinkInstances_instanceIds = Lens.lens (\DescribeClassicLinkInstances' {instanceIds} -> instanceIds) (\s@DescribeClassicLinkInstances' {} a -> s {instanceIds = a} :: DescribeClassicLinkInstances) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
@@ -205,10 +206,9 @@ describeClassicLinkInstances_dryRun = Lens.lens (\DescribeClassicLinkInstances' 
 describeClassicLinkInstances_maxResults :: Lens.Lens' DescribeClassicLinkInstances (Prelude.Maybe Prelude.Natural)
 describeClassicLinkInstances_maxResults = Lens.lens (\DescribeClassicLinkInstances' {maxResults} -> maxResults) (\s@DescribeClassicLinkInstances' {} a -> s {maxResults = a} :: DescribeClassicLinkInstances)
 
--- | One or more instance IDs. Must be instances linked to a VPC through
--- ClassicLink.
-describeClassicLinkInstances_instanceIds :: Lens.Lens' DescribeClassicLinkInstances (Prelude.Maybe [Prelude.Text])
-describeClassicLinkInstances_instanceIds = Lens.lens (\DescribeClassicLinkInstances' {instanceIds} -> instanceIds) (\s@DescribeClassicLinkInstances' {} a -> s {instanceIds = a} :: DescribeClassicLinkInstances) Prelude.. Lens.mapping Lens.coerced
+-- | The token for the next page of results.
+describeClassicLinkInstances_nextToken :: Lens.Lens' DescribeClassicLinkInstances (Prelude.Maybe Prelude.Text)
+describeClassicLinkInstances_nextToken = Lens.lens (\DescribeClassicLinkInstances' {nextToken} -> nextToken) (\s@DescribeClassicLinkInstances' {} a -> s {nextToken = a} :: DescribeClassicLinkInstances)
 
 instance Core.AWSPager DescribeClassicLinkInstances where
   page rq rs
@@ -254,19 +254,19 @@ instance
     DescribeClassicLinkInstances
   where
   hashWithSalt _salt DescribeClassicLinkInstances' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` dryRun
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` instanceIds
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeClassicLinkInstances where
   rnf DescribeClassicLinkInstances' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf instanceIds
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeClassicLinkInstances where
   toHeaders = Prelude.const Prelude.mempty
@@ -283,15 +283,15 @@ instance Data.ToQuery DescribeClassicLinkInstances where
                   ),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
         Data.toQuery
           (Data.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Data.=: dryRun,
-        "MaxResults" Data.=: maxResults,
         Data.toQuery
           ( Data.toQueryList "InstanceId"
               Prelude.<$> instanceIds
-          )
+          ),
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newDescribeClassicLinkInstancesResponse' smart constructor.

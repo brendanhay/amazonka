@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLaunchTemplateElasticInferenceAcceleratorResponse' smart constructor.
 data LaunchTemplateElasticInferenceAcceleratorResponse = LaunchTemplateElasticInferenceAcceleratorResponse'
-  { -- | The type of elastic inference accelerator. The possible values are
-    -- eia1.medium, eia1.large, and eia1.xlarge.
-    type' :: Prelude.Maybe Prelude.Text,
-    -- | The number of elastic inference accelerators to attach to the instance.
+  { -- | The number of elastic inference accelerators to attach to the instance.
     --
     -- Default: 1
-    count :: Prelude.Maybe Prelude.Int
+    count :: Prelude.Maybe Prelude.Int,
+    -- | The type of elastic inference accelerator. The possible values are
+    -- eia1.medium, eia1.large, and eia1.xlarge.
+    type' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,25 +47,20 @@ data LaunchTemplateElasticInferenceAcceleratorResponse = LaunchTemplateElasticIn
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'launchTemplateElasticInferenceAcceleratorResponse_type' - The type of elastic inference accelerator. The possible values are
--- eia1.medium, eia1.large, and eia1.xlarge.
---
 -- 'count', 'launchTemplateElasticInferenceAcceleratorResponse_count' - The number of elastic inference accelerators to attach to the instance.
 --
 -- Default: 1
+--
+-- 'type'', 'launchTemplateElasticInferenceAcceleratorResponse_type' - The type of elastic inference accelerator. The possible values are
+-- eia1.medium, eia1.large, and eia1.xlarge.
 newLaunchTemplateElasticInferenceAcceleratorResponse ::
   LaunchTemplateElasticInferenceAcceleratorResponse
 newLaunchTemplateElasticInferenceAcceleratorResponse =
   LaunchTemplateElasticInferenceAcceleratorResponse'
-    { type' =
+    { count =
         Prelude.Nothing,
-      count = Prelude.Nothing
+      type' = Prelude.Nothing
     }
-
--- | The type of elastic inference accelerator. The possible values are
--- eia1.medium, eia1.large, and eia1.xlarge.
-launchTemplateElasticInferenceAcceleratorResponse_type :: Lens.Lens' LaunchTemplateElasticInferenceAcceleratorResponse (Prelude.Maybe Prelude.Text)
-launchTemplateElasticInferenceAcceleratorResponse_type = Lens.lens (\LaunchTemplateElasticInferenceAcceleratorResponse' {type'} -> type') (\s@LaunchTemplateElasticInferenceAcceleratorResponse' {} a -> s {type' = a} :: LaunchTemplateElasticInferenceAcceleratorResponse)
 
 -- | The number of elastic inference accelerators to attach to the instance.
 --
@@ -73,13 +68,18 @@ launchTemplateElasticInferenceAcceleratorResponse_type = Lens.lens (\LaunchTempl
 launchTemplateElasticInferenceAcceleratorResponse_count :: Lens.Lens' LaunchTemplateElasticInferenceAcceleratorResponse (Prelude.Maybe Prelude.Int)
 launchTemplateElasticInferenceAcceleratorResponse_count = Lens.lens (\LaunchTemplateElasticInferenceAcceleratorResponse' {count} -> count) (\s@LaunchTemplateElasticInferenceAcceleratorResponse' {} a -> s {count = a} :: LaunchTemplateElasticInferenceAcceleratorResponse)
 
+-- | The type of elastic inference accelerator. The possible values are
+-- eia1.medium, eia1.large, and eia1.xlarge.
+launchTemplateElasticInferenceAcceleratorResponse_type :: Lens.Lens' LaunchTemplateElasticInferenceAcceleratorResponse (Prelude.Maybe Prelude.Text)
+launchTemplateElasticInferenceAcceleratorResponse_type = Lens.lens (\LaunchTemplateElasticInferenceAcceleratorResponse' {type'} -> type') (\s@LaunchTemplateElasticInferenceAcceleratorResponse' {} a -> s {type' = a} :: LaunchTemplateElasticInferenceAcceleratorResponse)
+
 instance
   Data.FromXML
     LaunchTemplateElasticInferenceAcceleratorResponse
   where
   parseXML x =
     LaunchTemplateElasticInferenceAcceleratorResponse'
-      Prelude.<$> (x Data..@? "type") Prelude.<*> (x Data..@? "count")
+      Prelude.<$> (x Data..@? "count") Prelude.<*> (x Data..@? "type")
 
 instance
   Prelude.Hashable
@@ -88,8 +88,8 @@ instance
   hashWithSalt
     _salt
     LaunchTemplateElasticInferenceAcceleratorResponse' {..} =
-      _salt `Prelude.hashWithSalt` type'
-        `Prelude.hashWithSalt` count
+      _salt `Prelude.hashWithSalt` count
+        `Prelude.hashWithSalt` type'
 
 instance
   Prelude.NFData
@@ -97,4 +97,4 @@ instance
   where
   rnf
     LaunchTemplateElasticInferenceAcceleratorResponse' {..} =
-      Prelude.rnf type' `Prelude.seq` Prelude.rnf count
+      Prelude.rnf count `Prelude.seq` Prelude.rnf type'

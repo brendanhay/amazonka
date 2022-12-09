@@ -29,10 +29,10 @@ module Amazonka.EC2.DescribePublicIpv4Pools
     newDescribePublicIpv4Pools,
 
     -- * Request Lenses
-    describePublicIpv4Pools_nextToken,
-    describePublicIpv4Pools_poolIds,
     describePublicIpv4Pools_filters,
     describePublicIpv4Pools_maxResults,
+    describePublicIpv4Pools_nextToken,
+    describePublicIpv4Pools_poolIds,
 
     -- * Destructuring the Response
     DescribePublicIpv4PoolsResponse (..),
@@ -55,11 +55,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribePublicIpv4Pools' smart constructor.
 data DescribePublicIpv4Pools = DescribePublicIpv4Pools'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The IDs of the address pools.
-    poolIds :: Prelude.Maybe [Prelude.Text],
-    -- | One or more filters.
+  { -- | One or more filters.
     --
     -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
     --     resource. Use the tag key in the filter name and the tag value as
@@ -74,7 +70,11 @@ data DescribePublicIpv4Pools = DescribePublicIpv4Pools'
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The IDs of the address pools.
+    poolIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,10 +85,6 @@ data DescribePublicIpv4Pools = DescribePublicIpv4Pools'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'describePublicIpv4Pools_nextToken' - The token for the next page of results.
---
--- 'poolIds', 'describePublicIpv4Pools_poolIds' - The IDs of the address pools.
 --
 -- 'filters', 'describePublicIpv4Pools_filters' - One or more filters.
 --
@@ -105,24 +101,19 @@ data DescribePublicIpv4Pools = DescribePublicIpv4Pools'
 -- 'maxResults', 'describePublicIpv4Pools_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
+--
+-- 'nextToken', 'describePublicIpv4Pools_nextToken' - The token for the next page of results.
+--
+-- 'poolIds', 'describePublicIpv4Pools_poolIds' - The IDs of the address pools.
 newDescribePublicIpv4Pools ::
   DescribePublicIpv4Pools
 newDescribePublicIpv4Pools =
   DescribePublicIpv4Pools'
-    { nextToken =
-        Prelude.Nothing,
-      poolIds = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      poolIds = Prelude.Nothing
     }
-
--- | The token for the next page of results.
-describePublicIpv4Pools_nextToken :: Lens.Lens' DescribePublicIpv4Pools (Prelude.Maybe Prelude.Text)
-describePublicIpv4Pools_nextToken = Lens.lens (\DescribePublicIpv4Pools' {nextToken} -> nextToken) (\s@DescribePublicIpv4Pools' {} a -> s {nextToken = a} :: DescribePublicIpv4Pools)
-
--- | The IDs of the address pools.
-describePublicIpv4Pools_poolIds :: Lens.Lens' DescribePublicIpv4Pools (Prelude.Maybe [Prelude.Text])
-describePublicIpv4Pools_poolIds = Lens.lens (\DescribePublicIpv4Pools' {poolIds} -> poolIds) (\s@DescribePublicIpv4Pools' {} a -> s {poolIds = a} :: DescribePublicIpv4Pools) Prelude.. Lens.mapping Lens.coerced
 
 -- | One or more filters.
 --
@@ -143,6 +134,14 @@ describePublicIpv4Pools_filters = Lens.lens (\DescribePublicIpv4Pools' {filters}
 -- value.
 describePublicIpv4Pools_maxResults :: Lens.Lens' DescribePublicIpv4Pools (Prelude.Maybe Prelude.Natural)
 describePublicIpv4Pools_maxResults = Lens.lens (\DescribePublicIpv4Pools' {maxResults} -> maxResults) (\s@DescribePublicIpv4Pools' {} a -> s {maxResults = a} :: DescribePublicIpv4Pools)
+
+-- | The token for the next page of results.
+describePublicIpv4Pools_nextToken :: Lens.Lens' DescribePublicIpv4Pools (Prelude.Maybe Prelude.Text)
+describePublicIpv4Pools_nextToken = Lens.lens (\DescribePublicIpv4Pools' {nextToken} -> nextToken) (\s@DescribePublicIpv4Pools' {} a -> s {nextToken = a} :: DescribePublicIpv4Pools)
+
+-- | The IDs of the address pools.
+describePublicIpv4Pools_poolIds :: Lens.Lens' DescribePublicIpv4Pools (Prelude.Maybe [Prelude.Text])
+describePublicIpv4Pools_poolIds = Lens.lens (\DescribePublicIpv4Pools' {poolIds} -> poolIds) (\s@DescribePublicIpv4Pools' {} a -> s {poolIds = a} :: DescribePublicIpv4Pools) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager DescribePublicIpv4Pools where
   page rq rs
@@ -186,17 +185,17 @@ instance Core.AWSRequest DescribePublicIpv4Pools where
 
 instance Prelude.Hashable DescribePublicIpv4Pools where
   hashWithSalt _salt DescribePublicIpv4Pools' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` poolIds
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` poolIds
 
 instance Prelude.NFData DescribePublicIpv4Pools where
   rnf DescribePublicIpv4Pools' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf poolIds
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf poolIds
 
 instance Data.ToHeaders DescribePublicIpv4Pools where
   toHeaders = Prelude.const Prelude.mempty
@@ -211,12 +210,12 @@ instance Data.ToQuery DescribePublicIpv4Pools where
           Data.=: ("DescribePublicIpv4Pools" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
-        Data.toQuery
-          (Data.toQueryList "PoolId" Prelude.<$> poolIds),
         Data.toQuery
           (Data.toQueryList "Filter" Prelude.<$> filters),
-        "MaxResults" Data.=: maxResults
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "PoolId" Prelude.<$> poolIds)
       ]
 
 -- | /See:/ 'newDescribePublicIpv4PoolsResponse' smart constructor.

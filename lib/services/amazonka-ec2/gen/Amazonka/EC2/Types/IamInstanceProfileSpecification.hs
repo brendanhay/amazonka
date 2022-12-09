@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIamInstanceProfileSpecification' smart constructor.
 data IamInstanceProfileSpecification = IamInstanceProfileSpecification'
-  { -- | The name of the instance profile.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the instance profile.
-    arn :: Prelude.Maybe Prelude.Text
+  { -- | The Amazon Resource Name (ARN) of the instance profile.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the instance profile.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,30 +44,30 @@ data IamInstanceProfileSpecification = IamInstanceProfileSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'iamInstanceProfileSpecification_name' - The name of the instance profile.
---
 -- 'arn', 'iamInstanceProfileSpecification_arn' - The Amazon Resource Name (ARN) of the instance profile.
+--
+-- 'name', 'iamInstanceProfileSpecification_name' - The name of the instance profile.
 newIamInstanceProfileSpecification ::
   IamInstanceProfileSpecification
 newIamInstanceProfileSpecification =
   IamInstanceProfileSpecification'
-    { name =
+    { arn =
         Prelude.Nothing,
-      arn = Prelude.Nothing
+      name = Prelude.Nothing
     }
-
--- | The name of the instance profile.
-iamInstanceProfileSpecification_name :: Lens.Lens' IamInstanceProfileSpecification (Prelude.Maybe Prelude.Text)
-iamInstanceProfileSpecification_name = Lens.lens (\IamInstanceProfileSpecification' {name} -> name) (\s@IamInstanceProfileSpecification' {} a -> s {name = a} :: IamInstanceProfileSpecification)
 
 -- | The Amazon Resource Name (ARN) of the instance profile.
 iamInstanceProfileSpecification_arn :: Lens.Lens' IamInstanceProfileSpecification (Prelude.Maybe Prelude.Text)
 iamInstanceProfileSpecification_arn = Lens.lens (\IamInstanceProfileSpecification' {arn} -> arn) (\s@IamInstanceProfileSpecification' {} a -> s {arn = a} :: IamInstanceProfileSpecification)
 
+-- | The name of the instance profile.
+iamInstanceProfileSpecification_name :: Lens.Lens' IamInstanceProfileSpecification (Prelude.Maybe Prelude.Text)
+iamInstanceProfileSpecification_name = Lens.lens (\IamInstanceProfileSpecification' {name} -> name) (\s@IamInstanceProfileSpecification' {} a -> s {name = a} :: IamInstanceProfileSpecification)
+
 instance Data.FromXML IamInstanceProfileSpecification where
   parseXML x =
     IamInstanceProfileSpecification'
-      Prelude.<$> (x Data..@? "name") Prelude.<*> (x Data..@? "arn")
+      Prelude.<$> (x Data..@? "arn") Prelude.<*> (x Data..@? "name")
 
 instance
   Prelude.Hashable
@@ -76,17 +76,17 @@ instance
   hashWithSalt
     _salt
     IamInstanceProfileSpecification' {..} =
-      _salt `Prelude.hashWithSalt` name
-        `Prelude.hashWithSalt` arn
+      _salt `Prelude.hashWithSalt` arn
+        `Prelude.hashWithSalt` name
 
 instance
   Prelude.NFData
     IamInstanceProfileSpecification
   where
   rnf IamInstanceProfileSpecification' {..} =
-    Prelude.rnf name `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf name
 
 instance Data.ToQuery IamInstanceProfileSpecification where
   toQuery IamInstanceProfileSpecification' {..} =
     Prelude.mconcat
-      ["Name" Data.=: name, "Arn" Data.=: arn]
+      ["Arn" Data.=: arn, "Name" Data.=: name]

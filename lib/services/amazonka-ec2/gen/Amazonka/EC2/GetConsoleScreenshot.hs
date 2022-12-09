@@ -30,8 +30,8 @@ module Amazonka.EC2.GetConsoleScreenshot
     newGetConsoleScreenshot,
 
     -- * Request Lenses
-    getConsoleScreenshot_wakeUp,
     getConsoleScreenshot_dryRun,
+    getConsoleScreenshot_wakeUp,
     getConsoleScreenshot_instanceId,
 
     -- * Destructuring the Response
@@ -55,14 +55,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetConsoleScreenshot' smart constructor.
 data GetConsoleScreenshot = GetConsoleScreenshot'
-  { -- | When set to @true@, acts as keystroke input and wakes up an instance
-    -- that\'s in standby or \"sleep\" mode.
-    wakeUp :: Prelude.Maybe Prelude.Bool,
-    -- | Checks whether you have the required permissions for the action, without
+  { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | When set to @true@, acts as keystroke input and wakes up an instance
+    -- that\'s in standby or \"sleep\" mode.
+    wakeUp :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the instance.
     instanceId :: Prelude.Text
   }
@@ -76,13 +76,13 @@ data GetConsoleScreenshot = GetConsoleScreenshot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'wakeUp', 'getConsoleScreenshot_wakeUp' - When set to @true@, acts as keystroke input and wakes up an instance
--- that\'s in standby or \"sleep\" mode.
---
 -- 'dryRun', 'getConsoleScreenshot_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'wakeUp', 'getConsoleScreenshot_wakeUp' - When set to @true@, acts as keystroke input and wakes up an instance
+-- that\'s in standby or \"sleep\" mode.
 --
 -- 'instanceId', 'getConsoleScreenshot_instanceId' - The ID of the instance.
 newGetConsoleScreenshot ::
@@ -91,15 +91,10 @@ newGetConsoleScreenshot ::
   GetConsoleScreenshot
 newGetConsoleScreenshot pInstanceId_ =
   GetConsoleScreenshot'
-    { wakeUp = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+    { dryRun = Prelude.Nothing,
+      wakeUp = Prelude.Nothing,
       instanceId = pInstanceId_
     }
-
--- | When set to @true@, acts as keystroke input and wakes up an instance
--- that\'s in standby or \"sleep\" mode.
-getConsoleScreenshot_wakeUp :: Lens.Lens' GetConsoleScreenshot (Prelude.Maybe Prelude.Bool)
-getConsoleScreenshot_wakeUp = Lens.lens (\GetConsoleScreenshot' {wakeUp} -> wakeUp) (\s@GetConsoleScreenshot' {} a -> s {wakeUp = a} :: GetConsoleScreenshot)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -107,6 +102,11 @@ getConsoleScreenshot_wakeUp = Lens.lens (\GetConsoleScreenshot' {wakeUp} -> wake
 -- Otherwise, it is @UnauthorizedOperation@.
 getConsoleScreenshot_dryRun :: Lens.Lens' GetConsoleScreenshot (Prelude.Maybe Prelude.Bool)
 getConsoleScreenshot_dryRun = Lens.lens (\GetConsoleScreenshot' {dryRun} -> dryRun) (\s@GetConsoleScreenshot' {} a -> s {dryRun = a} :: GetConsoleScreenshot)
+
+-- | When set to @true@, acts as keystroke input and wakes up an instance
+-- that\'s in standby or \"sleep\" mode.
+getConsoleScreenshot_wakeUp :: Lens.Lens' GetConsoleScreenshot (Prelude.Maybe Prelude.Bool)
+getConsoleScreenshot_wakeUp = Lens.lens (\GetConsoleScreenshot' {wakeUp} -> wakeUp) (\s@GetConsoleScreenshot' {} a -> s {wakeUp = a} :: GetConsoleScreenshot)
 
 -- | The ID of the instance.
 getConsoleScreenshot_instanceId :: Lens.Lens' GetConsoleScreenshot Prelude.Text
@@ -129,14 +129,14 @@ instance Core.AWSRequest GetConsoleScreenshot where
 
 instance Prelude.Hashable GetConsoleScreenshot where
   hashWithSalt _salt GetConsoleScreenshot' {..} =
-    _salt `Prelude.hashWithSalt` wakeUp
-      `Prelude.hashWithSalt` dryRun
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` wakeUp
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData GetConsoleScreenshot where
   rnf GetConsoleScreenshot' {..} =
-    Prelude.rnf wakeUp
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf wakeUp
       `Prelude.seq` Prelude.rnf instanceId
 
 instance Data.ToHeaders GetConsoleScreenshot where
@@ -152,8 +152,8 @@ instance Data.ToQuery GetConsoleScreenshot where
           Data.=: ("GetConsoleScreenshot" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "WakeUp" Data.=: wakeUp,
         "DryRun" Data.=: dryRun,
+        "WakeUp" Data.=: wakeUp,
         "InstanceId" Data.=: instanceId
       ]
 

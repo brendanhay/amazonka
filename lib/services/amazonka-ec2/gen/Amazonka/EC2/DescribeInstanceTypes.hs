@@ -31,19 +31,19 @@ module Amazonka.EC2.DescribeInstanceTypes
     newDescribeInstanceTypes,
 
     -- * Request Lenses
-    describeInstanceTypes_nextToken,
-    describeInstanceTypes_instanceTypes,
-    describeInstanceTypes_filters,
     describeInstanceTypes_dryRun,
+    describeInstanceTypes_filters,
+    describeInstanceTypes_instanceTypes,
     describeInstanceTypes_maxResults,
+    describeInstanceTypes_nextToken,
 
     -- * Destructuring the Response
     DescribeInstanceTypesResponse (..),
     newDescribeInstanceTypesResponse,
 
     -- * Response Lenses
-    describeInstanceTypesResponse_nextToken,
     describeInstanceTypesResponse_instanceTypes,
+    describeInstanceTypesResponse_nextToken,
     describeInstanceTypesResponse_httpStatus,
   )
 where
@@ -58,12 +58,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeInstanceTypes' smart constructor.
 data DescribeInstanceTypes = DescribeInstanceTypes'
-  { -- | The token to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The instance types. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
-    -- in the /Amazon EC2 User Guide/.
-    instanceTypes :: Prelude.Maybe [InstanceType],
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | One or more filters. Filter names and values are case-sensitive.
     --
     -- -   @auto-recovery-supported@ - Indicates whether auto recovery is
@@ -211,15 +210,16 @@ data DescribeInstanceTypes = DescribeInstanceTypes'
     --     that can be configured for the instance type. For example, \"1\" or
     --     \"1,2\".
     filters :: Prelude.Maybe [Filter],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The instance types. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
+    -- in the /Amazon EC2 User Guide/.
+    instanceTypes :: Prelude.Maybe [InstanceType],
     -- | The maximum number of results to return for the request in a single
     -- page. The remaining results can be seen by sending another request with
     -- the next token value.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -231,11 +231,10 @@ data DescribeInstanceTypes = DescribeInstanceTypes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeInstanceTypes_nextToken' - The token to retrieve the next page of results.
---
--- 'instanceTypes', 'describeInstanceTypes_instanceTypes' - The instance types. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
--- in the /Amazon EC2 User Guide/.
+-- 'dryRun', 'describeInstanceTypes_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeInstanceTypes_filters' - One or more filters. Filter names and values are case-sensitive.
 --
@@ -384,34 +383,32 @@ data DescribeInstanceTypes = DescribeInstanceTypes'
 --     that can be configured for the instance type. For example, \"1\" or
 --     \"1,2\".
 --
--- 'dryRun', 'describeInstanceTypes_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- 'instanceTypes', 'describeInstanceTypes_instanceTypes' - The instance types. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
+-- in the /Amazon EC2 User Guide/.
 --
 -- 'maxResults', 'describeInstanceTypes_maxResults' - The maximum number of results to return for the request in a single
 -- page. The remaining results can be seen by sending another request with
 -- the next token value.
+--
+-- 'nextToken', 'describeInstanceTypes_nextToken' - The token to retrieve the next page of results.
 newDescribeInstanceTypes ::
   DescribeInstanceTypes
 newDescribeInstanceTypes =
   DescribeInstanceTypes'
-    { nextToken = Prelude.Nothing,
-      instanceTypes = Prelude.Nothing,
+    { dryRun = Prelude.Nothing,
       filters = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      instanceTypes = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
 
--- | The token to retrieve the next page of results.
-describeInstanceTypes_nextToken :: Lens.Lens' DescribeInstanceTypes (Prelude.Maybe Prelude.Text)
-describeInstanceTypes_nextToken = Lens.lens (\DescribeInstanceTypes' {nextToken} -> nextToken) (\s@DescribeInstanceTypes' {} a -> s {nextToken = a} :: DescribeInstanceTypes)
-
--- | The instance types. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
--- in the /Amazon EC2 User Guide/.
-describeInstanceTypes_instanceTypes :: Lens.Lens' DescribeInstanceTypes (Prelude.Maybe [InstanceType])
-describeInstanceTypes_instanceTypes = Lens.lens (\DescribeInstanceTypes' {instanceTypes} -> instanceTypes) (\s@DescribeInstanceTypes' {} a -> s {instanceTypes = a} :: DescribeInstanceTypes) Prelude.. Lens.mapping Lens.coerced
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeInstanceTypes_dryRun :: Lens.Lens' DescribeInstanceTypes (Prelude.Maybe Prelude.Bool)
+describeInstanceTypes_dryRun = Lens.lens (\DescribeInstanceTypes' {dryRun} -> dryRun) (\s@DescribeInstanceTypes' {} a -> s {dryRun = a} :: DescribeInstanceTypes)
 
 -- | One or more filters. Filter names and values are case-sensitive.
 --
@@ -562,18 +559,21 @@ describeInstanceTypes_instanceTypes = Lens.lens (\DescribeInstanceTypes' {instan
 describeInstanceTypes_filters :: Lens.Lens' DescribeInstanceTypes (Prelude.Maybe [Filter])
 describeInstanceTypes_filters = Lens.lens (\DescribeInstanceTypes' {filters} -> filters) (\s@DescribeInstanceTypes' {} a -> s {filters = a} :: DescribeInstanceTypes) Prelude.. Lens.mapping Lens.coerced
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeInstanceTypes_dryRun :: Lens.Lens' DescribeInstanceTypes (Prelude.Maybe Prelude.Bool)
-describeInstanceTypes_dryRun = Lens.lens (\DescribeInstanceTypes' {dryRun} -> dryRun) (\s@DescribeInstanceTypes' {} a -> s {dryRun = a} :: DescribeInstanceTypes)
+-- | The instance types. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
+-- in the /Amazon EC2 User Guide/.
+describeInstanceTypes_instanceTypes :: Lens.Lens' DescribeInstanceTypes (Prelude.Maybe [InstanceType])
+describeInstanceTypes_instanceTypes = Lens.lens (\DescribeInstanceTypes' {instanceTypes} -> instanceTypes) (\s@DescribeInstanceTypes' {} a -> s {instanceTypes = a} :: DescribeInstanceTypes) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of results to return for the request in a single
 -- page. The remaining results can be seen by sending another request with
 -- the next token value.
 describeInstanceTypes_maxResults :: Lens.Lens' DescribeInstanceTypes (Prelude.Maybe Prelude.Natural)
 describeInstanceTypes_maxResults = Lens.lens (\DescribeInstanceTypes' {maxResults} -> maxResults) (\s@DescribeInstanceTypes' {} a -> s {maxResults = a} :: DescribeInstanceTypes)
+
+-- | The token to retrieve the next page of results.
+describeInstanceTypes_nextToken :: Lens.Lens' DescribeInstanceTypes (Prelude.Maybe Prelude.Text)
+describeInstanceTypes_nextToken = Lens.lens (\DescribeInstanceTypes' {nextToken} -> nextToken) (\s@DescribeInstanceTypes' {} a -> s {nextToken = a} :: DescribeInstanceTypes)
 
 instance Core.AWSPager DescribeInstanceTypes where
   page rq rs
@@ -607,28 +607,28 @@ instance Core.AWSRequest DescribeInstanceTypes where
     Response.receiveXML
       ( \s h x ->
           DescribeInstanceTypesResponse'
-            Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "instanceTypeSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "instanceTypeSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
+            Prelude.<*> (x Data..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeInstanceTypes where
   hashWithSalt _salt DescribeInstanceTypes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` instanceTypes
+    _salt `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` instanceTypes
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeInstanceTypes where
   rnf DescribeInstanceTypes' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceTypes
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf instanceTypes
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeInstanceTypes where
   toHeaders = Prelude.const Prelude.mempty
@@ -643,26 +643,26 @@ instance Data.ToQuery DescribeInstanceTypes where
           Data.=: ("DescribeInstanceTypes" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
+        "DryRun" Data.=: dryRun,
+        Data.toQuery
+          (Data.toQueryList "Filter" Prelude.<$> filters),
         Data.toQuery
           ( Data.toQueryList "InstanceType"
               Prelude.<$> instanceTypes
           ),
-        Data.toQuery
-          (Data.toQueryList "Filter" Prelude.<$> filters),
-        "DryRun" Data.=: dryRun,
-        "MaxResults" Data.=: maxResults
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newDescribeInstanceTypesResponse' smart constructor.
 data DescribeInstanceTypesResponse = DescribeInstanceTypesResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
-    -- @null@ when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The instance type. For more information, see
+  { -- | The instance type. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
     -- in the /Amazon EC2 User Guide/.
     instanceTypes :: Prelude.Maybe [InstanceTypeInfo],
+    -- | The token to use to retrieve the next page of results. This value is
+    -- @null@ when there are no more results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -676,12 +676,12 @@ data DescribeInstanceTypesResponse = DescribeInstanceTypesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeInstanceTypesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
---
 -- 'instanceTypes', 'describeInstanceTypesResponse_instanceTypes' - The instance type. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
 -- in the /Amazon EC2 User Guide/.
+--
+-- 'nextToken', 'describeInstanceTypesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
+-- @null@ when there are no more results to return.
 --
 -- 'httpStatus', 'describeInstanceTypesResponse_httpStatus' - The response's http status code.
 newDescribeInstanceTypesResponse ::
@@ -690,16 +690,11 @@ newDescribeInstanceTypesResponse ::
   DescribeInstanceTypesResponse
 newDescribeInstanceTypesResponse pHttpStatus_ =
   DescribeInstanceTypesResponse'
-    { nextToken =
+    { instanceTypes =
         Prelude.Nothing,
-      instanceTypes = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
-describeInstanceTypesResponse_nextToken :: Lens.Lens' DescribeInstanceTypesResponse (Prelude.Maybe Prelude.Text)
-describeInstanceTypesResponse_nextToken = Lens.lens (\DescribeInstanceTypesResponse' {nextToken} -> nextToken) (\s@DescribeInstanceTypesResponse' {} a -> s {nextToken = a} :: DescribeInstanceTypesResponse)
 
 -- | The instance type. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
@@ -707,12 +702,17 @@ describeInstanceTypesResponse_nextToken = Lens.lens (\DescribeInstanceTypesRespo
 describeInstanceTypesResponse_instanceTypes :: Lens.Lens' DescribeInstanceTypesResponse (Prelude.Maybe [InstanceTypeInfo])
 describeInstanceTypesResponse_instanceTypes = Lens.lens (\DescribeInstanceTypesResponse' {instanceTypes} -> instanceTypes) (\s@DescribeInstanceTypesResponse' {} a -> s {instanceTypes = a} :: DescribeInstanceTypesResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The token to use to retrieve the next page of results. This value is
+-- @null@ when there are no more results to return.
+describeInstanceTypesResponse_nextToken :: Lens.Lens' DescribeInstanceTypesResponse (Prelude.Maybe Prelude.Text)
+describeInstanceTypesResponse_nextToken = Lens.lens (\DescribeInstanceTypesResponse' {nextToken} -> nextToken) (\s@DescribeInstanceTypesResponse' {} a -> s {nextToken = a} :: DescribeInstanceTypesResponse)
+
 -- | The response's http status code.
 describeInstanceTypesResponse_httpStatus :: Lens.Lens' DescribeInstanceTypesResponse Prelude.Int
 describeInstanceTypesResponse_httpStatus = Lens.lens (\DescribeInstanceTypesResponse' {httpStatus} -> httpStatus) (\s@DescribeInstanceTypesResponse' {} a -> s {httpStatus = a} :: DescribeInstanceTypesResponse)
 
 instance Prelude.NFData DescribeInstanceTypesResponse where
   rnf DescribeInstanceTypesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf instanceTypes
+    Prelude.rnf instanceTypes
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

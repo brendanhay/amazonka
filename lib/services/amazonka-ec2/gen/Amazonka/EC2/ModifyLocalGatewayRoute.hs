@@ -28,8 +28,8 @@ module Amazonka.EC2.ModifyLocalGatewayRoute
 
     -- * Request Lenses
     modifyLocalGatewayRoute_dryRun,
-    modifyLocalGatewayRoute_networkInterfaceId,
     modifyLocalGatewayRoute_localGatewayVirtualInterfaceGroupId,
+    modifyLocalGatewayRoute_networkInterfaceId,
     modifyLocalGatewayRoute_destinationCidrBlock,
     modifyLocalGatewayRoute_localGatewayRouteTableId,
 
@@ -58,10 +58,10 @@ data ModifyLocalGatewayRoute = ModifyLocalGatewayRoute'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the network interface.
-    networkInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the virtual interface group.
     localGatewayVirtualInterfaceGroupId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the network interface.
+    networkInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The CIDR block used for destination matches. The value that you provide
     -- must match the CIDR of an existing route in the table.
     destinationCidrBlock :: Prelude.Text,
@@ -83,9 +83,9 @@ data ModifyLocalGatewayRoute = ModifyLocalGatewayRoute'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'networkInterfaceId', 'modifyLocalGatewayRoute_networkInterfaceId' - The ID of the network interface.
---
 -- 'localGatewayVirtualInterfaceGroupId', 'modifyLocalGatewayRoute_localGatewayVirtualInterfaceGroupId' - The ID of the virtual interface group.
+--
+-- 'networkInterfaceId', 'modifyLocalGatewayRoute_networkInterfaceId' - The ID of the network interface.
 --
 -- 'destinationCidrBlock', 'modifyLocalGatewayRoute_destinationCidrBlock' - The CIDR block used for destination matches. The value that you provide
 -- must match the CIDR of an existing route in the table.
@@ -102,9 +102,9 @@ newModifyLocalGatewayRoute
   pLocalGatewayRouteTableId_ =
     ModifyLocalGatewayRoute'
       { dryRun = Prelude.Nothing,
-        networkInterfaceId = Prelude.Nothing,
         localGatewayVirtualInterfaceGroupId =
           Prelude.Nothing,
+        networkInterfaceId = Prelude.Nothing,
         destinationCidrBlock = pDestinationCidrBlock_,
         localGatewayRouteTableId =
           pLocalGatewayRouteTableId_
@@ -117,13 +117,13 @@ newModifyLocalGatewayRoute
 modifyLocalGatewayRoute_dryRun :: Lens.Lens' ModifyLocalGatewayRoute (Prelude.Maybe Prelude.Bool)
 modifyLocalGatewayRoute_dryRun = Lens.lens (\ModifyLocalGatewayRoute' {dryRun} -> dryRun) (\s@ModifyLocalGatewayRoute' {} a -> s {dryRun = a} :: ModifyLocalGatewayRoute)
 
--- | The ID of the network interface.
-modifyLocalGatewayRoute_networkInterfaceId :: Lens.Lens' ModifyLocalGatewayRoute (Prelude.Maybe Prelude.Text)
-modifyLocalGatewayRoute_networkInterfaceId = Lens.lens (\ModifyLocalGatewayRoute' {networkInterfaceId} -> networkInterfaceId) (\s@ModifyLocalGatewayRoute' {} a -> s {networkInterfaceId = a} :: ModifyLocalGatewayRoute)
-
 -- | The ID of the virtual interface group.
 modifyLocalGatewayRoute_localGatewayVirtualInterfaceGroupId :: Lens.Lens' ModifyLocalGatewayRoute (Prelude.Maybe Prelude.Text)
 modifyLocalGatewayRoute_localGatewayVirtualInterfaceGroupId = Lens.lens (\ModifyLocalGatewayRoute' {localGatewayVirtualInterfaceGroupId} -> localGatewayVirtualInterfaceGroupId) (\s@ModifyLocalGatewayRoute' {} a -> s {localGatewayVirtualInterfaceGroupId = a} :: ModifyLocalGatewayRoute)
+
+-- | The ID of the network interface.
+modifyLocalGatewayRoute_networkInterfaceId :: Lens.Lens' ModifyLocalGatewayRoute (Prelude.Maybe Prelude.Text)
+modifyLocalGatewayRoute_networkInterfaceId = Lens.lens (\ModifyLocalGatewayRoute' {networkInterfaceId} -> networkInterfaceId) (\s@ModifyLocalGatewayRoute' {} a -> s {networkInterfaceId = a} :: ModifyLocalGatewayRoute)
 
 -- | The CIDR block used for destination matches. The value that you provide
 -- must match the CIDR of an existing route in the table.
@@ -151,16 +151,16 @@ instance Core.AWSRequest ModifyLocalGatewayRoute where
 instance Prelude.Hashable ModifyLocalGatewayRoute where
   hashWithSalt _salt ModifyLocalGatewayRoute' {..} =
     _salt `Prelude.hashWithSalt` dryRun
-      `Prelude.hashWithSalt` networkInterfaceId
       `Prelude.hashWithSalt` localGatewayVirtualInterfaceGroupId
+      `Prelude.hashWithSalt` networkInterfaceId
       `Prelude.hashWithSalt` destinationCidrBlock
       `Prelude.hashWithSalt` localGatewayRouteTableId
 
 instance Prelude.NFData ModifyLocalGatewayRoute where
   rnf ModifyLocalGatewayRoute' {..} =
     Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf networkInterfaceId
       `Prelude.seq` Prelude.rnf localGatewayVirtualInterfaceGroupId
+      `Prelude.seq` Prelude.rnf networkInterfaceId
       `Prelude.seq` Prelude.rnf destinationCidrBlock
       `Prelude.seq` Prelude.rnf localGatewayRouteTableId
 
@@ -178,9 +178,9 @@ instance Data.ToQuery ModifyLocalGatewayRoute where
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Data.=: dryRun,
-        "NetworkInterfaceId" Data.=: networkInterfaceId,
         "LocalGatewayVirtualInterfaceGroupId"
           Data.=: localGatewayVirtualInterfaceGroupId,
+        "NetworkInterfaceId" Data.=: networkInterfaceId,
         "DestinationCidrBlock" Data.=: destinationCidrBlock,
         "LocalGatewayRouteTableId"
           Data.=: localGatewayRouteTableId
@@ -188,7 +188,8 @@ instance Data.ToQuery ModifyLocalGatewayRoute where
 
 -- | /See:/ 'newModifyLocalGatewayRouteResponse' smart constructor.
 data ModifyLocalGatewayRouteResponse = ModifyLocalGatewayRouteResponse'
-  { route :: Prelude.Maybe LocalGatewayRoute,
+  { -- | Information about the local gateway route table.
+    route :: Prelude.Maybe LocalGatewayRoute,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -202,7 +203,7 @@ data ModifyLocalGatewayRouteResponse = ModifyLocalGatewayRouteResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'route', 'modifyLocalGatewayRouteResponse_route' - Undocumented member.
+-- 'route', 'modifyLocalGatewayRouteResponse_route' - Information about the local gateway route table.
 --
 -- 'httpStatus', 'modifyLocalGatewayRouteResponse_httpStatus' - The response's http status code.
 newModifyLocalGatewayRouteResponse ::
@@ -216,7 +217,7 @@ newModifyLocalGatewayRouteResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | Information about the local gateway route table.
 modifyLocalGatewayRouteResponse_route :: Lens.Lens' ModifyLocalGatewayRouteResponse (Prelude.Maybe LocalGatewayRoute)
 modifyLocalGatewayRouteResponse_route = Lens.lens (\ModifyLocalGatewayRouteResponse' {route} -> route) (\s@ModifyLocalGatewayRouteResponse' {} a -> s {route = a} :: ModifyLocalGatewayRouteResponse)
 

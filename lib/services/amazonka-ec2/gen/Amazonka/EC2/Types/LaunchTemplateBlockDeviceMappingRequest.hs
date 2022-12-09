@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLaunchTemplateBlockDeviceMappingRequest' smart constructor.
 data LaunchTemplateBlockDeviceMappingRequest = LaunchTemplateBlockDeviceMappingRequest'
-  { -- | Parameters used to automatically set up EBS volumes when the instance is
+  { -- | The device name (for example, \/dev\/sdh or xvdh).
+    deviceName :: Prelude.Maybe Prelude.Text,
+    -- | Parameters used to automatically set up EBS volumes when the instance is
     -- launched.
     ebs :: Prelude.Maybe LaunchTemplateEbsBlockDeviceRequest,
-    -- | The device name (for example, \/dev\/sdh or xvdh).
-    deviceName :: Prelude.Maybe Prelude.Text,
     -- | To omit the device from the block device mapping, specify an empty
     -- string.
     noDevice :: Prelude.Maybe Prelude.Text,
@@ -55,10 +55,10 @@ data LaunchTemplateBlockDeviceMappingRequest = LaunchTemplateBlockDeviceMappingR
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deviceName', 'launchTemplateBlockDeviceMappingRequest_deviceName' - The device name (for example, \/dev\/sdh or xvdh).
+--
 -- 'ebs', 'launchTemplateBlockDeviceMappingRequest_ebs' - Parameters used to automatically set up EBS volumes when the instance is
 -- launched.
---
--- 'deviceName', 'launchTemplateBlockDeviceMappingRequest_deviceName' - The device name (for example, \/dev\/sdh or xvdh).
 --
 -- 'noDevice', 'launchTemplateBlockDeviceMappingRequest_noDevice' - To omit the device from the block device mapping, specify an empty
 -- string.
@@ -72,21 +72,21 @@ newLaunchTemplateBlockDeviceMappingRequest ::
   LaunchTemplateBlockDeviceMappingRequest
 newLaunchTemplateBlockDeviceMappingRequest =
   LaunchTemplateBlockDeviceMappingRequest'
-    { ebs =
+    { deviceName =
         Prelude.Nothing,
-      deviceName = Prelude.Nothing,
+      ebs = Prelude.Nothing,
       noDevice = Prelude.Nothing,
       virtualName = Prelude.Nothing
     }
+
+-- | The device name (for example, \/dev\/sdh or xvdh).
+launchTemplateBlockDeviceMappingRequest_deviceName :: Lens.Lens' LaunchTemplateBlockDeviceMappingRequest (Prelude.Maybe Prelude.Text)
+launchTemplateBlockDeviceMappingRequest_deviceName = Lens.lens (\LaunchTemplateBlockDeviceMappingRequest' {deviceName} -> deviceName) (\s@LaunchTemplateBlockDeviceMappingRequest' {} a -> s {deviceName = a} :: LaunchTemplateBlockDeviceMappingRequest)
 
 -- | Parameters used to automatically set up EBS volumes when the instance is
 -- launched.
 launchTemplateBlockDeviceMappingRequest_ebs :: Lens.Lens' LaunchTemplateBlockDeviceMappingRequest (Prelude.Maybe LaunchTemplateEbsBlockDeviceRequest)
 launchTemplateBlockDeviceMappingRequest_ebs = Lens.lens (\LaunchTemplateBlockDeviceMappingRequest' {ebs} -> ebs) (\s@LaunchTemplateBlockDeviceMappingRequest' {} a -> s {ebs = a} :: LaunchTemplateBlockDeviceMappingRequest)
-
--- | The device name (for example, \/dev\/sdh or xvdh).
-launchTemplateBlockDeviceMappingRequest_deviceName :: Lens.Lens' LaunchTemplateBlockDeviceMappingRequest (Prelude.Maybe Prelude.Text)
-launchTemplateBlockDeviceMappingRequest_deviceName = Lens.lens (\LaunchTemplateBlockDeviceMappingRequest' {deviceName} -> deviceName) (\s@LaunchTemplateBlockDeviceMappingRequest' {} a -> s {deviceName = a} :: LaunchTemplateBlockDeviceMappingRequest)
 
 -- | To omit the device from the block device mapping, specify an empty
 -- string.
@@ -108,8 +108,8 @@ instance
   hashWithSalt
     _salt
     LaunchTemplateBlockDeviceMappingRequest' {..} =
-      _salt `Prelude.hashWithSalt` ebs
-        `Prelude.hashWithSalt` deviceName
+      _salt `Prelude.hashWithSalt` deviceName
+        `Prelude.hashWithSalt` ebs
         `Prelude.hashWithSalt` noDevice
         `Prelude.hashWithSalt` virtualName
 
@@ -118,8 +118,8 @@ instance
     LaunchTemplateBlockDeviceMappingRequest
   where
   rnf LaunchTemplateBlockDeviceMappingRequest' {..} =
-    Prelude.rnf ebs
-      `Prelude.seq` Prelude.rnf deviceName
+    Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf ebs
       `Prelude.seq` Prelude.rnf noDevice
       `Prelude.seq` Prelude.rnf virtualName
 
@@ -129,8 +129,8 @@ instance
   where
   toQuery LaunchTemplateBlockDeviceMappingRequest' {..} =
     Prelude.mconcat
-      [ "Ebs" Data.=: ebs,
-        "DeviceName" Data.=: deviceName,
+      [ "DeviceName" Data.=: deviceName,
+        "Ebs" Data.=: ebs,
         "NoDevice" Data.=: noDevice,
         "VirtualName" Data.=: virtualName
       ]

@@ -31,8 +31,8 @@ module Amazonka.EC2.ModifyInstanceMaintenanceOptions
     newModifyInstanceMaintenanceOptions,
 
     -- * Request Lenses
-    modifyInstanceMaintenanceOptions_dryRun,
     modifyInstanceMaintenanceOptions_autoRecovery,
+    modifyInstanceMaintenanceOptions_dryRun,
     modifyInstanceMaintenanceOptions_instanceId,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Amazonka.EC2.ModifyInstanceMaintenanceOptions
     newModifyInstanceMaintenanceOptionsResponse,
 
     -- * Response Lenses
-    modifyInstanceMaintenanceOptionsResponse_instanceId,
     modifyInstanceMaintenanceOptionsResponse_autoRecovery,
+    modifyInstanceMaintenanceOptionsResponse_instanceId,
     modifyInstanceMaintenanceOptionsResponse_httpStatus,
   )
 where
@@ -56,14 +56,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyInstanceMaintenanceOptions' smart constructor.
 data ModifyInstanceMaintenanceOptions = ModifyInstanceMaintenanceOptions'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | Disables the automatic recovery behavior of your instance or sets it to
+    -- default.
+    autoRecovery :: Prelude.Maybe InstanceAutoRecoveryState,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | Disables the automatic recovery behavior of your instance or sets it to
-    -- default.
-    autoRecovery :: Prelude.Maybe InstanceAutoRecoveryState,
     -- | The ID of the instance.
     instanceId :: Prelude.Text
   }
@@ -77,13 +77,13 @@ data ModifyInstanceMaintenanceOptions = ModifyInstanceMaintenanceOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'autoRecovery', 'modifyInstanceMaintenanceOptions_autoRecovery' - Disables the automatic recovery behavior of your instance or sets it to
+-- default.
+--
 -- 'dryRun', 'modifyInstanceMaintenanceOptions_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'autoRecovery', 'modifyInstanceMaintenanceOptions_autoRecovery' - Disables the automatic recovery behavior of your instance or sets it to
--- default.
 --
 -- 'instanceId', 'modifyInstanceMaintenanceOptions_instanceId' - The ID of the instance.
 newModifyInstanceMaintenanceOptions ::
@@ -92,11 +92,16 @@ newModifyInstanceMaintenanceOptions ::
   ModifyInstanceMaintenanceOptions
 newModifyInstanceMaintenanceOptions pInstanceId_ =
   ModifyInstanceMaintenanceOptions'
-    { dryRun =
+    { autoRecovery =
         Prelude.Nothing,
-      autoRecovery = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       instanceId = pInstanceId_
     }
+
+-- | Disables the automatic recovery behavior of your instance or sets it to
+-- default.
+modifyInstanceMaintenanceOptions_autoRecovery :: Lens.Lens' ModifyInstanceMaintenanceOptions (Prelude.Maybe InstanceAutoRecoveryState)
+modifyInstanceMaintenanceOptions_autoRecovery = Lens.lens (\ModifyInstanceMaintenanceOptions' {autoRecovery} -> autoRecovery) (\s@ModifyInstanceMaintenanceOptions' {} a -> s {autoRecovery = a} :: ModifyInstanceMaintenanceOptions)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -104,11 +109,6 @@ newModifyInstanceMaintenanceOptions pInstanceId_ =
 -- Otherwise, it is @UnauthorizedOperation@.
 modifyInstanceMaintenanceOptions_dryRun :: Lens.Lens' ModifyInstanceMaintenanceOptions (Prelude.Maybe Prelude.Bool)
 modifyInstanceMaintenanceOptions_dryRun = Lens.lens (\ModifyInstanceMaintenanceOptions' {dryRun} -> dryRun) (\s@ModifyInstanceMaintenanceOptions' {} a -> s {dryRun = a} :: ModifyInstanceMaintenanceOptions)
-
--- | Disables the automatic recovery behavior of your instance or sets it to
--- default.
-modifyInstanceMaintenanceOptions_autoRecovery :: Lens.Lens' ModifyInstanceMaintenanceOptions (Prelude.Maybe InstanceAutoRecoveryState)
-modifyInstanceMaintenanceOptions_autoRecovery = Lens.lens (\ModifyInstanceMaintenanceOptions' {autoRecovery} -> autoRecovery) (\s@ModifyInstanceMaintenanceOptions' {} a -> s {autoRecovery = a} :: ModifyInstanceMaintenanceOptions)
 
 -- | The ID of the instance.
 modifyInstanceMaintenanceOptions_instanceId :: Lens.Lens' ModifyInstanceMaintenanceOptions Prelude.Text
@@ -127,8 +127,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           ModifyInstanceMaintenanceOptionsResponse'
-            Prelude.<$> (x Data..@? "instanceId")
-            Prelude.<*> (x Data..@? "autoRecovery")
+            Prelude.<$> (x Data..@? "autoRecovery")
+            Prelude.<*> (x Data..@? "instanceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,8 +139,8 @@ instance
   hashWithSalt
     _salt
     ModifyInstanceMaintenanceOptions' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
-        `Prelude.hashWithSalt` autoRecovery
+      _salt `Prelude.hashWithSalt` autoRecovery
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` instanceId
 
 instance
@@ -148,8 +148,8 @@ instance
     ModifyInstanceMaintenanceOptions
   where
   rnf ModifyInstanceMaintenanceOptions' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf autoRecovery
+    Prelude.rnf autoRecovery
+      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf instanceId
 
 instance
@@ -173,18 +173,18 @@ instance
                   ),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Data.=: dryRun,
         "AutoRecovery" Data.=: autoRecovery,
+        "DryRun" Data.=: dryRun,
         "InstanceId" Data.=: instanceId
       ]
 
 -- | /See:/ 'newModifyInstanceMaintenanceOptionsResponse' smart constructor.
 data ModifyInstanceMaintenanceOptionsResponse = ModifyInstanceMaintenanceOptionsResponse'
-  { -- | The ID of the instance.
-    instanceId :: Prelude.Maybe Prelude.Text,
-    -- | Provides information on the current automatic recovery behavior of your
+  { -- | Provides information on the current automatic recovery behavior of your
     -- instance.
     autoRecovery :: Prelude.Maybe InstanceAutoRecoveryState,
+    -- | The ID of the instance.
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -198,10 +198,10 @@ data ModifyInstanceMaintenanceOptionsResponse = ModifyInstanceMaintenanceOptions
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'modifyInstanceMaintenanceOptionsResponse_instanceId' - The ID of the instance.
---
 -- 'autoRecovery', 'modifyInstanceMaintenanceOptionsResponse_autoRecovery' - Provides information on the current automatic recovery behavior of your
 -- instance.
+--
+-- 'instanceId', 'modifyInstanceMaintenanceOptionsResponse_instanceId' - The ID of the instance.
 --
 -- 'httpStatus', 'modifyInstanceMaintenanceOptionsResponse_httpStatus' - The response's http status code.
 newModifyInstanceMaintenanceOptionsResponse ::
@@ -211,20 +211,20 @@ newModifyInstanceMaintenanceOptionsResponse ::
 newModifyInstanceMaintenanceOptionsResponse
   pHttpStatus_ =
     ModifyInstanceMaintenanceOptionsResponse'
-      { instanceId =
+      { autoRecovery =
           Prelude.Nothing,
-        autoRecovery = Prelude.Nothing,
+        instanceId = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The ID of the instance.
-modifyInstanceMaintenanceOptionsResponse_instanceId :: Lens.Lens' ModifyInstanceMaintenanceOptionsResponse (Prelude.Maybe Prelude.Text)
-modifyInstanceMaintenanceOptionsResponse_instanceId = Lens.lens (\ModifyInstanceMaintenanceOptionsResponse' {instanceId} -> instanceId) (\s@ModifyInstanceMaintenanceOptionsResponse' {} a -> s {instanceId = a} :: ModifyInstanceMaintenanceOptionsResponse)
 
 -- | Provides information on the current automatic recovery behavior of your
 -- instance.
 modifyInstanceMaintenanceOptionsResponse_autoRecovery :: Lens.Lens' ModifyInstanceMaintenanceOptionsResponse (Prelude.Maybe InstanceAutoRecoveryState)
 modifyInstanceMaintenanceOptionsResponse_autoRecovery = Lens.lens (\ModifyInstanceMaintenanceOptionsResponse' {autoRecovery} -> autoRecovery) (\s@ModifyInstanceMaintenanceOptionsResponse' {} a -> s {autoRecovery = a} :: ModifyInstanceMaintenanceOptionsResponse)
+
+-- | The ID of the instance.
+modifyInstanceMaintenanceOptionsResponse_instanceId :: Lens.Lens' ModifyInstanceMaintenanceOptionsResponse (Prelude.Maybe Prelude.Text)
+modifyInstanceMaintenanceOptionsResponse_instanceId = Lens.lens (\ModifyInstanceMaintenanceOptionsResponse' {instanceId} -> instanceId) (\s@ModifyInstanceMaintenanceOptionsResponse' {} a -> s {instanceId = a} :: ModifyInstanceMaintenanceOptionsResponse)
 
 -- | The response's http status code.
 modifyInstanceMaintenanceOptionsResponse_httpStatus :: Lens.Lens' ModifyInstanceMaintenanceOptionsResponse Prelude.Int
@@ -235,6 +235,6 @@ instance
     ModifyInstanceMaintenanceOptionsResponse
   where
   rnf ModifyInstanceMaintenanceOptionsResponse' {..} =
-    Prelude.rnf instanceId
-      `Prelude.seq` Prelude.rnf autoRecovery
+    Prelude.rnf autoRecovery
+      `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf httpStatus

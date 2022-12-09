@@ -29,11 +29,11 @@ module Amazonka.EC2.DescribeVpcs
     newDescribeVpcs,
 
     -- * Request Lenses
-    describeVpcs_nextToken,
-    describeVpcs_filters,
     describeVpcs_dryRun,
-    describeVpcs_vpcIds,
+    describeVpcs_filters,
     describeVpcs_maxResults,
+    describeVpcs_nextToken,
+    describeVpcs_vpcIds,
 
     -- * Destructuring the Response
     DescribeVpcsResponse (..),
@@ -56,8 +56,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeVpcs' smart constructor.
 data DescribeVpcs = DescribeVpcs'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | One or more filters.
     --
     -- -   @cidr@ - The primary IPv4 CIDR block of the VPC. The CIDR block you
@@ -107,19 +110,16 @@ data DescribeVpcs = DescribeVpcs'
     --
     -- -   @vpc-id@ - The ID of the VPC.
     filters :: Prelude.Maybe [Filter],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | One or more VPC IDs.
-    --
-    -- Default: Describes all your VPCs.
-    vpcIds :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more VPC IDs.
+    --
+    -- Default: Describes all your VPCs.
+    vpcIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -131,7 +131,10 @@ data DescribeVpcs = DescribeVpcs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeVpcs_nextToken' - The token for the next page of results.
+-- 'dryRun', 'describeVpcs_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeVpcs_filters' - One or more filters.
 --
@@ -182,32 +185,32 @@ data DescribeVpcs = DescribeVpcs'
 --
 -- -   @vpc-id@ - The ID of the VPC.
 --
--- 'dryRun', 'describeVpcs_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- 'maxResults', 'describeVpcs_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+--
+-- 'nextToken', 'describeVpcs_nextToken' - The token for the next page of results.
 --
 -- 'vpcIds', 'describeVpcs_vpcIds' - One or more VPC IDs.
 --
 -- Default: Describes all your VPCs.
---
--- 'maxResults', 'describeVpcs_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
 newDescribeVpcs ::
   DescribeVpcs
 newDescribeVpcs =
   DescribeVpcs'
-    { nextToken = Prelude.Nothing,
+    { dryRun = Prelude.Nothing,
       filters = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      vpcIds = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      vpcIds = Prelude.Nothing
     }
 
--- | The token for the next page of results.
-describeVpcs_nextToken :: Lens.Lens' DescribeVpcs (Prelude.Maybe Prelude.Text)
-describeVpcs_nextToken = Lens.lens (\DescribeVpcs' {nextToken} -> nextToken) (\s@DescribeVpcs' {} a -> s {nextToken = a} :: DescribeVpcs)
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeVpcs_dryRun :: Lens.Lens' DescribeVpcs (Prelude.Maybe Prelude.Bool)
+describeVpcs_dryRun = Lens.lens (\DescribeVpcs' {dryRun} -> dryRun) (\s@DescribeVpcs' {} a -> s {dryRun = a} :: DescribeVpcs)
 
 -- | One or more filters.
 --
@@ -260,24 +263,21 @@ describeVpcs_nextToken = Lens.lens (\DescribeVpcs' {nextToken} -> nextToken) (\s
 describeVpcs_filters :: Lens.Lens' DescribeVpcs (Prelude.Maybe [Filter])
 describeVpcs_filters = Lens.lens (\DescribeVpcs' {filters} -> filters) (\s@DescribeVpcs' {} a -> s {filters = a} :: DescribeVpcs) Prelude.. Lens.mapping Lens.coerced
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeVpcs_dryRun :: Lens.Lens' DescribeVpcs (Prelude.Maybe Prelude.Bool)
-describeVpcs_dryRun = Lens.lens (\DescribeVpcs' {dryRun} -> dryRun) (\s@DescribeVpcs' {} a -> s {dryRun = a} :: DescribeVpcs)
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+describeVpcs_maxResults :: Lens.Lens' DescribeVpcs (Prelude.Maybe Prelude.Natural)
+describeVpcs_maxResults = Lens.lens (\DescribeVpcs' {maxResults} -> maxResults) (\s@DescribeVpcs' {} a -> s {maxResults = a} :: DescribeVpcs)
+
+-- | The token for the next page of results.
+describeVpcs_nextToken :: Lens.Lens' DescribeVpcs (Prelude.Maybe Prelude.Text)
+describeVpcs_nextToken = Lens.lens (\DescribeVpcs' {nextToken} -> nextToken) (\s@DescribeVpcs' {} a -> s {nextToken = a} :: DescribeVpcs)
 
 -- | One or more VPC IDs.
 --
 -- Default: Describes all your VPCs.
 describeVpcs_vpcIds :: Lens.Lens' DescribeVpcs (Prelude.Maybe [Prelude.Text])
 describeVpcs_vpcIds = Lens.lens (\DescribeVpcs' {vpcIds} -> vpcIds) (\s@DescribeVpcs' {} a -> s {vpcIds = a} :: DescribeVpcs) Prelude.. Lens.mapping Lens.coerced
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-describeVpcs_maxResults :: Lens.Lens' DescribeVpcs (Prelude.Maybe Prelude.Natural)
-describeVpcs_maxResults = Lens.lens (\DescribeVpcs' {maxResults} -> maxResults) (\s@DescribeVpcs' {} a -> s {maxResults = a} :: DescribeVpcs)
 
 instance Core.AWSPager DescribeVpcs where
   page rq rs
@@ -315,19 +315,19 @@ instance Core.AWSRequest DescribeVpcs where
 
 instance Prelude.Hashable DescribeVpcs where
   hashWithSalt _salt DescribeVpcs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` dryRun
-      `Prelude.hashWithSalt` vpcIds
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` vpcIds
 
 instance Prelude.NFData DescribeVpcs where
   rnf DescribeVpcs' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf vpcIds
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf vpcIds
 
 instance Data.ToHeaders DescribeVpcs where
   toHeaders = Prelude.const Prelude.mempty
@@ -342,13 +342,13 @@ instance Data.ToQuery DescribeVpcs where
           Data.=: ("DescribeVpcs" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Data.=: nextToken,
-        Data.toQuery
-          (Data.toQueryList "Filter" Prelude.<$> filters),
         "DryRun" Data.=: dryRun,
         Data.toQuery
-          (Data.toQueryList "VpcId" Prelude.<$> vpcIds),
-        "MaxResults" Data.=: maxResults
+          (Data.toQueryList "Filter" Prelude.<$> filters),
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken,
+        Data.toQuery
+          (Data.toQueryList "VpcId" Prelude.<$> vpcIds)
       ]
 
 -- | /See:/ 'newDescribeVpcsResponse' smart constructor.

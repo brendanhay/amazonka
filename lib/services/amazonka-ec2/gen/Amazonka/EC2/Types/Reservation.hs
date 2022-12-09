@@ -33,10 +33,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReservation' smart constructor.
 data Reservation = Reservation'
-  { -- | The instances.
-    instances :: Prelude.Maybe [Instance],
-    -- | [EC2-Classic only] The security groups.
+  { -- | [EC2-Classic only] The security groups.
     groups :: Prelude.Maybe [GroupIdentifier],
+    -- | The instances.
+    instances :: Prelude.Maybe [Instance],
     -- | The ID of the requester that launched the instances on your behalf (for
     -- example, Amazon Web Services Management Console or Auto Scaling).
     requesterId :: Prelude.Maybe Prelude.Text,
@@ -55,9 +55,9 @@ data Reservation = Reservation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instances', 'reservation_instances' - The instances.
---
 -- 'groups', 'reservation_groups' - [EC2-Classic only] The security groups.
+--
+-- 'instances', 'reservation_instances' - The instances.
 --
 -- 'requesterId', 'reservation_requesterId' - The ID of the requester that launched the instances on your behalf (for
 -- example, Amazon Web Services Management Console or Auto Scaling).
@@ -73,20 +73,20 @@ newReservation ::
   Reservation
 newReservation pReservationId_ pOwnerId_ =
   Reservation'
-    { instances = Prelude.Nothing,
-      groups = Prelude.Nothing,
+    { groups = Prelude.Nothing,
+      instances = Prelude.Nothing,
       requesterId = Prelude.Nothing,
       reservationId = pReservationId_,
       ownerId = pOwnerId_
     }
 
--- | The instances.
-reservation_instances :: Lens.Lens' Reservation (Prelude.Maybe [Instance])
-reservation_instances = Lens.lens (\Reservation' {instances} -> instances) (\s@Reservation' {} a -> s {instances = a} :: Reservation) Prelude.. Lens.mapping Lens.coerced
-
 -- | [EC2-Classic only] The security groups.
 reservation_groups :: Lens.Lens' Reservation (Prelude.Maybe [GroupIdentifier])
 reservation_groups = Lens.lens (\Reservation' {groups} -> groups) (\s@Reservation' {} a -> s {groups = a} :: Reservation) Prelude.. Lens.mapping Lens.coerced
+
+-- | The instances.
+reservation_instances :: Lens.Lens' Reservation (Prelude.Maybe [Instance])
+reservation_instances = Lens.lens (\Reservation' {instances} -> instances) (\s@Reservation' {} a -> s {instances = a} :: Reservation) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the requester that launched the instances on your behalf (for
 -- example, Amazon Web Services Management Console or Auto Scaling).
@@ -104,10 +104,10 @@ reservation_ownerId = Lens.lens (\Reservation' {ownerId} -> ownerId) (\s@Reserva
 instance Data.FromXML Reservation where
   parseXML x =
     Reservation'
-      Prelude.<$> ( x Data..@? "instancesSet" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x Data..@? "instancesSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "requesterId")
@@ -116,16 +116,16 @@ instance Data.FromXML Reservation where
 
 instance Prelude.Hashable Reservation where
   hashWithSalt _salt Reservation' {..} =
-    _salt `Prelude.hashWithSalt` instances
-      `Prelude.hashWithSalt` groups
+    _salt `Prelude.hashWithSalt` groups
+      `Prelude.hashWithSalt` instances
       `Prelude.hashWithSalt` requesterId
       `Prelude.hashWithSalt` reservationId
       `Prelude.hashWithSalt` ownerId
 
 instance Prelude.NFData Reservation where
   rnf Reservation' {..} =
-    Prelude.rnf instances
-      `Prelude.seq` Prelude.rnf groups
+    Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf instances
       `Prelude.seq` Prelude.rnf requesterId
       `Prelude.seq` Prelude.rnf reservationId
       `Prelude.seq` Prelude.rnf ownerId

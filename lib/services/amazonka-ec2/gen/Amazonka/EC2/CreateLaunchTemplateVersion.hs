@@ -41,11 +41,11 @@ module Amazonka.EC2.CreateLaunchTemplateVersion
 
     -- * Request Lenses
     createLaunchTemplateVersion_clientToken,
-    createLaunchTemplateVersion_sourceVersion,
     createLaunchTemplateVersion_dryRun,
     createLaunchTemplateVersion_launchTemplateId,
-    createLaunchTemplateVersion_versionDescription,
     createLaunchTemplateVersion_launchTemplateName,
+    createLaunchTemplateVersion_sourceVersion,
+    createLaunchTemplateVersion_versionDescription,
     createLaunchTemplateVersion_launchTemplateData,
 
     -- * Destructuring the Response
@@ -75,12 +75,6 @@ data CreateLaunchTemplateVersion = CreateLaunchTemplateVersion'
     --
     -- Constraint: Maximum 128 ASCII characters.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The version number of the launch template version on which to base the
-    -- new version. The new version inherits the same launch parameters as the
-    -- source version, except for parameters that you specify in
-    -- @LaunchTemplateData@. Snapshots applied to the block device mapping are
-    -- ignored when creating a new version unless they are explicitly included.
-    sourceVersion :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -91,13 +85,19 @@ data CreateLaunchTemplateVersion = CreateLaunchTemplateVersion'
     -- You must specify either the @LaunchTemplateId@ or the
     -- @LaunchTemplateName@, but not both.
     launchTemplateId :: Prelude.Maybe Prelude.Text,
-    -- | A description for the version of the launch template.
-    versionDescription :: Prelude.Maybe Prelude.Text,
     -- | The name of the launch template.
     --
     -- You must specify the @LaunchTemplateName@ or the @LaunchTemplateId@, but
     -- not both.
     launchTemplateName :: Prelude.Maybe Prelude.Text,
+    -- | The version number of the launch template version on which to base the
+    -- new version. The new version inherits the same launch parameters as the
+    -- source version, except for parameters that you specify in
+    -- @LaunchTemplateData@. Snapshots applied to the block device mapping are
+    -- ignored when creating a new version unless they are explicitly included.
+    sourceVersion :: Prelude.Maybe Prelude.Text,
+    -- | A description for the version of the launch template.
+    versionDescription :: Prelude.Maybe Prelude.Text,
     -- | The information for the launch template.
     launchTemplateData :: Data.Sensitive RequestLaunchTemplateData
   }
@@ -117,12 +117,6 @@ data CreateLaunchTemplateVersion = CreateLaunchTemplateVersion'
 --
 -- Constraint: Maximum 128 ASCII characters.
 --
--- 'sourceVersion', 'createLaunchTemplateVersion_sourceVersion' - The version number of the launch template version on which to base the
--- new version. The new version inherits the same launch parameters as the
--- source version, except for parameters that you specify in
--- @LaunchTemplateData@. Snapshots applied to the block device mapping are
--- ignored when creating a new version unless they are explicitly included.
---
 -- 'dryRun', 'createLaunchTemplateVersion_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -133,12 +127,18 @@ data CreateLaunchTemplateVersion = CreateLaunchTemplateVersion'
 -- You must specify either the @LaunchTemplateId@ or the
 -- @LaunchTemplateName@, but not both.
 --
--- 'versionDescription', 'createLaunchTemplateVersion_versionDescription' - A description for the version of the launch template.
---
 -- 'launchTemplateName', 'createLaunchTemplateVersion_launchTemplateName' - The name of the launch template.
 --
 -- You must specify the @LaunchTemplateName@ or the @LaunchTemplateId@, but
 -- not both.
+--
+-- 'sourceVersion', 'createLaunchTemplateVersion_sourceVersion' - The version number of the launch template version on which to base the
+-- new version. The new version inherits the same launch parameters as the
+-- source version, except for parameters that you specify in
+-- @LaunchTemplateData@. Snapshots applied to the block device mapping are
+-- ignored when creating a new version unless they are explicitly included.
+--
+-- 'versionDescription', 'createLaunchTemplateVersion_versionDescription' - A description for the version of the launch template.
 --
 -- 'launchTemplateData', 'createLaunchTemplateVersion_launchTemplateData' - The information for the launch template.
 newCreateLaunchTemplateVersion ::
@@ -149,11 +149,11 @@ newCreateLaunchTemplateVersion pLaunchTemplateData_ =
   CreateLaunchTemplateVersion'
     { clientToken =
         Prelude.Nothing,
-      sourceVersion = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       launchTemplateId = Prelude.Nothing,
-      versionDescription = Prelude.Nothing,
       launchTemplateName = Prelude.Nothing,
+      sourceVersion = Prelude.Nothing,
+      versionDescription = Prelude.Nothing,
       launchTemplateData =
         Data._Sensitive Lens.# pLaunchTemplateData_
     }
@@ -165,14 +165,6 @@ newCreateLaunchTemplateVersion pLaunchTemplateData_ =
 -- Constraint: Maximum 128 ASCII characters.
 createLaunchTemplateVersion_clientToken :: Lens.Lens' CreateLaunchTemplateVersion (Prelude.Maybe Prelude.Text)
 createLaunchTemplateVersion_clientToken = Lens.lens (\CreateLaunchTemplateVersion' {clientToken} -> clientToken) (\s@CreateLaunchTemplateVersion' {} a -> s {clientToken = a} :: CreateLaunchTemplateVersion)
-
--- | The version number of the launch template version on which to base the
--- new version. The new version inherits the same launch parameters as the
--- source version, except for parameters that you specify in
--- @LaunchTemplateData@. Snapshots applied to the block device mapping are
--- ignored when creating a new version unless they are explicitly included.
-createLaunchTemplateVersion_sourceVersion :: Lens.Lens' CreateLaunchTemplateVersion (Prelude.Maybe Prelude.Text)
-createLaunchTemplateVersion_sourceVersion = Lens.lens (\CreateLaunchTemplateVersion' {sourceVersion} -> sourceVersion) (\s@CreateLaunchTemplateVersion' {} a -> s {sourceVersion = a} :: CreateLaunchTemplateVersion)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -188,16 +180,24 @@ createLaunchTemplateVersion_dryRun = Lens.lens (\CreateLaunchTemplateVersion' {d
 createLaunchTemplateVersion_launchTemplateId :: Lens.Lens' CreateLaunchTemplateVersion (Prelude.Maybe Prelude.Text)
 createLaunchTemplateVersion_launchTemplateId = Lens.lens (\CreateLaunchTemplateVersion' {launchTemplateId} -> launchTemplateId) (\s@CreateLaunchTemplateVersion' {} a -> s {launchTemplateId = a} :: CreateLaunchTemplateVersion)
 
--- | A description for the version of the launch template.
-createLaunchTemplateVersion_versionDescription :: Lens.Lens' CreateLaunchTemplateVersion (Prelude.Maybe Prelude.Text)
-createLaunchTemplateVersion_versionDescription = Lens.lens (\CreateLaunchTemplateVersion' {versionDescription} -> versionDescription) (\s@CreateLaunchTemplateVersion' {} a -> s {versionDescription = a} :: CreateLaunchTemplateVersion)
-
 -- | The name of the launch template.
 --
 -- You must specify the @LaunchTemplateName@ or the @LaunchTemplateId@, but
 -- not both.
 createLaunchTemplateVersion_launchTemplateName :: Lens.Lens' CreateLaunchTemplateVersion (Prelude.Maybe Prelude.Text)
 createLaunchTemplateVersion_launchTemplateName = Lens.lens (\CreateLaunchTemplateVersion' {launchTemplateName} -> launchTemplateName) (\s@CreateLaunchTemplateVersion' {} a -> s {launchTemplateName = a} :: CreateLaunchTemplateVersion)
+
+-- | The version number of the launch template version on which to base the
+-- new version. The new version inherits the same launch parameters as the
+-- source version, except for parameters that you specify in
+-- @LaunchTemplateData@. Snapshots applied to the block device mapping are
+-- ignored when creating a new version unless they are explicitly included.
+createLaunchTemplateVersion_sourceVersion :: Lens.Lens' CreateLaunchTemplateVersion (Prelude.Maybe Prelude.Text)
+createLaunchTemplateVersion_sourceVersion = Lens.lens (\CreateLaunchTemplateVersion' {sourceVersion} -> sourceVersion) (\s@CreateLaunchTemplateVersion' {} a -> s {sourceVersion = a} :: CreateLaunchTemplateVersion)
+
+-- | A description for the version of the launch template.
+createLaunchTemplateVersion_versionDescription :: Lens.Lens' CreateLaunchTemplateVersion (Prelude.Maybe Prelude.Text)
+createLaunchTemplateVersion_versionDescription = Lens.lens (\CreateLaunchTemplateVersion' {versionDescription} -> versionDescription) (\s@CreateLaunchTemplateVersion' {} a -> s {versionDescription = a} :: CreateLaunchTemplateVersion)
 
 -- | The information for the launch template.
 createLaunchTemplateVersion_launchTemplateData :: Lens.Lens' CreateLaunchTemplateVersion RequestLaunchTemplateData
@@ -221,21 +221,21 @@ instance Core.AWSRequest CreateLaunchTemplateVersion where
 instance Prelude.Hashable CreateLaunchTemplateVersion where
   hashWithSalt _salt CreateLaunchTemplateVersion' {..} =
     _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` sourceVersion
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` launchTemplateId
-      `Prelude.hashWithSalt` versionDescription
       `Prelude.hashWithSalt` launchTemplateName
+      `Prelude.hashWithSalt` sourceVersion
+      `Prelude.hashWithSalt` versionDescription
       `Prelude.hashWithSalt` launchTemplateData
 
 instance Prelude.NFData CreateLaunchTemplateVersion where
   rnf CreateLaunchTemplateVersion' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf sourceVersion
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf launchTemplateId
-      `Prelude.seq` Prelude.rnf versionDescription
       `Prelude.seq` Prelude.rnf launchTemplateName
+      `Prelude.seq` Prelude.rnf sourceVersion
+      `Prelude.seq` Prelude.rnf versionDescription
       `Prelude.seq` Prelude.rnf launchTemplateData
 
 instance Data.ToHeaders CreateLaunchTemplateVersion where
@@ -254,11 +254,11 @@ instance Data.ToQuery CreateLaunchTemplateVersion where
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
         "ClientToken" Data.=: clientToken,
-        "SourceVersion" Data.=: sourceVersion,
         "DryRun" Data.=: dryRun,
         "LaunchTemplateId" Data.=: launchTemplateId,
-        "VersionDescription" Data.=: versionDescription,
         "LaunchTemplateName" Data.=: launchTemplateName,
+        "SourceVersion" Data.=: sourceVersion,
+        "VersionDescription" Data.=: versionDescription,
         "LaunchTemplateData" Data.=: launchTemplateData
       ]
 

@@ -57,9 +57,9 @@ module Amazonka.Route53RecoveryCluster.ListRoutingControls
     newListRoutingControls,
 
     -- * Request Lenses
-    listRoutingControls_nextToken,
     listRoutingControls_controlPanelArn,
     listRoutingControls_maxResults,
+    listRoutingControls_nextToken,
 
     -- * Destructuring the Response
     ListRoutingControlsResponse (..),
@@ -82,15 +82,15 @@ import Amazonka.Route53RecoveryCluster.Types
 
 -- | /See:/ 'newListRoutingControls' smart constructor.
 data ListRoutingControls = ListRoutingControls'
-  { -- | The token for the next set of results. You receive this token from a
-    -- previous call.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the control panel of the routing
+  { -- | The Amazon Resource Name (ARN) of the control panel of the routing
     -- controls to list.
     controlPanelArn :: Prelude.Maybe Prelude.Text,
     -- | The number of routing controls objects that you want to return with this
     -- call. The default value is 500.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. You receive this token from a
+    -- previous call.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -102,27 +102,23 @@ data ListRoutingControls = ListRoutingControls'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listRoutingControls_nextToken' - The token for the next set of results. You receive this token from a
--- previous call.
---
 -- 'controlPanelArn', 'listRoutingControls_controlPanelArn' - The Amazon Resource Name (ARN) of the control panel of the routing
 -- controls to list.
 --
 -- 'maxResults', 'listRoutingControls_maxResults' - The number of routing controls objects that you want to return with this
 -- call. The default value is 500.
+--
+-- 'nextToken', 'listRoutingControls_nextToken' - The token for the next set of results. You receive this token from a
+-- previous call.
 newListRoutingControls ::
   ListRoutingControls
 newListRoutingControls =
   ListRoutingControls'
-    { nextToken = Prelude.Nothing,
-      controlPanelArn = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { controlPanelArn =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token for the next set of results. You receive this token from a
--- previous call.
-listRoutingControls_nextToken :: Lens.Lens' ListRoutingControls (Prelude.Maybe Prelude.Text)
-listRoutingControls_nextToken = Lens.lens (\ListRoutingControls' {nextToken} -> nextToken) (\s@ListRoutingControls' {} a -> s {nextToken = a} :: ListRoutingControls)
 
 -- | The Amazon Resource Name (ARN) of the control panel of the routing
 -- controls to list.
@@ -133,6 +129,11 @@ listRoutingControls_controlPanelArn = Lens.lens (\ListRoutingControls' {controlP
 -- call. The default value is 500.
 listRoutingControls_maxResults :: Lens.Lens' ListRoutingControls (Prelude.Maybe Prelude.Natural)
 listRoutingControls_maxResults = Lens.lens (\ListRoutingControls' {maxResults} -> maxResults) (\s@ListRoutingControls' {} a -> s {maxResults = a} :: ListRoutingControls)
+
+-- | The token for the next set of results. You receive this token from a
+-- previous call.
+listRoutingControls_nextToken :: Lens.Lens' ListRoutingControls (Prelude.Maybe Prelude.Text)
+listRoutingControls_nextToken = Lens.lens (\ListRoutingControls' {nextToken} -> nextToken) (\s@ListRoutingControls' {} a -> s {nextToken = a} :: ListRoutingControls)
 
 instance Core.AWSPager ListRoutingControls where
   page rq rs
@@ -174,15 +175,15 @@ instance Core.AWSRequest ListRoutingControls where
 
 instance Prelude.Hashable ListRoutingControls where
   hashWithSalt _salt ListRoutingControls' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` controlPanelArn
+    _salt `Prelude.hashWithSalt` controlPanelArn
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListRoutingControls where
   rnf ListRoutingControls' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf controlPanelArn
+    Prelude.rnf controlPanelArn
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListRoutingControls where
   toHeaders =
@@ -203,10 +204,10 @@ instance Data.ToJSON ListRoutingControls where
   toJSON ListRoutingControls' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("ControlPanelArn" Data..=)
+          [ ("ControlPanelArn" Data..=)
               Prelude.<$> controlPanelArn,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

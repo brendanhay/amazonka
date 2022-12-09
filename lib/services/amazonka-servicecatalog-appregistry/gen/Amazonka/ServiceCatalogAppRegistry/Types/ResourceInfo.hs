@@ -30,16 +30,16 @@ import Amazonka.ServiceCatalogAppRegistry.Types.ResourceType
 --
 -- /See:/ 'newResourceInfo' smart constructor.
 data ResourceInfo = ResourceInfo'
-  { -- | Provides information about the Service Catalog App Registry resource
-    -- type.
-    resourceType :: Prelude.Maybe ResourceType,
-    -- | The name of the resource.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon resource name (ARN) that specifies the resource across
+  { -- | The Amazon resource name (ARN) that specifies the resource across
     -- services.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the resource.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The details related to the resource.
-    resourceDetails :: Prelude.Maybe ResourceDetails
+    resourceDetails :: Prelude.Maybe ResourceDetails,
+    -- | Provides information about the Service Catalog App Registry resource
+    -- type.
+    resourceType :: Prelude.Maybe ResourceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,42 +51,42 @@ data ResourceInfo = ResourceInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'resourceInfo_resourceType' - Provides information about the Service Catalog App Registry resource
--- type.
---
--- 'name', 'resourceInfo_name' - The name of the resource.
---
 -- 'arn', 'resourceInfo_arn' - The Amazon resource name (ARN) that specifies the resource across
 -- services.
 --
+-- 'name', 'resourceInfo_name' - The name of the resource.
+--
 -- 'resourceDetails', 'resourceInfo_resourceDetails' - The details related to the resource.
+--
+-- 'resourceType', 'resourceInfo_resourceType' - Provides information about the Service Catalog App Registry resource
+-- type.
 newResourceInfo ::
   ResourceInfo
 newResourceInfo =
   ResourceInfo'
-    { resourceType = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       name = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      resourceDetails = Prelude.Nothing
+      resourceDetails = Prelude.Nothing,
+      resourceType = Prelude.Nothing
     }
-
--- | Provides information about the Service Catalog App Registry resource
--- type.
-resourceInfo_resourceType :: Lens.Lens' ResourceInfo (Prelude.Maybe ResourceType)
-resourceInfo_resourceType = Lens.lens (\ResourceInfo' {resourceType} -> resourceType) (\s@ResourceInfo' {} a -> s {resourceType = a} :: ResourceInfo)
-
--- | The name of the resource.
-resourceInfo_name :: Lens.Lens' ResourceInfo (Prelude.Maybe Prelude.Text)
-resourceInfo_name = Lens.lens (\ResourceInfo' {name} -> name) (\s@ResourceInfo' {} a -> s {name = a} :: ResourceInfo)
 
 -- | The Amazon resource name (ARN) that specifies the resource across
 -- services.
 resourceInfo_arn :: Lens.Lens' ResourceInfo (Prelude.Maybe Prelude.Text)
 resourceInfo_arn = Lens.lens (\ResourceInfo' {arn} -> arn) (\s@ResourceInfo' {} a -> s {arn = a} :: ResourceInfo)
 
+-- | The name of the resource.
+resourceInfo_name :: Lens.Lens' ResourceInfo (Prelude.Maybe Prelude.Text)
+resourceInfo_name = Lens.lens (\ResourceInfo' {name} -> name) (\s@ResourceInfo' {} a -> s {name = a} :: ResourceInfo)
+
 -- | The details related to the resource.
 resourceInfo_resourceDetails :: Lens.Lens' ResourceInfo (Prelude.Maybe ResourceDetails)
 resourceInfo_resourceDetails = Lens.lens (\ResourceInfo' {resourceDetails} -> resourceDetails) (\s@ResourceInfo' {} a -> s {resourceDetails = a} :: ResourceInfo)
+
+-- | Provides information about the Service Catalog App Registry resource
+-- type.
+resourceInfo_resourceType :: Lens.Lens' ResourceInfo (Prelude.Maybe ResourceType)
+resourceInfo_resourceType = Lens.lens (\ResourceInfo' {resourceType} -> resourceType) (\s@ResourceInfo' {} a -> s {resourceType = a} :: ResourceInfo)
 
 instance Data.FromJSON ResourceInfo where
   parseJSON =
@@ -94,22 +94,22 @@ instance Data.FromJSON ResourceInfo where
       "ResourceInfo"
       ( \x ->
           ResourceInfo'
-            Prelude.<$> (x Data..:? "resourceType")
+            Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "resourceDetails")
+            Prelude.<*> (x Data..:? "resourceType")
       )
 
 instance Prelude.Hashable ResourceInfo where
   hashWithSalt _salt ResourceInfo' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` resourceDetails
+      `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData ResourceInfo where
   rnf ResourceInfo' {..} =
-    Prelude.rnf resourceType
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf resourceDetails
+      `Prelude.seq` Prelude.rnf resourceType

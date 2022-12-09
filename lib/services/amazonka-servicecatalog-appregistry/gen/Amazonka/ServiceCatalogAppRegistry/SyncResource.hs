@@ -40,8 +40,8 @@ module Amazonka.ServiceCatalogAppRegistry.SyncResource
     newSyncResourceResponse,
 
     -- * Response Lenses
-    syncResourceResponse_applicationArn,
     syncResourceResponse_actionTaken,
+    syncResourceResponse_applicationArn,
     syncResourceResponse_resourceArn,
     syncResourceResponse_httpStatus,
   )
@@ -109,8 +109,8 @@ instance Core.AWSRequest SyncResource where
     Response.receiveJSON
       ( \s h x ->
           SyncResourceResponse'
-            Prelude.<$> (x Data..?> "applicationArn")
-            Prelude.<*> (x Data..?> "actionTaken")
+            Prelude.<$> (x Data..?> "actionTaken")
+            Prelude.<*> (x Data..?> "applicationArn")
             Prelude.<*> (x Data..?> "resourceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -153,11 +153,11 @@ instance Data.ToQuery SyncResource where
 
 -- | /See:/ 'newSyncResourceResponse' smart constructor.
 data SyncResourceResponse = SyncResourceResponse'
-  { -- | The Amazon resource name (ARN) that specifies the application.
-    applicationArn :: Prelude.Maybe Prelude.Text,
-    -- | The results of the output if an application is associated with an ARN
+  { -- | The results of the output if an application is associated with an ARN
     -- value, which could be @syncStarted@ or None.
     actionTaken :: Prelude.Maybe SyncAction,
+    -- | The Amazon resource name (ARN) that specifies the application.
+    applicationArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon resource name (ARN) that specifies the resource.
     resourceArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -173,10 +173,10 @@ data SyncResourceResponse = SyncResourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationArn', 'syncResourceResponse_applicationArn' - The Amazon resource name (ARN) that specifies the application.
---
 -- 'actionTaken', 'syncResourceResponse_actionTaken' - The results of the output if an application is associated with an ARN
 -- value, which could be @syncStarted@ or None.
+--
+-- 'applicationArn', 'syncResourceResponse_applicationArn' - The Amazon resource name (ARN) that specifies the application.
 --
 -- 'resourceArn', 'syncResourceResponse_resourceArn' - The Amazon resource name (ARN) that specifies the resource.
 --
@@ -187,21 +187,21 @@ newSyncResourceResponse ::
   SyncResourceResponse
 newSyncResourceResponse pHttpStatus_ =
   SyncResourceResponse'
-    { applicationArn =
+    { actionTaken =
         Prelude.Nothing,
-      actionTaken = Prelude.Nothing,
+      applicationArn = Prelude.Nothing,
       resourceArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Amazon resource name (ARN) that specifies the application.
-syncResourceResponse_applicationArn :: Lens.Lens' SyncResourceResponse (Prelude.Maybe Prelude.Text)
-syncResourceResponse_applicationArn = Lens.lens (\SyncResourceResponse' {applicationArn} -> applicationArn) (\s@SyncResourceResponse' {} a -> s {applicationArn = a} :: SyncResourceResponse)
 
 -- | The results of the output if an application is associated with an ARN
 -- value, which could be @syncStarted@ or None.
 syncResourceResponse_actionTaken :: Lens.Lens' SyncResourceResponse (Prelude.Maybe SyncAction)
 syncResourceResponse_actionTaken = Lens.lens (\SyncResourceResponse' {actionTaken} -> actionTaken) (\s@SyncResourceResponse' {} a -> s {actionTaken = a} :: SyncResourceResponse)
+
+-- | The Amazon resource name (ARN) that specifies the application.
+syncResourceResponse_applicationArn :: Lens.Lens' SyncResourceResponse (Prelude.Maybe Prelude.Text)
+syncResourceResponse_applicationArn = Lens.lens (\SyncResourceResponse' {applicationArn} -> applicationArn) (\s@SyncResourceResponse' {} a -> s {applicationArn = a} :: SyncResourceResponse)
 
 -- | The Amazon resource name (ARN) that specifies the resource.
 syncResourceResponse_resourceArn :: Lens.Lens' SyncResourceResponse (Prelude.Maybe Prelude.Text)
@@ -213,7 +213,7 @@ syncResourceResponse_httpStatus = Lens.lens (\SyncResourceResponse' {httpStatus}
 
 instance Prelude.NFData SyncResourceResponse where
   rnf SyncResourceResponse' {..} =
-    Prelude.rnf applicationArn
-      `Prelude.seq` Prelude.rnf actionTaken
+    Prelude.rnf actionTaken
+      `Prelude.seq` Prelude.rnf applicationArn
       `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf httpStatus

@@ -35,8 +35,8 @@ module Amazonka.ServiceCatalogAppRegistry.ListAssociatedResources
     newListAssociatedResources,
 
     -- * Request Lenses
-    listAssociatedResources_nextToken,
     listAssociatedResources_maxResults,
+    listAssociatedResources_nextToken,
     listAssociatedResources_application,
 
     -- * Destructuring the Response
@@ -60,12 +60,12 @@ import Amazonka.ServiceCatalogAppRegistry.Types
 
 -- | /See:/ 'newListAssociatedResources' smart constructor.
 data ListAssociatedResources = ListAssociatedResources'
-  { -- | The token to use to get the next page of results after a previous API
-    -- call.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The upper bound of the number of results to return (cannot exceed 25).
+  { -- | The upper bound of the number of results to return (cannot exceed 25).
     -- If this parameter is omitted, it defaults to 25. This value is optional.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to use to get the next page of results after a previous API
+    -- call.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name or ID of the application.
     application :: Prelude.Text
   }
@@ -79,11 +79,11 @@ data ListAssociatedResources = ListAssociatedResources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAssociatedResources_nextToken' - The token to use to get the next page of results after a previous API
--- call.
---
 -- 'maxResults', 'listAssociatedResources_maxResults' - The upper bound of the number of results to return (cannot exceed 25).
 -- If this parameter is omitted, it defaults to 25. This value is optional.
+--
+-- 'nextToken', 'listAssociatedResources_nextToken' - The token to use to get the next page of results after a previous API
+-- call.
 --
 -- 'application', 'listAssociatedResources_application' - The name or ID of the application.
 newListAssociatedResources ::
@@ -92,21 +92,21 @@ newListAssociatedResources ::
   ListAssociatedResources
 newListAssociatedResources pApplication_ =
   ListAssociatedResources'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       application = pApplication_
     }
-
--- | The token to use to get the next page of results after a previous API
--- call.
-listAssociatedResources_nextToken :: Lens.Lens' ListAssociatedResources (Prelude.Maybe Prelude.Text)
-listAssociatedResources_nextToken = Lens.lens (\ListAssociatedResources' {nextToken} -> nextToken) (\s@ListAssociatedResources' {} a -> s {nextToken = a} :: ListAssociatedResources)
 
 -- | The upper bound of the number of results to return (cannot exceed 25).
 -- If this parameter is omitted, it defaults to 25. This value is optional.
 listAssociatedResources_maxResults :: Lens.Lens' ListAssociatedResources (Prelude.Maybe Prelude.Natural)
 listAssociatedResources_maxResults = Lens.lens (\ListAssociatedResources' {maxResults} -> maxResults) (\s@ListAssociatedResources' {} a -> s {maxResults = a} :: ListAssociatedResources)
+
+-- | The token to use to get the next page of results after a previous API
+-- call.
+listAssociatedResources_nextToken :: Lens.Lens' ListAssociatedResources (Prelude.Maybe Prelude.Text)
+listAssociatedResources_nextToken = Lens.lens (\ListAssociatedResources' {nextToken} -> nextToken) (\s@ListAssociatedResources' {} a -> s {nextToken = a} :: ListAssociatedResources)
 
 -- | The name or ID of the application.
 listAssociatedResources_application :: Lens.Lens' ListAssociatedResources Prelude.Text
@@ -151,14 +151,14 @@ instance Core.AWSRequest ListAssociatedResources where
 
 instance Prelude.Hashable ListAssociatedResources where
   hashWithSalt _salt ListAssociatedResources' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` application
 
 instance Prelude.NFData ListAssociatedResources where
   rnf ListAssociatedResources' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf application
 
 instance Data.ToHeaders ListAssociatedResources where
@@ -183,8 +183,8 @@ instance Data.ToPath ListAssociatedResources where
 instance Data.ToQuery ListAssociatedResources where
   toQuery ListAssociatedResources' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListAssociatedResourcesResponse' smart constructor.

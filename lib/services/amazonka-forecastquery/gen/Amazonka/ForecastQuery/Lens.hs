@@ -15,8 +15,8 @@ module Amazonka.ForecastQuery.Lens
   ( -- * Operations
 
     -- ** QueryForecast
-    queryForecast_nextToken,
     queryForecast_endDate,
+    queryForecast_nextToken,
     queryForecast_startDate,
     queryForecast_forecastArn,
     queryForecast_filters,
@@ -24,8 +24,8 @@ module Amazonka.ForecastQuery.Lens
     queryForecastResponse_httpStatus,
 
     -- ** QueryWhatIfForecast
-    queryWhatIfForecast_nextToken,
     queryWhatIfForecast_endDate,
+    queryWhatIfForecast_nextToken,
     queryWhatIfForecast_startDate,
     queryWhatIfForecast_whatIfForecastArn,
     queryWhatIfForecast_filters,

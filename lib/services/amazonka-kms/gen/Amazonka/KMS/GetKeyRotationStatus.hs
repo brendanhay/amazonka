@@ -33,15 +33,14 @@
 --
 -- Automatic key rotation is supported only on
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#symmetric-cmks symmetric encryption KMS keys>.
--- You cannot enable or disable automatic rotation of
+-- You cannot enable automatic rotation of
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html asymmetric KMS keys>,
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html HMAC KMS keys>,
 -- KMS keys with
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html imported key material>,
 -- or KMS keys in a
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>.
--- The key rotation status of these KMS keys is always @false@. To enable
--- or disable automatic rotation of a set of related
+-- To enable or disable automatic rotation of a set of related
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-manage.html#multi-region-rotate multi-Region keys>,
 -- set the property on the primary key..
 --

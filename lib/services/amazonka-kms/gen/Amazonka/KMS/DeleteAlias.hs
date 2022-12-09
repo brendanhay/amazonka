@@ -24,7 +24,7 @@
 --
 -- Adding, deleting, or updating an alias can allow or deny permission to
 -- the KMS key. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html ABAC in KMS>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html ABAC for KMS>
 -- in the /Key Management Service Developer Guide/.
 --
 -- Because an alias is not a property of a KMS key, you can delete and

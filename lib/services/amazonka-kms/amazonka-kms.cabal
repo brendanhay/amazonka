@@ -95,6 +95,7 @@ library
     Amazonka.KMS.Types.ConnectionStateType
     Amazonka.KMS.Types.CustomerMasterKeySpec
     Amazonka.KMS.Types.CustomKeyStoresListEntry
+    Amazonka.KMS.Types.CustomKeyStoreType
     Amazonka.KMS.Types.DataKeyPairSpec
     Amazonka.KMS.Types.DataKeySpec
     Amazonka.KMS.Types.EncryptionAlgorithmSpec
@@ -118,6 +119,10 @@ library
     Amazonka.KMS.Types.SigningAlgorithmSpec
     Amazonka.KMS.Types.Tag
     Amazonka.KMS.Types.WrappingKeySpec
+    Amazonka.KMS.Types.XksKeyConfigurationType
+    Amazonka.KMS.Types.XksProxyAuthenticationCredentialType
+    Amazonka.KMS.Types.XksProxyConfigurationType
+    Amazonka.KMS.Types.XksProxyConnectivityType
     Amazonka.KMS.UntagResource
     Amazonka.KMS.UpdateAlias
     Amazonka.KMS.UpdateCustomKeyStore

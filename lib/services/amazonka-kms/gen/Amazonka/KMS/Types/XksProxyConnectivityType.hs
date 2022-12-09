@@ -11,19 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.KMS.Types.OriginType
+-- Module      : Amazonka.KMS.Types.XksProxyConnectivityType
 -- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.KMS.Types.OriginType
-  ( OriginType
+module Amazonka.KMS.Types.XksProxyConnectivityType
+  ( XksProxyConnectivityType
       ( ..,
-        OriginType_AWS_CLOUDHSM,
-        OriginType_AWS_KMS,
-        OriginType_EXTERNAL,
-        OriginType_EXTERNAL_KEY_STORE
+        XksProxyConnectivityType_PUBLIC_ENDPOINT,
+        XksProxyConnectivityType_VPC_ENDPOINT_SERVICE
       ),
   )
 where
@@ -32,8 +30,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
-newtype OriginType = OriginType'
-  { fromOriginType ::
+newtype XksProxyConnectivityType = XksProxyConnectivityType'
+  { fromXksProxyConnectivityType ::
       Data.Text
   }
   deriving stock
@@ -60,22 +58,14 @@ newtype OriginType = OriginType'
       Data.ToXML
     )
 
-pattern OriginType_AWS_CLOUDHSM :: OriginType
-pattern OriginType_AWS_CLOUDHSM = OriginType' "AWS_CLOUDHSM"
+pattern XksProxyConnectivityType_PUBLIC_ENDPOINT :: XksProxyConnectivityType
+pattern XksProxyConnectivityType_PUBLIC_ENDPOINT = XksProxyConnectivityType' "PUBLIC_ENDPOINT"
 
-pattern OriginType_AWS_KMS :: OriginType
-pattern OriginType_AWS_KMS = OriginType' "AWS_KMS"
-
-pattern OriginType_EXTERNAL :: OriginType
-pattern OriginType_EXTERNAL = OriginType' "EXTERNAL"
-
-pattern OriginType_EXTERNAL_KEY_STORE :: OriginType
-pattern OriginType_EXTERNAL_KEY_STORE = OriginType' "EXTERNAL_KEY_STORE"
+pattern XksProxyConnectivityType_VPC_ENDPOINT_SERVICE :: XksProxyConnectivityType
+pattern XksProxyConnectivityType_VPC_ENDPOINT_SERVICE = XksProxyConnectivityType' "VPC_ENDPOINT_SERVICE"
 
 {-# COMPLETE
-  OriginType_AWS_CLOUDHSM,
-  OriginType_AWS_KMS,
-  OriginType_EXTERNAL,
-  OriginType_EXTERNAL_KEY_STORE,
-  OriginType'
+  XksProxyConnectivityType_PUBLIC_ENDPOINT,
+  XksProxyConnectivityType_VPC_ENDPOINT_SERVICE,
+  XksProxyConnectivityType'
   #-}

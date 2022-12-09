@@ -122,10 +122,10 @@ module Amazonka.KMS.ReplicateKey
     newReplicateKey,
 
     -- * Request Lenses
-    replicateKey_tags,
-    replicateKey_policy,
-    replicateKey_description,
     replicateKey_bypassPolicyLockoutSafetyCheck,
+    replicateKey_description,
+    replicateKey_policy,
+    replicateKey_tags,
     replicateKey_keyId,
     replicateKey_replicaRegion,
 
@@ -135,8 +135,8 @@ module Amazonka.KMS.ReplicateKey
 
     -- * Response Lenses
     replicateKeyResponse_replicaKeyMetadata,
-    replicateKeyResponse_replicaTags,
     replicateKeyResponse_replicaPolicy,
+    replicateKeyResponse_replicaTags,
     replicateKeyResponse_httpStatus,
   )
 where
@@ -151,35 +151,30 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newReplicateKey' smart constructor.
 data ReplicateKey = ReplicateKey'
-  { -- | Assigns one or more tags to the replica key. Use this parameter to tag
-    -- the KMS key when it is created. To tag an existing KMS key, use the
-    -- TagResource operation.
+  { -- | A flag to indicate whether to bypass the key policy lockout safety
+    -- check.
     --
-    -- Tagging or untagging a KMS key can allow or deny permission to the KMS
-    -- key. For details, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html ABAC in KMS>
-    -- in the /Key Management Service Developer Guide/.
+    -- Setting this value to true increases the risk that the KMS key becomes
+    -- unmanageable. Do not set this value to true indiscriminately.
     --
-    -- To use this parameter, you must have
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:TagResource>
-    -- permission in an IAM policy.
+    -- For more information, refer to the scenario in the
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy>
+    -- section in the /Key Management Service Developer Guide/.
     --
-    -- Tags are not a shared property of multi-Region keys. You can specify the
-    -- same tags or different tags for each key in a set of related
-    -- multi-Region keys. KMS does not synchronize this property.
+    -- Use this parameter only when you intend to prevent the principal that is
+    -- making the request from making a subsequent @PutKeyPolicy@ request on
+    -- the KMS key.
     --
-    -- Each tag consists of a tag key and a tag value. Both the tag key and the
-    -- tag value are required, but the tag value can be an empty (null) string.
-    -- You cannot have more than one tag on a KMS key with the same tag key. If
-    -- you specify an existing tag key with a different tag value, KMS replaces
-    -- the current tag value with the specified one.
+    -- The default value is false.
+    bypassPolicyLockoutSafetyCheck :: Prelude.Maybe Prelude.Bool,
+    -- | A description of the KMS key. The default value is an empty string (no
+    -- description).
     --
-    -- When you add tags to an Amazon Web Services resource, Amazon Web
-    -- Services generates a cost allocation report with usage and costs
-    -- aggregated by tags. Tags can also be used to control access to a KMS
-    -- key. For details, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html Tagging Keys>.
-    tags :: Prelude.Maybe [Tag],
+    -- The description is not a shared property of multi-Region keys. You can
+    -- specify the same description or a different description for each key in
+    -- a set of related multi-Region keys. KMS does not synchronize this
+    -- property.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The key policy to attach to the KMS key. This parameter is optional. If
     -- you do not provide a key policy, KMS attaches the
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default default key policy>
@@ -227,30 +222,35 @@ data ReplicateKey = ReplicateKey'
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html IAM JSON Policy Reference>
     -- in the //Identity and Access Management User Guide// .
     policy :: Prelude.Maybe Prelude.Text,
-    -- | A description of the KMS key. The default value is an empty string (no
-    -- description).
+    -- | Assigns one or more tags to the replica key. Use this parameter to tag
+    -- the KMS key when it is created. To tag an existing KMS key, use the
+    -- TagResource operation.
     --
-    -- The description is not a shared property of multi-Region keys. You can
-    -- specify the same description or a different description for each key in
-    -- a set of related multi-Region keys. KMS does not synchronize this
-    -- property.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A flag to indicate whether to bypass the key policy lockout safety
-    -- check.
+    -- Tagging or untagging a KMS key can allow or deny permission to the KMS
+    -- key. For details, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html ABAC for KMS>
+    -- in the /Key Management Service Developer Guide/.
     --
-    -- Setting this value to true increases the risk that the KMS key becomes
-    -- unmanageable. Do not set this value to true indiscriminately.
+    -- To use this parameter, you must have
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:TagResource>
+    -- permission in an IAM policy.
     --
-    -- For more information, refer to the scenario in the
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy>
-    -- section in the /Key Management Service Developer Guide/.
+    -- Tags are not a shared property of multi-Region keys. You can specify the
+    -- same tags or different tags for each key in a set of related
+    -- multi-Region keys. KMS does not synchronize this property.
     --
-    -- Use this parameter only when you intend to prevent the principal that is
-    -- making the request from making a subsequent @PutKeyPolicy@ request on
-    -- the KMS key.
+    -- Each tag consists of a tag key and a tag value. Both the tag key and the
+    -- tag value are required, but the tag value can be an empty (null) string.
+    -- You cannot have more than one tag on a KMS key with the same tag key. If
+    -- you specify an existing tag key with a different tag value, KMS replaces
+    -- the current tag value with the specified one.
     --
-    -- The default value is false.
-    bypassPolicyLockoutSafetyCheck :: Prelude.Maybe Prelude.Bool,
+    -- When you add tags to an Amazon Web Services resource, Amazon Web
+    -- Services generates a cost allocation report with usage and costs
+    -- aggregated by tags. Tags can also be used to control access to a KMS
+    -- key. For details, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html Tagging Keys>.
+    tags :: Prelude.Maybe [Tag],
     -- | Identifies the multi-Region primary key that is being replicated. To
     -- determine whether a KMS key is a multi-Region primary key, use the
     -- DescribeKey operation to check the value of the @MultiRegionKeyType@
@@ -308,34 +308,29 @@ data ReplicateKey = ReplicateKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'replicateKey_tags' - Assigns one or more tags to the replica key. Use this parameter to tag
--- the KMS key when it is created. To tag an existing KMS key, use the
--- TagResource operation.
+-- 'bypassPolicyLockoutSafetyCheck', 'replicateKey_bypassPolicyLockoutSafetyCheck' - A flag to indicate whether to bypass the key policy lockout safety
+-- check.
 --
--- Tagging or untagging a KMS key can allow or deny permission to the KMS
--- key. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html ABAC in KMS>
--- in the /Key Management Service Developer Guide/.
+-- Setting this value to true increases the risk that the KMS key becomes
+-- unmanageable. Do not set this value to true indiscriminately.
 --
--- To use this parameter, you must have
--- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:TagResource>
--- permission in an IAM policy.
+-- For more information, refer to the scenario in the
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy>
+-- section in the /Key Management Service Developer Guide/.
 --
--- Tags are not a shared property of multi-Region keys. You can specify the
--- same tags or different tags for each key in a set of related
--- multi-Region keys. KMS does not synchronize this property.
+-- Use this parameter only when you intend to prevent the principal that is
+-- making the request from making a subsequent @PutKeyPolicy@ request on
+-- the KMS key.
 --
--- Each tag consists of a tag key and a tag value. Both the tag key and the
--- tag value are required, but the tag value can be an empty (null) string.
--- You cannot have more than one tag on a KMS key with the same tag key. If
--- you specify an existing tag key with a different tag value, KMS replaces
--- the current tag value with the specified one.
+-- The default value is false.
 --
--- When you add tags to an Amazon Web Services resource, Amazon Web
--- Services generates a cost allocation report with usage and costs
--- aggregated by tags. Tags can also be used to control access to a KMS
--- key. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html Tagging Keys>.
+-- 'description', 'replicateKey_description' - A description of the KMS key. The default value is an empty string (no
+-- description).
+--
+-- The description is not a shared property of multi-Region keys. You can
+-- specify the same description or a different description for each key in
+-- a set of related multi-Region keys. KMS does not synchronize this
+-- property.
 --
 -- 'policy', 'replicateKey_policy' - The key policy to attach to the KMS key. This parameter is optional. If
 -- you do not provide a key policy, KMS attaches the
@@ -384,29 +379,34 @@ data ReplicateKey = ReplicateKey'
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html IAM JSON Policy Reference>
 -- in the //Identity and Access Management User Guide// .
 --
--- 'description', 'replicateKey_description' - A description of the KMS key. The default value is an empty string (no
--- description).
+-- 'tags', 'replicateKey_tags' - Assigns one or more tags to the replica key. Use this parameter to tag
+-- the KMS key when it is created. To tag an existing KMS key, use the
+-- TagResource operation.
 --
--- The description is not a shared property of multi-Region keys. You can
--- specify the same description or a different description for each key in
--- a set of related multi-Region keys. KMS does not synchronize this
--- property.
+-- Tagging or untagging a KMS key can allow or deny permission to the KMS
+-- key. For details, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html ABAC for KMS>
+-- in the /Key Management Service Developer Guide/.
 --
--- 'bypassPolicyLockoutSafetyCheck', 'replicateKey_bypassPolicyLockoutSafetyCheck' - A flag to indicate whether to bypass the key policy lockout safety
--- check.
+-- To use this parameter, you must have
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:TagResource>
+-- permission in an IAM policy.
 --
--- Setting this value to true increases the risk that the KMS key becomes
--- unmanageable. Do not set this value to true indiscriminately.
+-- Tags are not a shared property of multi-Region keys. You can specify the
+-- same tags or different tags for each key in a set of related
+-- multi-Region keys. KMS does not synchronize this property.
 --
--- For more information, refer to the scenario in the
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy>
--- section in the /Key Management Service Developer Guide/.
+-- Each tag consists of a tag key and a tag value. Both the tag key and the
+-- tag value are required, but the tag value can be an empty (null) string.
+-- You cannot have more than one tag on a KMS key with the same tag key. If
+-- you specify an existing tag key with a different tag value, KMS replaces
+-- the current tag value with the specified one.
 --
--- Use this parameter only when you intend to prevent the principal that is
--- making the request from making a subsequent @PutKeyPolicy@ request on
--- the KMS key.
---
--- The default value is false.
+-- When you add tags to an Amazon Web Services resource, Amazon Web
+-- Services generates a cost allocation report with usage and costs
+-- aggregated by tags. Tags can also be used to control access to a KMS
+-- key. For details, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html Tagging Keys>.
 --
 -- 'keyId', 'replicateKey_keyId' - Identifies the multi-Region primary key that is being replicated. To
 -- determine whether a KMS key is a multi-Region primary key, use the
@@ -461,44 +461,42 @@ newReplicateKey ::
   ReplicateKey
 newReplicateKey pKeyId_ pReplicaRegion_ =
   ReplicateKey'
-    { tags = Prelude.Nothing,
-      policy = Prelude.Nothing,
+    { bypassPolicyLockoutSafetyCheck =
+        Prelude.Nothing,
       description = Prelude.Nothing,
-      bypassPolicyLockoutSafetyCheck = Prelude.Nothing,
+      policy = Prelude.Nothing,
+      tags = Prelude.Nothing,
       keyId = pKeyId_,
       replicaRegion = pReplicaRegion_
     }
 
--- | Assigns one or more tags to the replica key. Use this parameter to tag
--- the KMS key when it is created. To tag an existing KMS key, use the
--- TagResource operation.
+-- | A flag to indicate whether to bypass the key policy lockout safety
+-- check.
 --
--- Tagging or untagging a KMS key can allow or deny permission to the KMS
--- key. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html ABAC in KMS>
--- in the /Key Management Service Developer Guide/.
+-- Setting this value to true increases the risk that the KMS key becomes
+-- unmanageable. Do not set this value to true indiscriminately.
 --
--- To use this parameter, you must have
--- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:TagResource>
--- permission in an IAM policy.
+-- For more information, refer to the scenario in the
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy>
+-- section in the /Key Management Service Developer Guide/.
 --
--- Tags are not a shared property of multi-Region keys. You can specify the
--- same tags or different tags for each key in a set of related
--- multi-Region keys. KMS does not synchronize this property.
+-- Use this parameter only when you intend to prevent the principal that is
+-- making the request from making a subsequent @PutKeyPolicy@ request on
+-- the KMS key.
 --
--- Each tag consists of a tag key and a tag value. Both the tag key and the
--- tag value are required, but the tag value can be an empty (null) string.
--- You cannot have more than one tag on a KMS key with the same tag key. If
--- you specify an existing tag key with a different tag value, KMS replaces
--- the current tag value with the specified one.
+-- The default value is false.
+replicateKey_bypassPolicyLockoutSafetyCheck :: Lens.Lens' ReplicateKey (Prelude.Maybe Prelude.Bool)
+replicateKey_bypassPolicyLockoutSafetyCheck = Lens.lens (\ReplicateKey' {bypassPolicyLockoutSafetyCheck} -> bypassPolicyLockoutSafetyCheck) (\s@ReplicateKey' {} a -> s {bypassPolicyLockoutSafetyCheck = a} :: ReplicateKey)
+
+-- | A description of the KMS key. The default value is an empty string (no
+-- description).
 --
--- When you add tags to an Amazon Web Services resource, Amazon Web
--- Services generates a cost allocation report with usage and costs
--- aggregated by tags. Tags can also be used to control access to a KMS
--- key. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html Tagging Keys>.
-replicateKey_tags :: Lens.Lens' ReplicateKey (Prelude.Maybe [Tag])
-replicateKey_tags = Lens.lens (\ReplicateKey' {tags} -> tags) (\s@ReplicateKey' {} a -> s {tags = a} :: ReplicateKey) Prelude.. Lens.mapping Lens.coerced
+-- The description is not a shared property of multi-Region keys. You can
+-- specify the same description or a different description for each key in
+-- a set of related multi-Region keys. KMS does not synchronize this
+-- property.
+replicateKey_description :: Lens.Lens' ReplicateKey (Prelude.Maybe Prelude.Text)
+replicateKey_description = Lens.lens (\ReplicateKey' {description} -> description) (\s@ReplicateKey' {} a -> s {description = a} :: ReplicateKey)
 
 -- | The key policy to attach to the KMS key. This parameter is optional. If
 -- you do not provide a key policy, KMS attaches the
@@ -549,33 +547,36 @@ replicateKey_tags = Lens.lens (\ReplicateKey' {tags} -> tags) (\s@ReplicateKey' 
 replicateKey_policy :: Lens.Lens' ReplicateKey (Prelude.Maybe Prelude.Text)
 replicateKey_policy = Lens.lens (\ReplicateKey' {policy} -> policy) (\s@ReplicateKey' {} a -> s {policy = a} :: ReplicateKey)
 
--- | A description of the KMS key. The default value is an empty string (no
--- description).
+-- | Assigns one or more tags to the replica key. Use this parameter to tag
+-- the KMS key when it is created. To tag an existing KMS key, use the
+-- TagResource operation.
 --
--- The description is not a shared property of multi-Region keys. You can
--- specify the same description or a different description for each key in
--- a set of related multi-Region keys. KMS does not synchronize this
--- property.
-replicateKey_description :: Lens.Lens' ReplicateKey (Prelude.Maybe Prelude.Text)
-replicateKey_description = Lens.lens (\ReplicateKey' {description} -> description) (\s@ReplicateKey' {} a -> s {description = a} :: ReplicateKey)
-
--- | A flag to indicate whether to bypass the key policy lockout safety
--- check.
+-- Tagging or untagging a KMS key can allow or deny permission to the KMS
+-- key. For details, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html ABAC for KMS>
+-- in the /Key Management Service Developer Guide/.
 --
--- Setting this value to true increases the risk that the KMS key becomes
--- unmanageable. Do not set this value to true indiscriminately.
+-- To use this parameter, you must have
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:TagResource>
+-- permission in an IAM policy.
 --
--- For more information, refer to the scenario in the
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy>
--- section in the /Key Management Service Developer Guide/.
+-- Tags are not a shared property of multi-Region keys. You can specify the
+-- same tags or different tags for each key in a set of related
+-- multi-Region keys. KMS does not synchronize this property.
 --
--- Use this parameter only when you intend to prevent the principal that is
--- making the request from making a subsequent @PutKeyPolicy@ request on
--- the KMS key.
+-- Each tag consists of a tag key and a tag value. Both the tag key and the
+-- tag value are required, but the tag value can be an empty (null) string.
+-- You cannot have more than one tag on a KMS key with the same tag key. If
+-- you specify an existing tag key with a different tag value, KMS replaces
+-- the current tag value with the specified one.
 --
--- The default value is false.
-replicateKey_bypassPolicyLockoutSafetyCheck :: Lens.Lens' ReplicateKey (Prelude.Maybe Prelude.Bool)
-replicateKey_bypassPolicyLockoutSafetyCheck = Lens.lens (\ReplicateKey' {bypassPolicyLockoutSafetyCheck} -> bypassPolicyLockoutSafetyCheck) (\s@ReplicateKey' {} a -> s {bypassPolicyLockoutSafetyCheck = a} :: ReplicateKey)
+-- When you add tags to an Amazon Web Services resource, Amazon Web
+-- Services generates a cost allocation report with usage and costs
+-- aggregated by tags. Tags can also be used to control access to a KMS
+-- key. For details, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html Tagging Keys>.
+replicateKey_tags :: Lens.Lens' ReplicateKey (Prelude.Maybe [Tag])
+replicateKey_tags = Lens.lens (\ReplicateKey' {tags} -> tags) (\s@ReplicateKey' {} a -> s {tags = a} :: ReplicateKey) Prelude.. Lens.mapping Lens.coerced
 
 -- | Identifies the multi-Region primary key that is being replicated. To
 -- determine whether a KMS key is a multi-Region primary key, use the
@@ -636,26 +637,27 @@ instance Core.AWSRequest ReplicateKey where
       ( \s h x ->
           ReplicateKeyResponse'
             Prelude.<$> (x Data..?> "ReplicaKeyMetadata")
-            Prelude.<*> (x Data..?> "ReplicaTags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "ReplicaPolicy")
+            Prelude.<*> (x Data..?> "ReplicaTags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ReplicateKey where
   hashWithSalt _salt ReplicateKey' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` policy
-      `Prelude.hashWithSalt` description
+    _salt
       `Prelude.hashWithSalt` bypassPolicyLockoutSafetyCheck
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` policy
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` keyId
       `Prelude.hashWithSalt` replicaRegion
 
 instance Prelude.NFData ReplicateKey where
   rnf ReplicateKey' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf policy
+    Prelude.rnf bypassPolicyLockoutSafetyCheck
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf bypassPolicyLockoutSafetyCheck
+      `Prelude.seq` Prelude.rnf policy
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf keyId
       `Prelude.seq` Prelude.rnf replicaRegion
 
@@ -676,11 +678,11 @@ instance Data.ToJSON ReplicateKey where
   toJSON ReplicateKey' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Policy" Data..=) Prelude.<$> policy,
-            ("Description" Data..=) Prelude.<$> description,
-            ("BypassPolicyLockoutSafetyCheck" Data..=)
+          [ ("BypassPolicyLockoutSafetyCheck" Data..=)
               Prelude.<$> bypassPolicyLockoutSafetyCheck,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Policy" Data..=) Prelude.<$> policy,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("KeyId" Data..= keyId),
             Prelude.Just
               ("ReplicaRegion" Data..= replicaRegion)
@@ -703,12 +705,12 @@ data ReplicateKeyResponse = ReplicateKeyResponse'
     -- It also includes the ARN and Amazon Web Services Region of its primary
     -- key and other replica keys.
     replicaKeyMetadata :: Prelude.Maybe KeyMetadata,
-    -- | The tags on the new replica key. The value is a list of tag key and tag
-    -- value pairs.
-    replicaTags :: Prelude.Maybe [Tag],
     -- | The key policy of the new replica key. The value is a key policy
     -- document in JSON format.
     replicaPolicy :: Prelude.Maybe Prelude.Text,
+    -- | The tags on the new replica key. The value is a list of tag key and tag
+    -- value pairs.
+    replicaTags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -730,11 +732,11 @@ data ReplicateKeyResponse = ReplicateKeyResponse'
 -- It also includes the ARN and Amazon Web Services Region of its primary
 -- key and other replica keys.
 --
--- 'replicaTags', 'replicateKeyResponse_replicaTags' - The tags on the new replica key. The value is a list of tag key and tag
--- value pairs.
---
 -- 'replicaPolicy', 'replicateKeyResponse_replicaPolicy' - The key policy of the new replica key. The value is a key policy
 -- document in JSON format.
+--
+-- 'replicaTags', 'replicateKeyResponse_replicaTags' - The tags on the new replica key. The value is a list of tag key and tag
+-- value pairs.
 --
 -- 'httpStatus', 'replicateKeyResponse_httpStatus' - The response's http status code.
 newReplicateKeyResponse ::
@@ -745,8 +747,8 @@ newReplicateKeyResponse pHttpStatus_ =
   ReplicateKeyResponse'
     { replicaKeyMetadata =
         Prelude.Nothing,
-      replicaTags = Prelude.Nothing,
       replicaPolicy = Prelude.Nothing,
+      replicaTags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -760,15 +762,15 @@ newReplicateKeyResponse pHttpStatus_ =
 replicateKeyResponse_replicaKeyMetadata :: Lens.Lens' ReplicateKeyResponse (Prelude.Maybe KeyMetadata)
 replicateKeyResponse_replicaKeyMetadata = Lens.lens (\ReplicateKeyResponse' {replicaKeyMetadata} -> replicaKeyMetadata) (\s@ReplicateKeyResponse' {} a -> s {replicaKeyMetadata = a} :: ReplicateKeyResponse)
 
--- | The tags on the new replica key. The value is a list of tag key and tag
--- value pairs.
-replicateKeyResponse_replicaTags :: Lens.Lens' ReplicateKeyResponse (Prelude.Maybe [Tag])
-replicateKeyResponse_replicaTags = Lens.lens (\ReplicateKeyResponse' {replicaTags} -> replicaTags) (\s@ReplicateKeyResponse' {} a -> s {replicaTags = a} :: ReplicateKeyResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The key policy of the new replica key. The value is a key policy
 -- document in JSON format.
 replicateKeyResponse_replicaPolicy :: Lens.Lens' ReplicateKeyResponse (Prelude.Maybe Prelude.Text)
 replicateKeyResponse_replicaPolicy = Lens.lens (\ReplicateKeyResponse' {replicaPolicy} -> replicaPolicy) (\s@ReplicateKeyResponse' {} a -> s {replicaPolicy = a} :: ReplicateKeyResponse)
+
+-- | The tags on the new replica key. The value is a list of tag key and tag
+-- value pairs.
+replicateKeyResponse_replicaTags :: Lens.Lens' ReplicateKeyResponse (Prelude.Maybe [Tag])
+replicateKeyResponse_replicaTags = Lens.lens (\ReplicateKeyResponse' {replicaTags} -> replicaTags) (\s@ReplicateKeyResponse' {} a -> s {replicaTags = a} :: ReplicateKeyResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 replicateKeyResponse_httpStatus :: Lens.Lens' ReplicateKeyResponse Prelude.Int
@@ -777,6 +779,6 @@ replicateKeyResponse_httpStatus = Lens.lens (\ReplicateKeyResponse' {httpStatus}
 instance Prelude.NFData ReplicateKeyResponse where
   rnf ReplicateKeyResponse' {..} =
     Prelude.rnf replicaKeyMetadata
-      `Prelude.seq` Prelude.rnf replicaTags
       `Prelude.seq` Prelude.rnf replicaPolicy
+      `Prelude.seq` Prelude.rnf replicaTags
       `Prelude.seq` Prelude.rnf httpStatus

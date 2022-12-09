@@ -27,15 +27,14 @@
 --
 -- Adding, deleting, or updating an alias can allow or deny permission to
 -- the KMS key. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html ABAC in KMS>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html ABAC for KMS>
 -- in the /Key Management Service Developer Guide/.
 --
 -- The current and new KMS key must be the same type (both symmetric or
--- both asymmetric), and they must have the same key usage
--- (@ENCRYPT_DECRYPT@ or @SIGN_VERIFY@). This restriction prevents errors
--- in code that uses aliases. If you must assign an alias to a different
--- type of KMS key, use DeleteAlias to delete the old alias and CreateAlias
--- to create a new alias.
+-- both asymmetric or both HMAC), and they must have the same key usage.
+-- This restriction prevents errors in code that uses aliases. If you must
+-- assign an alias to a different type of KMS key, use DeleteAlias to
+-- delete the old alias and CreateAlias to create a new alias.
 --
 -- You cannot use @UpdateAlias@ to change an alias name. To change an alias
 -- name, use DeleteAlias to delete the old alias and CreateAlias to create
@@ -115,8 +114,8 @@ data UpdateAlias = UpdateAlias'
     --
     -- The KMS key must be in the same Amazon Web Services account and Region
     -- as the alias. Also, the new target KMS key must be the same type as the
-    -- current target KMS key (both symmetric or both asymmetric) and they must
-    -- have the same key usage.
+    -- current target KMS key (both symmetric or both asymmetric or both HMAC)
+    -- and they must have the same key usage.
     --
     -- Specify the key ID or key ARN of the KMS key.
     --
@@ -157,8 +156,8 @@ data UpdateAlias = UpdateAlias'
 --
 -- The KMS key must be in the same Amazon Web Services account and Region
 -- as the alias. Also, the new target KMS key must be the same type as the
--- current target KMS key (both symmetric or both asymmetric) and they must
--- have the same key usage.
+-- current target KMS key (both symmetric or both asymmetric or both HMAC)
+-- and they must have the same key usage.
 --
 -- Specify the key ID or key ARN of the KMS key.
 --
@@ -201,8 +200,8 @@ updateAlias_aliasName = Lens.lens (\UpdateAlias' {aliasName} -> aliasName) (\s@U
 --
 -- The KMS key must be in the same Amazon Web Services account and Region
 -- as the alias. Also, the new target KMS key must be the same type as the
--- current target KMS key (both symmetric or both asymmetric) and they must
--- have the same key usage.
+-- current target KMS key (both symmetric or both asymmetric or both HMAC)
+-- and they must have the same key usage.
 --
 -- Specify the key ID or key ARN of the KMS key.
 --

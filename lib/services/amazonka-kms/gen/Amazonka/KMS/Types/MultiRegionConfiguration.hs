@@ -34,14 +34,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMultiRegionConfiguration' smart constructor.
 data MultiRegionConfiguration = MultiRegionConfiguration'
-  { -- | Displays the key ARN and Region of the primary key. This field includes
+  { -- | Indicates whether the KMS key is a @PRIMARY@ or @REPLICA@ key.
+    multiRegionKeyType :: Prelude.Maybe MultiRegionKeyType,
+    -- | Displays the key ARN and Region of the primary key. This field includes
     -- the current KMS key if it is the primary key.
     primaryKey :: Prelude.Maybe MultiRegionKey,
     -- | displays the key ARNs and Regions of all replica keys. This field
     -- includes the current KMS key if it is a replica key.
-    replicaKeys :: Prelude.Maybe [MultiRegionKey],
-    -- | Indicates whether the KMS key is a @PRIMARY@ or @REPLICA@ key.
-    multiRegionKeyType :: Prelude.Maybe MultiRegionKeyType
+    replicaKeys :: Prelude.Maybe [MultiRegionKey]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,22 +53,26 @@ data MultiRegionConfiguration = MultiRegionConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'multiRegionKeyType', 'multiRegionConfiguration_multiRegionKeyType' - Indicates whether the KMS key is a @PRIMARY@ or @REPLICA@ key.
+--
 -- 'primaryKey', 'multiRegionConfiguration_primaryKey' - Displays the key ARN and Region of the primary key. This field includes
 -- the current KMS key if it is the primary key.
 --
 -- 'replicaKeys', 'multiRegionConfiguration_replicaKeys' - displays the key ARNs and Regions of all replica keys. This field
 -- includes the current KMS key if it is a replica key.
---
--- 'multiRegionKeyType', 'multiRegionConfiguration_multiRegionKeyType' - Indicates whether the KMS key is a @PRIMARY@ or @REPLICA@ key.
 newMultiRegionConfiguration ::
   MultiRegionConfiguration
 newMultiRegionConfiguration =
   MultiRegionConfiguration'
-    { primaryKey =
+    { multiRegionKeyType =
         Prelude.Nothing,
-      replicaKeys = Prelude.Nothing,
-      multiRegionKeyType = Prelude.Nothing
+      primaryKey = Prelude.Nothing,
+      replicaKeys = Prelude.Nothing
     }
+
+-- | Indicates whether the KMS key is a @PRIMARY@ or @REPLICA@ key.
+multiRegionConfiguration_multiRegionKeyType :: Lens.Lens' MultiRegionConfiguration (Prelude.Maybe MultiRegionKeyType)
+multiRegionConfiguration_multiRegionKeyType = Lens.lens (\MultiRegionConfiguration' {multiRegionKeyType} -> multiRegionKeyType) (\s@MultiRegionConfiguration' {} a -> s {multiRegionKeyType = a} :: MultiRegionConfiguration)
 
 -- | Displays the key ARN and Region of the primary key. This field includes
 -- the current KMS key if it is the primary key.
@@ -80,29 +84,25 @@ multiRegionConfiguration_primaryKey = Lens.lens (\MultiRegionConfiguration' {pri
 multiRegionConfiguration_replicaKeys :: Lens.Lens' MultiRegionConfiguration (Prelude.Maybe [MultiRegionKey])
 multiRegionConfiguration_replicaKeys = Lens.lens (\MultiRegionConfiguration' {replicaKeys} -> replicaKeys) (\s@MultiRegionConfiguration' {} a -> s {replicaKeys = a} :: MultiRegionConfiguration) Prelude.. Lens.mapping Lens.coerced
 
--- | Indicates whether the KMS key is a @PRIMARY@ or @REPLICA@ key.
-multiRegionConfiguration_multiRegionKeyType :: Lens.Lens' MultiRegionConfiguration (Prelude.Maybe MultiRegionKeyType)
-multiRegionConfiguration_multiRegionKeyType = Lens.lens (\MultiRegionConfiguration' {multiRegionKeyType} -> multiRegionKeyType) (\s@MultiRegionConfiguration' {} a -> s {multiRegionKeyType = a} :: MultiRegionConfiguration)
-
 instance Data.FromJSON MultiRegionConfiguration where
   parseJSON =
     Data.withObject
       "MultiRegionConfiguration"
       ( \x ->
           MultiRegionConfiguration'
-            Prelude.<$> (x Data..:? "PrimaryKey")
+            Prelude.<$> (x Data..:? "MultiRegionKeyType")
+            Prelude.<*> (x Data..:? "PrimaryKey")
             Prelude.<*> (x Data..:? "ReplicaKeys" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "MultiRegionKeyType")
       )
 
 instance Prelude.Hashable MultiRegionConfiguration where
   hashWithSalt _salt MultiRegionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` primaryKey
+    _salt `Prelude.hashWithSalt` multiRegionKeyType
+      `Prelude.hashWithSalt` primaryKey
       `Prelude.hashWithSalt` replicaKeys
-      `Prelude.hashWithSalt` multiRegionKeyType
 
 instance Prelude.NFData MultiRegionConfiguration where
   rnf MultiRegionConfiguration' {..} =
-    Prelude.rnf primaryKey
+    Prelude.rnf multiRegionKeyType
+      `Prelude.seq` Prelude.rnf primaryKey
       `Prelude.seq` Prelude.rnf replicaKeys
-      `Prelude.seq` Prelude.rnf multiRegionKeyType

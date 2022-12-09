@@ -31,11 +31,17 @@
 -- expiration date (if any) of the key material. It includes fields, like
 -- @KeySpec@, that help you distinguish different types of KMS keys. It
 -- also displays the key usage (encryption, signing, or generating and
--- verifying MACs) and the algorithms that the KMS key supports. For KMS
--- keys in custom key stores, it includes information about the custom key
--- store, such as the key store ID and the CloudHSM cluster ID. For
--- multi-Region keys, it displays the primary key and all related replica
--- keys.
+-- verifying MACs) and the algorithms that the KMS key supports.
+--
+-- For
+-- <kms/latest/developerguide/multi-region-keys-overview.html multi-Region keys>,
+-- @DescribeKey@ displays the primary key and all related replica keys. For
+-- KMS keys in
+-- <kms/latest/developerguide/keystore-cloudhsm.html CloudHSM key stores>,
+-- it includes information about the key store, such as the key store ID
+-- and the CloudHSM cluster ID. For KMS keys in
+-- <kms/latest/developerguide/keystore-external.html external key stores>,
+-- it includes the custom key store ID and the ID of the external key.
 --
 -- @DescribeKey@ does not return the following information:
 --

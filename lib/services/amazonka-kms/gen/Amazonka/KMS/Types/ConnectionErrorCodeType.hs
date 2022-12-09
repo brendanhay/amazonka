@@ -29,7 +29,15 @@ module Amazonka.KMS.Types.ConnectionErrorCodeType
         ConnectionErrorCodeType_SUBNET_NOT_FOUND,
         ConnectionErrorCodeType_USER_LOCKED_OUT,
         ConnectionErrorCodeType_USER_LOGGED_IN,
-        ConnectionErrorCodeType_USER_NOT_FOUND
+        ConnectionErrorCodeType_USER_NOT_FOUND,
+        ConnectionErrorCodeType_XKS_PROXY_ACCESS_DENIED,
+        ConnectionErrorCodeType_XKS_PROXY_INVALID_CONFIGURATION,
+        ConnectionErrorCodeType_XKS_PROXY_INVALID_RESPONSE,
+        ConnectionErrorCodeType_XKS_PROXY_INVALID_TLS_CONFIGURATION,
+        ConnectionErrorCodeType_XKS_PROXY_NOT_REACHABLE,
+        ConnectionErrorCodeType_XKS_PROXY_TIMED_OUT,
+        ConnectionErrorCodeType_XKS_VPC_ENDPOINT_SERVICE_INVALID_CONFIGURATION,
+        ConnectionErrorCodeType_XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND
       ),
   )
 where
@@ -96,6 +104,30 @@ pattern ConnectionErrorCodeType_USER_LOGGED_IN = ConnectionErrorCodeType' "USER_
 pattern ConnectionErrorCodeType_USER_NOT_FOUND :: ConnectionErrorCodeType
 pattern ConnectionErrorCodeType_USER_NOT_FOUND = ConnectionErrorCodeType' "USER_NOT_FOUND"
 
+pattern ConnectionErrorCodeType_XKS_PROXY_ACCESS_DENIED :: ConnectionErrorCodeType
+pattern ConnectionErrorCodeType_XKS_PROXY_ACCESS_DENIED = ConnectionErrorCodeType' "XKS_PROXY_ACCESS_DENIED"
+
+pattern ConnectionErrorCodeType_XKS_PROXY_INVALID_CONFIGURATION :: ConnectionErrorCodeType
+pattern ConnectionErrorCodeType_XKS_PROXY_INVALID_CONFIGURATION = ConnectionErrorCodeType' "XKS_PROXY_INVALID_CONFIGURATION"
+
+pattern ConnectionErrorCodeType_XKS_PROXY_INVALID_RESPONSE :: ConnectionErrorCodeType
+pattern ConnectionErrorCodeType_XKS_PROXY_INVALID_RESPONSE = ConnectionErrorCodeType' "XKS_PROXY_INVALID_RESPONSE"
+
+pattern ConnectionErrorCodeType_XKS_PROXY_INVALID_TLS_CONFIGURATION :: ConnectionErrorCodeType
+pattern ConnectionErrorCodeType_XKS_PROXY_INVALID_TLS_CONFIGURATION = ConnectionErrorCodeType' "XKS_PROXY_INVALID_TLS_CONFIGURATION"
+
+pattern ConnectionErrorCodeType_XKS_PROXY_NOT_REACHABLE :: ConnectionErrorCodeType
+pattern ConnectionErrorCodeType_XKS_PROXY_NOT_REACHABLE = ConnectionErrorCodeType' "XKS_PROXY_NOT_REACHABLE"
+
+pattern ConnectionErrorCodeType_XKS_PROXY_TIMED_OUT :: ConnectionErrorCodeType
+pattern ConnectionErrorCodeType_XKS_PROXY_TIMED_OUT = ConnectionErrorCodeType' "XKS_PROXY_TIMED_OUT"
+
+pattern ConnectionErrorCodeType_XKS_VPC_ENDPOINT_SERVICE_INVALID_CONFIGURATION :: ConnectionErrorCodeType
+pattern ConnectionErrorCodeType_XKS_VPC_ENDPOINT_SERVICE_INVALID_CONFIGURATION = ConnectionErrorCodeType' "XKS_VPC_ENDPOINT_SERVICE_INVALID_CONFIGURATION"
+
+pattern ConnectionErrorCodeType_XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND :: ConnectionErrorCodeType
+pattern ConnectionErrorCodeType_XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND = ConnectionErrorCodeType' "XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND"
+
 {-# COMPLETE
   ConnectionErrorCodeType_CLUSTER_NOT_FOUND,
   ConnectionErrorCodeType_INSUFFICIENT_CLOUDHSM_HSMS,
@@ -107,5 +139,13 @@ pattern ConnectionErrorCodeType_USER_NOT_FOUND = ConnectionErrorCodeType' "USER_
   ConnectionErrorCodeType_USER_LOCKED_OUT,
   ConnectionErrorCodeType_USER_LOGGED_IN,
   ConnectionErrorCodeType_USER_NOT_FOUND,
+  ConnectionErrorCodeType_XKS_PROXY_ACCESS_DENIED,
+  ConnectionErrorCodeType_XKS_PROXY_INVALID_CONFIGURATION,
+  ConnectionErrorCodeType_XKS_PROXY_INVALID_RESPONSE,
+  ConnectionErrorCodeType_XKS_PROXY_INVALID_TLS_CONFIGURATION,
+  ConnectionErrorCodeType_XKS_PROXY_NOT_REACHABLE,
+  ConnectionErrorCodeType_XKS_PROXY_TIMED_OUT,
+  ConnectionErrorCodeType_XKS_VPC_ENDPOINT_SERVICE_INVALID_CONFIGURATION,
+  ConnectionErrorCodeType_XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND,
   ConnectionErrorCodeType'
   #-}

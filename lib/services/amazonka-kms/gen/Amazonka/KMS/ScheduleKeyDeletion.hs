@@ -35,15 +35,6 @@
 -- is unrecoverable. (The only exception is a multi-Region replica key.) To
 -- prevent the use of a KMS key without deleting it, use DisableKey.
 --
--- If you schedule deletion of a KMS key from a
--- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>,
--- when the waiting period expires, @ScheduleKeyDeletion@ deletes the KMS
--- key from KMS. Then KMS makes a best effort to delete the key material
--- from the associated CloudHSM cluster. However, you might need to
--- manually
--- <https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-orphaned-key delete the orphaned key material>
--- from the cluster and its backups.
---
 -- You can schedule the deletion of a multi-Region primary key and its
 -- replica keys at any time. However, KMS will not delete a multi-Region
 -- primary key with existing replica keys. If you schedule the deletion of
@@ -55,6 +46,20 @@
 -- period (@PendingWindowInDays@) begins. For details, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-delete.html Deleting multi-Region keys>
 -- in the /Key Management Service Developer Guide/.
+--
+-- When KMS
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/delete-cmk-keystore.html deletes a KMS key from an CloudHSM key store>,
+-- it makes a best effort to delete the associated key material from the
+-- associated CloudHSM cluster. However, you might need to manually
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-orphaned-key delete the orphaned key material>
+-- from the cluster and its backups.
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/delete-xks-key.html Deleting a KMS key from an external key store>
+-- has no effect on the associated external key. However, for both types of
+-- custom key stores, deleting a KMS key is destructive and irreversible.
+-- You cannot decrypt ciphertext encrypted under the KMS key by using only
+-- its associated external key or CloudHSM key. Also, you cannot recreate a
+-- KMS key in an external key store by creating a new KMS key with the same
+-- key material.
 --
 -- For more information about scheduling a KMS key for deletion, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html Deleting KMS keys>
@@ -89,10 +94,10 @@ module Amazonka.KMS.ScheduleKeyDeletion
     newScheduleKeyDeletionResponse,
 
     -- * Response Lenses
-    scheduleKeyDeletionResponse_pendingWindowInDays,
-    scheduleKeyDeletionResponse_keyState,
     scheduleKeyDeletionResponse_deletionDate,
     scheduleKeyDeletionResponse_keyId,
+    scheduleKeyDeletionResponse_keyState,
+    scheduleKeyDeletionResponse_pendingWindowInDays,
     scheduleKeyDeletionResponse_httpStatus,
   )
 where
@@ -214,10 +219,10 @@ instance Core.AWSRequest ScheduleKeyDeletion where
     Response.receiveJSON
       ( \s h x ->
           ScheduleKeyDeletionResponse'
-            Prelude.<$> (x Data..?> "PendingWindowInDays")
-            Prelude.<*> (x Data..?> "KeyState")
-            Prelude.<*> (x Data..?> "DeletionDate")
+            Prelude.<$> (x Data..?> "DeletionDate")
             Prelude.<*> (x Data..?> "KeyId")
+            Prelude.<*> (x Data..?> "KeyState")
+            Prelude.<*> (x Data..?> "PendingWindowInDays")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -264,20 +269,7 @@ instance Data.ToQuery ScheduleKeyDeletion where
 
 -- | /See:/ 'newScheduleKeyDeletionResponse' smart constructor.
 data ScheduleKeyDeletionResponse = ScheduleKeyDeletionResponse'
-  { -- | The waiting period before the KMS key is deleted.
-    --
-    -- If the KMS key is a multi-Region primary key with replicas, the waiting
-    -- period begins when the last of its replica keys is deleted. Otherwise,
-    -- the waiting period begins immediately.
-    pendingWindowInDays :: Prelude.Maybe Prelude.Natural,
-    -- | The current status of the KMS key.
-    --
-    -- For more information about how key state affects the use of a KMS key,
-    -- see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key states of KMS keys>
-    -- in the /Key Management Service Developer Guide/.
-    keyState :: Prelude.Maybe KeyState,
-    -- | The date and time after which KMS deletes the KMS key.
+  { -- | The date and time after which KMS deletes the KMS key.
     --
     -- If the KMS key is a multi-Region primary key with replica keys, this
     -- field does not appear. The deletion date for the primary key isn\'t
@@ -287,6 +279,19 @@ data ScheduleKeyDeletionResponse = ScheduleKeyDeletionResponse'
     -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
     -- of the KMS key whose deletion is scheduled.
     keyId :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the KMS key.
+    --
+    -- For more information about how key state affects the use of a KMS key,
+    -- see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key states of KMS keys>
+    -- in the /Key Management Service Developer Guide/.
+    keyState :: Prelude.Maybe KeyState,
+    -- | The waiting period before the KMS key is deleted.
+    --
+    -- If the KMS key is a multi-Region primary key with replicas, the waiting
+    -- period begins when the last of its replica keys is deleted. Otherwise,
+    -- the waiting period begins immediately.
+    pendingWindowInDays :: Prelude.Maybe Prelude.Natural,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -300,19 +305,6 @@ data ScheduleKeyDeletionResponse = ScheduleKeyDeletionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pendingWindowInDays', 'scheduleKeyDeletionResponse_pendingWindowInDays' - The waiting period before the KMS key is deleted.
---
--- If the KMS key is a multi-Region primary key with replicas, the waiting
--- period begins when the last of its replica keys is deleted. Otherwise,
--- the waiting period begins immediately.
---
--- 'keyState', 'scheduleKeyDeletionResponse_keyState' - The current status of the KMS key.
---
--- For more information about how key state affects the use of a KMS key,
--- see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key states of KMS keys>
--- in the /Key Management Service Developer Guide/.
---
 -- 'deletionDate', 'scheduleKeyDeletionResponse_deletionDate' - The date and time after which KMS deletes the KMS key.
 --
 -- If the KMS key is a multi-Region primary key with replica keys, this
@@ -323,6 +315,19 @@ data ScheduleKeyDeletionResponse = ScheduleKeyDeletionResponse'
 -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
 -- of the KMS key whose deletion is scheduled.
 --
+-- 'keyState', 'scheduleKeyDeletionResponse_keyState' - The current status of the KMS key.
+--
+-- For more information about how key state affects the use of a KMS key,
+-- see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key states of KMS keys>
+-- in the /Key Management Service Developer Guide/.
+--
+-- 'pendingWindowInDays', 'scheduleKeyDeletionResponse_pendingWindowInDays' - The waiting period before the KMS key is deleted.
+--
+-- If the KMS key is a multi-Region primary key with replicas, the waiting
+-- period begins when the last of its replica keys is deleted. Otherwise,
+-- the waiting period begins immediately.
+--
 -- 'httpStatus', 'scheduleKeyDeletionResponse_httpStatus' - The response's http status code.
 newScheduleKeyDeletionResponse ::
   -- | 'httpStatus'
@@ -330,30 +335,13 @@ newScheduleKeyDeletionResponse ::
   ScheduleKeyDeletionResponse
 newScheduleKeyDeletionResponse pHttpStatus_ =
   ScheduleKeyDeletionResponse'
-    { pendingWindowInDays =
+    { deletionDate =
         Prelude.Nothing,
-      keyState = Prelude.Nothing,
-      deletionDate = Prelude.Nothing,
       keyId = Prelude.Nothing,
+      keyState = Prelude.Nothing,
+      pendingWindowInDays = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The waiting period before the KMS key is deleted.
---
--- If the KMS key is a multi-Region primary key with replicas, the waiting
--- period begins when the last of its replica keys is deleted. Otherwise,
--- the waiting period begins immediately.
-scheduleKeyDeletionResponse_pendingWindowInDays :: Lens.Lens' ScheduleKeyDeletionResponse (Prelude.Maybe Prelude.Natural)
-scheduleKeyDeletionResponse_pendingWindowInDays = Lens.lens (\ScheduleKeyDeletionResponse' {pendingWindowInDays} -> pendingWindowInDays) (\s@ScheduleKeyDeletionResponse' {} a -> s {pendingWindowInDays = a} :: ScheduleKeyDeletionResponse)
-
--- | The current status of the KMS key.
---
--- For more information about how key state affects the use of a KMS key,
--- see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key states of KMS keys>
--- in the /Key Management Service Developer Guide/.
-scheduleKeyDeletionResponse_keyState :: Lens.Lens' ScheduleKeyDeletionResponse (Prelude.Maybe KeyState)
-scheduleKeyDeletionResponse_keyState = Lens.lens (\ScheduleKeyDeletionResponse' {keyState} -> keyState) (\s@ScheduleKeyDeletionResponse' {} a -> s {keyState = a} :: ScheduleKeyDeletionResponse)
 
 -- | The date and time after which KMS deletes the KMS key.
 --
@@ -369,14 +357,31 @@ scheduleKeyDeletionResponse_deletionDate = Lens.lens (\ScheduleKeyDeletionRespon
 scheduleKeyDeletionResponse_keyId :: Lens.Lens' ScheduleKeyDeletionResponse (Prelude.Maybe Prelude.Text)
 scheduleKeyDeletionResponse_keyId = Lens.lens (\ScheduleKeyDeletionResponse' {keyId} -> keyId) (\s@ScheduleKeyDeletionResponse' {} a -> s {keyId = a} :: ScheduleKeyDeletionResponse)
 
+-- | The current status of the KMS key.
+--
+-- For more information about how key state affects the use of a KMS key,
+-- see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key states of KMS keys>
+-- in the /Key Management Service Developer Guide/.
+scheduleKeyDeletionResponse_keyState :: Lens.Lens' ScheduleKeyDeletionResponse (Prelude.Maybe KeyState)
+scheduleKeyDeletionResponse_keyState = Lens.lens (\ScheduleKeyDeletionResponse' {keyState} -> keyState) (\s@ScheduleKeyDeletionResponse' {} a -> s {keyState = a} :: ScheduleKeyDeletionResponse)
+
+-- | The waiting period before the KMS key is deleted.
+--
+-- If the KMS key is a multi-Region primary key with replicas, the waiting
+-- period begins when the last of its replica keys is deleted. Otherwise,
+-- the waiting period begins immediately.
+scheduleKeyDeletionResponse_pendingWindowInDays :: Lens.Lens' ScheduleKeyDeletionResponse (Prelude.Maybe Prelude.Natural)
+scheduleKeyDeletionResponse_pendingWindowInDays = Lens.lens (\ScheduleKeyDeletionResponse' {pendingWindowInDays} -> pendingWindowInDays) (\s@ScheduleKeyDeletionResponse' {} a -> s {pendingWindowInDays = a} :: ScheduleKeyDeletionResponse)
+
 -- | The response's http status code.
 scheduleKeyDeletionResponse_httpStatus :: Lens.Lens' ScheduleKeyDeletionResponse Prelude.Int
 scheduleKeyDeletionResponse_httpStatus = Lens.lens (\ScheduleKeyDeletionResponse' {httpStatus} -> httpStatus) (\s@ScheduleKeyDeletionResponse' {} a -> s {httpStatus = a} :: ScheduleKeyDeletionResponse)
 
 instance Prelude.NFData ScheduleKeyDeletionResponse where
   rnf ScheduleKeyDeletionResponse' {..} =
-    Prelude.rnf pendingWindowInDays
-      `Prelude.seq` Prelude.rnf keyState
-      `Prelude.seq` Prelude.rnf deletionDate
+    Prelude.rnf deletionDate
       `Prelude.seq` Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf keyState
+      `Prelude.seq` Prelude.rnf pendingWindowInDays
       `Prelude.seq` Prelude.rnf httpStatus

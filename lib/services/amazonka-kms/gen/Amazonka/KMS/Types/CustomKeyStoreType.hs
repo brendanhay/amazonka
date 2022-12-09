@@ -11,19 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.KMS.Types.OriginType
+-- Module      : Amazonka.KMS.Types.CustomKeyStoreType
 -- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.KMS.Types.OriginType
-  ( OriginType
+module Amazonka.KMS.Types.CustomKeyStoreType
+  ( CustomKeyStoreType
       ( ..,
-        OriginType_AWS_CLOUDHSM,
-        OriginType_AWS_KMS,
-        OriginType_EXTERNAL,
-        OriginType_EXTERNAL_KEY_STORE
+        CustomKeyStoreType_AWS_CLOUDHSM,
+        CustomKeyStoreType_EXTERNAL_KEY_STORE
       ),
   )
 where
@@ -32,8 +30,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
-newtype OriginType = OriginType'
-  { fromOriginType ::
+newtype CustomKeyStoreType = CustomKeyStoreType'
+  { fromCustomKeyStoreType ::
       Data.Text
   }
   deriving stock
@@ -60,22 +58,14 @@ newtype OriginType = OriginType'
       Data.ToXML
     )
 
-pattern OriginType_AWS_CLOUDHSM :: OriginType
-pattern OriginType_AWS_CLOUDHSM = OriginType' "AWS_CLOUDHSM"
+pattern CustomKeyStoreType_AWS_CLOUDHSM :: CustomKeyStoreType
+pattern CustomKeyStoreType_AWS_CLOUDHSM = CustomKeyStoreType' "AWS_CLOUDHSM"
 
-pattern OriginType_AWS_KMS :: OriginType
-pattern OriginType_AWS_KMS = OriginType' "AWS_KMS"
-
-pattern OriginType_EXTERNAL :: OriginType
-pattern OriginType_EXTERNAL = OriginType' "EXTERNAL"
-
-pattern OriginType_EXTERNAL_KEY_STORE :: OriginType
-pattern OriginType_EXTERNAL_KEY_STORE = OriginType' "EXTERNAL_KEY_STORE"
+pattern CustomKeyStoreType_EXTERNAL_KEY_STORE :: CustomKeyStoreType
+pattern CustomKeyStoreType_EXTERNAL_KEY_STORE = CustomKeyStoreType' "EXTERNAL_KEY_STORE"
 
 {-# COMPLETE
-  OriginType_AWS_CLOUDHSM,
-  OriginType_AWS_KMS,
-  OriginType_EXTERNAL,
-  OriginType_EXTERNAL_KEY_STORE,
-  OriginType'
+  CustomKeyStoreType_AWS_CLOUDHSM,
+  CustomKeyStoreType_EXTERNAL_KEY_STORE,
+  CustomKeyStoreType'
   #-}

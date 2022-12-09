@@ -19,7 +19,7 @@
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/ Key Management Service Developer Guide>
 -- .
 --
--- KMS is replacing the term /customer master key (CMK)/ with /KMS key/ and
+-- KMS has replaced the term /customer master key (CMK)/ with /KMS key/ and
 -- /KMS key/. The concept has not changed. To prevent breaking changes, KMS
 -- is keeping some variations of this term.
 --
@@ -55,9 +55,9 @@
 --
 -- Requests must be signed by using an access key ID and a secret access
 -- key. We strongly recommend that you /do not/ use your Amazon Web
--- Services account (root) access key ID and secret key for everyday work
--- with KMS. Instead, use the access key ID and secret access key for an
--- IAM user. You can also use the Amazon Web Services Security Token
+-- Services account (root) access key ID and secret access key for everyday
+-- work with KMS. Instead, use the access key ID and secret access key for
+-- an IAM user. You can also use the Amazon Web Services Security Token
 -- Service to generate temporary security credentials that you can use to
 -- sign requests.
 --
@@ -113,50 +113,23 @@ module Amazonka.KMS
     -- * Errors
     -- $errors
 
-    -- ** UnsupportedOperationException
-    _UnsupportedOperationException,
+    -- ** AlreadyExistsException
+    _AlreadyExistsException,
 
-    -- ** InvalidImportTokenException
-    _InvalidImportTokenException,
+    -- ** CloudHsmClusterInUseException
+    _CloudHsmClusterInUseException,
 
-    -- ** IncorrectKeyMaterialException
-    _IncorrectKeyMaterialException,
+    -- ** CloudHsmClusterInvalidConfigurationException
+    _CloudHsmClusterInvalidConfigurationException,
 
-    -- ** IncorrectKeyException
-    _IncorrectKeyException,
-
-    -- ** InvalidGrantIdException
-    _InvalidGrantIdException,
-
-    -- ** InvalidAliasNameException
-    _InvalidAliasNameException,
-
-    -- ** NotFoundException
-    _NotFoundException,
+    -- ** CloudHsmClusterNotActiveException
+    _CloudHsmClusterNotActiveException,
 
     -- ** CloudHsmClusterNotFoundException
     _CloudHsmClusterNotFoundException,
 
-    -- ** DependencyTimeoutException
-    _DependencyTimeoutException,
-
-    -- ** InvalidMarkerException
-    _InvalidMarkerException,
-
-    -- ** KMSInvalidMacException
-    _KMSInvalidMacException,
-
     -- ** CloudHsmClusterNotRelatedException
     _CloudHsmClusterNotRelatedException,
-
-    -- ** AlreadyExistsException
-    _AlreadyExistsException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** CloudHsmClusterInUseException
-    _CloudHsmClusterInUseException,
 
     -- ** CustomKeyStoreHasCMKsException
     _CustomKeyStoreHasCMKsException,
@@ -164,56 +137,119 @@ module Amazonka.KMS
     -- ** CustomKeyStoreInvalidStateException
     _CustomKeyStoreInvalidStateException,
 
-    -- ** InvalidKeyUsageException
-    _InvalidKeyUsageException,
-
-    -- ** CloudHsmClusterNotActiveException
-    _CloudHsmClusterNotActiveException,
-
-    -- ** InvalidCiphertextException
-    _InvalidCiphertextException,
-
-    -- ** KMSInvalidStateException
-    _KMSInvalidStateException,
-
-    -- ** TagException
-    _TagException,
-
-    -- ** InvalidArnException
-    _InvalidArnException,
-
-    -- ** MalformedPolicyDocumentException
-    _MalformedPolicyDocumentException,
-
     -- ** CustomKeyStoreNameInUseException
     _CustomKeyStoreNameInUseException,
-
-    -- ** KeyUnavailableException
-    _KeyUnavailableException,
-
-    -- ** DisabledException
-    _DisabledException,
-
-    -- ** IncorrectTrustAnchorException
-    _IncorrectTrustAnchorException,
-
-    -- ** KMSInvalidSignatureException
-    _KMSInvalidSignatureException,
-
-    -- ** InvalidGrantTokenException
-    _InvalidGrantTokenException,
-
-    -- ** KMSInternalException
-    _KMSInternalException,
 
     -- ** CustomKeyStoreNotFoundException
     _CustomKeyStoreNotFoundException,
 
-    -- ** CloudHsmClusterInvalidConfigurationException
-    _CloudHsmClusterInvalidConfigurationException,
+    -- ** DependencyTimeoutException
+    _DependencyTimeoutException,
+
+    -- ** DisabledException
+    _DisabledException,
 
     -- ** ExpiredImportTokenException
     _ExpiredImportTokenException,
+
+    -- ** IncorrectKeyException
+    _IncorrectKeyException,
+
+    -- ** IncorrectKeyMaterialException
+    _IncorrectKeyMaterialException,
+
+    -- ** IncorrectTrustAnchorException
+    _IncorrectTrustAnchorException,
+
+    -- ** InvalidAliasNameException
+    _InvalidAliasNameException,
+
+    -- ** InvalidArnException
+    _InvalidArnException,
+
+    -- ** InvalidCiphertextException
+    _InvalidCiphertextException,
+
+    -- ** InvalidGrantIdException
+    _InvalidGrantIdException,
+
+    -- ** InvalidGrantTokenException
+    _InvalidGrantTokenException,
+
+    -- ** InvalidImportTokenException
+    _InvalidImportTokenException,
+
+    -- ** InvalidKeyUsageException
+    _InvalidKeyUsageException,
+
+    -- ** InvalidMarkerException
+    _InvalidMarkerException,
+
+    -- ** KMSInternalException
+    _KMSInternalException,
+
+    -- ** KMSInvalidMacException
+    _KMSInvalidMacException,
+
+    -- ** KMSInvalidSignatureException
+    _KMSInvalidSignatureException,
+
+    -- ** KMSInvalidStateException
+    _KMSInvalidStateException,
+
+    -- ** KeyUnavailableException
+    _KeyUnavailableException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** MalformedPolicyDocumentException
+    _MalformedPolicyDocumentException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** TagException
+    _TagException,
+
+    -- ** UnsupportedOperationException
+    _UnsupportedOperationException,
+
+    -- ** XksKeyAlreadyInUseException
+    _XksKeyAlreadyInUseException,
+
+    -- ** XksKeyInvalidConfigurationException
+    _XksKeyInvalidConfigurationException,
+
+    -- ** XksKeyNotFoundException
+    _XksKeyNotFoundException,
+
+    -- ** XksProxyIncorrectAuthenticationCredentialException
+    _XksProxyIncorrectAuthenticationCredentialException,
+
+    -- ** XksProxyInvalidConfigurationException
+    _XksProxyInvalidConfigurationException,
+
+    -- ** XksProxyInvalidResponseException
+    _XksProxyInvalidResponseException,
+
+    -- ** XksProxyUriEndpointInUseException
+    _XksProxyUriEndpointInUseException,
+
+    -- ** XksProxyUriInUseException
+    _XksProxyUriInUseException,
+
+    -- ** XksProxyUriUnreachableException
+    _XksProxyUriUnreachableException,
+
+    -- ** XksProxyVpcEndpointServiceInUseException
+    _XksProxyVpcEndpointServiceInUseException,
+
+    -- ** XksProxyVpcEndpointServiceInvalidConfigurationException
+    _XksProxyVpcEndpointServiceInvalidConfigurationException,
+
+    -- ** XksProxyVpcEndpointServiceNotFoundException
+    _XksProxyVpcEndpointServiceNotFoundException,
 
     -- * Waiters
     -- $waiters
@@ -532,6 +568,9 @@ module Amazonka.KMS
     -- ** ConnectionStateType
     ConnectionStateType (..),
 
+    -- ** CustomKeyStoreType
+    CustomKeyStoreType (..),
+
     -- ** CustomerMasterKeySpec
     CustomerMasterKeySpec (..),
 
@@ -580,6 +619,9 @@ module Amazonka.KMS
     -- ** WrappingKeySpec
     WrappingKeySpec (..),
 
+    -- ** XksProxyConnectivityType
+    XksProxyConnectivityType (..),
+
     -- ** AliasListEntry
     AliasListEntry (AliasListEntry'),
     newAliasListEntry,
@@ -619,6 +661,18 @@ module Amazonka.KMS
     -- ** Tag
     Tag (Tag'),
     newTag,
+
+    -- ** XksKeyConfigurationType
+    XksKeyConfigurationType (XksKeyConfigurationType'),
+    newXksKeyConfigurationType,
+
+    -- ** XksProxyAuthenticationCredentialType
+    XksProxyAuthenticationCredentialType (XksProxyAuthenticationCredentialType'),
+    newXksProxyAuthenticationCredentialType,
+
+    -- ** XksProxyConfigurationType
+    XksProxyConfigurationType (XksProxyConfigurationType'),
+    newXksProxyConfigurationType,
   )
 where
 

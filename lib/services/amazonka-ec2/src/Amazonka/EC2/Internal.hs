@@ -19,7 +19,7 @@ import Amazonka.Prelude
 -- | Custom 'Tag' type which has an optional value component.
 --
 -- /See:/ 'tag' smart constructor.
-data DeleteTag = DeleteTag
+data DeleteTag = DeleteTag'
   { -- | Tag keys are case-sensitive and accept a maximum of 127
     -- Unicode characters. May not begin with 'aws:'
     key :: !Text,
@@ -33,7 +33,7 @@ newDeleteTag ::
   -- | 'key'
   Text ->
   DeleteTag
-newDeleteTag key = DeleteTag {key, value = Nothing}
+newDeleteTag key = DeleteTag' {key, value = Nothing}
 
 {-# INLINE deleteTag_key #-}
 deleteTag_key :: Lens' DeleteTag Text

@@ -36,8 +36,8 @@ module Amazonka.EBS.GetSnapshotBlock
     newGetSnapshotBlockResponse,
 
     -- * Response Lenses
-    getSnapshotBlockResponse_checksumAlgorithm,
     getSnapshotBlockResponse_checksum,
+    getSnapshotBlockResponse_checksumAlgorithm,
     getSnapshotBlockResponse_dataLength,
     getSnapshotBlockResponse_httpStatus,
     getSnapshotBlockResponse_blockData,
@@ -152,8 +152,8 @@ instance Core.AWSRequest GetSnapshotBlock where
     Response.receiveBody
       ( \s h x ->
           GetSnapshotBlockResponse'
-            Prelude.<$> (h Data..#? "x-amz-Checksum-Algorithm")
-            Prelude.<*> (h Data..#? "x-amz-Checksum")
+            Prelude.<$> (h Data..#? "x-amz-Checksum")
+            Prelude.<*> (h Data..#? "x-amz-Checksum-Algorithm")
             Prelude.<*> (h Data..#? "x-amz-Data-Length")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
@@ -197,11 +197,11 @@ instance Data.ToQuery GetSnapshotBlock where
 
 -- | /See:/ 'newGetSnapshotBlockResponse' smart constructor.
 data GetSnapshotBlockResponse = GetSnapshotBlockResponse'
-  { -- | The algorithm used to generate the checksum for the block, such as
+  { -- | The checksum generated for the block, which is Base64 encoded.
+    checksum :: Prelude.Maybe Prelude.Text,
+    -- | The algorithm used to generate the checksum for the block, such as
     -- SHA256.
     checksumAlgorithm :: Prelude.Maybe ChecksumAlgorithm,
-    -- | The checksum generated for the block, which is Base64 encoded.
-    checksum :: Prelude.Maybe Prelude.Text,
     -- | The size of the data in the block.
     dataLength :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
@@ -219,10 +219,10 @@ data GetSnapshotBlockResponse = GetSnapshotBlockResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'checksum', 'getSnapshotBlockResponse_checksum' - The checksum generated for the block, which is Base64 encoded.
+--
 -- 'checksumAlgorithm', 'getSnapshotBlockResponse_checksumAlgorithm' - The algorithm used to generate the checksum for the block, such as
 -- SHA256.
---
--- 'checksum', 'getSnapshotBlockResponse_checksum' - The checksum generated for the block, which is Base64 encoded.
 --
 -- 'dataLength', 'getSnapshotBlockResponse_dataLength' - The size of the data in the block.
 --
@@ -237,22 +237,22 @@ newGetSnapshotBlockResponse ::
   GetSnapshotBlockResponse
 newGetSnapshotBlockResponse pHttpStatus_ pBlockData_ =
   GetSnapshotBlockResponse'
-    { checksumAlgorithm =
+    { checksum =
         Prelude.Nothing,
-      checksum = Prelude.Nothing,
+      checksumAlgorithm = Prelude.Nothing,
       dataLength = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       blockData = pBlockData_
     }
 
+-- | The checksum generated for the block, which is Base64 encoded.
+getSnapshotBlockResponse_checksum :: Lens.Lens' GetSnapshotBlockResponse (Prelude.Maybe Prelude.Text)
+getSnapshotBlockResponse_checksum = Lens.lens (\GetSnapshotBlockResponse' {checksum} -> checksum) (\s@GetSnapshotBlockResponse' {} a -> s {checksum = a} :: GetSnapshotBlockResponse)
+
 -- | The algorithm used to generate the checksum for the block, such as
 -- SHA256.
 getSnapshotBlockResponse_checksumAlgorithm :: Lens.Lens' GetSnapshotBlockResponse (Prelude.Maybe ChecksumAlgorithm)
 getSnapshotBlockResponse_checksumAlgorithm = Lens.lens (\GetSnapshotBlockResponse' {checksumAlgorithm} -> checksumAlgorithm) (\s@GetSnapshotBlockResponse' {} a -> s {checksumAlgorithm = a} :: GetSnapshotBlockResponse)
-
--- | The checksum generated for the block, which is Base64 encoded.
-getSnapshotBlockResponse_checksum :: Lens.Lens' GetSnapshotBlockResponse (Prelude.Maybe Prelude.Text)
-getSnapshotBlockResponse_checksum = Lens.lens (\GetSnapshotBlockResponse' {checksum} -> checksum) (\s@GetSnapshotBlockResponse' {} a -> s {checksum = a} :: GetSnapshotBlockResponse)
 
 -- | The size of the data in the block.
 getSnapshotBlockResponse_dataLength :: Lens.Lens' GetSnapshotBlockResponse (Prelude.Maybe Prelude.Int)

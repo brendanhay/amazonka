@@ -30,9 +30,9 @@ module Amazonka.EBS.CompleteSnapshot
     newCompleteSnapshot,
 
     -- * Request Lenses
-    completeSnapshot_checksumAlgorithm,
-    completeSnapshot_checksumAggregationMethod,
     completeSnapshot_checksum,
+    completeSnapshot_checksumAggregationMethod,
+    completeSnapshot_checksumAlgorithm,
     completeSnapshot_snapshotId,
     completeSnapshot_changedBlocksCount,
 
@@ -56,13 +56,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCompleteSnapshot' smart constructor.
 data CompleteSnapshot = CompleteSnapshot'
-  { -- | The algorithm used to generate the checksum. Currently, the only
-    -- supported algorithm is @SHA256@.
-    checksumAlgorithm :: Prelude.Maybe ChecksumAlgorithm,
-    -- | The aggregation method used to generate the checksum. Currently, the
-    -- only supported aggregation method is @LINEAR@.
-    checksumAggregationMethod :: Prelude.Maybe ChecksumAggregationMethod,
-    -- | An aggregated Base-64 SHA256 checksum based on the checksums of each
+  { -- | An aggregated Base-64 SHA256 checksum based on the checksums of each
     -- written block.
     --
     -- To generate the aggregated checksum using the linear aggregation method,
@@ -70,6 +64,12 @@ data CompleteSnapshot = CompleteSnapshot'
     -- block index, concatenate them to form a single string, and then generate
     -- the checksum on the entire string using the SHA256 algorithm.
     checksum :: Prelude.Maybe Prelude.Text,
+    -- | The aggregation method used to generate the checksum. Currently, the
+    -- only supported aggregation method is @LINEAR@.
+    checksumAggregationMethod :: Prelude.Maybe ChecksumAggregationMethod,
+    -- | The algorithm used to generate the checksum. Currently, the only
+    -- supported algorithm is @SHA256@.
+    checksumAlgorithm :: Prelude.Maybe ChecksumAlgorithm,
     -- | The ID of the snapshot.
     snapshotId :: Prelude.Text,
     -- | The number of blocks that were written to the snapshot.
@@ -85,12 +85,6 @@ data CompleteSnapshot = CompleteSnapshot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'checksumAlgorithm', 'completeSnapshot_checksumAlgorithm' - The algorithm used to generate the checksum. Currently, the only
--- supported algorithm is @SHA256@.
---
--- 'checksumAggregationMethod', 'completeSnapshot_checksumAggregationMethod' - The aggregation method used to generate the checksum. Currently, the
--- only supported aggregation method is @LINEAR@.
---
 -- 'checksum', 'completeSnapshot_checksum' - An aggregated Base-64 SHA256 checksum based on the checksums of each
 -- written block.
 --
@@ -98,6 +92,12 @@ data CompleteSnapshot = CompleteSnapshot'
 -- arrange the checksums for each written block in ascending order of their
 -- block index, concatenate them to form a single string, and then generate
 -- the checksum on the entire string using the SHA256 algorithm.
+--
+-- 'checksumAggregationMethod', 'completeSnapshot_checksumAggregationMethod' - The aggregation method used to generate the checksum. Currently, the
+-- only supported aggregation method is @LINEAR@.
+--
+-- 'checksumAlgorithm', 'completeSnapshot_checksumAlgorithm' - The algorithm used to generate the checksum. Currently, the only
+-- supported algorithm is @SHA256@.
 --
 -- 'snapshotId', 'completeSnapshot_snapshotId' - The ID of the snapshot.
 --
@@ -110,23 +110,12 @@ newCompleteSnapshot ::
   CompleteSnapshot
 newCompleteSnapshot pSnapshotId_ pChangedBlocksCount_ =
   CompleteSnapshot'
-    { checksumAlgorithm =
-        Prelude.Nothing,
+    { checksum = Prelude.Nothing,
       checksumAggregationMethod = Prelude.Nothing,
-      checksum = Prelude.Nothing,
+      checksumAlgorithm = Prelude.Nothing,
       snapshotId = pSnapshotId_,
       changedBlocksCount = pChangedBlocksCount_
     }
-
--- | The algorithm used to generate the checksum. Currently, the only
--- supported algorithm is @SHA256@.
-completeSnapshot_checksumAlgorithm :: Lens.Lens' CompleteSnapshot (Prelude.Maybe ChecksumAlgorithm)
-completeSnapshot_checksumAlgorithm = Lens.lens (\CompleteSnapshot' {checksumAlgorithm} -> checksumAlgorithm) (\s@CompleteSnapshot' {} a -> s {checksumAlgorithm = a} :: CompleteSnapshot)
-
--- | The aggregation method used to generate the checksum. Currently, the
--- only supported aggregation method is @LINEAR@.
-completeSnapshot_checksumAggregationMethod :: Lens.Lens' CompleteSnapshot (Prelude.Maybe ChecksumAggregationMethod)
-completeSnapshot_checksumAggregationMethod = Lens.lens (\CompleteSnapshot' {checksumAggregationMethod} -> checksumAggregationMethod) (\s@CompleteSnapshot' {} a -> s {checksumAggregationMethod = a} :: CompleteSnapshot)
 
 -- | An aggregated Base-64 SHA256 checksum based on the checksums of each
 -- written block.
@@ -137,6 +126,16 @@ completeSnapshot_checksumAggregationMethod = Lens.lens (\CompleteSnapshot' {chec
 -- the checksum on the entire string using the SHA256 algorithm.
 completeSnapshot_checksum :: Lens.Lens' CompleteSnapshot (Prelude.Maybe Prelude.Text)
 completeSnapshot_checksum = Lens.lens (\CompleteSnapshot' {checksum} -> checksum) (\s@CompleteSnapshot' {} a -> s {checksum = a} :: CompleteSnapshot)
+
+-- | The aggregation method used to generate the checksum. Currently, the
+-- only supported aggregation method is @LINEAR@.
+completeSnapshot_checksumAggregationMethod :: Lens.Lens' CompleteSnapshot (Prelude.Maybe ChecksumAggregationMethod)
+completeSnapshot_checksumAggregationMethod = Lens.lens (\CompleteSnapshot' {checksumAggregationMethod} -> checksumAggregationMethod) (\s@CompleteSnapshot' {} a -> s {checksumAggregationMethod = a} :: CompleteSnapshot)
+
+-- | The algorithm used to generate the checksum. Currently, the only
+-- supported algorithm is @SHA256@.
+completeSnapshot_checksumAlgorithm :: Lens.Lens' CompleteSnapshot (Prelude.Maybe ChecksumAlgorithm)
+completeSnapshot_checksumAlgorithm = Lens.lens (\CompleteSnapshot' {checksumAlgorithm} -> checksumAlgorithm) (\s@CompleteSnapshot' {} a -> s {checksumAlgorithm = a} :: CompleteSnapshot)
 
 -- | The ID of the snapshot.
 completeSnapshot_snapshotId :: Lens.Lens' CompleteSnapshot Prelude.Text
@@ -162,28 +161,27 @@ instance Core.AWSRequest CompleteSnapshot where
 
 instance Prelude.Hashable CompleteSnapshot where
   hashWithSalt _salt CompleteSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` checksumAlgorithm
+    _salt `Prelude.hashWithSalt` checksum
       `Prelude.hashWithSalt` checksumAggregationMethod
-      `Prelude.hashWithSalt` checksum
+      `Prelude.hashWithSalt` checksumAlgorithm
       `Prelude.hashWithSalt` snapshotId
       `Prelude.hashWithSalt` changedBlocksCount
 
 instance Prelude.NFData CompleteSnapshot where
   rnf CompleteSnapshot' {..} =
-    Prelude.rnf checksumAlgorithm
+    Prelude.rnf checksum
       `Prelude.seq` Prelude.rnf checksumAggregationMethod
-      `Prelude.seq` Prelude.rnf checksum
+      `Prelude.seq` Prelude.rnf checksumAlgorithm
       `Prelude.seq` Prelude.rnf snapshotId
       `Prelude.seq` Prelude.rnf changedBlocksCount
 
 instance Data.ToHeaders CompleteSnapshot where
   toHeaders CompleteSnapshot' {..} =
     Prelude.mconcat
-      [ "x-amz-Checksum-Algorithm"
-          Data.=# checksumAlgorithm,
+      [ "x-amz-Checksum" Data.=# checksum,
         "x-amz-Checksum-Aggregation-Method"
           Data.=# checksumAggregationMethod,
-        "x-amz-Checksum" Data.=# checksum,
+        "x-amz-Checksum-Algorithm" Data.=# checksumAlgorithm,
         "x-amz-ChangedBlocksCount"
           Data.=# changedBlocksCount,
         "Content-Type"

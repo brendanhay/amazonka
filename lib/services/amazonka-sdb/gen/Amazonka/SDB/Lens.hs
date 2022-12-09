@@ -26,8 +26,8 @@ module Amazonka.SDB.Lens
     createDomain_domainName,
 
     -- ** DeleteAttributes
-    deleteAttributes_expected,
     deleteAttributes_attributes,
+    deleteAttributes_expected,
     deleteAttributes_domainName,
     deleteAttributes_itemName,
 
@@ -36,28 +36,28 @@ module Amazonka.SDB.Lens
 
     -- ** DomainMetadata
     domainMetadata_domainName,
-    domainMetadataResponse_attributeNamesSizeBytes,
-    domainMetadataResponse_itemCount,
-    domainMetadataResponse_timestamp,
     domainMetadataResponse_attributeNameCount,
+    domainMetadataResponse_attributeNamesSizeBytes,
     domainMetadataResponse_attributeValueCount,
-    domainMetadataResponse_itemNamesSizeBytes,
     domainMetadataResponse_attributeValuesSizeBytes,
+    domainMetadataResponse_itemCount,
+    domainMetadataResponse_itemNamesSizeBytes,
+    domainMetadataResponse_timestamp,
     domainMetadataResponse_httpStatus,
 
     -- ** GetAttributes
-    getAttributes_consistentRead,
     getAttributes_attributeNames,
+    getAttributes_consistentRead,
     getAttributes_domainName,
     getAttributes_itemName,
     getAttributesResponse_attributes,
     getAttributesResponse_httpStatus,
 
     -- ** ListDomains
-    listDomains_nextToken,
     listDomains_maxNumberOfDomains,
-    listDomainsResponse_nextToken,
+    listDomains_nextToken,
     listDomainsResponse_domainNames,
+    listDomainsResponse_nextToken,
     listDomainsResponse_httpStatus,
 
     -- ** PutAttributes
@@ -67,8 +67,8 @@ module Amazonka.SDB.Lens
     putAttributes_attributes,
 
     -- ** Select
-    select_nextToken,
     select_consistentRead,
+    select_nextToken,
     select_selectExpression,
     selectResponse_items,
     selectResponse_nextToken,
@@ -77,8 +77,8 @@ module Amazonka.SDB.Lens
     -- * Types
 
     -- ** Attribute
-    attribute_alternateValueEncoding,
     attribute_alternateNameEncoding,
+    attribute_alternateValueEncoding,
     attribute_name,
     attribute_value,
 
@@ -101,8 +101,8 @@ module Amazonka.SDB.Lens
     replaceableItem_attributes,
 
     -- ** UpdateCondition
-    updateCondition_name,
     updateCondition_exists,
+    updateCondition_name,
     updateCondition_value,
   )
 where

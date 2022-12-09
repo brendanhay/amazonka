@@ -35,56 +35,56 @@ module Amazonka.SDB
     -- * Errors
     -- $errors
 
-    -- ** InvalidNumberPredicates
-    _InvalidNumberPredicates,
-
-    -- ** NumberSubmittedAttributesExceeded
-    _NumberSubmittedAttributesExceeded,
-
-    -- ** NoSuchDomain
-    _NoSuchDomain,
-
-    -- ** NumberDomainsExceeded
-    _NumberDomainsExceeded,
-
-    -- ** InvalidNextToken
-    _InvalidNextToken,
-
-    -- ** MissingParameter
-    _MissingParameter,
-
-    -- ** NumberItemAttributesExceeded
-    _NumberItemAttributesExceeded,
-
-    -- ** TooManyRequestedAttributes
-    _TooManyRequestedAttributes,
-
-    -- ** InvalidParameterValue
-    _InvalidParameterValue,
-
-    -- ** NumberDomainBytesExceeded
-    _NumberDomainBytesExceeded,
-
-    -- ** NumberSubmittedItemsExceeded
-    _NumberSubmittedItemsExceeded,
-
-    -- ** NumberDomainAttributesExceeded
-    _NumberDomainAttributesExceeded,
+    -- ** AttributeDoesNotExist
+    _AttributeDoesNotExist,
 
     -- ** DuplicateItemName
     _DuplicateItemName,
 
-    -- ** AttributeDoesNotExist
-    _AttributeDoesNotExist,
+    -- ** InvalidNextToken
+    _InvalidNextToken,
 
-    -- ** RequestTimeout
-    _RequestTimeout,
+    -- ** InvalidNumberPredicates
+    _InvalidNumberPredicates,
 
     -- ** InvalidNumberValueTests
     _InvalidNumberValueTests,
 
+    -- ** InvalidParameterValue
+    _InvalidParameterValue,
+
     -- ** InvalidQueryExpression
     _InvalidQueryExpression,
+
+    -- ** MissingParameter
+    _MissingParameter,
+
+    -- ** NoSuchDomain
+    _NoSuchDomain,
+
+    -- ** NumberDomainAttributesExceeded
+    _NumberDomainAttributesExceeded,
+
+    -- ** NumberDomainBytesExceeded
+    _NumberDomainBytesExceeded,
+
+    -- ** NumberDomainsExceeded
+    _NumberDomainsExceeded,
+
+    -- ** NumberItemAttributesExceeded
+    _NumberItemAttributesExceeded,
+
+    -- ** NumberSubmittedAttributesExceeded
+    _NumberSubmittedAttributesExceeded,
+
+    -- ** NumberSubmittedItemsExceeded
+    _NumberSubmittedItemsExceeded,
+
+    -- ** RequestTimeout
+    _RequestTimeout,
+
+    -- ** TooManyRequestedAttributes
+    _TooManyRequestedAttributes,
 
     -- * Waiters
     -- $waiters

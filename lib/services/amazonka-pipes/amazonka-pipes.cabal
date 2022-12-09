@@ -1,0 +1,167 @@
+cabal-version:      2.2
+name:               amazonka-pipes
+version:            2.0
+synopsis:           Amazon EventBridge Pipes SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2022 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2015-10-07@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses can be found in "Amazonka.Pipes.Lens" and are
+  suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Amazonka.Pipes" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-pipes
+
+library
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Amazonka.Pipes
+    Amazonka.Pipes.CreatePipe
+    Amazonka.Pipes.DeletePipe
+    Amazonka.Pipes.DescribePipe
+    Amazonka.Pipes.Lens
+    Amazonka.Pipes.ListPipes
+    Amazonka.Pipes.ListTagsForResource
+    Amazonka.Pipes.StartPipe
+    Amazonka.Pipes.StopPipe
+    Amazonka.Pipes.TagResource
+    Amazonka.Pipes.Types
+    Amazonka.Pipes.Types.AssignPublicIp
+    Amazonka.Pipes.Types.AwsVpcConfiguration
+    Amazonka.Pipes.Types.BatchArrayProperties
+    Amazonka.Pipes.Types.BatchContainerOverrides
+    Amazonka.Pipes.Types.BatchEnvironmentVariable
+    Amazonka.Pipes.Types.BatchJobDependency
+    Amazonka.Pipes.Types.BatchJobDependencyType
+    Amazonka.Pipes.Types.BatchResourceRequirement
+    Amazonka.Pipes.Types.BatchResourceRequirementType
+    Amazonka.Pipes.Types.BatchRetryStrategy
+    Amazonka.Pipes.Types.CapacityProviderStrategyItem
+    Amazonka.Pipes.Types.DeadLetterConfig
+    Amazonka.Pipes.Types.DynamoDBStreamStartPosition
+    Amazonka.Pipes.Types.EcsContainerOverride
+    Amazonka.Pipes.Types.EcsEnvironmentFile
+    Amazonka.Pipes.Types.EcsEnvironmentFileType
+    Amazonka.Pipes.Types.EcsEnvironmentVariable
+    Amazonka.Pipes.Types.EcsEphemeralStorage
+    Amazonka.Pipes.Types.EcsInferenceAcceleratorOverride
+    Amazonka.Pipes.Types.EcsResourceRequirement
+    Amazonka.Pipes.Types.EcsResourceRequirementType
+    Amazonka.Pipes.Types.EcsTaskOverride
+    Amazonka.Pipes.Types.Filter
+    Amazonka.Pipes.Types.FilterCriteria
+    Amazonka.Pipes.Types.KinesisStreamStartPosition
+    Amazonka.Pipes.Types.LaunchType
+    Amazonka.Pipes.Types.MQBrokerAccessCredentials
+    Amazonka.Pipes.Types.MSKAccessCredentials
+    Amazonka.Pipes.Types.MSKStartPosition
+    Amazonka.Pipes.Types.NetworkConfiguration
+    Amazonka.Pipes.Types.OnPartialBatchItemFailureStreams
+    Amazonka.Pipes.Types.Pipe
+    Amazonka.Pipes.Types.PipeEnrichmentHttpParameters
+    Amazonka.Pipes.Types.PipeEnrichmentParameters
+    Amazonka.Pipes.Types.PipeSourceActiveMQBrokerParameters
+    Amazonka.Pipes.Types.PipeSourceDynamoDBStreamParameters
+    Amazonka.Pipes.Types.PipeSourceKinesisStreamParameters
+    Amazonka.Pipes.Types.PipeSourceManagedStreamingKafkaParameters
+    Amazonka.Pipes.Types.PipeSourceParameters
+    Amazonka.Pipes.Types.PipeSourceRabbitMQBrokerParameters
+    Amazonka.Pipes.Types.PipeSourceSelfManagedKafkaParameters
+    Amazonka.Pipes.Types.PipeSourceSqsQueueParameters
+    Amazonka.Pipes.Types.PipeState
+    Amazonka.Pipes.Types.PipeTargetBatchJobParameters
+    Amazonka.Pipes.Types.PipeTargetCloudWatchLogsParameters
+    Amazonka.Pipes.Types.PipeTargetEcsTaskParameters
+    Amazonka.Pipes.Types.PipeTargetEventBridgeEventBusParameters
+    Amazonka.Pipes.Types.PipeTargetHttpParameters
+    Amazonka.Pipes.Types.PipeTargetInvocationType
+    Amazonka.Pipes.Types.PipeTargetKinesisStreamParameters
+    Amazonka.Pipes.Types.PipeTargetLambdaFunctionParameters
+    Amazonka.Pipes.Types.PipeTargetParameters
+    Amazonka.Pipes.Types.PipeTargetRedshiftDataParameters
+    Amazonka.Pipes.Types.PipeTargetSageMakerPipelineParameters
+    Amazonka.Pipes.Types.PipeTargetSqsQueueParameters
+    Amazonka.Pipes.Types.PipeTargetStateMachineParameters
+    Amazonka.Pipes.Types.PlacementConstraint
+    Amazonka.Pipes.Types.PlacementConstraintType
+    Amazonka.Pipes.Types.PlacementStrategy
+    Amazonka.Pipes.Types.PlacementStrategyType
+    Amazonka.Pipes.Types.PropagateTags
+    Amazonka.Pipes.Types.RequestedPipeState
+    Amazonka.Pipes.Types.RequestedPipeStateDescribeResponse
+    Amazonka.Pipes.Types.SageMakerPipelineParameter
+    Amazonka.Pipes.Types.SelfManagedKafkaAccessConfigurationCredentials
+    Amazonka.Pipes.Types.SelfManagedKafkaAccessConfigurationVpc
+    Amazonka.Pipes.Types.SelfManagedKafkaStartPosition
+    Amazonka.Pipes.Types.Tag
+    Amazonka.Pipes.Types.UpdatePipeSourceActiveMQBrokerParameters
+    Amazonka.Pipes.Types.UpdatePipeSourceDynamoDBStreamParameters
+    Amazonka.Pipes.Types.UpdatePipeSourceKinesisStreamParameters
+    Amazonka.Pipes.Types.UpdatePipeSourceManagedStreamingKafkaParameters
+    Amazonka.Pipes.Types.UpdatePipeSourceParameters
+    Amazonka.Pipes.Types.UpdatePipeSourceRabbitMQBrokerParameters
+    Amazonka.Pipes.Types.UpdatePipeSourceSelfManagedKafkaParameters
+    Amazonka.Pipes.Types.UpdatePipeSourceSqsQueueParameters
+    Amazonka.Pipes.UntagResource
+    Amazonka.Pipes.UpdatePipe
+    Amazonka.Pipes.Waiters
+
+  build-depends:
+    , amazonka-core  >=2.0  && <2.1
+    , base           >=4.12 && <5
+
+test-suite amazonka-pipes-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.Amazonka.Gen.Pipes
+    Test.Amazonka.Pipes
+    Test.Amazonka.Pipes.Internal
+
+  build-depends:
+    , amazonka-core         >=2.0 && <2.1
+    , amazonka-pipes
+    , amazonka-test         >=2.0 && <2.1
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

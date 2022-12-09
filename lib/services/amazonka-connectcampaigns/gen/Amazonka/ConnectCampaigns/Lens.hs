@@ -20,9 +20,9 @@ module Amazonka.ConnectCampaigns.Lens
     createCampaign_dialerConfig,
     createCampaign_name,
     createCampaign_outboundCallConfig,
-    createCampaignResponse_tags,
     createCampaignResponse_arn,
     createCampaignResponse_id,
+    createCampaignResponse_tags,
     createCampaignResponse_httpStatus,
 
     -- ** DeleteCampaign
@@ -61,11 +61,11 @@ module Amazonka.ConnectCampaigns.Lens
     getInstanceOnboardingJobStatusResponse_httpStatus,
 
     -- ** ListCampaigns
-    listCampaigns_nextToken,
     listCampaigns_filters,
     listCampaigns_maxResults,
-    listCampaignsResponse_nextToken,
+    listCampaigns_nextToken,
     listCampaignsResponse_campaignSummaryList,
+    listCampaignsResponse_nextToken,
     listCampaignsResponse_httpStatus,
 
     -- ** ListTagsForResource
@@ -159,8 +159,8 @@ module Amazonka.ConnectCampaigns.Lens
     encryptionConfig_enabled,
 
     -- ** FailedCampaignStateResponse
-    failedCampaignStateResponse_failureCode,
     failedCampaignStateResponse_campaignId,
+    failedCampaignStateResponse_failureCode,
 
     -- ** FailedRequest
     failedRequest_clientToken,

@@ -46,16 +46,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRuleGroup' smart constructor.
 data RuleGroup = RuleGroup'
-  { -- | The friendly name or description for the @RuleGroup@. You can\'t change
-    -- the name of a @RuleGroup@ after you create it.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | A friendly name or description for the metrics for this @RuleGroup@. The
+  { -- | A friendly name or description for the metrics for this @RuleGroup@. The
     -- name can contain only alphanumeric characters (A-Z, a-z, 0-9), with
     -- maximum length 128 and minimum length one. It can\'t contain whitespace
     -- or metric names reserved for AWS WAF, including \"All\" and
     -- \"Default_Action.\" You can\'t change the name of the metric after you
     -- create the @RuleGroup@.
     metricName :: Prelude.Maybe Prelude.Text,
+    -- | The friendly name or description for the @RuleGroup@. You can\'t change
+    -- the name of a @RuleGroup@ after you create it.
+    name :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for a @RuleGroup@. You use @RuleGroupId@ to get more
     -- information about a @RuleGroup@ (see GetRuleGroup), update a @RuleGroup@
     -- (see UpdateRuleGroup), insert a @RuleGroup@ into a @WebACL@ or delete a
@@ -75,15 +75,15 @@ data RuleGroup = RuleGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'ruleGroup_name' - The friendly name or description for the @RuleGroup@. You can\'t change
--- the name of a @RuleGroup@ after you create it.
---
 -- 'metricName', 'ruleGroup_metricName' - A friendly name or description for the metrics for this @RuleGroup@. The
 -- name can contain only alphanumeric characters (A-Z, a-z, 0-9), with
 -- maximum length 128 and minimum length one. It can\'t contain whitespace
 -- or metric names reserved for AWS WAF, including \"All\" and
 -- \"Default_Action.\" You can\'t change the name of the metric after you
 -- create the @RuleGroup@.
+--
+-- 'name', 'ruleGroup_name' - The friendly name or description for the @RuleGroup@. You can\'t change
+-- the name of a @RuleGroup@ after you create it.
 --
 -- 'ruleGroupId', 'ruleGroup_ruleGroupId' - A unique identifier for a @RuleGroup@. You use @RuleGroupId@ to get more
 -- information about a @RuleGroup@ (see GetRuleGroup), update a @RuleGroup@
@@ -98,15 +98,10 @@ newRuleGroup ::
   RuleGroup
 newRuleGroup pRuleGroupId_ =
   RuleGroup'
-    { name = Prelude.Nothing,
-      metricName = Prelude.Nothing,
+    { metricName = Prelude.Nothing,
+      name = Prelude.Nothing,
       ruleGroupId = pRuleGroupId_
     }
-
--- | The friendly name or description for the @RuleGroup@. You can\'t change
--- the name of a @RuleGroup@ after you create it.
-ruleGroup_name :: Lens.Lens' RuleGroup (Prelude.Maybe Prelude.Text)
-ruleGroup_name = Lens.lens (\RuleGroup' {name} -> name) (\s@RuleGroup' {} a -> s {name = a} :: RuleGroup)
 
 -- | A friendly name or description for the metrics for this @RuleGroup@. The
 -- name can contain only alphanumeric characters (A-Z, a-z, 0-9), with
@@ -116,6 +111,11 @@ ruleGroup_name = Lens.lens (\RuleGroup' {name} -> name) (\s@RuleGroup' {} a -> s
 -- create the @RuleGroup@.
 ruleGroup_metricName :: Lens.Lens' RuleGroup (Prelude.Maybe Prelude.Text)
 ruleGroup_metricName = Lens.lens (\RuleGroup' {metricName} -> metricName) (\s@RuleGroup' {} a -> s {metricName = a} :: RuleGroup)
+
+-- | The friendly name or description for the @RuleGroup@. You can\'t change
+-- the name of a @RuleGroup@ after you create it.
+ruleGroup_name :: Lens.Lens' RuleGroup (Prelude.Maybe Prelude.Text)
+ruleGroup_name = Lens.lens (\RuleGroup' {name} -> name) (\s@RuleGroup' {} a -> s {name = a} :: RuleGroup)
 
 -- | A unique identifier for a @RuleGroup@. You use @RuleGroupId@ to get more
 -- information about a @RuleGroup@ (see GetRuleGroup), update a @RuleGroup@
@@ -133,19 +133,19 @@ instance Data.FromJSON RuleGroup where
       "RuleGroup"
       ( \x ->
           RuleGroup'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "MetricName")
+            Prelude.<$> (x Data..:? "MetricName")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..: "RuleGroupId")
       )
 
 instance Prelude.Hashable RuleGroup where
   hashWithSalt _salt RuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` metricName
+    _salt `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` ruleGroupId
 
 instance Prelude.NFData RuleGroup where
   rnf RuleGroup' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf metricName
+    Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf ruleGroupId

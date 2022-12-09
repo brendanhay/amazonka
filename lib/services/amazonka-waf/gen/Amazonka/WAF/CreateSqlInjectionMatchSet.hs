@@ -66,8 +66,8 @@ module Amazonka.WAF.CreateSqlInjectionMatchSet
     newCreateSqlInjectionMatchSetResponse,
 
     -- * Response Lenses
-    createSqlInjectionMatchSetResponse_sqlInjectionMatchSet,
     createSqlInjectionMatchSetResponse_changeToken,
+    createSqlInjectionMatchSetResponse_sqlInjectionMatchSet,
     createSqlInjectionMatchSetResponse_httpStatus,
   )
 where
@@ -138,8 +138,8 @@ instance Core.AWSRequest CreateSqlInjectionMatchSet where
     Response.receiveJSON
       ( \s h x ->
           CreateSqlInjectionMatchSetResponse'
-            Prelude.<$> (x Data..?> "SqlInjectionMatchSet")
-            Prelude.<*> (x Data..?> "ChangeToken")
+            Prelude.<$> (x Data..?> "ChangeToken")
+            Prelude.<*> (x Data..?> "SqlInjectionMatchSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,13 +187,13 @@ instance Data.ToQuery CreateSqlInjectionMatchSet where
 --
 -- /See:/ 'newCreateSqlInjectionMatchSetResponse' smart constructor.
 data CreateSqlInjectionMatchSetResponse = CreateSqlInjectionMatchSetResponse'
-  { -- | A SqlInjectionMatchSet.
-    sqlInjectionMatchSet :: Prelude.Maybe SqlInjectionMatchSet,
-    -- | The @ChangeToken@ that you used to submit the
+  { -- | The @ChangeToken@ that you used to submit the
     -- @CreateSqlInjectionMatchSet@ request. You can also use this value to
     -- query the status of the request. For more information, see
     -- GetChangeTokenStatus.
     changeToken :: Prelude.Maybe Prelude.Text,
+    -- | A SqlInjectionMatchSet.
+    sqlInjectionMatchSet :: Prelude.Maybe SqlInjectionMatchSet,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -207,12 +207,12 @@ data CreateSqlInjectionMatchSetResponse = CreateSqlInjectionMatchSetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sqlInjectionMatchSet', 'createSqlInjectionMatchSetResponse_sqlInjectionMatchSet' - A SqlInjectionMatchSet.
---
 -- 'changeToken', 'createSqlInjectionMatchSetResponse_changeToken' - The @ChangeToken@ that you used to submit the
 -- @CreateSqlInjectionMatchSet@ request. You can also use this value to
 -- query the status of the request. For more information, see
 -- GetChangeTokenStatus.
+--
+-- 'sqlInjectionMatchSet', 'createSqlInjectionMatchSetResponse_sqlInjectionMatchSet' - A SqlInjectionMatchSet.
 --
 -- 'httpStatus', 'createSqlInjectionMatchSetResponse_httpStatus' - The response's http status code.
 newCreateSqlInjectionMatchSetResponse ::
@@ -221,15 +221,11 @@ newCreateSqlInjectionMatchSetResponse ::
   CreateSqlInjectionMatchSetResponse
 newCreateSqlInjectionMatchSetResponse pHttpStatus_ =
   CreateSqlInjectionMatchSetResponse'
-    { sqlInjectionMatchSet =
+    { changeToken =
         Prelude.Nothing,
-      changeToken = Prelude.Nothing,
+      sqlInjectionMatchSet = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A SqlInjectionMatchSet.
-createSqlInjectionMatchSetResponse_sqlInjectionMatchSet :: Lens.Lens' CreateSqlInjectionMatchSetResponse (Prelude.Maybe SqlInjectionMatchSet)
-createSqlInjectionMatchSetResponse_sqlInjectionMatchSet = Lens.lens (\CreateSqlInjectionMatchSetResponse' {sqlInjectionMatchSet} -> sqlInjectionMatchSet) (\s@CreateSqlInjectionMatchSetResponse' {} a -> s {sqlInjectionMatchSet = a} :: CreateSqlInjectionMatchSetResponse)
 
 -- | The @ChangeToken@ that you used to submit the
 -- @CreateSqlInjectionMatchSet@ request. You can also use this value to
@@ -237,6 +233,10 @@ createSqlInjectionMatchSetResponse_sqlInjectionMatchSet = Lens.lens (\CreateSqlI
 -- GetChangeTokenStatus.
 createSqlInjectionMatchSetResponse_changeToken :: Lens.Lens' CreateSqlInjectionMatchSetResponse (Prelude.Maybe Prelude.Text)
 createSqlInjectionMatchSetResponse_changeToken = Lens.lens (\CreateSqlInjectionMatchSetResponse' {changeToken} -> changeToken) (\s@CreateSqlInjectionMatchSetResponse' {} a -> s {changeToken = a} :: CreateSqlInjectionMatchSetResponse)
+
+-- | A SqlInjectionMatchSet.
+createSqlInjectionMatchSetResponse_sqlInjectionMatchSet :: Lens.Lens' CreateSqlInjectionMatchSetResponse (Prelude.Maybe SqlInjectionMatchSet)
+createSqlInjectionMatchSetResponse_sqlInjectionMatchSet = Lens.lens (\CreateSqlInjectionMatchSetResponse' {sqlInjectionMatchSet} -> sqlInjectionMatchSet) (\s@CreateSqlInjectionMatchSetResponse' {} a -> s {sqlInjectionMatchSet = a} :: CreateSqlInjectionMatchSetResponse)
 
 -- | The response's http status code.
 createSqlInjectionMatchSetResponse_httpStatus :: Lens.Lens' CreateSqlInjectionMatchSetResponse Prelude.Int
@@ -247,6 +247,6 @@ instance
     CreateSqlInjectionMatchSetResponse
   where
   rnf CreateSqlInjectionMatchSetResponse' {..} =
-    Prelude.rnf sqlInjectionMatchSet
-      `Prelude.seq` Prelude.rnf changeToken
+    Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf sqlInjectionMatchSet
       `Prelude.seq` Prelude.rnf httpStatus

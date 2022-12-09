@@ -15,23 +15,23 @@ module Amazonka.Pi.Lens
   ( -- * Operations
 
     -- ** DescribeDimensionKeys
-    describeDimensionKeys_nextToken,
     describeDimensionKeys_additionalMetrics,
     describeDimensionKeys_filter,
     describeDimensionKeys_maxResults,
-    describeDimensionKeys_periodInSeconds,
+    describeDimensionKeys_nextToken,
     describeDimensionKeys_partitionBy,
+    describeDimensionKeys_periodInSeconds,
     describeDimensionKeys_serviceType,
     describeDimensionKeys_identifier,
     describeDimensionKeys_startTime,
     describeDimensionKeys_endTime,
     describeDimensionKeys_metric,
     describeDimensionKeys_groupBy,
-    describeDimensionKeysResponse_nextToken,
     describeDimensionKeysResponse_alignedEndTime,
-    describeDimensionKeysResponse_partitionKeys,
-    describeDimensionKeysResponse_keys,
     describeDimensionKeysResponse_alignedStartTime,
+    describeDimensionKeysResponse_keys,
+    describeDimensionKeysResponse_nextToken,
+    describeDimensionKeysResponse_partitionKeys,
     describeDimensionKeysResponse_httpStatus,
 
     -- ** GetDimensionKeyDetails
@@ -51,39 +51,39 @@ module Amazonka.Pi.Lens
     getResourceMetadataResponse_httpStatus,
 
     -- ** GetResourceMetrics
-    getResourceMetrics_nextToken,
     getResourceMetrics_maxResults,
+    getResourceMetrics_nextToken,
     getResourceMetrics_periodInSeconds,
     getResourceMetrics_serviceType,
     getResourceMetrics_identifier,
     getResourceMetrics_metricQueries,
     getResourceMetrics_startTime,
     getResourceMetrics_endTime,
-    getResourceMetricsResponse_nextToken,
     getResourceMetricsResponse_alignedEndTime,
+    getResourceMetricsResponse_alignedStartTime,
     getResourceMetricsResponse_identifier,
     getResourceMetricsResponse_metricList,
-    getResourceMetricsResponse_alignedStartTime,
+    getResourceMetricsResponse_nextToken,
     getResourceMetricsResponse_httpStatus,
 
     -- ** ListAvailableResourceDimensions
-    listAvailableResourceDimensions_nextToken,
     listAvailableResourceDimensions_maxResults,
+    listAvailableResourceDimensions_nextToken,
     listAvailableResourceDimensions_serviceType,
     listAvailableResourceDimensions_identifier,
     listAvailableResourceDimensions_metrics,
-    listAvailableResourceDimensionsResponse_nextToken,
     listAvailableResourceDimensionsResponse_metricDimensions,
+    listAvailableResourceDimensionsResponse_nextToken,
     listAvailableResourceDimensionsResponse_httpStatus,
 
     -- ** ListAvailableResourceMetrics
-    listAvailableResourceMetrics_nextToken,
     listAvailableResourceMetrics_maxResults,
+    listAvailableResourceMetrics_nextToken,
     listAvailableResourceMetrics_serviceType,
     listAvailableResourceMetrics_identifier,
     listAvailableResourceMetrics_metricTypes,
-    listAvailableResourceMetricsResponse_nextToken,
     listAvailableResourceMetricsResponse_metrics,
+    listAvailableResourceMetricsResponse_nextToken,
     listAvailableResourceMetricsResponse_httpStatus,
 
     -- * Types
@@ -105,30 +105,30 @@ module Amazonka.Pi.Lens
     dimensionGroupDetail_group,
 
     -- ** DimensionKeyDescription
-    dimensionKeyDescription_total,
     dimensionKeyDescription_additionalMetrics,
     dimensionKeyDescription_dimensions,
     dimensionKeyDescription_partitions,
+    dimensionKeyDescription_total,
 
     -- ** DimensionKeyDetail
-    dimensionKeyDetail_status,
     dimensionKeyDetail_dimension,
+    dimensionKeyDetail_status,
     dimensionKeyDetail_value,
 
     -- ** FeatureMetadata
     featureMetadata_status,
 
     -- ** MetricDimensionGroups
-    metricDimensionGroups_metric,
     metricDimensionGroups_groups,
+    metricDimensionGroups_metric,
 
     -- ** MetricKeyDataPoints
     metricKeyDataPoints_dataPoints,
     metricKeyDataPoints_key,
 
     -- ** MetricQuery
-    metricQuery_groupBy,
     metricQuery_filter,
+    metricQuery_groupBy,
     metricQuery_metric,
 
     -- ** ResponsePartitionKey

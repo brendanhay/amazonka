@@ -32,8 +32,8 @@ module Amazonka.Pi.GetResourceMetrics
     newGetResourceMetrics,
 
     -- * Request Lenses
-    getResourceMetrics_nextToken,
     getResourceMetrics_maxResults,
+    getResourceMetrics_nextToken,
     getResourceMetrics_periodInSeconds,
     getResourceMetrics_serviceType,
     getResourceMetrics_identifier,
@@ -46,11 +46,11 @@ module Amazonka.Pi.GetResourceMetrics
     newGetResourceMetricsResponse,
 
     -- * Response Lenses
-    getResourceMetricsResponse_nextToken,
     getResourceMetricsResponse_alignedEndTime,
+    getResourceMetricsResponse_alignedStartTime,
     getResourceMetricsResponse_identifier,
     getResourceMetricsResponse_metricList,
-    getResourceMetricsResponse_alignedStartTime,
+    getResourceMetricsResponse_nextToken,
     getResourceMetricsResponse_httpStatus,
   )
 where
@@ -65,14 +65,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetResourceMetrics' smart constructor.
 data GetResourceMetrics = GetResourceMetrics'
-  { -- | An optional pagination token provided by a previous request. If this
-    -- parameter is specified, the response includes only records beyond the
-    -- token, up to the value specified by @MaxRecords@.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return in the response. If more items
+  { -- | The maximum number of items to return in the response. If more items
     -- exist than the specified @MaxRecords@ value, a pagination token is
     -- included in the response so that the remaining results can be retrieved.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- token, up to the value specified by @MaxRecords@.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The granularity, in seconds, of the data points returned from
     -- Performance Insights. A period can be as short as one second, or as long
     -- as one day (86400 seconds). Valid values are:
@@ -137,13 +137,13 @@ data GetResourceMetrics = GetResourceMetrics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getResourceMetrics_nextToken' - An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- token, up to the value specified by @MaxRecords@.
---
 -- 'maxResults', 'getResourceMetrics_maxResults' - The maximum number of items to return in the response. If more items
 -- exist than the specified @MaxRecords@ value, a pagination token is
 -- included in the response so that the remaining results can be retrieved.
+--
+-- 'nextToken', 'getResourceMetrics_nextToken' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- token, up to the value specified by @MaxRecords@.
 --
 -- 'periodInSeconds', 'getResourceMetrics_periodInSeconds' - The granularity, in seconds, of the data points returned from
 -- Performance Insights. A period can be as short as one second, or as long
@@ -216,8 +216,8 @@ newGetResourceMetrics
   pStartTime_
   pEndTime_ =
     GetResourceMetrics'
-      { nextToken = Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+      { maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         periodInSeconds = Prelude.Nothing,
         serviceType = pServiceType_,
         identifier = pIdentifier_,
@@ -226,17 +226,17 @@ newGetResourceMetrics
         endTime = Data._Time Lens.# pEndTime_
       }
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- token, up to the value specified by @MaxRecords@.
-getResourceMetrics_nextToken :: Lens.Lens' GetResourceMetrics (Prelude.Maybe Prelude.Text)
-getResourceMetrics_nextToken = Lens.lens (\GetResourceMetrics' {nextToken} -> nextToken) (\s@GetResourceMetrics' {} a -> s {nextToken = a} :: GetResourceMetrics)
-
 -- | The maximum number of items to return in the response. If more items
 -- exist than the specified @MaxRecords@ value, a pagination token is
 -- included in the response so that the remaining results can be retrieved.
 getResourceMetrics_maxResults :: Lens.Lens' GetResourceMetrics (Prelude.Maybe Prelude.Natural)
 getResourceMetrics_maxResults = Lens.lens (\GetResourceMetrics' {maxResults} -> maxResults) (\s@GetResourceMetrics' {} a -> s {maxResults = a} :: GetResourceMetrics)
+
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- token, up to the value specified by @MaxRecords@.
+getResourceMetrics_nextToken :: Lens.Lens' GetResourceMetrics (Prelude.Maybe Prelude.Text)
+getResourceMetrics_nextToken = Lens.lens (\GetResourceMetrics' {nextToken} -> nextToken) (\s@GetResourceMetrics' {} a -> s {nextToken = a} :: GetResourceMetrics)
 
 -- | The granularity, in seconds, of the data points returned from
 -- Performance Insights. A period can be as short as one second, or as long
@@ -313,18 +313,18 @@ instance Core.AWSRequest GetResourceMetrics where
     Response.receiveJSON
       ( \s h x ->
           GetResourceMetricsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "AlignedEndTime")
+            Prelude.<$> (x Data..?> "AlignedEndTime")
+            Prelude.<*> (x Data..?> "AlignedStartTime")
             Prelude.<*> (x Data..?> "Identifier")
             Prelude.<*> (x Data..?> "MetricList" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "AlignedStartTime")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetResourceMetrics where
   hashWithSalt _salt GetResourceMetrics' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` periodInSeconds
       `Prelude.hashWithSalt` serviceType
       `Prelude.hashWithSalt` identifier
@@ -334,8 +334,8 @@ instance Prelude.Hashable GetResourceMetrics where
 
 instance Prelude.NFData GetResourceMetrics where
   rnf GetResourceMetrics' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf periodInSeconds
       `Prelude.seq` Prelude.rnf serviceType
       `Prelude.seq` Prelude.rnf identifier
@@ -362,8 +362,8 @@ instance Data.ToJSON GetResourceMetrics where
   toJSON GetResourceMetrics' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("PeriodInSeconds" Data..=)
               Prelude.<$> periodInSeconds,
             Prelude.Just ("ServiceType" Data..= serviceType),
@@ -382,14 +382,14 @@ instance Data.ToQuery GetResourceMetrics where
 
 -- | /See:/ 'newGetResourceMetricsResponse' smart constructor.
 data GetResourceMetricsResponse = GetResourceMetricsResponse'
-  { -- | An optional pagination token provided by a previous request. If this
-    -- parameter is specified, the response includes only records beyond the
-    -- token, up to the value specified by @MaxRecords@.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The end time for the returned metrics, after alignment to a granular
+  { -- | The end time for the returned metrics, after alignment to a granular
     -- boundary (as specified by @PeriodInSeconds@). @AlignedEndTime@ will be
     -- greater than or equal to the value of the user-specified @Endtime@.
     alignedEndTime :: Prelude.Maybe Data.POSIX,
+    -- | The start time for the returned metrics, after alignment to a granular
+    -- boundary (as specified by @PeriodInSeconds@). @AlignedStartTime@ will be
+    -- less than or equal to the value of the user-specified @StartTime@.
+    alignedStartTime :: Prelude.Maybe Data.POSIX,
     -- | An immutable identifier for a data source that is unique for an Amazon
     -- Web Services Region. Performance Insights gathers metrics from this data
     -- source. In the console, the identifier is shown as /ResourceID/. When
@@ -399,10 +399,10 @@ data GetResourceMetricsResponse = GetResourceMetricsResponse'
     -- | An array of metric results, where each array element contains all of the
     -- data points for a particular dimension.
     metricList :: Prelude.Maybe [MetricKeyDataPoints],
-    -- | The start time for the returned metrics, after alignment to a granular
-    -- boundary (as specified by @PeriodInSeconds@). @AlignedStartTime@ will be
-    -- less than or equal to the value of the user-specified @StartTime@.
-    alignedStartTime :: Prelude.Maybe Data.POSIX,
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- token, up to the value specified by @MaxRecords@.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -416,13 +416,13 @@ data GetResourceMetricsResponse = GetResourceMetricsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getResourceMetricsResponse_nextToken' - An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- token, up to the value specified by @MaxRecords@.
---
 -- 'alignedEndTime', 'getResourceMetricsResponse_alignedEndTime' - The end time for the returned metrics, after alignment to a granular
 -- boundary (as specified by @PeriodInSeconds@). @AlignedEndTime@ will be
 -- greater than or equal to the value of the user-specified @Endtime@.
+--
+-- 'alignedStartTime', 'getResourceMetricsResponse_alignedStartTime' - The start time for the returned metrics, after alignment to a granular
+-- boundary (as specified by @PeriodInSeconds@). @AlignedStartTime@ will be
+-- less than or equal to the value of the user-specified @StartTime@.
 --
 -- 'identifier', 'getResourceMetricsResponse_identifier' - An immutable identifier for a data source that is unique for an Amazon
 -- Web Services Region. Performance Insights gathers metrics from this data
@@ -433,9 +433,9 @@ data GetResourceMetricsResponse = GetResourceMetricsResponse'
 -- 'metricList', 'getResourceMetricsResponse_metricList' - An array of metric results, where each array element contains all of the
 -- data points for a particular dimension.
 --
--- 'alignedStartTime', 'getResourceMetricsResponse_alignedStartTime' - The start time for the returned metrics, after alignment to a granular
--- boundary (as specified by @PeriodInSeconds@). @AlignedStartTime@ will be
--- less than or equal to the value of the user-specified @StartTime@.
+-- 'nextToken', 'getResourceMetricsResponse_nextToken' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- token, up to the value specified by @MaxRecords@.
 --
 -- 'httpStatus', 'getResourceMetricsResponse_httpStatus' - The response's http status code.
 newGetResourceMetricsResponse ::
@@ -444,26 +444,26 @@ newGetResourceMetricsResponse ::
   GetResourceMetricsResponse
 newGetResourceMetricsResponse pHttpStatus_ =
   GetResourceMetricsResponse'
-    { nextToken =
+    { alignedEndTime =
         Prelude.Nothing,
-      alignedEndTime = Prelude.Nothing,
+      alignedStartTime = Prelude.Nothing,
       identifier = Prelude.Nothing,
       metricList = Prelude.Nothing,
-      alignedStartTime = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- token, up to the value specified by @MaxRecords@.
-getResourceMetricsResponse_nextToken :: Lens.Lens' GetResourceMetricsResponse (Prelude.Maybe Prelude.Text)
-getResourceMetricsResponse_nextToken = Lens.lens (\GetResourceMetricsResponse' {nextToken} -> nextToken) (\s@GetResourceMetricsResponse' {} a -> s {nextToken = a} :: GetResourceMetricsResponse)
 
 -- | The end time for the returned metrics, after alignment to a granular
 -- boundary (as specified by @PeriodInSeconds@). @AlignedEndTime@ will be
 -- greater than or equal to the value of the user-specified @Endtime@.
 getResourceMetricsResponse_alignedEndTime :: Lens.Lens' GetResourceMetricsResponse (Prelude.Maybe Prelude.UTCTime)
 getResourceMetricsResponse_alignedEndTime = Lens.lens (\GetResourceMetricsResponse' {alignedEndTime} -> alignedEndTime) (\s@GetResourceMetricsResponse' {} a -> s {alignedEndTime = a} :: GetResourceMetricsResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The start time for the returned metrics, after alignment to a granular
+-- boundary (as specified by @PeriodInSeconds@). @AlignedStartTime@ will be
+-- less than or equal to the value of the user-specified @StartTime@.
+getResourceMetricsResponse_alignedStartTime :: Lens.Lens' GetResourceMetricsResponse (Prelude.Maybe Prelude.UTCTime)
+getResourceMetricsResponse_alignedStartTime = Lens.lens (\GetResourceMetricsResponse' {alignedStartTime} -> alignedStartTime) (\s@GetResourceMetricsResponse' {} a -> s {alignedStartTime = a} :: GetResourceMetricsResponse) Prelude.. Lens.mapping Data._Time
 
 -- | An immutable identifier for a data source that is unique for an Amazon
 -- Web Services Region. Performance Insights gathers metrics from this data
@@ -478,11 +478,11 @@ getResourceMetricsResponse_identifier = Lens.lens (\GetResourceMetricsResponse' 
 getResourceMetricsResponse_metricList :: Lens.Lens' GetResourceMetricsResponse (Prelude.Maybe [MetricKeyDataPoints])
 getResourceMetricsResponse_metricList = Lens.lens (\GetResourceMetricsResponse' {metricList} -> metricList) (\s@GetResourceMetricsResponse' {} a -> s {metricList = a} :: GetResourceMetricsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The start time for the returned metrics, after alignment to a granular
--- boundary (as specified by @PeriodInSeconds@). @AlignedStartTime@ will be
--- less than or equal to the value of the user-specified @StartTime@.
-getResourceMetricsResponse_alignedStartTime :: Lens.Lens' GetResourceMetricsResponse (Prelude.Maybe Prelude.UTCTime)
-getResourceMetricsResponse_alignedStartTime = Lens.lens (\GetResourceMetricsResponse' {alignedStartTime} -> alignedStartTime) (\s@GetResourceMetricsResponse' {} a -> s {alignedStartTime = a} :: GetResourceMetricsResponse) Prelude.. Lens.mapping Data._Time
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- token, up to the value specified by @MaxRecords@.
+getResourceMetricsResponse_nextToken :: Lens.Lens' GetResourceMetricsResponse (Prelude.Maybe Prelude.Text)
+getResourceMetricsResponse_nextToken = Lens.lens (\GetResourceMetricsResponse' {nextToken} -> nextToken) (\s@GetResourceMetricsResponse' {} a -> s {nextToken = a} :: GetResourceMetricsResponse)
 
 -- | The response's http status code.
 getResourceMetricsResponse_httpStatus :: Lens.Lens' GetResourceMetricsResponse Prelude.Int
@@ -490,9 +490,9 @@ getResourceMetricsResponse_httpStatus = Lens.lens (\GetResourceMetricsResponse' 
 
 instance Prelude.NFData GetResourceMetricsResponse where
   rnf GetResourceMetricsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf alignedEndTime
+    Prelude.rnf alignedEndTime
+      `Prelude.seq` Prelude.rnf alignedStartTime
       `Prelude.seq` Prelude.rnf identifier
       `Prelude.seq` Prelude.rnf metricList
-      `Prelude.seq` Prelude.rnf alignedStartTime
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

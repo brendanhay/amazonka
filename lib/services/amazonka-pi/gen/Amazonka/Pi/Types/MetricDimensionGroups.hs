@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMetricDimensionGroups' smart constructor.
 data MetricDimensionGroups = MetricDimensionGroups'
-  { -- | The metric type to which the dimension information belongs.
-    metric :: Prelude.Maybe Prelude.Text,
-    -- | The available dimension groups for a metric type.
-    groups :: Prelude.Maybe [DimensionGroupDetail]
+  { -- | The available dimension groups for a metric type.
+    groups :: Prelude.Maybe [DimensionGroupDetail],
+    -- | The metric type to which the dimension information belongs.
+    metric :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data MetricDimensionGroups = MetricDimensionGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metric', 'metricDimensionGroups_metric' - The metric type to which the dimension information belongs.
---
 -- 'groups', 'metricDimensionGroups_groups' - The available dimension groups for a metric type.
+--
+-- 'metric', 'metricDimensionGroups_metric' - The metric type to which the dimension information belongs.
 newMetricDimensionGroups ::
   MetricDimensionGroups
 newMetricDimensionGroups =
   MetricDimensionGroups'
-    { metric = Prelude.Nothing,
-      groups = Prelude.Nothing
+    { groups = Prelude.Nothing,
+      metric = Prelude.Nothing
     }
-
--- | The metric type to which the dimension information belongs.
-metricDimensionGroups_metric :: Lens.Lens' MetricDimensionGroups (Prelude.Maybe Prelude.Text)
-metricDimensionGroups_metric = Lens.lens (\MetricDimensionGroups' {metric} -> metric) (\s@MetricDimensionGroups' {} a -> s {metric = a} :: MetricDimensionGroups)
 
 -- | The available dimension groups for a metric type.
 metricDimensionGroups_groups :: Lens.Lens' MetricDimensionGroups (Prelude.Maybe [DimensionGroupDetail])
 metricDimensionGroups_groups = Lens.lens (\MetricDimensionGroups' {groups} -> groups) (\s@MetricDimensionGroups' {} a -> s {groups = a} :: MetricDimensionGroups) Prelude.. Lens.mapping Lens.coerced
+
+-- | The metric type to which the dimension information belongs.
+metricDimensionGroups_metric :: Lens.Lens' MetricDimensionGroups (Prelude.Maybe Prelude.Text)
+metricDimensionGroups_metric = Lens.lens (\MetricDimensionGroups' {metric} -> metric) (\s@MetricDimensionGroups' {} a -> s {metric = a} :: MetricDimensionGroups)
 
 instance Data.FromJSON MetricDimensionGroups where
   parseJSON =
@@ -69,15 +69,15 @@ instance Data.FromJSON MetricDimensionGroups where
       "MetricDimensionGroups"
       ( \x ->
           MetricDimensionGroups'
-            Prelude.<$> (x Data..:? "Metric")
-            Prelude.<*> (x Data..:? "Groups" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Groups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Metric")
       )
 
 instance Prelude.Hashable MetricDimensionGroups where
   hashWithSalt _salt MetricDimensionGroups' {..} =
-    _salt `Prelude.hashWithSalt` metric
-      `Prelude.hashWithSalt` groups
+    _salt `Prelude.hashWithSalt` groups
+      `Prelude.hashWithSalt` metric
 
 instance Prelude.NFData MetricDimensionGroups where
   rnf MetricDimensionGroups' {..} =
-    Prelude.rnf metric `Prelude.seq` Prelude.rnf groups
+    Prelude.rnf groups `Prelude.seq` Prelude.rnf metric

@@ -28,8 +28,8 @@ module Amazonka.Pi.ListAvailableResourceMetrics
     newListAvailableResourceMetrics,
 
     -- * Request Lenses
-    listAvailableResourceMetrics_nextToken,
     listAvailableResourceMetrics_maxResults,
+    listAvailableResourceMetrics_nextToken,
     listAvailableResourceMetrics_serviceType,
     listAvailableResourceMetrics_identifier,
     listAvailableResourceMetrics_metricTypes,
@@ -39,8 +39,8 @@ module Amazonka.Pi.ListAvailableResourceMetrics
     newListAvailableResourceMetricsResponse,
 
     -- * Response Lenses
-    listAvailableResourceMetricsResponse_nextToken,
     listAvailableResourceMetricsResponse_metrics,
+    listAvailableResourceMetricsResponse_nextToken,
     listAvailableResourceMetricsResponse_httpStatus,
   )
 where
@@ -55,14 +55,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAvailableResourceMetrics' smart constructor.
 data ListAvailableResourceMetrics = ListAvailableResourceMetrics'
-  { -- | An optional pagination token provided by a previous request. If this
-    -- parameter is specified, the response includes only records beyond the
-    -- token, up to the value specified by @MaxRecords@.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return. If the @MaxRecords@ value is less
+  { -- | The maximum number of items to return. If the @MaxRecords@ value is less
     -- than the number of existing items, the response includes a pagination
     -- token.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- token, up to the value specified by @MaxRecords@.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services service for which Performance Insights returns
     -- metrics.
     serviceType :: ServiceType,
@@ -96,13 +96,13 @@ data ListAvailableResourceMetrics = ListAvailableResourceMetrics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAvailableResourceMetrics_nextToken' - An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- token, up to the value specified by @MaxRecords@.
---
 -- 'maxResults', 'listAvailableResourceMetrics_maxResults' - The maximum number of items to return. If the @MaxRecords@ value is less
 -- than the number of existing items, the response includes a pagination
 -- token.
+--
+-- 'nextToken', 'listAvailableResourceMetrics_nextToken' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- token, up to the value specified by @MaxRecords@.
 --
 -- 'serviceType', 'listAvailableResourceMetrics_serviceType' - The Amazon Web Services service for which Performance Insights returns
 -- metrics.
@@ -135,25 +135,25 @@ newListAvailableResourceMetrics
   pServiceType_
   pIdentifier_ =
     ListAvailableResourceMetrics'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         serviceType = pServiceType_,
         identifier = pIdentifier_,
         metricTypes = Prelude.mempty
       }
-
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- token, up to the value specified by @MaxRecords@.
-listAvailableResourceMetrics_nextToken :: Lens.Lens' ListAvailableResourceMetrics (Prelude.Maybe Prelude.Text)
-listAvailableResourceMetrics_nextToken = Lens.lens (\ListAvailableResourceMetrics' {nextToken} -> nextToken) (\s@ListAvailableResourceMetrics' {} a -> s {nextToken = a} :: ListAvailableResourceMetrics)
 
 -- | The maximum number of items to return. If the @MaxRecords@ value is less
 -- than the number of existing items, the response includes a pagination
 -- token.
 listAvailableResourceMetrics_maxResults :: Lens.Lens' ListAvailableResourceMetrics (Prelude.Maybe Prelude.Natural)
 listAvailableResourceMetrics_maxResults = Lens.lens (\ListAvailableResourceMetrics' {maxResults} -> maxResults) (\s@ListAvailableResourceMetrics' {} a -> s {maxResults = a} :: ListAvailableResourceMetrics)
+
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- token, up to the value specified by @MaxRecords@.
+listAvailableResourceMetrics_nextToken :: Lens.Lens' ListAvailableResourceMetrics (Prelude.Maybe Prelude.Text)
+listAvailableResourceMetrics_nextToken = Lens.lens (\ListAvailableResourceMetrics' {nextToken} -> nextToken) (\s@ListAvailableResourceMetrics' {} a -> s {nextToken = a} :: ListAvailableResourceMetrics)
 
 -- | The Amazon Web Services service for which Performance Insights returns
 -- metrics.
@@ -193,8 +193,8 @@ instance Core.AWSRequest ListAvailableResourceMetrics where
     Response.receiveJSON
       ( \s h x ->
           ListAvailableResourceMetricsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Metrics" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Metrics" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -203,16 +203,16 @@ instance
     ListAvailableResourceMetrics
   where
   hashWithSalt _salt ListAvailableResourceMetrics' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` serviceType
       `Prelude.hashWithSalt` identifier
       `Prelude.hashWithSalt` metricTypes
 
 instance Prelude.NFData ListAvailableResourceMetrics where
   rnf ListAvailableResourceMetrics' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf serviceType
       `Prelude.seq` Prelude.rnf identifier
       `Prelude.seq` Prelude.rnf metricTypes
@@ -236,8 +236,8 @@ instance Data.ToJSON ListAvailableResourceMetrics where
   toJSON ListAvailableResourceMetrics' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("ServiceType" Data..= serviceType),
             Prelude.Just ("Identifier" Data..= identifier),
             Prelude.Just ("MetricTypes" Data..= metricTypes)
@@ -252,14 +252,14 @@ instance Data.ToQuery ListAvailableResourceMetrics where
 
 -- | /See:/ 'newListAvailableResourceMetricsResponse' smart constructor.
 data ListAvailableResourceMetricsResponse = ListAvailableResourceMetricsResponse'
-  { -- | A pagination token that indicates the response didn’t return all
+  { -- | An array of metrics available to query. Each array element contains the
+    -- full name, description, and unit of the metric.
+    metrics :: Prelude.Maybe [ResponseResourceMetric],
+    -- | A pagination token that indicates the response didn’t return all
     -- available records because @MaxRecords@ was specified in the previous
     -- request. To get the remaining records, specify @NextToken@ in a separate
     -- request with this value.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of metrics available to query. Each array element contains the
-    -- full name, description, and unit of the metric.
-    metrics :: Prelude.Maybe [ResponseResourceMetric],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -273,13 +273,13 @@ data ListAvailableResourceMetricsResponse = ListAvailableResourceMetricsResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'metrics', 'listAvailableResourceMetricsResponse_metrics' - An array of metrics available to query. Each array element contains the
+-- full name, description, and unit of the metric.
+--
 -- 'nextToken', 'listAvailableResourceMetricsResponse_nextToken' - A pagination token that indicates the response didn’t return all
 -- available records because @MaxRecords@ was specified in the previous
 -- request. To get the remaining records, specify @NextToken@ in a separate
 -- request with this value.
---
--- 'metrics', 'listAvailableResourceMetricsResponse_metrics' - An array of metrics available to query. Each array element contains the
--- full name, description, and unit of the metric.
 --
 -- 'httpStatus', 'listAvailableResourceMetricsResponse_httpStatus' - The response's http status code.
 newListAvailableResourceMetricsResponse ::
@@ -288,11 +288,16 @@ newListAvailableResourceMetricsResponse ::
   ListAvailableResourceMetricsResponse
 newListAvailableResourceMetricsResponse pHttpStatus_ =
   ListAvailableResourceMetricsResponse'
-    { nextToken =
+    { metrics =
         Prelude.Nothing,
-      metrics = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of metrics available to query. Each array element contains the
+-- full name, description, and unit of the metric.
+listAvailableResourceMetricsResponse_metrics :: Lens.Lens' ListAvailableResourceMetricsResponse (Prelude.Maybe [ResponseResourceMetric])
+listAvailableResourceMetricsResponse_metrics = Lens.lens (\ListAvailableResourceMetricsResponse' {metrics} -> metrics) (\s@ListAvailableResourceMetricsResponse' {} a -> s {metrics = a} :: ListAvailableResourceMetricsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A pagination token that indicates the response didn’t return all
 -- available records because @MaxRecords@ was specified in the previous
@@ -300,11 +305,6 @@ newListAvailableResourceMetricsResponse pHttpStatus_ =
 -- request with this value.
 listAvailableResourceMetricsResponse_nextToken :: Lens.Lens' ListAvailableResourceMetricsResponse (Prelude.Maybe Prelude.Text)
 listAvailableResourceMetricsResponse_nextToken = Lens.lens (\ListAvailableResourceMetricsResponse' {nextToken} -> nextToken) (\s@ListAvailableResourceMetricsResponse' {} a -> s {nextToken = a} :: ListAvailableResourceMetricsResponse)
-
--- | An array of metrics available to query. Each array element contains the
--- full name, description, and unit of the metric.
-listAvailableResourceMetricsResponse_metrics :: Lens.Lens' ListAvailableResourceMetricsResponse (Prelude.Maybe [ResponseResourceMetric])
-listAvailableResourceMetricsResponse_metrics = Lens.lens (\ListAvailableResourceMetricsResponse' {metrics} -> metrics) (\s@ListAvailableResourceMetricsResponse' {} a -> s {metrics = a} :: ListAvailableResourceMetricsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAvailableResourceMetricsResponse_httpStatus :: Lens.Lens' ListAvailableResourceMetricsResponse Prelude.Int
@@ -315,6 +315,6 @@ instance
     ListAvailableResourceMetricsResponse
   where
   rnf ListAvailableResourceMetricsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf metrics
+    Prelude.rnf metrics
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

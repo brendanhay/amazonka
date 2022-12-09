@@ -29,8 +29,8 @@ module Amazonka.SSMContacts.ListPagesByContact
     newListPagesByContact,
 
     -- * Request Lenses
-    listPagesByContact_nextToken,
     listPagesByContact_maxResults,
+    listPagesByContact_nextToken,
     listPagesByContact_contactId,
 
     -- * Destructuring the Response
@@ -54,11 +54,11 @@ import Amazonka.SSMContacts.Types
 
 -- | /See:/ 'newListPagesByContact' smart constructor.
 data ListPagesByContact = ListPagesByContact'
-  { -- | The pagination token to continue to the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of engagements to contact channels to list per page
+  { -- | The maximum number of engagements to contact channels to list per page
     -- of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token to continue to the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the contact you are retrieving
     -- engagements for.
     contactId :: Prelude.Text
@@ -73,10 +73,10 @@ data ListPagesByContact = ListPagesByContact'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPagesByContact_nextToken' - The pagination token to continue to the next page of results.
---
 -- 'maxResults', 'listPagesByContact_maxResults' - The maximum number of engagements to contact channels to list per page
 -- of results.
+--
+-- 'nextToken', 'listPagesByContact_nextToken' - The pagination token to continue to the next page of results.
 --
 -- 'contactId', 'listPagesByContact_contactId' - The Amazon Resource Name (ARN) of the contact you are retrieving
 -- engagements for.
@@ -86,19 +86,19 @@ newListPagesByContact ::
   ListPagesByContact
 newListPagesByContact pContactId_ =
   ListPagesByContact'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       contactId = pContactId_
     }
-
--- | The pagination token to continue to the next page of results.
-listPagesByContact_nextToken :: Lens.Lens' ListPagesByContact (Prelude.Maybe Prelude.Text)
-listPagesByContact_nextToken = Lens.lens (\ListPagesByContact' {nextToken} -> nextToken) (\s@ListPagesByContact' {} a -> s {nextToken = a} :: ListPagesByContact)
 
 -- | The maximum number of engagements to contact channels to list per page
 -- of results.
 listPagesByContact_maxResults :: Lens.Lens' ListPagesByContact (Prelude.Maybe Prelude.Natural)
 listPagesByContact_maxResults = Lens.lens (\ListPagesByContact' {maxResults} -> maxResults) (\s@ListPagesByContact' {} a -> s {maxResults = a} :: ListPagesByContact)
+
+-- | The pagination token to continue to the next page of results.
+listPagesByContact_nextToken :: Lens.Lens' ListPagesByContact (Prelude.Maybe Prelude.Text)
+listPagesByContact_nextToken = Lens.lens (\ListPagesByContact' {nextToken} -> nextToken) (\s@ListPagesByContact' {} a -> s {nextToken = a} :: ListPagesByContact)
 
 -- | The Amazon Resource Name (ARN) of the contact you are retrieving
 -- engagements for.
@@ -141,14 +141,14 @@ instance Core.AWSRequest ListPagesByContact where
 
 instance Prelude.Hashable ListPagesByContact where
   hashWithSalt _salt ListPagesByContact' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` contactId
 
 instance Prelude.NFData ListPagesByContact where
   rnf ListPagesByContact' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf contactId
 
 instance Data.ToHeaders ListPagesByContact where
@@ -170,8 +170,8 @@ instance Data.ToJSON ListPagesByContact where
   toJSON ListPagesByContact' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("ContactId" Data..= contactId)
           ]
       )

@@ -35,8 +35,8 @@ module Amazonka.SSMContacts.GetContactPolicy
     newGetContactPolicyResponse,
 
     -- * Response Lenses
-    getContactPolicyResponse_policy,
     getContactPolicyResponse_contactArn,
+    getContactPolicyResponse_policy,
     getContactPolicyResponse_httpStatus,
   )
 where
@@ -86,8 +86,8 @@ instance Core.AWSRequest GetContactPolicy where
     Response.receiveJSON
       ( \s h x ->
           GetContactPolicyResponse'
-            Prelude.<$> (x Data..?> "Policy")
-            Prelude.<*> (x Data..?> "ContactArn")
+            Prelude.<$> (x Data..?> "ContactArn")
+            Prelude.<*> (x Data..?> "Policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,11 +128,11 @@ instance Data.ToQuery GetContactPolicy where
 
 -- | /See:/ 'newGetContactPolicyResponse' smart constructor.
 data GetContactPolicyResponse = GetContactPolicyResponse'
-  { -- | Details about the resource policy attached to the contact or escalation
+  { -- | The ARN of the contact or escalation plan.
+    contactArn :: Prelude.Maybe Prelude.Text,
+    -- | Details about the resource policy attached to the contact or escalation
     -- plan.
     policy :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the contact or escalation plan.
-    contactArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -146,10 +146,10 @@ data GetContactPolicyResponse = GetContactPolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'contactArn', 'getContactPolicyResponse_contactArn' - The ARN of the contact or escalation plan.
+--
 -- 'policy', 'getContactPolicyResponse_policy' - Details about the resource policy attached to the contact or escalation
 -- plan.
---
--- 'contactArn', 'getContactPolicyResponse_contactArn' - The ARN of the contact or escalation plan.
 --
 -- 'httpStatus', 'getContactPolicyResponse_httpStatus' - The response's http status code.
 newGetContactPolicyResponse ::
@@ -158,19 +158,20 @@ newGetContactPolicyResponse ::
   GetContactPolicyResponse
 newGetContactPolicyResponse pHttpStatus_ =
   GetContactPolicyResponse'
-    { policy = Prelude.Nothing,
-      contactArn = Prelude.Nothing,
+    { contactArn =
+        Prelude.Nothing,
+      policy = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The ARN of the contact or escalation plan.
+getContactPolicyResponse_contactArn :: Lens.Lens' GetContactPolicyResponse (Prelude.Maybe Prelude.Text)
+getContactPolicyResponse_contactArn = Lens.lens (\GetContactPolicyResponse' {contactArn} -> contactArn) (\s@GetContactPolicyResponse' {} a -> s {contactArn = a} :: GetContactPolicyResponse)
 
 -- | Details about the resource policy attached to the contact or escalation
 -- plan.
 getContactPolicyResponse_policy :: Lens.Lens' GetContactPolicyResponse (Prelude.Maybe Prelude.Text)
 getContactPolicyResponse_policy = Lens.lens (\GetContactPolicyResponse' {policy} -> policy) (\s@GetContactPolicyResponse' {} a -> s {policy = a} :: GetContactPolicyResponse)
-
--- | The ARN of the contact or escalation plan.
-getContactPolicyResponse_contactArn :: Lens.Lens' GetContactPolicyResponse (Prelude.Maybe Prelude.Text)
-getContactPolicyResponse_contactArn = Lens.lens (\GetContactPolicyResponse' {contactArn} -> contactArn) (\s@GetContactPolicyResponse' {} a -> s {contactArn = a} :: GetContactPolicyResponse)
 
 -- | The response's http status code.
 getContactPolicyResponse_httpStatus :: Lens.Lens' GetContactPolicyResponse Prelude.Int
@@ -178,6 +179,6 @@ getContactPolicyResponse_httpStatus = Lens.lens (\GetContactPolicyResponse' {htt
 
 instance Prelude.NFData GetContactPolicyResponse where
   rnf GetContactPolicyResponse' {..} =
-    Prelude.rnf policy
-      `Prelude.seq` Prelude.rnf contactArn
+    Prelude.rnf contactArn
+      `Prelude.seq` Prelude.rnf policy
       `Prelude.seq` Prelude.rnf httpStatus

@@ -28,9 +28,9 @@ module Amazonka.HealthLake.ListFHIRDatastores
     newListFHIRDatastores,
 
     -- * Request Lenses
-    listFHIRDatastores_nextToken,
     listFHIRDatastores_filter,
     listFHIRDatastores_maxResults,
+    listFHIRDatastores_nextToken,
 
     -- * Destructuring the Response
     ListFHIRDatastoresResponse (..),
@@ -53,13 +53,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListFHIRDatastores' smart constructor.
 data ListFHIRDatastores = ListFHIRDatastores'
-  { -- | Fetches the next page of Data Stores when results are paginated.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Lists all filters associated with a FHIR Data Store request.
+  { -- | Lists all filters associated with a FHIR Data Store request.
     filter' :: Prelude.Maybe DatastoreFilter,
     -- | The maximum number of Data Stores returned in a single page of a
     -- ListFHIRDatastoresRequest call.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Fetches the next page of Data Stores when results are paginated.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,24 +71,20 @@ data ListFHIRDatastores = ListFHIRDatastores'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listFHIRDatastores_nextToken' - Fetches the next page of Data Stores when results are paginated.
---
 -- 'filter'', 'listFHIRDatastores_filter' - Lists all filters associated with a FHIR Data Store request.
 --
 -- 'maxResults', 'listFHIRDatastores_maxResults' - The maximum number of Data Stores returned in a single page of a
 -- ListFHIRDatastoresRequest call.
+--
+-- 'nextToken', 'listFHIRDatastores_nextToken' - Fetches the next page of Data Stores when results are paginated.
 newListFHIRDatastores ::
   ListFHIRDatastores
 newListFHIRDatastores =
   ListFHIRDatastores'
-    { nextToken = Prelude.Nothing,
-      filter' = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filter' = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Fetches the next page of Data Stores when results are paginated.
-listFHIRDatastores_nextToken :: Lens.Lens' ListFHIRDatastores (Prelude.Maybe Prelude.Text)
-listFHIRDatastores_nextToken = Lens.lens (\ListFHIRDatastores' {nextToken} -> nextToken) (\s@ListFHIRDatastores' {} a -> s {nextToken = a} :: ListFHIRDatastores)
 
 -- | Lists all filters associated with a FHIR Data Store request.
 listFHIRDatastores_filter :: Lens.Lens' ListFHIRDatastores (Prelude.Maybe DatastoreFilter)
@@ -98,6 +94,10 @@ listFHIRDatastores_filter = Lens.lens (\ListFHIRDatastores' {filter'} -> filter'
 -- ListFHIRDatastoresRequest call.
 listFHIRDatastores_maxResults :: Lens.Lens' ListFHIRDatastores (Prelude.Maybe Prelude.Natural)
 listFHIRDatastores_maxResults = Lens.lens (\ListFHIRDatastores' {maxResults} -> maxResults) (\s@ListFHIRDatastores' {} a -> s {maxResults = a} :: ListFHIRDatastores)
+
+-- | Fetches the next page of Data Stores when results are paginated.
+listFHIRDatastores_nextToken :: Lens.Lens' ListFHIRDatastores (Prelude.Maybe Prelude.Text)
+listFHIRDatastores_nextToken = Lens.lens (\ListFHIRDatastores' {nextToken} -> nextToken) (\s@ListFHIRDatastores' {} a -> s {nextToken = a} :: ListFHIRDatastores)
 
 instance Core.AWSRequest ListFHIRDatastores where
   type
@@ -118,15 +118,15 @@ instance Core.AWSRequest ListFHIRDatastores where
 
 instance Prelude.Hashable ListFHIRDatastores where
   hashWithSalt _salt ListFHIRDatastores' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filter'
+    _salt `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListFHIRDatastores where
   rnf ListFHIRDatastores' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListFHIRDatastores where
   toHeaders =
@@ -147,9 +147,9 @@ instance Data.ToJSON ListFHIRDatastores where
   toJSON ListFHIRDatastores' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filter" Data..=) Prelude.<$> filter',
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filter" Data..=) Prelude.<$> filter',
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

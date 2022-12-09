@@ -31,10 +31,10 @@ module Amazonka.IoT.UpdateThing
     newUpdateThing,
 
     -- * Request Lenses
-    updateThing_thingTypeName,
-    updateThing_removeThingType,
     updateThing_attributePayload,
     updateThing_expectedVersion,
+    updateThing_removeThingType,
+    updateThing_thingTypeName,
     updateThing_thingName,
 
     -- * Destructuring the Response
@@ -58,12 +58,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateThing' smart constructor.
 data UpdateThing = UpdateThing'
-  { -- | The name of the thing type.
-    thingTypeName :: Prelude.Maybe Prelude.Text,
-    -- | Remove a thing type association. If __true__, the association is
-    -- removed.
-    removeThingType :: Prelude.Maybe Prelude.Bool,
-    -- | A list of thing attributes, a JSON string containing name-value pairs.
+  { -- | A list of thing attributes, a JSON string containing name-value pairs.
     -- For example:
     --
     -- @{\\\"attributes\\\":{\\\"name1\\\":\\\"value2\\\"}}@
@@ -75,6 +70,11 @@ data UpdateThing = UpdateThing'
     -- specified in the request, the @UpdateThing@ request is rejected with a
     -- @VersionConflictException@.
     expectedVersion :: Prelude.Maybe Prelude.Integer,
+    -- | Remove a thing type association. If __true__, the association is
+    -- removed.
+    removeThingType :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the thing type.
+    thingTypeName :: Prelude.Maybe Prelude.Text,
     -- | The name of the thing to update.
     --
     -- You can\'t change a thing\'s name. To change a thing\'s name, you must
@@ -91,11 +91,6 @@ data UpdateThing = UpdateThing'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'thingTypeName', 'updateThing_thingTypeName' - The name of the thing type.
---
--- 'removeThingType', 'updateThing_removeThingType' - Remove a thing type association. If __true__, the association is
--- removed.
---
 -- 'attributePayload', 'updateThing_attributePayload' - A list of thing attributes, a JSON string containing name-value pairs.
 -- For example:
 --
@@ -108,6 +103,11 @@ data UpdateThing = UpdateThing'
 -- specified in the request, the @UpdateThing@ request is rejected with a
 -- @VersionConflictException@.
 --
+-- 'removeThingType', 'updateThing_removeThingType' - Remove a thing type association. If __true__, the association is
+-- removed.
+--
+-- 'thingTypeName', 'updateThing_thingTypeName' - The name of the thing type.
+--
 -- 'thingName', 'updateThing_thingName' - The name of the thing to update.
 --
 -- You can\'t change a thing\'s name. To change a thing\'s name, you must
@@ -118,21 +118,12 @@ newUpdateThing ::
   UpdateThing
 newUpdateThing pThingName_ =
   UpdateThing'
-    { thingTypeName = Prelude.Nothing,
-      removeThingType = Prelude.Nothing,
-      attributePayload = Prelude.Nothing,
+    { attributePayload = Prelude.Nothing,
       expectedVersion = Prelude.Nothing,
+      removeThingType = Prelude.Nothing,
+      thingTypeName = Prelude.Nothing,
       thingName = pThingName_
     }
-
--- | The name of the thing type.
-updateThing_thingTypeName :: Lens.Lens' UpdateThing (Prelude.Maybe Prelude.Text)
-updateThing_thingTypeName = Lens.lens (\UpdateThing' {thingTypeName} -> thingTypeName) (\s@UpdateThing' {} a -> s {thingTypeName = a} :: UpdateThing)
-
--- | Remove a thing type association. If __true__, the association is
--- removed.
-updateThing_removeThingType :: Lens.Lens' UpdateThing (Prelude.Maybe Prelude.Bool)
-updateThing_removeThingType = Lens.lens (\UpdateThing' {removeThingType} -> removeThingType) (\s@UpdateThing' {} a -> s {removeThingType = a} :: UpdateThing)
 
 -- | A list of thing attributes, a JSON string containing name-value pairs.
 -- For example:
@@ -149,6 +140,15 @@ updateThing_attributePayload = Lens.lens (\UpdateThing' {attributePayload} -> at
 -- @VersionConflictException@.
 updateThing_expectedVersion :: Lens.Lens' UpdateThing (Prelude.Maybe Prelude.Integer)
 updateThing_expectedVersion = Lens.lens (\UpdateThing' {expectedVersion} -> expectedVersion) (\s@UpdateThing' {} a -> s {expectedVersion = a} :: UpdateThing)
+
+-- | Remove a thing type association. If __true__, the association is
+-- removed.
+updateThing_removeThingType :: Lens.Lens' UpdateThing (Prelude.Maybe Prelude.Bool)
+updateThing_removeThingType = Lens.lens (\UpdateThing' {removeThingType} -> removeThingType) (\s@UpdateThing' {} a -> s {removeThingType = a} :: UpdateThing)
+
+-- | The name of the thing type.
+updateThing_thingTypeName :: Lens.Lens' UpdateThing (Prelude.Maybe Prelude.Text)
+updateThing_thingTypeName = Lens.lens (\UpdateThing' {thingTypeName} -> thingTypeName) (\s@UpdateThing' {} a -> s {thingTypeName = a} :: UpdateThing)
 
 -- | The name of the thing to update.
 --
@@ -170,18 +170,18 @@ instance Core.AWSRequest UpdateThing where
 
 instance Prelude.Hashable UpdateThing where
   hashWithSalt _salt UpdateThing' {..} =
-    _salt `Prelude.hashWithSalt` thingTypeName
-      `Prelude.hashWithSalt` removeThingType
-      `Prelude.hashWithSalt` attributePayload
+    _salt `Prelude.hashWithSalt` attributePayload
       `Prelude.hashWithSalt` expectedVersion
+      `Prelude.hashWithSalt` removeThingType
+      `Prelude.hashWithSalt` thingTypeName
       `Prelude.hashWithSalt` thingName
 
 instance Prelude.NFData UpdateThing where
   rnf UpdateThing' {..} =
-    Prelude.rnf thingTypeName
-      `Prelude.seq` Prelude.rnf removeThingType
-      `Prelude.seq` Prelude.rnf attributePayload
+    Prelude.rnf attributePayload
       `Prelude.seq` Prelude.rnf expectedVersion
+      `Prelude.seq` Prelude.rnf removeThingType
+      `Prelude.seq` Prelude.rnf thingTypeName
       `Prelude.seq` Prelude.rnf thingName
 
 instance Data.ToHeaders UpdateThing where
@@ -191,13 +191,13 @@ instance Data.ToJSON UpdateThing where
   toJSON UpdateThing' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("thingTypeName" Data..=) Prelude.<$> thingTypeName,
-            ("removeThingType" Data..=)
-              Prelude.<$> removeThingType,
-            ("attributePayload" Data..=)
+          [ ("attributePayload" Data..=)
               Prelude.<$> attributePayload,
             ("expectedVersion" Data..=)
-              Prelude.<$> expectedVersion
+              Prelude.<$> expectedVersion,
+            ("removeThingType" Data..=)
+              Prelude.<$> removeThingType,
+            ("thingTypeName" Data..=) Prelude.<$> thingTypeName
           ]
       )
 

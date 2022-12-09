@@ -31,14 +31,14 @@ module Amazonka.IoT.CreateJobTemplate
     newCreateJobTemplate,
 
     -- * Request Lenses
-    createJobTemplate_tags,
-    createJobTemplate_jobExecutionsRolloutConfig,
-    createJobTemplate_documentSource,
     createJobTemplate_abortConfig,
-    createJobTemplate_presignedUrlConfig,
     createJobTemplate_document,
+    createJobTemplate_documentSource,
     createJobTemplate_jobArn,
     createJobTemplate_jobExecutionsRetryConfig,
+    createJobTemplate_jobExecutionsRolloutConfig,
+    createJobTemplate_presignedUrlConfig,
+    createJobTemplate_tags,
     createJobTemplate_timeoutConfig,
     createJobTemplate_jobTemplateId,
     createJobTemplate_description,
@@ -64,9 +64,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateJobTemplate' smart constructor.
 data CreateJobTemplate = CreateJobTemplate'
-  { -- | Metadata that can be used to manage the job template.
-    tags :: Prelude.Maybe [Tag],
-    jobExecutionsRolloutConfig :: Prelude.Maybe JobExecutionsRolloutConfig,
+  { abortConfig :: Prelude.Maybe AbortConfig,
+    -- | The job document. Required if you don\'t specify a value for
+    -- @documentSource@.
+    document :: Prelude.Maybe Prelude.Text,
     -- | An S3 link to the job document to use in the template. Required if you
     -- don\'t specify a value for @document@.
     --
@@ -80,15 +81,14 @@ data CreateJobTemplate = CreateJobTemplate'
     -- where /bucket/ is your bucket name and /key/ is the object in the bucket
     -- to which you are linking.
     documentSource :: Prelude.Maybe Prelude.Text,
-    abortConfig :: Prelude.Maybe AbortConfig,
-    presignedUrlConfig :: Prelude.Maybe PresignedUrlConfig,
-    -- | The job document. Required if you don\'t specify a value for
-    -- @documentSource@.
-    document :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the job to use as the basis for the job template.
     jobArn :: Prelude.Maybe Prelude.Text,
     -- | Allows you to create the criteria to retry a job.
     jobExecutionsRetryConfig :: Prelude.Maybe JobExecutionsRetryConfig,
+    jobExecutionsRolloutConfig :: Prelude.Maybe JobExecutionsRolloutConfig,
+    presignedUrlConfig :: Prelude.Maybe PresignedUrlConfig,
+    -- | Metadata that can be used to manage the job template.
+    tags :: Prelude.Maybe [Tag],
     timeoutConfig :: Prelude.Maybe TimeoutConfig,
     -- | A unique identifier for the job template. We recommend using a UUID.
     -- Alpha-numeric characters, \"-\", and \"_\" are valid for use here.
@@ -106,9 +106,10 @@ data CreateJobTemplate = CreateJobTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createJobTemplate_tags' - Metadata that can be used to manage the job template.
+-- 'abortConfig', 'createJobTemplate_abortConfig' - Undocumented member.
 --
--- 'jobExecutionsRolloutConfig', 'createJobTemplate_jobExecutionsRolloutConfig' - Undocumented member.
+-- 'document', 'createJobTemplate_document' - The job document. Required if you don\'t specify a value for
+-- @documentSource@.
 --
 -- 'documentSource', 'createJobTemplate_documentSource' - An S3 link to the job document to use in the template. Required if you
 -- don\'t specify a value for @document@.
@@ -123,16 +124,15 @@ data CreateJobTemplate = CreateJobTemplate'
 -- where /bucket/ is your bucket name and /key/ is the object in the bucket
 -- to which you are linking.
 --
--- 'abortConfig', 'createJobTemplate_abortConfig' - Undocumented member.
---
--- 'presignedUrlConfig', 'createJobTemplate_presignedUrlConfig' - Undocumented member.
---
--- 'document', 'createJobTemplate_document' - The job document. Required if you don\'t specify a value for
--- @documentSource@.
---
 -- 'jobArn', 'createJobTemplate_jobArn' - The ARN of the job to use as the basis for the job template.
 --
 -- 'jobExecutionsRetryConfig', 'createJobTemplate_jobExecutionsRetryConfig' - Allows you to create the criteria to retry a job.
+--
+-- 'jobExecutionsRolloutConfig', 'createJobTemplate_jobExecutionsRolloutConfig' - Undocumented member.
+--
+-- 'presignedUrlConfig', 'createJobTemplate_presignedUrlConfig' - Undocumented member.
+--
+-- 'tags', 'createJobTemplate_tags' - Metadata that can be used to manage the job template.
 --
 -- 'timeoutConfig', 'createJobTemplate_timeoutConfig' - Undocumented member.
 --
@@ -148,26 +148,27 @@ newCreateJobTemplate ::
   CreateJobTemplate
 newCreateJobTemplate pJobTemplateId_ pDescription_ =
   CreateJobTemplate'
-    { tags = Prelude.Nothing,
-      jobExecutionsRolloutConfig = Prelude.Nothing,
-      documentSource = Prelude.Nothing,
-      abortConfig = Prelude.Nothing,
-      presignedUrlConfig = Prelude.Nothing,
+    { abortConfig = Prelude.Nothing,
       document = Prelude.Nothing,
+      documentSource = Prelude.Nothing,
       jobArn = Prelude.Nothing,
       jobExecutionsRetryConfig = Prelude.Nothing,
+      jobExecutionsRolloutConfig = Prelude.Nothing,
+      presignedUrlConfig = Prelude.Nothing,
+      tags = Prelude.Nothing,
       timeoutConfig = Prelude.Nothing,
       jobTemplateId = pJobTemplateId_,
       description = pDescription_
     }
 
--- | Metadata that can be used to manage the job template.
-createJobTemplate_tags :: Lens.Lens' CreateJobTemplate (Prelude.Maybe [Tag])
-createJobTemplate_tags = Lens.lens (\CreateJobTemplate' {tags} -> tags) (\s@CreateJobTemplate' {} a -> s {tags = a} :: CreateJobTemplate) Prelude.. Lens.mapping Lens.coerced
-
 -- | Undocumented member.
-createJobTemplate_jobExecutionsRolloutConfig :: Lens.Lens' CreateJobTemplate (Prelude.Maybe JobExecutionsRolloutConfig)
-createJobTemplate_jobExecutionsRolloutConfig = Lens.lens (\CreateJobTemplate' {jobExecutionsRolloutConfig} -> jobExecutionsRolloutConfig) (\s@CreateJobTemplate' {} a -> s {jobExecutionsRolloutConfig = a} :: CreateJobTemplate)
+createJobTemplate_abortConfig :: Lens.Lens' CreateJobTemplate (Prelude.Maybe AbortConfig)
+createJobTemplate_abortConfig = Lens.lens (\CreateJobTemplate' {abortConfig} -> abortConfig) (\s@CreateJobTemplate' {} a -> s {abortConfig = a} :: CreateJobTemplate)
+
+-- | The job document. Required if you don\'t specify a value for
+-- @documentSource@.
+createJobTemplate_document :: Lens.Lens' CreateJobTemplate (Prelude.Maybe Prelude.Text)
+createJobTemplate_document = Lens.lens (\CreateJobTemplate' {document} -> document) (\s@CreateJobTemplate' {} a -> s {document = a} :: CreateJobTemplate)
 
 -- | An S3 link to the job document to use in the template. Required if you
 -- don\'t specify a value for @document@.
@@ -184,19 +185,6 @@ createJobTemplate_jobExecutionsRolloutConfig = Lens.lens (\CreateJobTemplate' {j
 createJobTemplate_documentSource :: Lens.Lens' CreateJobTemplate (Prelude.Maybe Prelude.Text)
 createJobTemplate_documentSource = Lens.lens (\CreateJobTemplate' {documentSource} -> documentSource) (\s@CreateJobTemplate' {} a -> s {documentSource = a} :: CreateJobTemplate)
 
--- | Undocumented member.
-createJobTemplate_abortConfig :: Lens.Lens' CreateJobTemplate (Prelude.Maybe AbortConfig)
-createJobTemplate_abortConfig = Lens.lens (\CreateJobTemplate' {abortConfig} -> abortConfig) (\s@CreateJobTemplate' {} a -> s {abortConfig = a} :: CreateJobTemplate)
-
--- | Undocumented member.
-createJobTemplate_presignedUrlConfig :: Lens.Lens' CreateJobTemplate (Prelude.Maybe PresignedUrlConfig)
-createJobTemplate_presignedUrlConfig = Lens.lens (\CreateJobTemplate' {presignedUrlConfig} -> presignedUrlConfig) (\s@CreateJobTemplate' {} a -> s {presignedUrlConfig = a} :: CreateJobTemplate)
-
--- | The job document. Required if you don\'t specify a value for
--- @documentSource@.
-createJobTemplate_document :: Lens.Lens' CreateJobTemplate (Prelude.Maybe Prelude.Text)
-createJobTemplate_document = Lens.lens (\CreateJobTemplate' {document} -> document) (\s@CreateJobTemplate' {} a -> s {document = a} :: CreateJobTemplate)
-
 -- | The ARN of the job to use as the basis for the job template.
 createJobTemplate_jobArn :: Lens.Lens' CreateJobTemplate (Prelude.Maybe Prelude.Text)
 createJobTemplate_jobArn = Lens.lens (\CreateJobTemplate' {jobArn} -> jobArn) (\s@CreateJobTemplate' {} a -> s {jobArn = a} :: CreateJobTemplate)
@@ -204,6 +192,18 @@ createJobTemplate_jobArn = Lens.lens (\CreateJobTemplate' {jobArn} -> jobArn) (\
 -- | Allows you to create the criteria to retry a job.
 createJobTemplate_jobExecutionsRetryConfig :: Lens.Lens' CreateJobTemplate (Prelude.Maybe JobExecutionsRetryConfig)
 createJobTemplate_jobExecutionsRetryConfig = Lens.lens (\CreateJobTemplate' {jobExecutionsRetryConfig} -> jobExecutionsRetryConfig) (\s@CreateJobTemplate' {} a -> s {jobExecutionsRetryConfig = a} :: CreateJobTemplate)
+
+-- | Undocumented member.
+createJobTemplate_jobExecutionsRolloutConfig :: Lens.Lens' CreateJobTemplate (Prelude.Maybe JobExecutionsRolloutConfig)
+createJobTemplate_jobExecutionsRolloutConfig = Lens.lens (\CreateJobTemplate' {jobExecutionsRolloutConfig} -> jobExecutionsRolloutConfig) (\s@CreateJobTemplate' {} a -> s {jobExecutionsRolloutConfig = a} :: CreateJobTemplate)
+
+-- | Undocumented member.
+createJobTemplate_presignedUrlConfig :: Lens.Lens' CreateJobTemplate (Prelude.Maybe PresignedUrlConfig)
+createJobTemplate_presignedUrlConfig = Lens.lens (\CreateJobTemplate' {presignedUrlConfig} -> presignedUrlConfig) (\s@CreateJobTemplate' {} a -> s {presignedUrlConfig = a} :: CreateJobTemplate)
+
+-- | Metadata that can be used to manage the job template.
+createJobTemplate_tags :: Lens.Lens' CreateJobTemplate (Prelude.Maybe [Tag])
+createJobTemplate_tags = Lens.lens (\CreateJobTemplate' {tags} -> tags) (\s@CreateJobTemplate' {} a -> s {tags = a} :: CreateJobTemplate) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 createJobTemplate_timeoutConfig :: Lens.Lens' CreateJobTemplate (Prelude.Maybe TimeoutConfig)
@@ -235,28 +235,28 @@ instance Core.AWSRequest CreateJobTemplate where
 
 instance Prelude.Hashable CreateJobTemplate where
   hashWithSalt _salt CreateJobTemplate' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` jobExecutionsRolloutConfig
-      `Prelude.hashWithSalt` documentSource
-      `Prelude.hashWithSalt` abortConfig
-      `Prelude.hashWithSalt` presignedUrlConfig
+    _salt `Prelude.hashWithSalt` abortConfig
       `Prelude.hashWithSalt` document
+      `Prelude.hashWithSalt` documentSource
       `Prelude.hashWithSalt` jobArn
       `Prelude.hashWithSalt` jobExecutionsRetryConfig
+      `Prelude.hashWithSalt` jobExecutionsRolloutConfig
+      `Prelude.hashWithSalt` presignedUrlConfig
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` timeoutConfig
       `Prelude.hashWithSalt` jobTemplateId
       `Prelude.hashWithSalt` description
 
 instance Prelude.NFData CreateJobTemplate where
   rnf CreateJobTemplate' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf jobExecutionsRolloutConfig
-      `Prelude.seq` Prelude.rnf documentSource
-      `Prelude.seq` Prelude.rnf abortConfig
-      `Prelude.seq` Prelude.rnf presignedUrlConfig
+    Prelude.rnf abortConfig
       `Prelude.seq` Prelude.rnf document
+      `Prelude.seq` Prelude.rnf documentSource
       `Prelude.seq` Prelude.rnf jobArn
       `Prelude.seq` Prelude.rnf jobExecutionsRetryConfig
+      `Prelude.seq` Prelude.rnf jobExecutionsRolloutConfig
+      `Prelude.seq` Prelude.rnf presignedUrlConfig
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf timeoutConfig
       `Prelude.seq` Prelude.rnf jobTemplateId
       `Prelude.seq` Prelude.rnf description
@@ -268,18 +268,18 @@ instance Data.ToJSON CreateJobTemplate where
   toJSON CreateJobTemplate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("jobExecutionsRolloutConfig" Data..=)
-              Prelude.<$> jobExecutionsRolloutConfig,
+          [ ("abortConfig" Data..=) Prelude.<$> abortConfig,
+            ("document" Data..=) Prelude.<$> document,
             ("documentSource" Data..=)
               Prelude.<$> documentSource,
-            ("abortConfig" Data..=) Prelude.<$> abortConfig,
-            ("presignedUrlConfig" Data..=)
-              Prelude.<$> presignedUrlConfig,
-            ("document" Data..=) Prelude.<$> document,
             ("jobArn" Data..=) Prelude.<$> jobArn,
             ("jobExecutionsRetryConfig" Data..=)
               Prelude.<$> jobExecutionsRetryConfig,
+            ("jobExecutionsRolloutConfig" Data..=)
+              Prelude.<$> jobExecutionsRolloutConfig,
+            ("presignedUrlConfig" Data..=)
+              Prelude.<$> presignedUrlConfig,
+            ("tags" Data..=) Prelude.<$> tags,
             ("timeoutConfig" Data..=) Prelude.<$> timeoutConfig,
             Prelude.Just ("description" Data..= description)
           ]

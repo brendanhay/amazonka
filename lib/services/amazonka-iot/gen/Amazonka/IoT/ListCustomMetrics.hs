@@ -33,16 +33,16 @@ module Amazonka.IoT.ListCustomMetrics
     newListCustomMetrics,
 
     -- * Request Lenses
-    listCustomMetrics_nextToken,
     listCustomMetrics_maxResults,
+    listCustomMetrics_nextToken,
 
     -- * Destructuring the Response
     ListCustomMetricsResponse (..),
     newListCustomMetricsResponse,
 
     -- * Response Lenses
-    listCustomMetricsResponse_nextToken,
     listCustomMetricsResponse_metricNames,
+    listCustomMetricsResponse_nextToken,
     listCustomMetricsResponse_httpStatus,
   )
 where
@@ -57,10 +57,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListCustomMetrics' smart constructor.
 data ListCustomMetrics = ListCustomMetrics'
-  { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return at one time. The default is 25.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum number of results to return at one time. The default is 25.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,24 +72,24 @@ data ListCustomMetrics = ListCustomMetrics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCustomMetrics_nextToken' - The token for the next set of results.
---
 -- 'maxResults', 'listCustomMetrics_maxResults' - The maximum number of results to return at one time. The default is 25.
+--
+-- 'nextToken', 'listCustomMetrics_nextToken' - The token for the next set of results.
 newListCustomMetrics ::
   ListCustomMetrics
 newListCustomMetrics =
   ListCustomMetrics'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token for the next set of results.
-listCustomMetrics_nextToken :: Lens.Lens' ListCustomMetrics (Prelude.Maybe Prelude.Text)
-listCustomMetrics_nextToken = Lens.lens (\ListCustomMetrics' {nextToken} -> nextToken) (\s@ListCustomMetrics' {} a -> s {nextToken = a} :: ListCustomMetrics)
 
 -- | The maximum number of results to return at one time. The default is 25.
 listCustomMetrics_maxResults :: Lens.Lens' ListCustomMetrics (Prelude.Maybe Prelude.Natural)
 listCustomMetrics_maxResults = Lens.lens (\ListCustomMetrics' {maxResults} -> maxResults) (\s@ListCustomMetrics' {} a -> s {maxResults = a} :: ListCustomMetrics)
+
+-- | The token for the next set of results.
+listCustomMetrics_nextToken :: Lens.Lens' ListCustomMetrics (Prelude.Maybe Prelude.Text)
+listCustomMetrics_nextToken = Lens.lens (\ListCustomMetrics' {nextToken} -> nextToken) (\s@ListCustomMetrics' {} a -> s {nextToken = a} :: ListCustomMetrics)
 
 instance Core.AWSPager ListCustomMetrics where
   page rq rs
@@ -123,20 +123,20 @@ instance Core.AWSRequest ListCustomMetrics where
     Response.receiveJSON
       ( \s h x ->
           ListCustomMetricsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "metricNames" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "metricNames" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListCustomMetrics where
   hashWithSalt _salt ListCustomMetrics' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListCustomMetrics where
   rnf ListCustomMetrics' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCustomMetrics where
   toHeaders = Prelude.const Prelude.mempty
@@ -147,17 +147,17 @@ instance Data.ToPath ListCustomMetrics where
 instance Data.ToQuery ListCustomMetrics where
   toQuery ListCustomMetrics' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListCustomMetricsResponse' smart constructor.
 data ListCustomMetricsResponse = ListCustomMetricsResponse'
-  { -- | A token that can be used to retrieve the next set of results, or @null@
+  { -- | The name of the custom metric.
+    metricNames :: Prelude.Maybe [Prelude.Text],
+    -- | A token that can be used to retrieve the next set of results, or @null@
     -- if there are no additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of the custom metric.
-    metricNames :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -171,10 +171,10 @@ data ListCustomMetricsResponse = ListCustomMetricsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'metricNames', 'listCustomMetricsResponse_metricNames' - The name of the custom metric.
+--
 -- 'nextToken', 'listCustomMetricsResponse_nextToken' - A token that can be used to retrieve the next set of results, or @null@
 -- if there are no additional results.
---
--- 'metricNames', 'listCustomMetricsResponse_metricNames' - The name of the custom metric.
 --
 -- 'httpStatus', 'listCustomMetricsResponse_httpStatus' - The response's http status code.
 newListCustomMetricsResponse ::
@@ -183,20 +183,20 @@ newListCustomMetricsResponse ::
   ListCustomMetricsResponse
 newListCustomMetricsResponse pHttpStatus_ =
   ListCustomMetricsResponse'
-    { nextToken =
+    { metricNames =
         Prelude.Nothing,
-      metricNames = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The name of the custom metric.
+listCustomMetricsResponse_metricNames :: Lens.Lens' ListCustomMetricsResponse (Prelude.Maybe [Prelude.Text])
+listCustomMetricsResponse_metricNames = Lens.lens (\ListCustomMetricsResponse' {metricNames} -> metricNames) (\s@ListCustomMetricsResponse' {} a -> s {metricNames = a} :: ListCustomMetricsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that can be used to retrieve the next set of results, or @null@
 -- if there are no additional results.
 listCustomMetricsResponse_nextToken :: Lens.Lens' ListCustomMetricsResponse (Prelude.Maybe Prelude.Text)
 listCustomMetricsResponse_nextToken = Lens.lens (\ListCustomMetricsResponse' {nextToken} -> nextToken) (\s@ListCustomMetricsResponse' {} a -> s {nextToken = a} :: ListCustomMetricsResponse)
-
--- | The name of the custom metric.
-listCustomMetricsResponse_metricNames :: Lens.Lens' ListCustomMetricsResponse (Prelude.Maybe [Prelude.Text])
-listCustomMetricsResponse_metricNames = Lens.lens (\ListCustomMetricsResponse' {metricNames} -> metricNames) (\s@ListCustomMetricsResponse' {} a -> s {metricNames = a} :: ListCustomMetricsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listCustomMetricsResponse_httpStatus :: Lens.Lens' ListCustomMetricsResponse Prelude.Int
@@ -204,6 +204,6 @@ listCustomMetricsResponse_httpStatus = Lens.lens (\ListCustomMetricsResponse' {h
 
 instance Prelude.NFData ListCustomMetricsResponse where
   rnf ListCustomMetricsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf metricNames
+    Prelude.rnf metricNames
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

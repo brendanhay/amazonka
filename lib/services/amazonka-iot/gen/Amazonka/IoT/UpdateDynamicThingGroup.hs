@@ -31,10 +31,10 @@ module Amazonka.IoT.UpdateDynamicThingGroup
     newUpdateDynamicThingGroup,
 
     -- * Request Lenses
-    updateDynamicThingGroup_indexName,
-    updateDynamicThingGroup_queryVersion,
-    updateDynamicThingGroup_queryString,
     updateDynamicThingGroup_expectedVersion,
+    updateDynamicThingGroup_indexName,
+    updateDynamicThingGroup_queryString,
+    updateDynamicThingGroup_queryVersion,
     updateDynamicThingGroup_thingGroupName,
     updateDynamicThingGroup_thingGroupProperties,
 
@@ -58,19 +58,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateDynamicThingGroup' smart constructor.
 data UpdateDynamicThingGroup = UpdateDynamicThingGroup'
-  { -- | The dynamic thing group index to update.
+  { -- | The expected version of the dynamic thing group to update.
+    expectedVersion :: Prelude.Maybe Prelude.Integer,
+    -- | The dynamic thing group index to update.
     --
     -- Currently one index is supported: @AWS_Things@.
     indexName :: Prelude.Maybe Prelude.Text,
+    -- | The dynamic thing group search query string to update.
+    queryString :: Prelude.Maybe Prelude.Text,
     -- | The dynamic thing group query version to update.
     --
     -- Currently one query version is supported: \"2017-09-30\". If not
     -- specified, the query version defaults to this value.
     queryVersion :: Prelude.Maybe Prelude.Text,
-    -- | The dynamic thing group search query string to update.
-    queryString :: Prelude.Maybe Prelude.Text,
-    -- | The expected version of the dynamic thing group to update.
-    expectedVersion :: Prelude.Maybe Prelude.Integer,
     -- | The name of the dynamic thing group to update.
     thingGroupName :: Prelude.Text,
     -- | The dynamic thing group properties to update.
@@ -86,18 +86,18 @@ data UpdateDynamicThingGroup = UpdateDynamicThingGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'expectedVersion', 'updateDynamicThingGroup_expectedVersion' - The expected version of the dynamic thing group to update.
+--
 -- 'indexName', 'updateDynamicThingGroup_indexName' - The dynamic thing group index to update.
 --
 -- Currently one index is supported: @AWS_Things@.
+--
+-- 'queryString', 'updateDynamicThingGroup_queryString' - The dynamic thing group search query string to update.
 --
 -- 'queryVersion', 'updateDynamicThingGroup_queryVersion' - The dynamic thing group query version to update.
 --
 -- Currently one query version is supported: \"2017-09-30\". If not
 -- specified, the query version defaults to this value.
---
--- 'queryString', 'updateDynamicThingGroup_queryString' - The dynamic thing group search query string to update.
---
--- 'expectedVersion', 'updateDynamicThingGroup_expectedVersion' - The expected version of the dynamic thing group to update.
 --
 -- 'thingGroupName', 'updateDynamicThingGroup_thingGroupName' - The name of the dynamic thing group to update.
 --
@@ -112,14 +112,18 @@ newUpdateDynamicThingGroup
   pThingGroupName_
   pThingGroupProperties_ =
     UpdateDynamicThingGroup'
-      { indexName =
+      { expectedVersion =
           Prelude.Nothing,
-        queryVersion = Prelude.Nothing,
+        indexName = Prelude.Nothing,
         queryString = Prelude.Nothing,
-        expectedVersion = Prelude.Nothing,
+        queryVersion = Prelude.Nothing,
         thingGroupName = pThingGroupName_,
         thingGroupProperties = pThingGroupProperties_
       }
+
+-- | The expected version of the dynamic thing group to update.
+updateDynamicThingGroup_expectedVersion :: Lens.Lens' UpdateDynamicThingGroup (Prelude.Maybe Prelude.Integer)
+updateDynamicThingGroup_expectedVersion = Lens.lens (\UpdateDynamicThingGroup' {expectedVersion} -> expectedVersion) (\s@UpdateDynamicThingGroup' {} a -> s {expectedVersion = a} :: UpdateDynamicThingGroup)
 
 -- | The dynamic thing group index to update.
 --
@@ -127,20 +131,16 @@ newUpdateDynamicThingGroup
 updateDynamicThingGroup_indexName :: Lens.Lens' UpdateDynamicThingGroup (Prelude.Maybe Prelude.Text)
 updateDynamicThingGroup_indexName = Lens.lens (\UpdateDynamicThingGroup' {indexName} -> indexName) (\s@UpdateDynamicThingGroup' {} a -> s {indexName = a} :: UpdateDynamicThingGroup)
 
+-- | The dynamic thing group search query string to update.
+updateDynamicThingGroup_queryString :: Lens.Lens' UpdateDynamicThingGroup (Prelude.Maybe Prelude.Text)
+updateDynamicThingGroup_queryString = Lens.lens (\UpdateDynamicThingGroup' {queryString} -> queryString) (\s@UpdateDynamicThingGroup' {} a -> s {queryString = a} :: UpdateDynamicThingGroup)
+
 -- | The dynamic thing group query version to update.
 --
 -- Currently one query version is supported: \"2017-09-30\". If not
 -- specified, the query version defaults to this value.
 updateDynamicThingGroup_queryVersion :: Lens.Lens' UpdateDynamicThingGroup (Prelude.Maybe Prelude.Text)
 updateDynamicThingGroup_queryVersion = Lens.lens (\UpdateDynamicThingGroup' {queryVersion} -> queryVersion) (\s@UpdateDynamicThingGroup' {} a -> s {queryVersion = a} :: UpdateDynamicThingGroup)
-
--- | The dynamic thing group search query string to update.
-updateDynamicThingGroup_queryString :: Lens.Lens' UpdateDynamicThingGroup (Prelude.Maybe Prelude.Text)
-updateDynamicThingGroup_queryString = Lens.lens (\UpdateDynamicThingGroup' {queryString} -> queryString) (\s@UpdateDynamicThingGroup' {} a -> s {queryString = a} :: UpdateDynamicThingGroup)
-
--- | The expected version of the dynamic thing group to update.
-updateDynamicThingGroup_expectedVersion :: Lens.Lens' UpdateDynamicThingGroup (Prelude.Maybe Prelude.Integer)
-updateDynamicThingGroup_expectedVersion = Lens.lens (\UpdateDynamicThingGroup' {expectedVersion} -> expectedVersion) (\s@UpdateDynamicThingGroup' {} a -> s {expectedVersion = a} :: UpdateDynamicThingGroup)
 
 -- | The name of the dynamic thing group to update.
 updateDynamicThingGroup_thingGroupName :: Lens.Lens' UpdateDynamicThingGroup Prelude.Text
@@ -166,19 +166,19 @@ instance Core.AWSRequest UpdateDynamicThingGroup where
 
 instance Prelude.Hashable UpdateDynamicThingGroup where
   hashWithSalt _salt UpdateDynamicThingGroup' {..} =
-    _salt `Prelude.hashWithSalt` indexName
-      `Prelude.hashWithSalt` queryVersion
+    _salt `Prelude.hashWithSalt` expectedVersion
+      `Prelude.hashWithSalt` indexName
       `Prelude.hashWithSalt` queryString
-      `Prelude.hashWithSalt` expectedVersion
+      `Prelude.hashWithSalt` queryVersion
       `Prelude.hashWithSalt` thingGroupName
       `Prelude.hashWithSalt` thingGroupProperties
 
 instance Prelude.NFData UpdateDynamicThingGroup where
   rnf UpdateDynamicThingGroup' {..} =
-    Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf queryVersion
+    Prelude.rnf expectedVersion
+      `Prelude.seq` Prelude.rnf indexName
       `Prelude.seq` Prelude.rnf queryString
-      `Prelude.seq` Prelude.rnf expectedVersion
+      `Prelude.seq` Prelude.rnf queryVersion
       `Prelude.seq` Prelude.rnf thingGroupName
       `Prelude.seq` Prelude.rnf thingGroupProperties
 
@@ -189,11 +189,11 @@ instance Data.ToJSON UpdateDynamicThingGroup where
   toJSON UpdateDynamicThingGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("indexName" Data..=) Prelude.<$> indexName,
-            ("queryVersion" Data..=) Prelude.<$> queryVersion,
-            ("queryString" Data..=) Prelude.<$> queryString,
-            ("expectedVersion" Data..=)
+          [ ("expectedVersion" Data..=)
               Prelude.<$> expectedVersion,
+            ("indexName" Data..=) Prelude.<$> indexName,
+            ("queryString" Data..=) Prelude.<$> queryString,
+            ("queryVersion" Data..=) Prelude.<$> queryVersion,
             Prelude.Just
               ( "thingGroupProperties"
                   Data..= thingGroupProperties

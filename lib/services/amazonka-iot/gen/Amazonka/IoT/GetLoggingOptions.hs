@@ -38,8 +38,8 @@ module Amazonka.IoT.GetLoggingOptions
     newGetLoggingOptionsResponse,
 
     -- * Response Lenses
-    getLoggingOptionsResponse_roleArn,
     getLoggingOptionsResponse_logLevel,
+    getLoggingOptionsResponse_roleArn,
     getLoggingOptionsResponse_httpStatus,
   )
 where
@@ -78,8 +78,8 @@ instance Core.AWSRequest GetLoggingOptions where
     Response.receiveJSON
       ( \s h x ->
           GetLoggingOptionsResponse'
-            Prelude.<$> (x Data..?> "roleArn")
-            Prelude.<*> (x Data..?> "logLevel")
+            Prelude.<$> (x Data..?> "logLevel")
+            Prelude.<*> (x Data..?> "roleArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -103,10 +103,10 @@ instance Data.ToQuery GetLoggingOptions where
 --
 -- /See:/ 'newGetLoggingOptionsResponse' smart constructor.
 data GetLoggingOptionsResponse = GetLoggingOptionsResponse'
-  { -- | The ARN of the IAM role that grants access.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The logging level.
+  { -- | The logging level.
     logLevel :: Prelude.Maybe LogLevel,
+    -- | The ARN of the IAM role that grants access.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -120,9 +120,9 @@ data GetLoggingOptionsResponse = GetLoggingOptionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'getLoggingOptionsResponse_roleArn' - The ARN of the IAM role that grants access.
---
 -- 'logLevel', 'getLoggingOptionsResponse_logLevel' - The logging level.
+--
+-- 'roleArn', 'getLoggingOptionsResponse_roleArn' - The ARN of the IAM role that grants access.
 --
 -- 'httpStatus', 'getLoggingOptionsResponse_httpStatus' - The response's http status code.
 newGetLoggingOptionsResponse ::
@@ -131,19 +131,19 @@ newGetLoggingOptionsResponse ::
   GetLoggingOptionsResponse
 newGetLoggingOptionsResponse pHttpStatus_ =
   GetLoggingOptionsResponse'
-    { roleArn =
+    { logLevel =
         Prelude.Nothing,
-      logLevel = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARN of the IAM role that grants access.
-getLoggingOptionsResponse_roleArn :: Lens.Lens' GetLoggingOptionsResponse (Prelude.Maybe Prelude.Text)
-getLoggingOptionsResponse_roleArn = Lens.lens (\GetLoggingOptionsResponse' {roleArn} -> roleArn) (\s@GetLoggingOptionsResponse' {} a -> s {roleArn = a} :: GetLoggingOptionsResponse)
 
 -- | The logging level.
 getLoggingOptionsResponse_logLevel :: Lens.Lens' GetLoggingOptionsResponse (Prelude.Maybe LogLevel)
 getLoggingOptionsResponse_logLevel = Lens.lens (\GetLoggingOptionsResponse' {logLevel} -> logLevel) (\s@GetLoggingOptionsResponse' {} a -> s {logLevel = a} :: GetLoggingOptionsResponse)
+
+-- | The ARN of the IAM role that grants access.
+getLoggingOptionsResponse_roleArn :: Lens.Lens' GetLoggingOptionsResponse (Prelude.Maybe Prelude.Text)
+getLoggingOptionsResponse_roleArn = Lens.lens (\GetLoggingOptionsResponse' {roleArn} -> roleArn) (\s@GetLoggingOptionsResponse' {} a -> s {roleArn = a} :: GetLoggingOptionsResponse)
 
 -- | The response's http status code.
 getLoggingOptionsResponse_httpStatus :: Lens.Lens' GetLoggingOptionsResponse Prelude.Int
@@ -151,6 +151,6 @@ getLoggingOptionsResponse_httpStatus = Lens.lens (\GetLoggingOptionsResponse' {h
 
 instance Prelude.NFData GetLoggingOptionsResponse where
   rnf GetLoggingOptionsResponse' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf logLevel
+    Prelude.rnf logLevel
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf httpStatus

@@ -36,8 +36,8 @@ module Amazonka.IoT.RegisterCertificate
 
     -- * Request Lenses
     registerCertificate_caCertificatePem,
-    registerCertificate_status,
     registerCertificate_setAsActive,
+    registerCertificate_status,
     registerCertificate_certificatePem,
 
     -- * Destructuring the Response
@@ -65,13 +65,13 @@ import qualified Amazonka.Response as Response
 data RegisterCertificate = RegisterCertificate'
   { -- | The CA certificate used to sign the device certificate being registered.
     caCertificatePem :: Prelude.Maybe Prelude.Text,
-    -- | The status of the register certificate request. Valid values that you
-    -- can use include @ACTIVE@, @INACTIVE@, and @REVOKED@.
-    status :: Prelude.Maybe CertificateStatus,
     -- | A boolean value that specifies if the certificate is set to active.
     --
     -- Valid values: @ACTIVE | INACTIVE@
     setAsActive :: Prelude.Maybe Prelude.Bool,
+    -- | The status of the register certificate request. Valid values that you
+    -- can use include @ACTIVE@, @INACTIVE@, and @REVOKED@.
+    status :: Prelude.Maybe CertificateStatus,
     -- | The certificate data, in PEM format.
     certificatePem :: Prelude.Text
   }
@@ -87,12 +87,12 @@ data RegisterCertificate = RegisterCertificate'
 --
 -- 'caCertificatePem', 'registerCertificate_caCertificatePem' - The CA certificate used to sign the device certificate being registered.
 --
--- 'status', 'registerCertificate_status' - The status of the register certificate request. Valid values that you
--- can use include @ACTIVE@, @INACTIVE@, and @REVOKED@.
---
 -- 'setAsActive', 'registerCertificate_setAsActive' - A boolean value that specifies if the certificate is set to active.
 --
 -- Valid values: @ACTIVE | INACTIVE@
+--
+-- 'status', 'registerCertificate_status' - The status of the register certificate request. Valid values that you
+-- can use include @ACTIVE@, @INACTIVE@, and @REVOKED@.
 --
 -- 'certificatePem', 'registerCertificate_certificatePem' - The certificate data, in PEM format.
 newRegisterCertificate ::
@@ -103,8 +103,8 @@ newRegisterCertificate pCertificatePem_ =
   RegisterCertificate'
     { caCertificatePem =
         Prelude.Nothing,
-      status = Prelude.Nothing,
       setAsActive = Prelude.Nothing,
+      status = Prelude.Nothing,
       certificatePem = pCertificatePem_
     }
 
@@ -112,16 +112,16 @@ newRegisterCertificate pCertificatePem_ =
 registerCertificate_caCertificatePem :: Lens.Lens' RegisterCertificate (Prelude.Maybe Prelude.Text)
 registerCertificate_caCertificatePem = Lens.lens (\RegisterCertificate' {caCertificatePem} -> caCertificatePem) (\s@RegisterCertificate' {} a -> s {caCertificatePem = a} :: RegisterCertificate)
 
--- | The status of the register certificate request. Valid values that you
--- can use include @ACTIVE@, @INACTIVE@, and @REVOKED@.
-registerCertificate_status :: Lens.Lens' RegisterCertificate (Prelude.Maybe CertificateStatus)
-registerCertificate_status = Lens.lens (\RegisterCertificate' {status} -> status) (\s@RegisterCertificate' {} a -> s {status = a} :: RegisterCertificate)
-
 -- | A boolean value that specifies if the certificate is set to active.
 --
 -- Valid values: @ACTIVE | INACTIVE@
 registerCertificate_setAsActive :: Lens.Lens' RegisterCertificate (Prelude.Maybe Prelude.Bool)
 registerCertificate_setAsActive = Lens.lens (\RegisterCertificate' {setAsActive} -> setAsActive) (\s@RegisterCertificate' {} a -> s {setAsActive = a} :: RegisterCertificate)
+
+-- | The status of the register certificate request. Valid values that you
+-- can use include @ACTIVE@, @INACTIVE@, and @REVOKED@.
+registerCertificate_status :: Lens.Lens' RegisterCertificate (Prelude.Maybe CertificateStatus)
+registerCertificate_status = Lens.lens (\RegisterCertificate' {status} -> status) (\s@RegisterCertificate' {} a -> s {status = a} :: RegisterCertificate)
 
 -- | The certificate data, in PEM format.
 registerCertificate_certificatePem :: Lens.Lens' RegisterCertificate Prelude.Text
@@ -145,15 +145,15 @@ instance Core.AWSRequest RegisterCertificate where
 instance Prelude.Hashable RegisterCertificate where
   hashWithSalt _salt RegisterCertificate' {..} =
     _salt `Prelude.hashWithSalt` caCertificatePem
-      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` setAsActive
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` certificatePem
 
 instance Prelude.NFData RegisterCertificate where
   rnf RegisterCertificate' {..} =
     Prelude.rnf caCertificatePem
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf setAsActive
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf certificatePem
 
 instance Data.ToHeaders RegisterCertificate where

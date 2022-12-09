@@ -32,9 +32,9 @@ module Amazonka.IoT.UpdateThingGroupsForThing
 
     -- * Request Lenses
     updateThingGroupsForThing_overrideDynamicGroups,
-    updateThingGroupsForThing_thingName,
-    updateThingGroupsForThing_thingGroupsToRemove,
     updateThingGroupsForThing_thingGroupsToAdd,
+    updateThingGroupsForThing_thingGroupsToRemove,
+    updateThingGroupsForThing_thingName,
 
     -- * Destructuring the Response
     UpdateThingGroupsForThingResponse (..),
@@ -60,12 +60,12 @@ data UpdateThingGroupsForThing = UpdateThingGroupsForThing'
     -- of those groups are dynamic thing groups, adding a thing to a static
     -- group removes the thing from the last dynamic group.
     overrideDynamicGroups :: Prelude.Maybe Prelude.Bool,
-    -- | The thing whose group memberships will be updated.
-    thingName :: Prelude.Maybe Prelude.Text,
+    -- | The groups to which the thing will be added.
+    thingGroupsToAdd :: Prelude.Maybe [Prelude.Text],
     -- | The groups from which the thing will be removed.
     thingGroupsToRemove :: Prelude.Maybe [Prelude.Text],
-    -- | The groups to which the thing will be added.
-    thingGroupsToAdd :: Prelude.Maybe [Prelude.Text]
+    -- | The thing whose group memberships will be updated.
+    thingName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,20 +82,20 @@ data UpdateThingGroupsForThing = UpdateThingGroupsForThing'
 -- of those groups are dynamic thing groups, adding a thing to a static
 -- group removes the thing from the last dynamic group.
 --
--- 'thingName', 'updateThingGroupsForThing_thingName' - The thing whose group memberships will be updated.
+-- 'thingGroupsToAdd', 'updateThingGroupsForThing_thingGroupsToAdd' - The groups to which the thing will be added.
 --
 -- 'thingGroupsToRemove', 'updateThingGroupsForThing_thingGroupsToRemove' - The groups from which the thing will be removed.
 --
--- 'thingGroupsToAdd', 'updateThingGroupsForThing_thingGroupsToAdd' - The groups to which the thing will be added.
+-- 'thingName', 'updateThingGroupsForThing_thingName' - The thing whose group memberships will be updated.
 newUpdateThingGroupsForThing ::
   UpdateThingGroupsForThing
 newUpdateThingGroupsForThing =
   UpdateThingGroupsForThing'
     { overrideDynamicGroups =
         Prelude.Nothing,
-      thingName = Prelude.Nothing,
+      thingGroupsToAdd = Prelude.Nothing,
       thingGroupsToRemove = Prelude.Nothing,
-      thingGroupsToAdd = Prelude.Nothing
+      thingName = Prelude.Nothing
     }
 
 -- | Override dynamic thing groups with static thing groups when 10-group
@@ -105,17 +105,17 @@ newUpdateThingGroupsForThing =
 updateThingGroupsForThing_overrideDynamicGroups :: Lens.Lens' UpdateThingGroupsForThing (Prelude.Maybe Prelude.Bool)
 updateThingGroupsForThing_overrideDynamicGroups = Lens.lens (\UpdateThingGroupsForThing' {overrideDynamicGroups} -> overrideDynamicGroups) (\s@UpdateThingGroupsForThing' {} a -> s {overrideDynamicGroups = a} :: UpdateThingGroupsForThing)
 
--- | The thing whose group memberships will be updated.
-updateThingGroupsForThing_thingName :: Lens.Lens' UpdateThingGroupsForThing (Prelude.Maybe Prelude.Text)
-updateThingGroupsForThing_thingName = Lens.lens (\UpdateThingGroupsForThing' {thingName} -> thingName) (\s@UpdateThingGroupsForThing' {} a -> s {thingName = a} :: UpdateThingGroupsForThing)
+-- | The groups to which the thing will be added.
+updateThingGroupsForThing_thingGroupsToAdd :: Lens.Lens' UpdateThingGroupsForThing (Prelude.Maybe [Prelude.Text])
+updateThingGroupsForThing_thingGroupsToAdd = Lens.lens (\UpdateThingGroupsForThing' {thingGroupsToAdd} -> thingGroupsToAdd) (\s@UpdateThingGroupsForThing' {} a -> s {thingGroupsToAdd = a} :: UpdateThingGroupsForThing) Prelude.. Lens.mapping Lens.coerced
 
 -- | The groups from which the thing will be removed.
 updateThingGroupsForThing_thingGroupsToRemove :: Lens.Lens' UpdateThingGroupsForThing (Prelude.Maybe [Prelude.Text])
 updateThingGroupsForThing_thingGroupsToRemove = Lens.lens (\UpdateThingGroupsForThing' {thingGroupsToRemove} -> thingGroupsToRemove) (\s@UpdateThingGroupsForThing' {} a -> s {thingGroupsToRemove = a} :: UpdateThingGroupsForThing) Prelude.. Lens.mapping Lens.coerced
 
--- | The groups to which the thing will be added.
-updateThingGroupsForThing_thingGroupsToAdd :: Lens.Lens' UpdateThingGroupsForThing (Prelude.Maybe [Prelude.Text])
-updateThingGroupsForThing_thingGroupsToAdd = Lens.lens (\UpdateThingGroupsForThing' {thingGroupsToAdd} -> thingGroupsToAdd) (\s@UpdateThingGroupsForThing' {} a -> s {thingGroupsToAdd = a} :: UpdateThingGroupsForThing) Prelude.. Lens.mapping Lens.coerced
+-- | The thing whose group memberships will be updated.
+updateThingGroupsForThing_thingName :: Lens.Lens' UpdateThingGroupsForThing (Prelude.Maybe Prelude.Text)
+updateThingGroupsForThing_thingName = Lens.lens (\UpdateThingGroupsForThing' {thingName} -> thingName) (\s@UpdateThingGroupsForThing' {} a -> s {thingName = a} :: UpdateThingGroupsForThing)
 
 instance Core.AWSRequest UpdateThingGroupsForThing where
   type
@@ -133,16 +133,16 @@ instance Core.AWSRequest UpdateThingGroupsForThing where
 instance Prelude.Hashable UpdateThingGroupsForThing where
   hashWithSalt _salt UpdateThingGroupsForThing' {..} =
     _salt `Prelude.hashWithSalt` overrideDynamicGroups
-      `Prelude.hashWithSalt` thingName
-      `Prelude.hashWithSalt` thingGroupsToRemove
       `Prelude.hashWithSalt` thingGroupsToAdd
+      `Prelude.hashWithSalt` thingGroupsToRemove
+      `Prelude.hashWithSalt` thingName
 
 instance Prelude.NFData UpdateThingGroupsForThing where
   rnf UpdateThingGroupsForThing' {..} =
     Prelude.rnf overrideDynamicGroups
-      `Prelude.seq` Prelude.rnf thingName
-      `Prelude.seq` Prelude.rnf thingGroupsToRemove
       `Prelude.seq` Prelude.rnf thingGroupsToAdd
+      `Prelude.seq` Prelude.rnf thingGroupsToRemove
+      `Prelude.seq` Prelude.rnf thingName
 
 instance Data.ToHeaders UpdateThingGroupsForThing where
   toHeaders = Prelude.const Prelude.mempty
@@ -153,11 +153,11 @@ instance Data.ToJSON UpdateThingGroupsForThing where
       ( Prelude.catMaybes
           [ ("overrideDynamicGroups" Data..=)
               Prelude.<$> overrideDynamicGroups,
-            ("thingName" Data..=) Prelude.<$> thingName,
+            ("thingGroupsToAdd" Data..=)
+              Prelude.<$> thingGroupsToAdd,
             ("thingGroupsToRemove" Data..=)
               Prelude.<$> thingGroupsToRemove,
-            ("thingGroupsToAdd" Data..=)
-              Prelude.<$> thingGroupsToAdd
+            ("thingName" Data..=) Prelude.<$> thingName
           ]
       )
 

@@ -31,11 +31,11 @@ module Amazonka.IoT.CreateDomainConfiguration
     newCreateDomainConfiguration,
 
     -- * Request Lenses
-    createDomainConfiguration_tags,
-    createDomainConfiguration_serverCertificateArns,
-    createDomainConfiguration_domainName,
     createDomainConfiguration_authorizerConfig,
+    createDomainConfiguration_domainName,
+    createDomainConfiguration_serverCertificateArns,
     createDomainConfiguration_serviceType,
+    createDomainConfiguration_tags,
     createDomainConfiguration_validationCertificateArn,
     createDomainConfiguration_domainConfigurationName,
 
@@ -60,7 +60,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDomainConfiguration' smart constructor.
 data CreateDomainConfiguration = CreateDomainConfiguration'
-  { -- | Metadata which can be used to manage the domain configuration.
+  { -- | An object that specifies the authorization service for a domain.
+    authorizerConfig :: Prelude.Maybe AuthorizerConfig,
+    -- | The name of the domain.
+    domainName :: Prelude.Maybe Prelude.Text,
+    -- | The ARNs of the certificates that IoT passes to the device during the
+    -- TLS handshake. Currently you can specify only one certificate ARN. This
+    -- value is not required for Amazon Web Services-managed domains.
+    serverCertificateArns :: Prelude.Maybe [Prelude.Text],
+    -- | The type of service delivered by the endpoint.
+    --
+    -- Amazon Web Services IoT Core currently supports only the @DATA@ service
+    -- type.
+    serviceType :: Prelude.Maybe ServiceType,
+    -- | Metadata which can be used to manage the domain configuration.
     --
     -- For URI Request parameters use format: ...key1=value1&key2=value2...
     --
@@ -70,19 +83,6 @@ data CreateDomainConfiguration = CreateDomainConfiguration'
     -- For the cli-input-json file use format: \"tags\":
     -- \"key1=value1&key2=value2...\"
     tags :: Prelude.Maybe [Tag],
-    -- | The ARNs of the certificates that IoT passes to the device during the
-    -- TLS handshake. Currently you can specify only one certificate ARN. This
-    -- value is not required for Amazon Web Services-managed domains.
-    serverCertificateArns :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the domain.
-    domainName :: Prelude.Maybe Prelude.Text,
-    -- | An object that specifies the authorization service for a domain.
-    authorizerConfig :: Prelude.Maybe AuthorizerConfig,
-    -- | The type of service delivered by the endpoint.
-    --
-    -- Amazon Web Services IoT Core currently supports only the @DATA@ service
-    -- type.
-    serviceType :: Prelude.Maybe ServiceType,
     -- | The certificate used to validate the server certificate and prove domain
     -- name ownership. This certificate must be signed by a public certificate
     -- authority. This value is not required for Amazon Web Services-managed
@@ -102,6 +102,19 @@ data CreateDomainConfiguration = CreateDomainConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'authorizerConfig', 'createDomainConfiguration_authorizerConfig' - An object that specifies the authorization service for a domain.
+--
+-- 'domainName', 'createDomainConfiguration_domainName' - The name of the domain.
+--
+-- 'serverCertificateArns', 'createDomainConfiguration_serverCertificateArns' - The ARNs of the certificates that IoT passes to the device during the
+-- TLS handshake. Currently you can specify only one certificate ARN. This
+-- value is not required for Amazon Web Services-managed domains.
+--
+-- 'serviceType', 'createDomainConfiguration_serviceType' - The type of service delivered by the endpoint.
+--
+-- Amazon Web Services IoT Core currently supports only the @DATA@ service
+-- type.
+--
 -- 'tags', 'createDomainConfiguration_tags' - Metadata which can be used to manage the domain configuration.
 --
 -- For URI Request parameters use format: ...key1=value1&key2=value2...
@@ -111,19 +124,6 @@ data CreateDomainConfiguration = CreateDomainConfiguration'
 --
 -- For the cli-input-json file use format: \"tags\":
 -- \"key1=value1&key2=value2...\"
---
--- 'serverCertificateArns', 'createDomainConfiguration_serverCertificateArns' - The ARNs of the certificates that IoT passes to the device during the
--- TLS handshake. Currently you can specify only one certificate ARN. This
--- value is not required for Amazon Web Services-managed domains.
---
--- 'domainName', 'createDomainConfiguration_domainName' - The name of the domain.
---
--- 'authorizerConfig', 'createDomainConfiguration_authorizerConfig' - An object that specifies the authorization service for a domain.
---
--- 'serviceType', 'createDomainConfiguration_serviceType' - The type of service delivered by the endpoint.
---
--- Amazon Web Services IoT Core currently supports only the @DATA@ service
--- type.
 --
 -- 'validationCertificateArn', 'createDomainConfiguration_validationCertificateArn' - The certificate used to validate the server certificate and prove domain
 -- name ownership. This certificate must be signed by a public certificate
@@ -139,15 +139,37 @@ newCreateDomainConfiguration ::
 newCreateDomainConfiguration
   pDomainConfigurationName_ =
     CreateDomainConfiguration'
-      { tags = Prelude.Nothing,
-        serverCertificateArns = Prelude.Nothing,
+      { authorizerConfig =
+          Prelude.Nothing,
         domainName = Prelude.Nothing,
-        authorizerConfig = Prelude.Nothing,
+        serverCertificateArns = Prelude.Nothing,
         serviceType = Prelude.Nothing,
+        tags = Prelude.Nothing,
         validationCertificateArn = Prelude.Nothing,
         domainConfigurationName =
           pDomainConfigurationName_
       }
+
+-- | An object that specifies the authorization service for a domain.
+createDomainConfiguration_authorizerConfig :: Lens.Lens' CreateDomainConfiguration (Prelude.Maybe AuthorizerConfig)
+createDomainConfiguration_authorizerConfig = Lens.lens (\CreateDomainConfiguration' {authorizerConfig} -> authorizerConfig) (\s@CreateDomainConfiguration' {} a -> s {authorizerConfig = a} :: CreateDomainConfiguration)
+
+-- | The name of the domain.
+createDomainConfiguration_domainName :: Lens.Lens' CreateDomainConfiguration (Prelude.Maybe Prelude.Text)
+createDomainConfiguration_domainName = Lens.lens (\CreateDomainConfiguration' {domainName} -> domainName) (\s@CreateDomainConfiguration' {} a -> s {domainName = a} :: CreateDomainConfiguration)
+
+-- | The ARNs of the certificates that IoT passes to the device during the
+-- TLS handshake. Currently you can specify only one certificate ARN. This
+-- value is not required for Amazon Web Services-managed domains.
+createDomainConfiguration_serverCertificateArns :: Lens.Lens' CreateDomainConfiguration (Prelude.Maybe [Prelude.Text])
+createDomainConfiguration_serverCertificateArns = Lens.lens (\CreateDomainConfiguration' {serverCertificateArns} -> serverCertificateArns) (\s@CreateDomainConfiguration' {} a -> s {serverCertificateArns = a} :: CreateDomainConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | The type of service delivered by the endpoint.
+--
+-- Amazon Web Services IoT Core currently supports only the @DATA@ service
+-- type.
+createDomainConfiguration_serviceType :: Lens.Lens' CreateDomainConfiguration (Prelude.Maybe ServiceType)
+createDomainConfiguration_serviceType = Lens.lens (\CreateDomainConfiguration' {serviceType} -> serviceType) (\s@CreateDomainConfiguration' {} a -> s {serviceType = a} :: CreateDomainConfiguration)
 
 -- | Metadata which can be used to manage the domain configuration.
 --
@@ -160,27 +182,6 @@ newCreateDomainConfiguration
 -- \"key1=value1&key2=value2...\"
 createDomainConfiguration_tags :: Lens.Lens' CreateDomainConfiguration (Prelude.Maybe [Tag])
 createDomainConfiguration_tags = Lens.lens (\CreateDomainConfiguration' {tags} -> tags) (\s@CreateDomainConfiguration' {} a -> s {tags = a} :: CreateDomainConfiguration) Prelude.. Lens.mapping Lens.coerced
-
--- | The ARNs of the certificates that IoT passes to the device during the
--- TLS handshake. Currently you can specify only one certificate ARN. This
--- value is not required for Amazon Web Services-managed domains.
-createDomainConfiguration_serverCertificateArns :: Lens.Lens' CreateDomainConfiguration (Prelude.Maybe [Prelude.Text])
-createDomainConfiguration_serverCertificateArns = Lens.lens (\CreateDomainConfiguration' {serverCertificateArns} -> serverCertificateArns) (\s@CreateDomainConfiguration' {} a -> s {serverCertificateArns = a} :: CreateDomainConfiguration) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the domain.
-createDomainConfiguration_domainName :: Lens.Lens' CreateDomainConfiguration (Prelude.Maybe Prelude.Text)
-createDomainConfiguration_domainName = Lens.lens (\CreateDomainConfiguration' {domainName} -> domainName) (\s@CreateDomainConfiguration' {} a -> s {domainName = a} :: CreateDomainConfiguration)
-
--- | An object that specifies the authorization service for a domain.
-createDomainConfiguration_authorizerConfig :: Lens.Lens' CreateDomainConfiguration (Prelude.Maybe AuthorizerConfig)
-createDomainConfiguration_authorizerConfig = Lens.lens (\CreateDomainConfiguration' {authorizerConfig} -> authorizerConfig) (\s@CreateDomainConfiguration' {} a -> s {authorizerConfig = a} :: CreateDomainConfiguration)
-
--- | The type of service delivered by the endpoint.
---
--- Amazon Web Services IoT Core currently supports only the @DATA@ service
--- type.
-createDomainConfiguration_serviceType :: Lens.Lens' CreateDomainConfiguration (Prelude.Maybe ServiceType)
-createDomainConfiguration_serviceType = Lens.lens (\CreateDomainConfiguration' {serviceType} -> serviceType) (\s@CreateDomainConfiguration' {} a -> s {serviceType = a} :: CreateDomainConfiguration)
 
 -- | The certificate used to validate the server certificate and prove domain
 -- name ownership. This certificate must be signed by a public certificate
@@ -211,21 +212,21 @@ instance Core.AWSRequest CreateDomainConfiguration where
 
 instance Prelude.Hashable CreateDomainConfiguration where
   hashWithSalt _salt CreateDomainConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` serverCertificateArns
+    _salt `Prelude.hashWithSalt` authorizerConfig
       `Prelude.hashWithSalt` domainName
-      `Prelude.hashWithSalt` authorizerConfig
+      `Prelude.hashWithSalt` serverCertificateArns
       `Prelude.hashWithSalt` serviceType
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` validationCertificateArn
       `Prelude.hashWithSalt` domainConfigurationName
 
 instance Prelude.NFData CreateDomainConfiguration where
   rnf CreateDomainConfiguration' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf serverCertificateArns
+    Prelude.rnf authorizerConfig
       `Prelude.seq` Prelude.rnf domainName
-      `Prelude.seq` Prelude.rnf authorizerConfig
+      `Prelude.seq` Prelude.rnf serverCertificateArns
       `Prelude.seq` Prelude.rnf serviceType
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf validationCertificateArn
       `Prelude.seq` Prelude.rnf domainConfigurationName
 
@@ -236,13 +237,13 @@ instance Data.ToJSON CreateDomainConfiguration where
   toJSON CreateDomainConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
+          [ ("authorizerConfig" Data..=)
+              Prelude.<$> authorizerConfig,
+            ("domainName" Data..=) Prelude.<$> domainName,
             ("serverCertificateArns" Data..=)
               Prelude.<$> serverCertificateArns,
-            ("domainName" Data..=) Prelude.<$> domainName,
-            ("authorizerConfig" Data..=)
-              Prelude.<$> authorizerConfig,
             ("serviceType" Data..=) Prelude.<$> serviceType,
+            ("tags" Data..=) Prelude.<$> tags,
             ("validationCertificateArn" Data..=)
               Prelude.<$> validationCertificateArn
           ]

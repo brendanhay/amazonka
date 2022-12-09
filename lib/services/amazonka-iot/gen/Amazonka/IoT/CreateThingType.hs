@@ -40,9 +40,9 @@ module Amazonka.IoT.CreateThingType
     newCreateThingTypeResponse,
 
     -- * Response Lenses
+    createThingTypeResponse_thingTypeArn,
     createThingTypeResponse_thingTypeId,
     createThingTypeResponse_thingTypeName,
-    createThingTypeResponse_thingTypeArn,
     createThingTypeResponse_httpStatus,
   )
 where
@@ -120,9 +120,9 @@ instance Core.AWSRequest CreateThingType where
     Response.receiveJSON
       ( \s h x ->
           CreateThingTypeResponse'
-            Prelude.<$> (x Data..?> "thingTypeId")
+            Prelude.<$> (x Data..?> "thingTypeArn")
+            Prelude.<*> (x Data..?> "thingTypeId")
             Prelude.<*> (x Data..?> "thingTypeName")
-            Prelude.<*> (x Data..?> "thingTypeArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,12 +163,12 @@ instance Data.ToQuery CreateThingType where
 --
 -- /See:/ 'newCreateThingTypeResponse' smart constructor.
 data CreateThingTypeResponse = CreateThingTypeResponse'
-  { -- | The thing type ID.
+  { -- | The Amazon Resource Name (ARN) of the thing type.
+    thingTypeArn :: Prelude.Maybe Prelude.Text,
+    -- | The thing type ID.
     thingTypeId :: Prelude.Maybe Prelude.Text,
     -- | The name of the thing type.
     thingTypeName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the thing type.
-    thingTypeArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -182,11 +182,11 @@ data CreateThingTypeResponse = CreateThingTypeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'thingTypeArn', 'createThingTypeResponse_thingTypeArn' - The Amazon Resource Name (ARN) of the thing type.
+--
 -- 'thingTypeId', 'createThingTypeResponse_thingTypeId' - The thing type ID.
 --
 -- 'thingTypeName', 'createThingTypeResponse_thingTypeName' - The name of the thing type.
---
--- 'thingTypeArn', 'createThingTypeResponse_thingTypeArn' - The Amazon Resource Name (ARN) of the thing type.
 --
 -- 'httpStatus', 'createThingTypeResponse_httpStatus' - The response's http status code.
 newCreateThingTypeResponse ::
@@ -195,12 +195,16 @@ newCreateThingTypeResponse ::
   CreateThingTypeResponse
 newCreateThingTypeResponse pHttpStatus_ =
   CreateThingTypeResponse'
-    { thingTypeId =
+    { thingTypeArn =
         Prelude.Nothing,
+      thingTypeId = Prelude.Nothing,
       thingTypeName = Prelude.Nothing,
-      thingTypeArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name (ARN) of the thing type.
+createThingTypeResponse_thingTypeArn :: Lens.Lens' CreateThingTypeResponse (Prelude.Maybe Prelude.Text)
+createThingTypeResponse_thingTypeArn = Lens.lens (\CreateThingTypeResponse' {thingTypeArn} -> thingTypeArn) (\s@CreateThingTypeResponse' {} a -> s {thingTypeArn = a} :: CreateThingTypeResponse)
 
 -- | The thing type ID.
 createThingTypeResponse_thingTypeId :: Lens.Lens' CreateThingTypeResponse (Prelude.Maybe Prelude.Text)
@@ -210,17 +214,13 @@ createThingTypeResponse_thingTypeId = Lens.lens (\CreateThingTypeResponse' {thin
 createThingTypeResponse_thingTypeName :: Lens.Lens' CreateThingTypeResponse (Prelude.Maybe Prelude.Text)
 createThingTypeResponse_thingTypeName = Lens.lens (\CreateThingTypeResponse' {thingTypeName} -> thingTypeName) (\s@CreateThingTypeResponse' {} a -> s {thingTypeName = a} :: CreateThingTypeResponse)
 
--- | The Amazon Resource Name (ARN) of the thing type.
-createThingTypeResponse_thingTypeArn :: Lens.Lens' CreateThingTypeResponse (Prelude.Maybe Prelude.Text)
-createThingTypeResponse_thingTypeArn = Lens.lens (\CreateThingTypeResponse' {thingTypeArn} -> thingTypeArn) (\s@CreateThingTypeResponse' {} a -> s {thingTypeArn = a} :: CreateThingTypeResponse)
-
 -- | The response's http status code.
 createThingTypeResponse_httpStatus :: Lens.Lens' CreateThingTypeResponse Prelude.Int
 createThingTypeResponse_httpStatus = Lens.lens (\CreateThingTypeResponse' {httpStatus} -> httpStatus) (\s@CreateThingTypeResponse' {} a -> s {httpStatus = a} :: CreateThingTypeResponse)
 
 instance Prelude.NFData CreateThingTypeResponse where
   rnf CreateThingTypeResponse' {..} =
-    Prelude.rnf thingTypeId
+    Prelude.rnf thingTypeArn
+      `Prelude.seq` Prelude.rnf thingTypeId
       `Prelude.seq` Prelude.rnf thingTypeName
-      `Prelude.seq` Prelude.rnf thingTypeArn
       `Prelude.seq` Prelude.rnf httpStatus

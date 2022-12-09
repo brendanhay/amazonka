@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRelatedResource' smart constructor.
 data RelatedResource = RelatedResource'
-  { -- | The type of resource.
-    resourceType :: Prelude.Maybe ResourceType,
-    -- | Other information about the resource.
+  { -- | Other information about the resource.
     additionalInfo :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Information that identifies the resource.
-    resourceIdentifier :: Prelude.Maybe ResourceIdentifier
+    resourceIdentifier :: Prelude.Maybe ResourceIdentifier,
+    -- | The type of resource.
+    resourceType :: Prelude.Maybe ResourceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,23 +47,19 @@ data RelatedResource = RelatedResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'relatedResource_resourceType' - The type of resource.
---
 -- 'additionalInfo', 'relatedResource_additionalInfo' - Other information about the resource.
 --
 -- 'resourceIdentifier', 'relatedResource_resourceIdentifier' - Information that identifies the resource.
+--
+-- 'resourceType', 'relatedResource_resourceType' - The type of resource.
 newRelatedResource ::
   RelatedResource
 newRelatedResource =
   RelatedResource'
-    { resourceType = Prelude.Nothing,
-      additionalInfo = Prelude.Nothing,
-      resourceIdentifier = Prelude.Nothing
+    { additionalInfo = Prelude.Nothing,
+      resourceIdentifier = Prelude.Nothing,
+      resourceType = Prelude.Nothing
     }
-
--- | The type of resource.
-relatedResource_resourceType :: Lens.Lens' RelatedResource (Prelude.Maybe ResourceType)
-relatedResource_resourceType = Lens.lens (\RelatedResource' {resourceType} -> resourceType) (\s@RelatedResource' {} a -> s {resourceType = a} :: RelatedResource)
 
 -- | Other information about the resource.
 relatedResource_additionalInfo :: Lens.Lens' RelatedResource (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -73,25 +69,29 @@ relatedResource_additionalInfo = Lens.lens (\RelatedResource' {additionalInfo} -
 relatedResource_resourceIdentifier :: Lens.Lens' RelatedResource (Prelude.Maybe ResourceIdentifier)
 relatedResource_resourceIdentifier = Lens.lens (\RelatedResource' {resourceIdentifier} -> resourceIdentifier) (\s@RelatedResource' {} a -> s {resourceIdentifier = a} :: RelatedResource)
 
+-- | The type of resource.
+relatedResource_resourceType :: Lens.Lens' RelatedResource (Prelude.Maybe ResourceType)
+relatedResource_resourceType = Lens.lens (\RelatedResource' {resourceType} -> resourceType) (\s@RelatedResource' {} a -> s {resourceType = a} :: RelatedResource)
+
 instance Data.FromJSON RelatedResource where
   parseJSON =
     Data.withObject
       "RelatedResource"
       ( \x ->
           RelatedResource'
-            Prelude.<$> (x Data..:? "resourceType")
-            Prelude.<*> (x Data..:? "additionalInfo" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "additionalInfo" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "resourceIdentifier")
+            Prelude.<*> (x Data..:? "resourceType")
       )
 
 instance Prelude.Hashable RelatedResource where
   hashWithSalt _salt RelatedResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` additionalInfo
+    _salt `Prelude.hashWithSalt` additionalInfo
       `Prelude.hashWithSalt` resourceIdentifier
+      `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData RelatedResource where
   rnf RelatedResource' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf additionalInfo
+    Prelude.rnf additionalInfo
       `Prelude.seq` Prelude.rnf resourceIdentifier
+      `Prelude.seq` Prelude.rnf resourceType

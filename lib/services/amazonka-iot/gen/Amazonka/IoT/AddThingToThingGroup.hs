@@ -32,10 +32,10 @@ module Amazonka.IoT.AddThingToThingGroup
 
     -- * Request Lenses
     addThingToThingGroup_overrideDynamicGroups,
-    addThingToThingGroup_thingName,
     addThingToThingGroup_thingArn,
-    addThingToThingGroup_thingGroupName,
     addThingToThingGroup_thingGroupArn,
+    addThingToThingGroup_thingGroupName,
+    addThingToThingGroup_thingName,
 
     -- * Destructuring the Response
     AddThingToThingGroupResponse (..),
@@ -61,14 +61,14 @@ data AddThingToThingGroup = AddThingToThingGroup'
     -- of those groups are dynamic thing groups, adding a thing to a static
     -- group removes the thing from the last dynamic group.
     overrideDynamicGroups :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the thing to add to a group.
-    thingName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the thing to add to a group.
     thingArn :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the group to which you are adding a thing.
+    thingGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the group to which you are adding a thing.
     thingGroupName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the group to which you are adding a thing.
-    thingGroupArn :: Prelude.Maybe Prelude.Text
+    -- | The name of the thing to add to a group.
+    thingName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,23 +85,23 @@ data AddThingToThingGroup = AddThingToThingGroup'
 -- of those groups are dynamic thing groups, adding a thing to a static
 -- group removes the thing from the last dynamic group.
 --
--- 'thingName', 'addThingToThingGroup_thingName' - The name of the thing to add to a group.
---
 -- 'thingArn', 'addThingToThingGroup_thingArn' - The ARN of the thing to add to a group.
+--
+-- 'thingGroupArn', 'addThingToThingGroup_thingGroupArn' - The ARN of the group to which you are adding a thing.
 --
 -- 'thingGroupName', 'addThingToThingGroup_thingGroupName' - The name of the group to which you are adding a thing.
 --
--- 'thingGroupArn', 'addThingToThingGroup_thingGroupArn' - The ARN of the group to which you are adding a thing.
+-- 'thingName', 'addThingToThingGroup_thingName' - The name of the thing to add to a group.
 newAddThingToThingGroup ::
   AddThingToThingGroup
 newAddThingToThingGroup =
   AddThingToThingGroup'
     { overrideDynamicGroups =
         Prelude.Nothing,
-      thingName = Prelude.Nothing,
       thingArn = Prelude.Nothing,
+      thingGroupArn = Prelude.Nothing,
       thingGroupName = Prelude.Nothing,
-      thingGroupArn = Prelude.Nothing
+      thingName = Prelude.Nothing
     }
 
 -- | Override dynamic thing groups with static thing groups when 10-group
@@ -111,21 +111,21 @@ newAddThingToThingGroup =
 addThingToThingGroup_overrideDynamicGroups :: Lens.Lens' AddThingToThingGroup (Prelude.Maybe Prelude.Bool)
 addThingToThingGroup_overrideDynamicGroups = Lens.lens (\AddThingToThingGroup' {overrideDynamicGroups} -> overrideDynamicGroups) (\s@AddThingToThingGroup' {} a -> s {overrideDynamicGroups = a} :: AddThingToThingGroup)
 
--- | The name of the thing to add to a group.
-addThingToThingGroup_thingName :: Lens.Lens' AddThingToThingGroup (Prelude.Maybe Prelude.Text)
-addThingToThingGroup_thingName = Lens.lens (\AddThingToThingGroup' {thingName} -> thingName) (\s@AddThingToThingGroup' {} a -> s {thingName = a} :: AddThingToThingGroup)
-
 -- | The ARN of the thing to add to a group.
 addThingToThingGroup_thingArn :: Lens.Lens' AddThingToThingGroup (Prelude.Maybe Prelude.Text)
 addThingToThingGroup_thingArn = Lens.lens (\AddThingToThingGroup' {thingArn} -> thingArn) (\s@AddThingToThingGroup' {} a -> s {thingArn = a} :: AddThingToThingGroup)
+
+-- | The ARN of the group to which you are adding a thing.
+addThingToThingGroup_thingGroupArn :: Lens.Lens' AddThingToThingGroup (Prelude.Maybe Prelude.Text)
+addThingToThingGroup_thingGroupArn = Lens.lens (\AddThingToThingGroup' {thingGroupArn} -> thingGroupArn) (\s@AddThingToThingGroup' {} a -> s {thingGroupArn = a} :: AddThingToThingGroup)
 
 -- | The name of the group to which you are adding a thing.
 addThingToThingGroup_thingGroupName :: Lens.Lens' AddThingToThingGroup (Prelude.Maybe Prelude.Text)
 addThingToThingGroup_thingGroupName = Lens.lens (\AddThingToThingGroup' {thingGroupName} -> thingGroupName) (\s@AddThingToThingGroup' {} a -> s {thingGroupName = a} :: AddThingToThingGroup)
 
--- | The ARN of the group to which you are adding a thing.
-addThingToThingGroup_thingGroupArn :: Lens.Lens' AddThingToThingGroup (Prelude.Maybe Prelude.Text)
-addThingToThingGroup_thingGroupArn = Lens.lens (\AddThingToThingGroup' {thingGroupArn} -> thingGroupArn) (\s@AddThingToThingGroup' {} a -> s {thingGroupArn = a} :: AddThingToThingGroup)
+-- | The name of the thing to add to a group.
+addThingToThingGroup_thingName :: Lens.Lens' AddThingToThingGroup (Prelude.Maybe Prelude.Text)
+addThingToThingGroup_thingName = Lens.lens (\AddThingToThingGroup' {thingName} -> thingName) (\s@AddThingToThingGroup' {} a -> s {thingName = a} :: AddThingToThingGroup)
 
 instance Core.AWSRequest AddThingToThingGroup where
   type
@@ -143,18 +143,18 @@ instance Core.AWSRequest AddThingToThingGroup where
 instance Prelude.Hashable AddThingToThingGroup where
   hashWithSalt _salt AddThingToThingGroup' {..} =
     _salt `Prelude.hashWithSalt` overrideDynamicGroups
-      `Prelude.hashWithSalt` thingName
       `Prelude.hashWithSalt` thingArn
-      `Prelude.hashWithSalt` thingGroupName
       `Prelude.hashWithSalt` thingGroupArn
+      `Prelude.hashWithSalt` thingGroupName
+      `Prelude.hashWithSalt` thingName
 
 instance Prelude.NFData AddThingToThingGroup where
   rnf AddThingToThingGroup' {..} =
     Prelude.rnf overrideDynamicGroups
-      `Prelude.seq` Prelude.rnf thingName
       `Prelude.seq` Prelude.rnf thingArn
-      `Prelude.seq` Prelude.rnf thingGroupName
       `Prelude.seq` Prelude.rnf thingGroupArn
+      `Prelude.seq` Prelude.rnf thingGroupName
+      `Prelude.seq` Prelude.rnf thingName
 
 instance Data.ToHeaders AddThingToThingGroup where
   toHeaders = Prelude.const Prelude.mempty
@@ -165,11 +165,11 @@ instance Data.ToJSON AddThingToThingGroup where
       ( Prelude.catMaybes
           [ ("overrideDynamicGroups" Data..=)
               Prelude.<$> overrideDynamicGroups,
-            ("thingName" Data..=) Prelude.<$> thingName,
             ("thingArn" Data..=) Prelude.<$> thingArn,
+            ("thingGroupArn" Data..=) Prelude.<$> thingGroupArn,
             ("thingGroupName" Data..=)
               Prelude.<$> thingGroupName,
-            ("thingGroupArn" Data..=) Prelude.<$> thingGroupArn
+            ("thingName" Data..=) Prelude.<$> thingName
           ]
       )
 

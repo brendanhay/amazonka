@@ -33,11 +33,11 @@ module Amazonka.IoT.ListAuditSuppressions
     newListAuditSuppressions,
 
     -- * Request Lenses
-    listAuditSuppressions_nextToken,
-    listAuditSuppressions_checkName,
-    listAuditSuppressions_resourceIdentifier,
-    listAuditSuppressions_maxResults,
     listAuditSuppressions_ascendingOrder,
+    listAuditSuppressions_checkName,
+    listAuditSuppressions_maxResults,
+    listAuditSuppressions_nextToken,
+    listAuditSuppressions_resourceIdentifier,
 
     -- * Destructuring the Response
     ListAuditSuppressionsResponse (..),
@@ -60,16 +60,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAuditSuppressions' smart constructor.
 data ListAuditSuppressions = ListAuditSuppressions'
-  { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    checkName :: Prelude.Maybe Prelude.Text,
-    resourceIdentifier :: Prelude.Maybe ResourceIdentifier,
-    -- | The maximum number of results to return at one time. The default is 25.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Determines whether suppressions are listed in ascending order by
+  { -- | Determines whether suppressions are listed in ascending order by
     -- expiration date or not. If parameter isn\'t provided,
     -- @ascendingOrder=true@.
-    ascendingOrder :: Prelude.Maybe Prelude.Bool
+    ascendingOrder :: Prelude.Maybe Prelude.Bool,
+    checkName :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return at one time. The default is 25.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    resourceIdentifier :: Prelude.Maybe ResourceIdentifier
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,49 +81,50 @@ data ListAuditSuppressions = ListAuditSuppressions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAuditSuppressions_nextToken' - The token for the next set of results.
---
--- 'checkName', 'listAuditSuppressions_checkName' - Undocumented member.
---
--- 'resourceIdentifier', 'listAuditSuppressions_resourceIdentifier' - Undocumented member.
---
--- 'maxResults', 'listAuditSuppressions_maxResults' - The maximum number of results to return at one time. The default is 25.
---
 -- 'ascendingOrder', 'listAuditSuppressions_ascendingOrder' - Determines whether suppressions are listed in ascending order by
 -- expiration date or not. If parameter isn\'t provided,
 -- @ascendingOrder=true@.
+--
+-- 'checkName', 'listAuditSuppressions_checkName' - Undocumented member.
+--
+-- 'maxResults', 'listAuditSuppressions_maxResults' - The maximum number of results to return at one time. The default is 25.
+--
+-- 'nextToken', 'listAuditSuppressions_nextToken' - The token for the next set of results.
+--
+-- 'resourceIdentifier', 'listAuditSuppressions_resourceIdentifier' - Undocumented member.
 newListAuditSuppressions ::
   ListAuditSuppressions
 newListAuditSuppressions =
   ListAuditSuppressions'
-    { nextToken = Prelude.Nothing,
+    { ascendingOrder =
+        Prelude.Nothing,
       checkName = Prelude.Nothing,
-      resourceIdentifier = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      ascendingOrder = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      resourceIdentifier = Prelude.Nothing
     }
-
--- | The token for the next set of results.
-listAuditSuppressions_nextToken :: Lens.Lens' ListAuditSuppressions (Prelude.Maybe Prelude.Text)
-listAuditSuppressions_nextToken = Lens.lens (\ListAuditSuppressions' {nextToken} -> nextToken) (\s@ListAuditSuppressions' {} a -> s {nextToken = a} :: ListAuditSuppressions)
-
--- | Undocumented member.
-listAuditSuppressions_checkName :: Lens.Lens' ListAuditSuppressions (Prelude.Maybe Prelude.Text)
-listAuditSuppressions_checkName = Lens.lens (\ListAuditSuppressions' {checkName} -> checkName) (\s@ListAuditSuppressions' {} a -> s {checkName = a} :: ListAuditSuppressions)
-
--- | Undocumented member.
-listAuditSuppressions_resourceIdentifier :: Lens.Lens' ListAuditSuppressions (Prelude.Maybe ResourceIdentifier)
-listAuditSuppressions_resourceIdentifier = Lens.lens (\ListAuditSuppressions' {resourceIdentifier} -> resourceIdentifier) (\s@ListAuditSuppressions' {} a -> s {resourceIdentifier = a} :: ListAuditSuppressions)
-
--- | The maximum number of results to return at one time. The default is 25.
-listAuditSuppressions_maxResults :: Lens.Lens' ListAuditSuppressions (Prelude.Maybe Prelude.Natural)
-listAuditSuppressions_maxResults = Lens.lens (\ListAuditSuppressions' {maxResults} -> maxResults) (\s@ListAuditSuppressions' {} a -> s {maxResults = a} :: ListAuditSuppressions)
 
 -- | Determines whether suppressions are listed in ascending order by
 -- expiration date or not. If parameter isn\'t provided,
 -- @ascendingOrder=true@.
 listAuditSuppressions_ascendingOrder :: Lens.Lens' ListAuditSuppressions (Prelude.Maybe Prelude.Bool)
 listAuditSuppressions_ascendingOrder = Lens.lens (\ListAuditSuppressions' {ascendingOrder} -> ascendingOrder) (\s@ListAuditSuppressions' {} a -> s {ascendingOrder = a} :: ListAuditSuppressions)
+
+-- | Undocumented member.
+listAuditSuppressions_checkName :: Lens.Lens' ListAuditSuppressions (Prelude.Maybe Prelude.Text)
+listAuditSuppressions_checkName = Lens.lens (\ListAuditSuppressions' {checkName} -> checkName) (\s@ListAuditSuppressions' {} a -> s {checkName = a} :: ListAuditSuppressions)
+
+-- | The maximum number of results to return at one time. The default is 25.
+listAuditSuppressions_maxResults :: Lens.Lens' ListAuditSuppressions (Prelude.Maybe Prelude.Natural)
+listAuditSuppressions_maxResults = Lens.lens (\ListAuditSuppressions' {maxResults} -> maxResults) (\s@ListAuditSuppressions' {} a -> s {maxResults = a} :: ListAuditSuppressions)
+
+-- | The token for the next set of results.
+listAuditSuppressions_nextToken :: Lens.Lens' ListAuditSuppressions (Prelude.Maybe Prelude.Text)
+listAuditSuppressions_nextToken = Lens.lens (\ListAuditSuppressions' {nextToken} -> nextToken) (\s@ListAuditSuppressions' {} a -> s {nextToken = a} :: ListAuditSuppressions)
+
+-- | Undocumented member.
+listAuditSuppressions_resourceIdentifier :: Lens.Lens' ListAuditSuppressions (Prelude.Maybe ResourceIdentifier)
+listAuditSuppressions_resourceIdentifier = Lens.lens (\ListAuditSuppressions' {resourceIdentifier} -> resourceIdentifier) (\s@ListAuditSuppressions' {} a -> s {resourceIdentifier = a} :: ListAuditSuppressions)
 
 instance Core.AWSPager ListAuditSuppressions where
   page rq rs
@@ -164,19 +165,19 @@ instance Core.AWSRequest ListAuditSuppressions where
 
 instance Prelude.Hashable ListAuditSuppressions where
   hashWithSalt _salt ListAuditSuppressions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` ascendingOrder
       `Prelude.hashWithSalt` checkName
-      `Prelude.hashWithSalt` resourceIdentifier
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` ascendingOrder
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` resourceIdentifier
 
 instance Prelude.NFData ListAuditSuppressions where
   rnf ListAuditSuppressions' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf ascendingOrder
       `Prelude.seq` Prelude.rnf checkName
-      `Prelude.seq` Prelude.rnf resourceIdentifier
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf ascendingOrder
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceIdentifier
 
 instance Data.ToHeaders ListAuditSuppressions where
   toHeaders = Prelude.const Prelude.mempty
@@ -185,13 +186,13 @@ instance Data.ToJSON ListAuditSuppressions where
   toJSON ListAuditSuppressions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+          [ ("ascendingOrder" Data..=)
+              Prelude.<$> ascendingOrder,
             ("checkName" Data..=) Prelude.<$> checkName,
-            ("resourceIdentifier" Data..=)
-              Prelude.<$> resourceIdentifier,
             ("maxResults" Data..=) Prelude.<$> maxResults,
-            ("ascendingOrder" Data..=)
-              Prelude.<$> ascendingOrder
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("resourceIdentifier" Data..=)
+              Prelude.<$> resourceIdentifier
           ]
       )
 

@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJobExecutionSummaryForThing' smart constructor.
 data JobExecutionSummaryForThing = JobExecutionSummaryForThing'
-  { -- | The unique identifier you assigned to this job when it was created.
-    jobId :: Prelude.Maybe Prelude.Text,
-    -- | Contains a subset of information about a job execution.
-    jobExecutionSummary :: Prelude.Maybe JobExecutionSummary
+  { -- | Contains a subset of information about a job execution.
+    jobExecutionSummary :: Prelude.Maybe JobExecutionSummary,
+    -- | The unique identifier you assigned to this job when it was created.
+    jobId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data JobExecutionSummaryForThing = JobExecutionSummaryForThing'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobId', 'jobExecutionSummaryForThing_jobId' - The unique identifier you assigned to this job when it was created.
---
 -- 'jobExecutionSummary', 'jobExecutionSummaryForThing_jobExecutionSummary' - Contains a subset of information about a job execution.
+--
+-- 'jobId', 'jobExecutionSummaryForThing_jobId' - The unique identifier you assigned to this job when it was created.
 newJobExecutionSummaryForThing ::
   JobExecutionSummaryForThing
 newJobExecutionSummaryForThing =
   JobExecutionSummaryForThing'
-    { jobId =
+    { jobExecutionSummary =
         Prelude.Nothing,
-      jobExecutionSummary = Prelude.Nothing
+      jobId = Prelude.Nothing
     }
-
--- | The unique identifier you assigned to this job when it was created.
-jobExecutionSummaryForThing_jobId :: Lens.Lens' JobExecutionSummaryForThing (Prelude.Maybe Prelude.Text)
-jobExecutionSummaryForThing_jobId = Lens.lens (\JobExecutionSummaryForThing' {jobId} -> jobId) (\s@JobExecutionSummaryForThing' {} a -> s {jobId = a} :: JobExecutionSummaryForThing)
 
 -- | Contains a subset of information about a job execution.
 jobExecutionSummaryForThing_jobExecutionSummary :: Lens.Lens' JobExecutionSummaryForThing (Prelude.Maybe JobExecutionSummary)
 jobExecutionSummaryForThing_jobExecutionSummary = Lens.lens (\JobExecutionSummaryForThing' {jobExecutionSummary} -> jobExecutionSummary) (\s@JobExecutionSummaryForThing' {} a -> s {jobExecutionSummary = a} :: JobExecutionSummaryForThing)
+
+-- | The unique identifier you assigned to this job when it was created.
+jobExecutionSummaryForThing_jobId :: Lens.Lens' JobExecutionSummaryForThing (Prelude.Maybe Prelude.Text)
+jobExecutionSummaryForThing_jobId = Lens.lens (\JobExecutionSummaryForThing' {jobId} -> jobId) (\s@JobExecutionSummaryForThing' {} a -> s {jobId = a} :: JobExecutionSummaryForThing)
 
 instance Data.FromJSON JobExecutionSummaryForThing where
   parseJSON =
@@ -70,16 +70,16 @@ instance Data.FromJSON JobExecutionSummaryForThing where
       "JobExecutionSummaryForThing"
       ( \x ->
           JobExecutionSummaryForThing'
-            Prelude.<$> (x Data..:? "jobId")
-            Prelude.<*> (x Data..:? "jobExecutionSummary")
+            Prelude.<$> (x Data..:? "jobExecutionSummary")
+            Prelude.<*> (x Data..:? "jobId")
       )
 
 instance Prelude.Hashable JobExecutionSummaryForThing where
   hashWithSalt _salt JobExecutionSummaryForThing' {..} =
-    _salt `Prelude.hashWithSalt` jobId
-      `Prelude.hashWithSalt` jobExecutionSummary
+    _salt `Prelude.hashWithSalt` jobExecutionSummary
+      `Prelude.hashWithSalt` jobId
 
 instance Prelude.NFData JobExecutionSummaryForThing where
   rnf JobExecutionSummaryForThing' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf jobExecutionSummary
+    Prelude.rnf jobExecutionSummary
+      `Prelude.seq` Prelude.rnf jobId

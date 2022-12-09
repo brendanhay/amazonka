@@ -32,8 +32,8 @@ module Amazonka.IoT.CreateCustomMetric
     newCreateCustomMetric,
 
     -- * Request Lenses
-    createCustomMetric_tags,
     createCustomMetric_displayName,
+    createCustomMetric_tags,
     createCustomMetric_metricName,
     createCustomMetric_metricType,
     createCustomMetric_clientRequestToken,
@@ -59,13 +59,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateCustomMetric' smart constructor.
 data CreateCustomMetric = CreateCustomMetric'
-  { -- | Metadata that can be used to manage the custom metric.
-    tags :: Prelude.Maybe [Tag],
-    -- | The friendly name in the console for the custom metric. This name
+  { -- | The friendly name in the console for the custom metric. This name
     -- doesn\'t have to be unique. Don\'t use this name as the metric
     -- identifier in the device metric report. You can update the friendly name
     -- after you define it.
     displayName :: Prelude.Maybe Prelude.Text,
+    -- | Metadata that can be used to manage the custom metric.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the custom metric. This will be used in the metric report
     -- submitted from the device\/thing. The name can\'t begin with @aws:@. You
     -- can\'t change the name after you define it.
@@ -92,12 +92,12 @@ data CreateCustomMetric = CreateCustomMetric'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createCustomMetric_tags' - Metadata that can be used to manage the custom metric.
---
 -- 'displayName', 'createCustomMetric_displayName' - The friendly name in the console for the custom metric. This name
 -- doesn\'t have to be unique. Don\'t use this name as the metric
 -- identifier in the device metric report. You can update the friendly name
 -- after you define it.
+--
+-- 'tags', 'createCustomMetric_tags' - Metadata that can be used to manage the custom metric.
 --
 -- 'metricName', 'createCustomMetric_metricName' - The name of the custom metric. This will be used in the metric report
 -- submitted from the device\/thing. The name can\'t begin with @aws:@. You
@@ -126,16 +126,12 @@ newCreateCustomMetric
   pMetricType_
   pClientRequestToken_ =
     CreateCustomMetric'
-      { tags = Prelude.Nothing,
-        displayName = Prelude.Nothing,
+      { displayName = Prelude.Nothing,
+        tags = Prelude.Nothing,
         metricName = pMetricName_,
         metricType = pMetricType_,
         clientRequestToken = pClientRequestToken_
       }
-
--- | Metadata that can be used to manage the custom metric.
-createCustomMetric_tags :: Lens.Lens' CreateCustomMetric (Prelude.Maybe [Tag])
-createCustomMetric_tags = Lens.lens (\CreateCustomMetric' {tags} -> tags) (\s@CreateCustomMetric' {} a -> s {tags = a} :: CreateCustomMetric) Prelude.. Lens.mapping Lens.coerced
 
 -- | The friendly name in the console for the custom metric. This name
 -- doesn\'t have to be unique. Don\'t use this name as the metric
@@ -143,6 +139,10 @@ createCustomMetric_tags = Lens.lens (\CreateCustomMetric' {tags} -> tags) (\s@Cr
 -- after you define it.
 createCustomMetric_displayName :: Lens.Lens' CreateCustomMetric (Prelude.Maybe Prelude.Text)
 createCustomMetric_displayName = Lens.lens (\CreateCustomMetric' {displayName} -> displayName) (\s@CreateCustomMetric' {} a -> s {displayName = a} :: CreateCustomMetric)
+
+-- | Metadata that can be used to manage the custom metric.
+createCustomMetric_tags :: Lens.Lens' CreateCustomMetric (Prelude.Maybe [Tag])
+createCustomMetric_tags = Lens.lens (\CreateCustomMetric' {tags} -> tags) (\s@CreateCustomMetric' {} a -> s {tags = a} :: CreateCustomMetric) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the custom metric. This will be used in the metric report
 -- submitted from the device\/thing. The name can\'t begin with @aws:@. You
@@ -182,16 +182,16 @@ instance Core.AWSRequest CreateCustomMetric where
 
 instance Prelude.Hashable CreateCustomMetric where
   hashWithSalt _salt CreateCustomMetric' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` displayName
+    _salt `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` metricType
       `Prelude.hashWithSalt` clientRequestToken
 
 instance Prelude.NFData CreateCustomMetric where
   rnf CreateCustomMetric' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf displayName
+    Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf metricType
       `Prelude.seq` Prelude.rnf clientRequestToken
@@ -203,8 +203,8 @@ instance Data.ToJSON CreateCustomMetric where
   toJSON CreateCustomMetric' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("displayName" Data..=) Prelude.<$> displayName,
+          [ ("displayName" Data..=) Prelude.<$> displayName,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("metricType" Data..= metricType),
             Prelude.Just
               ("clientRequestToken" Data..= clientRequestToken)

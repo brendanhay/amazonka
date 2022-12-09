@@ -31,8 +31,8 @@ module Amazonka.IoT.UpdateRoleAlias
     newUpdateRoleAlias,
 
     -- * Request Lenses
-    updateRoleAlias_roleArn,
     updateRoleAlias_credentialDurationSeconds,
+    updateRoleAlias_roleArn,
     updateRoleAlias_roleAlias,
 
     -- * Destructuring the Response
@@ -56,13 +56,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateRoleAlias' smart constructor.
 data UpdateRoleAlias = UpdateRoleAlias'
-  { -- | The role ARN.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The number of seconds the credential will be valid.
+  { -- | The number of seconds the credential will be valid.
     --
     -- This value must be less than or equal to the maximum session duration of
     -- the IAM role that the role alias references.
     credentialDurationSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | The role ARN.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The role alias to update.
     roleAlias :: Prelude.Text
   }
@@ -76,12 +76,12 @@ data UpdateRoleAlias = UpdateRoleAlias'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'updateRoleAlias_roleArn' - The role ARN.
---
 -- 'credentialDurationSeconds', 'updateRoleAlias_credentialDurationSeconds' - The number of seconds the credential will be valid.
 --
 -- This value must be less than or equal to the maximum session duration of
 -- the IAM role that the role alias references.
+--
+-- 'roleArn', 'updateRoleAlias_roleArn' - The role ARN.
 --
 -- 'roleAlias', 'updateRoleAlias_roleAlias' - The role alias to update.
 newUpdateRoleAlias ::
@@ -90,14 +90,11 @@ newUpdateRoleAlias ::
   UpdateRoleAlias
 newUpdateRoleAlias pRoleAlias_ =
   UpdateRoleAlias'
-    { roleArn = Prelude.Nothing,
-      credentialDurationSeconds = Prelude.Nothing,
+    { credentialDurationSeconds =
+        Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       roleAlias = pRoleAlias_
     }
-
--- | The role ARN.
-updateRoleAlias_roleArn :: Lens.Lens' UpdateRoleAlias (Prelude.Maybe Prelude.Text)
-updateRoleAlias_roleArn = Lens.lens (\UpdateRoleAlias' {roleArn} -> roleArn) (\s@UpdateRoleAlias' {} a -> s {roleArn = a} :: UpdateRoleAlias)
 
 -- | The number of seconds the credential will be valid.
 --
@@ -105,6 +102,10 @@ updateRoleAlias_roleArn = Lens.lens (\UpdateRoleAlias' {roleArn} -> roleArn) (\s
 -- the IAM role that the role alias references.
 updateRoleAlias_credentialDurationSeconds :: Lens.Lens' UpdateRoleAlias (Prelude.Maybe Prelude.Natural)
 updateRoleAlias_credentialDurationSeconds = Lens.lens (\UpdateRoleAlias' {credentialDurationSeconds} -> credentialDurationSeconds) (\s@UpdateRoleAlias' {} a -> s {credentialDurationSeconds = a} :: UpdateRoleAlias)
+
+-- | The role ARN.
+updateRoleAlias_roleArn :: Lens.Lens' UpdateRoleAlias (Prelude.Maybe Prelude.Text)
+updateRoleAlias_roleArn = Lens.lens (\UpdateRoleAlias' {roleArn} -> roleArn) (\s@UpdateRoleAlias' {} a -> s {roleArn = a} :: UpdateRoleAlias)
 
 -- | The role alias to update.
 updateRoleAlias_roleAlias :: Lens.Lens' UpdateRoleAlias Prelude.Text
@@ -127,14 +128,15 @@ instance Core.AWSRequest UpdateRoleAlias where
 
 instance Prelude.Hashable UpdateRoleAlias where
   hashWithSalt _salt UpdateRoleAlias' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
+    _salt
       `Prelude.hashWithSalt` credentialDurationSeconds
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` roleAlias
 
 instance Prelude.NFData UpdateRoleAlias where
   rnf UpdateRoleAlias' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf credentialDurationSeconds
+    Prelude.rnf credentialDurationSeconds
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf roleAlias
 
 instance Data.ToHeaders UpdateRoleAlias where
@@ -144,9 +146,9 @@ instance Data.ToJSON UpdateRoleAlias where
   toJSON UpdateRoleAlias' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("roleArn" Data..=) Prelude.<$> roleArn,
-            ("credentialDurationSeconds" Data..=)
-              Prelude.<$> credentialDurationSeconds
+          [ ("credentialDurationSeconds" Data..=)
+              Prelude.<$> credentialDurationSeconds,
+            ("roleArn" Data..=) Prelude.<$> roleArn
           ]
       )
 

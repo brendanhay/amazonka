@@ -31,12 +31,12 @@ module Amazonka.IoT.CreateAuthorizer
     newCreateAuthorizer,
 
     -- * Request Lenses
+    createAuthorizer_enableCachingForHttp,
+    createAuthorizer_signingDisabled,
+    createAuthorizer_status,
     createAuthorizer_tags,
     createAuthorizer_tokenKeyName,
-    createAuthorizer_status,
-    createAuthorizer_signingDisabled,
     createAuthorizer_tokenSigningPublicKeys,
-    createAuthorizer_enableCachingForHttp,
     createAuthorizer_authorizerName,
     createAuthorizer_authorizerFunctionArn,
 
@@ -61,7 +61,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateAuthorizer' smart constructor.
 data CreateAuthorizer = CreateAuthorizer'
-  { -- | Metadata which can be used to manage the custom authorizer.
+  { -- | When @true@, the result from the authorizer’s Lambda function is cached
+    -- for clients that use persistent HTTP connections. The results are cached
+    -- for the time specified by the Lambda function in
+    -- @refreshAfterInSeconds@. This value does not affect authorization of
+    -- clients that use MQTT connections.
+    --
+    -- The default value is @false@.
+    enableCachingForHttp :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies whether IoT validates the token signature in an authorization
+    -- request.
+    signingDisabled :: Prelude.Maybe Prelude.Bool,
+    -- | The status of the create authorizer request.
+    status :: Prelude.Maybe AuthorizerStatus,
+    -- | Metadata which can be used to manage the custom authorizer.
     --
     -- For URI Request parameters use format: ...key1=value1&key2=value2...
     --
@@ -74,22 +87,9 @@ data CreateAuthorizer = CreateAuthorizer'
     -- | The name of the token key used to extract the token from the HTTP
     -- headers.
     tokenKeyName :: Prelude.Maybe Prelude.Text,
-    -- | The status of the create authorizer request.
-    status :: Prelude.Maybe AuthorizerStatus,
-    -- | Specifies whether IoT validates the token signature in an authorization
-    -- request.
-    signingDisabled :: Prelude.Maybe Prelude.Bool,
     -- | The public keys used to verify the digital signature returned by your
     -- custom authentication service.
     tokenSigningPublicKeys :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | When @true@, the result from the authorizer’s Lambda function is cached
-    -- for clients that use persistent HTTP connections. The results are cached
-    -- for the time specified by the Lambda function in
-    -- @refreshAfterInSeconds@. This value does not affect authorization of
-    -- clients that use MQTT connections.
-    --
-    -- The default value is @false@.
-    enableCachingForHttp :: Prelude.Maybe Prelude.Bool,
     -- | The authorizer name.
     authorizerName :: Prelude.Text,
     -- | The ARN of the authorizer\'s Lambda function.
@@ -105,6 +105,19 @@ data CreateAuthorizer = CreateAuthorizer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'enableCachingForHttp', 'createAuthorizer_enableCachingForHttp' - When @true@, the result from the authorizer’s Lambda function is cached
+-- for clients that use persistent HTTP connections. The results are cached
+-- for the time specified by the Lambda function in
+-- @refreshAfterInSeconds@. This value does not affect authorization of
+-- clients that use MQTT connections.
+--
+-- The default value is @false@.
+--
+-- 'signingDisabled', 'createAuthorizer_signingDisabled' - Specifies whether IoT validates the token signature in an authorization
+-- request.
+--
+-- 'status', 'createAuthorizer_status' - The status of the create authorizer request.
+--
 -- 'tags', 'createAuthorizer_tags' - Metadata which can be used to manage the custom authorizer.
 --
 -- For URI Request parameters use format: ...key1=value1&key2=value2...
@@ -118,21 +131,8 @@ data CreateAuthorizer = CreateAuthorizer'
 -- 'tokenKeyName', 'createAuthorizer_tokenKeyName' - The name of the token key used to extract the token from the HTTP
 -- headers.
 --
--- 'status', 'createAuthorizer_status' - The status of the create authorizer request.
---
--- 'signingDisabled', 'createAuthorizer_signingDisabled' - Specifies whether IoT validates the token signature in an authorization
--- request.
---
 -- 'tokenSigningPublicKeys', 'createAuthorizer_tokenSigningPublicKeys' - The public keys used to verify the digital signature returned by your
 -- custom authentication service.
---
--- 'enableCachingForHttp', 'createAuthorizer_enableCachingForHttp' - When @true@, the result from the authorizer’s Lambda function is cached
--- for clients that use persistent HTTP connections. The results are cached
--- for the time specified by the Lambda function in
--- @refreshAfterInSeconds@. This value does not affect authorization of
--- clients that use MQTT connections.
---
--- The default value is @false@.
 --
 -- 'authorizerName', 'createAuthorizer_authorizerName' - The authorizer name.
 --
@@ -147,15 +147,35 @@ newCreateAuthorizer
   pAuthorizerName_
   pAuthorizerFunctionArn_ =
     CreateAuthorizer'
-      { tags = Prelude.Nothing,
-        tokenKeyName = Prelude.Nothing,
-        status = Prelude.Nothing,
+      { enableCachingForHttp =
+          Prelude.Nothing,
         signingDisabled = Prelude.Nothing,
+        status = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        tokenKeyName = Prelude.Nothing,
         tokenSigningPublicKeys = Prelude.Nothing,
-        enableCachingForHttp = Prelude.Nothing,
         authorizerName = pAuthorizerName_,
         authorizerFunctionArn = pAuthorizerFunctionArn_
       }
+
+-- | When @true@, the result from the authorizer’s Lambda function is cached
+-- for clients that use persistent HTTP connections. The results are cached
+-- for the time specified by the Lambda function in
+-- @refreshAfterInSeconds@. This value does not affect authorization of
+-- clients that use MQTT connections.
+--
+-- The default value is @false@.
+createAuthorizer_enableCachingForHttp :: Lens.Lens' CreateAuthorizer (Prelude.Maybe Prelude.Bool)
+createAuthorizer_enableCachingForHttp = Lens.lens (\CreateAuthorizer' {enableCachingForHttp} -> enableCachingForHttp) (\s@CreateAuthorizer' {} a -> s {enableCachingForHttp = a} :: CreateAuthorizer)
+
+-- | Specifies whether IoT validates the token signature in an authorization
+-- request.
+createAuthorizer_signingDisabled :: Lens.Lens' CreateAuthorizer (Prelude.Maybe Prelude.Bool)
+createAuthorizer_signingDisabled = Lens.lens (\CreateAuthorizer' {signingDisabled} -> signingDisabled) (\s@CreateAuthorizer' {} a -> s {signingDisabled = a} :: CreateAuthorizer)
+
+-- | The status of the create authorizer request.
+createAuthorizer_status :: Lens.Lens' CreateAuthorizer (Prelude.Maybe AuthorizerStatus)
+createAuthorizer_status = Lens.lens (\CreateAuthorizer' {status} -> status) (\s@CreateAuthorizer' {} a -> s {status = a} :: CreateAuthorizer)
 
 -- | Metadata which can be used to manage the custom authorizer.
 --
@@ -174,29 +194,10 @@ createAuthorizer_tags = Lens.lens (\CreateAuthorizer' {tags} -> tags) (\s@Create
 createAuthorizer_tokenKeyName :: Lens.Lens' CreateAuthorizer (Prelude.Maybe Prelude.Text)
 createAuthorizer_tokenKeyName = Lens.lens (\CreateAuthorizer' {tokenKeyName} -> tokenKeyName) (\s@CreateAuthorizer' {} a -> s {tokenKeyName = a} :: CreateAuthorizer)
 
--- | The status of the create authorizer request.
-createAuthorizer_status :: Lens.Lens' CreateAuthorizer (Prelude.Maybe AuthorizerStatus)
-createAuthorizer_status = Lens.lens (\CreateAuthorizer' {status} -> status) (\s@CreateAuthorizer' {} a -> s {status = a} :: CreateAuthorizer)
-
--- | Specifies whether IoT validates the token signature in an authorization
--- request.
-createAuthorizer_signingDisabled :: Lens.Lens' CreateAuthorizer (Prelude.Maybe Prelude.Bool)
-createAuthorizer_signingDisabled = Lens.lens (\CreateAuthorizer' {signingDisabled} -> signingDisabled) (\s@CreateAuthorizer' {} a -> s {signingDisabled = a} :: CreateAuthorizer)
-
 -- | The public keys used to verify the digital signature returned by your
 -- custom authentication service.
 createAuthorizer_tokenSigningPublicKeys :: Lens.Lens' CreateAuthorizer (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createAuthorizer_tokenSigningPublicKeys = Lens.lens (\CreateAuthorizer' {tokenSigningPublicKeys} -> tokenSigningPublicKeys) (\s@CreateAuthorizer' {} a -> s {tokenSigningPublicKeys = a} :: CreateAuthorizer) Prelude.. Lens.mapping Lens.coerced
-
--- | When @true@, the result from the authorizer’s Lambda function is cached
--- for clients that use persistent HTTP connections. The results are cached
--- for the time specified by the Lambda function in
--- @refreshAfterInSeconds@. This value does not affect authorization of
--- clients that use MQTT connections.
---
--- The default value is @false@.
-createAuthorizer_enableCachingForHttp :: Lens.Lens' CreateAuthorizer (Prelude.Maybe Prelude.Bool)
-createAuthorizer_enableCachingForHttp = Lens.lens (\CreateAuthorizer' {enableCachingForHttp} -> enableCachingForHttp) (\s@CreateAuthorizer' {} a -> s {enableCachingForHttp = a} :: CreateAuthorizer)
 
 -- | The authorizer name.
 createAuthorizer_authorizerName :: Lens.Lens' CreateAuthorizer Prelude.Text
@@ -223,23 +224,23 @@ instance Core.AWSRequest CreateAuthorizer where
 
 instance Prelude.Hashable CreateAuthorizer where
   hashWithSalt _salt CreateAuthorizer' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` tokenKeyName
-      `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` enableCachingForHttp
       `Prelude.hashWithSalt` signingDisabled
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` tokenKeyName
       `Prelude.hashWithSalt` tokenSigningPublicKeys
-      `Prelude.hashWithSalt` enableCachingForHttp
       `Prelude.hashWithSalt` authorizerName
       `Prelude.hashWithSalt` authorizerFunctionArn
 
 instance Prelude.NFData CreateAuthorizer where
   rnf CreateAuthorizer' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf tokenKeyName
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf enableCachingForHttp
       `Prelude.seq` Prelude.rnf signingDisabled
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf tokenKeyName
       `Prelude.seq` Prelude.rnf tokenSigningPublicKeys
-      `Prelude.seq` Prelude.rnf enableCachingForHttp
       `Prelude.seq` Prelude.rnf authorizerName
       `Prelude.seq` Prelude.rnf authorizerFunctionArn
 
@@ -250,15 +251,15 @@ instance Data.ToJSON CreateAuthorizer where
   toJSON CreateAuthorizer' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("tokenKeyName" Data..=) Prelude.<$> tokenKeyName,
-            ("status" Data..=) Prelude.<$> status,
+          [ ("enableCachingForHttp" Data..=)
+              Prelude.<$> enableCachingForHttp,
             ("signingDisabled" Data..=)
               Prelude.<$> signingDisabled,
+            ("status" Data..=) Prelude.<$> status,
+            ("tags" Data..=) Prelude.<$> tags,
+            ("tokenKeyName" Data..=) Prelude.<$> tokenKeyName,
             ("tokenSigningPublicKeys" Data..=)
               Prelude.<$> tokenSigningPublicKeys,
-            ("enableCachingForHttp" Data..=)
-              Prelude.<$> enableCachingForHttp,
             Prelude.Just
               ( "authorizerFunctionArn"
                   Data..= authorizerFunctionArn

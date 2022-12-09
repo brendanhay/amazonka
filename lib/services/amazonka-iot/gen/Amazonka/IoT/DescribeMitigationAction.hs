@@ -38,14 +38,14 @@ module Amazonka.IoT.DescribeMitigationAction
     newDescribeMitigationActionResponse,
 
     -- * Response Lenses
-    describeMitigationActionResponse_actionName,
-    describeMitigationActionResponse_roleArn,
-    describeMitigationActionResponse_actionType,
-    describeMitigationActionResponse_lastModifiedDate,
-    describeMitigationActionResponse_creationDate,
-    describeMitigationActionResponse_actionParams,
-    describeMitigationActionResponse_actionId,
     describeMitigationActionResponse_actionArn,
+    describeMitigationActionResponse_actionId,
+    describeMitigationActionResponse_actionName,
+    describeMitigationActionResponse_actionParams,
+    describeMitigationActionResponse_actionType,
+    describeMitigationActionResponse_creationDate,
+    describeMitigationActionResponse_lastModifiedDate,
+    describeMitigationActionResponse_roleArn,
     describeMitigationActionResponse_httpStatus,
   )
 where
@@ -98,14 +98,14 @@ instance Core.AWSRequest DescribeMitigationAction where
     Response.receiveJSON
       ( \s h x ->
           DescribeMitigationActionResponse'
-            Prelude.<$> (x Data..?> "actionName")
-            Prelude.<*> (x Data..?> "roleArn")
-            Prelude.<*> (x Data..?> "actionType")
-            Prelude.<*> (x Data..?> "lastModifiedDate")
-            Prelude.<*> (x Data..?> "creationDate")
-            Prelude.<*> (x Data..?> "actionParams")
+            Prelude.<$> (x Data..?> "actionArn")
             Prelude.<*> (x Data..?> "actionId")
-            Prelude.<*> (x Data..?> "actionArn")
+            Prelude.<*> (x Data..?> "actionName")
+            Prelude.<*> (x Data..?> "actionParams")
+            Prelude.<*> (x Data..?> "actionType")
+            Prelude.<*> (x Data..?> "creationDate")
+            Prelude.<*> (x Data..?> "lastModifiedDate")
+            Prelude.<*> (x Data..?> "roleArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,24 +130,24 @@ instance Data.ToQuery DescribeMitigationAction where
 
 -- | /See:/ 'newDescribeMitigationActionResponse' smart constructor.
 data DescribeMitigationActionResponse = DescribeMitigationActionResponse'
-  { -- | The friendly name that uniquely identifies the mitigation action.
+  { -- | The ARN that identifies this migration action.
+    actionArn :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for this action.
+    actionId :: Prelude.Maybe Prelude.Text,
+    -- | The friendly name that uniquely identifies the mitigation action.
     actionName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the IAM role used to apply this action.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The type of mitigation action.
-    actionType :: Prelude.Maybe MitigationActionType,
-    -- | The date and time when the mitigation action was last changed.
-    lastModifiedDate :: Prelude.Maybe Data.POSIX,
-    -- | The date and time when the mitigation action was added to your Amazon
-    -- Web Services accounts.
-    creationDate :: Prelude.Maybe Data.POSIX,
     -- | Parameters that control how the mitigation action is applied, specific
     -- to the type of mitigation action.
     actionParams :: Prelude.Maybe MitigationActionParams,
-    -- | A unique identifier for this action.
-    actionId :: Prelude.Maybe Prelude.Text,
-    -- | The ARN that identifies this migration action.
-    actionArn :: Prelude.Maybe Prelude.Text,
+    -- | The type of mitigation action.
+    actionType :: Prelude.Maybe MitigationActionType,
+    -- | The date and time when the mitigation action was added to your Amazon
+    -- Web Services accounts.
+    creationDate :: Prelude.Maybe Data.POSIX,
+    -- | The date and time when the mitigation action was last changed.
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
+    -- | The ARN of the IAM role used to apply this action.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -161,23 +161,23 @@ data DescribeMitigationActionResponse = DescribeMitigationActionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'actionArn', 'describeMitigationActionResponse_actionArn' - The ARN that identifies this migration action.
+--
+-- 'actionId', 'describeMitigationActionResponse_actionId' - A unique identifier for this action.
+--
 -- 'actionName', 'describeMitigationActionResponse_actionName' - The friendly name that uniquely identifies the mitigation action.
---
--- 'roleArn', 'describeMitigationActionResponse_roleArn' - The ARN of the IAM role used to apply this action.
---
--- 'actionType', 'describeMitigationActionResponse_actionType' - The type of mitigation action.
---
--- 'lastModifiedDate', 'describeMitigationActionResponse_lastModifiedDate' - The date and time when the mitigation action was last changed.
---
--- 'creationDate', 'describeMitigationActionResponse_creationDate' - The date and time when the mitigation action was added to your Amazon
--- Web Services accounts.
 --
 -- 'actionParams', 'describeMitigationActionResponse_actionParams' - Parameters that control how the mitigation action is applied, specific
 -- to the type of mitigation action.
 --
--- 'actionId', 'describeMitigationActionResponse_actionId' - A unique identifier for this action.
+-- 'actionType', 'describeMitigationActionResponse_actionType' - The type of mitigation action.
 --
--- 'actionArn', 'describeMitigationActionResponse_actionArn' - The ARN that identifies this migration action.
+-- 'creationDate', 'describeMitigationActionResponse_creationDate' - The date and time when the mitigation action was added to your Amazon
+-- Web Services accounts.
+--
+-- 'lastModifiedDate', 'describeMitigationActionResponse_lastModifiedDate' - The date and time when the mitigation action was last changed.
+--
+-- 'roleArn', 'describeMitigationActionResponse_roleArn' - The ARN of the IAM role used to apply this action.
 --
 -- 'httpStatus', 'describeMitigationActionResponse_httpStatus' - The response's http status code.
 newDescribeMitigationActionResponse ::
@@ -186,51 +186,51 @@ newDescribeMitigationActionResponse ::
   DescribeMitigationActionResponse
 newDescribeMitigationActionResponse pHttpStatus_ =
   DescribeMitigationActionResponse'
-    { actionName =
+    { actionArn =
         Prelude.Nothing,
-      roleArn = Prelude.Nothing,
-      actionType = Prelude.Nothing,
-      lastModifiedDate = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
-      actionParams = Prelude.Nothing,
       actionId = Prelude.Nothing,
-      actionArn = Prelude.Nothing,
+      actionName = Prelude.Nothing,
+      actionParams = Prelude.Nothing,
+      actionType = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
+      lastModifiedDate = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The ARN that identifies this migration action.
+describeMitigationActionResponse_actionArn :: Lens.Lens' DescribeMitigationActionResponse (Prelude.Maybe Prelude.Text)
+describeMitigationActionResponse_actionArn = Lens.lens (\DescribeMitigationActionResponse' {actionArn} -> actionArn) (\s@DescribeMitigationActionResponse' {} a -> s {actionArn = a} :: DescribeMitigationActionResponse)
+
+-- | A unique identifier for this action.
+describeMitigationActionResponse_actionId :: Lens.Lens' DescribeMitigationActionResponse (Prelude.Maybe Prelude.Text)
+describeMitigationActionResponse_actionId = Lens.lens (\DescribeMitigationActionResponse' {actionId} -> actionId) (\s@DescribeMitigationActionResponse' {} a -> s {actionId = a} :: DescribeMitigationActionResponse)
 
 -- | The friendly name that uniquely identifies the mitigation action.
 describeMitigationActionResponse_actionName :: Lens.Lens' DescribeMitigationActionResponse (Prelude.Maybe Prelude.Text)
 describeMitigationActionResponse_actionName = Lens.lens (\DescribeMitigationActionResponse' {actionName} -> actionName) (\s@DescribeMitigationActionResponse' {} a -> s {actionName = a} :: DescribeMitigationActionResponse)
-
--- | The ARN of the IAM role used to apply this action.
-describeMitigationActionResponse_roleArn :: Lens.Lens' DescribeMitigationActionResponse (Prelude.Maybe Prelude.Text)
-describeMitigationActionResponse_roleArn = Lens.lens (\DescribeMitigationActionResponse' {roleArn} -> roleArn) (\s@DescribeMitigationActionResponse' {} a -> s {roleArn = a} :: DescribeMitigationActionResponse)
-
--- | The type of mitigation action.
-describeMitigationActionResponse_actionType :: Lens.Lens' DescribeMitigationActionResponse (Prelude.Maybe MitigationActionType)
-describeMitigationActionResponse_actionType = Lens.lens (\DescribeMitigationActionResponse' {actionType} -> actionType) (\s@DescribeMitigationActionResponse' {} a -> s {actionType = a} :: DescribeMitigationActionResponse)
-
--- | The date and time when the mitigation action was last changed.
-describeMitigationActionResponse_lastModifiedDate :: Lens.Lens' DescribeMitigationActionResponse (Prelude.Maybe Prelude.UTCTime)
-describeMitigationActionResponse_lastModifiedDate = Lens.lens (\DescribeMitigationActionResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeMitigationActionResponse' {} a -> s {lastModifiedDate = a} :: DescribeMitigationActionResponse) Prelude.. Lens.mapping Data._Time
-
--- | The date and time when the mitigation action was added to your Amazon
--- Web Services accounts.
-describeMitigationActionResponse_creationDate :: Lens.Lens' DescribeMitigationActionResponse (Prelude.Maybe Prelude.UTCTime)
-describeMitigationActionResponse_creationDate = Lens.lens (\DescribeMitigationActionResponse' {creationDate} -> creationDate) (\s@DescribeMitigationActionResponse' {} a -> s {creationDate = a} :: DescribeMitigationActionResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Parameters that control how the mitigation action is applied, specific
 -- to the type of mitigation action.
 describeMitigationActionResponse_actionParams :: Lens.Lens' DescribeMitigationActionResponse (Prelude.Maybe MitigationActionParams)
 describeMitigationActionResponse_actionParams = Lens.lens (\DescribeMitigationActionResponse' {actionParams} -> actionParams) (\s@DescribeMitigationActionResponse' {} a -> s {actionParams = a} :: DescribeMitigationActionResponse)
 
--- | A unique identifier for this action.
-describeMitigationActionResponse_actionId :: Lens.Lens' DescribeMitigationActionResponse (Prelude.Maybe Prelude.Text)
-describeMitigationActionResponse_actionId = Lens.lens (\DescribeMitigationActionResponse' {actionId} -> actionId) (\s@DescribeMitigationActionResponse' {} a -> s {actionId = a} :: DescribeMitigationActionResponse)
+-- | The type of mitigation action.
+describeMitigationActionResponse_actionType :: Lens.Lens' DescribeMitigationActionResponse (Prelude.Maybe MitigationActionType)
+describeMitigationActionResponse_actionType = Lens.lens (\DescribeMitigationActionResponse' {actionType} -> actionType) (\s@DescribeMitigationActionResponse' {} a -> s {actionType = a} :: DescribeMitigationActionResponse)
 
--- | The ARN that identifies this migration action.
-describeMitigationActionResponse_actionArn :: Lens.Lens' DescribeMitigationActionResponse (Prelude.Maybe Prelude.Text)
-describeMitigationActionResponse_actionArn = Lens.lens (\DescribeMitigationActionResponse' {actionArn} -> actionArn) (\s@DescribeMitigationActionResponse' {} a -> s {actionArn = a} :: DescribeMitigationActionResponse)
+-- | The date and time when the mitigation action was added to your Amazon
+-- Web Services accounts.
+describeMitigationActionResponse_creationDate :: Lens.Lens' DescribeMitigationActionResponse (Prelude.Maybe Prelude.UTCTime)
+describeMitigationActionResponse_creationDate = Lens.lens (\DescribeMitigationActionResponse' {creationDate} -> creationDate) (\s@DescribeMitigationActionResponse' {} a -> s {creationDate = a} :: DescribeMitigationActionResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The date and time when the mitigation action was last changed.
+describeMitigationActionResponse_lastModifiedDate :: Lens.Lens' DescribeMitigationActionResponse (Prelude.Maybe Prelude.UTCTime)
+describeMitigationActionResponse_lastModifiedDate = Lens.lens (\DescribeMitigationActionResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeMitigationActionResponse' {} a -> s {lastModifiedDate = a} :: DescribeMitigationActionResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The ARN of the IAM role used to apply this action.
+describeMitigationActionResponse_roleArn :: Lens.Lens' DescribeMitigationActionResponse (Prelude.Maybe Prelude.Text)
+describeMitigationActionResponse_roleArn = Lens.lens (\DescribeMitigationActionResponse' {roleArn} -> roleArn) (\s@DescribeMitigationActionResponse' {} a -> s {roleArn = a} :: DescribeMitigationActionResponse)
 
 -- | The response's http status code.
 describeMitigationActionResponse_httpStatus :: Lens.Lens' DescribeMitigationActionResponse Prelude.Int
@@ -241,12 +241,12 @@ instance
     DescribeMitigationActionResponse
   where
   rnf DescribeMitigationActionResponse' {..} =
-    Prelude.rnf actionName
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf actionType
-      `Prelude.seq` Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf actionParams
+    Prelude.rnf actionArn
       `Prelude.seq` Prelude.rnf actionId
-      `Prelude.seq` Prelude.rnf actionArn
+      `Prelude.seq` Prelude.rnf actionName
+      `Prelude.seq` Prelude.rnf actionParams
+      `Prelude.seq` Prelude.rnf actionType
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf httpStatus

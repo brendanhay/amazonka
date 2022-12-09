@@ -38,8 +38,8 @@ module Amazonka.IoT.GetTopicRule
     newGetTopicRuleResponse,
 
     -- * Response Lenses
-    getTopicRuleResponse_ruleArn,
     getTopicRuleResponse_rule,
+    getTopicRuleResponse_ruleArn,
     getTopicRuleResponse_httpStatus,
   )
 where
@@ -89,8 +89,8 @@ instance Core.AWSRequest GetTopicRule where
     Response.receiveJSON
       ( \s h x ->
           GetTopicRuleResponse'
-            Prelude.<$> (x Data..?> "ruleArn")
-            Prelude.<*> (x Data..?> "rule")
+            Prelude.<$> (x Data..?> "rule")
+            Prelude.<*> (x Data..?> "ruleArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,10 +115,10 @@ instance Data.ToQuery GetTopicRule where
 --
 -- /See:/ 'newGetTopicRuleResponse' smart constructor.
 data GetTopicRuleResponse = GetTopicRuleResponse'
-  { -- | The rule ARN.
-    ruleArn :: Prelude.Maybe Prelude.Text,
-    -- | The rule.
+  { -- | The rule.
     rule :: Prelude.Maybe TopicRule,
+    -- | The rule ARN.
+    ruleArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -132,9 +132,9 @@ data GetTopicRuleResponse = GetTopicRuleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ruleArn', 'getTopicRuleResponse_ruleArn' - The rule ARN.
---
 -- 'rule', 'getTopicRuleResponse_rule' - The rule.
+--
+-- 'ruleArn', 'getTopicRuleResponse_ruleArn' - The rule ARN.
 --
 -- 'httpStatus', 'getTopicRuleResponse_httpStatus' - The response's http status code.
 newGetTopicRuleResponse ::
@@ -143,18 +143,18 @@ newGetTopicRuleResponse ::
   GetTopicRuleResponse
 newGetTopicRuleResponse pHttpStatus_ =
   GetTopicRuleResponse'
-    { ruleArn = Prelude.Nothing,
-      rule = Prelude.Nothing,
+    { rule = Prelude.Nothing,
+      ruleArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The rule ARN.
-getTopicRuleResponse_ruleArn :: Lens.Lens' GetTopicRuleResponse (Prelude.Maybe Prelude.Text)
-getTopicRuleResponse_ruleArn = Lens.lens (\GetTopicRuleResponse' {ruleArn} -> ruleArn) (\s@GetTopicRuleResponse' {} a -> s {ruleArn = a} :: GetTopicRuleResponse)
 
 -- | The rule.
 getTopicRuleResponse_rule :: Lens.Lens' GetTopicRuleResponse (Prelude.Maybe TopicRule)
 getTopicRuleResponse_rule = Lens.lens (\GetTopicRuleResponse' {rule} -> rule) (\s@GetTopicRuleResponse' {} a -> s {rule = a} :: GetTopicRuleResponse)
+
+-- | The rule ARN.
+getTopicRuleResponse_ruleArn :: Lens.Lens' GetTopicRuleResponse (Prelude.Maybe Prelude.Text)
+getTopicRuleResponse_ruleArn = Lens.lens (\GetTopicRuleResponse' {ruleArn} -> ruleArn) (\s@GetTopicRuleResponse' {} a -> s {ruleArn = a} :: GetTopicRuleResponse)
 
 -- | The response's http status code.
 getTopicRuleResponse_httpStatus :: Lens.Lens' GetTopicRuleResponse Prelude.Int
@@ -162,6 +162,6 @@ getTopicRuleResponse_httpStatus = Lens.lens (\GetTopicRuleResponse' {httpStatus}
 
 instance Prelude.NFData GetTopicRuleResponse where
   rnf GetTopicRuleResponse' {..} =
-    Prelude.rnf ruleArn
-      `Prelude.seq` Prelude.rnf rule
+    Prelude.rnf rule
+      `Prelude.seq` Prelude.rnf ruleArn
       `Prelude.seq` Prelude.rnf httpStatus

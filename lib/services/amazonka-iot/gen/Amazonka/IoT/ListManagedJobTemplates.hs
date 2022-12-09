@@ -27,17 +27,17 @@ module Amazonka.IoT.ListManagedJobTemplates
     newListManagedJobTemplates,
 
     -- * Request Lenses
+    listManagedJobTemplates_maxResults,
     listManagedJobTemplates_nextToken,
     listManagedJobTemplates_templateName,
-    listManagedJobTemplates_maxResults,
 
     -- * Destructuring the Response
     ListManagedJobTemplatesResponse (..),
     newListManagedJobTemplatesResponse,
 
     -- * Response Lenses
-    listManagedJobTemplatesResponse_nextToken,
     listManagedJobTemplatesResponse_managedJobTemplates,
+    listManagedJobTemplatesResponse_nextToken,
     listManagedJobTemplatesResponse_httpStatus,
   )
 where
@@ -52,14 +52,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListManagedJobTemplates' smart constructor.
 data ListManagedJobTemplates = ListManagedJobTemplates'
-  { -- | The token to retrieve the next set of results.
+  { -- | Maximum number of entries that can be returned.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to retrieve the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | An optional parameter for template name. If specified, only the versions
     -- of the managed job templates that have the specified template name will
     -- be returned.
-    templateName :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of entries that can be returned.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    templateName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,22 +71,26 @@ data ListManagedJobTemplates = ListManagedJobTemplates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listManagedJobTemplates_maxResults' - Maximum number of entries that can be returned.
+--
 -- 'nextToken', 'listManagedJobTemplates_nextToken' - The token to retrieve the next set of results.
 --
 -- 'templateName', 'listManagedJobTemplates_templateName' - An optional parameter for template name. If specified, only the versions
 -- of the managed job templates that have the specified template name will
 -- be returned.
---
--- 'maxResults', 'listManagedJobTemplates_maxResults' - Maximum number of entries that can be returned.
 newListManagedJobTemplates ::
   ListManagedJobTemplates
 newListManagedJobTemplates =
   ListManagedJobTemplates'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      templateName = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      templateName = Prelude.Nothing
     }
+
+-- | Maximum number of entries that can be returned.
+listManagedJobTemplates_maxResults :: Lens.Lens' ListManagedJobTemplates (Prelude.Maybe Prelude.Natural)
+listManagedJobTemplates_maxResults = Lens.lens (\ListManagedJobTemplates' {maxResults} -> maxResults) (\s@ListManagedJobTemplates' {} a -> s {maxResults = a} :: ListManagedJobTemplates)
 
 -- | The token to retrieve the next set of results.
 listManagedJobTemplates_nextToken :: Lens.Lens' ListManagedJobTemplates (Prelude.Maybe Prelude.Text)
@@ -98,10 +102,6 @@ listManagedJobTemplates_nextToken = Lens.lens (\ListManagedJobTemplates' {nextTo
 listManagedJobTemplates_templateName :: Lens.Lens' ListManagedJobTemplates (Prelude.Maybe Prelude.Text)
 listManagedJobTemplates_templateName = Lens.lens (\ListManagedJobTemplates' {templateName} -> templateName) (\s@ListManagedJobTemplates' {} a -> s {templateName = a} :: ListManagedJobTemplates)
 
--- | Maximum number of entries that can be returned.
-listManagedJobTemplates_maxResults :: Lens.Lens' ListManagedJobTemplates (Prelude.Maybe Prelude.Natural)
-listManagedJobTemplates_maxResults = Lens.lens (\ListManagedJobTemplates' {maxResults} -> maxResults) (\s@ListManagedJobTemplates' {} a -> s {maxResults = a} :: ListManagedJobTemplates)
-
 instance Core.AWSRequest ListManagedJobTemplates where
   type
     AWSResponse ListManagedJobTemplates =
@@ -112,24 +112,24 @@ instance Core.AWSRequest ListManagedJobTemplates where
     Response.receiveJSON
       ( \s h x ->
           ListManagedJobTemplatesResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "managedJobTemplates"
+            Prelude.<$> ( x Data..?> "managedJobTemplates"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListManagedJobTemplates where
   hashWithSalt _salt ListManagedJobTemplates' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` templateName
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListManagedJobTemplates where
   rnf ListManagedJobTemplates' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Data.ToHeaders ListManagedJobTemplates where
   toHeaders = Prelude.const Prelude.mempty
@@ -140,17 +140,17 @@ instance Data.ToPath ListManagedJobTemplates where
 instance Data.ToQuery ListManagedJobTemplates where
   toQuery ListManagedJobTemplates' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "templateName" Data.=: templateName,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
+        "templateName" Data.=: templateName
       ]
 
 -- | /See:/ 'newListManagedJobTemplatesResponse' smart constructor.
 data ListManagedJobTemplatesResponse = ListManagedJobTemplatesResponse'
-  { -- | The token to retrieve the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of managed job templates that are returned.
+  { -- | A list of managed job templates that are returned.
     managedJobTemplates :: Prelude.Maybe [ManagedJobTemplateSummary],
+    -- | The token to retrieve the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -164,9 +164,9 @@ data ListManagedJobTemplatesResponse = ListManagedJobTemplatesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listManagedJobTemplatesResponse_nextToken' - The token to retrieve the next set of results.
---
 -- 'managedJobTemplates', 'listManagedJobTemplatesResponse_managedJobTemplates' - A list of managed job templates that are returned.
+--
+-- 'nextToken', 'listManagedJobTemplatesResponse_nextToken' - The token to retrieve the next set of results.
 --
 -- 'httpStatus', 'listManagedJobTemplatesResponse_httpStatus' - The response's http status code.
 newListManagedJobTemplatesResponse ::
@@ -175,19 +175,19 @@ newListManagedJobTemplatesResponse ::
   ListManagedJobTemplatesResponse
 newListManagedJobTemplatesResponse pHttpStatus_ =
   ListManagedJobTemplatesResponse'
-    { nextToken =
+    { managedJobTemplates =
         Prelude.Nothing,
-      managedJobTemplates = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token to retrieve the next set of results.
-listManagedJobTemplatesResponse_nextToken :: Lens.Lens' ListManagedJobTemplatesResponse (Prelude.Maybe Prelude.Text)
-listManagedJobTemplatesResponse_nextToken = Lens.lens (\ListManagedJobTemplatesResponse' {nextToken} -> nextToken) (\s@ListManagedJobTemplatesResponse' {} a -> s {nextToken = a} :: ListManagedJobTemplatesResponse)
 
 -- | A list of managed job templates that are returned.
 listManagedJobTemplatesResponse_managedJobTemplates :: Lens.Lens' ListManagedJobTemplatesResponse (Prelude.Maybe [ManagedJobTemplateSummary])
 listManagedJobTemplatesResponse_managedJobTemplates = Lens.lens (\ListManagedJobTemplatesResponse' {managedJobTemplates} -> managedJobTemplates) (\s@ListManagedJobTemplatesResponse' {} a -> s {managedJobTemplates = a} :: ListManagedJobTemplatesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to retrieve the next set of results.
+listManagedJobTemplatesResponse_nextToken :: Lens.Lens' ListManagedJobTemplatesResponse (Prelude.Maybe Prelude.Text)
+listManagedJobTemplatesResponse_nextToken = Lens.lens (\ListManagedJobTemplatesResponse' {nextToken} -> nextToken) (\s@ListManagedJobTemplatesResponse' {} a -> s {nextToken = a} :: ListManagedJobTemplatesResponse)
 
 -- | The response's http status code.
 listManagedJobTemplatesResponse_httpStatus :: Lens.Lens' ListManagedJobTemplatesResponse Prelude.Int
@@ -198,6 +198,6 @@ instance
     ListManagedJobTemplatesResponse
   where
   rnf ListManagedJobTemplatesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf managedJobTemplates
+    Prelude.rnf managedJobTemplates
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

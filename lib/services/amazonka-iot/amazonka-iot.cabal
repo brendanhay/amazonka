@@ -383,6 +383,7 @@ library
     Amazonka.IoT.Types.IotSiteWiseAction
     Amazonka.IoT.Types.IssuerCertificateIdentifier
     Amazonka.IoT.Types.Job
+    Amazonka.IoT.Types.JobEndBehavior
     Amazonka.IoT.Types.JobExecution
     Amazonka.IoT.Types.JobExecutionFailureType
     Amazonka.IoT.Types.JobExecutionsRetryConfig
@@ -420,6 +421,7 @@ library
     Amazonka.IoT.Types.MitigationActionType
     Amazonka.IoT.Types.ModelStatus
     Amazonka.IoT.Types.MqttContext
+    Amazonka.IoT.Types.MqttHeaders
     Amazonka.IoT.Types.NamedShadowIndexingMode
     Amazonka.IoT.Types.NonCompliantResource
     Amazonka.IoT.Types.OpenSearchAction
@@ -457,6 +459,7 @@ library
     Amazonka.IoT.Types.S3Location
     Amazonka.IoT.Types.SalesforceAction
     Amazonka.IoT.Types.ScheduledAuditMetadata
+    Amazonka.IoT.Types.SchedulingConfig
     Amazonka.IoT.Types.SecurityProfileIdentifier
     Amazonka.IoT.Types.SecurityProfileTarget
     Amazonka.IoT.Types.SecurityProfileTargetMapping
@@ -511,6 +514,7 @@ library
     Amazonka.IoT.Types.TransferData
     Amazonka.IoT.Types.UpdateCACertificateParams
     Amazonka.IoT.Types.UpdateDeviceCertificateParams
+    Amazonka.IoT.Types.UserProperty
     Amazonka.IoT.Types.ValidationError
     Amazonka.IoT.Types.VerificationState
     Amazonka.IoT.Types.ViolationEvent

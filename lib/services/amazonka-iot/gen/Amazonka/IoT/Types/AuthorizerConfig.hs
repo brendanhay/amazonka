@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAuthorizerConfig' smart constructor.
 data AuthorizerConfig = AuthorizerConfig'
-  { -- | The name of the authorization service for a domain configuration.
-    defaultAuthorizerName :: Prelude.Maybe Prelude.Text,
-    -- | A Boolean that specifies whether the domain configuration\'s
+  { -- | A Boolean that specifies whether the domain configuration\'s
     -- authorization service can be overridden.
-    allowAuthorizerOverride :: Prelude.Maybe Prelude.Bool
+    allowAuthorizerOverride :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the authorization service for a domain configuration.
+    defaultAuthorizerName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,27 +44,27 @@ data AuthorizerConfig = AuthorizerConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'defaultAuthorizerName', 'authorizerConfig_defaultAuthorizerName' - The name of the authorization service for a domain configuration.
---
 -- 'allowAuthorizerOverride', 'authorizerConfig_allowAuthorizerOverride' - A Boolean that specifies whether the domain configuration\'s
 -- authorization service can be overridden.
+--
+-- 'defaultAuthorizerName', 'authorizerConfig_defaultAuthorizerName' - The name of the authorization service for a domain configuration.
 newAuthorizerConfig ::
   AuthorizerConfig
 newAuthorizerConfig =
   AuthorizerConfig'
-    { defaultAuthorizerName =
+    { allowAuthorizerOverride =
         Prelude.Nothing,
-      allowAuthorizerOverride = Prelude.Nothing
+      defaultAuthorizerName = Prelude.Nothing
     }
-
--- | The name of the authorization service for a domain configuration.
-authorizerConfig_defaultAuthorizerName :: Lens.Lens' AuthorizerConfig (Prelude.Maybe Prelude.Text)
-authorizerConfig_defaultAuthorizerName = Lens.lens (\AuthorizerConfig' {defaultAuthorizerName} -> defaultAuthorizerName) (\s@AuthorizerConfig' {} a -> s {defaultAuthorizerName = a} :: AuthorizerConfig)
 
 -- | A Boolean that specifies whether the domain configuration\'s
 -- authorization service can be overridden.
 authorizerConfig_allowAuthorizerOverride :: Lens.Lens' AuthorizerConfig (Prelude.Maybe Prelude.Bool)
 authorizerConfig_allowAuthorizerOverride = Lens.lens (\AuthorizerConfig' {allowAuthorizerOverride} -> allowAuthorizerOverride) (\s@AuthorizerConfig' {} a -> s {allowAuthorizerOverride = a} :: AuthorizerConfig)
+
+-- | The name of the authorization service for a domain configuration.
+authorizerConfig_defaultAuthorizerName :: Lens.Lens' AuthorizerConfig (Prelude.Maybe Prelude.Text)
+authorizerConfig_defaultAuthorizerName = Lens.lens (\AuthorizerConfig' {defaultAuthorizerName} -> defaultAuthorizerName) (\s@AuthorizerConfig' {} a -> s {defaultAuthorizerName = a} :: AuthorizerConfig)
 
 instance Data.FromJSON AuthorizerConfig where
   parseJSON =
@@ -72,27 +72,28 @@ instance Data.FromJSON AuthorizerConfig where
       "AuthorizerConfig"
       ( \x ->
           AuthorizerConfig'
-            Prelude.<$> (x Data..:? "defaultAuthorizerName")
-            Prelude.<*> (x Data..:? "allowAuthorizerOverride")
+            Prelude.<$> (x Data..:? "allowAuthorizerOverride")
+            Prelude.<*> (x Data..:? "defaultAuthorizerName")
       )
 
 instance Prelude.Hashable AuthorizerConfig where
   hashWithSalt _salt AuthorizerConfig' {..} =
-    _salt `Prelude.hashWithSalt` defaultAuthorizerName
+    _salt
       `Prelude.hashWithSalt` allowAuthorizerOverride
+      `Prelude.hashWithSalt` defaultAuthorizerName
 
 instance Prelude.NFData AuthorizerConfig where
   rnf AuthorizerConfig' {..} =
-    Prelude.rnf defaultAuthorizerName
-      `Prelude.seq` Prelude.rnf allowAuthorizerOverride
+    Prelude.rnf allowAuthorizerOverride
+      `Prelude.seq` Prelude.rnf defaultAuthorizerName
 
 instance Data.ToJSON AuthorizerConfig where
   toJSON AuthorizerConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("defaultAuthorizerName" Data..=)
-              Prelude.<$> defaultAuthorizerName,
-            ("allowAuthorizerOverride" Data..=)
-              Prelude.<$> allowAuthorizerOverride
+          [ ("allowAuthorizerOverride" Data..=)
+              Prelude.<$> allowAuthorizerOverride,
+            ("defaultAuthorizerName" Data..=)
+              Prelude.<$> defaultAuthorizerName
           ]
       )

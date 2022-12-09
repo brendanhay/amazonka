@@ -38,16 +38,16 @@ module Amazonka.IoT.DescribeSecurityProfile
     newDescribeSecurityProfileResponse,
 
     -- * Response Lenses
-    describeSecurityProfileResponse_lastModifiedDate,
-    describeSecurityProfileResponse_alertTargets,
-    describeSecurityProfileResponse_creationDate,
-    describeSecurityProfileResponse_securityProfileDescription,
-    describeSecurityProfileResponse_additionalMetricsToRetainV2,
-    describeSecurityProfileResponse_securityProfileName,
-    describeSecurityProfileResponse_securityProfileArn,
     describeSecurityProfileResponse_additionalMetricsToRetain,
-    describeSecurityProfileResponse_version,
+    describeSecurityProfileResponse_additionalMetricsToRetainV2,
+    describeSecurityProfileResponse_alertTargets,
     describeSecurityProfileResponse_behaviors,
+    describeSecurityProfileResponse_creationDate,
+    describeSecurityProfileResponse_lastModifiedDate,
+    describeSecurityProfileResponse_securityProfileArn,
+    describeSecurityProfileResponse_securityProfileDescription,
+    describeSecurityProfileResponse_securityProfileName,
+    describeSecurityProfileResponse_version,
     describeSecurityProfileResponse_httpStatus,
   )
 where
@@ -100,20 +100,20 @@ instance Core.AWSRequest DescribeSecurityProfile where
     Response.receiveJSON
       ( \s h x ->
           DescribeSecurityProfileResponse'
-            Prelude.<$> (x Data..?> "lastModifiedDate")
-            Prelude.<*> (x Data..?> "alertTargets" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "creationDate")
-            Prelude.<*> (x Data..?> "securityProfileDescription")
+            Prelude.<$> ( x Data..?> "additionalMetricsToRetain"
+                            Core..!@ Prelude.mempty
+                        )
             Prelude.<*> ( x Data..?> "additionalMetricsToRetainV2"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "securityProfileName")
-            Prelude.<*> (x Data..?> "securityProfileArn")
-            Prelude.<*> ( x Data..?> "additionalMetricsToRetain"
-                            Core..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Data..?> "version")
+            Prelude.<*> (x Data..?> "alertTargets" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "behaviors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "creationDate")
+            Prelude.<*> (x Data..?> "lastModifiedDate")
+            Prelude.<*> (x Data..?> "securityProfileArn")
+            Prelude.<*> (x Data..?> "securityProfileDescription")
+            Prelude.<*> (x Data..?> "securityProfileName")
+            Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,36 +140,36 @@ instance Data.ToQuery DescribeSecurityProfile where
 
 -- | /See:/ 'newDescribeSecurityProfileResponse' smart constructor.
 data DescribeSecurityProfileResponse = DescribeSecurityProfileResponse'
-  { -- | The time the security profile was last modified.
-    lastModifiedDate :: Prelude.Maybe Data.POSIX,
-    -- | Where the alerts are sent. (Alerts are always sent to the console.)
-    alertTargets :: Prelude.Maybe (Prelude.HashMap AlertTargetType AlertTarget),
-    -- | The time the security profile was created.
-    creationDate :: Prelude.Maybe Data.POSIX,
-    -- | A description of the security profile (associated with the security
-    -- profile when it was created or updated).
-    securityProfileDescription :: Prelude.Maybe Prelude.Text,
-    -- | A list of metrics whose data is retained (stored). By default, data is
-    -- retained for any metric used in the profile\'s behaviors, but it is also
-    -- retained for any metric specified here.
-    additionalMetricsToRetainV2 :: Prelude.Maybe [MetricToRetain],
-    -- | The name of the security profile.
-    securityProfileName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the security profile.
-    securityProfileArn :: Prelude.Maybe Prelude.Text,
-    -- | /Please use DescribeSecurityProfileResponse$additionalMetricsToRetainV2
+  { -- | /Please use DescribeSecurityProfileResponse$additionalMetricsToRetainV2
     -- instead./
     --
     -- A list of metrics whose data is retained (stored). By default, data is
     -- retained for any metric used in the profile\'s @behaviors@, but it is
     -- also retained for any metric specified here.
     additionalMetricsToRetain :: Prelude.Maybe [Prelude.Text],
-    -- | The version of the security profile. A new version is generated whenever
-    -- the security profile is updated.
-    version :: Prelude.Maybe Prelude.Integer,
+    -- | A list of metrics whose data is retained (stored). By default, data is
+    -- retained for any metric used in the profile\'s behaviors, but it is also
+    -- retained for any metric specified here.
+    additionalMetricsToRetainV2 :: Prelude.Maybe [MetricToRetain],
+    -- | Where the alerts are sent. (Alerts are always sent to the console.)
+    alertTargets :: Prelude.Maybe (Prelude.HashMap AlertTargetType AlertTarget),
     -- | Specifies the behaviors that, when violated by a device (thing), cause
     -- an alert.
     behaviors :: Prelude.Maybe [Behavior],
+    -- | The time the security profile was created.
+    creationDate :: Prelude.Maybe Data.POSIX,
+    -- | The time the security profile was last modified.
+    lastModifiedDate :: Prelude.Maybe Data.POSIX,
+    -- | The ARN of the security profile.
+    securityProfileArn :: Prelude.Maybe Prelude.Text,
+    -- | A description of the security profile (associated with the security
+    -- profile when it was created or updated).
+    securityProfileDescription :: Prelude.Maybe Prelude.Text,
+    -- | The name of the security profile.
+    securityProfileName :: Prelude.Maybe Prelude.Text,
+    -- | The version of the security profile. A new version is generated whenever
+    -- the security profile is updated.
+    version :: Prelude.Maybe Prelude.Integer,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -183,23 +183,6 @@ data DescribeSecurityProfileResponse = DescribeSecurityProfileResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastModifiedDate', 'describeSecurityProfileResponse_lastModifiedDate' - The time the security profile was last modified.
---
--- 'alertTargets', 'describeSecurityProfileResponse_alertTargets' - Where the alerts are sent. (Alerts are always sent to the console.)
---
--- 'creationDate', 'describeSecurityProfileResponse_creationDate' - The time the security profile was created.
---
--- 'securityProfileDescription', 'describeSecurityProfileResponse_securityProfileDescription' - A description of the security profile (associated with the security
--- profile when it was created or updated).
---
--- 'additionalMetricsToRetainV2', 'describeSecurityProfileResponse_additionalMetricsToRetainV2' - A list of metrics whose data is retained (stored). By default, data is
--- retained for any metric used in the profile\'s behaviors, but it is also
--- retained for any metric specified here.
---
--- 'securityProfileName', 'describeSecurityProfileResponse_securityProfileName' - The name of the security profile.
---
--- 'securityProfileArn', 'describeSecurityProfileResponse_securityProfileArn' - The ARN of the security profile.
---
 -- 'additionalMetricsToRetain', 'describeSecurityProfileResponse_additionalMetricsToRetain' - /Please use DescribeSecurityProfileResponse$additionalMetricsToRetainV2
 -- instead./
 --
@@ -207,11 +190,28 @@ data DescribeSecurityProfileResponse = DescribeSecurityProfileResponse'
 -- retained for any metric used in the profile\'s @behaviors@, but it is
 -- also retained for any metric specified here.
 --
--- 'version', 'describeSecurityProfileResponse_version' - The version of the security profile. A new version is generated whenever
--- the security profile is updated.
+-- 'additionalMetricsToRetainV2', 'describeSecurityProfileResponse_additionalMetricsToRetainV2' - A list of metrics whose data is retained (stored). By default, data is
+-- retained for any metric used in the profile\'s behaviors, but it is also
+-- retained for any metric specified here.
+--
+-- 'alertTargets', 'describeSecurityProfileResponse_alertTargets' - Where the alerts are sent. (Alerts are always sent to the console.)
 --
 -- 'behaviors', 'describeSecurityProfileResponse_behaviors' - Specifies the behaviors that, when violated by a device (thing), cause
 -- an alert.
+--
+-- 'creationDate', 'describeSecurityProfileResponse_creationDate' - The time the security profile was created.
+--
+-- 'lastModifiedDate', 'describeSecurityProfileResponse_lastModifiedDate' - The time the security profile was last modified.
+--
+-- 'securityProfileArn', 'describeSecurityProfileResponse_securityProfileArn' - The ARN of the security profile.
+--
+-- 'securityProfileDescription', 'describeSecurityProfileResponse_securityProfileDescription' - A description of the security profile (associated with the security
+-- profile when it was created or updated).
+--
+-- 'securityProfileName', 'describeSecurityProfileResponse_securityProfileName' - The name of the security profile.
+--
+-- 'version', 'describeSecurityProfileResponse_version' - The version of the security profile. A new version is generated whenever
+-- the security profile is updated.
 --
 -- 'httpStatus', 'describeSecurityProfileResponse_httpStatus' - The response's http status code.
 newDescribeSecurityProfileResponse ::
@@ -220,53 +220,21 @@ newDescribeSecurityProfileResponse ::
   DescribeSecurityProfileResponse
 newDescribeSecurityProfileResponse pHttpStatus_ =
   DescribeSecurityProfileResponse'
-    { lastModifiedDate =
-        Prelude.Nothing,
-      alertTargets = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
-      securityProfileDescription =
+    { additionalMetricsToRetain =
         Prelude.Nothing,
       additionalMetricsToRetainV2 =
         Prelude.Nothing,
-      securityProfileName = Prelude.Nothing,
-      securityProfileArn = Prelude.Nothing,
-      additionalMetricsToRetain =
-        Prelude.Nothing,
-      version = Prelude.Nothing,
+      alertTargets = Prelude.Nothing,
       behaviors = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
+      lastModifiedDate = Prelude.Nothing,
+      securityProfileArn = Prelude.Nothing,
+      securityProfileDescription =
+        Prelude.Nothing,
+      securityProfileName = Prelude.Nothing,
+      version = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The time the security profile was last modified.
-describeSecurityProfileResponse_lastModifiedDate :: Lens.Lens' DescribeSecurityProfileResponse (Prelude.Maybe Prelude.UTCTime)
-describeSecurityProfileResponse_lastModifiedDate = Lens.lens (\DescribeSecurityProfileResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeSecurityProfileResponse' {} a -> s {lastModifiedDate = a} :: DescribeSecurityProfileResponse) Prelude.. Lens.mapping Data._Time
-
--- | Where the alerts are sent. (Alerts are always sent to the console.)
-describeSecurityProfileResponse_alertTargets :: Lens.Lens' DescribeSecurityProfileResponse (Prelude.Maybe (Prelude.HashMap AlertTargetType AlertTarget))
-describeSecurityProfileResponse_alertTargets = Lens.lens (\DescribeSecurityProfileResponse' {alertTargets} -> alertTargets) (\s@DescribeSecurityProfileResponse' {} a -> s {alertTargets = a} :: DescribeSecurityProfileResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The time the security profile was created.
-describeSecurityProfileResponse_creationDate :: Lens.Lens' DescribeSecurityProfileResponse (Prelude.Maybe Prelude.UTCTime)
-describeSecurityProfileResponse_creationDate = Lens.lens (\DescribeSecurityProfileResponse' {creationDate} -> creationDate) (\s@DescribeSecurityProfileResponse' {} a -> s {creationDate = a} :: DescribeSecurityProfileResponse) Prelude.. Lens.mapping Data._Time
-
--- | A description of the security profile (associated with the security
--- profile when it was created or updated).
-describeSecurityProfileResponse_securityProfileDescription :: Lens.Lens' DescribeSecurityProfileResponse (Prelude.Maybe Prelude.Text)
-describeSecurityProfileResponse_securityProfileDescription = Lens.lens (\DescribeSecurityProfileResponse' {securityProfileDescription} -> securityProfileDescription) (\s@DescribeSecurityProfileResponse' {} a -> s {securityProfileDescription = a} :: DescribeSecurityProfileResponse)
-
--- | A list of metrics whose data is retained (stored). By default, data is
--- retained for any metric used in the profile\'s behaviors, but it is also
--- retained for any metric specified here.
-describeSecurityProfileResponse_additionalMetricsToRetainV2 :: Lens.Lens' DescribeSecurityProfileResponse (Prelude.Maybe [MetricToRetain])
-describeSecurityProfileResponse_additionalMetricsToRetainV2 = Lens.lens (\DescribeSecurityProfileResponse' {additionalMetricsToRetainV2} -> additionalMetricsToRetainV2) (\s@DescribeSecurityProfileResponse' {} a -> s {additionalMetricsToRetainV2 = a} :: DescribeSecurityProfileResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the security profile.
-describeSecurityProfileResponse_securityProfileName :: Lens.Lens' DescribeSecurityProfileResponse (Prelude.Maybe Prelude.Text)
-describeSecurityProfileResponse_securityProfileName = Lens.lens (\DescribeSecurityProfileResponse' {securityProfileName} -> securityProfileName) (\s@DescribeSecurityProfileResponse' {} a -> s {securityProfileName = a} :: DescribeSecurityProfileResponse)
-
--- | The ARN of the security profile.
-describeSecurityProfileResponse_securityProfileArn :: Lens.Lens' DescribeSecurityProfileResponse (Prelude.Maybe Prelude.Text)
-describeSecurityProfileResponse_securityProfileArn = Lens.lens (\DescribeSecurityProfileResponse' {securityProfileArn} -> securityProfileArn) (\s@DescribeSecurityProfileResponse' {} a -> s {securityProfileArn = a} :: DescribeSecurityProfileResponse)
 
 -- | /Please use DescribeSecurityProfileResponse$additionalMetricsToRetainV2
 -- instead./
@@ -277,15 +245,46 @@ describeSecurityProfileResponse_securityProfileArn = Lens.lens (\DescribeSecurit
 describeSecurityProfileResponse_additionalMetricsToRetain :: Lens.Lens' DescribeSecurityProfileResponse (Prelude.Maybe [Prelude.Text])
 describeSecurityProfileResponse_additionalMetricsToRetain = Lens.lens (\DescribeSecurityProfileResponse' {additionalMetricsToRetain} -> additionalMetricsToRetain) (\s@DescribeSecurityProfileResponse' {} a -> s {additionalMetricsToRetain = a} :: DescribeSecurityProfileResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The version of the security profile. A new version is generated whenever
--- the security profile is updated.
-describeSecurityProfileResponse_version :: Lens.Lens' DescribeSecurityProfileResponse (Prelude.Maybe Prelude.Integer)
-describeSecurityProfileResponse_version = Lens.lens (\DescribeSecurityProfileResponse' {version} -> version) (\s@DescribeSecurityProfileResponse' {} a -> s {version = a} :: DescribeSecurityProfileResponse)
+-- | A list of metrics whose data is retained (stored). By default, data is
+-- retained for any metric used in the profile\'s behaviors, but it is also
+-- retained for any metric specified here.
+describeSecurityProfileResponse_additionalMetricsToRetainV2 :: Lens.Lens' DescribeSecurityProfileResponse (Prelude.Maybe [MetricToRetain])
+describeSecurityProfileResponse_additionalMetricsToRetainV2 = Lens.lens (\DescribeSecurityProfileResponse' {additionalMetricsToRetainV2} -> additionalMetricsToRetainV2) (\s@DescribeSecurityProfileResponse' {} a -> s {additionalMetricsToRetainV2 = a} :: DescribeSecurityProfileResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Where the alerts are sent. (Alerts are always sent to the console.)
+describeSecurityProfileResponse_alertTargets :: Lens.Lens' DescribeSecurityProfileResponse (Prelude.Maybe (Prelude.HashMap AlertTargetType AlertTarget))
+describeSecurityProfileResponse_alertTargets = Lens.lens (\DescribeSecurityProfileResponse' {alertTargets} -> alertTargets) (\s@DescribeSecurityProfileResponse' {} a -> s {alertTargets = a} :: DescribeSecurityProfileResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the behaviors that, when violated by a device (thing), cause
 -- an alert.
 describeSecurityProfileResponse_behaviors :: Lens.Lens' DescribeSecurityProfileResponse (Prelude.Maybe [Behavior])
 describeSecurityProfileResponse_behaviors = Lens.lens (\DescribeSecurityProfileResponse' {behaviors} -> behaviors) (\s@DescribeSecurityProfileResponse' {} a -> s {behaviors = a} :: DescribeSecurityProfileResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The time the security profile was created.
+describeSecurityProfileResponse_creationDate :: Lens.Lens' DescribeSecurityProfileResponse (Prelude.Maybe Prelude.UTCTime)
+describeSecurityProfileResponse_creationDate = Lens.lens (\DescribeSecurityProfileResponse' {creationDate} -> creationDate) (\s@DescribeSecurityProfileResponse' {} a -> s {creationDate = a} :: DescribeSecurityProfileResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The time the security profile was last modified.
+describeSecurityProfileResponse_lastModifiedDate :: Lens.Lens' DescribeSecurityProfileResponse (Prelude.Maybe Prelude.UTCTime)
+describeSecurityProfileResponse_lastModifiedDate = Lens.lens (\DescribeSecurityProfileResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeSecurityProfileResponse' {} a -> s {lastModifiedDate = a} :: DescribeSecurityProfileResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The ARN of the security profile.
+describeSecurityProfileResponse_securityProfileArn :: Lens.Lens' DescribeSecurityProfileResponse (Prelude.Maybe Prelude.Text)
+describeSecurityProfileResponse_securityProfileArn = Lens.lens (\DescribeSecurityProfileResponse' {securityProfileArn} -> securityProfileArn) (\s@DescribeSecurityProfileResponse' {} a -> s {securityProfileArn = a} :: DescribeSecurityProfileResponse)
+
+-- | A description of the security profile (associated with the security
+-- profile when it was created or updated).
+describeSecurityProfileResponse_securityProfileDescription :: Lens.Lens' DescribeSecurityProfileResponse (Prelude.Maybe Prelude.Text)
+describeSecurityProfileResponse_securityProfileDescription = Lens.lens (\DescribeSecurityProfileResponse' {securityProfileDescription} -> securityProfileDescription) (\s@DescribeSecurityProfileResponse' {} a -> s {securityProfileDescription = a} :: DescribeSecurityProfileResponse)
+
+-- | The name of the security profile.
+describeSecurityProfileResponse_securityProfileName :: Lens.Lens' DescribeSecurityProfileResponse (Prelude.Maybe Prelude.Text)
+describeSecurityProfileResponse_securityProfileName = Lens.lens (\DescribeSecurityProfileResponse' {securityProfileName} -> securityProfileName) (\s@DescribeSecurityProfileResponse' {} a -> s {securityProfileName = a} :: DescribeSecurityProfileResponse)
+
+-- | The version of the security profile. A new version is generated whenever
+-- the security profile is updated.
+describeSecurityProfileResponse_version :: Lens.Lens' DescribeSecurityProfileResponse (Prelude.Maybe Prelude.Integer)
+describeSecurityProfileResponse_version = Lens.lens (\DescribeSecurityProfileResponse' {version} -> version) (\s@DescribeSecurityProfileResponse' {} a -> s {version = a} :: DescribeSecurityProfileResponse)
 
 -- | The response's http status code.
 describeSecurityProfileResponse_httpStatus :: Lens.Lens' DescribeSecurityProfileResponse Prelude.Int
@@ -296,14 +295,14 @@ instance
     DescribeSecurityProfileResponse
   where
   rnf DescribeSecurityProfileResponse' {..} =
-    Prelude.rnf lastModifiedDate
-      `Prelude.seq` Prelude.rnf alertTargets
-      `Prelude.seq` Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf securityProfileDescription
+    Prelude.rnf additionalMetricsToRetain
       `Prelude.seq` Prelude.rnf additionalMetricsToRetainV2
-      `Prelude.seq` Prelude.rnf securityProfileName
-      `Prelude.seq` Prelude.rnf securityProfileArn
-      `Prelude.seq` Prelude.rnf additionalMetricsToRetain
-      `Prelude.seq` Prelude.rnf version
+      `Prelude.seq` Prelude.rnf alertTargets
       `Prelude.seq` Prelude.rnf behaviors
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf lastModifiedDate
+      `Prelude.seq` Prelude.rnf securityProfileArn
+      `Prelude.seq` Prelude.rnf securityProfileDescription
+      `Prelude.seq` Prelude.rnf securityProfileName
+      `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf httpStatus

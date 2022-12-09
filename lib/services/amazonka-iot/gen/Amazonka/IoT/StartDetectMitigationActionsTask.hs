@@ -32,8 +32,8 @@ module Amazonka.IoT.StartDetectMitigationActionsTask
 
     -- * Request Lenses
     startDetectMitigationActionsTask_includeOnlyActiveViolations,
-    startDetectMitigationActionsTask_violationEventOccurrenceRange,
     startDetectMitigationActionsTask_includeSuppressedAlerts,
+    startDetectMitigationActionsTask_violationEventOccurrenceRange,
     startDetectMitigationActionsTask_taskId,
     startDetectMitigationActionsTask_target,
     startDetectMitigationActionsTask_actions,
@@ -61,10 +61,10 @@ import qualified Amazonka.Response as Response
 data StartDetectMitigationActionsTask = StartDetectMitigationActionsTask'
   { -- | Specifies to list only active violations.
     includeOnlyActiveViolations :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies the time period of which violation events occurred between.
-    violationEventOccurrenceRange :: Prelude.Maybe ViolationEventOccurrenceRange,
     -- | Specifies to include suppressed alerts.
     includeSuppressedAlerts :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies the time period of which violation events occurred between.
+    violationEventOccurrenceRange :: Prelude.Maybe ViolationEventOccurrenceRange,
     -- | The unique identifier of the task.
     taskId :: Prelude.Text,
     -- | Specifies the ML Detect findings to which the mitigation actions are
@@ -90,9 +90,9 @@ data StartDetectMitigationActionsTask = StartDetectMitigationActionsTask'
 --
 -- 'includeOnlyActiveViolations', 'startDetectMitigationActionsTask_includeOnlyActiveViolations' - Specifies to list only active violations.
 --
--- 'violationEventOccurrenceRange', 'startDetectMitigationActionsTask_violationEventOccurrenceRange' - Specifies the time period of which violation events occurred between.
---
 -- 'includeSuppressedAlerts', 'startDetectMitigationActionsTask_includeSuppressedAlerts' - Specifies to include suppressed alerts.
+--
+-- 'violationEventOccurrenceRange', 'startDetectMitigationActionsTask_violationEventOccurrenceRange' - Specifies the time period of which violation events occurred between.
 --
 -- 'taskId', 'startDetectMitigationActionsTask_taskId' - The unique identifier of the task.
 --
@@ -123,9 +123,9 @@ newStartDetectMitigationActionsTask
     StartDetectMitigationActionsTask'
       { includeOnlyActiveViolations =
           Prelude.Nothing,
+        includeSuppressedAlerts = Prelude.Nothing,
         violationEventOccurrenceRange =
           Prelude.Nothing,
-        includeSuppressedAlerts = Prelude.Nothing,
         taskId = pTaskId_,
         target = pTarget_,
         actions = Lens.coerced Lens.# pActions_,
@@ -136,13 +136,13 @@ newStartDetectMitigationActionsTask
 startDetectMitigationActionsTask_includeOnlyActiveViolations :: Lens.Lens' StartDetectMitigationActionsTask (Prelude.Maybe Prelude.Bool)
 startDetectMitigationActionsTask_includeOnlyActiveViolations = Lens.lens (\StartDetectMitigationActionsTask' {includeOnlyActiveViolations} -> includeOnlyActiveViolations) (\s@StartDetectMitigationActionsTask' {} a -> s {includeOnlyActiveViolations = a} :: StartDetectMitigationActionsTask)
 
--- | Specifies the time period of which violation events occurred between.
-startDetectMitigationActionsTask_violationEventOccurrenceRange :: Lens.Lens' StartDetectMitigationActionsTask (Prelude.Maybe ViolationEventOccurrenceRange)
-startDetectMitigationActionsTask_violationEventOccurrenceRange = Lens.lens (\StartDetectMitigationActionsTask' {violationEventOccurrenceRange} -> violationEventOccurrenceRange) (\s@StartDetectMitigationActionsTask' {} a -> s {violationEventOccurrenceRange = a} :: StartDetectMitigationActionsTask)
-
 -- | Specifies to include suppressed alerts.
 startDetectMitigationActionsTask_includeSuppressedAlerts :: Lens.Lens' StartDetectMitigationActionsTask (Prelude.Maybe Prelude.Bool)
 startDetectMitigationActionsTask_includeSuppressedAlerts = Lens.lens (\StartDetectMitigationActionsTask' {includeSuppressedAlerts} -> includeSuppressedAlerts) (\s@StartDetectMitigationActionsTask' {} a -> s {includeSuppressedAlerts = a} :: StartDetectMitigationActionsTask)
+
+-- | Specifies the time period of which violation events occurred between.
+startDetectMitigationActionsTask_violationEventOccurrenceRange :: Lens.Lens' StartDetectMitigationActionsTask (Prelude.Maybe ViolationEventOccurrenceRange)
+startDetectMitigationActionsTask_violationEventOccurrenceRange = Lens.lens (\StartDetectMitigationActionsTask' {violationEventOccurrenceRange} -> violationEventOccurrenceRange) (\s@StartDetectMitigationActionsTask' {} a -> s {violationEventOccurrenceRange = a} :: StartDetectMitigationActionsTask)
 
 -- | The unique identifier of the task.
 startDetectMitigationActionsTask_taskId :: Lens.Lens' StartDetectMitigationActionsTask Prelude.Text
@@ -190,8 +190,8 @@ instance
     StartDetectMitigationActionsTask' {..} =
       _salt
         `Prelude.hashWithSalt` includeOnlyActiveViolations
-        `Prelude.hashWithSalt` violationEventOccurrenceRange
         `Prelude.hashWithSalt` includeSuppressedAlerts
+        `Prelude.hashWithSalt` violationEventOccurrenceRange
         `Prelude.hashWithSalt` taskId
         `Prelude.hashWithSalt` target
         `Prelude.hashWithSalt` actions
@@ -203,8 +203,8 @@ instance
   where
   rnf StartDetectMitigationActionsTask' {..} =
     Prelude.rnf includeOnlyActiveViolations
-      `Prelude.seq` Prelude.rnf violationEventOccurrenceRange
       `Prelude.seq` Prelude.rnf includeSuppressedAlerts
+      `Prelude.seq` Prelude.rnf violationEventOccurrenceRange
       `Prelude.seq` Prelude.rnf taskId
       `Prelude.seq` Prelude.rnf target
       `Prelude.seq` Prelude.rnf actions
@@ -222,10 +222,10 @@ instance Data.ToJSON StartDetectMitigationActionsTask where
       ( Prelude.catMaybes
           [ ("includeOnlyActiveViolations" Data..=)
               Prelude.<$> includeOnlyActiveViolations,
-            ("violationEventOccurrenceRange" Data..=)
-              Prelude.<$> violationEventOccurrenceRange,
             ("includeSuppressedAlerts" Data..=)
               Prelude.<$> includeSuppressedAlerts,
+            ("violationEventOccurrenceRange" Data..=)
+              Prelude.<$> violationEventOccurrenceRange,
             Prelude.Just ("target" Data..= target),
             Prelude.Just ("actions" Data..= actions),
             Prelude.Just

@@ -30,24 +30,24 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCustomCodeSigning' smart constructor.
 data CustomCodeSigning = CustomCodeSigning'
-  { -- | The hash algorithm used to code sign the file. You can use a string as
+  { -- | The certificate chain.
+    certificateChain :: Prelude.Maybe CodeSigningCertificateChain,
+    -- | The hash algorithm used to code sign the file. You can use a string as
     -- the algorithm name if the target over-the-air (OTA) update devices are
     -- able to verify the signature that was generated using the same signature
     -- algorithm. For example, FreeRTOS uses @SHA256@ or @SHA1@, so you can
     -- pass either of them based on which was used for generating the
     -- signature.
     hashAlgorithm :: Prelude.Maybe Prelude.Text,
+    -- | The signature for the file.
+    signature :: Prelude.Maybe CodeSigningSignature,
     -- | The signature algorithm used to code sign the file. You can use a string
     -- as the algorithm name if the target over-the-air (OTA) update devices
     -- are able to verify the signature that was generated using the same
     -- signature algorithm. For example, FreeRTOS uses @ECDSA@ or @RSA@, so you
     -- can pass either of them based on which was used for generating the
     -- signature.
-    signatureAlgorithm :: Prelude.Maybe Prelude.Text,
-    -- | The certificate chain.
-    certificateChain :: Prelude.Maybe CodeSigningCertificateChain,
-    -- | The signature for the file.
-    signature :: Prelude.Maybe CodeSigningSignature
+    signatureAlgorithm :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,6 +59,8 @@ data CustomCodeSigning = CustomCodeSigning'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'certificateChain', 'customCodeSigning_certificateChain' - The certificate chain.
+--
 -- 'hashAlgorithm', 'customCodeSigning_hashAlgorithm' - The hash algorithm used to code sign the file. You can use a string as
 -- the algorithm name if the target over-the-air (OTA) update devices are
 -- able to verify the signature that was generated using the same signature
@@ -66,25 +68,28 @@ data CustomCodeSigning = CustomCodeSigning'
 -- pass either of them based on which was used for generating the
 -- signature.
 --
+-- 'signature', 'customCodeSigning_signature' - The signature for the file.
+--
 -- 'signatureAlgorithm', 'customCodeSigning_signatureAlgorithm' - The signature algorithm used to code sign the file. You can use a string
 -- as the algorithm name if the target over-the-air (OTA) update devices
 -- are able to verify the signature that was generated using the same
 -- signature algorithm. For example, FreeRTOS uses @ECDSA@ or @RSA@, so you
 -- can pass either of them based on which was used for generating the
 -- signature.
---
--- 'certificateChain', 'customCodeSigning_certificateChain' - The certificate chain.
---
--- 'signature', 'customCodeSigning_signature' - The signature for the file.
 newCustomCodeSigning ::
   CustomCodeSigning
 newCustomCodeSigning =
   CustomCodeSigning'
-    { hashAlgorithm = Prelude.Nothing,
-      signatureAlgorithm = Prelude.Nothing,
-      certificateChain = Prelude.Nothing,
-      signature = Prelude.Nothing
+    { certificateChain =
+        Prelude.Nothing,
+      hashAlgorithm = Prelude.Nothing,
+      signature = Prelude.Nothing,
+      signatureAlgorithm = Prelude.Nothing
     }
+
+-- | The certificate chain.
+customCodeSigning_certificateChain :: Lens.Lens' CustomCodeSigning (Prelude.Maybe CodeSigningCertificateChain)
+customCodeSigning_certificateChain = Lens.lens (\CustomCodeSigning' {certificateChain} -> certificateChain) (\s@CustomCodeSigning' {} a -> s {certificateChain = a} :: CustomCodeSigning)
 
 -- | The hash algorithm used to code sign the file. You can use a string as
 -- the algorithm name if the target over-the-air (OTA) update devices are
@@ -95,6 +100,10 @@ newCustomCodeSigning =
 customCodeSigning_hashAlgorithm :: Lens.Lens' CustomCodeSigning (Prelude.Maybe Prelude.Text)
 customCodeSigning_hashAlgorithm = Lens.lens (\CustomCodeSigning' {hashAlgorithm} -> hashAlgorithm) (\s@CustomCodeSigning' {} a -> s {hashAlgorithm = a} :: CustomCodeSigning)
 
+-- | The signature for the file.
+customCodeSigning_signature :: Lens.Lens' CustomCodeSigning (Prelude.Maybe CodeSigningSignature)
+customCodeSigning_signature = Lens.lens (\CustomCodeSigning' {signature} -> signature) (\s@CustomCodeSigning' {} a -> s {signature = a} :: CustomCodeSigning)
+
 -- | The signature algorithm used to code sign the file. You can use a string
 -- as the algorithm name if the target over-the-air (OTA) update devices
 -- are able to verify the signature that was generated using the same
@@ -104,49 +113,41 @@ customCodeSigning_hashAlgorithm = Lens.lens (\CustomCodeSigning' {hashAlgorithm}
 customCodeSigning_signatureAlgorithm :: Lens.Lens' CustomCodeSigning (Prelude.Maybe Prelude.Text)
 customCodeSigning_signatureAlgorithm = Lens.lens (\CustomCodeSigning' {signatureAlgorithm} -> signatureAlgorithm) (\s@CustomCodeSigning' {} a -> s {signatureAlgorithm = a} :: CustomCodeSigning)
 
--- | The certificate chain.
-customCodeSigning_certificateChain :: Lens.Lens' CustomCodeSigning (Prelude.Maybe CodeSigningCertificateChain)
-customCodeSigning_certificateChain = Lens.lens (\CustomCodeSigning' {certificateChain} -> certificateChain) (\s@CustomCodeSigning' {} a -> s {certificateChain = a} :: CustomCodeSigning)
-
--- | The signature for the file.
-customCodeSigning_signature :: Lens.Lens' CustomCodeSigning (Prelude.Maybe CodeSigningSignature)
-customCodeSigning_signature = Lens.lens (\CustomCodeSigning' {signature} -> signature) (\s@CustomCodeSigning' {} a -> s {signature = a} :: CustomCodeSigning)
-
 instance Data.FromJSON CustomCodeSigning where
   parseJSON =
     Data.withObject
       "CustomCodeSigning"
       ( \x ->
           CustomCodeSigning'
-            Prelude.<$> (x Data..:? "hashAlgorithm")
-            Prelude.<*> (x Data..:? "signatureAlgorithm")
-            Prelude.<*> (x Data..:? "certificateChain")
+            Prelude.<$> (x Data..:? "certificateChain")
+            Prelude.<*> (x Data..:? "hashAlgorithm")
             Prelude.<*> (x Data..:? "signature")
+            Prelude.<*> (x Data..:? "signatureAlgorithm")
       )
 
 instance Prelude.Hashable CustomCodeSigning where
   hashWithSalt _salt CustomCodeSigning' {..} =
-    _salt `Prelude.hashWithSalt` hashAlgorithm
-      `Prelude.hashWithSalt` signatureAlgorithm
-      `Prelude.hashWithSalt` certificateChain
+    _salt `Prelude.hashWithSalt` certificateChain
+      `Prelude.hashWithSalt` hashAlgorithm
       `Prelude.hashWithSalt` signature
+      `Prelude.hashWithSalt` signatureAlgorithm
 
 instance Prelude.NFData CustomCodeSigning where
   rnf CustomCodeSigning' {..} =
-    Prelude.rnf hashAlgorithm
-      `Prelude.seq` Prelude.rnf signatureAlgorithm
-      `Prelude.seq` Prelude.rnf certificateChain
+    Prelude.rnf certificateChain
+      `Prelude.seq` Prelude.rnf hashAlgorithm
       `Prelude.seq` Prelude.rnf signature
+      `Prelude.seq` Prelude.rnf signatureAlgorithm
 
 instance Data.ToJSON CustomCodeSigning where
   toJSON CustomCodeSigning' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("hashAlgorithm" Data..=) Prelude.<$> hashAlgorithm,
-            ("signatureAlgorithm" Data..=)
-              Prelude.<$> signatureAlgorithm,
-            ("certificateChain" Data..=)
+          [ ("certificateChain" Data..=)
               Prelude.<$> certificateChain,
-            ("signature" Data..=) Prelude.<$> signature
+            ("hashAlgorithm" Data..=) Prelude.<$> hashAlgorithm,
+            ("signature" Data..=) Prelude.<$> signature,
+            ("signatureAlgorithm" Data..=)
+              Prelude.<$> signatureAlgorithm
           ]
       )

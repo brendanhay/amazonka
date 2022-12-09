@@ -33,8 +33,8 @@ module Amazonka.IoT.ListProvisioningTemplateVersions
     newListProvisioningTemplateVersions,
 
     -- * Request Lenses
-    listProvisioningTemplateVersions_nextToken,
     listProvisioningTemplateVersions_maxResults,
+    listProvisioningTemplateVersions_nextToken,
     listProvisioningTemplateVersions_templateName,
 
     -- * Destructuring the Response
@@ -58,10 +58,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListProvisioningTemplateVersions' smart constructor.
 data ListProvisioningTemplateVersions = ListProvisioningTemplateVersions'
-  { -- | A token to retrieve the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return at one time.
+  { -- | The maximum number of results to return at one time.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token to retrieve the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the provisioning template.
     templateName :: Prelude.Text
   }
@@ -75,9 +75,9 @@ data ListProvisioningTemplateVersions = ListProvisioningTemplateVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listProvisioningTemplateVersions_nextToken' - A token to retrieve the next set of results.
---
 -- 'maxResults', 'listProvisioningTemplateVersions_maxResults' - The maximum number of results to return at one time.
+--
+-- 'nextToken', 'listProvisioningTemplateVersions_nextToken' - A token to retrieve the next set of results.
 --
 -- 'templateName', 'listProvisioningTemplateVersions_templateName' - The name of the provisioning template.
 newListProvisioningTemplateVersions ::
@@ -86,19 +86,19 @@ newListProvisioningTemplateVersions ::
   ListProvisioningTemplateVersions
 newListProvisioningTemplateVersions pTemplateName_ =
   ListProvisioningTemplateVersions'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       templateName = pTemplateName_
     }
-
--- | A token to retrieve the next set of results.
-listProvisioningTemplateVersions_nextToken :: Lens.Lens' ListProvisioningTemplateVersions (Prelude.Maybe Prelude.Text)
-listProvisioningTemplateVersions_nextToken = Lens.lens (\ListProvisioningTemplateVersions' {nextToken} -> nextToken) (\s@ListProvisioningTemplateVersions' {} a -> s {nextToken = a} :: ListProvisioningTemplateVersions)
 
 -- | The maximum number of results to return at one time.
 listProvisioningTemplateVersions_maxResults :: Lens.Lens' ListProvisioningTemplateVersions (Prelude.Maybe Prelude.Natural)
 listProvisioningTemplateVersions_maxResults = Lens.lens (\ListProvisioningTemplateVersions' {maxResults} -> maxResults) (\s@ListProvisioningTemplateVersions' {} a -> s {maxResults = a} :: ListProvisioningTemplateVersions)
+
+-- | A token to retrieve the next set of results.
+listProvisioningTemplateVersions_nextToken :: Lens.Lens' ListProvisioningTemplateVersions (Prelude.Maybe Prelude.Text)
+listProvisioningTemplateVersions_nextToken = Lens.lens (\ListProvisioningTemplateVersions' {nextToken} -> nextToken) (\s@ListProvisioningTemplateVersions' {} a -> s {nextToken = a} :: ListProvisioningTemplateVersions)
 
 -- | The name of the provisioning template.
 listProvisioningTemplateVersions_templateName :: Lens.Lens' ListProvisioningTemplateVersions Prelude.Text
@@ -154,8 +154,8 @@ instance
   hashWithSalt
     _salt
     ListProvisioningTemplateVersions' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` templateName
 
 instance
@@ -163,8 +163,8 @@ instance
     ListProvisioningTemplateVersions
   where
   rnf ListProvisioningTemplateVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf templateName
 
 instance
@@ -187,8 +187,8 @@ instance
   where
   toQuery ListProvisioningTemplateVersions' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListProvisioningTemplateVersionsResponse' smart constructor.

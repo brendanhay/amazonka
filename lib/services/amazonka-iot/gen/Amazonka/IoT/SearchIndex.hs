@@ -31,9 +31,9 @@ module Amazonka.IoT.SearchIndex
     newSearchIndex,
 
     -- * Request Lenses
-    searchIndex_nextToken,
     searchIndex_indexName,
     searchIndex_maxResults,
+    searchIndex_nextToken,
     searchIndex_queryVersion,
     searchIndex_queryString,
 
@@ -59,13 +59,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchIndex' smart constructor.
 data SearchIndex = SearchIndex'
-  { -- | The token used to get the next set of results, or @null@ if there are no
-    -- additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The search index name.
+  { -- | The search index name.
     indexName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return at one time.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token used to get the next set of results, or @null@ if there are no
+    -- additional results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The query version.
     queryVersion :: Prelude.Maybe Prelude.Text,
     -- | The search query string. For more information about the search query
@@ -83,12 +83,12 @@ data SearchIndex = SearchIndex'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'searchIndex_nextToken' - The token used to get the next set of results, or @null@ if there are no
--- additional results.
---
 -- 'indexName', 'searchIndex_indexName' - The search index name.
 --
 -- 'maxResults', 'searchIndex_maxResults' - The maximum number of results to return at one time.
+--
+-- 'nextToken', 'searchIndex_nextToken' - The token used to get the next set of results, or @null@ if there are no
+-- additional results.
 --
 -- 'queryVersion', 'searchIndex_queryVersion' - The query version.
 --
@@ -101,17 +101,12 @@ newSearchIndex ::
   SearchIndex
 newSearchIndex pQueryString_ =
   SearchIndex'
-    { nextToken = Prelude.Nothing,
-      indexName = Prelude.Nothing,
+    { indexName = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       queryVersion = Prelude.Nothing,
       queryString = pQueryString_
     }
-
--- | The token used to get the next set of results, or @null@ if there are no
--- additional results.
-searchIndex_nextToken :: Lens.Lens' SearchIndex (Prelude.Maybe Prelude.Text)
-searchIndex_nextToken = Lens.lens (\SearchIndex' {nextToken} -> nextToken) (\s@SearchIndex' {} a -> s {nextToken = a} :: SearchIndex)
 
 -- | The search index name.
 searchIndex_indexName :: Lens.Lens' SearchIndex (Prelude.Maybe Prelude.Text)
@@ -120,6 +115,11 @@ searchIndex_indexName = Lens.lens (\SearchIndex' {indexName} -> indexName) (\s@S
 -- | The maximum number of results to return at one time.
 searchIndex_maxResults :: Lens.Lens' SearchIndex (Prelude.Maybe Prelude.Natural)
 searchIndex_maxResults = Lens.lens (\SearchIndex' {maxResults} -> maxResults) (\s@SearchIndex' {} a -> s {maxResults = a} :: SearchIndex)
+
+-- | The token used to get the next set of results, or @null@ if there are no
+-- additional results.
+searchIndex_nextToken :: Lens.Lens' SearchIndex (Prelude.Maybe Prelude.Text)
+searchIndex_nextToken = Lens.lens (\SearchIndex' {nextToken} -> nextToken) (\s@SearchIndex' {} a -> s {nextToken = a} :: SearchIndex)
 
 -- | The query version.
 searchIndex_queryVersion :: Lens.Lens' SearchIndex (Prelude.Maybe Prelude.Text)
@@ -147,17 +147,17 @@ instance Core.AWSRequest SearchIndex where
 
 instance Prelude.Hashable SearchIndex where
   hashWithSalt _salt SearchIndex' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` indexName
+    _salt `Prelude.hashWithSalt` indexName
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` queryVersion
       `Prelude.hashWithSalt` queryString
 
 instance Prelude.NFData SearchIndex where
   rnf SearchIndex' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf indexName
+    Prelude.rnf indexName
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf queryVersion
       `Prelude.seq` Prelude.rnf queryString
 
@@ -168,9 +168,9 @@ instance Data.ToJSON SearchIndex where
   toJSON SearchIndex' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("indexName" Data..=) Prelude.<$> indexName,
+          [ ("indexName" Data..=) Prelude.<$> indexName,
             ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             ("queryVersion" Data..=) Prelude.<$> queryVersion,
             Prelude.Just ("queryString" Data..= queryString)
           ]

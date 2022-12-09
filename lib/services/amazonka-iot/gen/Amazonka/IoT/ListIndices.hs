@@ -33,16 +33,16 @@ module Amazonka.IoT.ListIndices
     newListIndices,
 
     -- * Request Lenses
-    listIndices_nextToken,
     listIndices_maxResults,
+    listIndices_nextToken,
 
     -- * Destructuring the Response
     ListIndicesResponse (..),
     newListIndicesResponse,
 
     -- * Response Lenses
-    listIndicesResponse_nextToken,
     listIndicesResponse_indexNames,
+    listIndicesResponse_nextToken,
     listIndicesResponse_httpStatus,
   )
 where
@@ -57,11 +57,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListIndices' smart constructor.
 data ListIndices = ListIndices'
-  { -- | The token used to get the next set of results, or @null@ if there are no
+  { -- | The maximum number of results to return at one time.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token used to get the next set of results, or @null@ if there are no
     -- additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return at one time.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,26 +73,26 @@ data ListIndices = ListIndices'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listIndices_maxResults' - The maximum number of results to return at one time.
+--
 -- 'nextToken', 'listIndices_nextToken' - The token used to get the next set of results, or @null@ if there are no
 -- additional results.
---
--- 'maxResults', 'listIndices_maxResults' - The maximum number of results to return at one time.
 newListIndices ::
   ListIndices
 newListIndices =
   ListIndices'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to return at one time.
+listIndices_maxResults :: Lens.Lens' ListIndices (Prelude.Maybe Prelude.Natural)
+listIndices_maxResults = Lens.lens (\ListIndices' {maxResults} -> maxResults) (\s@ListIndices' {} a -> s {maxResults = a} :: ListIndices)
 
 -- | The token used to get the next set of results, or @null@ if there are no
 -- additional results.
 listIndices_nextToken :: Lens.Lens' ListIndices (Prelude.Maybe Prelude.Text)
 listIndices_nextToken = Lens.lens (\ListIndices' {nextToken} -> nextToken) (\s@ListIndices' {} a -> s {nextToken = a} :: ListIndices)
-
--- | The maximum number of results to return at one time.
-listIndices_maxResults :: Lens.Lens' ListIndices (Prelude.Maybe Prelude.Natural)
-listIndices_maxResults = Lens.lens (\ListIndices' {maxResults} -> maxResults) (\s@ListIndices' {} a -> s {maxResults = a} :: ListIndices)
 
 instance Core.AWSPager ListIndices where
   page rq rs
@@ -121,20 +121,20 @@ instance Core.AWSRequest ListIndices where
     Response.receiveJSON
       ( \s h x ->
           ListIndicesResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "indexNames" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "indexNames" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListIndices where
   hashWithSalt _salt ListIndices' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListIndices where
   rnf ListIndices' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListIndices where
   toHeaders = Prelude.const Prelude.mempty
@@ -145,17 +145,17 @@ instance Data.ToPath ListIndices where
 instance Data.ToQuery ListIndices where
   toQuery ListIndices' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListIndicesResponse' smart constructor.
 data ListIndicesResponse = ListIndicesResponse'
-  { -- | The token used to get the next set of results, or @null@ if there are no
+  { -- | The index names.
+    indexNames :: Prelude.Maybe [Prelude.Text],
+    -- | The token used to get the next set of results, or @null@ if there are no
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The index names.
-    indexNames :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -169,10 +169,10 @@ data ListIndicesResponse = ListIndicesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'indexNames', 'listIndicesResponse_indexNames' - The index names.
+--
 -- 'nextToken', 'listIndicesResponse_nextToken' - The token used to get the next set of results, or @null@ if there are no
 -- additional results.
---
--- 'indexNames', 'listIndicesResponse_indexNames' - The index names.
 --
 -- 'httpStatus', 'listIndicesResponse_httpStatus' - The response's http status code.
 newListIndicesResponse ::
@@ -181,19 +181,19 @@ newListIndicesResponse ::
   ListIndicesResponse
 newListIndicesResponse pHttpStatus_ =
   ListIndicesResponse'
-    { nextToken = Prelude.Nothing,
-      indexNames = Prelude.Nothing,
+    { indexNames = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The index names.
+listIndicesResponse_indexNames :: Lens.Lens' ListIndicesResponse (Prelude.Maybe [Prelude.Text])
+listIndicesResponse_indexNames = Lens.lens (\ListIndicesResponse' {indexNames} -> indexNames) (\s@ListIndicesResponse' {} a -> s {indexNames = a} :: ListIndicesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token used to get the next set of results, or @null@ if there are no
 -- additional results.
 listIndicesResponse_nextToken :: Lens.Lens' ListIndicesResponse (Prelude.Maybe Prelude.Text)
 listIndicesResponse_nextToken = Lens.lens (\ListIndicesResponse' {nextToken} -> nextToken) (\s@ListIndicesResponse' {} a -> s {nextToken = a} :: ListIndicesResponse)
-
--- | The index names.
-listIndicesResponse_indexNames :: Lens.Lens' ListIndicesResponse (Prelude.Maybe [Prelude.Text])
-listIndicesResponse_indexNames = Lens.lens (\ListIndicesResponse' {indexNames} -> indexNames) (\s@ListIndicesResponse' {} a -> s {indexNames = a} :: ListIndicesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listIndicesResponse_httpStatus :: Lens.Lens' ListIndicesResponse Prelude.Int
@@ -201,6 +201,6 @@ listIndicesResponse_httpStatus = Lens.lens (\ListIndicesResponse' {httpStatus} -
 
 instance Prelude.NFData ListIndicesResponse where
   rnf ListIndicesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf indexNames
+    Prelude.rnf indexNames
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

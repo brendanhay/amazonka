@@ -44,10 +44,10 @@ module Amazonka.IoT.CreatePolicy
     newCreatePolicyResponse,
 
     -- * Response Lenses
+    createPolicyResponse_policyArn,
+    createPolicyResponse_policyDocument,
     createPolicyResponse_policyName,
     createPolicyResponse_policyVersionId,
-    createPolicyResponse_policyDocument,
-    createPolicyResponse_policyArn,
     createPolicyResponse_httpStatus,
   )
 where
@@ -149,10 +149,10 @@ instance Core.AWSRequest CreatePolicy where
     Response.receiveJSON
       ( \s h x ->
           CreatePolicyResponse'
-            Prelude.<$> (x Data..?> "policyName")
-            Prelude.<*> (x Data..?> "policyVersionId")
+            Prelude.<$> (x Data..?> "policyArn")
             Prelude.<*> (x Data..?> "policyDocument")
-            Prelude.<*> (x Data..?> "policyArn")
+            Prelude.<*> (x Data..?> "policyName")
+            Prelude.<*> (x Data..?> "policyVersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -193,14 +193,14 @@ instance Data.ToQuery CreatePolicy where
 --
 -- /See:/ 'newCreatePolicyResponse' smart constructor.
 data CreatePolicyResponse = CreatePolicyResponse'
-  { -- | The policy name.
+  { -- | The policy ARN.
+    policyArn :: Prelude.Maybe Prelude.Text,
+    -- | The JSON document that describes the policy.
+    policyDocument :: Prelude.Maybe Prelude.Text,
+    -- | The policy name.
     policyName :: Prelude.Maybe Prelude.Text,
     -- | The policy version ID.
     policyVersionId :: Prelude.Maybe Prelude.Text,
-    -- | The JSON document that describes the policy.
-    policyDocument :: Prelude.Maybe Prelude.Text,
-    -- | The policy ARN.
-    policyArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -214,13 +214,13 @@ data CreatePolicyResponse = CreatePolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyName', 'createPolicyResponse_policyName' - The policy name.
---
--- 'policyVersionId', 'createPolicyResponse_policyVersionId' - The policy version ID.
+-- 'policyArn', 'createPolicyResponse_policyArn' - The policy ARN.
 --
 -- 'policyDocument', 'createPolicyResponse_policyDocument' - The JSON document that describes the policy.
 --
--- 'policyArn', 'createPolicyResponse_policyArn' - The policy ARN.
+-- 'policyName', 'createPolicyResponse_policyName' - The policy name.
+--
+-- 'policyVersionId', 'createPolicyResponse_policyVersionId' - The policy version ID.
 --
 -- 'httpStatus', 'createPolicyResponse_httpStatus' - The response's http status code.
 newCreatePolicyResponse ::
@@ -229,12 +229,20 @@ newCreatePolicyResponse ::
   CreatePolicyResponse
 newCreatePolicyResponse pHttpStatus_ =
   CreatePolicyResponse'
-    { policyName = Prelude.Nothing,
-      policyVersionId = Prelude.Nothing,
+    { policyArn = Prelude.Nothing,
       policyDocument = Prelude.Nothing,
-      policyArn = Prelude.Nothing,
+      policyName = Prelude.Nothing,
+      policyVersionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The policy ARN.
+createPolicyResponse_policyArn :: Lens.Lens' CreatePolicyResponse (Prelude.Maybe Prelude.Text)
+createPolicyResponse_policyArn = Lens.lens (\CreatePolicyResponse' {policyArn} -> policyArn) (\s@CreatePolicyResponse' {} a -> s {policyArn = a} :: CreatePolicyResponse)
+
+-- | The JSON document that describes the policy.
+createPolicyResponse_policyDocument :: Lens.Lens' CreatePolicyResponse (Prelude.Maybe Prelude.Text)
+createPolicyResponse_policyDocument = Lens.lens (\CreatePolicyResponse' {policyDocument} -> policyDocument) (\s@CreatePolicyResponse' {} a -> s {policyDocument = a} :: CreatePolicyResponse)
 
 -- | The policy name.
 createPolicyResponse_policyName :: Lens.Lens' CreatePolicyResponse (Prelude.Maybe Prelude.Text)
@@ -244,22 +252,14 @@ createPolicyResponse_policyName = Lens.lens (\CreatePolicyResponse' {policyName}
 createPolicyResponse_policyVersionId :: Lens.Lens' CreatePolicyResponse (Prelude.Maybe Prelude.Text)
 createPolicyResponse_policyVersionId = Lens.lens (\CreatePolicyResponse' {policyVersionId} -> policyVersionId) (\s@CreatePolicyResponse' {} a -> s {policyVersionId = a} :: CreatePolicyResponse)
 
--- | The JSON document that describes the policy.
-createPolicyResponse_policyDocument :: Lens.Lens' CreatePolicyResponse (Prelude.Maybe Prelude.Text)
-createPolicyResponse_policyDocument = Lens.lens (\CreatePolicyResponse' {policyDocument} -> policyDocument) (\s@CreatePolicyResponse' {} a -> s {policyDocument = a} :: CreatePolicyResponse)
-
--- | The policy ARN.
-createPolicyResponse_policyArn :: Lens.Lens' CreatePolicyResponse (Prelude.Maybe Prelude.Text)
-createPolicyResponse_policyArn = Lens.lens (\CreatePolicyResponse' {policyArn} -> policyArn) (\s@CreatePolicyResponse' {} a -> s {policyArn = a} :: CreatePolicyResponse)
-
 -- | The response's http status code.
 createPolicyResponse_httpStatus :: Lens.Lens' CreatePolicyResponse Prelude.Int
 createPolicyResponse_httpStatus = Lens.lens (\CreatePolicyResponse' {httpStatus} -> httpStatus) (\s@CreatePolicyResponse' {} a -> s {httpStatus = a} :: CreatePolicyResponse)
 
 instance Prelude.NFData CreatePolicyResponse where
   rnf CreatePolicyResponse' {..} =
-    Prelude.rnf policyName
-      `Prelude.seq` Prelude.rnf policyVersionId
+    Prelude.rnf policyArn
       `Prelude.seq` Prelude.rnf policyDocument
-      `Prelude.seq` Prelude.rnf policyArn
+      `Prelude.seq` Prelude.rnf policyName
+      `Prelude.seq` Prelude.rnf policyVersionId
       `Prelude.seq` Prelude.rnf httpStatus

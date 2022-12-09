@@ -43,8 +43,8 @@ module Amazonka.IoT.GetBucketsAggregation
     newGetBucketsAggregationResponse,
 
     -- * Response Lenses
-    getBucketsAggregationResponse_totalCount,
     getBucketsAggregationResponse_buckets,
+    getBucketsAggregationResponse_totalCount,
     getBucketsAggregationResponse_httpStatus,
   )
 where
@@ -142,8 +142,8 @@ instance Core.AWSRequest GetBucketsAggregation where
     Response.receiveJSON
       ( \s h x ->
           GetBucketsAggregationResponse'
-            Prelude.<$> (x Data..?> "totalCount")
-            Prelude.<*> (x Data..?> "buckets" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "buckets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "totalCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -190,9 +190,7 @@ instance Data.ToQuery GetBucketsAggregation where
 
 -- | /See:/ 'newGetBucketsAggregationResponse' smart constructor.
 data GetBucketsAggregationResponse = GetBucketsAggregationResponse'
-  { -- | The total number of things that fit the query string criteria.
-    totalCount :: Prelude.Maybe Prelude.Int,
-    -- | The main part of the response with a list of buckets. Each bucket
+  { -- | The main part of the response with a list of buckets. Each bucket
     -- contains a @keyValue@ and a @count@.
     --
     -- @keyValue@: The aggregation field value counted for the particular
@@ -200,6 +198,8 @@ data GetBucketsAggregationResponse = GetBucketsAggregationResponse'
     --
     -- @count@: The number of documents that have that value.
     buckets :: Prelude.Maybe [Bucket],
+    -- | The total number of things that fit the query string criteria.
+    totalCount :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -213,8 +213,6 @@ data GetBucketsAggregationResponse = GetBucketsAggregationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'totalCount', 'getBucketsAggregationResponse_totalCount' - The total number of things that fit the query string criteria.
---
 -- 'buckets', 'getBucketsAggregationResponse_buckets' - The main part of the response with a list of buckets. Each bucket
 -- contains a @keyValue@ and a @count@.
 --
@@ -223,6 +221,8 @@ data GetBucketsAggregationResponse = GetBucketsAggregationResponse'
 --
 -- @count@: The number of documents that have that value.
 --
+-- 'totalCount', 'getBucketsAggregationResponse_totalCount' - The total number of things that fit the query string criteria.
+--
 -- 'httpStatus', 'getBucketsAggregationResponse_httpStatus' - The response's http status code.
 newGetBucketsAggregationResponse ::
   -- | 'httpStatus'
@@ -230,15 +230,11 @@ newGetBucketsAggregationResponse ::
   GetBucketsAggregationResponse
 newGetBucketsAggregationResponse pHttpStatus_ =
   GetBucketsAggregationResponse'
-    { totalCount =
+    { buckets =
         Prelude.Nothing,
-      buckets = Prelude.Nothing,
+      totalCount = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The total number of things that fit the query string criteria.
-getBucketsAggregationResponse_totalCount :: Lens.Lens' GetBucketsAggregationResponse (Prelude.Maybe Prelude.Int)
-getBucketsAggregationResponse_totalCount = Lens.lens (\GetBucketsAggregationResponse' {totalCount} -> totalCount) (\s@GetBucketsAggregationResponse' {} a -> s {totalCount = a} :: GetBucketsAggregationResponse)
 
 -- | The main part of the response with a list of buckets. Each bucket
 -- contains a @keyValue@ and a @count@.
@@ -250,12 +246,16 @@ getBucketsAggregationResponse_totalCount = Lens.lens (\GetBucketsAggregationResp
 getBucketsAggregationResponse_buckets :: Lens.Lens' GetBucketsAggregationResponse (Prelude.Maybe [Bucket])
 getBucketsAggregationResponse_buckets = Lens.lens (\GetBucketsAggregationResponse' {buckets} -> buckets) (\s@GetBucketsAggregationResponse' {} a -> s {buckets = a} :: GetBucketsAggregationResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The total number of things that fit the query string criteria.
+getBucketsAggregationResponse_totalCount :: Lens.Lens' GetBucketsAggregationResponse (Prelude.Maybe Prelude.Int)
+getBucketsAggregationResponse_totalCount = Lens.lens (\GetBucketsAggregationResponse' {totalCount} -> totalCount) (\s@GetBucketsAggregationResponse' {} a -> s {totalCount = a} :: GetBucketsAggregationResponse)
+
 -- | The response's http status code.
 getBucketsAggregationResponse_httpStatus :: Lens.Lens' GetBucketsAggregationResponse Prelude.Int
 getBucketsAggregationResponse_httpStatus = Lens.lens (\GetBucketsAggregationResponse' {httpStatus} -> httpStatus) (\s@GetBucketsAggregationResponse' {} a -> s {httpStatus = a} :: GetBucketsAggregationResponse)
 
 instance Prelude.NFData GetBucketsAggregationResponse where
   rnf GetBucketsAggregationResponse' {..} =
-    Prelude.rnf totalCount
-      `Prelude.seq` Prelude.rnf buckets
+    Prelude.rnf buckets
+      `Prelude.seq` Prelude.rnf totalCount
       `Prelude.seq` Prelude.rnf httpStatus

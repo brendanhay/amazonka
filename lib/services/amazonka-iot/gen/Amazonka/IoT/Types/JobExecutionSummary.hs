@@ -36,15 +36,15 @@ data JobExecutionSummary = JobExecutionSummary'
     -- | The time, in seconds since the epoch, when the job execution was last
     -- updated.
     lastUpdatedAt :: Prelude.Maybe Data.POSIX,
-    -- | The status of the job execution.
-    status :: Prelude.Maybe JobExecutionStatus,
-    -- | The time, in seconds since the epoch, when the job execution started.
-    startedAt :: Prelude.Maybe Data.POSIX,
     -- | The time, in seconds since the epoch, when the job execution was queued.
     queuedAt :: Prelude.Maybe Data.POSIX,
     -- | The number that indicates how many retry attempts have been completed
     -- for this job on this device.
-    retryAttempt :: Prelude.Maybe Prelude.Int
+    retryAttempt :: Prelude.Maybe Prelude.Int,
+    -- | The time, in seconds since the epoch, when the job execution started.
+    startedAt :: Prelude.Maybe Data.POSIX,
+    -- | The status of the job execution.
+    status :: Prelude.Maybe JobExecutionStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,14 +63,14 @@ data JobExecutionSummary = JobExecutionSummary'
 -- 'lastUpdatedAt', 'jobExecutionSummary_lastUpdatedAt' - The time, in seconds since the epoch, when the job execution was last
 -- updated.
 --
--- 'status', 'jobExecutionSummary_status' - The status of the job execution.
---
--- 'startedAt', 'jobExecutionSummary_startedAt' - The time, in seconds since the epoch, when the job execution started.
---
 -- 'queuedAt', 'jobExecutionSummary_queuedAt' - The time, in seconds since the epoch, when the job execution was queued.
 --
 -- 'retryAttempt', 'jobExecutionSummary_retryAttempt' - The number that indicates how many retry attempts have been completed
 -- for this job on this device.
+--
+-- 'startedAt', 'jobExecutionSummary_startedAt' - The time, in seconds since the epoch, when the job execution started.
+--
+-- 'status', 'jobExecutionSummary_status' - The status of the job execution.
 newJobExecutionSummary ::
   JobExecutionSummary
 newJobExecutionSummary =
@@ -78,10 +78,10 @@ newJobExecutionSummary =
     { executionNumber =
         Prelude.Nothing,
       lastUpdatedAt = Prelude.Nothing,
-      status = Prelude.Nothing,
-      startedAt = Prelude.Nothing,
       queuedAt = Prelude.Nothing,
-      retryAttempt = Prelude.Nothing
+      retryAttempt = Prelude.Nothing,
+      startedAt = Prelude.Nothing,
+      status = Prelude.Nothing
     }
 
 -- | A string (consisting of the digits \"0\" through \"9\") which identifies
@@ -95,14 +95,6 @@ jobExecutionSummary_executionNumber = Lens.lens (\JobExecutionSummary' {executio
 jobExecutionSummary_lastUpdatedAt :: Lens.Lens' JobExecutionSummary (Prelude.Maybe Prelude.UTCTime)
 jobExecutionSummary_lastUpdatedAt = Lens.lens (\JobExecutionSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@JobExecutionSummary' {} a -> s {lastUpdatedAt = a} :: JobExecutionSummary) Prelude.. Lens.mapping Data._Time
 
--- | The status of the job execution.
-jobExecutionSummary_status :: Lens.Lens' JobExecutionSummary (Prelude.Maybe JobExecutionStatus)
-jobExecutionSummary_status = Lens.lens (\JobExecutionSummary' {status} -> status) (\s@JobExecutionSummary' {} a -> s {status = a} :: JobExecutionSummary)
-
--- | The time, in seconds since the epoch, when the job execution started.
-jobExecutionSummary_startedAt :: Lens.Lens' JobExecutionSummary (Prelude.Maybe Prelude.UTCTime)
-jobExecutionSummary_startedAt = Lens.lens (\JobExecutionSummary' {startedAt} -> startedAt) (\s@JobExecutionSummary' {} a -> s {startedAt = a} :: JobExecutionSummary) Prelude.. Lens.mapping Data._Time
-
 -- | The time, in seconds since the epoch, when the job execution was queued.
 jobExecutionSummary_queuedAt :: Lens.Lens' JobExecutionSummary (Prelude.Maybe Prelude.UTCTime)
 jobExecutionSummary_queuedAt = Lens.lens (\JobExecutionSummary' {queuedAt} -> queuedAt) (\s@JobExecutionSummary' {} a -> s {queuedAt = a} :: JobExecutionSummary) Prelude.. Lens.mapping Data._Time
@@ -112,6 +104,14 @@ jobExecutionSummary_queuedAt = Lens.lens (\JobExecutionSummary' {queuedAt} -> qu
 jobExecutionSummary_retryAttempt :: Lens.Lens' JobExecutionSummary (Prelude.Maybe Prelude.Int)
 jobExecutionSummary_retryAttempt = Lens.lens (\JobExecutionSummary' {retryAttempt} -> retryAttempt) (\s@JobExecutionSummary' {} a -> s {retryAttempt = a} :: JobExecutionSummary)
 
+-- | The time, in seconds since the epoch, when the job execution started.
+jobExecutionSummary_startedAt :: Lens.Lens' JobExecutionSummary (Prelude.Maybe Prelude.UTCTime)
+jobExecutionSummary_startedAt = Lens.lens (\JobExecutionSummary' {startedAt} -> startedAt) (\s@JobExecutionSummary' {} a -> s {startedAt = a} :: JobExecutionSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The status of the job execution.
+jobExecutionSummary_status :: Lens.Lens' JobExecutionSummary (Prelude.Maybe JobExecutionStatus)
+jobExecutionSummary_status = Lens.lens (\JobExecutionSummary' {status} -> status) (\s@JobExecutionSummary' {} a -> s {status = a} :: JobExecutionSummary)
+
 instance Data.FromJSON JobExecutionSummary where
   parseJSON =
     Data.withObject
@@ -120,26 +120,26 @@ instance Data.FromJSON JobExecutionSummary where
           JobExecutionSummary'
             Prelude.<$> (x Data..:? "executionNumber")
             Prelude.<*> (x Data..:? "lastUpdatedAt")
-            Prelude.<*> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "startedAt")
             Prelude.<*> (x Data..:? "queuedAt")
             Prelude.<*> (x Data..:? "retryAttempt")
+            Prelude.<*> (x Data..:? "startedAt")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable JobExecutionSummary where
   hashWithSalt _salt JobExecutionSummary' {..} =
     _salt `Prelude.hashWithSalt` executionNumber
       `Prelude.hashWithSalt` lastUpdatedAt
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` startedAt
       `Prelude.hashWithSalt` queuedAt
       `Prelude.hashWithSalt` retryAttempt
+      `Prelude.hashWithSalt` startedAt
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData JobExecutionSummary where
   rnf JobExecutionSummary' {..} =
     Prelude.rnf executionNumber
       `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf startedAt
       `Prelude.seq` Prelude.rnf queuedAt
       `Prelude.seq` Prelude.rnf retryAttempt
+      `Prelude.seq` Prelude.rnf startedAt
+      `Prelude.seq` Prelude.rnf status

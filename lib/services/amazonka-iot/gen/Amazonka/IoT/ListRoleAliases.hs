@@ -33,9 +33,9 @@ module Amazonka.IoT.ListRoleAliases
     newListRoleAliases,
 
     -- * Request Lenses
+    listRoleAliases_ascendingOrder,
     listRoleAliases_marker,
     listRoleAliases_pageSize,
-    listRoleAliases_ascendingOrder,
 
     -- * Destructuring the Response
     ListRoleAliasesResponse (..),
@@ -58,12 +58,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRoleAliases' smart constructor.
 data ListRoleAliases = ListRoleAliases'
-  { -- | A marker used to get the next set of results.
+  { -- | Return the list of role aliases in ascending alphabetical order.
+    ascendingOrder :: Prelude.Maybe Prelude.Bool,
+    -- | A marker used to get the next set of results.
     marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return at one time.
-    pageSize :: Prelude.Maybe Prelude.Natural,
-    -- | Return the list of role aliases in ascending alphabetical order.
-    ascendingOrder :: Prelude.Maybe Prelude.Bool
+    pageSize :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,19 +75,23 @@ data ListRoleAliases = ListRoleAliases'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ascendingOrder', 'listRoleAliases_ascendingOrder' - Return the list of role aliases in ascending alphabetical order.
+--
 -- 'marker', 'listRoleAliases_marker' - A marker used to get the next set of results.
 --
 -- 'pageSize', 'listRoleAliases_pageSize' - The maximum number of results to return at one time.
---
--- 'ascendingOrder', 'listRoleAliases_ascendingOrder' - Return the list of role aliases in ascending alphabetical order.
 newListRoleAliases ::
   ListRoleAliases
 newListRoleAliases =
   ListRoleAliases'
-    { marker = Prelude.Nothing,
-      pageSize = Prelude.Nothing,
-      ascendingOrder = Prelude.Nothing
+    { ascendingOrder = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      pageSize = Prelude.Nothing
     }
+
+-- | Return the list of role aliases in ascending alphabetical order.
+listRoleAliases_ascendingOrder :: Lens.Lens' ListRoleAliases (Prelude.Maybe Prelude.Bool)
+listRoleAliases_ascendingOrder = Lens.lens (\ListRoleAliases' {ascendingOrder} -> ascendingOrder) (\s@ListRoleAliases' {} a -> s {ascendingOrder = a} :: ListRoleAliases)
 
 -- | A marker used to get the next set of results.
 listRoleAliases_marker :: Lens.Lens' ListRoleAliases (Prelude.Maybe Prelude.Text)
@@ -96,10 +100,6 @@ listRoleAliases_marker = Lens.lens (\ListRoleAliases' {marker} -> marker) (\s@Li
 -- | The maximum number of results to return at one time.
 listRoleAliases_pageSize :: Lens.Lens' ListRoleAliases (Prelude.Maybe Prelude.Natural)
 listRoleAliases_pageSize = Lens.lens (\ListRoleAliases' {pageSize} -> pageSize) (\s@ListRoleAliases' {} a -> s {pageSize = a} :: ListRoleAliases)
-
--- | Return the list of role aliases in ascending alphabetical order.
-listRoleAliases_ascendingOrder :: Lens.Lens' ListRoleAliases (Prelude.Maybe Prelude.Bool)
-listRoleAliases_ascendingOrder = Lens.lens (\ListRoleAliases' {ascendingOrder} -> ascendingOrder) (\s@ListRoleAliases' {} a -> s {ascendingOrder = a} :: ListRoleAliases)
 
 instance Core.AWSPager ListRoleAliases where
   page rq rs
@@ -140,15 +140,15 @@ instance Core.AWSRequest ListRoleAliases where
 
 instance Prelude.Hashable ListRoleAliases where
   hashWithSalt _salt ListRoleAliases' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` ascendingOrder
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` pageSize
-      `Prelude.hashWithSalt` ascendingOrder
 
 instance Prelude.NFData ListRoleAliases where
   rnf ListRoleAliases' {..} =
-    Prelude.rnf marker
+    Prelude.rnf ascendingOrder
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf ascendingOrder
 
 instance Data.ToHeaders ListRoleAliases where
   toHeaders = Prelude.const Prelude.mempty
@@ -159,9 +159,9 @@ instance Data.ToPath ListRoleAliases where
 instance Data.ToQuery ListRoleAliases where
   toQuery ListRoleAliases' {..} =
     Prelude.mconcat
-      [ "marker" Data.=: marker,
-        "pageSize" Data.=: pageSize,
-        "isAscendingOrder" Data.=: ascendingOrder
+      [ "isAscendingOrder" Data.=: ascendingOrder,
+        "marker" Data.=: marker,
+        "pageSize" Data.=: pageSize
       ]
 
 -- | /See:/ 'newListRoleAliasesResponse' smart constructor.

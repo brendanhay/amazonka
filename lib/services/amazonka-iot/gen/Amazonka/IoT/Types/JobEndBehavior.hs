@@ -11,20 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.IoT.Types.JobStatus
+-- Module      : Amazonka.IoT.Types.JobEndBehavior
 -- Copyright   : (c) 2013-2022 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.IoT.Types.JobStatus
-  ( JobStatus
+module Amazonka.IoT.Types.JobEndBehavior
+  ( JobEndBehavior
       ( ..,
-        JobStatus_CANCELED,
-        JobStatus_COMPLETED,
-        JobStatus_DELETION_IN_PROGRESS,
-        JobStatus_IN_PROGRESS,
-        JobStatus_SCHEDULED
+        JobEndBehavior_CANCEL,
+        JobEndBehavior_FORCE_CANCEL,
+        JobEndBehavior_STOP_ROLLOUT
       ),
   )
 where
@@ -33,8 +31,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
-newtype JobStatus = JobStatus'
-  { fromJobStatus ::
+newtype JobEndBehavior = JobEndBehavior'
+  { fromJobEndBehavior ::
       Data.Text
   }
   deriving stock
@@ -61,26 +59,18 @@ newtype JobStatus = JobStatus'
       Data.ToXML
     )
 
-pattern JobStatus_CANCELED :: JobStatus
-pattern JobStatus_CANCELED = JobStatus' "CANCELED"
+pattern JobEndBehavior_CANCEL :: JobEndBehavior
+pattern JobEndBehavior_CANCEL = JobEndBehavior' "CANCEL"
 
-pattern JobStatus_COMPLETED :: JobStatus
-pattern JobStatus_COMPLETED = JobStatus' "COMPLETED"
+pattern JobEndBehavior_FORCE_CANCEL :: JobEndBehavior
+pattern JobEndBehavior_FORCE_CANCEL = JobEndBehavior' "FORCE_CANCEL"
 
-pattern JobStatus_DELETION_IN_PROGRESS :: JobStatus
-pattern JobStatus_DELETION_IN_PROGRESS = JobStatus' "DELETION_IN_PROGRESS"
-
-pattern JobStatus_IN_PROGRESS :: JobStatus
-pattern JobStatus_IN_PROGRESS = JobStatus' "IN_PROGRESS"
-
-pattern JobStatus_SCHEDULED :: JobStatus
-pattern JobStatus_SCHEDULED = JobStatus' "SCHEDULED"
+pattern JobEndBehavior_STOP_ROLLOUT :: JobEndBehavior
+pattern JobEndBehavior_STOP_ROLLOUT = JobEndBehavior' "STOP_ROLLOUT"
 
 {-# COMPLETE
-  JobStatus_CANCELED,
-  JobStatus_COMPLETED,
-  JobStatus_DELETION_IN_PROGRESS,
-  JobStatus_IN_PROGRESS,
-  JobStatus_SCHEDULED,
-  JobStatus'
+  JobEndBehavior_CANCEL,
+  JobEndBehavior_FORCE_CANCEL,
+  JobEndBehavior_STOP_ROLLOUT,
+  JobEndBehavior'
   #-}

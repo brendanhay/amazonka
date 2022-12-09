@@ -36,10 +36,10 @@ module Amazonka.IoT.ListSecurityProfiles
     newListSecurityProfiles,
 
     -- * Request Lenses
-    listSecurityProfiles_nextToken,
     listSecurityProfiles_dimensionName,
     listSecurityProfiles_maxResults,
     listSecurityProfiles_metricName,
+    listSecurityProfiles_nextToken,
 
     -- * Destructuring the Response
     ListSecurityProfilesResponse (..),
@@ -62,15 +62,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSecurityProfiles' smart constructor.
 data ListSecurityProfiles = ListSecurityProfiles'
-  { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A filter to limit results to the security profiles that use the defined
+  { -- | A filter to limit results to the security profiles that use the defined
     -- dimension. Cannot be used with @metricName@
     dimensionName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return at one time.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the custom metric. Cannot be used with @dimensionName@.
-    metricName :: Prelude.Maybe Prelude.Text
+    metricName :: Prelude.Maybe Prelude.Text,
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,27 +82,24 @@ data ListSecurityProfiles = ListSecurityProfiles'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSecurityProfiles_nextToken' - The token for the next set of results.
---
 -- 'dimensionName', 'listSecurityProfiles_dimensionName' - A filter to limit results to the security profiles that use the defined
 -- dimension. Cannot be used with @metricName@
 --
 -- 'maxResults', 'listSecurityProfiles_maxResults' - The maximum number of results to return at one time.
 --
 -- 'metricName', 'listSecurityProfiles_metricName' - The name of the custom metric. Cannot be used with @dimensionName@.
+--
+-- 'nextToken', 'listSecurityProfiles_nextToken' - The token for the next set of results.
 newListSecurityProfiles ::
   ListSecurityProfiles
 newListSecurityProfiles =
   ListSecurityProfiles'
-    { nextToken = Prelude.Nothing,
-      dimensionName = Prelude.Nothing,
+    { dimensionName =
+        Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      metricName = Prelude.Nothing
+      metricName = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token for the next set of results.
-listSecurityProfiles_nextToken :: Lens.Lens' ListSecurityProfiles (Prelude.Maybe Prelude.Text)
-listSecurityProfiles_nextToken = Lens.lens (\ListSecurityProfiles' {nextToken} -> nextToken) (\s@ListSecurityProfiles' {} a -> s {nextToken = a} :: ListSecurityProfiles)
 
 -- | A filter to limit results to the security profiles that use the defined
 -- dimension. Cannot be used with @metricName@
@@ -116,6 +113,10 @@ listSecurityProfiles_maxResults = Lens.lens (\ListSecurityProfiles' {maxResults}
 -- | The name of the custom metric. Cannot be used with @dimensionName@.
 listSecurityProfiles_metricName :: Lens.Lens' ListSecurityProfiles (Prelude.Maybe Prelude.Text)
 listSecurityProfiles_metricName = Lens.lens (\ListSecurityProfiles' {metricName} -> metricName) (\s@ListSecurityProfiles' {} a -> s {metricName = a} :: ListSecurityProfiles)
+
+-- | The token for the next set of results.
+listSecurityProfiles_nextToken :: Lens.Lens' ListSecurityProfiles (Prelude.Maybe Prelude.Text)
+listSecurityProfiles_nextToken = Lens.lens (\ListSecurityProfiles' {nextToken} -> nextToken) (\s@ListSecurityProfiles' {} a -> s {nextToken = a} :: ListSecurityProfiles)
 
 instance Core.AWSPager ListSecurityProfiles where
   page rq rs
@@ -158,17 +159,17 @@ instance Core.AWSRequest ListSecurityProfiles where
 
 instance Prelude.Hashable ListSecurityProfiles where
   hashWithSalt _salt ListSecurityProfiles' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` dimensionName
+    _salt `Prelude.hashWithSalt` dimensionName
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` metricName
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListSecurityProfiles where
   rnf ListSecurityProfiles' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf dimensionName
+    Prelude.rnf dimensionName
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf metricName
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSecurityProfiles where
   toHeaders = Prelude.const Prelude.mempty
@@ -179,10 +180,10 @@ instance Data.ToPath ListSecurityProfiles where
 instance Data.ToQuery ListSecurityProfiles where
   toQuery ListSecurityProfiles' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "dimensionName" Data.=: dimensionName,
+      [ "dimensionName" Data.=: dimensionName,
         "maxResults" Data.=: maxResults,
-        "metricName" Data.=: metricName
+        "metricName" Data.=: metricName,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListSecurityProfilesResponse' smart constructor.

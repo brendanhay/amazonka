@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJobExecutionsRolloutConfig' smart constructor.
 data JobExecutionsRolloutConfig = JobExecutionsRolloutConfig'
-  { -- | The maximum number of things that will be notified of a pending job, per
-    -- minute. This parameter allows you to create a staged rollout.
-    maximumPerMinute :: Prelude.Maybe Prelude.Natural,
-    -- | The rate of increase for a job rollout. This parameter allows you to
+  { -- | The rate of increase for a job rollout. This parameter allows you to
     -- define an exponential rate for a job rollout.
-    exponentialRate :: Prelude.Maybe ExponentialRolloutRate
+    exponentialRate :: Prelude.Maybe ExponentialRolloutRate,
+    -- | The maximum number of things that will be notified of a pending job, per
+    -- minute. This parameter allows you to create a staged rollout.
+    maximumPerMinute :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,29 +46,29 @@ data JobExecutionsRolloutConfig = JobExecutionsRolloutConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maximumPerMinute', 'jobExecutionsRolloutConfig_maximumPerMinute' - The maximum number of things that will be notified of a pending job, per
--- minute. This parameter allows you to create a staged rollout.
---
 -- 'exponentialRate', 'jobExecutionsRolloutConfig_exponentialRate' - The rate of increase for a job rollout. This parameter allows you to
 -- define an exponential rate for a job rollout.
+--
+-- 'maximumPerMinute', 'jobExecutionsRolloutConfig_maximumPerMinute' - The maximum number of things that will be notified of a pending job, per
+-- minute. This parameter allows you to create a staged rollout.
 newJobExecutionsRolloutConfig ::
   JobExecutionsRolloutConfig
 newJobExecutionsRolloutConfig =
   JobExecutionsRolloutConfig'
-    { maximumPerMinute =
+    { exponentialRate =
         Prelude.Nothing,
-      exponentialRate = Prelude.Nothing
+      maximumPerMinute = Prelude.Nothing
     }
-
--- | The maximum number of things that will be notified of a pending job, per
--- minute. This parameter allows you to create a staged rollout.
-jobExecutionsRolloutConfig_maximumPerMinute :: Lens.Lens' JobExecutionsRolloutConfig (Prelude.Maybe Prelude.Natural)
-jobExecutionsRolloutConfig_maximumPerMinute = Lens.lens (\JobExecutionsRolloutConfig' {maximumPerMinute} -> maximumPerMinute) (\s@JobExecutionsRolloutConfig' {} a -> s {maximumPerMinute = a} :: JobExecutionsRolloutConfig)
 
 -- | The rate of increase for a job rollout. This parameter allows you to
 -- define an exponential rate for a job rollout.
 jobExecutionsRolloutConfig_exponentialRate :: Lens.Lens' JobExecutionsRolloutConfig (Prelude.Maybe ExponentialRolloutRate)
 jobExecutionsRolloutConfig_exponentialRate = Lens.lens (\JobExecutionsRolloutConfig' {exponentialRate} -> exponentialRate) (\s@JobExecutionsRolloutConfig' {} a -> s {exponentialRate = a} :: JobExecutionsRolloutConfig)
+
+-- | The maximum number of things that will be notified of a pending job, per
+-- minute. This parameter allows you to create a staged rollout.
+jobExecutionsRolloutConfig_maximumPerMinute :: Lens.Lens' JobExecutionsRolloutConfig (Prelude.Maybe Prelude.Natural)
+jobExecutionsRolloutConfig_maximumPerMinute = Lens.lens (\JobExecutionsRolloutConfig' {maximumPerMinute} -> maximumPerMinute) (\s@JobExecutionsRolloutConfig' {} a -> s {maximumPerMinute = a} :: JobExecutionsRolloutConfig)
 
 instance Data.FromJSON JobExecutionsRolloutConfig where
   parseJSON =
@@ -76,27 +76,27 @@ instance Data.FromJSON JobExecutionsRolloutConfig where
       "JobExecutionsRolloutConfig"
       ( \x ->
           JobExecutionsRolloutConfig'
-            Prelude.<$> (x Data..:? "maximumPerMinute")
-            Prelude.<*> (x Data..:? "exponentialRate")
+            Prelude.<$> (x Data..:? "exponentialRate")
+            Prelude.<*> (x Data..:? "maximumPerMinute")
       )
 
 instance Prelude.Hashable JobExecutionsRolloutConfig where
   hashWithSalt _salt JobExecutionsRolloutConfig' {..} =
-    _salt `Prelude.hashWithSalt` maximumPerMinute
-      `Prelude.hashWithSalt` exponentialRate
+    _salt `Prelude.hashWithSalt` exponentialRate
+      `Prelude.hashWithSalt` maximumPerMinute
 
 instance Prelude.NFData JobExecutionsRolloutConfig where
   rnf JobExecutionsRolloutConfig' {..} =
-    Prelude.rnf maximumPerMinute
-      `Prelude.seq` Prelude.rnf exponentialRate
+    Prelude.rnf exponentialRate
+      `Prelude.seq` Prelude.rnf maximumPerMinute
 
 instance Data.ToJSON JobExecutionsRolloutConfig where
   toJSON JobExecutionsRolloutConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("maximumPerMinute" Data..=)
-              Prelude.<$> maximumPerMinute,
-            ("exponentialRate" Data..=)
-              Prelude.<$> exponentialRate
+          [ ("exponentialRate" Data..=)
+              Prelude.<$> exponentialRate,
+            ("maximumPerMinute" Data..=)
+              Prelude.<$> maximumPerMinute
           ]
       )

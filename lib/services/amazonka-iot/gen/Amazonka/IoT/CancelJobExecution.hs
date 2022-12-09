@@ -31,9 +31,9 @@ module Amazonka.IoT.CancelJobExecution
     newCancelJobExecution,
 
     -- * Request Lenses
-    cancelJobExecution_statusDetails,
-    cancelJobExecution_force,
     cancelJobExecution_expectedVersion,
+    cancelJobExecution_force,
+    cancelJobExecution_statusDetails,
     cancelJobExecution_jobId,
     cancelJobExecution_thingName,
 
@@ -53,10 +53,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCancelJobExecution' smart constructor.
 data CancelJobExecution = CancelJobExecution'
-  { -- | A collection of name\/value pairs that describe the status of the job
-    -- execution. If not specified, the statusDetails are unchanged. You can
-    -- specify at most 10 name\/value pairs.
-    statusDetails :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | (Optional) The expected current version of the job execution. Each time
+    -- you update the job execution, its version is incremented. If the version
+    -- of the job execution stored in Jobs does not match, the update is
+    -- rejected with a VersionMismatch error, and an ErrorResponse that
+    -- contains the current job execution status data is returned. (This makes
+    -- it unnecessary to perform a separate DescribeJobExecution request in
+    -- order to obtain the job execution status data.)
+    expectedVersion :: Prelude.Maybe Prelude.Integer,
     -- | (Optional) If @true@ the job execution will be canceled if it has status
     -- IN_PROGRESS or QUEUED, otherwise the job execution will be canceled only
     -- if it has status QUEUED. If you attempt to cancel a job execution that
@@ -68,14 +72,10 @@ data CancelJobExecution = CancelJobExecution'
     -- device to be unable to update the job execution status. Use caution and
     -- ensure that the device is able to recover to a valid state.
     force :: Prelude.Maybe Prelude.Bool,
-    -- | (Optional) The expected current version of the job execution. Each time
-    -- you update the job execution, its version is incremented. If the version
-    -- of the job execution stored in Jobs does not match, the update is
-    -- rejected with a VersionMismatch error, and an ErrorResponse that
-    -- contains the current job execution status data is returned. (This makes
-    -- it unnecessary to perform a separate DescribeJobExecution request in
-    -- order to obtain the job execution status data.)
-    expectedVersion :: Prelude.Maybe Prelude.Integer,
+    -- | A collection of name\/value pairs that describe the status of the job
+    -- execution. If not specified, the statusDetails are unchanged. You can
+    -- specify at most 10 name\/value pairs.
+    statusDetails :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ID of the job to be canceled.
     jobId :: Prelude.Text,
     -- | The name of the thing whose execution of the job will be canceled.
@@ -91,9 +91,13 @@ data CancelJobExecution = CancelJobExecution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusDetails', 'cancelJobExecution_statusDetails' - A collection of name\/value pairs that describe the status of the job
--- execution. If not specified, the statusDetails are unchanged. You can
--- specify at most 10 name\/value pairs.
+-- 'expectedVersion', 'cancelJobExecution_expectedVersion' - (Optional) The expected current version of the job execution. Each time
+-- you update the job execution, its version is incremented. If the version
+-- of the job execution stored in Jobs does not match, the update is
+-- rejected with a VersionMismatch error, and an ErrorResponse that
+-- contains the current job execution status data is returned. (This makes
+-- it unnecessary to perform a separate DescribeJobExecution request in
+-- order to obtain the job execution status data.)
 --
 -- 'force', 'cancelJobExecution_force' - (Optional) If @true@ the job execution will be canceled if it has status
 -- IN_PROGRESS or QUEUED, otherwise the job execution will be canceled only
@@ -106,13 +110,9 @@ data CancelJobExecution = CancelJobExecution'
 -- device to be unable to update the job execution status. Use caution and
 -- ensure that the device is able to recover to a valid state.
 --
--- 'expectedVersion', 'cancelJobExecution_expectedVersion' - (Optional) The expected current version of the job execution. Each time
--- you update the job execution, its version is incremented. If the version
--- of the job execution stored in Jobs does not match, the update is
--- rejected with a VersionMismatch error, and an ErrorResponse that
--- contains the current job execution status data is returned. (This makes
--- it unnecessary to perform a separate DescribeJobExecution request in
--- order to obtain the job execution status data.)
+-- 'statusDetails', 'cancelJobExecution_statusDetails' - A collection of name\/value pairs that describe the status of the job
+-- execution. If not specified, the statusDetails are unchanged. You can
+-- specify at most 10 name\/value pairs.
 --
 -- 'jobId', 'cancelJobExecution_jobId' - The ID of the job to be canceled.
 --
@@ -125,19 +125,23 @@ newCancelJobExecution ::
   CancelJobExecution
 newCancelJobExecution pJobId_ pThingName_ =
   CancelJobExecution'
-    { statusDetails =
+    { expectedVersion =
         Prelude.Nothing,
       force = Prelude.Nothing,
-      expectedVersion = Prelude.Nothing,
+      statusDetails = Prelude.Nothing,
       jobId = pJobId_,
       thingName = pThingName_
     }
 
--- | A collection of name\/value pairs that describe the status of the job
--- execution. If not specified, the statusDetails are unchanged. You can
--- specify at most 10 name\/value pairs.
-cancelJobExecution_statusDetails :: Lens.Lens' CancelJobExecution (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-cancelJobExecution_statusDetails = Lens.lens (\CancelJobExecution' {statusDetails} -> statusDetails) (\s@CancelJobExecution' {} a -> s {statusDetails = a} :: CancelJobExecution) Prelude.. Lens.mapping Lens.coerced
+-- | (Optional) The expected current version of the job execution. Each time
+-- you update the job execution, its version is incremented. If the version
+-- of the job execution stored in Jobs does not match, the update is
+-- rejected with a VersionMismatch error, and an ErrorResponse that
+-- contains the current job execution status data is returned. (This makes
+-- it unnecessary to perform a separate DescribeJobExecution request in
+-- order to obtain the job execution status data.)
+cancelJobExecution_expectedVersion :: Lens.Lens' CancelJobExecution (Prelude.Maybe Prelude.Integer)
+cancelJobExecution_expectedVersion = Lens.lens (\CancelJobExecution' {expectedVersion} -> expectedVersion) (\s@CancelJobExecution' {} a -> s {expectedVersion = a} :: CancelJobExecution)
 
 -- | (Optional) If @true@ the job execution will be canceled if it has status
 -- IN_PROGRESS or QUEUED, otherwise the job execution will be canceled only
@@ -152,15 +156,11 @@ cancelJobExecution_statusDetails = Lens.lens (\CancelJobExecution' {statusDetail
 cancelJobExecution_force :: Lens.Lens' CancelJobExecution (Prelude.Maybe Prelude.Bool)
 cancelJobExecution_force = Lens.lens (\CancelJobExecution' {force} -> force) (\s@CancelJobExecution' {} a -> s {force = a} :: CancelJobExecution)
 
--- | (Optional) The expected current version of the job execution. Each time
--- you update the job execution, its version is incremented. If the version
--- of the job execution stored in Jobs does not match, the update is
--- rejected with a VersionMismatch error, and an ErrorResponse that
--- contains the current job execution status data is returned. (This makes
--- it unnecessary to perform a separate DescribeJobExecution request in
--- order to obtain the job execution status data.)
-cancelJobExecution_expectedVersion :: Lens.Lens' CancelJobExecution (Prelude.Maybe Prelude.Integer)
-cancelJobExecution_expectedVersion = Lens.lens (\CancelJobExecution' {expectedVersion} -> expectedVersion) (\s@CancelJobExecution' {} a -> s {expectedVersion = a} :: CancelJobExecution)
+-- | A collection of name\/value pairs that describe the status of the job
+-- execution. If not specified, the statusDetails are unchanged. You can
+-- specify at most 10 name\/value pairs.
+cancelJobExecution_statusDetails :: Lens.Lens' CancelJobExecution (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+cancelJobExecution_statusDetails = Lens.lens (\CancelJobExecution' {statusDetails} -> statusDetails) (\s@CancelJobExecution' {} a -> s {statusDetails = a} :: CancelJobExecution) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the job to be canceled.
 cancelJobExecution_jobId :: Lens.Lens' CancelJobExecution Prelude.Text
@@ -181,17 +181,17 @@ instance Core.AWSRequest CancelJobExecution where
 
 instance Prelude.Hashable CancelJobExecution where
   hashWithSalt _salt CancelJobExecution' {..} =
-    _salt `Prelude.hashWithSalt` statusDetails
+    _salt `Prelude.hashWithSalt` expectedVersion
       `Prelude.hashWithSalt` force
-      `Prelude.hashWithSalt` expectedVersion
+      `Prelude.hashWithSalt` statusDetails
       `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` thingName
 
 instance Prelude.NFData CancelJobExecution where
   rnf CancelJobExecution' {..} =
-    Prelude.rnf statusDetails
+    Prelude.rnf expectedVersion
       `Prelude.seq` Prelude.rnf force
-      `Prelude.seq` Prelude.rnf expectedVersion
+      `Prelude.seq` Prelude.rnf statusDetails
       `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf thingName
 
@@ -202,9 +202,9 @@ instance Data.ToJSON CancelJobExecution where
   toJSON CancelJobExecution' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("statusDetails" Data..=) Prelude.<$> statusDetails,
-            ("expectedVersion" Data..=)
-              Prelude.<$> expectedVersion
+          [ ("expectedVersion" Data..=)
+              Prelude.<$> expectedVersion,
+            ("statusDetails" Data..=) Prelude.<$> statusDetails
           ]
       )
 

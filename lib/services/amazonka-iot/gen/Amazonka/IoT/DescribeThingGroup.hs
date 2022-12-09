@@ -38,15 +38,15 @@ module Amazonka.IoT.DescribeThingGroup
     newDescribeThingGroupResponse,
 
     -- * Response Lenses
-    describeThingGroupResponse_thingGroupProperties,
-    describeThingGroupResponse_thingGroupName,
-    describeThingGroupResponse_status,
     describeThingGroupResponse_indexName,
-    describeThingGroupResponse_thingGroupMetadata,
-    describeThingGroupResponse_queryVersion,
-    describeThingGroupResponse_thingGroupArn,
     describeThingGroupResponse_queryString,
+    describeThingGroupResponse_queryVersion,
+    describeThingGroupResponse_status,
+    describeThingGroupResponse_thingGroupArn,
     describeThingGroupResponse_thingGroupId,
+    describeThingGroupResponse_thingGroupMetadata,
+    describeThingGroupResponse_thingGroupName,
+    describeThingGroupResponse_thingGroupProperties,
     describeThingGroupResponse_version,
     describeThingGroupResponse_httpStatus,
   )
@@ -100,15 +100,15 @@ instance Core.AWSRequest DescribeThingGroup where
     Response.receiveJSON
       ( \s h x ->
           DescribeThingGroupResponse'
-            Prelude.<$> (x Data..?> "thingGroupProperties")
-            Prelude.<*> (x Data..?> "thingGroupName")
-            Prelude.<*> (x Data..?> "status")
-            Prelude.<*> (x Data..?> "indexName")
-            Prelude.<*> (x Data..?> "thingGroupMetadata")
-            Prelude.<*> (x Data..?> "queryVersion")
-            Prelude.<*> (x Data..?> "thingGroupArn")
+            Prelude.<$> (x Data..?> "indexName")
             Prelude.<*> (x Data..?> "queryString")
+            Prelude.<*> (x Data..?> "queryVersion")
+            Prelude.<*> (x Data..?> "status")
+            Prelude.<*> (x Data..?> "thingGroupArn")
             Prelude.<*> (x Data..?> "thingGroupId")
+            Prelude.<*> (x Data..?> "thingGroupMetadata")
+            Prelude.<*> (x Data..?> "thingGroupName")
+            Prelude.<*> (x Data..?> "thingGroupProperties")
             Prelude.<*> (x Data..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -134,24 +134,24 @@ instance Data.ToQuery DescribeThingGroup where
 
 -- | /See:/ 'newDescribeThingGroupResponse' smart constructor.
 data DescribeThingGroupResponse = DescribeThingGroupResponse'
-  { -- | The thing group properties.
-    thingGroupProperties :: Prelude.Maybe ThingGroupProperties,
-    -- | The name of the thing group.
-    thingGroupName :: Prelude.Maybe Prelude.Text,
-    -- | The dynamic thing group status.
-    status :: Prelude.Maybe DynamicGroupStatus,
-    -- | The dynamic thing group index name.
+  { -- | The dynamic thing group index name.
     indexName :: Prelude.Maybe Prelude.Text,
-    -- | Thing group metadata.
-    thingGroupMetadata :: Prelude.Maybe ThingGroupMetadata,
-    -- | The dynamic thing group query version.
-    queryVersion :: Prelude.Maybe Prelude.Text,
-    -- | The thing group ARN.
-    thingGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The dynamic thing group search query string.
     queryString :: Prelude.Maybe Prelude.Text,
+    -- | The dynamic thing group query version.
+    queryVersion :: Prelude.Maybe Prelude.Text,
+    -- | The dynamic thing group status.
+    status :: Prelude.Maybe DynamicGroupStatus,
+    -- | The thing group ARN.
+    thingGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The thing group ID.
     thingGroupId :: Prelude.Maybe Prelude.Text,
+    -- | Thing group metadata.
+    thingGroupMetadata :: Prelude.Maybe ThingGroupMetadata,
+    -- | The name of the thing group.
+    thingGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The thing group properties.
+    thingGroupProperties :: Prelude.Maybe ThingGroupProperties,
     -- | The version of the thing group.
     version :: Prelude.Maybe Prelude.Integer,
     -- | The response's http status code.
@@ -167,23 +167,23 @@ data DescribeThingGroupResponse = DescribeThingGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'thingGroupProperties', 'describeThingGroupResponse_thingGroupProperties' - The thing group properties.
---
--- 'thingGroupName', 'describeThingGroupResponse_thingGroupName' - The name of the thing group.
---
--- 'status', 'describeThingGroupResponse_status' - The dynamic thing group status.
---
 -- 'indexName', 'describeThingGroupResponse_indexName' - The dynamic thing group index name.
---
--- 'thingGroupMetadata', 'describeThingGroupResponse_thingGroupMetadata' - Thing group metadata.
---
--- 'queryVersion', 'describeThingGroupResponse_queryVersion' - The dynamic thing group query version.
---
--- 'thingGroupArn', 'describeThingGroupResponse_thingGroupArn' - The thing group ARN.
 --
 -- 'queryString', 'describeThingGroupResponse_queryString' - The dynamic thing group search query string.
 --
+-- 'queryVersion', 'describeThingGroupResponse_queryVersion' - The dynamic thing group query version.
+--
+-- 'status', 'describeThingGroupResponse_status' - The dynamic thing group status.
+--
+-- 'thingGroupArn', 'describeThingGroupResponse_thingGroupArn' - The thing group ARN.
+--
 -- 'thingGroupId', 'describeThingGroupResponse_thingGroupId' - The thing group ID.
+--
+-- 'thingGroupMetadata', 'describeThingGroupResponse_thingGroupMetadata' - Thing group metadata.
+--
+-- 'thingGroupName', 'describeThingGroupResponse_thingGroupName' - The name of the thing group.
+--
+-- 'thingGroupProperties', 'describeThingGroupResponse_thingGroupProperties' - The thing group properties.
 --
 -- 'version', 'describeThingGroupResponse_version' - The version of the thing group.
 --
@@ -194,55 +194,55 @@ newDescribeThingGroupResponse ::
   DescribeThingGroupResponse
 newDescribeThingGroupResponse pHttpStatus_ =
   DescribeThingGroupResponse'
-    { thingGroupProperties =
+    { indexName =
         Prelude.Nothing,
-      thingGroupName = Prelude.Nothing,
-      status = Prelude.Nothing,
-      indexName = Prelude.Nothing,
-      thingGroupMetadata = Prelude.Nothing,
-      queryVersion = Prelude.Nothing,
-      thingGroupArn = Prelude.Nothing,
       queryString = Prelude.Nothing,
+      queryVersion = Prelude.Nothing,
+      status = Prelude.Nothing,
+      thingGroupArn = Prelude.Nothing,
       thingGroupId = Prelude.Nothing,
+      thingGroupMetadata = Prelude.Nothing,
+      thingGroupName = Prelude.Nothing,
+      thingGroupProperties = Prelude.Nothing,
       version = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The thing group properties.
-describeThingGroupResponse_thingGroupProperties :: Lens.Lens' DescribeThingGroupResponse (Prelude.Maybe ThingGroupProperties)
-describeThingGroupResponse_thingGroupProperties = Lens.lens (\DescribeThingGroupResponse' {thingGroupProperties} -> thingGroupProperties) (\s@DescribeThingGroupResponse' {} a -> s {thingGroupProperties = a} :: DescribeThingGroupResponse)
-
--- | The name of the thing group.
-describeThingGroupResponse_thingGroupName :: Lens.Lens' DescribeThingGroupResponse (Prelude.Maybe Prelude.Text)
-describeThingGroupResponse_thingGroupName = Lens.lens (\DescribeThingGroupResponse' {thingGroupName} -> thingGroupName) (\s@DescribeThingGroupResponse' {} a -> s {thingGroupName = a} :: DescribeThingGroupResponse)
-
--- | The dynamic thing group status.
-describeThingGroupResponse_status :: Lens.Lens' DescribeThingGroupResponse (Prelude.Maybe DynamicGroupStatus)
-describeThingGroupResponse_status = Lens.lens (\DescribeThingGroupResponse' {status} -> status) (\s@DescribeThingGroupResponse' {} a -> s {status = a} :: DescribeThingGroupResponse)
 
 -- | The dynamic thing group index name.
 describeThingGroupResponse_indexName :: Lens.Lens' DescribeThingGroupResponse (Prelude.Maybe Prelude.Text)
 describeThingGroupResponse_indexName = Lens.lens (\DescribeThingGroupResponse' {indexName} -> indexName) (\s@DescribeThingGroupResponse' {} a -> s {indexName = a} :: DescribeThingGroupResponse)
 
--- | Thing group metadata.
-describeThingGroupResponse_thingGroupMetadata :: Lens.Lens' DescribeThingGroupResponse (Prelude.Maybe ThingGroupMetadata)
-describeThingGroupResponse_thingGroupMetadata = Lens.lens (\DescribeThingGroupResponse' {thingGroupMetadata} -> thingGroupMetadata) (\s@DescribeThingGroupResponse' {} a -> s {thingGroupMetadata = a} :: DescribeThingGroupResponse)
+-- | The dynamic thing group search query string.
+describeThingGroupResponse_queryString :: Lens.Lens' DescribeThingGroupResponse (Prelude.Maybe Prelude.Text)
+describeThingGroupResponse_queryString = Lens.lens (\DescribeThingGroupResponse' {queryString} -> queryString) (\s@DescribeThingGroupResponse' {} a -> s {queryString = a} :: DescribeThingGroupResponse)
 
 -- | The dynamic thing group query version.
 describeThingGroupResponse_queryVersion :: Lens.Lens' DescribeThingGroupResponse (Prelude.Maybe Prelude.Text)
 describeThingGroupResponse_queryVersion = Lens.lens (\DescribeThingGroupResponse' {queryVersion} -> queryVersion) (\s@DescribeThingGroupResponse' {} a -> s {queryVersion = a} :: DescribeThingGroupResponse)
 
+-- | The dynamic thing group status.
+describeThingGroupResponse_status :: Lens.Lens' DescribeThingGroupResponse (Prelude.Maybe DynamicGroupStatus)
+describeThingGroupResponse_status = Lens.lens (\DescribeThingGroupResponse' {status} -> status) (\s@DescribeThingGroupResponse' {} a -> s {status = a} :: DescribeThingGroupResponse)
+
 -- | The thing group ARN.
 describeThingGroupResponse_thingGroupArn :: Lens.Lens' DescribeThingGroupResponse (Prelude.Maybe Prelude.Text)
 describeThingGroupResponse_thingGroupArn = Lens.lens (\DescribeThingGroupResponse' {thingGroupArn} -> thingGroupArn) (\s@DescribeThingGroupResponse' {} a -> s {thingGroupArn = a} :: DescribeThingGroupResponse)
 
--- | The dynamic thing group search query string.
-describeThingGroupResponse_queryString :: Lens.Lens' DescribeThingGroupResponse (Prelude.Maybe Prelude.Text)
-describeThingGroupResponse_queryString = Lens.lens (\DescribeThingGroupResponse' {queryString} -> queryString) (\s@DescribeThingGroupResponse' {} a -> s {queryString = a} :: DescribeThingGroupResponse)
-
 -- | The thing group ID.
 describeThingGroupResponse_thingGroupId :: Lens.Lens' DescribeThingGroupResponse (Prelude.Maybe Prelude.Text)
 describeThingGroupResponse_thingGroupId = Lens.lens (\DescribeThingGroupResponse' {thingGroupId} -> thingGroupId) (\s@DescribeThingGroupResponse' {} a -> s {thingGroupId = a} :: DescribeThingGroupResponse)
+
+-- | Thing group metadata.
+describeThingGroupResponse_thingGroupMetadata :: Lens.Lens' DescribeThingGroupResponse (Prelude.Maybe ThingGroupMetadata)
+describeThingGroupResponse_thingGroupMetadata = Lens.lens (\DescribeThingGroupResponse' {thingGroupMetadata} -> thingGroupMetadata) (\s@DescribeThingGroupResponse' {} a -> s {thingGroupMetadata = a} :: DescribeThingGroupResponse)
+
+-- | The name of the thing group.
+describeThingGroupResponse_thingGroupName :: Lens.Lens' DescribeThingGroupResponse (Prelude.Maybe Prelude.Text)
+describeThingGroupResponse_thingGroupName = Lens.lens (\DescribeThingGroupResponse' {thingGroupName} -> thingGroupName) (\s@DescribeThingGroupResponse' {} a -> s {thingGroupName = a} :: DescribeThingGroupResponse)
+
+-- | The thing group properties.
+describeThingGroupResponse_thingGroupProperties :: Lens.Lens' DescribeThingGroupResponse (Prelude.Maybe ThingGroupProperties)
+describeThingGroupResponse_thingGroupProperties = Lens.lens (\DescribeThingGroupResponse' {thingGroupProperties} -> thingGroupProperties) (\s@DescribeThingGroupResponse' {} a -> s {thingGroupProperties = a} :: DescribeThingGroupResponse)
 
 -- | The version of the thing group.
 describeThingGroupResponse_version :: Lens.Lens' DescribeThingGroupResponse (Prelude.Maybe Prelude.Integer)
@@ -254,14 +254,14 @@ describeThingGroupResponse_httpStatus = Lens.lens (\DescribeThingGroupResponse' 
 
 instance Prelude.NFData DescribeThingGroupResponse where
   rnf DescribeThingGroupResponse' {..} =
-    Prelude.rnf thingGroupProperties
-      `Prelude.seq` Prelude.rnf thingGroupName
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf indexName
-      `Prelude.seq` Prelude.rnf thingGroupMetadata
-      `Prelude.seq` Prelude.rnf queryVersion
-      `Prelude.seq` Prelude.rnf thingGroupArn
+    Prelude.rnf indexName
       `Prelude.seq` Prelude.rnf queryString
+      `Prelude.seq` Prelude.rnf queryVersion
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf thingGroupArn
       `Prelude.seq` Prelude.rnf thingGroupId
+      `Prelude.seq` Prelude.rnf thingGroupMetadata
+      `Prelude.seq` Prelude.rnf thingGroupName
+      `Prelude.seq` Prelude.rnf thingGroupProperties
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf httpStatus

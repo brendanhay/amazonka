@@ -35,21 +35,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDocumentParameter' smart constructor.
 data DocumentParameter = DocumentParameter'
-  { -- | Key of the map field containing the patterns that need to be replaced in
-    -- a managed template job document schema.
-    key :: Prelude.Maybe Prelude.Text,
+  { -- | Description of the map field containing the patterns that need to be
+    -- replaced in a managed template job document schema.
+    description :: Prelude.Maybe Prelude.Text,
     -- | An example illustrating a pattern that need to be replaced in a managed
     -- template job document schema.
     example :: Prelude.Maybe Prelude.Text,
-    -- | A regular expression of the patterns that need to be replaced in a
-    -- managed template job document schema.
-    regex :: Prelude.Maybe Prelude.Text,
-    -- | Description of the map field containing the patterns that need to be
-    -- replaced in a managed template job document schema.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | Key of the map field containing the patterns that need to be replaced in
+    -- a managed template job document schema.
+    key :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether a pattern that needs to be replaced in a managed
     -- template job document schema is optional or required.
-    optional :: Prelude.Maybe Prelude.Bool
+    optional :: Prelude.Maybe Prelude.Bool,
+    -- | A regular expression of the patterns that need to be replaced in a
+    -- managed template job document schema.
+    regex :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,55 +61,55 @@ data DocumentParameter = DocumentParameter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'documentParameter_key' - Key of the map field containing the patterns that need to be replaced in
--- a managed template job document schema.
+-- 'description', 'documentParameter_description' - Description of the map field containing the patterns that need to be
+-- replaced in a managed template job document schema.
 --
 -- 'example', 'documentParameter_example' - An example illustrating a pattern that need to be replaced in a managed
 -- template job document schema.
 --
--- 'regex', 'documentParameter_regex' - A regular expression of the patterns that need to be replaced in a
--- managed template job document schema.
---
--- 'description', 'documentParameter_description' - Description of the map field containing the patterns that need to be
--- replaced in a managed template job document schema.
+-- 'key', 'documentParameter_key' - Key of the map field containing the patterns that need to be replaced in
+-- a managed template job document schema.
 --
 -- 'optional', 'documentParameter_optional' - Specifies whether a pattern that needs to be replaced in a managed
 -- template job document schema is optional or required.
+--
+-- 'regex', 'documentParameter_regex' - A regular expression of the patterns that need to be replaced in a
+-- managed template job document schema.
 newDocumentParameter ::
   DocumentParameter
 newDocumentParameter =
   DocumentParameter'
-    { key = Prelude.Nothing,
+    { description = Prelude.Nothing,
       example = Prelude.Nothing,
-      regex = Prelude.Nothing,
-      description = Prelude.Nothing,
-      optional = Prelude.Nothing
+      key = Prelude.Nothing,
+      optional = Prelude.Nothing,
+      regex = Prelude.Nothing
     }
-
--- | Key of the map field containing the patterns that need to be replaced in
--- a managed template job document schema.
-documentParameter_key :: Lens.Lens' DocumentParameter (Prelude.Maybe Prelude.Text)
-documentParameter_key = Lens.lens (\DocumentParameter' {key} -> key) (\s@DocumentParameter' {} a -> s {key = a} :: DocumentParameter)
-
--- | An example illustrating a pattern that need to be replaced in a managed
--- template job document schema.
-documentParameter_example :: Lens.Lens' DocumentParameter (Prelude.Maybe Prelude.Text)
-documentParameter_example = Lens.lens (\DocumentParameter' {example} -> example) (\s@DocumentParameter' {} a -> s {example = a} :: DocumentParameter)
-
--- | A regular expression of the patterns that need to be replaced in a
--- managed template job document schema.
-documentParameter_regex :: Lens.Lens' DocumentParameter (Prelude.Maybe Prelude.Text)
-documentParameter_regex = Lens.lens (\DocumentParameter' {regex} -> regex) (\s@DocumentParameter' {} a -> s {regex = a} :: DocumentParameter)
 
 -- | Description of the map field containing the patterns that need to be
 -- replaced in a managed template job document schema.
 documentParameter_description :: Lens.Lens' DocumentParameter (Prelude.Maybe Prelude.Text)
 documentParameter_description = Lens.lens (\DocumentParameter' {description} -> description) (\s@DocumentParameter' {} a -> s {description = a} :: DocumentParameter)
 
+-- | An example illustrating a pattern that need to be replaced in a managed
+-- template job document schema.
+documentParameter_example :: Lens.Lens' DocumentParameter (Prelude.Maybe Prelude.Text)
+documentParameter_example = Lens.lens (\DocumentParameter' {example} -> example) (\s@DocumentParameter' {} a -> s {example = a} :: DocumentParameter)
+
+-- | Key of the map field containing the patterns that need to be replaced in
+-- a managed template job document schema.
+documentParameter_key :: Lens.Lens' DocumentParameter (Prelude.Maybe Prelude.Text)
+documentParameter_key = Lens.lens (\DocumentParameter' {key} -> key) (\s@DocumentParameter' {} a -> s {key = a} :: DocumentParameter)
+
 -- | Specifies whether a pattern that needs to be replaced in a managed
 -- template job document schema is optional or required.
 documentParameter_optional :: Lens.Lens' DocumentParameter (Prelude.Maybe Prelude.Bool)
 documentParameter_optional = Lens.lens (\DocumentParameter' {optional} -> optional) (\s@DocumentParameter' {} a -> s {optional = a} :: DocumentParameter)
+
+-- | A regular expression of the patterns that need to be replaced in a
+-- managed template job document schema.
+documentParameter_regex :: Lens.Lens' DocumentParameter (Prelude.Maybe Prelude.Text)
+documentParameter_regex = Lens.lens (\DocumentParameter' {regex} -> regex) (\s@DocumentParameter' {} a -> s {regex = a} :: DocumentParameter)
 
 instance Data.FromJSON DocumentParameter where
   parseJSON =
@@ -117,25 +117,25 @@ instance Data.FromJSON DocumentParameter where
       "DocumentParameter"
       ( \x ->
           DocumentParameter'
-            Prelude.<$> (x Data..:? "key")
+            Prelude.<$> (x Data..:? "description")
             Prelude.<*> (x Data..:? "example")
-            Prelude.<*> (x Data..:? "regex")
-            Prelude.<*> (x Data..:? "description")
+            Prelude.<*> (x Data..:? "key")
             Prelude.<*> (x Data..:? "optional")
+            Prelude.<*> (x Data..:? "regex")
       )
 
 instance Prelude.Hashable DocumentParameter where
   hashWithSalt _salt DocumentParameter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` example
-      `Prelude.hashWithSalt` regex
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` optional
+      `Prelude.hashWithSalt` regex
 
 instance Prelude.NFData DocumentParameter where
   rnf DocumentParameter' {..} =
-    Prelude.rnf key
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf example
-      `Prelude.seq` Prelude.rnf regex
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf optional
+      `Prelude.seq` Prelude.rnf regex

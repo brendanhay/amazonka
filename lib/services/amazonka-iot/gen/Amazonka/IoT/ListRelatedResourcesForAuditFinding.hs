@@ -54,8 +54,8 @@ module Amazonka.IoT.ListRelatedResourcesForAuditFinding
     newListRelatedResourcesForAuditFinding,
 
     -- * Request Lenses
-    listRelatedResourcesForAuditFinding_nextToken,
     listRelatedResourcesForAuditFinding_maxResults,
+    listRelatedResourcesForAuditFinding_nextToken,
     listRelatedResourcesForAuditFinding_findingId,
 
     -- * Destructuring the Response
@@ -63,8 +63,8 @@ module Amazonka.IoT.ListRelatedResourcesForAuditFinding
     newListRelatedResourcesForAuditFindingResponse,
 
     -- * Response Lenses
-    listRelatedResourcesForAuditFindingResponse_relatedResources,
     listRelatedResourcesForAuditFindingResponse_nextToken,
+    listRelatedResourcesForAuditFindingResponse_relatedResources,
     listRelatedResourcesForAuditFindingResponse_httpStatus,
   )
 where
@@ -79,11 +79,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRelatedResourcesForAuditFinding' smart constructor.
 data ListRelatedResourcesForAuditFinding = ListRelatedResourcesForAuditFinding'
-  { -- | A token that can be used to retrieve the next set of results, or @null@
+  { -- | The maximum number of results to return at one time.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token that can be used to retrieve the next set of results, or @null@
     -- if there are no additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return at one time.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The finding Id.
     findingId :: Prelude.Text
   }
@@ -97,10 +97,10 @@ data ListRelatedResourcesForAuditFinding = ListRelatedResourcesForAuditFinding'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listRelatedResourcesForAuditFinding_maxResults' - The maximum number of results to return at one time.
+--
 -- 'nextToken', 'listRelatedResourcesForAuditFinding_nextToken' - A token that can be used to retrieve the next set of results, or @null@
 -- if there are no additional results.
---
--- 'maxResults', 'listRelatedResourcesForAuditFinding_maxResults' - The maximum number of results to return at one time.
 --
 -- 'findingId', 'listRelatedResourcesForAuditFinding_findingId' - The finding Id.
 newListRelatedResourcesForAuditFinding ::
@@ -109,20 +109,20 @@ newListRelatedResourcesForAuditFinding ::
   ListRelatedResourcesForAuditFinding
 newListRelatedResourcesForAuditFinding pFindingId_ =
   ListRelatedResourcesForAuditFinding'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       findingId = pFindingId_
     }
+
+-- | The maximum number of results to return at one time.
+listRelatedResourcesForAuditFinding_maxResults :: Lens.Lens' ListRelatedResourcesForAuditFinding (Prelude.Maybe Prelude.Natural)
+listRelatedResourcesForAuditFinding_maxResults = Lens.lens (\ListRelatedResourcesForAuditFinding' {maxResults} -> maxResults) (\s@ListRelatedResourcesForAuditFinding' {} a -> s {maxResults = a} :: ListRelatedResourcesForAuditFinding)
 
 -- | A token that can be used to retrieve the next set of results, or @null@
 -- if there are no additional results.
 listRelatedResourcesForAuditFinding_nextToken :: Lens.Lens' ListRelatedResourcesForAuditFinding (Prelude.Maybe Prelude.Text)
 listRelatedResourcesForAuditFinding_nextToken = Lens.lens (\ListRelatedResourcesForAuditFinding' {nextToken} -> nextToken) (\s@ListRelatedResourcesForAuditFinding' {} a -> s {nextToken = a} :: ListRelatedResourcesForAuditFinding)
-
--- | The maximum number of results to return at one time.
-listRelatedResourcesForAuditFinding_maxResults :: Lens.Lens' ListRelatedResourcesForAuditFinding (Prelude.Maybe Prelude.Natural)
-listRelatedResourcesForAuditFinding_maxResults = Lens.lens (\ListRelatedResourcesForAuditFinding' {maxResults} -> maxResults) (\s@ListRelatedResourcesForAuditFinding' {} a -> s {maxResults = a} :: ListRelatedResourcesForAuditFinding)
 
 -- | The finding Id.
 listRelatedResourcesForAuditFinding_findingId :: Lens.Lens' ListRelatedResourcesForAuditFinding Prelude.Text
@@ -141,10 +141,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListRelatedResourcesForAuditFindingResponse'
-            Prelude.<$> ( x Data..?> "relatedResources"
-                            Core..!@ Prelude.mempty
-                        )
-              Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
+              Prelude.<*> ( x Data..?> "relatedResources"
+                              Core..!@ Prelude.mempty
+                          )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,8 +155,8 @@ instance
   hashWithSalt
     _salt
     ListRelatedResourcesForAuditFinding' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` findingId
 
 instance
@@ -164,8 +164,8 @@ instance
     ListRelatedResourcesForAuditFinding
   where
   rnf ListRelatedResourcesForAuditFinding' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf findingId
 
 instance
@@ -186,18 +186,18 @@ instance
   where
   toQuery ListRelatedResourcesForAuditFinding' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "findingId" Data.=: findingId
       ]
 
 -- | /See:/ 'newListRelatedResourcesForAuditFindingResponse' smart constructor.
 data ListRelatedResourcesForAuditFindingResponse = ListRelatedResourcesForAuditFindingResponse'
-  { -- | The related resources.
-    relatedResources :: Prelude.Maybe [RelatedResource],
-    -- | A token that can be used to retrieve the next set of results, or @null@
+  { -- | A token that can be used to retrieve the next set of results, or @null@
     -- for the first API call.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The related resources.
+    relatedResources :: Prelude.Maybe [RelatedResource],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -211,10 +211,10 @@ data ListRelatedResourcesForAuditFindingResponse = ListRelatedResourcesForAuditF
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'relatedResources', 'listRelatedResourcesForAuditFindingResponse_relatedResources' - The related resources.
---
 -- 'nextToken', 'listRelatedResourcesForAuditFindingResponse_nextToken' - A token that can be used to retrieve the next set of results, or @null@
 -- for the first API call.
+--
+-- 'relatedResources', 'listRelatedResourcesForAuditFindingResponse_relatedResources' - The related resources.
 --
 -- 'httpStatus', 'listRelatedResourcesForAuditFindingResponse_httpStatus' - The response's http status code.
 newListRelatedResourcesForAuditFindingResponse ::
@@ -224,20 +224,21 @@ newListRelatedResourcesForAuditFindingResponse ::
 newListRelatedResourcesForAuditFindingResponse
   pHttpStatus_ =
     ListRelatedResourcesForAuditFindingResponse'
-      { relatedResources =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        relatedResources =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The related resources.
-listRelatedResourcesForAuditFindingResponse_relatedResources :: Lens.Lens' ListRelatedResourcesForAuditFindingResponse (Prelude.Maybe [RelatedResource])
-listRelatedResourcesForAuditFindingResponse_relatedResources = Lens.lens (\ListRelatedResourcesForAuditFindingResponse' {relatedResources} -> relatedResources) (\s@ListRelatedResourcesForAuditFindingResponse' {} a -> s {relatedResources = a} :: ListRelatedResourcesForAuditFindingResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that can be used to retrieve the next set of results, or @null@
 -- for the first API call.
 listRelatedResourcesForAuditFindingResponse_nextToken :: Lens.Lens' ListRelatedResourcesForAuditFindingResponse (Prelude.Maybe Prelude.Text)
 listRelatedResourcesForAuditFindingResponse_nextToken = Lens.lens (\ListRelatedResourcesForAuditFindingResponse' {nextToken} -> nextToken) (\s@ListRelatedResourcesForAuditFindingResponse' {} a -> s {nextToken = a} :: ListRelatedResourcesForAuditFindingResponse)
+
+-- | The related resources.
+listRelatedResourcesForAuditFindingResponse_relatedResources :: Lens.Lens' ListRelatedResourcesForAuditFindingResponse (Prelude.Maybe [RelatedResource])
+listRelatedResourcesForAuditFindingResponse_relatedResources = Lens.lens (\ListRelatedResourcesForAuditFindingResponse' {relatedResources} -> relatedResources) (\s@ListRelatedResourcesForAuditFindingResponse' {} a -> s {relatedResources = a} :: ListRelatedResourcesForAuditFindingResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listRelatedResourcesForAuditFindingResponse_httpStatus :: Lens.Lens' ListRelatedResourcesForAuditFindingResponse Prelude.Int
@@ -248,6 +249,6 @@ instance
     ListRelatedResourcesForAuditFindingResponse
   where
   rnf ListRelatedResourcesForAuditFindingResponse' {..} =
-    Prelude.rnf relatedResources
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf relatedResources
       `Prelude.seq` Prelude.rnf httpStatus

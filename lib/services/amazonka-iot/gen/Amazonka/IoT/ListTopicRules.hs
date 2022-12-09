@@ -33,10 +33,10 @@ module Amazonka.IoT.ListTopicRules
     newListTopicRules,
 
     -- * Request Lenses
-    listTopicRules_nextToken,
     listTopicRules_maxResults,
-    listTopicRules_topic,
+    listTopicRules_nextToken,
     listTopicRules_ruleDisabled,
+    listTopicRules_topic,
 
     -- * Destructuring the Response
     ListTopicRulesResponse (..),
@@ -61,16 +61,16 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListTopicRules' smart constructor.
 data ListTopicRules = ListTopicRules'
-  { -- | To retrieve the next set of results, the @nextToken@ value from a
+  { -- | The maximum number of results to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The topic.
-    topic :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the rule is disabled.
-    ruleDisabled :: Prelude.Maybe Prelude.Bool
+    ruleDisabled :: Prelude.Maybe Prelude.Bool,
+    -- | The topic.
+    topic :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,24 +82,28 @@ data ListTopicRules = ListTopicRules'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listTopicRules_maxResults' - The maximum number of results to return.
+--
 -- 'nextToken', 'listTopicRules_nextToken' - To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
 --
--- 'maxResults', 'listTopicRules_maxResults' - The maximum number of results to return.
+-- 'ruleDisabled', 'listTopicRules_ruleDisabled' - Specifies whether the rule is disabled.
 --
 -- 'topic', 'listTopicRules_topic' - The topic.
---
--- 'ruleDisabled', 'listTopicRules_ruleDisabled' - Specifies whether the rule is disabled.
 newListTopicRules ::
   ListTopicRules
 newListTopicRules =
   ListTopicRules'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      topic = Prelude.Nothing,
-      ruleDisabled = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      ruleDisabled = Prelude.Nothing,
+      topic = Prelude.Nothing
     }
+
+-- | The maximum number of results to return.
+listTopicRules_maxResults :: Lens.Lens' ListTopicRules (Prelude.Maybe Prelude.Natural)
+listTopicRules_maxResults = Lens.lens (\ListTopicRules' {maxResults} -> maxResults) (\s@ListTopicRules' {} a -> s {maxResults = a} :: ListTopicRules)
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
@@ -107,17 +111,13 @@ newListTopicRules =
 listTopicRules_nextToken :: Lens.Lens' ListTopicRules (Prelude.Maybe Prelude.Text)
 listTopicRules_nextToken = Lens.lens (\ListTopicRules' {nextToken} -> nextToken) (\s@ListTopicRules' {} a -> s {nextToken = a} :: ListTopicRules)
 
--- | The maximum number of results to return.
-listTopicRules_maxResults :: Lens.Lens' ListTopicRules (Prelude.Maybe Prelude.Natural)
-listTopicRules_maxResults = Lens.lens (\ListTopicRules' {maxResults} -> maxResults) (\s@ListTopicRules' {} a -> s {maxResults = a} :: ListTopicRules)
+-- | Specifies whether the rule is disabled.
+listTopicRules_ruleDisabled :: Lens.Lens' ListTopicRules (Prelude.Maybe Prelude.Bool)
+listTopicRules_ruleDisabled = Lens.lens (\ListTopicRules' {ruleDisabled} -> ruleDisabled) (\s@ListTopicRules' {} a -> s {ruleDisabled = a} :: ListTopicRules)
 
 -- | The topic.
 listTopicRules_topic :: Lens.Lens' ListTopicRules (Prelude.Maybe Prelude.Text)
 listTopicRules_topic = Lens.lens (\ListTopicRules' {topic} -> topic) (\s@ListTopicRules' {} a -> s {topic = a} :: ListTopicRules)
-
--- | Specifies whether the rule is disabled.
-listTopicRules_ruleDisabled :: Lens.Lens' ListTopicRules (Prelude.Maybe Prelude.Bool)
-listTopicRules_ruleDisabled = Lens.lens (\ListTopicRules' {ruleDisabled} -> ruleDisabled) (\s@ListTopicRules' {} a -> s {ruleDisabled = a} :: ListTopicRules)
 
 instance Core.AWSPager ListTopicRules where
   page rq rs
@@ -156,17 +156,17 @@ instance Core.AWSRequest ListTopicRules where
 
 instance Prelude.Hashable ListTopicRules where
   hashWithSalt _salt ListTopicRules' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` topic
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` ruleDisabled
+      `Prelude.hashWithSalt` topic
 
 instance Prelude.NFData ListTopicRules where
   rnf ListTopicRules' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf topic
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf ruleDisabled
+      `Prelude.seq` Prelude.rnf topic
 
 instance Data.ToHeaders ListTopicRules where
   toHeaders = Prelude.const Prelude.mempty
@@ -177,10 +177,10 @@ instance Data.ToPath ListTopicRules where
 instance Data.ToQuery ListTopicRules where
   toQuery ListTopicRules' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults,
-        "topic" Data.=: topic,
-        "ruleDisabled" Data.=: ruleDisabled
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
+        "ruleDisabled" Data.=: ruleDisabled,
+        "topic" Data.=: topic
       ]
 
 -- | The output from the ListTopicRules operation.

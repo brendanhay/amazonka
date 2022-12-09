@@ -35,14 +35,14 @@ module Amazonka.IoT.ListAuditFindings
     newListAuditFindings,
 
     -- * Request Lenses
-    listAuditFindings_nextToken,
-    listAuditFindings_taskId,
     listAuditFindings_checkName,
     listAuditFindings_endTime,
-    listAuditFindings_resourceIdentifier,
-    listAuditFindings_maxResults,
     listAuditFindings_listSuppressedFindings,
+    listAuditFindings_maxResults,
+    listAuditFindings_nextToken,
+    listAuditFindings_resourceIdentifier,
     listAuditFindings_startTime,
+    listAuditFindings_taskId,
 
     -- * Destructuring the Response
     ListAuditFindingsResponse (..),
@@ -65,30 +65,30 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAuditFindings' smart constructor.
 data ListAuditFindings = ListAuditFindings'
-  { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A filter to limit results to the audit with the specified ID. You must
-    -- specify either the taskId or the startTime and endTime, but not both.
-    taskId :: Prelude.Maybe Prelude.Text,
-    -- | A filter to limit results to the findings for the specified audit check.
+  { -- | A filter to limit results to the findings for the specified audit check.
     checkName :: Prelude.Maybe Prelude.Text,
     -- | A filter to limit results to those found before the specified time. You
     -- must specify either the startTime and endTime or the taskId, but not
     -- both.
     endTime :: Prelude.Maybe Data.POSIX,
-    -- | Information identifying the noncompliant resource.
-    resourceIdentifier :: Prelude.Maybe ResourceIdentifier,
-    -- | The maximum number of results to return at one time. The default is 25.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Boolean flag indicating whether only the suppressed findings or the
     -- unsuppressed findings should be listed. If this parameter isn\'t
     -- provided, the response will list both suppressed and unsuppressed
     -- findings.
     listSuppressedFindings :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of results to return at one time. The default is 25.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information identifying the noncompliant resource.
+    resourceIdentifier :: Prelude.Maybe ResourceIdentifier,
     -- | A filter to limit results to those found after the specified time. You
     -- must specify either the startTime and endTime or the taskId, but not
     -- both.
-    startTime :: Prelude.Maybe Data.POSIX
+    startTime :: Prelude.Maybe Data.POSIX,
+    -- | A filter to limit results to the audit with the specified ID. You must
+    -- specify either the taskId or the startTime and endTime, but not both.
+    taskId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -100,51 +100,42 @@ data ListAuditFindings = ListAuditFindings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAuditFindings_nextToken' - The token for the next set of results.
---
--- 'taskId', 'listAuditFindings_taskId' - A filter to limit results to the audit with the specified ID. You must
--- specify either the taskId or the startTime and endTime, but not both.
---
 -- 'checkName', 'listAuditFindings_checkName' - A filter to limit results to the findings for the specified audit check.
 --
 -- 'endTime', 'listAuditFindings_endTime' - A filter to limit results to those found before the specified time. You
 -- must specify either the startTime and endTime or the taskId, but not
 -- both.
 --
--- 'resourceIdentifier', 'listAuditFindings_resourceIdentifier' - Information identifying the noncompliant resource.
---
--- 'maxResults', 'listAuditFindings_maxResults' - The maximum number of results to return at one time. The default is 25.
---
 -- 'listSuppressedFindings', 'listAuditFindings_listSuppressedFindings' - Boolean flag indicating whether only the suppressed findings or the
 -- unsuppressed findings should be listed. If this parameter isn\'t
 -- provided, the response will list both suppressed and unsuppressed
 -- findings.
 --
+-- 'maxResults', 'listAuditFindings_maxResults' - The maximum number of results to return at one time. The default is 25.
+--
+-- 'nextToken', 'listAuditFindings_nextToken' - The token for the next set of results.
+--
+-- 'resourceIdentifier', 'listAuditFindings_resourceIdentifier' - Information identifying the noncompliant resource.
+--
 -- 'startTime', 'listAuditFindings_startTime' - A filter to limit results to those found after the specified time. You
 -- must specify either the startTime and endTime or the taskId, but not
 -- both.
+--
+-- 'taskId', 'listAuditFindings_taskId' - A filter to limit results to the audit with the specified ID. You must
+-- specify either the taskId or the startTime and endTime, but not both.
 newListAuditFindings ::
   ListAuditFindings
 newListAuditFindings =
   ListAuditFindings'
-    { nextToken = Prelude.Nothing,
-      taskId = Prelude.Nothing,
-      checkName = Prelude.Nothing,
+    { checkName = Prelude.Nothing,
       endTime = Prelude.Nothing,
-      resourceIdentifier = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       listSuppressedFindings = Prelude.Nothing,
-      startTime = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      resourceIdentifier = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      taskId = Prelude.Nothing
     }
-
--- | The token for the next set of results.
-listAuditFindings_nextToken :: Lens.Lens' ListAuditFindings (Prelude.Maybe Prelude.Text)
-listAuditFindings_nextToken = Lens.lens (\ListAuditFindings' {nextToken} -> nextToken) (\s@ListAuditFindings' {} a -> s {nextToken = a} :: ListAuditFindings)
-
--- | A filter to limit results to the audit with the specified ID. You must
--- specify either the taskId or the startTime and endTime, but not both.
-listAuditFindings_taskId :: Lens.Lens' ListAuditFindings (Prelude.Maybe Prelude.Text)
-listAuditFindings_taskId = Lens.lens (\ListAuditFindings' {taskId} -> taskId) (\s@ListAuditFindings' {} a -> s {taskId = a} :: ListAuditFindings)
 
 -- | A filter to limit results to the findings for the specified audit check.
 listAuditFindings_checkName :: Lens.Lens' ListAuditFindings (Prelude.Maybe Prelude.Text)
@@ -156,14 +147,6 @@ listAuditFindings_checkName = Lens.lens (\ListAuditFindings' {checkName} -> chec
 listAuditFindings_endTime :: Lens.Lens' ListAuditFindings (Prelude.Maybe Prelude.UTCTime)
 listAuditFindings_endTime = Lens.lens (\ListAuditFindings' {endTime} -> endTime) (\s@ListAuditFindings' {} a -> s {endTime = a} :: ListAuditFindings) Prelude.. Lens.mapping Data._Time
 
--- | Information identifying the noncompliant resource.
-listAuditFindings_resourceIdentifier :: Lens.Lens' ListAuditFindings (Prelude.Maybe ResourceIdentifier)
-listAuditFindings_resourceIdentifier = Lens.lens (\ListAuditFindings' {resourceIdentifier} -> resourceIdentifier) (\s@ListAuditFindings' {} a -> s {resourceIdentifier = a} :: ListAuditFindings)
-
--- | The maximum number of results to return at one time. The default is 25.
-listAuditFindings_maxResults :: Lens.Lens' ListAuditFindings (Prelude.Maybe Prelude.Natural)
-listAuditFindings_maxResults = Lens.lens (\ListAuditFindings' {maxResults} -> maxResults) (\s@ListAuditFindings' {} a -> s {maxResults = a} :: ListAuditFindings)
-
 -- | Boolean flag indicating whether only the suppressed findings or the
 -- unsuppressed findings should be listed. If this parameter isn\'t
 -- provided, the response will list both suppressed and unsuppressed
@@ -171,11 +154,28 @@ listAuditFindings_maxResults = Lens.lens (\ListAuditFindings' {maxResults} -> ma
 listAuditFindings_listSuppressedFindings :: Lens.Lens' ListAuditFindings (Prelude.Maybe Prelude.Bool)
 listAuditFindings_listSuppressedFindings = Lens.lens (\ListAuditFindings' {listSuppressedFindings} -> listSuppressedFindings) (\s@ListAuditFindings' {} a -> s {listSuppressedFindings = a} :: ListAuditFindings)
 
+-- | The maximum number of results to return at one time. The default is 25.
+listAuditFindings_maxResults :: Lens.Lens' ListAuditFindings (Prelude.Maybe Prelude.Natural)
+listAuditFindings_maxResults = Lens.lens (\ListAuditFindings' {maxResults} -> maxResults) (\s@ListAuditFindings' {} a -> s {maxResults = a} :: ListAuditFindings)
+
+-- | The token for the next set of results.
+listAuditFindings_nextToken :: Lens.Lens' ListAuditFindings (Prelude.Maybe Prelude.Text)
+listAuditFindings_nextToken = Lens.lens (\ListAuditFindings' {nextToken} -> nextToken) (\s@ListAuditFindings' {} a -> s {nextToken = a} :: ListAuditFindings)
+
+-- | Information identifying the noncompliant resource.
+listAuditFindings_resourceIdentifier :: Lens.Lens' ListAuditFindings (Prelude.Maybe ResourceIdentifier)
+listAuditFindings_resourceIdentifier = Lens.lens (\ListAuditFindings' {resourceIdentifier} -> resourceIdentifier) (\s@ListAuditFindings' {} a -> s {resourceIdentifier = a} :: ListAuditFindings)
+
 -- | A filter to limit results to those found after the specified time. You
 -- must specify either the startTime and endTime or the taskId, but not
 -- both.
 listAuditFindings_startTime :: Lens.Lens' ListAuditFindings (Prelude.Maybe Prelude.UTCTime)
 listAuditFindings_startTime = Lens.lens (\ListAuditFindings' {startTime} -> startTime) (\s@ListAuditFindings' {} a -> s {startTime = a} :: ListAuditFindings) Prelude.. Lens.mapping Data._Time
+
+-- | A filter to limit results to the audit with the specified ID. You must
+-- specify either the taskId or the startTime and endTime, but not both.
+listAuditFindings_taskId :: Lens.Lens' ListAuditFindings (Prelude.Maybe Prelude.Text)
+listAuditFindings_taskId = Lens.lens (\ListAuditFindings' {taskId} -> taskId) (\s@ListAuditFindings' {} a -> s {taskId = a} :: ListAuditFindings)
 
 instance Core.AWSPager ListAuditFindings where
   page rq rs
@@ -216,25 +216,25 @@ instance Core.AWSRequest ListAuditFindings where
 
 instance Prelude.Hashable ListAuditFindings where
   hashWithSalt _salt ListAuditFindings' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` taskId
-      `Prelude.hashWithSalt` checkName
+    _salt `Prelude.hashWithSalt` checkName
       `Prelude.hashWithSalt` endTime
-      `Prelude.hashWithSalt` resourceIdentifier
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` listSuppressedFindings
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` resourceIdentifier
       `Prelude.hashWithSalt` startTime
+      `Prelude.hashWithSalt` taskId
 
 instance Prelude.NFData ListAuditFindings where
   rnf ListAuditFindings' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf taskId
-      `Prelude.seq` Prelude.rnf checkName
+    Prelude.rnf checkName
       `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf resourceIdentifier
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf listSuppressedFindings
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceIdentifier
       `Prelude.seq` Prelude.rnf startTime
+      `Prelude.seq` Prelude.rnf taskId
 
 instance Data.ToHeaders ListAuditFindings where
   toHeaders = Prelude.const Prelude.mempty
@@ -243,16 +243,16 @@ instance Data.ToJSON ListAuditFindings where
   toJSON ListAuditFindings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("taskId" Data..=) Prelude.<$> taskId,
-            ("checkName" Data..=) Prelude.<$> checkName,
+          [ ("checkName" Data..=) Prelude.<$> checkName,
             ("endTime" Data..=) Prelude.<$> endTime,
-            ("resourceIdentifier" Data..=)
-              Prelude.<$> resourceIdentifier,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
             ("listSuppressedFindings" Data..=)
               Prelude.<$> listSuppressedFindings,
-            ("startTime" Data..=) Prelude.<$> startTime
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("resourceIdentifier" Data..=)
+              Prelude.<$> resourceIdentifier,
+            ("startTime" Data..=) Prelude.<$> startTime,
+            ("taskId" Data..=) Prelude.<$> taskId
           ]
       )
 

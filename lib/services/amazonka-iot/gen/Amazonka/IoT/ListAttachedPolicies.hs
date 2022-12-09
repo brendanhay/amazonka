@@ -34,8 +34,8 @@ module Amazonka.IoT.ListAttachedPolicies
 
     -- * Request Lenses
     listAttachedPolicies_marker,
-    listAttachedPolicies_recursive,
     listAttachedPolicies_pageSize,
+    listAttachedPolicies_recursive,
     listAttachedPolicies_target,
 
     -- * Destructuring the Response
@@ -43,8 +43,8 @@ module Amazonka.IoT.ListAttachedPolicies
     newListAttachedPoliciesResponse,
 
     -- * Response Lenses
-    listAttachedPoliciesResponse_policies,
     listAttachedPoliciesResponse_nextMarker,
+    listAttachedPoliciesResponse_policies,
     listAttachedPoliciesResponse_httpStatus,
   )
 where
@@ -61,10 +61,10 @@ import qualified Amazonka.Response as Response
 data ListAttachedPolicies = ListAttachedPolicies'
   { -- | The token to retrieve the next set of results.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | When true, recursively list attached policies.
-    recursive :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of results to be returned per request.
     pageSize :: Prelude.Maybe Prelude.Natural,
+    -- | When true, recursively list attached policies.
+    recursive :: Prelude.Maybe Prelude.Bool,
     -- | The group or principal for which the policies will be listed. Valid
     -- principals are CertificateArn
     -- (arn:aws:iot:/region/:/accountId/:cert\//certificateId/), thingGroupArn
@@ -84,9 +84,9 @@ data ListAttachedPolicies = ListAttachedPolicies'
 --
 -- 'marker', 'listAttachedPolicies_marker' - The token to retrieve the next set of results.
 --
--- 'recursive', 'listAttachedPolicies_recursive' - When true, recursively list attached policies.
---
 -- 'pageSize', 'listAttachedPolicies_pageSize' - The maximum number of results to be returned per request.
+--
+-- 'recursive', 'listAttachedPolicies_recursive' - When true, recursively list attached policies.
 --
 -- 'target', 'listAttachedPolicies_target' - The group or principal for which the policies will be listed. Valid
 -- principals are CertificateArn
@@ -100,8 +100,8 @@ newListAttachedPolicies ::
 newListAttachedPolicies pTarget_ =
   ListAttachedPolicies'
     { marker = Prelude.Nothing,
-      recursive = Prelude.Nothing,
       pageSize = Prelude.Nothing,
+      recursive = Prelude.Nothing,
       target = pTarget_
     }
 
@@ -109,13 +109,13 @@ newListAttachedPolicies pTarget_ =
 listAttachedPolicies_marker :: Lens.Lens' ListAttachedPolicies (Prelude.Maybe Prelude.Text)
 listAttachedPolicies_marker = Lens.lens (\ListAttachedPolicies' {marker} -> marker) (\s@ListAttachedPolicies' {} a -> s {marker = a} :: ListAttachedPolicies)
 
--- | When true, recursively list attached policies.
-listAttachedPolicies_recursive :: Lens.Lens' ListAttachedPolicies (Prelude.Maybe Prelude.Bool)
-listAttachedPolicies_recursive = Lens.lens (\ListAttachedPolicies' {recursive} -> recursive) (\s@ListAttachedPolicies' {} a -> s {recursive = a} :: ListAttachedPolicies)
-
 -- | The maximum number of results to be returned per request.
 listAttachedPolicies_pageSize :: Lens.Lens' ListAttachedPolicies (Prelude.Maybe Prelude.Natural)
 listAttachedPolicies_pageSize = Lens.lens (\ListAttachedPolicies' {pageSize} -> pageSize) (\s@ListAttachedPolicies' {} a -> s {pageSize = a} :: ListAttachedPolicies)
+
+-- | When true, recursively list attached policies.
+listAttachedPolicies_recursive :: Lens.Lens' ListAttachedPolicies (Prelude.Maybe Prelude.Bool)
+listAttachedPolicies_recursive = Lens.lens (\ListAttachedPolicies' {recursive} -> recursive) (\s@ListAttachedPolicies' {} a -> s {recursive = a} :: ListAttachedPolicies)
 
 -- | The group or principal for which the policies will be listed. Valid
 -- principals are CertificateArn
@@ -157,23 +157,23 @@ instance Core.AWSRequest ListAttachedPolicies where
     Response.receiveJSON
       ( \s h x ->
           ListAttachedPoliciesResponse'
-            Prelude.<$> (x Data..?> "policies" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "nextMarker")
+            Prelude.<$> (x Data..?> "nextMarker")
+            Prelude.<*> (x Data..?> "policies" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListAttachedPolicies where
   hashWithSalt _salt ListAttachedPolicies' {..} =
     _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` recursive
       `Prelude.hashWithSalt` pageSize
+      `Prelude.hashWithSalt` recursive
       `Prelude.hashWithSalt` target
 
 instance Prelude.NFData ListAttachedPolicies where
   rnf ListAttachedPolicies' {..} =
     Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf recursive
       `Prelude.seq` Prelude.rnf pageSize
+      `Prelude.seq` Prelude.rnf recursive
       `Prelude.seq` Prelude.rnf target
 
 instance Data.ToHeaders ListAttachedPolicies where
@@ -191,17 +191,17 @@ instance Data.ToQuery ListAttachedPolicies where
   toQuery ListAttachedPolicies' {..} =
     Prelude.mconcat
       [ "marker" Data.=: marker,
-        "recursive" Data.=: recursive,
-        "pageSize" Data.=: pageSize
+        "pageSize" Data.=: pageSize,
+        "recursive" Data.=: recursive
       ]
 
 -- | /See:/ 'newListAttachedPoliciesResponse' smart constructor.
 data ListAttachedPoliciesResponse = ListAttachedPoliciesResponse'
-  { -- | The policies.
-    policies :: Prelude.Maybe [Policy],
-    -- | The token to retrieve the next set of results, or \`\`null\`\` if there
+  { -- | The token to retrieve the next set of results, or \`\`null\`\` if there
     -- are no more results.
     nextMarker :: Prelude.Maybe Prelude.Text,
+    -- | The policies.
+    policies :: Prelude.Maybe [Policy],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -215,10 +215,10 @@ data ListAttachedPoliciesResponse = ListAttachedPoliciesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policies', 'listAttachedPoliciesResponse_policies' - The policies.
---
 -- 'nextMarker', 'listAttachedPoliciesResponse_nextMarker' - The token to retrieve the next set of results, or \`\`null\`\` if there
 -- are no more results.
+--
+-- 'policies', 'listAttachedPoliciesResponse_policies' - The policies.
 --
 -- 'httpStatus', 'listAttachedPoliciesResponse_httpStatus' - The response's http status code.
 newListAttachedPoliciesResponse ::
@@ -227,20 +227,20 @@ newListAttachedPoliciesResponse ::
   ListAttachedPoliciesResponse
 newListAttachedPoliciesResponse pHttpStatus_ =
   ListAttachedPoliciesResponse'
-    { policies =
+    { nextMarker =
         Prelude.Nothing,
-      nextMarker = Prelude.Nothing,
+      policies = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The policies.
-listAttachedPoliciesResponse_policies :: Lens.Lens' ListAttachedPoliciesResponse (Prelude.Maybe [Policy])
-listAttachedPoliciesResponse_policies = Lens.lens (\ListAttachedPoliciesResponse' {policies} -> policies) (\s@ListAttachedPoliciesResponse' {} a -> s {policies = a} :: ListAttachedPoliciesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to retrieve the next set of results, or \`\`null\`\` if there
 -- are no more results.
 listAttachedPoliciesResponse_nextMarker :: Lens.Lens' ListAttachedPoliciesResponse (Prelude.Maybe Prelude.Text)
 listAttachedPoliciesResponse_nextMarker = Lens.lens (\ListAttachedPoliciesResponse' {nextMarker} -> nextMarker) (\s@ListAttachedPoliciesResponse' {} a -> s {nextMarker = a} :: ListAttachedPoliciesResponse)
+
+-- | The policies.
+listAttachedPoliciesResponse_policies :: Lens.Lens' ListAttachedPoliciesResponse (Prelude.Maybe [Policy])
+listAttachedPoliciesResponse_policies = Lens.lens (\ListAttachedPoliciesResponse' {policies} -> policies) (\s@ListAttachedPoliciesResponse' {} a -> s {policies = a} :: ListAttachedPoliciesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAttachedPoliciesResponse_httpStatus :: Lens.Lens' ListAttachedPoliciesResponse Prelude.Int
@@ -248,6 +248,6 @@ listAttachedPoliciesResponse_httpStatus = Lens.lens (\ListAttachedPoliciesRespon
 
 instance Prelude.NFData ListAttachedPoliciesResponse where
   rnf ListAttachedPoliciesResponse' {..} =
-    Prelude.rnf policies
-      `Prelude.seq` Prelude.rnf nextMarker
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf policies
       `Prelude.seq` Prelude.rnf httpStatus

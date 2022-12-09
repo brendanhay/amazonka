@@ -34,8 +34,8 @@ module Amazonka.IoT.ListTargetsForSecurityProfile
     newListTargetsForSecurityProfile,
 
     -- * Request Lenses
-    listTargetsForSecurityProfile_nextToken,
     listTargetsForSecurityProfile_maxResults,
+    listTargetsForSecurityProfile_nextToken,
     listTargetsForSecurityProfile_securityProfileName,
 
     -- * Destructuring the Response
@@ -59,10 +59,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTargetsForSecurityProfile' smart constructor.
 data ListTargetsForSecurityProfile = ListTargetsForSecurityProfile'
-  { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return at one time.
+  { -- | The maximum number of results to return at one time.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The security profile.
     securityProfileName :: Prelude.Text
   }
@@ -76,9 +76,9 @@ data ListTargetsForSecurityProfile = ListTargetsForSecurityProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTargetsForSecurityProfile_nextToken' - The token for the next set of results.
---
 -- 'maxResults', 'listTargetsForSecurityProfile_maxResults' - The maximum number of results to return at one time.
+--
+-- 'nextToken', 'listTargetsForSecurityProfile_nextToken' - The token for the next set of results.
 --
 -- 'securityProfileName', 'listTargetsForSecurityProfile_securityProfileName' - The security profile.
 newListTargetsForSecurityProfile ::
@@ -88,19 +88,19 @@ newListTargetsForSecurityProfile ::
 newListTargetsForSecurityProfile
   pSecurityProfileName_ =
     ListTargetsForSecurityProfile'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         securityProfileName = pSecurityProfileName_
       }
-
--- | The token for the next set of results.
-listTargetsForSecurityProfile_nextToken :: Lens.Lens' ListTargetsForSecurityProfile (Prelude.Maybe Prelude.Text)
-listTargetsForSecurityProfile_nextToken = Lens.lens (\ListTargetsForSecurityProfile' {nextToken} -> nextToken) (\s@ListTargetsForSecurityProfile' {} a -> s {nextToken = a} :: ListTargetsForSecurityProfile)
 
 -- | The maximum number of results to return at one time.
 listTargetsForSecurityProfile_maxResults :: Lens.Lens' ListTargetsForSecurityProfile (Prelude.Maybe Prelude.Natural)
 listTargetsForSecurityProfile_maxResults = Lens.lens (\ListTargetsForSecurityProfile' {maxResults} -> maxResults) (\s@ListTargetsForSecurityProfile' {} a -> s {maxResults = a} :: ListTargetsForSecurityProfile)
+
+-- | The token for the next set of results.
+listTargetsForSecurityProfile_nextToken :: Lens.Lens' ListTargetsForSecurityProfile (Prelude.Maybe Prelude.Text)
+listTargetsForSecurityProfile_nextToken = Lens.lens (\ListTargetsForSecurityProfile' {nextToken} -> nextToken) (\s@ListTargetsForSecurityProfile' {} a -> s {nextToken = a} :: ListTargetsForSecurityProfile)
 
 -- | The security profile.
 listTargetsForSecurityProfile_securityProfileName :: Lens.Lens' ListTargetsForSecurityProfile Prelude.Text
@@ -153,14 +153,14 @@ instance
     ListTargetsForSecurityProfile
   where
   hashWithSalt _salt ListTargetsForSecurityProfile' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` securityProfileName
 
 instance Prelude.NFData ListTargetsForSecurityProfile where
   rnf ListTargetsForSecurityProfile' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf securityProfileName
 
 instance Data.ToHeaders ListTargetsForSecurityProfile where
@@ -177,8 +177,8 @@ instance Data.ToPath ListTargetsForSecurityProfile where
 instance Data.ToQuery ListTargetsForSecurityProfile where
   toQuery ListTargetsForSecurityProfile' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListTargetsForSecurityProfileResponse' smart constructor.

@@ -30,13 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCertificate' smart constructor.
 data Certificate = Certificate'
-  { -- | The date and time the certificate was created.
-    creationDate :: Prelude.Maybe Data.POSIX,
-    -- | The status of the certificate.
-    --
-    -- The status value REGISTER_INACTIVE is deprecated and should not be used.
-    status :: Prelude.Maybe CertificateStatus,
-    -- | The ARN of the certificate.
+  { -- | The ARN of the certificate.
     certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the certificate. (The last part of the certificate ARN
     -- contains the certificate ID.)
@@ -54,7 +48,13 @@ data Certificate = Certificate'
     -- @SNI_ONLY@: A certificate in @SNI_ONLY@ mode is registered without an
     -- issuer CA. Devices with certificates in @SNI_ONLY@ mode must send the
     -- SNI extension when connecting to Amazon Web Services IoT Core.
-    certificateMode :: Prelude.Maybe CertificateMode
+    certificateMode :: Prelude.Maybe CertificateMode,
+    -- | The date and time the certificate was created.
+    creationDate :: Prelude.Maybe Data.POSIX,
+    -- | The status of the certificate.
+    --
+    -- The status value REGISTER_INACTIVE is deprecated and should not be used.
+    status :: Prelude.Maybe CertificateStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,12 +65,6 @@ data Certificate = Certificate'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'creationDate', 'certificate_creationDate' - The date and time the certificate was created.
---
--- 'status', 'certificate_status' - The status of the certificate.
---
--- The status value REGISTER_INACTIVE is deprecated and should not be used.
 --
 -- 'certificateArn', 'certificate_certificateArn' - The ARN of the certificate.
 --
@@ -90,26 +84,22 @@ data Certificate = Certificate'
 -- @SNI_ONLY@: A certificate in @SNI_ONLY@ mode is registered without an
 -- issuer CA. Devices with certificates in @SNI_ONLY@ mode must send the
 -- SNI extension when connecting to Amazon Web Services IoT Core.
+--
+-- 'creationDate', 'certificate_creationDate' - The date and time the certificate was created.
+--
+-- 'status', 'certificate_status' - The status of the certificate.
+--
+-- The status value REGISTER_INACTIVE is deprecated and should not be used.
 newCertificate ::
   Certificate
 newCertificate =
   Certificate'
-    { creationDate = Prelude.Nothing,
-      status = Prelude.Nothing,
-      certificateArn = Prelude.Nothing,
+    { certificateArn = Prelude.Nothing,
       certificateId = Prelude.Nothing,
-      certificateMode = Prelude.Nothing
+      certificateMode = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
+      status = Prelude.Nothing
     }
-
--- | The date and time the certificate was created.
-certificate_creationDate :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
-certificate_creationDate = Lens.lens (\Certificate' {creationDate} -> creationDate) (\s@Certificate' {} a -> s {creationDate = a} :: Certificate) Prelude.. Lens.mapping Data._Time
-
--- | The status of the certificate.
---
--- The status value REGISTER_INACTIVE is deprecated and should not be used.
-certificate_status :: Lens.Lens' Certificate (Prelude.Maybe CertificateStatus)
-certificate_status = Lens.lens (\Certificate' {status} -> status) (\s@Certificate' {} a -> s {status = a} :: Certificate)
 
 -- | The ARN of the certificate.
 certificate_certificateArn :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Text)
@@ -136,31 +126,41 @@ certificate_certificateId = Lens.lens (\Certificate' {certificateId} -> certific
 certificate_certificateMode :: Lens.Lens' Certificate (Prelude.Maybe CertificateMode)
 certificate_certificateMode = Lens.lens (\Certificate' {certificateMode} -> certificateMode) (\s@Certificate' {} a -> s {certificateMode = a} :: Certificate)
 
+-- | The date and time the certificate was created.
+certificate_creationDate :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
+certificate_creationDate = Lens.lens (\Certificate' {creationDate} -> creationDate) (\s@Certificate' {} a -> s {creationDate = a} :: Certificate) Prelude.. Lens.mapping Data._Time
+
+-- | The status of the certificate.
+--
+-- The status value REGISTER_INACTIVE is deprecated and should not be used.
+certificate_status :: Lens.Lens' Certificate (Prelude.Maybe CertificateStatus)
+certificate_status = Lens.lens (\Certificate' {status} -> status) (\s@Certificate' {} a -> s {status = a} :: Certificate)
+
 instance Data.FromJSON Certificate where
   parseJSON =
     Data.withObject
       "Certificate"
       ( \x ->
           Certificate'
-            Prelude.<$> (x Data..:? "creationDate")
-            Prelude.<*> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "certificateArn")
+            Prelude.<$> (x Data..:? "certificateArn")
             Prelude.<*> (x Data..:? "certificateId")
             Prelude.<*> (x Data..:? "certificateMode")
+            Prelude.<*> (x Data..:? "creationDate")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable Certificate where
   hashWithSalt _salt Certificate' {..} =
-    _salt `Prelude.hashWithSalt` creationDate
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` certificateArn
+    _salt `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` certificateId
       `Prelude.hashWithSalt` certificateMode
+      `Prelude.hashWithSalt` creationDate
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData Certificate where
   rnf Certificate' {..} =
-    Prelude.rnf creationDate
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf certificateArn
+    Prelude.rnf certificateArn
       `Prelude.seq` Prelude.rnf certificateId
       `Prelude.seq` Prelude.rnf certificateMode
+      `Prelude.seq` Prelude.rnf creationDate
+      `Prelude.seq` Prelude.rnf status

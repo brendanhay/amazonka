@@ -31,16 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTopicRuleDestinationSummary' smart constructor.
 data TopicRuleDestinationSummary = TopicRuleDestinationSummary'
-  { -- | Information about the virtual private cloud (VPC) connection.
-    vpcDestinationSummary :: Prelude.Maybe VpcDestinationSummary,
+  { -- | The topic rule destination ARN.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The date and time when the topic rule destination was created.
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | Information about the HTTP URL.
     httpUrlSummary :: Prelude.Maybe HttpUrlDestinationSummary,
     -- | The date and time when the topic rule destination was last updated.
     lastUpdatedAt :: Prelude.Maybe Data.POSIX,
-    -- | The topic rule destination ARN.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The reason the topic rule destination is in the current status.
-    statusReason :: Prelude.Maybe Prelude.Text,
     -- | The status of the topic rule destination. Valid values are:
     --
     -- [IN_PROGRESS]
@@ -68,8 +66,10 @@ data TopicRuleDestinationSummary = TopicRuleDestinationSummary'
     --     causes a new confirmation challenge to be sent to your confirmation
     --     endpoint.
     status :: Prelude.Maybe TopicRuleDestinationStatus,
-    -- | The date and time when the topic rule destination was created.
-    createdAt :: Prelude.Maybe Data.POSIX
+    -- | The reason the topic rule destination is in the current status.
+    statusReason :: Prelude.Maybe Prelude.Text,
+    -- | Information about the virtual private cloud (VPC) connection.
+    vpcDestinationSummary :: Prelude.Maybe VpcDestinationSummary
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,15 +81,13 @@ data TopicRuleDestinationSummary = TopicRuleDestinationSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcDestinationSummary', 'topicRuleDestinationSummary_vpcDestinationSummary' - Information about the virtual private cloud (VPC) connection.
+-- 'arn', 'topicRuleDestinationSummary_arn' - The topic rule destination ARN.
+--
+-- 'createdAt', 'topicRuleDestinationSummary_createdAt' - The date and time when the topic rule destination was created.
 --
 -- 'httpUrlSummary', 'topicRuleDestinationSummary_httpUrlSummary' - Information about the HTTP URL.
 --
 -- 'lastUpdatedAt', 'topicRuleDestinationSummary_lastUpdatedAt' - The date and time when the topic rule destination was last updated.
---
--- 'arn', 'topicRuleDestinationSummary_arn' - The topic rule destination ARN.
---
--- 'statusReason', 'topicRuleDestinationSummary_statusReason' - The reason the topic rule destination is in the current status.
 --
 -- 'status', 'topicRuleDestinationSummary_status' - The status of the topic rule destination. Valid values are:
 --
@@ -118,24 +116,29 @@ data TopicRuleDestinationSummary = TopicRuleDestinationSummary'
 --     causes a new confirmation challenge to be sent to your confirmation
 --     endpoint.
 --
--- 'createdAt', 'topicRuleDestinationSummary_createdAt' - The date and time when the topic rule destination was created.
+-- 'statusReason', 'topicRuleDestinationSummary_statusReason' - The reason the topic rule destination is in the current status.
+--
+-- 'vpcDestinationSummary', 'topicRuleDestinationSummary_vpcDestinationSummary' - Information about the virtual private cloud (VPC) connection.
 newTopicRuleDestinationSummary ::
   TopicRuleDestinationSummary
 newTopicRuleDestinationSummary =
   TopicRuleDestinationSummary'
-    { vpcDestinationSummary =
-        Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       httpUrlSummary = Prelude.Nothing,
       lastUpdatedAt = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      statusReason = Prelude.Nothing,
       status = Prelude.Nothing,
-      createdAt = Prelude.Nothing
+      statusReason = Prelude.Nothing,
+      vpcDestinationSummary = Prelude.Nothing
     }
 
--- | Information about the virtual private cloud (VPC) connection.
-topicRuleDestinationSummary_vpcDestinationSummary :: Lens.Lens' TopicRuleDestinationSummary (Prelude.Maybe VpcDestinationSummary)
-topicRuleDestinationSummary_vpcDestinationSummary = Lens.lens (\TopicRuleDestinationSummary' {vpcDestinationSummary} -> vpcDestinationSummary) (\s@TopicRuleDestinationSummary' {} a -> s {vpcDestinationSummary = a} :: TopicRuleDestinationSummary)
+-- | The topic rule destination ARN.
+topicRuleDestinationSummary_arn :: Lens.Lens' TopicRuleDestinationSummary (Prelude.Maybe Prelude.Text)
+topicRuleDestinationSummary_arn = Lens.lens (\TopicRuleDestinationSummary' {arn} -> arn) (\s@TopicRuleDestinationSummary' {} a -> s {arn = a} :: TopicRuleDestinationSummary)
+
+-- | The date and time when the topic rule destination was created.
+topicRuleDestinationSummary_createdAt :: Lens.Lens' TopicRuleDestinationSummary (Prelude.Maybe Prelude.UTCTime)
+topicRuleDestinationSummary_createdAt = Lens.lens (\TopicRuleDestinationSummary' {createdAt} -> createdAt) (\s@TopicRuleDestinationSummary' {} a -> s {createdAt = a} :: TopicRuleDestinationSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Information about the HTTP URL.
 topicRuleDestinationSummary_httpUrlSummary :: Lens.Lens' TopicRuleDestinationSummary (Prelude.Maybe HttpUrlDestinationSummary)
@@ -144,14 +147,6 @@ topicRuleDestinationSummary_httpUrlSummary = Lens.lens (\TopicRuleDestinationSum
 -- | The date and time when the topic rule destination was last updated.
 topicRuleDestinationSummary_lastUpdatedAt :: Lens.Lens' TopicRuleDestinationSummary (Prelude.Maybe Prelude.UTCTime)
 topicRuleDestinationSummary_lastUpdatedAt = Lens.lens (\TopicRuleDestinationSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@TopicRuleDestinationSummary' {} a -> s {lastUpdatedAt = a} :: TopicRuleDestinationSummary) Prelude.. Lens.mapping Data._Time
-
--- | The topic rule destination ARN.
-topicRuleDestinationSummary_arn :: Lens.Lens' TopicRuleDestinationSummary (Prelude.Maybe Prelude.Text)
-topicRuleDestinationSummary_arn = Lens.lens (\TopicRuleDestinationSummary' {arn} -> arn) (\s@TopicRuleDestinationSummary' {} a -> s {arn = a} :: TopicRuleDestinationSummary)
-
--- | The reason the topic rule destination is in the current status.
-topicRuleDestinationSummary_statusReason :: Lens.Lens' TopicRuleDestinationSummary (Prelude.Maybe Prelude.Text)
-topicRuleDestinationSummary_statusReason = Lens.lens (\TopicRuleDestinationSummary' {statusReason} -> statusReason) (\s@TopicRuleDestinationSummary' {} a -> s {statusReason = a} :: TopicRuleDestinationSummary)
 
 -- | The status of the topic rule destination. Valid values are:
 --
@@ -182,9 +177,13 @@ topicRuleDestinationSummary_statusReason = Lens.lens (\TopicRuleDestinationSumma
 topicRuleDestinationSummary_status :: Lens.Lens' TopicRuleDestinationSummary (Prelude.Maybe TopicRuleDestinationStatus)
 topicRuleDestinationSummary_status = Lens.lens (\TopicRuleDestinationSummary' {status} -> status) (\s@TopicRuleDestinationSummary' {} a -> s {status = a} :: TopicRuleDestinationSummary)
 
--- | The date and time when the topic rule destination was created.
-topicRuleDestinationSummary_createdAt :: Lens.Lens' TopicRuleDestinationSummary (Prelude.Maybe Prelude.UTCTime)
-topicRuleDestinationSummary_createdAt = Lens.lens (\TopicRuleDestinationSummary' {createdAt} -> createdAt) (\s@TopicRuleDestinationSummary' {} a -> s {createdAt = a} :: TopicRuleDestinationSummary) Prelude.. Lens.mapping Data._Time
+-- | The reason the topic rule destination is in the current status.
+topicRuleDestinationSummary_statusReason :: Lens.Lens' TopicRuleDestinationSummary (Prelude.Maybe Prelude.Text)
+topicRuleDestinationSummary_statusReason = Lens.lens (\TopicRuleDestinationSummary' {statusReason} -> statusReason) (\s@TopicRuleDestinationSummary' {} a -> s {statusReason = a} :: TopicRuleDestinationSummary)
+
+-- | Information about the virtual private cloud (VPC) connection.
+topicRuleDestinationSummary_vpcDestinationSummary :: Lens.Lens' TopicRuleDestinationSummary (Prelude.Maybe VpcDestinationSummary)
+topicRuleDestinationSummary_vpcDestinationSummary = Lens.lens (\TopicRuleDestinationSummary' {vpcDestinationSummary} -> vpcDestinationSummary) (\s@TopicRuleDestinationSummary' {} a -> s {vpcDestinationSummary = a} :: TopicRuleDestinationSummary)
 
 instance Data.FromJSON TopicRuleDestinationSummary where
   parseJSON =
@@ -192,31 +191,31 @@ instance Data.FromJSON TopicRuleDestinationSummary where
       "TopicRuleDestinationSummary"
       ( \x ->
           TopicRuleDestinationSummary'
-            Prelude.<$> (x Data..:? "vpcDestinationSummary")
+            Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "createdAt")
             Prelude.<*> (x Data..:? "httpUrlSummary")
             Prelude.<*> (x Data..:? "lastUpdatedAt")
-            Prelude.<*> (x Data..:? "arn")
-            Prelude.<*> (x Data..:? "statusReason")
             Prelude.<*> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "statusReason")
+            Prelude.<*> (x Data..:? "vpcDestinationSummary")
       )
 
 instance Prelude.Hashable TopicRuleDestinationSummary where
   hashWithSalt _salt TopicRuleDestinationSummary' {..} =
-    _salt `Prelude.hashWithSalt` vpcDestinationSummary
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` httpUrlSummary
       `Prelude.hashWithSalt` lastUpdatedAt
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` statusReason
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` statusReason
+      `Prelude.hashWithSalt` vpcDestinationSummary
 
 instance Prelude.NFData TopicRuleDestinationSummary where
   rnf TopicRuleDestinationSummary' {..} =
-    Prelude.rnf vpcDestinationSummary
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf httpUrlSummary
       `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf statusReason
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf statusReason
+      `Prelude.seq` Prelude.rnf vpcDestinationSummary

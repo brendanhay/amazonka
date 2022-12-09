@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEffectivePolicy' smart constructor.
 data EffectivePolicy = EffectivePolicy'
-  { -- | The policy name.
-    policyName :: Prelude.Maybe Prelude.Text,
+  { -- | The policy ARN.
+    policyArn :: Prelude.Maybe Prelude.Text,
     -- | The IAM policy document.
     policyDocument :: Prelude.Maybe Prelude.Text,
-    -- | The policy ARN.
-    policyArn :: Prelude.Maybe Prelude.Text
+    -- | The policy name.
+    policyName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,31 +45,31 @@ data EffectivePolicy = EffectivePolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyName', 'effectivePolicy_policyName' - The policy name.
+-- 'policyArn', 'effectivePolicy_policyArn' - The policy ARN.
 --
 -- 'policyDocument', 'effectivePolicy_policyDocument' - The IAM policy document.
 --
--- 'policyArn', 'effectivePolicy_policyArn' - The policy ARN.
+-- 'policyName', 'effectivePolicy_policyName' - The policy name.
 newEffectivePolicy ::
   EffectivePolicy
 newEffectivePolicy =
   EffectivePolicy'
-    { policyName = Prelude.Nothing,
+    { policyArn = Prelude.Nothing,
       policyDocument = Prelude.Nothing,
-      policyArn = Prelude.Nothing
+      policyName = Prelude.Nothing
     }
 
--- | The policy name.
-effectivePolicy_policyName :: Lens.Lens' EffectivePolicy (Prelude.Maybe Prelude.Text)
-effectivePolicy_policyName = Lens.lens (\EffectivePolicy' {policyName} -> policyName) (\s@EffectivePolicy' {} a -> s {policyName = a} :: EffectivePolicy)
+-- | The policy ARN.
+effectivePolicy_policyArn :: Lens.Lens' EffectivePolicy (Prelude.Maybe Prelude.Text)
+effectivePolicy_policyArn = Lens.lens (\EffectivePolicy' {policyArn} -> policyArn) (\s@EffectivePolicy' {} a -> s {policyArn = a} :: EffectivePolicy)
 
 -- | The IAM policy document.
 effectivePolicy_policyDocument :: Lens.Lens' EffectivePolicy (Prelude.Maybe Prelude.Text)
 effectivePolicy_policyDocument = Lens.lens (\EffectivePolicy' {policyDocument} -> policyDocument) (\s@EffectivePolicy' {} a -> s {policyDocument = a} :: EffectivePolicy)
 
--- | The policy ARN.
-effectivePolicy_policyArn :: Lens.Lens' EffectivePolicy (Prelude.Maybe Prelude.Text)
-effectivePolicy_policyArn = Lens.lens (\EffectivePolicy' {policyArn} -> policyArn) (\s@EffectivePolicy' {} a -> s {policyArn = a} :: EffectivePolicy)
+-- | The policy name.
+effectivePolicy_policyName :: Lens.Lens' EffectivePolicy (Prelude.Maybe Prelude.Text)
+effectivePolicy_policyName = Lens.lens (\EffectivePolicy' {policyName} -> policyName) (\s@EffectivePolicy' {} a -> s {policyName = a} :: EffectivePolicy)
 
 instance Data.FromJSON EffectivePolicy where
   parseJSON =
@@ -77,19 +77,19 @@ instance Data.FromJSON EffectivePolicy where
       "EffectivePolicy"
       ( \x ->
           EffectivePolicy'
-            Prelude.<$> (x Data..:? "policyName")
+            Prelude.<$> (x Data..:? "policyArn")
             Prelude.<*> (x Data..:? "policyDocument")
-            Prelude.<*> (x Data..:? "policyArn")
+            Prelude.<*> (x Data..:? "policyName")
       )
 
 instance Prelude.Hashable EffectivePolicy where
   hashWithSalt _salt EffectivePolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyName
+    _salt `Prelude.hashWithSalt` policyArn
       `Prelude.hashWithSalt` policyDocument
-      `Prelude.hashWithSalt` policyArn
+      `Prelude.hashWithSalt` policyName
 
 instance Prelude.NFData EffectivePolicy where
   rnf EffectivePolicy' {..} =
-    Prelude.rnf policyName
+    Prelude.rnf policyArn
       `Prelude.seq` Prelude.rnf policyDocument
-      `Prelude.seq` Prelude.rnf policyArn
+      `Prelude.seq` Prelude.rnf policyName

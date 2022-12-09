@@ -34,10 +34,10 @@ module Amazonka.IoT.ListAuditTasks
     newListAuditTasks,
 
     -- * Request Lenses
+    listAuditTasks_maxResults,
     listAuditTasks_nextToken,
     listAuditTasks_taskStatus,
     listAuditTasks_taskType,
-    listAuditTasks_maxResults,
     listAuditTasks_startTime,
     listAuditTasks_endTime,
 
@@ -46,8 +46,8 @@ module Amazonka.IoT.ListAuditTasks
     newListAuditTasksResponse,
 
     -- * Response Lenses
-    listAuditTasksResponse_tasks,
     listAuditTasksResponse_nextToken,
+    listAuditTasksResponse_tasks,
     listAuditTasksResponse_httpStatus,
   )
 where
@@ -62,7 +62,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAuditTasks' smart constructor.
 data ListAuditTasks = ListAuditTasks'
-  { -- | The token for the next set of results.
+  { -- | The maximum number of results to return at one time. The default is 25.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A filter to limit the output to audits with the specified completion
     -- status: can be one of \"IN_PROGRESS\", \"COMPLETED\", \"FAILED\", or
@@ -71,8 +73,6 @@ data ListAuditTasks = ListAuditTasks'
     -- | A filter to limit the output to the specified type of audit: can be one
     -- of \"ON_DEMAND_AUDIT_TASK\" or \"SCHEDULED__AUDIT_TASK\".
     taskType :: Prelude.Maybe AuditTaskType,
-    -- | The maximum number of results to return at one time. The default is 25.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The beginning of the time period. Audit information is retained for a
     -- limited time (90 days). Requesting a start time prior to what is
     -- retained results in an \"InvalidRequestException\".
@@ -90,6 +90,8 @@ data ListAuditTasks = ListAuditTasks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listAuditTasks_maxResults' - The maximum number of results to return at one time. The default is 25.
+--
 -- 'nextToken', 'listAuditTasks_nextToken' - The token for the next set of results.
 --
 -- 'taskStatus', 'listAuditTasks_taskStatus' - A filter to limit the output to audits with the specified completion
@@ -98,8 +100,6 @@ data ListAuditTasks = ListAuditTasks'
 --
 -- 'taskType', 'listAuditTasks_taskType' - A filter to limit the output to the specified type of audit: can be one
 -- of \"ON_DEMAND_AUDIT_TASK\" or \"SCHEDULED__AUDIT_TASK\".
---
--- 'maxResults', 'listAuditTasks_maxResults' - The maximum number of results to return at one time. The default is 25.
 --
 -- 'startTime', 'listAuditTasks_startTime' - The beginning of the time period. Audit information is retained for a
 -- limited time (90 days). Requesting a start time prior to what is
@@ -114,13 +114,17 @@ newListAuditTasks ::
   ListAuditTasks
 newListAuditTasks pStartTime_ pEndTime_ =
   ListAuditTasks'
-    { nextToken = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       taskStatus = Prelude.Nothing,
       taskType = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       startTime = Data._Time Lens.# pStartTime_,
       endTime = Data._Time Lens.# pEndTime_
     }
+
+-- | The maximum number of results to return at one time. The default is 25.
+listAuditTasks_maxResults :: Lens.Lens' ListAuditTasks (Prelude.Maybe Prelude.Natural)
+listAuditTasks_maxResults = Lens.lens (\ListAuditTasks' {maxResults} -> maxResults) (\s@ListAuditTasks' {} a -> s {maxResults = a} :: ListAuditTasks)
 
 -- | The token for the next set of results.
 listAuditTasks_nextToken :: Lens.Lens' ListAuditTasks (Prelude.Maybe Prelude.Text)
@@ -136,10 +140,6 @@ listAuditTasks_taskStatus = Lens.lens (\ListAuditTasks' {taskStatus} -> taskStat
 -- of \"ON_DEMAND_AUDIT_TASK\" or \"SCHEDULED__AUDIT_TASK\".
 listAuditTasks_taskType :: Lens.Lens' ListAuditTasks (Prelude.Maybe AuditTaskType)
 listAuditTasks_taskType = Lens.lens (\ListAuditTasks' {taskType} -> taskType) (\s@ListAuditTasks' {} a -> s {taskType = a} :: ListAuditTasks)
-
--- | The maximum number of results to return at one time. The default is 25.
-listAuditTasks_maxResults :: Lens.Lens' ListAuditTasks (Prelude.Maybe Prelude.Natural)
-listAuditTasks_maxResults = Lens.lens (\ListAuditTasks' {maxResults} -> maxResults) (\s@ListAuditTasks' {} a -> s {maxResults = a} :: ListAuditTasks)
 
 -- | The beginning of the time period. Audit information is retained for a
 -- limited time (90 days). Requesting a start time prior to what is
@@ -181,26 +181,26 @@ instance Core.AWSRequest ListAuditTasks where
     Response.receiveJSON
       ( \s h x ->
           ListAuditTasksResponse'
-            Prelude.<$> (x Data..?> "tasks" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "tasks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListAuditTasks where
   hashWithSalt _salt ListAuditTasks' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` taskStatus
       `Prelude.hashWithSalt` taskType
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` endTime
 
 instance Prelude.NFData ListAuditTasks where
   rnf ListAuditTasks' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf taskStatus
       `Prelude.seq` Prelude.rnf taskType
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf endTime
 
@@ -213,21 +213,21 @@ instance Data.ToPath ListAuditTasks where
 instance Data.ToQuery ListAuditTasks where
   toQuery ListAuditTasks' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
         "taskStatus" Data.=: taskStatus,
         "taskType" Data.=: taskType,
-        "maxResults" Data.=: maxResults,
         "startTime" Data.=: startTime,
         "endTime" Data.=: endTime
       ]
 
 -- | /See:/ 'newListAuditTasksResponse' smart constructor.
 data ListAuditTasksResponse = ListAuditTasksResponse'
-  { -- | The audits that were performed during the specified time period.
-    tasks :: Prelude.Maybe [AuditTaskMetadata],
-    -- | A token that can be used to retrieve the next set of results, or @null@
+  { -- | A token that can be used to retrieve the next set of results, or @null@
     -- if there are no additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The audits that were performed during the specified time period.
+    tasks :: Prelude.Maybe [AuditTaskMetadata],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -241,10 +241,10 @@ data ListAuditTasksResponse = ListAuditTasksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tasks', 'listAuditTasksResponse_tasks' - The audits that were performed during the specified time period.
---
 -- 'nextToken', 'listAuditTasksResponse_nextToken' - A token that can be used to retrieve the next set of results, or @null@
 -- if there are no additional results.
+--
+-- 'tasks', 'listAuditTasksResponse_tasks' - The audits that were performed during the specified time period.
 --
 -- 'httpStatus', 'listAuditTasksResponse_httpStatus' - The response's http status code.
 newListAuditTasksResponse ::
@@ -253,19 +253,20 @@ newListAuditTasksResponse ::
   ListAuditTasksResponse
 newListAuditTasksResponse pHttpStatus_ =
   ListAuditTasksResponse'
-    { tasks = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      tasks = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The audits that were performed during the specified time period.
-listAuditTasksResponse_tasks :: Lens.Lens' ListAuditTasksResponse (Prelude.Maybe [AuditTaskMetadata])
-listAuditTasksResponse_tasks = Lens.lens (\ListAuditTasksResponse' {tasks} -> tasks) (\s@ListAuditTasksResponse' {} a -> s {tasks = a} :: ListAuditTasksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that can be used to retrieve the next set of results, or @null@
 -- if there are no additional results.
 listAuditTasksResponse_nextToken :: Lens.Lens' ListAuditTasksResponse (Prelude.Maybe Prelude.Text)
 listAuditTasksResponse_nextToken = Lens.lens (\ListAuditTasksResponse' {nextToken} -> nextToken) (\s@ListAuditTasksResponse' {} a -> s {nextToken = a} :: ListAuditTasksResponse)
+
+-- | The audits that were performed during the specified time period.
+listAuditTasksResponse_tasks :: Lens.Lens' ListAuditTasksResponse (Prelude.Maybe [AuditTaskMetadata])
+listAuditTasksResponse_tasks = Lens.lens (\ListAuditTasksResponse' {tasks} -> tasks) (\s@ListAuditTasksResponse' {} a -> s {tasks = a} :: ListAuditTasksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAuditTasksResponse_httpStatus :: Lens.Lens' ListAuditTasksResponse Prelude.Int
@@ -273,6 +274,6 @@ listAuditTasksResponse_httpStatus = Lens.lens (\ListAuditTasksResponse' {httpSta
 
 instance Prelude.NFData ListAuditTasksResponse where
   rnf ListAuditTasksResponse' {..} =
-    Prelude.rnf tasks
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf tasks
       `Prelude.seq` Prelude.rnf httpStatus

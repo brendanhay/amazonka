@@ -31,11 +31,11 @@ module Amazonka.IoT.CreateProvisioningTemplate
     newCreateProvisioningTemplate,
 
     -- * Request Lenses
-    createProvisioningTemplate_tags,
-    createProvisioningTemplate_type,
-    createProvisioningTemplate_preProvisioningHook,
     createProvisioningTemplate_description,
     createProvisioningTemplate_enabled,
+    createProvisioningTemplate_preProvisioningHook,
+    createProvisioningTemplate_tags,
+    createProvisioningTemplate_type,
     createProvisioningTemplate_templateName,
     createProvisioningTemplate_templateBody,
     createProvisioningTemplate_provisioningRoleArn,
@@ -45,9 +45,9 @@ module Amazonka.IoT.CreateProvisioningTemplate
     newCreateProvisioningTemplateResponse,
 
     -- * Response Lenses
-    createProvisioningTemplateResponse_templateName,
     createProvisioningTemplateResponse_defaultVersionId,
     createProvisioningTemplateResponse_templateArn,
+    createProvisioningTemplateResponse_templateName,
     createProvisioningTemplateResponse_httpStatus,
   )
 where
@@ -62,7 +62,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateProvisioningTemplate' smart constructor.
 data CreateProvisioningTemplate = CreateProvisioningTemplate'
-  { -- | Metadata which can be used to manage the provisioning template.
+  { -- | The description of the provisioning template.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | True to enable the provisioning template, otherwise false.
+    enabled :: Prelude.Maybe Prelude.Bool,
+    -- | Creates a pre-provisioning hook template. Only supports template of type
+    -- @FLEET_PROVISIONING@. For more information about provisioning template
+    -- types, see
+    -- <https://docs.aws.amazon.com/iot/latest/apireference/API_CreateProvisioningTemplate.html#iot-CreateProvisioningTemplate-request-type type>.
+    preProvisioningHook :: Prelude.Maybe ProvisioningHook,
+    -- | Metadata which can be used to manage the provisioning template.
     --
     -- For URI Request parameters use format: ...key1=value1&key2=value2...
     --
@@ -78,15 +87,6 @@ data CreateProvisioningTemplate = CreateProvisioningTemplate'
     -- information about provisioning template, see:
     -- <https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html Provisioning template>.
     type' :: Prelude.Maybe TemplateType,
-    -- | Creates a pre-provisioning hook template. Only supports template of type
-    -- @FLEET_PROVISIONING@. For more information about provisioning template
-    -- types, see
-    -- <https://docs.aws.amazon.com/iot/latest/apireference/API_CreateProvisioningTemplate.html#iot-CreateProvisioningTemplate-request-type type>.
-    preProvisioningHook :: Prelude.Maybe ProvisioningHook,
-    -- | The description of the provisioning template.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | True to enable the provisioning template, otherwise false.
-    enabled :: Prelude.Maybe Prelude.Bool,
     -- | The name of the provisioning template.
     templateName :: Prelude.Text,
     -- | The JSON formatted contents of the provisioning template.
@@ -105,6 +105,15 @@ data CreateProvisioningTemplate = CreateProvisioningTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'createProvisioningTemplate_description' - The description of the provisioning template.
+--
+-- 'enabled', 'createProvisioningTemplate_enabled' - True to enable the provisioning template, otherwise false.
+--
+-- 'preProvisioningHook', 'createProvisioningTemplate_preProvisioningHook' - Creates a pre-provisioning hook template. Only supports template of type
+-- @FLEET_PROVISIONING@. For more information about provisioning template
+-- types, see
+-- <https://docs.aws.amazon.com/iot/latest/apireference/API_CreateProvisioningTemplate.html#iot-CreateProvisioningTemplate-request-type type>.
+--
 -- 'tags', 'createProvisioningTemplate_tags' - Metadata which can be used to manage the provisioning template.
 --
 -- For URI Request parameters use format: ...key1=value1&key2=value2...
@@ -120,15 +129,6 @@ data CreateProvisioningTemplate = CreateProvisioningTemplate'
 -- its creation. The default value is @FLEET_PROVISIONING@. For more
 -- information about provisioning template, see:
 -- <https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html Provisioning template>.
---
--- 'preProvisioningHook', 'createProvisioningTemplate_preProvisioningHook' - Creates a pre-provisioning hook template. Only supports template of type
--- @FLEET_PROVISIONING@. For more information about provisioning template
--- types, see
--- <https://docs.aws.amazon.com/iot/latest/apireference/API_CreateProvisioningTemplate.html#iot-CreateProvisioningTemplate-request-type type>.
---
--- 'description', 'createProvisioningTemplate_description' - The description of the provisioning template.
---
--- 'enabled', 'createProvisioningTemplate_enabled' - True to enable the provisioning template, otherwise false.
 --
 -- 'templateName', 'createProvisioningTemplate_templateName' - The name of the provisioning template.
 --
@@ -149,15 +149,31 @@ newCreateProvisioningTemplate
   pTemplateBody_
   pProvisioningRoleArn_ =
     CreateProvisioningTemplate'
-      { tags = Prelude.Nothing,
-        type' = Prelude.Nothing,
-        preProvisioningHook = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { description =
+          Prelude.Nothing,
         enabled = Prelude.Nothing,
+        preProvisioningHook = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        type' = Prelude.Nothing,
         templateName = pTemplateName_,
         templateBody = pTemplateBody_,
         provisioningRoleArn = pProvisioningRoleArn_
       }
+
+-- | The description of the provisioning template.
+createProvisioningTemplate_description :: Lens.Lens' CreateProvisioningTemplate (Prelude.Maybe Prelude.Text)
+createProvisioningTemplate_description = Lens.lens (\CreateProvisioningTemplate' {description} -> description) (\s@CreateProvisioningTemplate' {} a -> s {description = a} :: CreateProvisioningTemplate)
+
+-- | True to enable the provisioning template, otherwise false.
+createProvisioningTemplate_enabled :: Lens.Lens' CreateProvisioningTemplate (Prelude.Maybe Prelude.Bool)
+createProvisioningTemplate_enabled = Lens.lens (\CreateProvisioningTemplate' {enabled} -> enabled) (\s@CreateProvisioningTemplate' {} a -> s {enabled = a} :: CreateProvisioningTemplate)
+
+-- | Creates a pre-provisioning hook template. Only supports template of type
+-- @FLEET_PROVISIONING@. For more information about provisioning template
+-- types, see
+-- <https://docs.aws.amazon.com/iot/latest/apireference/API_CreateProvisioningTemplate.html#iot-CreateProvisioningTemplate-request-type type>.
+createProvisioningTemplate_preProvisioningHook :: Lens.Lens' CreateProvisioningTemplate (Prelude.Maybe ProvisioningHook)
+createProvisioningTemplate_preProvisioningHook = Lens.lens (\CreateProvisioningTemplate' {preProvisioningHook} -> preProvisioningHook) (\s@CreateProvisioningTemplate' {} a -> s {preProvisioningHook = a} :: CreateProvisioningTemplate)
 
 -- | Metadata which can be used to manage the provisioning template.
 --
@@ -178,21 +194,6 @@ createProvisioningTemplate_tags = Lens.lens (\CreateProvisioningTemplate' {tags}
 -- <https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html Provisioning template>.
 createProvisioningTemplate_type :: Lens.Lens' CreateProvisioningTemplate (Prelude.Maybe TemplateType)
 createProvisioningTemplate_type = Lens.lens (\CreateProvisioningTemplate' {type'} -> type') (\s@CreateProvisioningTemplate' {} a -> s {type' = a} :: CreateProvisioningTemplate)
-
--- | Creates a pre-provisioning hook template. Only supports template of type
--- @FLEET_PROVISIONING@. For more information about provisioning template
--- types, see
--- <https://docs.aws.amazon.com/iot/latest/apireference/API_CreateProvisioningTemplate.html#iot-CreateProvisioningTemplate-request-type type>.
-createProvisioningTemplate_preProvisioningHook :: Lens.Lens' CreateProvisioningTemplate (Prelude.Maybe ProvisioningHook)
-createProvisioningTemplate_preProvisioningHook = Lens.lens (\CreateProvisioningTemplate' {preProvisioningHook} -> preProvisioningHook) (\s@CreateProvisioningTemplate' {} a -> s {preProvisioningHook = a} :: CreateProvisioningTemplate)
-
--- | The description of the provisioning template.
-createProvisioningTemplate_description :: Lens.Lens' CreateProvisioningTemplate (Prelude.Maybe Prelude.Text)
-createProvisioningTemplate_description = Lens.lens (\CreateProvisioningTemplate' {description} -> description) (\s@CreateProvisioningTemplate' {} a -> s {description = a} :: CreateProvisioningTemplate)
-
--- | True to enable the provisioning template, otherwise false.
-createProvisioningTemplate_enabled :: Lens.Lens' CreateProvisioningTemplate (Prelude.Maybe Prelude.Bool)
-createProvisioningTemplate_enabled = Lens.lens (\CreateProvisioningTemplate' {enabled} -> enabled) (\s@CreateProvisioningTemplate' {} a -> s {enabled = a} :: CreateProvisioningTemplate)
 
 -- | The name of the provisioning template.
 createProvisioningTemplate_templateName :: Lens.Lens' CreateProvisioningTemplate Prelude.Text
@@ -217,30 +218,30 @@ instance Core.AWSRequest CreateProvisioningTemplate where
     Response.receiveJSON
       ( \s h x ->
           CreateProvisioningTemplateResponse'
-            Prelude.<$> (x Data..?> "templateName")
-            Prelude.<*> (x Data..?> "defaultVersionId")
+            Prelude.<$> (x Data..?> "defaultVersionId")
             Prelude.<*> (x Data..?> "templateArn")
+            Prelude.<*> (x Data..?> "templateName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateProvisioningTemplate where
   hashWithSalt _salt CreateProvisioningTemplate' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` preProvisioningHook
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` preProvisioningHook
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` templateName
       `Prelude.hashWithSalt` templateBody
       `Prelude.hashWithSalt` provisioningRoleArn
 
 instance Prelude.NFData CreateProvisioningTemplate where
   rnf CreateProvisioningTemplate' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf preProvisioningHook
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf preProvisioningHook
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf templateName
       `Prelude.seq` Prelude.rnf templateBody
       `Prelude.seq` Prelude.rnf provisioningRoleArn
@@ -252,12 +253,12 @@ instance Data.ToJSON CreateProvisioningTemplate where
   toJSON CreateProvisioningTemplate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("type" Data..=) Prelude.<$> type',
+          [ ("description" Data..=) Prelude.<$> description,
+            ("enabled" Data..=) Prelude.<$> enabled,
             ("preProvisioningHook" Data..=)
               Prelude.<$> preProvisioningHook,
-            ("description" Data..=) Prelude.<$> description,
-            ("enabled" Data..=) Prelude.<$> enabled,
+            ("tags" Data..=) Prelude.<$> tags,
+            ("type" Data..=) Prelude.<$> type',
             Prelude.Just ("templateName" Data..= templateName),
             Prelude.Just ("templateBody" Data..= templateBody),
             Prelude.Just
@@ -273,12 +274,12 @@ instance Data.ToQuery CreateProvisioningTemplate where
 
 -- | /See:/ 'newCreateProvisioningTemplateResponse' smart constructor.
 data CreateProvisioningTemplateResponse = CreateProvisioningTemplateResponse'
-  { -- | The name of the provisioning template.
-    templateName :: Prelude.Maybe Prelude.Text,
-    -- | The default version of the provisioning template.
+  { -- | The default version of the provisioning template.
     defaultVersionId :: Prelude.Maybe Prelude.Int,
     -- | The ARN that identifies the provisioning template.
     templateArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the provisioning template.
+    templateName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -292,11 +293,11 @@ data CreateProvisioningTemplateResponse = CreateProvisioningTemplateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'templateName', 'createProvisioningTemplateResponse_templateName' - The name of the provisioning template.
---
 -- 'defaultVersionId', 'createProvisioningTemplateResponse_defaultVersionId' - The default version of the provisioning template.
 --
 -- 'templateArn', 'createProvisioningTemplateResponse_templateArn' - The ARN that identifies the provisioning template.
+--
+-- 'templateName', 'createProvisioningTemplateResponse_templateName' - The name of the provisioning template.
 --
 -- 'httpStatus', 'createProvisioningTemplateResponse_httpStatus' - The response's http status code.
 newCreateProvisioningTemplateResponse ::
@@ -305,16 +306,12 @@ newCreateProvisioningTemplateResponse ::
   CreateProvisioningTemplateResponse
 newCreateProvisioningTemplateResponse pHttpStatus_ =
   CreateProvisioningTemplateResponse'
-    { templateName =
+    { defaultVersionId =
         Prelude.Nothing,
-      defaultVersionId = Prelude.Nothing,
       templateArn = Prelude.Nothing,
+      templateName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name of the provisioning template.
-createProvisioningTemplateResponse_templateName :: Lens.Lens' CreateProvisioningTemplateResponse (Prelude.Maybe Prelude.Text)
-createProvisioningTemplateResponse_templateName = Lens.lens (\CreateProvisioningTemplateResponse' {templateName} -> templateName) (\s@CreateProvisioningTemplateResponse' {} a -> s {templateName = a} :: CreateProvisioningTemplateResponse)
 
 -- | The default version of the provisioning template.
 createProvisioningTemplateResponse_defaultVersionId :: Lens.Lens' CreateProvisioningTemplateResponse (Prelude.Maybe Prelude.Int)
@@ -323,6 +320,10 @@ createProvisioningTemplateResponse_defaultVersionId = Lens.lens (\CreateProvisio
 -- | The ARN that identifies the provisioning template.
 createProvisioningTemplateResponse_templateArn :: Lens.Lens' CreateProvisioningTemplateResponse (Prelude.Maybe Prelude.Text)
 createProvisioningTemplateResponse_templateArn = Lens.lens (\CreateProvisioningTemplateResponse' {templateArn} -> templateArn) (\s@CreateProvisioningTemplateResponse' {} a -> s {templateArn = a} :: CreateProvisioningTemplateResponse)
+
+-- | The name of the provisioning template.
+createProvisioningTemplateResponse_templateName :: Lens.Lens' CreateProvisioningTemplateResponse (Prelude.Maybe Prelude.Text)
+createProvisioningTemplateResponse_templateName = Lens.lens (\CreateProvisioningTemplateResponse' {templateName} -> templateName) (\s@CreateProvisioningTemplateResponse' {} a -> s {templateName = a} :: CreateProvisioningTemplateResponse)
 
 -- | The response's http status code.
 createProvisioningTemplateResponse_httpStatus :: Lens.Lens' CreateProvisioningTemplateResponse Prelude.Int
@@ -333,7 +334,7 @@ instance
     CreateProvisioningTemplateResponse
   where
   rnf CreateProvisioningTemplateResponse' {..} =
-    Prelude.rnf templateName
-      `Prelude.seq` Prelude.rnf defaultVersionId
+    Prelude.rnf defaultVersionId
       `Prelude.seq` Prelude.rnf templateArn
+      `Prelude.seq` Prelude.rnf templateName
       `Prelude.seq` Prelude.rnf httpStatus

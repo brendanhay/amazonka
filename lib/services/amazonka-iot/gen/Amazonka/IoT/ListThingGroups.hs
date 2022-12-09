@@ -33,11 +33,11 @@ module Amazonka.IoT.ListThingGroups
     newListThingGroups,
 
     -- * Request Lenses
-    listThingGroups_nextToken,
-    listThingGroups_namePrefixFilter,
-    listThingGroups_recursive,
     listThingGroups_maxResults,
+    listThingGroups_namePrefixFilter,
+    listThingGroups_nextToken,
     listThingGroups_parentGroup,
+    listThingGroups_recursive,
 
     -- * Destructuring the Response
     ListThingGroupsResponse (..),
@@ -60,20 +60,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListThingGroups' smart constructor.
 data ListThingGroups = ListThingGroups'
-  { -- | To retrieve the next set of results, the @nextToken@ value from a
-    -- previous response; otherwise __null__ to receive the first set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The maximum number of results to return at one time.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter that limits the results to those with the specified name
     -- prefix.
     namePrefixFilter :: Prelude.Maybe Prelude.Text,
-    -- | If true, return child groups as well.
-    recursive :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return at one time.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | To retrieve the next set of results, the @nextToken@ value from a
+    -- previous response; otherwise __null__ to receive the first set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A filter that limits the results to those with the specified parent
     -- group.
-    parentGroup :: Prelude.Maybe Prelude.Text
+    parentGroup :: Prelude.Maybe Prelude.Text,
+    -- | If true, return child groups as well.
+    recursive :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,29 +85,38 @@ data ListThingGroups = ListThingGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listThingGroups_nextToken' - To retrieve the next set of results, the @nextToken@ value from a
--- previous response; otherwise __null__ to receive the first set of
--- results.
+-- 'maxResults', 'listThingGroups_maxResults' - The maximum number of results to return at one time.
 --
 -- 'namePrefixFilter', 'listThingGroups_namePrefixFilter' - A filter that limits the results to those with the specified name
 -- prefix.
 --
--- 'recursive', 'listThingGroups_recursive' - If true, return child groups as well.
---
--- 'maxResults', 'listThingGroups_maxResults' - The maximum number of results to return at one time.
+-- 'nextToken', 'listThingGroups_nextToken' - To retrieve the next set of results, the @nextToken@ value from a
+-- previous response; otherwise __null__ to receive the first set of
+-- results.
 --
 -- 'parentGroup', 'listThingGroups_parentGroup' - A filter that limits the results to those with the specified parent
 -- group.
+--
+-- 'recursive', 'listThingGroups_recursive' - If true, return child groups as well.
 newListThingGroups ::
   ListThingGroups
 newListThingGroups =
   ListThingGroups'
-    { nextToken = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
       namePrefixFilter = Prelude.Nothing,
-      recursive = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      parentGroup = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      parentGroup = Prelude.Nothing,
+      recursive = Prelude.Nothing
     }
+
+-- | The maximum number of results to return at one time.
+listThingGroups_maxResults :: Lens.Lens' ListThingGroups (Prelude.Maybe Prelude.Natural)
+listThingGroups_maxResults = Lens.lens (\ListThingGroups' {maxResults} -> maxResults) (\s@ListThingGroups' {} a -> s {maxResults = a} :: ListThingGroups)
+
+-- | A filter that limits the results to those with the specified name
+-- prefix.
+listThingGroups_namePrefixFilter :: Lens.Lens' ListThingGroups (Prelude.Maybe Prelude.Text)
+listThingGroups_namePrefixFilter = Lens.lens (\ListThingGroups' {namePrefixFilter} -> namePrefixFilter) (\s@ListThingGroups' {} a -> s {namePrefixFilter = a} :: ListThingGroups)
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
@@ -115,23 +124,14 @@ newListThingGroups =
 listThingGroups_nextToken :: Lens.Lens' ListThingGroups (Prelude.Maybe Prelude.Text)
 listThingGroups_nextToken = Lens.lens (\ListThingGroups' {nextToken} -> nextToken) (\s@ListThingGroups' {} a -> s {nextToken = a} :: ListThingGroups)
 
--- | A filter that limits the results to those with the specified name
--- prefix.
-listThingGroups_namePrefixFilter :: Lens.Lens' ListThingGroups (Prelude.Maybe Prelude.Text)
-listThingGroups_namePrefixFilter = Lens.lens (\ListThingGroups' {namePrefixFilter} -> namePrefixFilter) (\s@ListThingGroups' {} a -> s {namePrefixFilter = a} :: ListThingGroups)
-
--- | If true, return child groups as well.
-listThingGroups_recursive :: Lens.Lens' ListThingGroups (Prelude.Maybe Prelude.Bool)
-listThingGroups_recursive = Lens.lens (\ListThingGroups' {recursive} -> recursive) (\s@ListThingGroups' {} a -> s {recursive = a} :: ListThingGroups)
-
--- | The maximum number of results to return at one time.
-listThingGroups_maxResults :: Lens.Lens' ListThingGroups (Prelude.Maybe Prelude.Natural)
-listThingGroups_maxResults = Lens.lens (\ListThingGroups' {maxResults} -> maxResults) (\s@ListThingGroups' {} a -> s {maxResults = a} :: ListThingGroups)
-
 -- | A filter that limits the results to those with the specified parent
 -- group.
 listThingGroups_parentGroup :: Lens.Lens' ListThingGroups (Prelude.Maybe Prelude.Text)
 listThingGroups_parentGroup = Lens.lens (\ListThingGroups' {parentGroup} -> parentGroup) (\s@ListThingGroups' {} a -> s {parentGroup = a} :: ListThingGroups)
+
+-- | If true, return child groups as well.
+listThingGroups_recursive :: Lens.Lens' ListThingGroups (Prelude.Maybe Prelude.Bool)
+listThingGroups_recursive = Lens.lens (\ListThingGroups' {recursive} -> recursive) (\s@ListThingGroups' {} a -> s {recursive = a} :: ListThingGroups)
 
 instance Core.AWSPager ListThingGroups where
   page rq rs
@@ -172,19 +172,19 @@ instance Core.AWSRequest ListThingGroups where
 
 instance Prelude.Hashable ListThingGroups where
   hashWithSalt _salt ListThingGroups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` namePrefixFilter
-      `Prelude.hashWithSalt` recursive
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` parentGroup
+      `Prelude.hashWithSalt` recursive
 
 instance Prelude.NFData ListThingGroups where
   rnf ListThingGroups' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf namePrefixFilter
-      `Prelude.seq` Prelude.rnf recursive
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf parentGroup
+      `Prelude.seq` Prelude.rnf recursive
 
 instance Data.ToHeaders ListThingGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -195,11 +195,11 @@ instance Data.ToPath ListThingGroups where
 instance Data.ToQuery ListThingGroups where
   toQuery ListThingGroups' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
+      [ "maxResults" Data.=: maxResults,
         "namePrefixFilter" Data.=: namePrefixFilter,
-        "recursive" Data.=: recursive,
-        "maxResults" Data.=: maxResults,
-        "parentGroup" Data.=: parentGroup
+        "nextToken" Data.=: nextToken,
+        "parentGroup" Data.=: parentGroup,
+        "recursive" Data.=: recursive
       ]
 
 -- | /See:/ 'newListThingGroupsResponse' smart constructor.

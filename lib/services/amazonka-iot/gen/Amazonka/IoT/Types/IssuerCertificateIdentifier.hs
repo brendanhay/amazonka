@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 data IssuerCertificateIdentifier = IssuerCertificateIdentifier'
   { -- | The issuer certificate serial number.
     issuerCertificateSerialNumber :: Prelude.Maybe Prelude.Text,
-    -- | The issuer ID.
-    issuerId :: Prelude.Maybe Prelude.Text,
     -- | The subject of the issuer certificate.
-    issuerCertificateSubject :: Prelude.Maybe Prelude.Text
+    issuerCertificateSubject :: Prelude.Maybe Prelude.Text,
+    -- | The issuer ID.
+    issuerId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,30 +47,30 @@ data IssuerCertificateIdentifier = IssuerCertificateIdentifier'
 --
 -- 'issuerCertificateSerialNumber', 'issuerCertificateIdentifier_issuerCertificateSerialNumber' - The issuer certificate serial number.
 --
--- 'issuerId', 'issuerCertificateIdentifier_issuerId' - The issuer ID.
---
 -- 'issuerCertificateSubject', 'issuerCertificateIdentifier_issuerCertificateSubject' - The subject of the issuer certificate.
+--
+-- 'issuerId', 'issuerCertificateIdentifier_issuerId' - The issuer ID.
 newIssuerCertificateIdentifier ::
   IssuerCertificateIdentifier
 newIssuerCertificateIdentifier =
   IssuerCertificateIdentifier'
     { issuerCertificateSerialNumber =
         Prelude.Nothing,
-      issuerId = Prelude.Nothing,
-      issuerCertificateSubject = Prelude.Nothing
+      issuerCertificateSubject = Prelude.Nothing,
+      issuerId = Prelude.Nothing
     }
 
 -- | The issuer certificate serial number.
 issuerCertificateIdentifier_issuerCertificateSerialNumber :: Lens.Lens' IssuerCertificateIdentifier (Prelude.Maybe Prelude.Text)
 issuerCertificateIdentifier_issuerCertificateSerialNumber = Lens.lens (\IssuerCertificateIdentifier' {issuerCertificateSerialNumber} -> issuerCertificateSerialNumber) (\s@IssuerCertificateIdentifier' {} a -> s {issuerCertificateSerialNumber = a} :: IssuerCertificateIdentifier)
 
--- | The issuer ID.
-issuerCertificateIdentifier_issuerId :: Lens.Lens' IssuerCertificateIdentifier (Prelude.Maybe Prelude.Text)
-issuerCertificateIdentifier_issuerId = Lens.lens (\IssuerCertificateIdentifier' {issuerId} -> issuerId) (\s@IssuerCertificateIdentifier' {} a -> s {issuerId = a} :: IssuerCertificateIdentifier)
-
 -- | The subject of the issuer certificate.
 issuerCertificateIdentifier_issuerCertificateSubject :: Lens.Lens' IssuerCertificateIdentifier (Prelude.Maybe Prelude.Text)
 issuerCertificateIdentifier_issuerCertificateSubject = Lens.lens (\IssuerCertificateIdentifier' {issuerCertificateSubject} -> issuerCertificateSubject) (\s@IssuerCertificateIdentifier' {} a -> s {issuerCertificateSubject = a} :: IssuerCertificateIdentifier)
+
+-- | The issuer ID.
+issuerCertificateIdentifier_issuerId :: Lens.Lens' IssuerCertificateIdentifier (Prelude.Maybe Prelude.Text)
+issuerCertificateIdentifier_issuerId = Lens.lens (\IssuerCertificateIdentifier' {issuerId} -> issuerId) (\s@IssuerCertificateIdentifier' {} a -> s {issuerId = a} :: IssuerCertificateIdentifier)
 
 instance Data.FromJSON IssuerCertificateIdentifier where
   parseJSON =
@@ -79,22 +79,22 @@ instance Data.FromJSON IssuerCertificateIdentifier where
       ( \x ->
           IssuerCertificateIdentifier'
             Prelude.<$> (x Data..:? "issuerCertificateSerialNumber")
-            Prelude.<*> (x Data..:? "issuerId")
             Prelude.<*> (x Data..:? "issuerCertificateSubject")
+            Prelude.<*> (x Data..:? "issuerId")
       )
 
 instance Prelude.Hashable IssuerCertificateIdentifier where
   hashWithSalt _salt IssuerCertificateIdentifier' {..} =
     _salt
       `Prelude.hashWithSalt` issuerCertificateSerialNumber
-      `Prelude.hashWithSalt` issuerId
       `Prelude.hashWithSalt` issuerCertificateSubject
+      `Prelude.hashWithSalt` issuerId
 
 instance Prelude.NFData IssuerCertificateIdentifier where
   rnf IssuerCertificateIdentifier' {..} =
     Prelude.rnf issuerCertificateSerialNumber
-      `Prelude.seq` Prelude.rnf issuerId
       `Prelude.seq` Prelude.rnf issuerCertificateSubject
+      `Prelude.seq` Prelude.rnf issuerId
 
 instance Data.ToJSON IssuerCertificateIdentifier where
   toJSON IssuerCertificateIdentifier' {..} =
@@ -102,8 +102,8 @@ instance Data.ToJSON IssuerCertificateIdentifier where
       ( Prelude.catMaybes
           [ ("issuerCertificateSerialNumber" Data..=)
               Prelude.<$> issuerCertificateSerialNumber,
-            ("issuerId" Data..=) Prelude.<$> issuerId,
             ("issuerCertificateSubject" Data..=)
-              Prelude.<$> issuerCertificateSubject
+              Prelude.<$> issuerCertificateSubject,
+            ("issuerId" Data..=) Prelude.<$> issuerId
           ]
       )

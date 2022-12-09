@@ -34,16 +34,16 @@ module Amazonka.IoT.ListDimensions
     newListDimensions,
 
     -- * Request Lenses
-    listDimensions_nextToken,
     listDimensions_maxResults,
+    listDimensions_nextToken,
 
     -- * Destructuring the Response
     ListDimensionsResponse (..),
     newListDimensionsResponse,
 
     -- * Response Lenses
-    listDimensionsResponse_nextToken,
     listDimensionsResponse_dimensionNames,
+    listDimensionsResponse_nextToken,
     listDimensionsResponse_httpStatus,
   )
 where
@@ -58,10 +58,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDimensions' smart constructor.
 data ListDimensions = ListDimensions'
-  { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to retrieve at one time.
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { -- | The maximum number of results to retrieve at one time.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,24 +73,24 @@ data ListDimensions = ListDimensions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDimensions_nextToken' - The token for the next set of results.
---
 -- 'maxResults', 'listDimensions_maxResults' - The maximum number of results to retrieve at one time.
+--
+-- 'nextToken', 'listDimensions_nextToken' - The token for the next set of results.
 newListDimensions ::
   ListDimensions
 newListDimensions =
   ListDimensions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token for the next set of results.
-listDimensions_nextToken :: Lens.Lens' ListDimensions (Prelude.Maybe Prelude.Text)
-listDimensions_nextToken = Lens.lens (\ListDimensions' {nextToken} -> nextToken) (\s@ListDimensions' {} a -> s {nextToken = a} :: ListDimensions)
 
 -- | The maximum number of results to retrieve at one time.
 listDimensions_maxResults :: Lens.Lens' ListDimensions (Prelude.Maybe Prelude.Natural)
 listDimensions_maxResults = Lens.lens (\ListDimensions' {maxResults} -> maxResults) (\s@ListDimensions' {} a -> s {maxResults = a} :: ListDimensions)
+
+-- | The token for the next set of results.
+listDimensions_nextToken :: Lens.Lens' ListDimensions (Prelude.Maybe Prelude.Text)
+listDimensions_nextToken = Lens.lens (\ListDimensions' {nextToken} -> nextToken) (\s@ListDimensions' {} a -> s {nextToken = a} :: ListDimensions)
 
 instance Core.AWSPager ListDimensions where
   page rq rs
@@ -123,20 +123,20 @@ instance Core.AWSRequest ListDimensions where
     Response.receiveJSON
       ( \s h x ->
           ListDimensionsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "dimensionNames" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "dimensionNames" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListDimensions where
   hashWithSalt _salt ListDimensions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListDimensions where
   rnf ListDimensions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDimensions where
   toHeaders = Prelude.const Prelude.mempty
@@ -147,18 +147,18 @@ instance Data.ToPath ListDimensions where
 instance Data.ToQuery ListDimensions where
   toQuery ListDimensions' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListDimensionsResponse' smart constructor.
 data ListDimensionsResponse = ListDimensionsResponse'
-  { -- | A token that can be used to retrieve the next set of results, or @null@
-    -- if there are no additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of the names of the defined dimensions. Use @DescribeDimension@
+  { -- | A list of the names of the defined dimensions. Use @DescribeDimension@
     -- to get details for a dimension.
     dimensionNames :: Prelude.Maybe [Prelude.Text],
+    -- | A token that can be used to retrieve the next set of results, or @null@
+    -- if there are no additional results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -172,11 +172,11 @@ data ListDimensionsResponse = ListDimensionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDimensionsResponse_nextToken' - A token that can be used to retrieve the next set of results, or @null@
--- if there are no additional results.
---
 -- 'dimensionNames', 'listDimensionsResponse_dimensionNames' - A list of the names of the defined dimensions. Use @DescribeDimension@
 -- to get details for a dimension.
+--
+-- 'nextToken', 'listDimensionsResponse_nextToken' - A token that can be used to retrieve the next set of results, or @null@
+-- if there are no additional results.
 --
 -- 'httpStatus', 'listDimensionsResponse_httpStatus' - The response's http status code.
 newListDimensionsResponse ::
@@ -185,21 +185,21 @@ newListDimensionsResponse ::
   ListDimensionsResponse
 newListDimensionsResponse pHttpStatus_ =
   ListDimensionsResponse'
-    { nextToken =
+    { dimensionNames =
         Prelude.Nothing,
-      dimensionNames = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A token that can be used to retrieve the next set of results, or @null@
--- if there are no additional results.
-listDimensionsResponse_nextToken :: Lens.Lens' ListDimensionsResponse (Prelude.Maybe Prelude.Text)
-listDimensionsResponse_nextToken = Lens.lens (\ListDimensionsResponse' {nextToken} -> nextToken) (\s@ListDimensionsResponse' {} a -> s {nextToken = a} :: ListDimensionsResponse)
 
 -- | A list of the names of the defined dimensions. Use @DescribeDimension@
 -- to get details for a dimension.
 listDimensionsResponse_dimensionNames :: Lens.Lens' ListDimensionsResponse (Prelude.Maybe [Prelude.Text])
 listDimensionsResponse_dimensionNames = Lens.lens (\ListDimensionsResponse' {dimensionNames} -> dimensionNames) (\s@ListDimensionsResponse' {} a -> s {dimensionNames = a} :: ListDimensionsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A token that can be used to retrieve the next set of results, or @null@
+-- if there are no additional results.
+listDimensionsResponse_nextToken :: Lens.Lens' ListDimensionsResponse (Prelude.Maybe Prelude.Text)
+listDimensionsResponse_nextToken = Lens.lens (\ListDimensionsResponse' {nextToken} -> nextToken) (\s@ListDimensionsResponse' {} a -> s {nextToken = a} :: ListDimensionsResponse)
 
 -- | The response's http status code.
 listDimensionsResponse_httpStatus :: Lens.Lens' ListDimensionsResponse Prelude.Int
@@ -207,6 +207,6 @@ listDimensionsResponse_httpStatus = Lens.lens (\ListDimensionsResponse' {httpSta
 
 instance Prelude.NFData ListDimensionsResponse where
   rnf ListDimensionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf dimensionNames
+    Prelude.rnf dimensionNames
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

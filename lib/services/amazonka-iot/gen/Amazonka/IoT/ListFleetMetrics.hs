@@ -33,16 +33,16 @@ module Amazonka.IoT.ListFleetMetrics
     newListFleetMetrics,
 
     -- * Request Lenses
-    listFleetMetrics_nextToken,
     listFleetMetrics_maxResults,
+    listFleetMetrics_nextToken,
 
     -- * Destructuring the Response
     ListFleetMetricsResponse (..),
     newListFleetMetricsResponse,
 
     -- * Response Lenses
-    listFleetMetricsResponse_nextToken,
     listFleetMetricsResponse_fleetMetrics,
+    listFleetMetricsResponse_nextToken,
     listFleetMetricsResponse_httpStatus,
   )
 where
@@ -57,11 +57,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListFleetMetrics' smart constructor.
 data ListFleetMetrics = ListFleetMetrics'
-  { -- | To retrieve the next set of results, the @nextToken@ value from a
+  { -- | The maximum number of results to return in this operation.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise @null@ to receive the first set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in this operation.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,26 +73,26 @@ data ListFleetMetrics = ListFleetMetrics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listFleetMetrics_maxResults' - The maximum number of results to return in this operation.
+--
 -- 'nextToken', 'listFleetMetrics_nextToken' - To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise @null@ to receive the first set of results.
---
--- 'maxResults', 'listFleetMetrics_maxResults' - The maximum number of results to return in this operation.
 newListFleetMetrics ::
   ListFleetMetrics
 newListFleetMetrics =
   ListFleetMetrics'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to return in this operation.
+listFleetMetrics_maxResults :: Lens.Lens' ListFleetMetrics (Prelude.Maybe Prelude.Natural)
+listFleetMetrics_maxResults = Lens.lens (\ListFleetMetrics' {maxResults} -> maxResults) (\s@ListFleetMetrics' {} a -> s {maxResults = a} :: ListFleetMetrics)
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise @null@ to receive the first set of results.
 listFleetMetrics_nextToken :: Lens.Lens' ListFleetMetrics (Prelude.Maybe Prelude.Text)
 listFleetMetrics_nextToken = Lens.lens (\ListFleetMetrics' {nextToken} -> nextToken) (\s@ListFleetMetrics' {} a -> s {nextToken = a} :: ListFleetMetrics)
-
--- | The maximum number of results to return in this operation.
-listFleetMetrics_maxResults :: Lens.Lens' ListFleetMetrics (Prelude.Maybe Prelude.Natural)
-listFleetMetrics_maxResults = Lens.lens (\ListFleetMetrics' {maxResults} -> maxResults) (\s@ListFleetMetrics' {} a -> s {maxResults = a} :: ListFleetMetrics)
 
 instance Core.AWSPager ListFleetMetrics where
   page rq rs
@@ -126,20 +126,20 @@ instance Core.AWSRequest ListFleetMetrics where
     Response.receiveJSON
       ( \s h x ->
           ListFleetMetricsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "fleetMetrics" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "fleetMetrics" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListFleetMetrics where
   hashWithSalt _salt ListFleetMetrics' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListFleetMetrics where
   rnf ListFleetMetrics' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListFleetMetrics where
   toHeaders = Prelude.const Prelude.mempty
@@ -150,17 +150,17 @@ instance Data.ToPath ListFleetMetrics where
 instance Data.ToQuery ListFleetMetrics where
   toQuery ListFleetMetrics' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListFleetMetricsResponse' smart constructor.
 data ListFleetMetricsResponse = ListFleetMetricsResponse'
-  { -- | The token for the next set of results. Will not be returned if the
+  { -- | The list of fleet metrics objects.
+    fleetMetrics :: Prelude.Maybe [FleetMetricNameAndArn],
+    -- | The token for the next set of results. Will not be returned if the
     -- operation has returned all results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of fleet metrics objects.
-    fleetMetrics :: Prelude.Maybe [FleetMetricNameAndArn],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -174,10 +174,10 @@ data ListFleetMetricsResponse = ListFleetMetricsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'fleetMetrics', 'listFleetMetricsResponse_fleetMetrics' - The list of fleet metrics objects.
+--
 -- 'nextToken', 'listFleetMetricsResponse_nextToken' - The token for the next set of results. Will not be returned if the
 -- operation has returned all results.
---
--- 'fleetMetrics', 'listFleetMetricsResponse_fleetMetrics' - The list of fleet metrics objects.
 --
 -- 'httpStatus', 'listFleetMetricsResponse_httpStatus' - The response's http status code.
 newListFleetMetricsResponse ::
@@ -186,20 +186,20 @@ newListFleetMetricsResponse ::
   ListFleetMetricsResponse
 newListFleetMetricsResponse pHttpStatus_ =
   ListFleetMetricsResponse'
-    { nextToken =
+    { fleetMetrics =
         Prelude.Nothing,
-      fleetMetrics = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of fleet metrics objects.
+listFleetMetricsResponse_fleetMetrics :: Lens.Lens' ListFleetMetricsResponse (Prelude.Maybe [FleetMetricNameAndArn])
+listFleetMetricsResponse_fleetMetrics = Lens.lens (\ListFleetMetricsResponse' {fleetMetrics} -> fleetMetrics) (\s@ListFleetMetricsResponse' {} a -> s {fleetMetrics = a} :: ListFleetMetricsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results. Will not be returned if the
 -- operation has returned all results.
 listFleetMetricsResponse_nextToken :: Lens.Lens' ListFleetMetricsResponse (Prelude.Maybe Prelude.Text)
 listFleetMetricsResponse_nextToken = Lens.lens (\ListFleetMetricsResponse' {nextToken} -> nextToken) (\s@ListFleetMetricsResponse' {} a -> s {nextToken = a} :: ListFleetMetricsResponse)
-
--- | The list of fleet metrics objects.
-listFleetMetricsResponse_fleetMetrics :: Lens.Lens' ListFleetMetricsResponse (Prelude.Maybe [FleetMetricNameAndArn])
-listFleetMetricsResponse_fleetMetrics = Lens.lens (\ListFleetMetricsResponse' {fleetMetrics} -> fleetMetrics) (\s@ListFleetMetricsResponse' {} a -> s {fleetMetrics = a} :: ListFleetMetricsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listFleetMetricsResponse_httpStatus :: Lens.Lens' ListFleetMetricsResponse Prelude.Int
@@ -207,6 +207,6 @@ listFleetMetricsResponse_httpStatus = Lens.lens (\ListFleetMetricsResponse' {htt
 
 instance Prelude.NFData ListFleetMetricsResponse where
   rnf ListFleetMetricsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf fleetMetrics
+    Prelude.rnf fleetMetrics
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

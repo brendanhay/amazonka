@@ -32,8 +32,8 @@ module Amazonka.IoT.CancelJob
 
     -- * Request Lenses
     cancelJob_comment,
-    cancelJob_reasonCode,
     cancelJob_force,
+    cancelJob_reasonCode,
     cancelJob_jobId,
 
     -- * Destructuring the Response
@@ -41,9 +41,9 @@ module Amazonka.IoT.CancelJob
     newCancelJobResponse,
 
     -- * Response Lenses
-    cancelJobResponse_jobId,
     cancelJobResponse_description,
     cancelJobResponse_jobArn,
+    cancelJobResponse_jobId,
     cancelJobResponse_httpStatus,
   )
 where
@@ -60,8 +60,6 @@ import qualified Amazonka.Response as Response
 data CancelJob = CancelJob'
   { -- | An optional comment string describing why the job was canceled.
     comment :: Prelude.Maybe Prelude.Text,
-    -- | (Optional)A reason code string that explains why the job was canceled.
-    reasonCode :: Prelude.Maybe Prelude.Text,
     -- | (Optional) If @true@ job executions with status \"IN_PROGRESS\" and
     -- \"QUEUED\" are canceled, otherwise only job executions with status
     -- \"QUEUED\" are canceled. The default is @false@.
@@ -71,6 +69,8 @@ data CancelJob = CancelJob'
     -- caution and ensure that each device executing a job which is canceled is
     -- able to recover to a valid state.
     force :: Prelude.Maybe Prelude.Bool,
+    -- | (Optional)A reason code string that explains why the job was canceled.
+    reasonCode :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier you assigned to this job when it was created.
     jobId :: Prelude.Text
   }
@@ -86,8 +86,6 @@ data CancelJob = CancelJob'
 --
 -- 'comment', 'cancelJob_comment' - An optional comment string describing why the job was canceled.
 --
--- 'reasonCode', 'cancelJob_reasonCode' - (Optional)A reason code string that explains why the job was canceled.
---
 -- 'force', 'cancelJob_force' - (Optional) If @true@ job executions with status \"IN_PROGRESS\" and
 -- \"QUEUED\" are canceled, otherwise only job executions with status
 -- \"QUEUED\" are canceled. The default is @false@.
@@ -97,6 +95,8 @@ data CancelJob = CancelJob'
 -- caution and ensure that each device executing a job which is canceled is
 -- able to recover to a valid state.
 --
+-- 'reasonCode', 'cancelJob_reasonCode' - (Optional)A reason code string that explains why the job was canceled.
+--
 -- 'jobId', 'cancelJob_jobId' - The unique identifier you assigned to this job when it was created.
 newCancelJob ::
   -- | 'jobId'
@@ -105,18 +105,14 @@ newCancelJob ::
 newCancelJob pJobId_ =
   CancelJob'
     { comment = Prelude.Nothing,
-      reasonCode = Prelude.Nothing,
       force = Prelude.Nothing,
+      reasonCode = Prelude.Nothing,
       jobId = pJobId_
     }
 
 -- | An optional comment string describing why the job was canceled.
 cancelJob_comment :: Lens.Lens' CancelJob (Prelude.Maybe Prelude.Text)
 cancelJob_comment = Lens.lens (\CancelJob' {comment} -> comment) (\s@CancelJob' {} a -> s {comment = a} :: CancelJob)
-
--- | (Optional)A reason code string that explains why the job was canceled.
-cancelJob_reasonCode :: Lens.Lens' CancelJob (Prelude.Maybe Prelude.Text)
-cancelJob_reasonCode = Lens.lens (\CancelJob' {reasonCode} -> reasonCode) (\s@CancelJob' {} a -> s {reasonCode = a} :: CancelJob)
 
 -- | (Optional) If @true@ job executions with status \"IN_PROGRESS\" and
 -- \"QUEUED\" are canceled, otherwise only job executions with status
@@ -128,6 +124,10 @@ cancelJob_reasonCode = Lens.lens (\CancelJob' {reasonCode} -> reasonCode) (\s@Ca
 -- able to recover to a valid state.
 cancelJob_force :: Lens.Lens' CancelJob (Prelude.Maybe Prelude.Bool)
 cancelJob_force = Lens.lens (\CancelJob' {force} -> force) (\s@CancelJob' {} a -> s {force = a} :: CancelJob)
+
+-- | (Optional)A reason code string that explains why the job was canceled.
+cancelJob_reasonCode :: Lens.Lens' CancelJob (Prelude.Maybe Prelude.Text)
+cancelJob_reasonCode = Lens.lens (\CancelJob' {reasonCode} -> reasonCode) (\s@CancelJob' {} a -> s {reasonCode = a} :: CancelJob)
 
 -- | The unique identifier you assigned to this job when it was created.
 cancelJob_jobId :: Lens.Lens' CancelJob Prelude.Text
@@ -141,24 +141,24 @@ instance Core.AWSRequest CancelJob where
     Response.receiveJSON
       ( \s h x ->
           CancelJobResponse'
-            Prelude.<$> (x Data..?> "jobId")
-            Prelude.<*> (x Data..?> "description")
+            Prelude.<$> (x Data..?> "description")
             Prelude.<*> (x Data..?> "jobArn")
+            Prelude.<*> (x Data..?> "jobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CancelJob where
   hashWithSalt _salt CancelJob' {..} =
     _salt `Prelude.hashWithSalt` comment
-      `Prelude.hashWithSalt` reasonCode
       `Prelude.hashWithSalt` force
+      `Prelude.hashWithSalt` reasonCode
       `Prelude.hashWithSalt` jobId
 
 instance Prelude.NFData CancelJob where
   rnf CancelJob' {..} =
     Prelude.rnf comment
-      `Prelude.seq` Prelude.rnf reasonCode
       `Prelude.seq` Prelude.rnf force
+      `Prelude.seq` Prelude.rnf reasonCode
       `Prelude.seq` Prelude.rnf jobId
 
 instance Data.ToHeaders CancelJob where
@@ -184,12 +184,12 @@ instance Data.ToQuery CancelJob where
 
 -- | /See:/ 'newCancelJobResponse' smart constructor.
 data CancelJobResponse = CancelJobResponse'
-  { -- | The unique identifier you assigned to this job when it was created.
-    jobId :: Prelude.Maybe Prelude.Text,
-    -- | A short text description of the job.
+  { -- | A short text description of the job.
     description :: Prelude.Maybe Prelude.Text,
     -- | The job ARN.
     jobArn :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier you assigned to this job when it was created.
+    jobId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -203,11 +203,11 @@ data CancelJobResponse = CancelJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobId', 'cancelJobResponse_jobId' - The unique identifier you assigned to this job when it was created.
---
 -- 'description', 'cancelJobResponse_description' - A short text description of the job.
 --
 -- 'jobArn', 'cancelJobResponse_jobArn' - The job ARN.
+--
+-- 'jobId', 'cancelJobResponse_jobId' - The unique identifier you assigned to this job when it was created.
 --
 -- 'httpStatus', 'cancelJobResponse_httpStatus' - The response's http status code.
 newCancelJobResponse ::
@@ -216,15 +216,11 @@ newCancelJobResponse ::
   CancelJobResponse
 newCancelJobResponse pHttpStatus_ =
   CancelJobResponse'
-    { jobId = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
       jobArn = Prelude.Nothing,
+      jobId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The unique identifier you assigned to this job when it was created.
-cancelJobResponse_jobId :: Lens.Lens' CancelJobResponse (Prelude.Maybe Prelude.Text)
-cancelJobResponse_jobId = Lens.lens (\CancelJobResponse' {jobId} -> jobId) (\s@CancelJobResponse' {} a -> s {jobId = a} :: CancelJobResponse)
 
 -- | A short text description of the job.
 cancelJobResponse_description :: Lens.Lens' CancelJobResponse (Prelude.Maybe Prelude.Text)
@@ -234,13 +230,17 @@ cancelJobResponse_description = Lens.lens (\CancelJobResponse' {description} -> 
 cancelJobResponse_jobArn :: Lens.Lens' CancelJobResponse (Prelude.Maybe Prelude.Text)
 cancelJobResponse_jobArn = Lens.lens (\CancelJobResponse' {jobArn} -> jobArn) (\s@CancelJobResponse' {} a -> s {jobArn = a} :: CancelJobResponse)
 
+-- | The unique identifier you assigned to this job when it was created.
+cancelJobResponse_jobId :: Lens.Lens' CancelJobResponse (Prelude.Maybe Prelude.Text)
+cancelJobResponse_jobId = Lens.lens (\CancelJobResponse' {jobId} -> jobId) (\s@CancelJobResponse' {} a -> s {jobId = a} :: CancelJobResponse)
+
 -- | The response's http status code.
 cancelJobResponse_httpStatus :: Lens.Lens' CancelJobResponse Prelude.Int
 cancelJobResponse_httpStatus = Lens.lens (\CancelJobResponse' {httpStatus} -> httpStatus) (\s@CancelJobResponse' {} a -> s {httpStatus = a} :: CancelJobResponse)
 
 instance Prelude.NFData CancelJobResponse where
   rnf CancelJobResponse' {..} =
-    Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf jobArn
+      `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf httpStatus

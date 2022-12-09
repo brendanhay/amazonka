@@ -34,16 +34,16 @@ import qualified Amazonka.Prelude as Prelude
 data AuthResult = AuthResult'
   { -- | The policies and statements that allowed the specified action.
     allowed :: Prelude.Maybe Allowed,
-    -- | The policies and statements that denied the specified action.
-    denied :: Prelude.Maybe Denied,
-    -- | Contains any missing context values found while evaluating policy.
-    missingContextValues :: Prelude.Maybe [Prelude.Text],
-    -- | Authorization information.
-    authInfo :: Prelude.Maybe AuthInfo,
     -- | The final authorization decision of this scenario. Multiple statements
     -- are taken into account when determining the authorization decision. An
     -- explicit deny statement can override multiple allow statements.
-    authDecision :: Prelude.Maybe AuthDecision
+    authDecision :: Prelude.Maybe AuthDecision,
+    -- | Authorization information.
+    authInfo :: Prelude.Maybe AuthInfo,
+    -- | The policies and statements that denied the specified action.
+    denied :: Prelude.Maybe Denied,
+    -- | Contains any missing context values found while evaluating policy.
+    missingContextValues :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,29 +57,39 @@ data AuthResult = AuthResult'
 --
 -- 'allowed', 'authResult_allowed' - The policies and statements that allowed the specified action.
 --
--- 'denied', 'authResult_denied' - The policies and statements that denied the specified action.
---
--- 'missingContextValues', 'authResult_missingContextValues' - Contains any missing context values found while evaluating policy.
---
--- 'authInfo', 'authResult_authInfo' - Authorization information.
---
 -- 'authDecision', 'authResult_authDecision' - The final authorization decision of this scenario. Multiple statements
 -- are taken into account when determining the authorization decision. An
 -- explicit deny statement can override multiple allow statements.
+--
+-- 'authInfo', 'authResult_authInfo' - Authorization information.
+--
+-- 'denied', 'authResult_denied' - The policies and statements that denied the specified action.
+--
+-- 'missingContextValues', 'authResult_missingContextValues' - Contains any missing context values found while evaluating policy.
 newAuthResult ::
   AuthResult
 newAuthResult =
   AuthResult'
     { allowed = Prelude.Nothing,
-      denied = Prelude.Nothing,
-      missingContextValues = Prelude.Nothing,
+      authDecision = Prelude.Nothing,
       authInfo = Prelude.Nothing,
-      authDecision = Prelude.Nothing
+      denied = Prelude.Nothing,
+      missingContextValues = Prelude.Nothing
     }
 
 -- | The policies and statements that allowed the specified action.
 authResult_allowed :: Lens.Lens' AuthResult (Prelude.Maybe Allowed)
 authResult_allowed = Lens.lens (\AuthResult' {allowed} -> allowed) (\s@AuthResult' {} a -> s {allowed = a} :: AuthResult)
+
+-- | The final authorization decision of this scenario. Multiple statements
+-- are taken into account when determining the authorization decision. An
+-- explicit deny statement can override multiple allow statements.
+authResult_authDecision :: Lens.Lens' AuthResult (Prelude.Maybe AuthDecision)
+authResult_authDecision = Lens.lens (\AuthResult' {authDecision} -> authDecision) (\s@AuthResult' {} a -> s {authDecision = a} :: AuthResult)
+
+-- | Authorization information.
+authResult_authInfo :: Lens.Lens' AuthResult (Prelude.Maybe AuthInfo)
+authResult_authInfo = Lens.lens (\AuthResult' {authInfo} -> authInfo) (\s@AuthResult' {} a -> s {authInfo = a} :: AuthResult)
 
 -- | The policies and statements that denied the specified action.
 authResult_denied :: Lens.Lens' AuthResult (Prelude.Maybe Denied)
@@ -89,16 +99,6 @@ authResult_denied = Lens.lens (\AuthResult' {denied} -> denied) (\s@AuthResult' 
 authResult_missingContextValues :: Lens.Lens' AuthResult (Prelude.Maybe [Prelude.Text])
 authResult_missingContextValues = Lens.lens (\AuthResult' {missingContextValues} -> missingContextValues) (\s@AuthResult' {} a -> s {missingContextValues = a} :: AuthResult) Prelude.. Lens.mapping Lens.coerced
 
--- | Authorization information.
-authResult_authInfo :: Lens.Lens' AuthResult (Prelude.Maybe AuthInfo)
-authResult_authInfo = Lens.lens (\AuthResult' {authInfo} -> authInfo) (\s@AuthResult' {} a -> s {authInfo = a} :: AuthResult)
-
--- | The final authorization decision of this scenario. Multiple statements
--- are taken into account when determining the authorization decision. An
--- explicit deny statement can override multiple allow statements.
-authResult_authDecision :: Lens.Lens' AuthResult (Prelude.Maybe AuthDecision)
-authResult_authDecision = Lens.lens (\AuthResult' {authDecision} -> authDecision) (\s@AuthResult' {} a -> s {authDecision = a} :: AuthResult)
-
 instance Data.FromJSON AuthResult where
   parseJSON =
     Data.withObject
@@ -106,26 +106,26 @@ instance Data.FromJSON AuthResult where
       ( \x ->
           AuthResult'
             Prelude.<$> (x Data..:? "allowed")
+            Prelude.<*> (x Data..:? "authDecision")
+            Prelude.<*> (x Data..:? "authInfo")
             Prelude.<*> (x Data..:? "denied")
             Prelude.<*> ( x Data..:? "missingContextValues"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "authInfo")
-            Prelude.<*> (x Data..:? "authDecision")
       )
 
 instance Prelude.Hashable AuthResult where
   hashWithSalt _salt AuthResult' {..} =
     _salt `Prelude.hashWithSalt` allowed
+      `Prelude.hashWithSalt` authDecision
+      `Prelude.hashWithSalt` authInfo
       `Prelude.hashWithSalt` denied
       `Prelude.hashWithSalt` missingContextValues
-      `Prelude.hashWithSalt` authInfo
-      `Prelude.hashWithSalt` authDecision
 
 instance Prelude.NFData AuthResult where
   rnf AuthResult' {..} =
     Prelude.rnf allowed
+      `Prelude.seq` Prelude.rnf authDecision
+      `Prelude.seq` Prelude.rnf authInfo
       `Prelude.seq` Prelude.rnf denied
       `Prelude.seq` Prelude.rnf missingContextValues
-      `Prelude.seq` Prelude.rnf authInfo
-      `Prelude.seq` Prelude.rnf authDecision

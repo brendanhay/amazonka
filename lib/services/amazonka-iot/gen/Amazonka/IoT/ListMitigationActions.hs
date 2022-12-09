@@ -34,17 +34,17 @@ module Amazonka.IoT.ListMitigationActions
     newListMitigationActions,
 
     -- * Request Lenses
-    listMitigationActions_nextToken,
     listMitigationActions_actionType,
     listMitigationActions_maxResults,
+    listMitigationActions_nextToken,
 
     -- * Destructuring the Response
     ListMitigationActionsResponse (..),
     newListMitigationActionsResponse,
 
     -- * Response Lenses
-    listMitigationActionsResponse_nextToken,
     listMitigationActionsResponse_actionIdentifiers,
+    listMitigationActionsResponse_nextToken,
     listMitigationActionsResponse_httpStatus,
   )
 where
@@ -59,13 +59,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListMitigationActions' smart constructor.
 data ListMitigationActions = ListMitigationActions'
-  { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specify a value to limit the result to mitigation actions with a
+  { -- | Specify a value to limit the result to mitigation actions with a
     -- specific action type.
     actionType :: Prelude.Maybe MitigationActionType,
     -- | The maximum number of results to return at one time. The default is 25.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,24 +77,21 @@ data ListMitigationActions = ListMitigationActions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listMitigationActions_nextToken' - The token for the next set of results.
---
 -- 'actionType', 'listMitigationActions_actionType' - Specify a value to limit the result to mitigation actions with a
 -- specific action type.
 --
 -- 'maxResults', 'listMitigationActions_maxResults' - The maximum number of results to return at one time. The default is 25.
+--
+-- 'nextToken', 'listMitigationActions_nextToken' - The token for the next set of results.
 newListMitigationActions ::
   ListMitigationActions
 newListMitigationActions =
   ListMitigationActions'
-    { nextToken = Prelude.Nothing,
-      actionType = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { actionType =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token for the next set of results.
-listMitigationActions_nextToken :: Lens.Lens' ListMitigationActions (Prelude.Maybe Prelude.Text)
-listMitigationActions_nextToken = Lens.lens (\ListMitigationActions' {nextToken} -> nextToken) (\s@ListMitigationActions' {} a -> s {nextToken = a} :: ListMitigationActions)
 
 -- | Specify a value to limit the result to mitigation actions with a
 -- specific action type.
@@ -104,6 +101,10 @@ listMitigationActions_actionType = Lens.lens (\ListMitigationActions' {actionTyp
 -- | The maximum number of results to return at one time. The default is 25.
 listMitigationActions_maxResults :: Lens.Lens' ListMitigationActions (Prelude.Maybe Prelude.Natural)
 listMitigationActions_maxResults = Lens.lens (\ListMitigationActions' {maxResults} -> maxResults) (\s@ListMitigationActions' {} a -> s {maxResults = a} :: ListMitigationActions)
+
+-- | The token for the next set of results.
+listMitigationActions_nextToken :: Lens.Lens' ListMitigationActions (Prelude.Maybe Prelude.Text)
+listMitigationActions_nextToken = Lens.lens (\ListMitigationActions' {nextToken} -> nextToken) (\s@ListMitigationActions' {} a -> s {nextToken = a} :: ListMitigationActions)
 
 instance Core.AWSPager ListMitigationActions where
   page rq rs
@@ -137,24 +138,24 @@ instance Core.AWSRequest ListMitigationActions where
     Response.receiveJSON
       ( \s h x ->
           ListMitigationActionsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "actionIdentifiers"
+            Prelude.<$> ( x Data..?> "actionIdentifiers"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListMitigationActions where
   hashWithSalt _salt ListMitigationActions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` actionType
+    _salt `Prelude.hashWithSalt` actionType
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListMitigationActions where
   rnf ListMitigationActions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf actionType
+    Prelude.rnf actionType
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListMitigationActions where
   toHeaders = Prelude.const Prelude.mempty
@@ -165,17 +166,17 @@ instance Data.ToPath ListMitigationActions where
 instance Data.ToQuery ListMitigationActions where
   toQuery ListMitigationActions' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "actionType" Data.=: actionType,
-        "maxResults" Data.=: maxResults
+      [ "actionType" Data.=: actionType,
+        "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListMitigationActionsResponse' smart constructor.
 data ListMitigationActionsResponse = ListMitigationActionsResponse'
-  { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A set of actions that matched the specified filter criteria.
+  { -- | A set of actions that matched the specified filter criteria.
     actionIdentifiers :: Prelude.Maybe [MitigationActionIdentifier],
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -189,9 +190,9 @@ data ListMitigationActionsResponse = ListMitigationActionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listMitigationActionsResponse_nextToken' - The token for the next set of results.
---
 -- 'actionIdentifiers', 'listMitigationActionsResponse_actionIdentifiers' - A set of actions that matched the specified filter criteria.
+--
+-- 'nextToken', 'listMitigationActionsResponse_nextToken' - The token for the next set of results.
 --
 -- 'httpStatus', 'listMitigationActionsResponse_httpStatus' - The response's http status code.
 newListMitigationActionsResponse ::
@@ -200,19 +201,19 @@ newListMitigationActionsResponse ::
   ListMitigationActionsResponse
 newListMitigationActionsResponse pHttpStatus_ =
   ListMitigationActionsResponse'
-    { nextToken =
+    { actionIdentifiers =
         Prelude.Nothing,
-      actionIdentifiers = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The token for the next set of results.
-listMitigationActionsResponse_nextToken :: Lens.Lens' ListMitigationActionsResponse (Prelude.Maybe Prelude.Text)
-listMitigationActionsResponse_nextToken = Lens.lens (\ListMitigationActionsResponse' {nextToken} -> nextToken) (\s@ListMitigationActionsResponse' {} a -> s {nextToken = a} :: ListMitigationActionsResponse)
 
 -- | A set of actions that matched the specified filter criteria.
 listMitigationActionsResponse_actionIdentifiers :: Lens.Lens' ListMitigationActionsResponse (Prelude.Maybe [MitigationActionIdentifier])
 listMitigationActionsResponse_actionIdentifiers = Lens.lens (\ListMitigationActionsResponse' {actionIdentifiers} -> actionIdentifiers) (\s@ListMitigationActionsResponse' {} a -> s {actionIdentifiers = a} :: ListMitigationActionsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next set of results.
+listMitigationActionsResponse_nextToken :: Lens.Lens' ListMitigationActionsResponse (Prelude.Maybe Prelude.Text)
+listMitigationActionsResponse_nextToken = Lens.lens (\ListMitigationActionsResponse' {nextToken} -> nextToken) (\s@ListMitigationActionsResponse' {} a -> s {nextToken = a} :: ListMitigationActionsResponse)
 
 -- | The response's http status code.
 listMitigationActionsResponse_httpStatus :: Lens.Lens' ListMitigationActionsResponse Prelude.Int
@@ -220,6 +221,6 @@ listMitigationActionsResponse_httpStatus = Lens.lens (\ListMitigationActionsResp
 
 instance Prelude.NFData ListMitigationActionsResponse where
   rnf ListMitigationActionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf actionIdentifiers
+    Prelude.rnf actionIdentifiers
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

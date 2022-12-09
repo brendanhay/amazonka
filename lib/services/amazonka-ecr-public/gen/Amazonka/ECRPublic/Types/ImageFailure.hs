@@ -32,10 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 data ImageFailure = ImageFailure'
   { -- | The code associated with the failure.
     failureCode :: Prelude.Maybe ImageFailureCode,
-    -- | The image ID associated with the failure.
-    imageId :: Prelude.Maybe ImageIdentifier,
     -- | The reason for the failure.
-    failureReason :: Prelude.Maybe Prelude.Text
+    failureReason :: Prelude.Maybe Prelude.Text,
+    -- | The image ID associated with the failure.
+    imageId :: Prelude.Maybe ImageIdentifier
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,29 +49,29 @@ data ImageFailure = ImageFailure'
 --
 -- 'failureCode', 'imageFailure_failureCode' - The code associated with the failure.
 --
--- 'imageId', 'imageFailure_imageId' - The image ID associated with the failure.
---
 -- 'failureReason', 'imageFailure_failureReason' - The reason for the failure.
+--
+-- 'imageId', 'imageFailure_imageId' - The image ID associated with the failure.
 newImageFailure ::
   ImageFailure
 newImageFailure =
   ImageFailure'
     { failureCode = Prelude.Nothing,
-      imageId = Prelude.Nothing,
-      failureReason = Prelude.Nothing
+      failureReason = Prelude.Nothing,
+      imageId = Prelude.Nothing
     }
 
 -- | The code associated with the failure.
 imageFailure_failureCode :: Lens.Lens' ImageFailure (Prelude.Maybe ImageFailureCode)
 imageFailure_failureCode = Lens.lens (\ImageFailure' {failureCode} -> failureCode) (\s@ImageFailure' {} a -> s {failureCode = a} :: ImageFailure)
 
--- | The image ID associated with the failure.
-imageFailure_imageId :: Lens.Lens' ImageFailure (Prelude.Maybe ImageIdentifier)
-imageFailure_imageId = Lens.lens (\ImageFailure' {imageId} -> imageId) (\s@ImageFailure' {} a -> s {imageId = a} :: ImageFailure)
-
 -- | The reason for the failure.
 imageFailure_failureReason :: Lens.Lens' ImageFailure (Prelude.Maybe Prelude.Text)
 imageFailure_failureReason = Lens.lens (\ImageFailure' {failureReason} -> failureReason) (\s@ImageFailure' {} a -> s {failureReason = a} :: ImageFailure)
+
+-- | The image ID associated with the failure.
+imageFailure_imageId :: Lens.Lens' ImageFailure (Prelude.Maybe ImageIdentifier)
+imageFailure_imageId = Lens.lens (\ImageFailure' {imageId} -> imageId) (\s@ImageFailure' {} a -> s {imageId = a} :: ImageFailure)
 
 instance Data.FromJSON ImageFailure where
   parseJSON =
@@ -80,18 +80,18 @@ instance Data.FromJSON ImageFailure where
       ( \x ->
           ImageFailure'
             Prelude.<$> (x Data..:? "failureCode")
-            Prelude.<*> (x Data..:? "imageId")
             Prelude.<*> (x Data..:? "failureReason")
+            Prelude.<*> (x Data..:? "imageId")
       )
 
 instance Prelude.Hashable ImageFailure where
   hashWithSalt _salt ImageFailure' {..} =
     _salt `Prelude.hashWithSalt` failureCode
-      `Prelude.hashWithSalt` imageId
       `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` imageId
 
 instance Prelude.NFData ImageFailure where
   rnf ImageFailure' {..} =
     Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf imageId
       `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf imageId

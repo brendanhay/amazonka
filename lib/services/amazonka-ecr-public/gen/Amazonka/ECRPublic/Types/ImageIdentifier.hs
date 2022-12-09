@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImageIdentifier' smart constructor.
 data ImageIdentifier = ImageIdentifier'
-  { -- | The tag used for the image.
-    imageTag :: Prelude.Maybe Prelude.Text,
-    -- | The @sha256@ digest of the image manifest.
-    imageDigest :: Prelude.Maybe Prelude.Text
+  { -- | The @sha256@ digest of the image manifest.
+    imageDigest :: Prelude.Maybe Prelude.Text,
+    -- | The tag used for the image.
+    imageTag :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data ImageIdentifier = ImageIdentifier'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'imageTag', 'imageIdentifier_imageTag' - The tag used for the image.
---
 -- 'imageDigest', 'imageIdentifier_imageDigest' - The @sha256@ digest of the image manifest.
+--
+-- 'imageTag', 'imageIdentifier_imageTag' - The tag used for the image.
 newImageIdentifier ::
   ImageIdentifier
 newImageIdentifier =
   ImageIdentifier'
-    { imageTag = Prelude.Nothing,
-      imageDigest = Prelude.Nothing
+    { imageDigest = Prelude.Nothing,
+      imageTag = Prelude.Nothing
     }
-
--- | The tag used for the image.
-imageIdentifier_imageTag :: Lens.Lens' ImageIdentifier (Prelude.Maybe Prelude.Text)
-imageIdentifier_imageTag = Lens.lens (\ImageIdentifier' {imageTag} -> imageTag) (\s@ImageIdentifier' {} a -> s {imageTag = a} :: ImageIdentifier)
 
 -- | The @sha256@ digest of the image manifest.
 imageIdentifier_imageDigest :: Lens.Lens' ImageIdentifier (Prelude.Maybe Prelude.Text)
 imageIdentifier_imageDigest = Lens.lens (\ImageIdentifier' {imageDigest} -> imageDigest) (\s@ImageIdentifier' {} a -> s {imageDigest = a} :: ImageIdentifier)
+
+-- | The tag used for the image.
+imageIdentifier_imageTag :: Lens.Lens' ImageIdentifier (Prelude.Maybe Prelude.Text)
+imageIdentifier_imageTag = Lens.lens (\ImageIdentifier' {imageTag} -> imageTag) (\s@ImageIdentifier' {} a -> s {imageTag = a} :: ImageIdentifier)
 
 instance Data.FromJSON ImageIdentifier where
   parseJSON =
@@ -68,25 +68,25 @@ instance Data.FromJSON ImageIdentifier where
       "ImageIdentifier"
       ( \x ->
           ImageIdentifier'
-            Prelude.<$> (x Data..:? "imageTag")
-            Prelude.<*> (x Data..:? "imageDigest")
+            Prelude.<$> (x Data..:? "imageDigest")
+            Prelude.<*> (x Data..:? "imageTag")
       )
 
 instance Prelude.Hashable ImageIdentifier where
   hashWithSalt _salt ImageIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` imageTag
-      `Prelude.hashWithSalt` imageDigest
+    _salt `Prelude.hashWithSalt` imageDigest
+      `Prelude.hashWithSalt` imageTag
 
 instance Prelude.NFData ImageIdentifier where
   rnf ImageIdentifier' {..} =
-    Prelude.rnf imageTag
-      `Prelude.seq` Prelude.rnf imageDigest
+    Prelude.rnf imageDigest
+      `Prelude.seq` Prelude.rnf imageTag
 
 instance Data.ToJSON ImageIdentifier where
   toJSON ImageIdentifier' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("imageTag" Data..=) Prelude.<$> imageTag,
-            ("imageDigest" Data..=) Prelude.<$> imageDigest
+          [ ("imageDigest" Data..=) Prelude.<$> imageDigest,
+            ("imageTag" Data..=) Prelude.<$> imageTag
           ]
       )

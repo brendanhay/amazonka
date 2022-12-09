@@ -29,8 +29,8 @@ module Amazonka.ECRPublic.DescribeImageTags
     newDescribeImageTags,
 
     -- * Request Lenses
-    describeImageTags_nextToken,
     describeImageTags_maxResults,
+    describeImageTags_nextToken,
     describeImageTags_registryId,
     describeImageTags_repositoryName,
 
@@ -39,8 +39,8 @@ module Amazonka.ECRPublic.DescribeImageTags
     newDescribeImageTagsResponse,
 
     -- * Response Lenses
-    describeImageTagsResponse_nextToken,
     describeImageTagsResponse_imageTagDetails,
+    describeImageTagsResponse_nextToken,
     describeImageTagsResponse_httpStatus,
   )
 where
@@ -55,14 +55,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeImageTags' smart constructor.
 data DescribeImageTags = DescribeImageTags'
-  { -- | The @nextToken@ value returned from a previous paginated
-    -- @DescribeImageTags@ request where @maxResults@ was used and the results
-    -- exceeded the value of that parameter. Pagination continues from the end
-    -- of the previous results that returned the @nextToken@ value. This value
-    -- is @null@ when there are no more results to return. This option cannot
-    -- be used when you specify images with @imageIds@.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of repository results returned by @DescribeImageTags@
+  { -- | The maximum number of repository results returned by @DescribeImageTags@
     -- in paginated output. When this parameter is used, @DescribeImageTags@
     -- only returns @maxResults@ results in a single page along with a
     -- @nextToken@ response element. The remaining results of the initial
@@ -72,6 +65,13 @@ data DescribeImageTags = DescribeImageTags'
     -- results and a @nextToken@ value, if applicable. This option cannot be
     -- used when you specify images with @imageIds@.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The @nextToken@ value returned from a previous paginated
+    -- @DescribeImageTags@ request where @maxResults@ was used and the results
+    -- exceeded the value of that parameter. Pagination continues from the end
+    -- of the previous results that returned the @nextToken@ value. This value
+    -- is @null@ when there are no more results to return. This option cannot
+    -- be used when you specify images with @imageIds@.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The AWS account ID associated with the public registry that contains the
     -- repository in which to describe images. If you do not specify a
     -- registry, the default public registry is assumed.
@@ -90,13 +90,6 @@ data DescribeImageTags = DescribeImageTags'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeImageTags_nextToken' - The @nextToken@ value returned from a previous paginated
--- @DescribeImageTags@ request where @maxResults@ was used and the results
--- exceeded the value of that parameter. Pagination continues from the end
--- of the previous results that returned the @nextToken@ value. This value
--- is @null@ when there are no more results to return. This option cannot
--- be used when you specify images with @imageIds@.
---
 -- 'maxResults', 'describeImageTags_maxResults' - The maximum number of repository results returned by @DescribeImageTags@
 -- in paginated output. When this parameter is used, @DescribeImageTags@
 -- only returns @maxResults@ results in a single page along with a
@@ -106,6 +99,13 @@ data DescribeImageTags = DescribeImageTags'
 -- this parameter is not used, then @DescribeImageTags@ returns up to 100
 -- results and a @nextToken@ value, if applicable. This option cannot be
 -- used when you specify images with @imageIds@.
+--
+-- 'nextToken', 'describeImageTags_nextToken' - The @nextToken@ value returned from a previous paginated
+-- @DescribeImageTags@ request where @maxResults@ was used and the results
+-- exceeded the value of that parameter. Pagination continues from the end
+-- of the previous results that returned the @nextToken@ value. This value
+-- is @null@ when there are no more results to return. This option cannot
+-- be used when you specify images with @imageIds@.
 --
 -- 'registryId', 'describeImageTags_registryId' - The AWS account ID associated with the public registry that contains the
 -- repository in which to describe images. If you do not specify a
@@ -119,20 +119,11 @@ newDescribeImageTags ::
   DescribeImageTags
 newDescribeImageTags pRepositoryName_ =
   DescribeImageTags'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       registryId = Prelude.Nothing,
       repositoryName = pRepositoryName_
     }
-
--- | The @nextToken@ value returned from a previous paginated
--- @DescribeImageTags@ request where @maxResults@ was used and the results
--- exceeded the value of that parameter. Pagination continues from the end
--- of the previous results that returned the @nextToken@ value. This value
--- is @null@ when there are no more results to return. This option cannot
--- be used when you specify images with @imageIds@.
-describeImageTags_nextToken :: Lens.Lens' DescribeImageTags (Prelude.Maybe Prelude.Text)
-describeImageTags_nextToken = Lens.lens (\DescribeImageTags' {nextToken} -> nextToken) (\s@DescribeImageTags' {} a -> s {nextToken = a} :: DescribeImageTags)
 
 -- | The maximum number of repository results returned by @DescribeImageTags@
 -- in paginated output. When this parameter is used, @DescribeImageTags@
@@ -145,6 +136,15 @@ describeImageTags_nextToken = Lens.lens (\DescribeImageTags' {nextToken} -> next
 -- used when you specify images with @imageIds@.
 describeImageTags_maxResults :: Lens.Lens' DescribeImageTags (Prelude.Maybe Prelude.Natural)
 describeImageTags_maxResults = Lens.lens (\DescribeImageTags' {maxResults} -> maxResults) (\s@DescribeImageTags' {} a -> s {maxResults = a} :: DescribeImageTags)
+
+-- | The @nextToken@ value returned from a previous paginated
+-- @DescribeImageTags@ request where @maxResults@ was used and the results
+-- exceeded the value of that parameter. Pagination continues from the end
+-- of the previous results that returned the @nextToken@ value. This value
+-- is @null@ when there are no more results to return. This option cannot
+-- be used when you specify images with @imageIds@.
+describeImageTags_nextToken :: Lens.Lens' DescribeImageTags (Prelude.Maybe Prelude.Text)
+describeImageTags_nextToken = Lens.lens (\DescribeImageTags' {nextToken} -> nextToken) (\s@DescribeImageTags' {} a -> s {nextToken = a} :: DescribeImageTags)
 
 -- | The AWS account ID associated with the public registry that contains the
 -- repository in which to describe images. If you do not specify a
@@ -189,24 +189,24 @@ instance Core.AWSRequest DescribeImageTags where
     Response.receiveJSON
       ( \s h x ->
           DescribeImageTagsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "imageTagDetails"
+            Prelude.<$> ( x Data..?> "imageTagDetails"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeImageTags where
   hashWithSalt _salt DescribeImageTags' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
 
 instance Prelude.NFData DescribeImageTags where
   rnf DescribeImageTags' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf registryId
       `Prelude.seq` Prelude.rnf repositoryName
 
@@ -229,8 +229,8 @@ instance Data.ToJSON DescribeImageTags where
   toJSON DescribeImageTags' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             ("registryId" Data..=) Prelude.<$> registryId,
             Prelude.Just
               ("repositoryName" Data..= repositoryName)
@@ -245,13 +245,13 @@ instance Data.ToQuery DescribeImageTags where
 
 -- | /See:/ 'newDescribeImageTagsResponse' smart constructor.
 data DescribeImageTagsResponse = DescribeImageTagsResponse'
-  { -- | The @nextToken@ value to include in a future @DescribeImageTags@
+  { -- | The image tag details for the images in the requested repository.
+    imageTagDetails :: Prelude.Maybe [ImageTagDetail],
+    -- | The @nextToken@ value to include in a future @DescribeImageTags@
     -- request. When the results of a @DescribeImageTags@ request exceed
     -- @maxResults@, this value can be used to retrieve the next page of
     -- results. This value is @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The image tag details for the images in the requested repository.
-    imageTagDetails :: Prelude.Maybe [ImageTagDetail],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -265,12 +265,12 @@ data DescribeImageTagsResponse = DescribeImageTagsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'imageTagDetails', 'describeImageTagsResponse_imageTagDetails' - The image tag details for the images in the requested repository.
+--
 -- 'nextToken', 'describeImageTagsResponse_nextToken' - The @nextToken@ value to include in a future @DescribeImageTags@
 -- request. When the results of a @DescribeImageTags@ request exceed
 -- @maxResults@, this value can be used to retrieve the next page of
 -- results. This value is @null@ when there are no more results to return.
---
--- 'imageTagDetails', 'describeImageTagsResponse_imageTagDetails' - The image tag details for the images in the requested repository.
 --
 -- 'httpStatus', 'describeImageTagsResponse_httpStatus' - The response's http status code.
 newDescribeImageTagsResponse ::
@@ -279,11 +279,15 @@ newDescribeImageTagsResponse ::
   DescribeImageTagsResponse
 newDescribeImageTagsResponse pHttpStatus_ =
   DescribeImageTagsResponse'
-    { nextToken =
+    { imageTagDetails =
         Prelude.Nothing,
-      imageTagDetails = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The image tag details for the images in the requested repository.
+describeImageTagsResponse_imageTagDetails :: Lens.Lens' DescribeImageTagsResponse (Prelude.Maybe [ImageTagDetail])
+describeImageTagsResponse_imageTagDetails = Lens.lens (\DescribeImageTagsResponse' {imageTagDetails} -> imageTagDetails) (\s@DescribeImageTagsResponse' {} a -> s {imageTagDetails = a} :: DescribeImageTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @nextToken@ value to include in a future @DescribeImageTags@
 -- request. When the results of a @DescribeImageTags@ request exceed
@@ -292,16 +296,12 @@ newDescribeImageTagsResponse pHttpStatus_ =
 describeImageTagsResponse_nextToken :: Lens.Lens' DescribeImageTagsResponse (Prelude.Maybe Prelude.Text)
 describeImageTagsResponse_nextToken = Lens.lens (\DescribeImageTagsResponse' {nextToken} -> nextToken) (\s@DescribeImageTagsResponse' {} a -> s {nextToken = a} :: DescribeImageTagsResponse)
 
--- | The image tag details for the images in the requested repository.
-describeImageTagsResponse_imageTagDetails :: Lens.Lens' DescribeImageTagsResponse (Prelude.Maybe [ImageTagDetail])
-describeImageTagsResponse_imageTagDetails = Lens.lens (\DescribeImageTagsResponse' {imageTagDetails} -> imageTagDetails) (\s@DescribeImageTagsResponse' {} a -> s {imageTagDetails = a} :: DescribeImageTagsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 describeImageTagsResponse_httpStatus :: Lens.Lens' DescribeImageTagsResponse Prelude.Int
 describeImageTagsResponse_httpStatus = Lens.lens (\DescribeImageTagsResponse' {httpStatus} -> httpStatus) (\s@DescribeImageTagsResponse' {} a -> s {httpStatus = a} :: DescribeImageTagsResponse)
 
 instance Prelude.NFData DescribeImageTagsResponse where
   rnf DescribeImageTagsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf imageTagDetails
+    Prelude.rnf imageTagDetails
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

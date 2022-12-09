@@ -29,8 +29,8 @@ module Amazonka.ECRPublic.DescribeRegistries
     newDescribeRegistries,
 
     -- * Request Lenses
-    describeRegistries_nextToken,
     describeRegistries_maxResults,
+    describeRegistries_nextToken,
 
     -- * Destructuring the Response
     DescribeRegistriesResponse (..),
@@ -53,7 +53,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeRegistries' smart constructor.
 data DescribeRegistries = DescribeRegistries'
-  { -- | The @nextToken@ value returned from a previous paginated
+  { -- | The maximum number of repository results returned by
+    -- @DescribeRegistries@ in paginated output. When this parameter is used,
+    -- @DescribeRegistries@ only returns @maxResults@ results in a single page
+    -- along with a @nextToken@ response element. The remaining results of the
+    -- initial request can be seen by sending another @DescribeRegistries@
+    -- request with the returned @nextToken@ value. This value can be between 1
+    -- and 1000. If this parameter is not used, then @DescribeRegistries@
+    -- returns up to 100 results and a @nextToken@ value, if applicable.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The @nextToken@ value returned from a previous paginated
     -- @DescribeRegistries@ request where @maxResults@ was used and the results
     -- exceeded the value of that parameter. Pagination continues from the end
     -- of the previous results that returned the @nextToken@ value. This value
@@ -62,16 +71,7 @@ data DescribeRegistries = DescribeRegistries'
     -- This token should be treated as an opaque identifier that is only used
     -- to retrieve the next items in a list and not for other programmatic
     -- purposes.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of repository results returned by
-    -- @DescribeRegistries@ in paginated output. When this parameter is used,
-    -- @DescribeRegistries@ only returns @maxResults@ results in a single page
-    -- along with a @nextToken@ response element. The remaining results of the
-    -- initial request can be seen by sending another @DescribeRegistries@
-    -- request with the returned @nextToken@ value. This value can be between 1
-    -- and 1000. If this parameter is not used, then @DescribeRegistries@
-    -- returns up to 100 results and a @nextToken@ value, if applicable.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,6 +83,15 @@ data DescribeRegistries = DescribeRegistries'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'describeRegistries_maxResults' - The maximum number of repository results returned by
+-- @DescribeRegistries@ in paginated output. When this parameter is used,
+-- @DescribeRegistries@ only returns @maxResults@ results in a single page
+-- along with a @nextToken@ response element. The remaining results of the
+-- initial request can be seen by sending another @DescribeRegistries@
+-- request with the returned @nextToken@ value. This value can be between 1
+-- and 1000. If this parameter is not used, then @DescribeRegistries@
+-- returns up to 100 results and a @nextToken@ value, if applicable.
+--
 -- 'nextToken', 'describeRegistries_nextToken' - The @nextToken@ value returned from a previous paginated
 -- @DescribeRegistries@ request where @maxResults@ was used and the results
 -- exceeded the value of that parameter. Pagination continues from the end
@@ -92,8 +101,15 @@ data DescribeRegistries = DescribeRegistries'
 -- This token should be treated as an opaque identifier that is only used
 -- to retrieve the next items in a list and not for other programmatic
 -- purposes.
---
--- 'maxResults', 'describeRegistries_maxResults' - The maximum number of repository results returned by
+newDescribeRegistries ::
+  DescribeRegistries
+newDescribeRegistries =
+  DescribeRegistries'
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
+    }
+
+-- | The maximum number of repository results returned by
 -- @DescribeRegistries@ in paginated output. When this parameter is used,
 -- @DescribeRegistries@ only returns @maxResults@ results in a single page
 -- along with a @nextToken@ response element. The remaining results of the
@@ -101,13 +117,8 @@ data DescribeRegistries = DescribeRegistries'
 -- request with the returned @nextToken@ value. This value can be between 1
 -- and 1000. If this parameter is not used, then @DescribeRegistries@
 -- returns up to 100 results and a @nextToken@ value, if applicable.
-newDescribeRegistries ::
-  DescribeRegistries
-newDescribeRegistries =
-  DescribeRegistries'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
-    }
+describeRegistries_maxResults :: Lens.Lens' DescribeRegistries (Prelude.Maybe Prelude.Natural)
+describeRegistries_maxResults = Lens.lens (\DescribeRegistries' {maxResults} -> maxResults) (\s@DescribeRegistries' {} a -> s {maxResults = a} :: DescribeRegistries)
 
 -- | The @nextToken@ value returned from a previous paginated
 -- @DescribeRegistries@ request where @maxResults@ was used and the results
@@ -120,17 +131,6 @@ newDescribeRegistries =
 -- purposes.
 describeRegistries_nextToken :: Lens.Lens' DescribeRegistries (Prelude.Maybe Prelude.Text)
 describeRegistries_nextToken = Lens.lens (\DescribeRegistries' {nextToken} -> nextToken) (\s@DescribeRegistries' {} a -> s {nextToken = a} :: DescribeRegistries)
-
--- | The maximum number of repository results returned by
--- @DescribeRegistries@ in paginated output. When this parameter is used,
--- @DescribeRegistries@ only returns @maxResults@ results in a single page
--- along with a @nextToken@ response element. The remaining results of the
--- initial request can be seen by sending another @DescribeRegistries@
--- request with the returned @nextToken@ value. This value can be between 1
--- and 1000. If this parameter is not used, then @DescribeRegistries@
--- returns up to 100 results and a @nextToken@ value, if applicable.
-describeRegistries_maxResults :: Lens.Lens' DescribeRegistries (Prelude.Maybe Prelude.Natural)
-describeRegistries_maxResults = Lens.lens (\DescribeRegistries' {maxResults} -> maxResults) (\s@DescribeRegistries' {} a -> s {maxResults = a} :: DescribeRegistries)
 
 instance Core.AWSPager DescribeRegistries where
   page rq rs
@@ -168,13 +168,13 @@ instance Core.AWSRequest DescribeRegistries where
 
 instance Prelude.Hashable DescribeRegistries where
   hashWithSalt _salt DescribeRegistries' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeRegistries where
   rnf DescribeRegistries' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeRegistries where
   toHeaders =
@@ -195,8 +195,8 @@ instance Data.ToJSON DescribeRegistries where
   toJSON DescribeRegistries' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

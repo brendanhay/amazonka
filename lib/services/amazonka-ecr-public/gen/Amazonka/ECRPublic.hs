@@ -29,8 +29,47 @@ module Amazonka.ECRPublic
     -- * Errors
     -- $errors
 
+    -- ** EmptyUploadException
+    _EmptyUploadException,
+
+    -- ** ImageAlreadyExistsException
+    _ImageAlreadyExistsException,
+
+    -- ** ImageDigestDoesNotMatchException
+    _ImageDigestDoesNotMatchException,
+
+    -- ** ImageNotFoundException
+    _ImageNotFoundException,
+
+    -- ** ImageTagAlreadyExistsException
+    _ImageTagAlreadyExistsException,
+
+    -- ** InvalidLayerException
+    _InvalidLayerException,
+
     -- ** InvalidLayerPartException
     _InvalidLayerPartException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** InvalidTagParameterException
+    _InvalidTagParameterException,
+
+    -- ** LayerAlreadyExistsException
+    _LayerAlreadyExistsException,
+
+    -- ** LayerPartTooSmallException
+    _LayerPartTooSmallException,
+
+    -- ** LayersNotFoundException
+    _LayersNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** ReferencedImagesNotFoundException
+    _ReferencedImagesNotFoundException,
 
     -- ** RegistryNotFoundException
     _RegistryNotFoundException,
@@ -38,65 +77,26 @@ module Amazonka.ECRPublic
     -- ** RepositoryAlreadyExistsException
     _RepositoryAlreadyExistsException,
 
-    -- ** LayerAlreadyExistsException
-    _LayerAlreadyExistsException,
-
-    -- ** UnsupportedCommandException
-    _UnsupportedCommandException,
-
-    -- ** LayerPartTooSmallException
-    _LayerPartTooSmallException,
-
-    -- ** ImageAlreadyExistsException
-    _ImageAlreadyExistsException,
+    -- ** RepositoryNotEmptyException
+    _RepositoryNotEmptyException,
 
     -- ** RepositoryNotFoundException
     _RepositoryNotFoundException,
 
-    -- ** ReferencedImagesNotFoundException
-    _ReferencedImagesNotFoundException,
-
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
-    -- ** ImageDigestDoesNotMatchException
-    _ImageDigestDoesNotMatchException,
-
-    -- ** RepositoryNotEmptyException
-    _RepositoryNotEmptyException,
-
-    -- ** LayersNotFoundException
-    _LayersNotFoundException,
-
-    -- ** InvalidTagParameterException
-    _InvalidTagParameterException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** EmptyUploadException
-    _EmptyUploadException,
-
     -- ** RepositoryPolicyNotFoundException
     _RepositoryPolicyNotFoundException,
-
-    -- ** ImageTagAlreadyExistsException
-    _ImageTagAlreadyExistsException,
-
-    -- ** UploadNotFoundException
-    _UploadNotFoundException,
-
-    -- ** ImageNotFoundException
-    _ImageNotFoundException,
-
-    -- ** InvalidLayerException
-    _InvalidLayerException,
 
     -- ** ServerException
     _ServerException,
 
-    -- ** InvalidParameterException
-    _InvalidParameterException,
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** UnsupportedCommandException
+    _UnsupportedCommandException,
+
+    -- ** UploadNotFoundException
+    _UploadNotFoundException,
 
     -- * Waiters
     -- $waiters

@@ -29,8 +29,8 @@ module Amazonka.ECRPublic.CreateRepository
     newCreateRepository,
 
     -- * Request Lenses
-    createRepository_tags,
     createRepository_catalogData,
+    createRepository_tags,
     createRepository_repositoryName,
 
     -- * Destructuring the Response
@@ -54,14 +54,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateRepository' smart constructor.
 data CreateRepository = CreateRepository'
-  { -- | The metadata that you apply to the repository to help you categorize and
+  { -- | The details about the repository that are publicly visible in the Amazon
+    -- ECR Public Gallery.
+    catalogData :: Prelude.Maybe RepositoryCatalogDataInput,
+    -- | The metadata that you apply to the repository to help you categorize and
     -- organize them. Each tag consists of a key and an optional value, both of
     -- which you define. Tag keys can have a maximum character length of 128
     -- characters, and tag values can have a maximum length of 256 characters.
     tags :: Prelude.Maybe [Tag],
-    -- | The details about the repository that are publicly visible in the Amazon
-    -- ECR Public Gallery.
-    catalogData :: Prelude.Maybe RepositoryCatalogDataInput,
     -- | The name to use for the repository. This appears publicly in the Amazon
     -- ECR Public Gallery. The repository name may be specified on its own
     -- (such as @nginx-web-app@) or it can be prepended with a namespace to
@@ -79,13 +79,13 @@ data CreateRepository = CreateRepository'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'catalogData', 'createRepository_catalogData' - The details about the repository that are publicly visible in the Amazon
+-- ECR Public Gallery.
+--
 -- 'tags', 'createRepository_tags' - The metadata that you apply to the repository to help you categorize and
 -- organize them. Each tag consists of a key and an optional value, both of
 -- which you define. Tag keys can have a maximum character length of 128
 -- characters, and tag values can have a maximum length of 256 characters.
---
--- 'catalogData', 'createRepository_catalogData' - The details about the repository that are publicly visible in the Amazon
--- ECR Public Gallery.
 --
 -- 'repositoryName', 'createRepository_repositoryName' - The name to use for the repository. This appears publicly in the Amazon
 -- ECR Public Gallery. The repository name may be specified on its own
@@ -98,10 +98,15 @@ newCreateRepository ::
   CreateRepository
 newCreateRepository pRepositoryName_ =
   CreateRepository'
-    { tags = Prelude.Nothing,
-      catalogData = Prelude.Nothing,
+    { catalogData = Prelude.Nothing,
+      tags = Prelude.Nothing,
       repositoryName = pRepositoryName_
     }
+
+-- | The details about the repository that are publicly visible in the Amazon
+-- ECR Public Gallery.
+createRepository_catalogData :: Lens.Lens' CreateRepository (Prelude.Maybe RepositoryCatalogDataInput)
+createRepository_catalogData = Lens.lens (\CreateRepository' {catalogData} -> catalogData) (\s@CreateRepository' {} a -> s {catalogData = a} :: CreateRepository)
 
 -- | The metadata that you apply to the repository to help you categorize and
 -- organize them. Each tag consists of a key and an optional value, both of
@@ -109,11 +114,6 @@ newCreateRepository pRepositoryName_ =
 -- characters, and tag values can have a maximum length of 256 characters.
 createRepository_tags :: Lens.Lens' CreateRepository (Prelude.Maybe [Tag])
 createRepository_tags = Lens.lens (\CreateRepository' {tags} -> tags) (\s@CreateRepository' {} a -> s {tags = a} :: CreateRepository) Prelude.. Lens.mapping Lens.coerced
-
--- | The details about the repository that are publicly visible in the Amazon
--- ECR Public Gallery.
-createRepository_catalogData :: Lens.Lens' CreateRepository (Prelude.Maybe RepositoryCatalogDataInput)
-createRepository_catalogData = Lens.lens (\CreateRepository' {catalogData} -> catalogData) (\s@CreateRepository' {} a -> s {catalogData = a} :: CreateRepository)
 
 -- | The name to use for the repository. This appears publicly in the Amazon
 -- ECR Public Gallery. The repository name may be specified on its own
@@ -140,14 +140,14 @@ instance Core.AWSRequest CreateRepository where
 
 instance Prelude.Hashable CreateRepository where
   hashWithSalt _salt CreateRepository' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` catalogData
+    _salt `Prelude.hashWithSalt` catalogData
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` repositoryName
 
 instance Prelude.NFData CreateRepository where
   rnf CreateRepository' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf catalogData
+    Prelude.rnf catalogData
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf repositoryName
 
 instance Data.ToHeaders CreateRepository where
@@ -169,8 +169,8 @@ instance Data.ToJSON CreateRepository where
   toJSON CreateRepository' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("catalogData" Data..=) Prelude.<$> catalogData,
+          [ ("catalogData" Data..=) Prelude.<$> catalogData,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("repositoryName" Data..= repositoryName)
           ]

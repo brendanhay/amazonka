@@ -31,11 +31,13 @@ import qualified Amazonka.Prelude as Prelude
 data ImageDetail = ImageDetail'
   { -- | The artifact media type of the image.
     artifactMediaType :: Prelude.Maybe Prelude.Text,
+    -- | The @sha256@ digest of the image manifest.
+    imageDigest :: Prelude.Maybe Prelude.Text,
+    -- | The media type of the image manifest.
+    imageManifestMediaType :: Prelude.Maybe Prelude.Text,
     -- | The date and time, expressed in standard JavaScript date format, at
     -- which the current image was pushed to the repository.
     imagePushedAt :: Prelude.Maybe Data.POSIX,
-    -- | The name of the repository to which this image belongs.
-    repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The size, in bytes, of the image in the repository.
     --
     -- If the image is a manifest list, this will be the max size of all
@@ -52,10 +54,8 @@ data ImageDetail = ImageDetail'
     -- | The AWS account ID associated with the public registry to which this
     -- image belongs.
     registryId :: Prelude.Maybe Prelude.Text,
-    -- | The media type of the image manifest.
-    imageManifestMediaType :: Prelude.Maybe Prelude.Text,
-    -- | The @sha256@ digest of the image manifest.
-    imageDigest :: Prelude.Maybe Prelude.Text
+    -- | The name of the repository to which this image belongs.
+    repositoryName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,10 +69,12 @@ data ImageDetail = ImageDetail'
 --
 -- 'artifactMediaType', 'imageDetail_artifactMediaType' - The artifact media type of the image.
 --
+-- 'imageDigest', 'imageDetail_imageDigest' - The @sha256@ digest of the image manifest.
+--
+-- 'imageManifestMediaType', 'imageDetail_imageManifestMediaType' - The media type of the image manifest.
+--
 -- 'imagePushedAt', 'imageDetail_imagePushedAt' - The date and time, expressed in standard JavaScript date format, at
 -- which the current image was pushed to the repository.
---
--- 'repositoryName', 'imageDetail_repositoryName' - The name of the repository to which this image belongs.
 --
 -- 'imageSizeInBytes', 'imageDetail_imageSizeInBytes' - The size, in bytes, of the image in the repository.
 --
@@ -90,35 +92,37 @@ data ImageDetail = ImageDetail'
 -- 'registryId', 'imageDetail_registryId' - The AWS account ID associated with the public registry to which this
 -- image belongs.
 --
--- 'imageManifestMediaType', 'imageDetail_imageManifestMediaType' - The media type of the image manifest.
---
--- 'imageDigest', 'imageDetail_imageDigest' - The @sha256@ digest of the image manifest.
+-- 'repositoryName', 'imageDetail_repositoryName' - The name of the repository to which this image belongs.
 newImageDetail ::
   ImageDetail
 newImageDetail =
   ImageDetail'
     { artifactMediaType = Prelude.Nothing,
+      imageDigest = Prelude.Nothing,
+      imageManifestMediaType = Prelude.Nothing,
       imagePushedAt = Prelude.Nothing,
-      repositoryName = Prelude.Nothing,
       imageSizeInBytes = Prelude.Nothing,
       imageTags = Prelude.Nothing,
       registryId = Prelude.Nothing,
-      imageManifestMediaType = Prelude.Nothing,
-      imageDigest = Prelude.Nothing
+      repositoryName = Prelude.Nothing
     }
 
 -- | The artifact media type of the image.
 imageDetail_artifactMediaType :: Lens.Lens' ImageDetail (Prelude.Maybe Prelude.Text)
 imageDetail_artifactMediaType = Lens.lens (\ImageDetail' {artifactMediaType} -> artifactMediaType) (\s@ImageDetail' {} a -> s {artifactMediaType = a} :: ImageDetail)
 
+-- | The @sha256@ digest of the image manifest.
+imageDetail_imageDigest :: Lens.Lens' ImageDetail (Prelude.Maybe Prelude.Text)
+imageDetail_imageDigest = Lens.lens (\ImageDetail' {imageDigest} -> imageDigest) (\s@ImageDetail' {} a -> s {imageDigest = a} :: ImageDetail)
+
+-- | The media type of the image manifest.
+imageDetail_imageManifestMediaType :: Lens.Lens' ImageDetail (Prelude.Maybe Prelude.Text)
+imageDetail_imageManifestMediaType = Lens.lens (\ImageDetail' {imageManifestMediaType} -> imageManifestMediaType) (\s@ImageDetail' {} a -> s {imageManifestMediaType = a} :: ImageDetail)
+
 -- | The date and time, expressed in standard JavaScript date format, at
 -- which the current image was pushed to the repository.
 imageDetail_imagePushedAt :: Lens.Lens' ImageDetail (Prelude.Maybe Prelude.UTCTime)
 imageDetail_imagePushedAt = Lens.lens (\ImageDetail' {imagePushedAt} -> imagePushedAt) (\s@ImageDetail' {} a -> s {imagePushedAt = a} :: ImageDetail) Prelude.. Lens.mapping Data._Time
-
--- | The name of the repository to which this image belongs.
-imageDetail_repositoryName :: Lens.Lens' ImageDetail (Prelude.Maybe Prelude.Text)
-imageDetail_repositoryName = Lens.lens (\ImageDetail' {repositoryName} -> repositoryName) (\s@ImageDetail' {} a -> s {repositoryName = a} :: ImageDetail)
 
 -- | The size, in bytes, of the image in the repository.
 --
@@ -142,13 +146,9 @@ imageDetail_imageTags = Lens.lens (\ImageDetail' {imageTags} -> imageTags) (\s@I
 imageDetail_registryId :: Lens.Lens' ImageDetail (Prelude.Maybe Prelude.Text)
 imageDetail_registryId = Lens.lens (\ImageDetail' {registryId} -> registryId) (\s@ImageDetail' {} a -> s {registryId = a} :: ImageDetail)
 
--- | The media type of the image manifest.
-imageDetail_imageManifestMediaType :: Lens.Lens' ImageDetail (Prelude.Maybe Prelude.Text)
-imageDetail_imageManifestMediaType = Lens.lens (\ImageDetail' {imageManifestMediaType} -> imageManifestMediaType) (\s@ImageDetail' {} a -> s {imageManifestMediaType = a} :: ImageDetail)
-
--- | The @sha256@ digest of the image manifest.
-imageDetail_imageDigest :: Lens.Lens' ImageDetail (Prelude.Maybe Prelude.Text)
-imageDetail_imageDigest = Lens.lens (\ImageDetail' {imageDigest} -> imageDigest) (\s@ImageDetail' {} a -> s {imageDigest = a} :: ImageDetail)
+-- | The name of the repository to which this image belongs.
+imageDetail_repositoryName :: Lens.Lens' ImageDetail (Prelude.Maybe Prelude.Text)
+imageDetail_repositoryName = Lens.lens (\ImageDetail' {repositoryName} -> repositoryName) (\s@ImageDetail' {} a -> s {repositoryName = a} :: ImageDetail)
 
 instance Data.FromJSON ImageDetail where
   parseJSON =
@@ -157,33 +157,33 @@ instance Data.FromJSON ImageDetail where
       ( \x ->
           ImageDetail'
             Prelude.<$> (x Data..:? "artifactMediaType")
+            Prelude.<*> (x Data..:? "imageDigest")
+            Prelude.<*> (x Data..:? "imageManifestMediaType")
             Prelude.<*> (x Data..:? "imagePushedAt")
-            Prelude.<*> (x Data..:? "repositoryName")
             Prelude.<*> (x Data..:? "imageSizeInBytes")
             Prelude.<*> (x Data..:? "imageTags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "registryId")
-            Prelude.<*> (x Data..:? "imageManifestMediaType")
-            Prelude.<*> (x Data..:? "imageDigest")
+            Prelude.<*> (x Data..:? "repositoryName")
       )
 
 instance Prelude.Hashable ImageDetail where
   hashWithSalt _salt ImageDetail' {..} =
     _salt `Prelude.hashWithSalt` artifactMediaType
+      `Prelude.hashWithSalt` imageDigest
+      `Prelude.hashWithSalt` imageManifestMediaType
       `Prelude.hashWithSalt` imagePushedAt
-      `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` imageSizeInBytes
       `Prelude.hashWithSalt` imageTags
       `Prelude.hashWithSalt` registryId
-      `Prelude.hashWithSalt` imageManifestMediaType
-      `Prelude.hashWithSalt` imageDigest
+      `Prelude.hashWithSalt` repositoryName
 
 instance Prelude.NFData ImageDetail where
   rnf ImageDetail' {..} =
     Prelude.rnf artifactMediaType
+      `Prelude.seq` Prelude.rnf imageDigest
+      `Prelude.seq` Prelude.rnf imageManifestMediaType
       `Prelude.seq` Prelude.rnf imagePushedAt
-      `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf imageSizeInBytes
       `Prelude.seq` Prelude.rnf imageTags
       `Prelude.seq` Prelude.rnf registryId
-      `Prelude.seq` Prelude.rnf imageManifestMediaType
-      `Prelude.seq` Prelude.rnf imageDigest
+      `Prelude.seq` Prelude.rnf repositoryName

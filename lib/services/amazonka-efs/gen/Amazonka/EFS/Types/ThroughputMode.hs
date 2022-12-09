@@ -21,6 +21,7 @@ module Amazonka.EFS.Types.ThroughputMode
   ( ThroughputMode
       ( ..,
         ThroughputMode_Bursting,
+        ThroughputMode_Elastic,
         ThroughputMode_Provisioned
       ),
   )
@@ -61,11 +62,15 @@ newtype ThroughputMode = ThroughputMode'
 pattern ThroughputMode_Bursting :: ThroughputMode
 pattern ThroughputMode_Bursting = ThroughputMode' "bursting"
 
+pattern ThroughputMode_Elastic :: ThroughputMode
+pattern ThroughputMode_Elastic = ThroughputMode' "elastic"
+
 pattern ThroughputMode_Provisioned :: ThroughputMode
 pattern ThroughputMode_Provisioned = ThroughputMode' "provisioned"
 
 {-# COMPLETE
   ThroughputMode_Bursting,
+  ThroughputMode_Elastic,
   ThroughputMode_Provisioned,
   ThroughputMode'
   #-}

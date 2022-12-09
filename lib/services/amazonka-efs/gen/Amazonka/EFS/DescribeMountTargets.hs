@@ -37,11 +37,11 @@ module Amazonka.EFS.DescribeMountTargets
     newDescribeMountTargets,
 
     -- * Request Lenses
-    describeMountTargets_marker,
-    describeMountTargets_mountTargetId,
-    describeMountTargets_maxItems,
-    describeMountTargets_fileSystemId,
     describeMountTargets_accessPointId,
+    describeMountTargets_fileSystemId,
+    describeMountTargets_marker,
+    describeMountTargets_maxItems,
+    describeMountTargets_mountTargetId,
 
     -- * Destructuring the Response
     DescribeMountTargetsResponse (..),
@@ -67,29 +67,29 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeMountTargets' smart constructor.
 data DescribeMountTargets = DescribeMountTargets'
-  { -- | (Optional) Opaque pagination token returned from a previous
-    -- @DescribeMountTargets@ operation (String). If present, it specifies to
-    -- continue the list from where the previous returning call left off.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | (Optional) ID of the mount target that you want to have described
-    -- (String). It must be included in your request if @FileSystemId@ is not
-    -- included. Accepts either a mount target ID or ARN as input.
-    mountTargetId :: Prelude.Maybe Prelude.Text,
-    -- | (Optional) Maximum number of mount targets to return in the response.
-    -- Currently, this number is automatically set to 10, and other values are
-    -- ignored. The response is paginated at 100 per page if you have more than
-    -- 100 mount targets.
-    maxItems :: Prelude.Maybe Prelude.Natural,
+  { -- | (Optional) The ID of the access point whose mount targets that you want
+    -- to list. It must be included in your request if a @FileSystemId@ or
+    -- @MountTargetId@ is not included in your request. Accepts either an
+    -- access point ID or ARN as input.
+    accessPointId :: Prelude.Maybe Prelude.Text,
     -- | (Optional) ID of the file system whose mount targets you want to list
     -- (String). It must be included in your request if an @AccessPointId@ or
     -- @MountTargetId@ is not included. Accepts either a file system ID or ARN
     -- as input.
     fileSystemId :: Prelude.Maybe Prelude.Text,
-    -- | (Optional) The ID of the access point whose mount targets that you want
-    -- to list. It must be included in your request if a @FileSystemId@ or
-    -- @MountTargetId@ is not included in your request. Accepts either an
-    -- access point ID or ARN as input.
-    accessPointId :: Prelude.Maybe Prelude.Text
+    -- | (Optional) Opaque pagination token returned from a previous
+    -- @DescribeMountTargets@ operation (String). If present, it specifies to
+    -- continue the list from where the previous returning call left off.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | (Optional) Maximum number of mount targets to return in the response.
+    -- Currently, this number is automatically set to 10, and other values are
+    -- ignored. The response is paginated at 100 per page if you have more than
+    -- 100 mount targets.
+    maxItems :: Prelude.Maybe Prelude.Natural,
+    -- | (Optional) ID of the mount target that you want to have described
+    -- (String). It must be included in your request if @FileSystemId@ is not
+    -- included. Accepts either a mount target ID or ARN as input.
+    mountTargetId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -101,57 +101,46 @@ data DescribeMountTargets = DescribeMountTargets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'describeMountTargets_marker' - (Optional) Opaque pagination token returned from a previous
--- @DescribeMountTargets@ operation (String). If present, it specifies to
--- continue the list from where the previous returning call left off.
---
--- 'mountTargetId', 'describeMountTargets_mountTargetId' - (Optional) ID of the mount target that you want to have described
--- (String). It must be included in your request if @FileSystemId@ is not
--- included. Accepts either a mount target ID or ARN as input.
---
--- 'maxItems', 'describeMountTargets_maxItems' - (Optional) Maximum number of mount targets to return in the response.
--- Currently, this number is automatically set to 10, and other values are
--- ignored. The response is paginated at 100 per page if you have more than
--- 100 mount targets.
+-- 'accessPointId', 'describeMountTargets_accessPointId' - (Optional) The ID of the access point whose mount targets that you want
+-- to list. It must be included in your request if a @FileSystemId@ or
+-- @MountTargetId@ is not included in your request. Accepts either an
+-- access point ID or ARN as input.
 --
 -- 'fileSystemId', 'describeMountTargets_fileSystemId' - (Optional) ID of the file system whose mount targets you want to list
 -- (String). It must be included in your request if an @AccessPointId@ or
 -- @MountTargetId@ is not included. Accepts either a file system ID or ARN
 -- as input.
 --
--- 'accessPointId', 'describeMountTargets_accessPointId' - (Optional) The ID of the access point whose mount targets that you want
--- to list. It must be included in your request if a @FileSystemId@ or
--- @MountTargetId@ is not included in your request. Accepts either an
--- access point ID or ARN as input.
+-- 'marker', 'describeMountTargets_marker' - (Optional) Opaque pagination token returned from a previous
+-- @DescribeMountTargets@ operation (String). If present, it specifies to
+-- continue the list from where the previous returning call left off.
+--
+-- 'maxItems', 'describeMountTargets_maxItems' - (Optional) Maximum number of mount targets to return in the response.
+-- Currently, this number is automatically set to 10, and other values are
+-- ignored. The response is paginated at 100 per page if you have more than
+-- 100 mount targets.
+--
+-- 'mountTargetId', 'describeMountTargets_mountTargetId' - (Optional) ID of the mount target that you want to have described
+-- (String). It must be included in your request if @FileSystemId@ is not
+-- included. Accepts either a mount target ID or ARN as input.
 newDescribeMountTargets ::
   DescribeMountTargets
 newDescribeMountTargets =
   DescribeMountTargets'
-    { marker = Prelude.Nothing,
-      mountTargetId = Prelude.Nothing,
-      maxItems = Prelude.Nothing,
+    { accessPointId =
+        Prelude.Nothing,
       fileSystemId = Prelude.Nothing,
-      accessPointId = Prelude.Nothing
+      marker = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      mountTargetId = Prelude.Nothing
     }
 
--- | (Optional) Opaque pagination token returned from a previous
--- @DescribeMountTargets@ operation (String). If present, it specifies to
--- continue the list from where the previous returning call left off.
-describeMountTargets_marker :: Lens.Lens' DescribeMountTargets (Prelude.Maybe Prelude.Text)
-describeMountTargets_marker = Lens.lens (\DescribeMountTargets' {marker} -> marker) (\s@DescribeMountTargets' {} a -> s {marker = a} :: DescribeMountTargets)
-
--- | (Optional) ID of the mount target that you want to have described
--- (String). It must be included in your request if @FileSystemId@ is not
--- included. Accepts either a mount target ID or ARN as input.
-describeMountTargets_mountTargetId :: Lens.Lens' DescribeMountTargets (Prelude.Maybe Prelude.Text)
-describeMountTargets_mountTargetId = Lens.lens (\DescribeMountTargets' {mountTargetId} -> mountTargetId) (\s@DescribeMountTargets' {} a -> s {mountTargetId = a} :: DescribeMountTargets)
-
--- | (Optional) Maximum number of mount targets to return in the response.
--- Currently, this number is automatically set to 10, and other values are
--- ignored. The response is paginated at 100 per page if you have more than
--- 100 mount targets.
-describeMountTargets_maxItems :: Lens.Lens' DescribeMountTargets (Prelude.Maybe Prelude.Natural)
-describeMountTargets_maxItems = Lens.lens (\DescribeMountTargets' {maxItems} -> maxItems) (\s@DescribeMountTargets' {} a -> s {maxItems = a} :: DescribeMountTargets)
+-- | (Optional) The ID of the access point whose mount targets that you want
+-- to list. It must be included in your request if a @FileSystemId@ or
+-- @MountTargetId@ is not included in your request. Accepts either an
+-- access point ID or ARN as input.
+describeMountTargets_accessPointId :: Lens.Lens' DescribeMountTargets (Prelude.Maybe Prelude.Text)
+describeMountTargets_accessPointId = Lens.lens (\DescribeMountTargets' {accessPointId} -> accessPointId) (\s@DescribeMountTargets' {} a -> s {accessPointId = a} :: DescribeMountTargets)
 
 -- | (Optional) ID of the file system whose mount targets you want to list
 -- (String). It must be included in your request if an @AccessPointId@ or
@@ -160,12 +149,24 @@ describeMountTargets_maxItems = Lens.lens (\DescribeMountTargets' {maxItems} -> 
 describeMountTargets_fileSystemId :: Lens.Lens' DescribeMountTargets (Prelude.Maybe Prelude.Text)
 describeMountTargets_fileSystemId = Lens.lens (\DescribeMountTargets' {fileSystemId} -> fileSystemId) (\s@DescribeMountTargets' {} a -> s {fileSystemId = a} :: DescribeMountTargets)
 
--- | (Optional) The ID of the access point whose mount targets that you want
--- to list. It must be included in your request if a @FileSystemId@ or
--- @MountTargetId@ is not included in your request. Accepts either an
--- access point ID or ARN as input.
-describeMountTargets_accessPointId :: Lens.Lens' DescribeMountTargets (Prelude.Maybe Prelude.Text)
-describeMountTargets_accessPointId = Lens.lens (\DescribeMountTargets' {accessPointId} -> accessPointId) (\s@DescribeMountTargets' {} a -> s {accessPointId = a} :: DescribeMountTargets)
+-- | (Optional) Opaque pagination token returned from a previous
+-- @DescribeMountTargets@ operation (String). If present, it specifies to
+-- continue the list from where the previous returning call left off.
+describeMountTargets_marker :: Lens.Lens' DescribeMountTargets (Prelude.Maybe Prelude.Text)
+describeMountTargets_marker = Lens.lens (\DescribeMountTargets' {marker} -> marker) (\s@DescribeMountTargets' {} a -> s {marker = a} :: DescribeMountTargets)
+
+-- | (Optional) Maximum number of mount targets to return in the response.
+-- Currently, this number is automatically set to 10, and other values are
+-- ignored. The response is paginated at 100 per page if you have more than
+-- 100 mount targets.
+describeMountTargets_maxItems :: Lens.Lens' DescribeMountTargets (Prelude.Maybe Prelude.Natural)
+describeMountTargets_maxItems = Lens.lens (\DescribeMountTargets' {maxItems} -> maxItems) (\s@DescribeMountTargets' {} a -> s {maxItems = a} :: DescribeMountTargets)
+
+-- | (Optional) ID of the mount target that you want to have described
+-- (String). It must be included in your request if @FileSystemId@ is not
+-- included. Accepts either a mount target ID or ARN as input.
+describeMountTargets_mountTargetId :: Lens.Lens' DescribeMountTargets (Prelude.Maybe Prelude.Text)
+describeMountTargets_mountTargetId = Lens.lens (\DescribeMountTargets' {mountTargetId} -> mountTargetId) (\s@DescribeMountTargets' {} a -> s {mountTargetId = a} :: DescribeMountTargets)
 
 instance Core.AWSPager DescribeMountTargets where
   page rq rs
@@ -207,19 +208,19 @@ instance Core.AWSRequest DescribeMountTargets where
 
 instance Prelude.Hashable DescribeMountTargets where
   hashWithSalt _salt DescribeMountTargets' {..} =
-    _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` mountTargetId
-      `Prelude.hashWithSalt` maxItems
+    _salt `Prelude.hashWithSalt` accessPointId
       `Prelude.hashWithSalt` fileSystemId
-      `Prelude.hashWithSalt` accessPointId
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxItems
+      `Prelude.hashWithSalt` mountTargetId
 
 instance Prelude.NFData DescribeMountTargets where
   rnf DescribeMountTargets' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf mountTargetId
-      `Prelude.seq` Prelude.rnf maxItems
+    Prelude.rnf accessPointId
       `Prelude.seq` Prelude.rnf fileSystemId
-      `Prelude.seq` Prelude.rnf accessPointId
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxItems
+      `Prelude.seq` Prelude.rnf mountTargetId
 
 instance Data.ToHeaders DescribeMountTargets where
   toHeaders = Prelude.const Prelude.mempty
@@ -230,11 +231,11 @@ instance Data.ToPath DescribeMountTargets where
 instance Data.ToQuery DescribeMountTargets where
   toQuery DescribeMountTargets' {..} =
     Prelude.mconcat
-      [ "Marker" Data.=: marker,
-        "MountTargetId" Data.=: mountTargetId,
-        "MaxItems" Data.=: maxItems,
+      [ "AccessPointId" Data.=: accessPointId,
         "FileSystemId" Data.=: fileSystemId,
-        "AccessPointId" Data.=: accessPointId
+        "Marker" Data.=: marker,
+        "MaxItems" Data.=: maxItems,
+        "MountTargetId" Data.=: mountTargetId
       ]
 
 -- |

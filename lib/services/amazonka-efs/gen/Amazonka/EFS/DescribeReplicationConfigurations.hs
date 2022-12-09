@@ -30,9 +30,9 @@ module Amazonka.EFS.DescribeReplicationConfigurations
     newDescribeReplicationConfigurations,
 
     -- * Request Lenses
-    describeReplicationConfigurations_nextToken,
     describeReplicationConfigurations_fileSystemId,
     describeReplicationConfigurations_maxResults,
+    describeReplicationConfigurations_nextToken,
 
     -- * Destructuring the Response
     DescribeReplicationConfigurationsResponse (..),
@@ -55,15 +55,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeReplicationConfigurations' smart constructor.
 data DescribeReplicationConfigurations = DescribeReplicationConfigurations'
-  { -- | @NextToken@ is present if the response is paginated. You can use
-    -- @NextToken@ in a subsequent request to fetch the next page of output.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | You can retrieve the replication configuration for a specific file
+  { -- | You can retrieve the replication configuration for a specific file
     -- system by providing its file system ID.
     fileSystemId :: Prelude.Maybe Prelude.Text,
     -- | (Optional) To limit the number of objects returned in a response, you
     -- can specify the @MaxItems@ parameter. The default value is 100.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | @NextToken@ is present if the response is paginated. You can use
+    -- @NextToken@ in a subsequent request to fetch the next page of output.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,28 +75,23 @@ data DescribeReplicationConfigurations = DescribeReplicationConfigurations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeReplicationConfigurations_nextToken' - @NextToken@ is present if the response is paginated. You can use
--- @NextToken@ in a subsequent request to fetch the next page of output.
---
 -- 'fileSystemId', 'describeReplicationConfigurations_fileSystemId' - You can retrieve the replication configuration for a specific file
 -- system by providing its file system ID.
 --
 -- 'maxResults', 'describeReplicationConfigurations_maxResults' - (Optional) To limit the number of objects returned in a response, you
 -- can specify the @MaxItems@ parameter. The default value is 100.
+--
+-- 'nextToken', 'describeReplicationConfigurations_nextToken' - @NextToken@ is present if the response is paginated. You can use
+-- @NextToken@ in a subsequent request to fetch the next page of output.
 newDescribeReplicationConfigurations ::
   DescribeReplicationConfigurations
 newDescribeReplicationConfigurations =
   DescribeReplicationConfigurations'
-    { nextToken =
+    { fileSystemId =
         Prelude.Nothing,
-      fileSystemId = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | @NextToken@ is present if the response is paginated. You can use
--- @NextToken@ in a subsequent request to fetch the next page of output.
-describeReplicationConfigurations_nextToken :: Lens.Lens' DescribeReplicationConfigurations (Prelude.Maybe Prelude.Text)
-describeReplicationConfigurations_nextToken = Lens.lens (\DescribeReplicationConfigurations' {nextToken} -> nextToken) (\s@DescribeReplicationConfigurations' {} a -> s {nextToken = a} :: DescribeReplicationConfigurations)
 
 -- | You can retrieve the replication configuration for a specific file
 -- system by providing its file system ID.
@@ -107,6 +102,11 @@ describeReplicationConfigurations_fileSystemId = Lens.lens (\DescribeReplication
 -- can specify the @MaxItems@ parameter. The default value is 100.
 describeReplicationConfigurations_maxResults :: Lens.Lens' DescribeReplicationConfigurations (Prelude.Maybe Prelude.Natural)
 describeReplicationConfigurations_maxResults = Lens.lens (\DescribeReplicationConfigurations' {maxResults} -> maxResults) (\s@DescribeReplicationConfigurations' {} a -> s {maxResults = a} :: DescribeReplicationConfigurations)
+
+-- | @NextToken@ is present if the response is paginated. You can use
+-- @NextToken@ in a subsequent request to fetch the next page of output.
+describeReplicationConfigurations_nextToken :: Lens.Lens' DescribeReplicationConfigurations (Prelude.Maybe Prelude.Text)
+describeReplicationConfigurations_nextToken = Lens.lens (\DescribeReplicationConfigurations' {nextToken} -> nextToken) (\s@DescribeReplicationConfigurations' {} a -> s {nextToken = a} :: DescribeReplicationConfigurations)
 
 instance
   Core.AWSRequest
@@ -133,18 +133,18 @@ instance
   hashWithSalt
     _salt
     DescribeReplicationConfigurations' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` fileSystemId
+      _salt `Prelude.hashWithSalt` fileSystemId
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
 
 instance
   Prelude.NFData
     DescribeReplicationConfigurations
   where
   rnf DescribeReplicationConfigurations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf fileSystemId
+    Prelude.rnf fileSystemId
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance
   Data.ToHeaders
@@ -166,9 +166,9 @@ instance
   where
   toQuery DescribeReplicationConfigurations' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "FileSystemId" Data.=: fileSystemId,
-        "MaxResults" Data.=: maxResults
+      [ "FileSystemId" Data.=: fileSystemId,
+        "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newDescribeReplicationConfigurationsResponse' smart constructor.

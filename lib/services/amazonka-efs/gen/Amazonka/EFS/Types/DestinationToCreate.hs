@@ -32,9 +32,6 @@ data DestinationToCreate = DestinationToCreate'
   { -- | To create a file system that uses EFS One Zone storage, specify the name
     -- of the Availability Zone in which to create the destination file system.
     availabilityZoneName :: Prelude.Maybe Prelude.Text,
-    -- | To create a file system that uses Regional storage, specify the Amazon
-    -- Web Services Region in which to create the destination file system.
-    region :: Prelude.Maybe Prelude.Text,
     -- | Specifies the Key Management Service (KMS) key that you want to use to
     -- encrypt the destination file system. If you do not specify a KMS key,
     -- Amazon EFS uses your default KMS key for Amazon EFS,
@@ -52,7 +49,10 @@ data DestinationToCreate = DestinationToCreate'
     --
     -- -   Key alias ARN - The ARN for a key alias, for example
     --     @arn:aws:kms:us-west-2:444455556666:alias\/projectKey1@.
-    kmsKeyId :: Prelude.Maybe Prelude.Text
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | To create a file system that uses Regional storage, specify the Amazon
+    -- Web Services Region in which to create the destination file system.
+    region :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,9 +66,6 @@ data DestinationToCreate = DestinationToCreate'
 --
 -- 'availabilityZoneName', 'destinationToCreate_availabilityZoneName' - To create a file system that uses EFS One Zone storage, specify the name
 -- of the Availability Zone in which to create the destination file system.
---
--- 'region', 'destinationToCreate_region' - To create a file system that uses Regional storage, specify the Amazon
--- Web Services Region in which to create the destination file system.
 --
 -- 'kmsKeyId', 'destinationToCreate_kmsKeyId' - Specifies the Key Management Service (KMS) key that you want to use to
 -- encrypt the destination file system. If you do not specify a KMS key,
@@ -87,25 +84,23 @@ data DestinationToCreate = DestinationToCreate'
 --
 -- -   Key alias ARN - The ARN for a key alias, for example
 --     @arn:aws:kms:us-west-2:444455556666:alias\/projectKey1@.
+--
+-- 'region', 'destinationToCreate_region' - To create a file system that uses Regional storage, specify the Amazon
+-- Web Services Region in which to create the destination file system.
 newDestinationToCreate ::
   DestinationToCreate
 newDestinationToCreate =
   DestinationToCreate'
     { availabilityZoneName =
         Prelude.Nothing,
-      region = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing
+      kmsKeyId = Prelude.Nothing,
+      region = Prelude.Nothing
     }
 
 -- | To create a file system that uses EFS One Zone storage, specify the name
 -- of the Availability Zone in which to create the destination file system.
 destinationToCreate_availabilityZoneName :: Lens.Lens' DestinationToCreate (Prelude.Maybe Prelude.Text)
 destinationToCreate_availabilityZoneName = Lens.lens (\DestinationToCreate' {availabilityZoneName} -> availabilityZoneName) (\s@DestinationToCreate' {} a -> s {availabilityZoneName = a} :: DestinationToCreate)
-
--- | To create a file system that uses Regional storage, specify the Amazon
--- Web Services Region in which to create the destination file system.
-destinationToCreate_region :: Lens.Lens' DestinationToCreate (Prelude.Maybe Prelude.Text)
-destinationToCreate_region = Lens.lens (\DestinationToCreate' {region} -> region) (\s@DestinationToCreate' {} a -> s {region = a} :: DestinationToCreate)
 
 -- | Specifies the Key Management Service (KMS) key that you want to use to
 -- encrypt the destination file system. If you do not specify a KMS key,
@@ -127,17 +122,22 @@ destinationToCreate_region = Lens.lens (\DestinationToCreate' {region} -> region
 destinationToCreate_kmsKeyId :: Lens.Lens' DestinationToCreate (Prelude.Maybe Prelude.Text)
 destinationToCreate_kmsKeyId = Lens.lens (\DestinationToCreate' {kmsKeyId} -> kmsKeyId) (\s@DestinationToCreate' {} a -> s {kmsKeyId = a} :: DestinationToCreate)
 
+-- | To create a file system that uses Regional storage, specify the Amazon
+-- Web Services Region in which to create the destination file system.
+destinationToCreate_region :: Lens.Lens' DestinationToCreate (Prelude.Maybe Prelude.Text)
+destinationToCreate_region = Lens.lens (\DestinationToCreate' {region} -> region) (\s@DestinationToCreate' {} a -> s {region = a} :: DestinationToCreate)
+
 instance Prelude.Hashable DestinationToCreate where
   hashWithSalt _salt DestinationToCreate' {..} =
     _salt `Prelude.hashWithSalt` availabilityZoneName
-      `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` region
 
 instance Prelude.NFData DestinationToCreate where
   rnf DestinationToCreate' {..} =
     Prelude.rnf availabilityZoneName
-      `Prelude.seq` Prelude.rnf region
       `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf region
 
 instance Data.ToJSON DestinationToCreate where
   toJSON DestinationToCreate' {..} =
@@ -145,7 +145,7 @@ instance Data.ToJSON DestinationToCreate where
       ( Prelude.catMaybes
           [ ("AvailabilityZoneName" Data..=)
               Prelude.<$> availabilityZoneName,
-            ("Region" Data..=) Prelude.<$> region,
-            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("Region" Data..=) Prelude.<$> region
           ]
       )

@@ -37,8 +37,8 @@ module Amazonka.ElastiCache.DeleteReplicationGroup
     newDeleteReplicationGroup,
 
     -- * Request Lenses
-    deleteReplicationGroup_retainPrimaryCluster,
     deleteReplicationGroup_finalSnapshotIdentifier,
+    deleteReplicationGroup_retainPrimaryCluster,
     deleteReplicationGroup_replicationGroupId,
 
     -- * Destructuring the Response
@@ -63,15 +63,15 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteReplicationGroup' smart constructor.
 data DeleteReplicationGroup = DeleteReplicationGroup'
-  { -- | If set to @true@, all of the read replicas are deleted, but the primary
-    -- node is retained.
-    retainPrimaryCluster :: Prelude.Maybe Prelude.Bool,
-    -- | The name of a final node group (shard) snapshot. ElastiCache creates the
+  { -- | The name of a final node group (shard) snapshot. ElastiCache creates the
     -- snapshot from the primary node in the cluster, rather than one of the
     -- replicas; this is to ensure that it captures the freshest data. After
     -- the final snapshot is taken, the replication group is immediately
     -- deleted.
     finalSnapshotIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | If set to @true@, all of the read replicas are deleted, but the primary
+    -- node is retained.
+    retainPrimaryCluster :: Prelude.Maybe Prelude.Bool,
     -- | The identifier for the cluster to be deleted. This parameter is not case
     -- sensitive.
     replicationGroupId :: Prelude.Text
@@ -86,14 +86,14 @@ data DeleteReplicationGroup = DeleteReplicationGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'retainPrimaryCluster', 'deleteReplicationGroup_retainPrimaryCluster' - If set to @true@, all of the read replicas are deleted, but the primary
--- node is retained.
---
 -- 'finalSnapshotIdentifier', 'deleteReplicationGroup_finalSnapshotIdentifier' - The name of a final node group (shard) snapshot. ElastiCache creates the
 -- snapshot from the primary node in the cluster, rather than one of the
 -- replicas; this is to ensure that it captures the freshest data. After
 -- the final snapshot is taken, the replication group is immediately
 -- deleted.
+--
+-- 'retainPrimaryCluster', 'deleteReplicationGroup_retainPrimaryCluster' - If set to @true@, all of the read replicas are deleted, but the primary
+-- node is retained.
 --
 -- 'replicationGroupId', 'deleteReplicationGroup_replicationGroupId' - The identifier for the cluster to be deleted. This parameter is not case
 -- sensitive.
@@ -103,16 +103,11 @@ newDeleteReplicationGroup ::
   DeleteReplicationGroup
 newDeleteReplicationGroup pReplicationGroupId_ =
   DeleteReplicationGroup'
-    { retainPrimaryCluster =
+    { finalSnapshotIdentifier =
         Prelude.Nothing,
-      finalSnapshotIdentifier = Prelude.Nothing,
+      retainPrimaryCluster = Prelude.Nothing,
       replicationGroupId = pReplicationGroupId_
     }
-
--- | If set to @true@, all of the read replicas are deleted, but the primary
--- node is retained.
-deleteReplicationGroup_retainPrimaryCluster :: Lens.Lens' DeleteReplicationGroup (Prelude.Maybe Prelude.Bool)
-deleteReplicationGroup_retainPrimaryCluster = Lens.lens (\DeleteReplicationGroup' {retainPrimaryCluster} -> retainPrimaryCluster) (\s@DeleteReplicationGroup' {} a -> s {retainPrimaryCluster = a} :: DeleteReplicationGroup)
 
 -- | The name of a final node group (shard) snapshot. ElastiCache creates the
 -- snapshot from the primary node in the cluster, rather than one of the
@@ -121,6 +116,11 @@ deleteReplicationGroup_retainPrimaryCluster = Lens.lens (\DeleteReplicationGroup
 -- deleted.
 deleteReplicationGroup_finalSnapshotIdentifier :: Lens.Lens' DeleteReplicationGroup (Prelude.Maybe Prelude.Text)
 deleteReplicationGroup_finalSnapshotIdentifier = Lens.lens (\DeleteReplicationGroup' {finalSnapshotIdentifier} -> finalSnapshotIdentifier) (\s@DeleteReplicationGroup' {} a -> s {finalSnapshotIdentifier = a} :: DeleteReplicationGroup)
+
+-- | If set to @true@, all of the read replicas are deleted, but the primary
+-- node is retained.
+deleteReplicationGroup_retainPrimaryCluster :: Lens.Lens' DeleteReplicationGroup (Prelude.Maybe Prelude.Bool)
+deleteReplicationGroup_retainPrimaryCluster = Lens.lens (\DeleteReplicationGroup' {retainPrimaryCluster} -> retainPrimaryCluster) (\s@DeleteReplicationGroup' {} a -> s {retainPrimaryCluster = a} :: DeleteReplicationGroup)
 
 -- | The identifier for the cluster to be deleted. This parameter is not case
 -- sensitive.
@@ -144,14 +144,15 @@ instance Core.AWSRequest DeleteReplicationGroup where
 
 instance Prelude.Hashable DeleteReplicationGroup where
   hashWithSalt _salt DeleteReplicationGroup' {..} =
-    _salt `Prelude.hashWithSalt` retainPrimaryCluster
+    _salt
       `Prelude.hashWithSalt` finalSnapshotIdentifier
+      `Prelude.hashWithSalt` retainPrimaryCluster
       `Prelude.hashWithSalt` replicationGroupId
 
 instance Prelude.NFData DeleteReplicationGroup where
   rnf DeleteReplicationGroup' {..} =
-    Prelude.rnf retainPrimaryCluster
-      `Prelude.seq` Prelude.rnf finalSnapshotIdentifier
+    Prelude.rnf finalSnapshotIdentifier
+      `Prelude.seq` Prelude.rnf retainPrimaryCluster
       `Prelude.seq` Prelude.rnf replicationGroupId
 
 instance Data.ToHeaders DeleteReplicationGroup where
@@ -167,9 +168,9 @@ instance Data.ToQuery DeleteReplicationGroup where
           Data.=: ("DeleteReplicationGroup" :: Prelude.ByteString),
         "Version"
           Data.=: ("2015-02-02" :: Prelude.ByteString),
-        "RetainPrimaryCluster" Data.=: retainPrimaryCluster,
         "FinalSnapshotIdentifier"
           Data.=: finalSnapshotIdentifier,
+        "RetainPrimaryCluster" Data.=: retainPrimaryCluster,
         "ReplicationGroupId" Data.=: replicationGroupId
       ]
 

@@ -41,8 +41,8 @@ module Amazonka.ElastiCache.ListAllowedNodeTypeModifications
     newListAllowedNodeTypeModificationsResponse,
 
     -- * Response Lenses
-    listAllowedNodeTypeModificationsResponse_scaleUpModifications,
     listAllowedNodeTypeModificationsResponse_scaleDownModifications,
+    listAllowedNodeTypeModificationsResponse_scaleUpModifications,
     listAllowedNodeTypeModificationsResponse_httpStatus,
   )
 where
@@ -145,11 +145,11 @@ instance
       "ListAllowedNodeTypeModificationsResult"
       ( \s h x ->
           ListAllowedNodeTypeModificationsResponse'
-            Prelude.<$> ( x Data..@? "ScaleUpModifications"
+            Prelude.<$> ( x Data..@? "ScaleDownModifications"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Data..@? "ScaleDownModifications"
+            Prelude.<*> ( x Data..@? "ScaleUpModifications"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
@@ -205,18 +205,18 @@ instance
 -- /See:/ 'newListAllowedNodeTypeModificationsResponse' smart constructor.
 data ListAllowedNodeTypeModificationsResponse = ListAllowedNodeTypeModificationsResponse'
   { -- | A string list, each element of which specifies a cache node type which
+    -- you can use to scale your cluster or replication group. When scaling
+    -- down a Redis cluster or replication group using ModifyCacheCluster or
+    -- ModifyReplicationGroup, use a value from this list for the CacheNodeType
+    -- parameter.
+    scaleDownModifications :: Prelude.Maybe [Prelude.Text],
+    -- | A string list, each element of which specifies a cache node type which
     -- you can use to scale your cluster or replication group.
     --
     -- When scaling up a Redis cluster or replication group using
     -- @ModifyCacheCluster@ or @ModifyReplicationGroup@, use a value from this
     -- list for the @CacheNodeType@ parameter.
     scaleUpModifications :: Prelude.Maybe [Prelude.Text],
-    -- | A string list, each element of which specifies a cache node type which
-    -- you can use to scale your cluster or replication group. When scaling
-    -- down a Redis cluster or replication group using ModifyCacheCluster or
-    -- ModifyReplicationGroup, use a value from this list for the CacheNodeType
-    -- parameter.
-    scaleDownModifications :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -230,18 +230,18 @@ data ListAllowedNodeTypeModificationsResponse = ListAllowedNodeTypeModifications
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'scaleDownModifications', 'listAllowedNodeTypeModificationsResponse_scaleDownModifications' - A string list, each element of which specifies a cache node type which
+-- you can use to scale your cluster or replication group. When scaling
+-- down a Redis cluster or replication group using ModifyCacheCluster or
+-- ModifyReplicationGroup, use a value from this list for the CacheNodeType
+-- parameter.
+--
 -- 'scaleUpModifications', 'listAllowedNodeTypeModificationsResponse_scaleUpModifications' - A string list, each element of which specifies a cache node type which
 -- you can use to scale your cluster or replication group.
 --
 -- When scaling up a Redis cluster or replication group using
 -- @ModifyCacheCluster@ or @ModifyReplicationGroup@, use a value from this
 -- list for the @CacheNodeType@ parameter.
---
--- 'scaleDownModifications', 'listAllowedNodeTypeModificationsResponse_scaleDownModifications' - A string list, each element of which specifies a cache node type which
--- you can use to scale your cluster or replication group. When scaling
--- down a Redis cluster or replication group using ModifyCacheCluster or
--- ModifyReplicationGroup, use a value from this list for the CacheNodeType
--- parameter.
 --
 -- 'httpStatus', 'listAllowedNodeTypeModificationsResponse_httpStatus' - The response's http status code.
 newListAllowedNodeTypeModificationsResponse ::
@@ -251,12 +251,20 @@ newListAllowedNodeTypeModificationsResponse ::
 newListAllowedNodeTypeModificationsResponse
   pHttpStatus_ =
     ListAllowedNodeTypeModificationsResponse'
-      { scaleUpModifications =
+      { scaleDownModifications =
           Prelude.Nothing,
-        scaleDownModifications =
+        scaleUpModifications =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | A string list, each element of which specifies a cache node type which
+-- you can use to scale your cluster or replication group. When scaling
+-- down a Redis cluster or replication group using ModifyCacheCluster or
+-- ModifyReplicationGroup, use a value from this list for the CacheNodeType
+-- parameter.
+listAllowedNodeTypeModificationsResponse_scaleDownModifications :: Lens.Lens' ListAllowedNodeTypeModificationsResponse (Prelude.Maybe [Prelude.Text])
+listAllowedNodeTypeModificationsResponse_scaleDownModifications = Lens.lens (\ListAllowedNodeTypeModificationsResponse' {scaleDownModifications} -> scaleDownModifications) (\s@ListAllowedNodeTypeModificationsResponse' {} a -> s {scaleDownModifications = a} :: ListAllowedNodeTypeModificationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A string list, each element of which specifies a cache node type which
 -- you can use to scale your cluster or replication group.
@@ -267,14 +275,6 @@ newListAllowedNodeTypeModificationsResponse
 listAllowedNodeTypeModificationsResponse_scaleUpModifications :: Lens.Lens' ListAllowedNodeTypeModificationsResponse (Prelude.Maybe [Prelude.Text])
 listAllowedNodeTypeModificationsResponse_scaleUpModifications = Lens.lens (\ListAllowedNodeTypeModificationsResponse' {scaleUpModifications} -> scaleUpModifications) (\s@ListAllowedNodeTypeModificationsResponse' {} a -> s {scaleUpModifications = a} :: ListAllowedNodeTypeModificationsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | A string list, each element of which specifies a cache node type which
--- you can use to scale your cluster or replication group. When scaling
--- down a Redis cluster or replication group using ModifyCacheCluster or
--- ModifyReplicationGroup, use a value from this list for the CacheNodeType
--- parameter.
-listAllowedNodeTypeModificationsResponse_scaleDownModifications :: Lens.Lens' ListAllowedNodeTypeModificationsResponse (Prelude.Maybe [Prelude.Text])
-listAllowedNodeTypeModificationsResponse_scaleDownModifications = Lens.lens (\ListAllowedNodeTypeModificationsResponse' {scaleDownModifications} -> scaleDownModifications) (\s@ListAllowedNodeTypeModificationsResponse' {} a -> s {scaleDownModifications = a} :: ListAllowedNodeTypeModificationsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listAllowedNodeTypeModificationsResponse_httpStatus :: Lens.Lens' ListAllowedNodeTypeModificationsResponse Prelude.Int
 listAllowedNodeTypeModificationsResponse_httpStatus = Lens.lens (\ListAllowedNodeTypeModificationsResponse' {httpStatus} -> httpStatus) (\s@ListAllowedNodeTypeModificationsResponse' {} a -> s {httpStatus = a} :: ListAllowedNodeTypeModificationsResponse)
@@ -284,6 +284,6 @@ instance
     ListAllowedNodeTypeModificationsResponse
   where
   rnf ListAllowedNodeTypeModificationsResponse' {..} =
-    Prelude.rnf scaleUpModifications
-      `Prelude.seq` Prelude.rnf scaleDownModifications
+    Prelude.rnf scaleDownModifications
+      `Prelude.seq` Prelude.rnf scaleUpModifications
       `Prelude.seq` Prelude.rnf httpStatus

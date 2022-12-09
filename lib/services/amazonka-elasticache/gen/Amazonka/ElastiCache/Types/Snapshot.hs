@@ -32,19 +32,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSnapshot' smart constructor.
 data Snapshot = Snapshot'
-  { -- | The port number used by each cache nodes in the source cluster.
-    port :: Prelude.Maybe Prelude.Int,
-    -- | The status of the snapshot. Valid values: @creating@ | @available@ |
-    -- @restoring@ | @copying@ | @deleting@.
-    snapshotStatus :: Prelude.Maybe Prelude.Text,
-    -- | The name of the cache subnet group associated with the source cluster.
-    cacheSubnetGroupName :: Prelude.Maybe Prelude.Text,
-    -- | The name of a snapshot. For an automatic snapshot, the name is
-    -- system-generated. For a manual snapshot, this is the user-provided name.
-    snapshotName :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the snapshot is from an automatic backup (@automated@)
-    -- or was created manually (@manual@).
-    snapshotSource :: Prelude.Maybe Prelude.Text,
+  { -- | The ARN (Amazon Resource Name) of the snapshot.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | If you are running Redis engine version 6.0 or later, set this
     -- parameter to yes if you want to opt-in to the next auto minor version
     -- upgrade campaign. This parameter is disabled for previous versions.
@@ -52,18 +41,10 @@ data Snapshot = Snapshot'
     -- | Indicates the status of automatic failover for the source Redis
     -- replication group.
     automaticFailover :: Prelude.Maybe AutomaticFailoverStatus,
-    -- | The ARN (Amazon Resource Name) of the snapshot.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the topic used by the source cluster
-    -- for publishing notifications.
-    topicArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the source cluster was created.
     cacheClusterCreateTime :: Prelude.Maybe Data.ISO8601,
-    -- | The number of cache nodes in the source cluster.
-    --
-    -- For clusters running Redis, this value must be 1. For clusters running
-    -- Memcached, this value must be between 1 and 40.
-    numCacheNodes :: Prelude.Maybe Prelude.Int,
+    -- | The user-supplied identifier of the source cluster.
+    cacheClusterId :: Prelude.Maybe Prelude.Text,
     -- | The name of the compute and memory capacity node type for the source
     -- cluster.
     --
@@ -170,34 +151,37 @@ data Snapshot = Snapshot'
     cacheNodeType :: Prelude.Maybe Prelude.Text,
     -- | The cache parameter group that is associated with the source cluster.
     cacheParameterGroupName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Availability Zone in which the source cluster is
-    -- located.
-    preferredAvailabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | The user-supplied identifier of the source cluster.
-    cacheClusterId :: Prelude.Maybe Prelude.Text,
-    -- | The daily time range during which ElastiCache takes daily snapshots of
-    -- the source cluster.
-    snapshotWindow :: Prelude.Maybe Prelude.Text,
-    -- | For an automatic snapshot, the number of days for which ElastiCache
-    -- retains the snapshot before deleting it.
-    --
-    -- For manual snapshots, this field reflects the @SnapshotRetentionLimit@
-    -- for the source cluster when the snapshot was created. This field is
-    -- otherwise ignored: Manual snapshots do not expire, and can only be
-    -- deleted using the @DeleteSnapshot@ operation.
-    --
-    -- __Important__ If the value of SnapshotRetentionLimit is set to zero (0),
-    -- backups are turned off.
-    snapshotRetentionLimit :: Prelude.Maybe Prelude.Int,
-    -- | A description of the source replication group.
-    replicationGroupDescription :: Prelude.Maybe Prelude.Text,
-    -- | The ARN (Amazon Resource Name) of the preferred outpost.
-    preferredOutpostArn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the KMS key used to encrypt the snapshot.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the cache subnet group associated with the source cluster.
+    cacheSubnetGroupName :: Prelude.Maybe Prelude.Text,
+    -- | Enables data tiering. Data tiering is only supported for replication
+    -- groups using the r6gd node type. This parameter must be set to true when
+    -- using r6gd nodes. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html Data tiering>.
+    dataTiering :: Prelude.Maybe DataTieringStatus,
     -- | The name of the cache engine (@memcached@ or @redis@) used by the source
     -- cluster.
     engine :: Prelude.Maybe Prelude.Text,
+    -- | The version of the cache engine version that is used by the source
+    -- cluster.
+    engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the KMS key used to encrypt the snapshot.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | A list of the cache nodes in the source cluster.
+    nodeSnapshots :: Prelude.Maybe [NodeSnapshot],
+    -- | The number of cache nodes in the source cluster.
+    --
+    -- For clusters running Redis, this value must be 1. For clusters running
+    -- Memcached, this value must be between 1 and 40.
+    numCacheNodes :: Prelude.Maybe Prelude.Int,
+    -- | The number of node groups (shards) in this snapshot. When restoring from
+    -- a snapshot, the number of node groups (shards) in the snapshot and in
+    -- the restored replication group must be the same.
+    numNodeGroups :: Prelude.Maybe Prelude.Int,
+    -- | The port number used by each cache nodes in the source cluster.
+    port :: Prelude.Maybe Prelude.Int,
+    -- | The name of the Availability Zone in which the source cluster is
+    -- located.
+    preferredAvailabilityZone :: Prelude.Maybe Prelude.Text,
     -- | Specifies the weekly time range during which maintenance on the cluster
     -- is performed. It is specified as a range in the format
     -- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
@@ -221,25 +205,41 @@ data Snapshot = Snapshot'
     --
     -- Example: @sun:23:00-mon:01:30@
     preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet
-    -- group for the source cluster.
-    vpcId :: Prelude.Maybe Prelude.Text,
-    -- | Enables data tiering. Data tiering is only supported for replication
-    -- groups using the r6gd node type. This parameter must be set to true when
-    -- using r6gd nodes. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html Data tiering>.
-    dataTiering :: Prelude.Maybe DataTieringStatus,
+    -- | The ARN (Amazon Resource Name) of the preferred outpost.
+    preferredOutpostArn :: Prelude.Maybe Prelude.Text,
+    -- | A description of the source replication group.
+    replicationGroupDescription :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the source replication group.
     replicationGroupId :: Prelude.Maybe Prelude.Text,
-    -- | A list of the cache nodes in the source cluster.
-    nodeSnapshots :: Prelude.Maybe [NodeSnapshot],
-    -- | The number of node groups (shards) in this snapshot. When restoring from
-    -- a snapshot, the number of node groups (shards) in the snapshot and in
-    -- the restored replication group must be the same.
-    numNodeGroups :: Prelude.Maybe Prelude.Int,
-    -- | The version of the cache engine version that is used by the source
-    -- cluster.
-    engineVersion :: Prelude.Maybe Prelude.Text
+    -- | The name of a snapshot. For an automatic snapshot, the name is
+    -- system-generated. For a manual snapshot, this is the user-provided name.
+    snapshotName :: Prelude.Maybe Prelude.Text,
+    -- | For an automatic snapshot, the number of days for which ElastiCache
+    -- retains the snapshot before deleting it.
+    --
+    -- For manual snapshots, this field reflects the @SnapshotRetentionLimit@
+    -- for the source cluster when the snapshot was created. This field is
+    -- otherwise ignored: Manual snapshots do not expire, and can only be
+    -- deleted using the @DeleteSnapshot@ operation.
+    --
+    -- __Important__ If the value of SnapshotRetentionLimit is set to zero (0),
+    -- backups are turned off.
+    snapshotRetentionLimit :: Prelude.Maybe Prelude.Int,
+    -- | Indicates whether the snapshot is from an automatic backup (@automated@)
+    -- or was created manually (@manual@).
+    snapshotSource :: Prelude.Maybe Prelude.Text,
+    -- | The status of the snapshot. Valid values: @creating@ | @available@ |
+    -- @restoring@ | @copying@ | @deleting@.
+    snapshotStatus :: Prelude.Maybe Prelude.Text,
+    -- | The daily time range during which ElastiCache takes daily snapshots of
+    -- the source cluster.
+    snapshotWindow :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) for the topic used by the source cluster
+    -- for publishing notifications.
+    topicArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet
+    -- group for the source cluster.
+    vpcId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -251,18 +251,7 @@ data Snapshot = Snapshot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'port', 'snapshot_port' - The port number used by each cache nodes in the source cluster.
---
--- 'snapshotStatus', 'snapshot_snapshotStatus' - The status of the snapshot. Valid values: @creating@ | @available@ |
--- @restoring@ | @copying@ | @deleting@.
---
--- 'cacheSubnetGroupName', 'snapshot_cacheSubnetGroupName' - The name of the cache subnet group associated with the source cluster.
---
--- 'snapshotName', 'snapshot_snapshotName' - The name of a snapshot. For an automatic snapshot, the name is
--- system-generated. For a manual snapshot, this is the user-provided name.
---
--- 'snapshotSource', 'snapshot_snapshotSource' - Indicates whether the snapshot is from an automatic backup (@automated@)
--- or was created manually (@manual@).
+-- 'arn', 'snapshot_arn' - The ARN (Amazon Resource Name) of the snapshot.
 --
 -- 'autoMinorVersionUpgrade', 'snapshot_autoMinorVersionUpgrade' - If you are running Redis engine version 6.0 or later, set this
 -- parameter to yes if you want to opt-in to the next auto minor version
@@ -271,17 +260,9 @@ data Snapshot = Snapshot'
 -- 'automaticFailover', 'snapshot_automaticFailover' - Indicates the status of automatic failover for the source Redis
 -- replication group.
 --
--- 'arn', 'snapshot_arn' - The ARN (Amazon Resource Name) of the snapshot.
---
--- 'topicArn', 'snapshot_topicArn' - The Amazon Resource Name (ARN) for the topic used by the source cluster
--- for publishing notifications.
---
 -- 'cacheClusterCreateTime', 'snapshot_cacheClusterCreateTime' - The date and time when the source cluster was created.
 --
--- 'numCacheNodes', 'snapshot_numCacheNodes' - The number of cache nodes in the source cluster.
---
--- For clusters running Redis, this value must be 1. For clusters running
--- Memcached, this value must be between 1 and 40.
+-- 'cacheClusterId', 'snapshot_cacheClusterId' - The user-supplied identifier of the source cluster.
 --
 -- 'cacheNodeType', 'snapshot_cacheNodeType' - The name of the compute and memory capacity node type for the source
 -- cluster.
@@ -389,33 +370,36 @@ data Snapshot = Snapshot'
 --
 -- 'cacheParameterGroupName', 'snapshot_cacheParameterGroupName' - The cache parameter group that is associated with the source cluster.
 --
--- 'preferredAvailabilityZone', 'snapshot_preferredAvailabilityZone' - The name of the Availability Zone in which the source cluster is
--- located.
+-- 'cacheSubnetGroupName', 'snapshot_cacheSubnetGroupName' - The name of the cache subnet group associated with the source cluster.
 --
--- 'cacheClusterId', 'snapshot_cacheClusterId' - The user-supplied identifier of the source cluster.
---
--- 'snapshotWindow', 'snapshot_snapshotWindow' - The daily time range during which ElastiCache takes daily snapshots of
--- the source cluster.
---
--- 'snapshotRetentionLimit', 'snapshot_snapshotRetentionLimit' - For an automatic snapshot, the number of days for which ElastiCache
--- retains the snapshot before deleting it.
---
--- For manual snapshots, this field reflects the @SnapshotRetentionLimit@
--- for the source cluster when the snapshot was created. This field is
--- otherwise ignored: Manual snapshots do not expire, and can only be
--- deleted using the @DeleteSnapshot@ operation.
---
--- __Important__ If the value of SnapshotRetentionLimit is set to zero (0),
--- backups are turned off.
---
--- 'replicationGroupDescription', 'snapshot_replicationGroupDescription' - A description of the source replication group.
---
--- 'preferredOutpostArn', 'snapshot_preferredOutpostArn' - The ARN (Amazon Resource Name) of the preferred outpost.
---
--- 'kmsKeyId', 'snapshot_kmsKeyId' - The ID of the KMS key used to encrypt the snapshot.
+-- 'dataTiering', 'snapshot_dataTiering' - Enables data tiering. Data tiering is only supported for replication
+-- groups using the r6gd node type. This parameter must be set to true when
+-- using r6gd nodes. For more information, see
+-- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html Data tiering>.
 --
 -- 'engine', 'snapshot_engine' - The name of the cache engine (@memcached@ or @redis@) used by the source
 -- cluster.
+--
+-- 'engineVersion', 'snapshot_engineVersion' - The version of the cache engine version that is used by the source
+-- cluster.
+--
+-- 'kmsKeyId', 'snapshot_kmsKeyId' - The ID of the KMS key used to encrypt the snapshot.
+--
+-- 'nodeSnapshots', 'snapshot_nodeSnapshots' - A list of the cache nodes in the source cluster.
+--
+-- 'numCacheNodes', 'snapshot_numCacheNodes' - The number of cache nodes in the source cluster.
+--
+-- For clusters running Redis, this value must be 1. For clusters running
+-- Memcached, this value must be between 1 and 40.
+--
+-- 'numNodeGroups', 'snapshot_numNodeGroups' - The number of node groups (shards) in this snapshot. When restoring from
+-- a snapshot, the number of node groups (shards) in the snapshot and in
+-- the restored replication group must be the same.
+--
+-- 'port', 'snapshot_port' - The port number used by each cache nodes in the source cluster.
+--
+-- 'preferredAvailabilityZone', 'snapshot_preferredAvailabilityZone' - The name of the Availability Zone in which the source cluster is
+-- located.
 --
 -- 'preferredMaintenanceWindow', 'snapshot_preferredMaintenanceWindow' - Specifies the weekly time range during which maintenance on the cluster
 -- is performed. It is specified as a range in the format
@@ -440,80 +424,77 @@ data Snapshot = Snapshot'
 --
 -- Example: @sun:23:00-mon:01:30@
 --
--- 'vpcId', 'snapshot_vpcId' - The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet
--- group for the source cluster.
+-- 'preferredOutpostArn', 'snapshot_preferredOutpostArn' - The ARN (Amazon Resource Name) of the preferred outpost.
 --
--- 'dataTiering', 'snapshot_dataTiering' - Enables data tiering. Data tiering is only supported for replication
--- groups using the r6gd node type. This parameter must be set to true when
--- using r6gd nodes. For more information, see
--- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html Data tiering>.
+-- 'replicationGroupDescription', 'snapshot_replicationGroupDescription' - A description of the source replication group.
 --
 -- 'replicationGroupId', 'snapshot_replicationGroupId' - The unique identifier of the source replication group.
 --
--- 'nodeSnapshots', 'snapshot_nodeSnapshots' - A list of the cache nodes in the source cluster.
+-- 'snapshotName', 'snapshot_snapshotName' - The name of a snapshot. For an automatic snapshot, the name is
+-- system-generated. For a manual snapshot, this is the user-provided name.
 --
--- 'numNodeGroups', 'snapshot_numNodeGroups' - The number of node groups (shards) in this snapshot. When restoring from
--- a snapshot, the number of node groups (shards) in the snapshot and in
--- the restored replication group must be the same.
+-- 'snapshotRetentionLimit', 'snapshot_snapshotRetentionLimit' - For an automatic snapshot, the number of days for which ElastiCache
+-- retains the snapshot before deleting it.
 --
--- 'engineVersion', 'snapshot_engineVersion' - The version of the cache engine version that is used by the source
--- cluster.
+-- For manual snapshots, this field reflects the @SnapshotRetentionLimit@
+-- for the source cluster when the snapshot was created. This field is
+-- otherwise ignored: Manual snapshots do not expire, and can only be
+-- deleted using the @DeleteSnapshot@ operation.
+--
+-- __Important__ If the value of SnapshotRetentionLimit is set to zero (0),
+-- backups are turned off.
+--
+-- 'snapshotSource', 'snapshot_snapshotSource' - Indicates whether the snapshot is from an automatic backup (@automated@)
+-- or was created manually (@manual@).
+--
+-- 'snapshotStatus', 'snapshot_snapshotStatus' - The status of the snapshot. Valid values: @creating@ | @available@ |
+-- @restoring@ | @copying@ | @deleting@.
+--
+-- 'snapshotWindow', 'snapshot_snapshotWindow' - The daily time range during which ElastiCache takes daily snapshots of
+-- the source cluster.
+--
+-- 'topicArn', 'snapshot_topicArn' - The Amazon Resource Name (ARN) for the topic used by the source cluster
+-- for publishing notifications.
+--
+-- 'vpcId', 'snapshot_vpcId' - The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet
+-- group for the source cluster.
 newSnapshot ::
   Snapshot
 newSnapshot =
   Snapshot'
-    { port = Prelude.Nothing,
-      snapshotStatus = Prelude.Nothing,
-      cacheSubnetGroupName = Prelude.Nothing,
-      snapshotName = Prelude.Nothing,
-      snapshotSource = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       autoMinorVersionUpgrade = Prelude.Nothing,
       automaticFailover = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      topicArn = Prelude.Nothing,
       cacheClusterCreateTime = Prelude.Nothing,
-      numCacheNodes = Prelude.Nothing,
+      cacheClusterId = Prelude.Nothing,
       cacheNodeType = Prelude.Nothing,
       cacheParameterGroupName = Prelude.Nothing,
-      preferredAvailabilityZone = Prelude.Nothing,
-      cacheClusterId = Prelude.Nothing,
-      snapshotWindow = Prelude.Nothing,
-      snapshotRetentionLimit = Prelude.Nothing,
-      replicationGroupDescription = Prelude.Nothing,
-      preferredOutpostArn = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
-      engine = Prelude.Nothing,
-      preferredMaintenanceWindow = Prelude.Nothing,
-      vpcId = Prelude.Nothing,
+      cacheSubnetGroupName = Prelude.Nothing,
       dataTiering = Prelude.Nothing,
-      replicationGroupId = Prelude.Nothing,
+      engine = Prelude.Nothing,
+      engineVersion = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
       nodeSnapshots = Prelude.Nothing,
+      numCacheNodes = Prelude.Nothing,
       numNodeGroups = Prelude.Nothing,
-      engineVersion = Prelude.Nothing
+      port = Prelude.Nothing,
+      preferredAvailabilityZone = Prelude.Nothing,
+      preferredMaintenanceWindow = Prelude.Nothing,
+      preferredOutpostArn = Prelude.Nothing,
+      replicationGroupDescription = Prelude.Nothing,
+      replicationGroupId = Prelude.Nothing,
+      snapshotName = Prelude.Nothing,
+      snapshotRetentionLimit = Prelude.Nothing,
+      snapshotSource = Prelude.Nothing,
+      snapshotStatus = Prelude.Nothing,
+      snapshotWindow = Prelude.Nothing,
+      topicArn = Prelude.Nothing,
+      vpcId = Prelude.Nothing
     }
 
--- | The port number used by each cache nodes in the source cluster.
-snapshot_port :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Int)
-snapshot_port = Lens.lens (\Snapshot' {port} -> port) (\s@Snapshot' {} a -> s {port = a} :: Snapshot)
-
--- | The status of the snapshot. Valid values: @creating@ | @available@ |
--- @restoring@ | @copying@ | @deleting@.
-snapshot_snapshotStatus :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
-snapshot_snapshotStatus = Lens.lens (\Snapshot' {snapshotStatus} -> snapshotStatus) (\s@Snapshot' {} a -> s {snapshotStatus = a} :: Snapshot)
-
--- | The name of the cache subnet group associated with the source cluster.
-snapshot_cacheSubnetGroupName :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
-snapshot_cacheSubnetGroupName = Lens.lens (\Snapshot' {cacheSubnetGroupName} -> cacheSubnetGroupName) (\s@Snapshot' {} a -> s {cacheSubnetGroupName = a} :: Snapshot)
-
--- | The name of a snapshot. For an automatic snapshot, the name is
--- system-generated. For a manual snapshot, this is the user-provided name.
-snapshot_snapshotName :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
-snapshot_snapshotName = Lens.lens (\Snapshot' {snapshotName} -> snapshotName) (\s@Snapshot' {} a -> s {snapshotName = a} :: Snapshot)
-
--- | Indicates whether the snapshot is from an automatic backup (@automated@)
--- or was created manually (@manual@).
-snapshot_snapshotSource :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
-snapshot_snapshotSource = Lens.lens (\Snapshot' {snapshotSource} -> snapshotSource) (\s@Snapshot' {} a -> s {snapshotSource = a} :: Snapshot)
+-- | The ARN (Amazon Resource Name) of the snapshot.
+snapshot_arn :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
+snapshot_arn = Lens.lens (\Snapshot' {arn} -> arn) (\s@Snapshot' {} a -> s {arn = a} :: Snapshot)
 
 -- | If you are running Redis engine version 6.0 or later, set this
 -- parameter to yes if you want to opt-in to the next auto minor version
@@ -526,25 +507,13 @@ snapshot_autoMinorVersionUpgrade = Lens.lens (\Snapshot' {autoMinorVersionUpgrad
 snapshot_automaticFailover :: Lens.Lens' Snapshot (Prelude.Maybe AutomaticFailoverStatus)
 snapshot_automaticFailover = Lens.lens (\Snapshot' {automaticFailover} -> automaticFailover) (\s@Snapshot' {} a -> s {automaticFailover = a} :: Snapshot)
 
--- | The ARN (Amazon Resource Name) of the snapshot.
-snapshot_arn :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
-snapshot_arn = Lens.lens (\Snapshot' {arn} -> arn) (\s@Snapshot' {} a -> s {arn = a} :: Snapshot)
-
--- | The Amazon Resource Name (ARN) for the topic used by the source cluster
--- for publishing notifications.
-snapshot_topicArn :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
-snapshot_topicArn = Lens.lens (\Snapshot' {topicArn} -> topicArn) (\s@Snapshot' {} a -> s {topicArn = a} :: Snapshot)
-
 -- | The date and time when the source cluster was created.
 snapshot_cacheClusterCreateTime :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.UTCTime)
 snapshot_cacheClusterCreateTime = Lens.lens (\Snapshot' {cacheClusterCreateTime} -> cacheClusterCreateTime) (\s@Snapshot' {} a -> s {cacheClusterCreateTime = a} :: Snapshot) Prelude.. Lens.mapping Data._Time
 
--- | The number of cache nodes in the source cluster.
---
--- For clusters running Redis, this value must be 1. For clusters running
--- Memcached, this value must be between 1 and 40.
-snapshot_numCacheNodes :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Int)
-snapshot_numCacheNodes = Lens.lens (\Snapshot' {numCacheNodes} -> numCacheNodes) (\s@Snapshot' {} a -> s {numCacheNodes = a} :: Snapshot)
+-- | The user-supplied identifier of the source cluster.
+snapshot_cacheClusterId :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
+snapshot_cacheClusterId = Lens.lens (\Snapshot' {cacheClusterId} -> cacheClusterId) (\s@Snapshot' {} a -> s {cacheClusterId = a} :: Snapshot)
 
 -- | The name of the compute and memory capacity node type for the source
 -- cluster.
@@ -656,49 +625,56 @@ snapshot_cacheNodeType = Lens.lens (\Snapshot' {cacheNodeType} -> cacheNodeType)
 snapshot_cacheParameterGroupName :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
 snapshot_cacheParameterGroupName = Lens.lens (\Snapshot' {cacheParameterGroupName} -> cacheParameterGroupName) (\s@Snapshot' {} a -> s {cacheParameterGroupName = a} :: Snapshot)
 
--- | The name of the Availability Zone in which the source cluster is
--- located.
-snapshot_preferredAvailabilityZone :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
-snapshot_preferredAvailabilityZone = Lens.lens (\Snapshot' {preferredAvailabilityZone} -> preferredAvailabilityZone) (\s@Snapshot' {} a -> s {preferredAvailabilityZone = a} :: Snapshot)
+-- | The name of the cache subnet group associated with the source cluster.
+snapshot_cacheSubnetGroupName :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
+snapshot_cacheSubnetGroupName = Lens.lens (\Snapshot' {cacheSubnetGroupName} -> cacheSubnetGroupName) (\s@Snapshot' {} a -> s {cacheSubnetGroupName = a} :: Snapshot)
 
--- | The user-supplied identifier of the source cluster.
-snapshot_cacheClusterId :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
-snapshot_cacheClusterId = Lens.lens (\Snapshot' {cacheClusterId} -> cacheClusterId) (\s@Snapshot' {} a -> s {cacheClusterId = a} :: Snapshot)
-
--- | The daily time range during which ElastiCache takes daily snapshots of
--- the source cluster.
-snapshot_snapshotWindow :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
-snapshot_snapshotWindow = Lens.lens (\Snapshot' {snapshotWindow} -> snapshotWindow) (\s@Snapshot' {} a -> s {snapshotWindow = a} :: Snapshot)
-
--- | For an automatic snapshot, the number of days for which ElastiCache
--- retains the snapshot before deleting it.
---
--- For manual snapshots, this field reflects the @SnapshotRetentionLimit@
--- for the source cluster when the snapshot was created. This field is
--- otherwise ignored: Manual snapshots do not expire, and can only be
--- deleted using the @DeleteSnapshot@ operation.
---
--- __Important__ If the value of SnapshotRetentionLimit is set to zero (0),
--- backups are turned off.
-snapshot_snapshotRetentionLimit :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Int)
-snapshot_snapshotRetentionLimit = Lens.lens (\Snapshot' {snapshotRetentionLimit} -> snapshotRetentionLimit) (\s@Snapshot' {} a -> s {snapshotRetentionLimit = a} :: Snapshot)
-
--- | A description of the source replication group.
-snapshot_replicationGroupDescription :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
-snapshot_replicationGroupDescription = Lens.lens (\Snapshot' {replicationGroupDescription} -> replicationGroupDescription) (\s@Snapshot' {} a -> s {replicationGroupDescription = a} :: Snapshot)
-
--- | The ARN (Amazon Resource Name) of the preferred outpost.
-snapshot_preferredOutpostArn :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
-snapshot_preferredOutpostArn = Lens.lens (\Snapshot' {preferredOutpostArn} -> preferredOutpostArn) (\s@Snapshot' {} a -> s {preferredOutpostArn = a} :: Snapshot)
-
--- | The ID of the KMS key used to encrypt the snapshot.
-snapshot_kmsKeyId :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
-snapshot_kmsKeyId = Lens.lens (\Snapshot' {kmsKeyId} -> kmsKeyId) (\s@Snapshot' {} a -> s {kmsKeyId = a} :: Snapshot)
+-- | Enables data tiering. Data tiering is only supported for replication
+-- groups using the r6gd node type. This parameter must be set to true when
+-- using r6gd nodes. For more information, see
+-- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html Data tiering>.
+snapshot_dataTiering :: Lens.Lens' Snapshot (Prelude.Maybe DataTieringStatus)
+snapshot_dataTiering = Lens.lens (\Snapshot' {dataTiering} -> dataTiering) (\s@Snapshot' {} a -> s {dataTiering = a} :: Snapshot)
 
 -- | The name of the cache engine (@memcached@ or @redis@) used by the source
 -- cluster.
 snapshot_engine :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
 snapshot_engine = Lens.lens (\Snapshot' {engine} -> engine) (\s@Snapshot' {} a -> s {engine = a} :: Snapshot)
+
+-- | The version of the cache engine version that is used by the source
+-- cluster.
+snapshot_engineVersion :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
+snapshot_engineVersion = Lens.lens (\Snapshot' {engineVersion} -> engineVersion) (\s@Snapshot' {} a -> s {engineVersion = a} :: Snapshot)
+
+-- | The ID of the KMS key used to encrypt the snapshot.
+snapshot_kmsKeyId :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
+snapshot_kmsKeyId = Lens.lens (\Snapshot' {kmsKeyId} -> kmsKeyId) (\s@Snapshot' {} a -> s {kmsKeyId = a} :: Snapshot)
+
+-- | A list of the cache nodes in the source cluster.
+snapshot_nodeSnapshots :: Lens.Lens' Snapshot (Prelude.Maybe [NodeSnapshot])
+snapshot_nodeSnapshots = Lens.lens (\Snapshot' {nodeSnapshots} -> nodeSnapshots) (\s@Snapshot' {} a -> s {nodeSnapshots = a} :: Snapshot) Prelude.. Lens.mapping Lens.coerced
+
+-- | The number of cache nodes in the source cluster.
+--
+-- For clusters running Redis, this value must be 1. For clusters running
+-- Memcached, this value must be between 1 and 40.
+snapshot_numCacheNodes :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Int)
+snapshot_numCacheNodes = Lens.lens (\Snapshot' {numCacheNodes} -> numCacheNodes) (\s@Snapshot' {} a -> s {numCacheNodes = a} :: Snapshot)
+
+-- | The number of node groups (shards) in this snapshot. When restoring from
+-- a snapshot, the number of node groups (shards) in the snapshot and in
+-- the restored replication group must be the same.
+snapshot_numNodeGroups :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Int)
+snapshot_numNodeGroups = Lens.lens (\Snapshot' {numNodeGroups} -> numNodeGroups) (\s@Snapshot' {} a -> s {numNodeGroups = a} :: Snapshot)
+
+-- | The port number used by each cache nodes in the source cluster.
+snapshot_port :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Int)
+snapshot_port = Lens.lens (\Snapshot' {port} -> port) (\s@Snapshot' {} a -> s {port = a} :: Snapshot)
+
+-- | The name of the Availability Zone in which the source cluster is
+-- located.
+snapshot_preferredAvailabilityZone :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
+snapshot_preferredAvailabilityZone = Lens.lens (\Snapshot' {preferredAvailabilityZone} -> preferredAvailabilityZone) (\s@Snapshot' {} a -> s {preferredAvailabilityZone = a} :: Snapshot)
 
 -- | Specifies the weekly time range during which maintenance on the cluster
 -- is performed. It is specified as a range in the format
@@ -725,136 +701,163 @@ snapshot_engine = Lens.lens (\Snapshot' {engine} -> engine) (\s@Snapshot' {} a -
 snapshot_preferredMaintenanceWindow :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
 snapshot_preferredMaintenanceWindow = Lens.lens (\Snapshot' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@Snapshot' {} a -> s {preferredMaintenanceWindow = a} :: Snapshot)
 
--- | The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet
--- group for the source cluster.
-snapshot_vpcId :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
-snapshot_vpcId = Lens.lens (\Snapshot' {vpcId} -> vpcId) (\s@Snapshot' {} a -> s {vpcId = a} :: Snapshot)
+-- | The ARN (Amazon Resource Name) of the preferred outpost.
+snapshot_preferredOutpostArn :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
+snapshot_preferredOutpostArn = Lens.lens (\Snapshot' {preferredOutpostArn} -> preferredOutpostArn) (\s@Snapshot' {} a -> s {preferredOutpostArn = a} :: Snapshot)
 
--- | Enables data tiering. Data tiering is only supported for replication
--- groups using the r6gd node type. This parameter must be set to true when
--- using r6gd nodes. For more information, see
--- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html Data tiering>.
-snapshot_dataTiering :: Lens.Lens' Snapshot (Prelude.Maybe DataTieringStatus)
-snapshot_dataTiering = Lens.lens (\Snapshot' {dataTiering} -> dataTiering) (\s@Snapshot' {} a -> s {dataTiering = a} :: Snapshot)
+-- | A description of the source replication group.
+snapshot_replicationGroupDescription :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
+snapshot_replicationGroupDescription = Lens.lens (\Snapshot' {replicationGroupDescription} -> replicationGroupDescription) (\s@Snapshot' {} a -> s {replicationGroupDescription = a} :: Snapshot)
 
 -- | The unique identifier of the source replication group.
 snapshot_replicationGroupId :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
 snapshot_replicationGroupId = Lens.lens (\Snapshot' {replicationGroupId} -> replicationGroupId) (\s@Snapshot' {} a -> s {replicationGroupId = a} :: Snapshot)
 
--- | A list of the cache nodes in the source cluster.
-snapshot_nodeSnapshots :: Lens.Lens' Snapshot (Prelude.Maybe [NodeSnapshot])
-snapshot_nodeSnapshots = Lens.lens (\Snapshot' {nodeSnapshots} -> nodeSnapshots) (\s@Snapshot' {} a -> s {nodeSnapshots = a} :: Snapshot) Prelude.. Lens.mapping Lens.coerced
+-- | The name of a snapshot. For an automatic snapshot, the name is
+-- system-generated. For a manual snapshot, this is the user-provided name.
+snapshot_snapshotName :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
+snapshot_snapshotName = Lens.lens (\Snapshot' {snapshotName} -> snapshotName) (\s@Snapshot' {} a -> s {snapshotName = a} :: Snapshot)
 
--- | The number of node groups (shards) in this snapshot. When restoring from
--- a snapshot, the number of node groups (shards) in the snapshot and in
--- the restored replication group must be the same.
-snapshot_numNodeGroups :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Int)
-snapshot_numNodeGroups = Lens.lens (\Snapshot' {numNodeGroups} -> numNodeGroups) (\s@Snapshot' {} a -> s {numNodeGroups = a} :: Snapshot)
+-- | For an automatic snapshot, the number of days for which ElastiCache
+-- retains the snapshot before deleting it.
+--
+-- For manual snapshots, this field reflects the @SnapshotRetentionLimit@
+-- for the source cluster when the snapshot was created. This field is
+-- otherwise ignored: Manual snapshots do not expire, and can only be
+-- deleted using the @DeleteSnapshot@ operation.
+--
+-- __Important__ If the value of SnapshotRetentionLimit is set to zero (0),
+-- backups are turned off.
+snapshot_snapshotRetentionLimit :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Int)
+snapshot_snapshotRetentionLimit = Lens.lens (\Snapshot' {snapshotRetentionLimit} -> snapshotRetentionLimit) (\s@Snapshot' {} a -> s {snapshotRetentionLimit = a} :: Snapshot)
 
--- | The version of the cache engine version that is used by the source
--- cluster.
-snapshot_engineVersion :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
-snapshot_engineVersion = Lens.lens (\Snapshot' {engineVersion} -> engineVersion) (\s@Snapshot' {} a -> s {engineVersion = a} :: Snapshot)
+-- | Indicates whether the snapshot is from an automatic backup (@automated@)
+-- or was created manually (@manual@).
+snapshot_snapshotSource :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
+snapshot_snapshotSource = Lens.lens (\Snapshot' {snapshotSource} -> snapshotSource) (\s@Snapshot' {} a -> s {snapshotSource = a} :: Snapshot)
+
+-- | The status of the snapshot. Valid values: @creating@ | @available@ |
+-- @restoring@ | @copying@ | @deleting@.
+snapshot_snapshotStatus :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
+snapshot_snapshotStatus = Lens.lens (\Snapshot' {snapshotStatus} -> snapshotStatus) (\s@Snapshot' {} a -> s {snapshotStatus = a} :: Snapshot)
+
+-- | The daily time range during which ElastiCache takes daily snapshots of
+-- the source cluster.
+snapshot_snapshotWindow :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
+snapshot_snapshotWindow = Lens.lens (\Snapshot' {snapshotWindow} -> snapshotWindow) (\s@Snapshot' {} a -> s {snapshotWindow = a} :: Snapshot)
+
+-- | The Amazon Resource Name (ARN) for the topic used by the source cluster
+-- for publishing notifications.
+snapshot_topicArn :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
+snapshot_topicArn = Lens.lens (\Snapshot' {topicArn} -> topicArn) (\s@Snapshot' {} a -> s {topicArn = a} :: Snapshot)
+
+-- | The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet
+-- group for the source cluster.
+snapshot_vpcId :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
+snapshot_vpcId = Lens.lens (\Snapshot' {vpcId} -> vpcId) (\s@Snapshot' {} a -> s {vpcId = a} :: Snapshot)
 
 instance Data.FromXML Snapshot where
   parseXML x =
     Snapshot'
-      Prelude.<$> (x Data..@? "Port")
-      Prelude.<*> (x Data..@? "SnapshotStatus")
-      Prelude.<*> (x Data..@? "CacheSubnetGroupName")
-      Prelude.<*> (x Data..@? "SnapshotName")
-      Prelude.<*> (x Data..@? "SnapshotSource")
+      Prelude.<$> (x Data..@? "ARN")
       Prelude.<*> (x Data..@? "AutoMinorVersionUpgrade")
       Prelude.<*> (x Data..@? "AutomaticFailover")
-      Prelude.<*> (x Data..@? "ARN")
-      Prelude.<*> (x Data..@? "TopicArn")
       Prelude.<*> (x Data..@? "CacheClusterCreateTime")
-      Prelude.<*> (x Data..@? "NumCacheNodes")
+      Prelude.<*> (x Data..@? "CacheClusterId")
       Prelude.<*> (x Data..@? "CacheNodeType")
       Prelude.<*> (x Data..@? "CacheParameterGroupName")
-      Prelude.<*> (x Data..@? "PreferredAvailabilityZone")
-      Prelude.<*> (x Data..@? "CacheClusterId")
-      Prelude.<*> (x Data..@? "SnapshotWindow")
-      Prelude.<*> (x Data..@? "SnapshotRetentionLimit")
-      Prelude.<*> (x Data..@? "ReplicationGroupDescription")
-      Prelude.<*> (x Data..@? "PreferredOutpostArn")
-      Prelude.<*> (x Data..@? "KmsKeyId")
-      Prelude.<*> (x Data..@? "Engine")
-      Prelude.<*> (x Data..@? "PreferredMaintenanceWindow")
-      Prelude.<*> (x Data..@? "VpcId")
+      Prelude.<*> (x Data..@? "CacheSubnetGroupName")
       Prelude.<*> (x Data..@? "DataTiering")
-      Prelude.<*> (x Data..@? "ReplicationGroupId")
+      Prelude.<*> (x Data..@? "Engine")
+      Prelude.<*> (x Data..@? "EngineVersion")
+      Prelude.<*> (x Data..@? "KmsKeyId")
       Prelude.<*> ( x Data..@? "NodeSnapshots" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "NodeSnapshot")
                   )
+      Prelude.<*> (x Data..@? "NumCacheNodes")
       Prelude.<*> (x Data..@? "NumNodeGroups")
-      Prelude.<*> (x Data..@? "EngineVersion")
+      Prelude.<*> (x Data..@? "Port")
+      Prelude.<*> (x Data..@? "PreferredAvailabilityZone")
+      Prelude.<*> (x Data..@? "PreferredMaintenanceWindow")
+      Prelude.<*> (x Data..@? "PreferredOutpostArn")
+      Prelude.<*> (x Data..@? "ReplicationGroupDescription")
+      Prelude.<*> (x Data..@? "ReplicationGroupId")
+      Prelude.<*> (x Data..@? "SnapshotName")
+      Prelude.<*> (x Data..@? "SnapshotRetentionLimit")
+      Prelude.<*> (x Data..@? "SnapshotSource")
+      Prelude.<*> (x Data..@? "SnapshotStatus")
+      Prelude.<*> (x Data..@? "SnapshotWindow")
+      Prelude.<*> (x Data..@? "TopicArn")
+      Prelude.<*> (x Data..@? "VpcId")
 
 instance Prelude.Hashable Snapshot where
   hashWithSalt _salt Snapshot' {..} =
-    _salt `Prelude.hashWithSalt` port
-      `Prelude.hashWithSalt` snapshotStatus
-      `Prelude.hashWithSalt` cacheSubnetGroupName
-      `Prelude.hashWithSalt` snapshotName
-      `Prelude.hashWithSalt` snapshotSource
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` autoMinorVersionUpgrade
       `Prelude.hashWithSalt` automaticFailover
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` topicArn
       `Prelude.hashWithSalt` cacheClusterCreateTime
-      `Prelude.hashWithSalt` numCacheNodes
+      `Prelude.hashWithSalt` cacheClusterId
       `Prelude.hashWithSalt` cacheNodeType
       `Prelude.hashWithSalt` cacheParameterGroupName
-      `Prelude.hashWithSalt` preferredAvailabilityZone
-      `Prelude.hashWithSalt` cacheClusterId
-      `Prelude.hashWithSalt` snapshotWindow
-      `Prelude.hashWithSalt` snapshotRetentionLimit
-      `Prelude.hashWithSalt` replicationGroupDescription
-      `Prelude.hashWithSalt` preferredOutpostArn
-      `Prelude.hashWithSalt` kmsKeyId
-      `Prelude.hashWithSalt` engine
-      `Prelude.hashWithSalt` preferredMaintenanceWindow
-      `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` cacheSubnetGroupName
       `Prelude.hashWithSalt` dataTiering
-      `Prelude.hashWithSalt` replicationGroupId
-      `Prelude.hashWithSalt` nodeSnapshots
-      `Prelude.hashWithSalt` numNodeGroups
+      `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` nodeSnapshots
+      `Prelude.hashWithSalt` numCacheNodes
+      `Prelude.hashWithSalt` numNodeGroups
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` preferredAvailabilityZone
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` preferredOutpostArn
+      `Prelude.hashWithSalt` replicationGroupDescription
+      `Prelude.hashWithSalt` replicationGroupId
+      `Prelude.hashWithSalt` snapshotName
+      `Prelude.hashWithSalt` snapshotRetentionLimit
+      `Prelude.hashWithSalt` snapshotSource
+      `Prelude.hashWithSalt` snapshotStatus
+      `Prelude.hashWithSalt` snapshotWindow
+      `Prelude.hashWithSalt` topicArn
+      `Prelude.hashWithSalt` vpcId
 
 instance Prelude.NFData Snapshot where
   rnf Snapshot' {..} =
-    Prelude.rnf port
-      `Prelude.seq` Prelude.rnf snapshotStatus
-      `Prelude.seq` Prelude.rnf cacheSubnetGroupName
-      `Prelude.seq` Prelude.rnf snapshotName
-      `Prelude.seq` Prelude.rnf snapshotSource
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
       `Prelude.seq` Prelude.rnf automaticFailover
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf topicArn
       `Prelude.seq` Prelude.rnf cacheClusterCreateTime
-      `Prelude.seq` Prelude.rnf numCacheNodes
+      `Prelude.seq` Prelude.rnf cacheClusterId
       `Prelude.seq` Prelude.rnf cacheNodeType
       `Prelude.seq` Prelude.rnf cacheParameterGroupName
-      `Prelude.seq` Prelude.rnf preferredAvailabilityZone
-      `Prelude.seq` Prelude.rnf cacheClusterId
-      `Prelude.seq` Prelude.rnf snapshotWindow
-      `Prelude.seq` Prelude.rnf snapshotRetentionLimit
-      `Prelude.seq` Prelude.rnf
-        replicationGroupDescription
-      `Prelude.seq` Prelude.rnf preferredOutpostArn
-      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf cacheSubnetGroupName
+      `Prelude.seq` Prelude.rnf dataTiering
       `Prelude.seq` Prelude.rnf engine
+      `Prelude.seq` Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf nodeSnapshots
+      `Prelude.seq` Prelude.rnf numCacheNodes
+      `Prelude.seq` Prelude.rnf numNodeGroups
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf
+        preferredAvailabilityZone
       `Prelude.seq` Prelude.rnf
         preferredMaintenanceWindow
-      `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf preferredOutpostArn
       `Prelude.seq` Prelude.rnf
-        dataTiering
+        replicationGroupDescription
       `Prelude.seq` Prelude.rnf
         replicationGroupId
+      `Prelude.seq` Prelude.rnf snapshotName
       `Prelude.seq` Prelude.rnf
-        nodeSnapshots
+        snapshotRetentionLimit
       `Prelude.seq` Prelude.rnf
-        numNodeGroups
+        snapshotSource
       `Prelude.seq` Prelude.rnf
-        engineVersion
+        snapshotStatus
+      `Prelude.seq` Prelude.rnf
+        snapshotWindow
+      `Prelude.seq` Prelude.rnf
+        topicArn
+      `Prelude.seq` Prelude.rnf
+        vpcId

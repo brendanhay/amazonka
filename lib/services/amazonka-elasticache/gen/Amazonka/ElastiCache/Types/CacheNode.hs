@@ -132,14 +132,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCacheNode' smart constructor.
 data CacheNode = CacheNode'
-  { -- | The customer outpost ARN of the cache node.
-    customerOutpostArn :: Prelude.Maybe Prelude.Text,
-    -- | The Availability Zone where this node was created and now resides.
-    customerAvailabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the primary node to which this read replica node is
-    -- synchronized. If this field is empty, this node is not associated with a
-    -- primary cluster.
-    sourceCacheNodeId :: Prelude.Maybe Prelude.Text,
+  { -- | The date and time when the cache node was created.
+    cacheNodeCreateTime :: Prelude.Maybe Data.ISO8601,
     -- | The cache node identifier. A node ID is a numeric identifier (0001,
     -- 0002, etc.). The combination of cluster ID and node ID uniquely
     -- identifies every cache node used in a customer\'s Amazon account.
@@ -147,12 +141,18 @@ data CacheNode = CacheNode'
     -- | The current state of this cache node, one of the following values:
     -- @available@, @creating@, @rebooting@, or @deleting@.
     cacheNodeStatus :: Prelude.Maybe Prelude.Text,
-    -- | The status of the parameter group applied to this cache node.
-    parameterGroupStatus :: Prelude.Maybe Prelude.Text,
+    -- | The Availability Zone where this node was created and now resides.
+    customerAvailabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | The customer outpost ARN of the cache node.
+    customerOutpostArn :: Prelude.Maybe Prelude.Text,
     -- | The hostname for connecting to this cache node.
     endpoint :: Prelude.Maybe Endpoint,
-    -- | The date and time when the cache node was created.
-    cacheNodeCreateTime :: Prelude.Maybe Data.ISO8601
+    -- | The status of the parameter group applied to this cache node.
+    parameterGroupStatus :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the primary node to which this read replica node is
+    -- synchronized. If this field is empty, this node is not associated with a
+    -- primary cluster.
+    sourceCacheNodeId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -164,13 +164,7 @@ data CacheNode = CacheNode'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'customerOutpostArn', 'cacheNode_customerOutpostArn' - The customer outpost ARN of the cache node.
---
--- 'customerAvailabilityZone', 'cacheNode_customerAvailabilityZone' - The Availability Zone where this node was created and now resides.
---
--- 'sourceCacheNodeId', 'cacheNode_sourceCacheNodeId' - The ID of the primary node to which this read replica node is
--- synchronized. If this field is empty, this node is not associated with a
--- primary cluster.
+-- 'cacheNodeCreateTime', 'cacheNode_cacheNodeCreateTime' - The date and time when the cache node was created.
 --
 -- 'cacheNodeId', 'cacheNode_cacheNodeId' - The cache node identifier. A node ID is a numeric identifier (0001,
 -- 0002, etc.). The combination of cluster ID and node ID uniquely
@@ -179,38 +173,34 @@ data CacheNode = CacheNode'
 -- 'cacheNodeStatus', 'cacheNode_cacheNodeStatus' - The current state of this cache node, one of the following values:
 -- @available@, @creating@, @rebooting@, or @deleting@.
 --
--- 'parameterGroupStatus', 'cacheNode_parameterGroupStatus' - The status of the parameter group applied to this cache node.
+-- 'customerAvailabilityZone', 'cacheNode_customerAvailabilityZone' - The Availability Zone where this node was created and now resides.
+--
+-- 'customerOutpostArn', 'cacheNode_customerOutpostArn' - The customer outpost ARN of the cache node.
 --
 -- 'endpoint', 'cacheNode_endpoint' - The hostname for connecting to this cache node.
 --
--- 'cacheNodeCreateTime', 'cacheNode_cacheNodeCreateTime' - The date and time when the cache node was created.
+-- 'parameterGroupStatus', 'cacheNode_parameterGroupStatus' - The status of the parameter group applied to this cache node.
+--
+-- 'sourceCacheNodeId', 'cacheNode_sourceCacheNodeId' - The ID of the primary node to which this read replica node is
+-- synchronized. If this field is empty, this node is not associated with a
+-- primary cluster.
 newCacheNode ::
   CacheNode
 newCacheNode =
   CacheNode'
-    { customerOutpostArn = Prelude.Nothing,
-      customerAvailabilityZone = Prelude.Nothing,
-      sourceCacheNodeId = Prelude.Nothing,
+    { cacheNodeCreateTime = Prelude.Nothing,
       cacheNodeId = Prelude.Nothing,
       cacheNodeStatus = Prelude.Nothing,
-      parameterGroupStatus = Prelude.Nothing,
+      customerAvailabilityZone = Prelude.Nothing,
+      customerOutpostArn = Prelude.Nothing,
       endpoint = Prelude.Nothing,
-      cacheNodeCreateTime = Prelude.Nothing
+      parameterGroupStatus = Prelude.Nothing,
+      sourceCacheNodeId = Prelude.Nothing
     }
 
--- | The customer outpost ARN of the cache node.
-cacheNode_customerOutpostArn :: Lens.Lens' CacheNode (Prelude.Maybe Prelude.Text)
-cacheNode_customerOutpostArn = Lens.lens (\CacheNode' {customerOutpostArn} -> customerOutpostArn) (\s@CacheNode' {} a -> s {customerOutpostArn = a} :: CacheNode)
-
--- | The Availability Zone where this node was created and now resides.
-cacheNode_customerAvailabilityZone :: Lens.Lens' CacheNode (Prelude.Maybe Prelude.Text)
-cacheNode_customerAvailabilityZone = Lens.lens (\CacheNode' {customerAvailabilityZone} -> customerAvailabilityZone) (\s@CacheNode' {} a -> s {customerAvailabilityZone = a} :: CacheNode)
-
--- | The ID of the primary node to which this read replica node is
--- synchronized. If this field is empty, this node is not associated with a
--- primary cluster.
-cacheNode_sourceCacheNodeId :: Lens.Lens' CacheNode (Prelude.Maybe Prelude.Text)
-cacheNode_sourceCacheNodeId = Lens.lens (\CacheNode' {sourceCacheNodeId} -> sourceCacheNodeId) (\s@CacheNode' {} a -> s {sourceCacheNodeId = a} :: CacheNode)
+-- | The date and time when the cache node was created.
+cacheNode_cacheNodeCreateTime :: Lens.Lens' CacheNode (Prelude.Maybe Prelude.UTCTime)
+cacheNode_cacheNodeCreateTime = Lens.lens (\CacheNode' {cacheNodeCreateTime} -> cacheNodeCreateTime) (\s@CacheNode' {} a -> s {cacheNodeCreateTime = a} :: CacheNode) Prelude.. Lens.mapping Data._Time
 
 -- | The cache node identifier. A node ID is a numeric identifier (0001,
 -- 0002, etc.). The combination of cluster ID and node ID uniquely
@@ -223,48 +213,58 @@ cacheNode_cacheNodeId = Lens.lens (\CacheNode' {cacheNodeId} -> cacheNodeId) (\s
 cacheNode_cacheNodeStatus :: Lens.Lens' CacheNode (Prelude.Maybe Prelude.Text)
 cacheNode_cacheNodeStatus = Lens.lens (\CacheNode' {cacheNodeStatus} -> cacheNodeStatus) (\s@CacheNode' {} a -> s {cacheNodeStatus = a} :: CacheNode)
 
--- | The status of the parameter group applied to this cache node.
-cacheNode_parameterGroupStatus :: Lens.Lens' CacheNode (Prelude.Maybe Prelude.Text)
-cacheNode_parameterGroupStatus = Lens.lens (\CacheNode' {parameterGroupStatus} -> parameterGroupStatus) (\s@CacheNode' {} a -> s {parameterGroupStatus = a} :: CacheNode)
+-- | The Availability Zone where this node was created and now resides.
+cacheNode_customerAvailabilityZone :: Lens.Lens' CacheNode (Prelude.Maybe Prelude.Text)
+cacheNode_customerAvailabilityZone = Lens.lens (\CacheNode' {customerAvailabilityZone} -> customerAvailabilityZone) (\s@CacheNode' {} a -> s {customerAvailabilityZone = a} :: CacheNode)
+
+-- | The customer outpost ARN of the cache node.
+cacheNode_customerOutpostArn :: Lens.Lens' CacheNode (Prelude.Maybe Prelude.Text)
+cacheNode_customerOutpostArn = Lens.lens (\CacheNode' {customerOutpostArn} -> customerOutpostArn) (\s@CacheNode' {} a -> s {customerOutpostArn = a} :: CacheNode)
 
 -- | The hostname for connecting to this cache node.
 cacheNode_endpoint :: Lens.Lens' CacheNode (Prelude.Maybe Endpoint)
 cacheNode_endpoint = Lens.lens (\CacheNode' {endpoint} -> endpoint) (\s@CacheNode' {} a -> s {endpoint = a} :: CacheNode)
 
--- | The date and time when the cache node was created.
-cacheNode_cacheNodeCreateTime :: Lens.Lens' CacheNode (Prelude.Maybe Prelude.UTCTime)
-cacheNode_cacheNodeCreateTime = Lens.lens (\CacheNode' {cacheNodeCreateTime} -> cacheNodeCreateTime) (\s@CacheNode' {} a -> s {cacheNodeCreateTime = a} :: CacheNode) Prelude.. Lens.mapping Data._Time
+-- | The status of the parameter group applied to this cache node.
+cacheNode_parameterGroupStatus :: Lens.Lens' CacheNode (Prelude.Maybe Prelude.Text)
+cacheNode_parameterGroupStatus = Lens.lens (\CacheNode' {parameterGroupStatus} -> parameterGroupStatus) (\s@CacheNode' {} a -> s {parameterGroupStatus = a} :: CacheNode)
+
+-- | The ID of the primary node to which this read replica node is
+-- synchronized. If this field is empty, this node is not associated with a
+-- primary cluster.
+cacheNode_sourceCacheNodeId :: Lens.Lens' CacheNode (Prelude.Maybe Prelude.Text)
+cacheNode_sourceCacheNodeId = Lens.lens (\CacheNode' {sourceCacheNodeId} -> sourceCacheNodeId) (\s@CacheNode' {} a -> s {sourceCacheNodeId = a} :: CacheNode)
 
 instance Data.FromXML CacheNode where
   parseXML x =
     CacheNode'
-      Prelude.<$> (x Data..@? "CustomerOutpostArn")
-      Prelude.<*> (x Data..@? "CustomerAvailabilityZone")
-      Prelude.<*> (x Data..@? "SourceCacheNodeId")
+      Prelude.<$> (x Data..@? "CacheNodeCreateTime")
       Prelude.<*> (x Data..@? "CacheNodeId")
       Prelude.<*> (x Data..@? "CacheNodeStatus")
-      Prelude.<*> (x Data..@? "ParameterGroupStatus")
+      Prelude.<*> (x Data..@? "CustomerAvailabilityZone")
+      Prelude.<*> (x Data..@? "CustomerOutpostArn")
       Prelude.<*> (x Data..@? "Endpoint")
-      Prelude.<*> (x Data..@? "CacheNodeCreateTime")
+      Prelude.<*> (x Data..@? "ParameterGroupStatus")
+      Prelude.<*> (x Data..@? "SourceCacheNodeId")
 
 instance Prelude.Hashable CacheNode where
   hashWithSalt _salt CacheNode' {..} =
-    _salt `Prelude.hashWithSalt` customerOutpostArn
-      `Prelude.hashWithSalt` customerAvailabilityZone
-      `Prelude.hashWithSalt` sourceCacheNodeId
+    _salt `Prelude.hashWithSalt` cacheNodeCreateTime
       `Prelude.hashWithSalt` cacheNodeId
       `Prelude.hashWithSalt` cacheNodeStatus
-      `Prelude.hashWithSalt` parameterGroupStatus
+      `Prelude.hashWithSalt` customerAvailabilityZone
+      `Prelude.hashWithSalt` customerOutpostArn
       `Prelude.hashWithSalt` endpoint
-      `Prelude.hashWithSalt` cacheNodeCreateTime
+      `Prelude.hashWithSalt` parameterGroupStatus
+      `Prelude.hashWithSalt` sourceCacheNodeId
 
 instance Prelude.NFData CacheNode where
   rnf CacheNode' {..} =
-    Prelude.rnf customerOutpostArn
-      `Prelude.seq` Prelude.rnf customerAvailabilityZone
-      `Prelude.seq` Prelude.rnf sourceCacheNodeId
+    Prelude.rnf cacheNodeCreateTime
       `Prelude.seq` Prelude.rnf cacheNodeId
       `Prelude.seq` Prelude.rnf cacheNodeStatus
-      `Prelude.seq` Prelude.rnf parameterGroupStatus
+      `Prelude.seq` Prelude.rnf customerAvailabilityZone
+      `Prelude.seq` Prelude.rnf customerOutpostArn
       `Prelude.seq` Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf cacheNodeCreateTime
+      `Prelude.seq` Prelude.rnf parameterGroupStatus
+      `Prelude.seq` Prelude.rnf sourceCacheNodeId

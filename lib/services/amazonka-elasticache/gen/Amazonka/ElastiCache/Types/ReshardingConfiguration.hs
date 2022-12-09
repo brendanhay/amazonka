@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReshardingConfiguration' smart constructor.
 data ReshardingConfiguration = ReshardingConfiguration'
-  { -- | A list of preferred availability zones for the nodes in this cluster.
-    preferredAvailabilityZones :: Prelude.Maybe [Prelude.Text],
-    -- | Either the ElastiCache for Redis supplied 4-digit id or a user supplied
+  { -- | Either the ElastiCache for Redis supplied 4-digit id or a user supplied
     -- id for the node group these configuration values apply to.
-    nodeGroupId :: Prelude.Maybe Prelude.Text
+    nodeGroupId :: Prelude.Maybe Prelude.Text,
+    -- | A list of preferred availability zones for the nodes in this cluster.
+    preferredAvailabilityZones :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,46 +45,45 @@ data ReshardingConfiguration = ReshardingConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'preferredAvailabilityZones', 'reshardingConfiguration_preferredAvailabilityZones' - A list of preferred availability zones for the nodes in this cluster.
---
 -- 'nodeGroupId', 'reshardingConfiguration_nodeGroupId' - Either the ElastiCache for Redis supplied 4-digit id or a user supplied
 -- id for the node group these configuration values apply to.
+--
+-- 'preferredAvailabilityZones', 'reshardingConfiguration_preferredAvailabilityZones' - A list of preferred availability zones for the nodes in this cluster.
 newReshardingConfiguration ::
   ReshardingConfiguration
 newReshardingConfiguration =
   ReshardingConfiguration'
-    { preferredAvailabilityZones =
+    { nodeGroupId =
         Prelude.Nothing,
-      nodeGroupId = Prelude.Nothing
+      preferredAvailabilityZones = Prelude.Nothing
     }
-
--- | A list of preferred availability zones for the nodes in this cluster.
-reshardingConfiguration_preferredAvailabilityZones :: Lens.Lens' ReshardingConfiguration (Prelude.Maybe [Prelude.Text])
-reshardingConfiguration_preferredAvailabilityZones = Lens.lens (\ReshardingConfiguration' {preferredAvailabilityZones} -> preferredAvailabilityZones) (\s@ReshardingConfiguration' {} a -> s {preferredAvailabilityZones = a} :: ReshardingConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Either the ElastiCache for Redis supplied 4-digit id or a user supplied
 -- id for the node group these configuration values apply to.
 reshardingConfiguration_nodeGroupId :: Lens.Lens' ReshardingConfiguration (Prelude.Maybe Prelude.Text)
 reshardingConfiguration_nodeGroupId = Lens.lens (\ReshardingConfiguration' {nodeGroupId} -> nodeGroupId) (\s@ReshardingConfiguration' {} a -> s {nodeGroupId = a} :: ReshardingConfiguration)
 
+-- | A list of preferred availability zones for the nodes in this cluster.
+reshardingConfiguration_preferredAvailabilityZones :: Lens.Lens' ReshardingConfiguration (Prelude.Maybe [Prelude.Text])
+reshardingConfiguration_preferredAvailabilityZones = Lens.lens (\ReshardingConfiguration' {preferredAvailabilityZones} -> preferredAvailabilityZones) (\s@ReshardingConfiguration' {} a -> s {preferredAvailabilityZones = a} :: ReshardingConfiguration) Prelude.. Lens.mapping Lens.coerced
+
 instance Prelude.Hashable ReshardingConfiguration where
   hashWithSalt _salt ReshardingConfiguration' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` nodeGroupId
       `Prelude.hashWithSalt` preferredAvailabilityZones
-      `Prelude.hashWithSalt` nodeGroupId
 
 instance Prelude.NFData ReshardingConfiguration where
   rnf ReshardingConfiguration' {..} =
-    Prelude.rnf preferredAvailabilityZones
-      `Prelude.seq` Prelude.rnf nodeGroupId
+    Prelude.rnf nodeGroupId
+      `Prelude.seq` Prelude.rnf preferredAvailabilityZones
 
 instance Data.ToQuery ReshardingConfiguration where
   toQuery ReshardingConfiguration' {..} =
     Prelude.mconcat
-      [ "PreferredAvailabilityZones"
+      [ "NodeGroupId" Data.=: nodeGroupId,
+        "PreferredAvailabilityZones"
           Data.=: Data.toQuery
             ( Data.toQueryList "AvailabilityZone"
                 Prelude.<$> preferredAvailabilityZones
-            ),
-        "NodeGroupId" Data.=: nodeGroupId
+            )
       ]

@@ -27,8 +27,8 @@ module Amazonka.ElastiCache.ModifyUserGroup
     newModifyUserGroup,
 
     -- * Request Lenses
-    modifyUserGroup_userIdsToRemove,
     modifyUserGroup_userIdsToAdd,
+    modifyUserGroup_userIdsToRemove,
     modifyUserGroup_userGroupId,
 
     -- * Destructuring the Response
@@ -36,13 +36,13 @@ module Amazonka.ElastiCache.ModifyUserGroup
     newUserGroup,
 
     -- * Response Lenses
-    userGroup_userGroupId,
-    userGroup_replicationGroups,
     userGroup_arn,
-    userGroup_pendingChanges,
-    userGroup_status,
-    userGroup_minimumEngineVersion,
     userGroup_engine,
+    userGroup_minimumEngineVersion,
+    userGroup_pendingChanges,
+    userGroup_replicationGroups,
+    userGroup_status,
+    userGroup_userGroupId,
     userGroup_userIds,
   )
 where
@@ -57,10 +57,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyUserGroup' smart constructor.
 data ModifyUserGroup = ModifyUserGroup'
-  { -- | The list of user IDs to remove from the user group.
-    userIdsToRemove :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The list of user IDs to add to the user group.
+  { -- | The list of user IDs to add to the user group.
     userIdsToAdd :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The list of user IDs to remove from the user group.
+    userIdsToRemove :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The ID of the user group.
     userGroupId :: Prelude.Text
   }
@@ -74,9 +74,9 @@ data ModifyUserGroup = ModifyUserGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userIdsToRemove', 'modifyUserGroup_userIdsToRemove' - The list of user IDs to remove from the user group.
---
 -- 'userIdsToAdd', 'modifyUserGroup_userIdsToAdd' - The list of user IDs to add to the user group.
+--
+-- 'userIdsToRemove', 'modifyUserGroup_userIdsToRemove' - The list of user IDs to remove from the user group.
 --
 -- 'userGroupId', 'modifyUserGroup_userGroupId' - The ID of the user group.
 newModifyUserGroup ::
@@ -85,18 +85,18 @@ newModifyUserGroup ::
   ModifyUserGroup
 newModifyUserGroup pUserGroupId_ =
   ModifyUserGroup'
-    { userIdsToRemove = Prelude.Nothing,
-      userIdsToAdd = Prelude.Nothing,
+    { userIdsToAdd = Prelude.Nothing,
+      userIdsToRemove = Prelude.Nothing,
       userGroupId = pUserGroupId_
     }
-
--- | The list of user IDs to remove from the user group.
-modifyUserGroup_userIdsToRemove :: Lens.Lens' ModifyUserGroup (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-modifyUserGroup_userIdsToRemove = Lens.lens (\ModifyUserGroup' {userIdsToRemove} -> userIdsToRemove) (\s@ModifyUserGroup' {} a -> s {userIdsToRemove = a} :: ModifyUserGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The list of user IDs to add to the user group.
 modifyUserGroup_userIdsToAdd :: Lens.Lens' ModifyUserGroup (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 modifyUserGroup_userIdsToAdd = Lens.lens (\ModifyUserGroup' {userIdsToAdd} -> userIdsToAdd) (\s@ModifyUserGroup' {} a -> s {userIdsToAdd = a} :: ModifyUserGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | The list of user IDs to remove from the user group.
+modifyUserGroup_userIdsToRemove :: Lens.Lens' ModifyUserGroup (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+modifyUserGroup_userIdsToRemove = Lens.lens (\ModifyUserGroup' {userIdsToRemove} -> userIdsToRemove) (\s@ModifyUserGroup' {} a -> s {userIdsToRemove = a} :: ModifyUserGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the user group.
 modifyUserGroup_userGroupId :: Lens.Lens' ModifyUserGroup Prelude.Text
@@ -113,14 +113,14 @@ instance Core.AWSRequest ModifyUserGroup where
 
 instance Prelude.Hashable ModifyUserGroup where
   hashWithSalt _salt ModifyUserGroup' {..} =
-    _salt `Prelude.hashWithSalt` userIdsToRemove
-      `Prelude.hashWithSalt` userIdsToAdd
+    _salt `Prelude.hashWithSalt` userIdsToAdd
+      `Prelude.hashWithSalt` userIdsToRemove
       `Prelude.hashWithSalt` userGroupId
 
 instance Prelude.NFData ModifyUserGroup where
   rnf ModifyUserGroup' {..} =
-    Prelude.rnf userIdsToRemove
-      `Prelude.seq` Prelude.rnf userIdsToAdd
+    Prelude.rnf userIdsToAdd
+      `Prelude.seq` Prelude.rnf userIdsToRemove
       `Prelude.seq` Prelude.rnf userGroupId
 
 instance Data.ToHeaders ModifyUserGroup where
@@ -136,13 +136,13 @@ instance Data.ToQuery ModifyUserGroup where
           Data.=: ("ModifyUserGroup" :: Prelude.ByteString),
         "Version"
           Data.=: ("2015-02-02" :: Prelude.ByteString),
+        "UserIdsToAdd"
+          Data.=: Data.toQuery
+            (Data.toQueryList "member" Prelude.<$> userIdsToAdd),
         "UserIdsToRemove"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> userIdsToRemove
             ),
-        "UserIdsToAdd"
-          Data.=: Data.toQuery
-            (Data.toQueryList "member" Prelude.<$> userIdsToAdd),
         "UserGroupId" Data.=: userGroupId
       ]

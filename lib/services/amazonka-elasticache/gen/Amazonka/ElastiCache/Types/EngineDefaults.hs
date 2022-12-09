@@ -30,9 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEngineDefaults' smart constructor.
 data EngineDefaults = EngineDefaults'
-  { -- | Provides an identifier to allow retrieval of paginated results.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | A list of parameters specific to a particular cache node type. Each
+  { -- | A list of parameters specific to a particular cache node type. Each
     -- element in the list contains detailed information about one parameter.
     cacheNodeTypeSpecificParameters :: Prelude.Maybe [CacheNodeTypeSpecificParameter],
     -- | Specifies the name of the cache parameter group family to which the
@@ -42,6 +40,8 @@ data EngineDefaults = EngineDefaults'
     -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
     -- @redis6.0@ | @redis6.x@
     cacheParameterGroupFamily :: Prelude.Maybe Prelude.Text,
+    -- | Provides an identifier to allow retrieval of paginated results.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | Contains a list of engine default parameters.
     parameters :: Prelude.Maybe [Parameter]
   }
@@ -55,8 +55,6 @@ data EngineDefaults = EngineDefaults'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'engineDefaults_marker' - Provides an identifier to allow retrieval of paginated results.
---
 -- 'cacheNodeTypeSpecificParameters', 'engineDefaults_cacheNodeTypeSpecificParameters' - A list of parameters specific to a particular cache node type. Each
 -- element in the list contains detailed information about one parameter.
 --
@@ -67,20 +65,19 @@ data EngineDefaults = EngineDefaults'
 -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
 -- @redis6.0@ | @redis6.x@
 --
+-- 'marker', 'engineDefaults_marker' - Provides an identifier to allow retrieval of paginated results.
+--
 -- 'parameters', 'engineDefaults_parameters' - Contains a list of engine default parameters.
 newEngineDefaults ::
   EngineDefaults
 newEngineDefaults =
   EngineDefaults'
-    { marker = Prelude.Nothing,
-      cacheNodeTypeSpecificParameters = Prelude.Nothing,
+    { cacheNodeTypeSpecificParameters =
+        Prelude.Nothing,
       cacheParameterGroupFamily = Prelude.Nothing,
+      marker = Prelude.Nothing,
       parameters = Prelude.Nothing
     }
-
--- | Provides an identifier to allow retrieval of paginated results.
-engineDefaults_marker :: Lens.Lens' EngineDefaults (Prelude.Maybe Prelude.Text)
-engineDefaults_marker = Lens.lens (\EngineDefaults' {marker} -> marker) (\s@EngineDefaults' {} a -> s {marker = a} :: EngineDefaults)
 
 -- | A list of parameters specific to a particular cache node type. Each
 -- element in the list contains detailed information about one parameter.
@@ -96,6 +93,10 @@ engineDefaults_cacheNodeTypeSpecificParameters = Lens.lens (\EngineDefaults' {ca
 engineDefaults_cacheParameterGroupFamily :: Lens.Lens' EngineDefaults (Prelude.Maybe Prelude.Text)
 engineDefaults_cacheParameterGroupFamily = Lens.lens (\EngineDefaults' {cacheParameterGroupFamily} -> cacheParameterGroupFamily) (\s@EngineDefaults' {} a -> s {cacheParameterGroupFamily = a} :: EngineDefaults)
 
+-- | Provides an identifier to allow retrieval of paginated results.
+engineDefaults_marker :: Lens.Lens' EngineDefaults (Prelude.Maybe Prelude.Text)
+engineDefaults_marker = Lens.lens (\EngineDefaults' {marker} -> marker) (\s@EngineDefaults' {} a -> s {marker = a} :: EngineDefaults)
+
 -- | Contains a list of engine default parameters.
 engineDefaults_parameters :: Lens.Lens' EngineDefaults (Prelude.Maybe [Parameter])
 engineDefaults_parameters = Lens.lens (\EngineDefaults' {parameters} -> parameters) (\s@EngineDefaults' {} a -> s {parameters = a} :: EngineDefaults) Prelude.. Lens.mapping Lens.coerced
@@ -103,27 +104,28 @@ engineDefaults_parameters = Lens.lens (\EngineDefaults' {parameters} -> paramete
 instance Data.FromXML EngineDefaults where
   parseXML x =
     EngineDefaults'
-      Prelude.<$> (x Data..@? "Marker")
-      Prelude.<*> ( x Data..@? "CacheNodeTypeSpecificParameters"
+      Prelude.<$> ( x Data..@? "CacheNodeTypeSpecificParameters"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "CacheNodeTypeSpecificParameter")
                   )
       Prelude.<*> (x Data..@? "CacheParameterGroupFamily")
+      Prelude.<*> (x Data..@? "Marker")
       Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Parameter")
                   )
 
 instance Prelude.Hashable EngineDefaults where
   hashWithSalt _salt EngineDefaults' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
       `Prelude.hashWithSalt` cacheNodeTypeSpecificParameters
       `Prelude.hashWithSalt` cacheParameterGroupFamily
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` parameters
 
 instance Prelude.NFData EngineDefaults where
   rnf EngineDefaults' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf cacheNodeTypeSpecificParameters
+    Prelude.rnf cacheNodeTypeSpecificParameters
       `Prelude.seq` Prelude.rnf cacheParameterGroupFamily
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf parameters

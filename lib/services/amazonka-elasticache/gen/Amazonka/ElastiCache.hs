@@ -32,182 +32,77 @@ module Amazonka.ElastiCache
     -- * Errors
     -- $errors
 
-    -- ** CacheParameterGroupAlreadyExistsFault
-    _CacheParameterGroupAlreadyExistsFault,
-
-    -- ** CacheSecurityGroupAlreadyExistsFault
-    _CacheSecurityGroupAlreadyExistsFault,
-
-    -- ** NodeQuotaForClusterExceededFault
-    _NodeQuotaForClusterExceededFault,
-
-    -- ** ClusterQuotaForCustomerExceededFault
-    _ClusterQuotaForCustomerExceededFault,
-
-    -- ** SnapshotQuotaExceededFault
-    _SnapshotQuotaExceededFault,
-
-    -- ** UserGroupNotFoundFault
-    _UserGroupNotFoundFault,
-
-    -- ** InvalidSubnet
-    _InvalidSubnet,
-
-    -- ** ReplicationGroupNotFoundFault
-    _ReplicationGroupNotFoundFault,
-
-    -- ** NodeGroupsPerReplicationGroupQuotaExceededFault
-    _NodeGroupsPerReplicationGroupQuotaExceededFault,
+    -- ** APICallRateForCustomerExceededFault
+    _APICallRateForCustomerExceededFault,
 
     -- ** AuthorizationAlreadyExistsFault
     _AuthorizationAlreadyExistsFault,
 
-    -- ** CacheSubnetGroupNotFoundFault
-    _CacheSubnetGroupNotFoundFault,
-
-    -- ** ServiceUpdateNotFoundFault
-    _ServiceUpdateNotFoundFault,
-
-    -- ** UserNotFoundFault
-    _UserNotFoundFault,
-
-    -- ** InvalidSnapshotStateFault
-    _InvalidSnapshotStateFault,
-
-    -- ** CacheClusterNotFoundFault
-    _CacheClusterNotFoundFault,
-
-    -- ** CacheSubnetGroupQuotaExceededFault
-    _CacheSubnetGroupQuotaExceededFault,
-
-    -- ** ReservedCacheNodeAlreadyExistsFault
-    _ReservedCacheNodeAlreadyExistsFault,
-
-    -- ** NoOperationFault
-    _NoOperationFault,
-
-    -- ** UserAlreadyExistsFault
-    _UserAlreadyExistsFault,
-
-    -- ** TagNotFoundFault
-    _TagNotFoundFault,
-
-    -- ** InvalidGlobalReplicationGroupStateFault
-    _InvalidGlobalReplicationGroupStateFault,
-
-    -- ** DefaultUserRequired
-    _DefaultUserRequired,
-
-    -- ** InvalidParameterCombinationException
-    _InvalidParameterCombinationException,
-
-    -- ** ServiceLinkedRoleNotFoundFault
-    _ServiceLinkedRoleNotFoundFault,
-
     -- ** AuthorizationNotFoundFault
     _AuthorizationNotFoundFault,
-
-    -- ** UserQuotaExceededFault
-    _UserQuotaExceededFault,
-
-    -- ** GlobalReplicationGroupNotFoundFault
-    _GlobalReplicationGroupNotFoundFault,
-
-    -- ** ReplicationGroupAlreadyExistsFault
-    _ReplicationGroupAlreadyExistsFault,
-
-    -- ** DuplicateUserNameFault
-    _DuplicateUserNameFault,
-
-    -- ** CacheParameterGroupQuotaExceededFault
-    _CacheParameterGroupQuotaExceededFault,
-
-    -- ** CacheSecurityGroupQuotaExceededFault
-    _CacheSecurityGroupQuotaExceededFault,
-
-    -- ** ReplicationGroupNotUnderMigrationFault
-    _ReplicationGroupNotUnderMigrationFault,
-
-    -- ** DefaultUserAssociatedToUserGroupFault
-    _DefaultUserAssociatedToUserGroupFault,
-
-    -- ** TagQuotaPerResourceExceeded
-    _TagQuotaPerResourceExceeded,
-
-    -- ** CacheParameterGroupNotFoundFault
-    _CacheParameterGroupNotFoundFault,
-
-    -- ** InvalidARNFault
-    _InvalidARNFault,
-
-    -- ** GlobalReplicationGroupAlreadyExistsFault
-    _GlobalReplicationGroupAlreadyExistsFault,
-
-    -- ** CacheSecurityGroupNotFoundFault
-    _CacheSecurityGroupNotFoundFault,
-
-    -- ** SnapshotAlreadyExistsFault
-    _SnapshotAlreadyExistsFault,
-
-    -- ** TestFailoverNotAvailableFault
-    _TestFailoverNotAvailableFault,
-
-    -- ** ReservedCacheNodesOfferingNotFoundFault
-    _ReservedCacheNodesOfferingNotFoundFault,
-
-    -- ** CacheSubnetGroupInUse
-    _CacheSubnetGroupInUse,
-
-    -- ** NodeQuotaForCustomerExceededFault
-    _NodeQuotaForCustomerExceededFault,
-
-    -- ** InvalidUserGroupStateFault
-    _InvalidUserGroupStateFault,
-
-    -- ** NodeGroupNotFoundFault
-    _NodeGroupNotFoundFault,
-
-    -- ** InvalidCacheSecurityGroupStateFault
-    _InvalidCacheSecurityGroupStateFault,
-
-    -- ** InvalidVPCNetworkStateFault
-    _InvalidVPCNetworkStateFault,
-
-    -- ** SubnetInUse
-    _SubnetInUse,
-
-    -- ** InsufficientCacheClusterCapacityFault
-    _InsufficientCacheClusterCapacityFault,
-
-    -- ** InvalidUserStateFault
-    _InvalidUserStateFault,
-
-    -- ** SnapshotNotFoundFault
-    _SnapshotNotFoundFault,
-
-    -- ** ReservedCacheNodeQuotaExceededFault
-    _ReservedCacheNodeQuotaExceededFault,
-
-    -- ** CacheSubnetGroupAlreadyExistsFault
-    _CacheSubnetGroupAlreadyExistsFault,
-
-    -- ** UserGroupAlreadyExistsFault
-    _UserGroupAlreadyExistsFault,
-
-    -- ** CacheSubnetQuotaExceededFault
-    _CacheSubnetQuotaExceededFault,
-
-    -- ** InvalidKMSKeyFault
-    _InvalidKMSKeyFault,
 
     -- ** CacheClusterAlreadyExistsFault
     _CacheClusterAlreadyExistsFault,
 
-    -- ** ReplicationGroupAlreadyUnderMigrationFault
-    _ReplicationGroupAlreadyUnderMigrationFault,
+    -- ** CacheClusterNotFoundFault
+    _CacheClusterNotFoundFault,
 
-    -- ** SnapshotFeatureNotSupportedFault
-    _SnapshotFeatureNotSupportedFault,
+    -- ** CacheParameterGroupAlreadyExistsFault
+    _CacheParameterGroupAlreadyExistsFault,
+
+    -- ** CacheParameterGroupNotFoundFault
+    _CacheParameterGroupNotFoundFault,
+
+    -- ** CacheParameterGroupQuotaExceededFault
+    _CacheParameterGroupQuotaExceededFault,
+
+    -- ** CacheSecurityGroupAlreadyExistsFault
+    _CacheSecurityGroupAlreadyExistsFault,
+
+    -- ** CacheSecurityGroupNotFoundFault
+    _CacheSecurityGroupNotFoundFault,
+
+    -- ** CacheSecurityGroupQuotaExceededFault
+    _CacheSecurityGroupQuotaExceededFault,
+
+    -- ** CacheSubnetGroupAlreadyExistsFault
+    _CacheSubnetGroupAlreadyExistsFault,
+
+    -- ** CacheSubnetGroupInUse
+    _CacheSubnetGroupInUse,
+
+    -- ** CacheSubnetGroupNotFoundFault
+    _CacheSubnetGroupNotFoundFault,
+
+    -- ** CacheSubnetGroupQuotaExceededFault
+    _CacheSubnetGroupQuotaExceededFault,
+
+    -- ** CacheSubnetQuotaExceededFault
+    _CacheSubnetQuotaExceededFault,
+
+    -- ** ClusterQuotaForCustomerExceededFault
+    _ClusterQuotaForCustomerExceededFault,
+
+    -- ** DefaultUserAssociatedToUserGroupFault
+    _DefaultUserAssociatedToUserGroupFault,
+
+    -- ** DefaultUserRequired
+    _DefaultUserRequired,
+
+    -- ** DuplicateUserNameFault
+    _DuplicateUserNameFault,
+
+    -- ** GlobalReplicationGroupAlreadyExistsFault
+    _GlobalReplicationGroupAlreadyExistsFault,
+
+    -- ** GlobalReplicationGroupNotFoundFault
+    _GlobalReplicationGroupNotFoundFault,
+
+    -- ** InsufficientCacheClusterCapacityFault
+    _InsufficientCacheClusterCapacityFault,
+
+    -- ** InvalidARNFault
+    _InvalidARNFault,
 
     -- ** InvalidCacheClusterStateFault
     _InvalidCacheClusterStateFault,
@@ -215,38 +110,143 @@ module Amazonka.ElastiCache
     -- ** InvalidCacheParameterGroupStateFault
     _InvalidCacheParameterGroupStateFault,
 
+    -- ** InvalidCacheSecurityGroupStateFault
+    _InvalidCacheSecurityGroupStateFault,
+
+    -- ** InvalidGlobalReplicationGroupStateFault
+    _InvalidGlobalReplicationGroupStateFault,
+
+    -- ** InvalidKMSKeyFault
+    _InvalidKMSKeyFault,
+
+    -- ** InvalidParameterCombinationException
+    _InvalidParameterCombinationException,
+
     -- ** InvalidParameterValueException
     _InvalidParameterValueException,
-
-    -- ** SubnetNotAllowedFault
-    _SubnetNotAllowedFault,
-
-    -- ** APICallRateForCustomerExceededFault
-    _APICallRateForCustomerExceededFault,
-
-    -- ** ReservedCacheNodeNotFoundFault
-    _ReservedCacheNodeNotFoundFault,
 
     -- ** InvalidReplicationGroupStateFault
     _InvalidReplicationGroupStateFault,
 
+    -- ** InvalidSnapshotStateFault
+    _InvalidSnapshotStateFault,
+
+    -- ** InvalidSubnet
+    _InvalidSubnet,
+
+    -- ** InvalidUserGroupStateFault
+    _InvalidUserGroupStateFault,
+
+    -- ** InvalidUserStateFault
+    _InvalidUserStateFault,
+
+    -- ** InvalidVPCNetworkStateFault
+    _InvalidVPCNetworkStateFault,
+
+    -- ** NoOperationFault
+    _NoOperationFault,
+
+    -- ** NodeGroupNotFoundFault
+    _NodeGroupNotFoundFault,
+
+    -- ** NodeGroupsPerReplicationGroupQuotaExceededFault
+    _NodeGroupsPerReplicationGroupQuotaExceededFault,
+
+    -- ** NodeQuotaForClusterExceededFault
+    _NodeQuotaForClusterExceededFault,
+
+    -- ** NodeQuotaForCustomerExceededFault
+    _NodeQuotaForCustomerExceededFault,
+
+    -- ** ReplicationGroupAlreadyExistsFault
+    _ReplicationGroupAlreadyExistsFault,
+
+    -- ** ReplicationGroupAlreadyUnderMigrationFault
+    _ReplicationGroupAlreadyUnderMigrationFault,
+
+    -- ** ReplicationGroupNotFoundFault
+    _ReplicationGroupNotFoundFault,
+
+    -- ** ReplicationGroupNotUnderMigrationFault
+    _ReplicationGroupNotUnderMigrationFault,
+
+    -- ** ReservedCacheNodeAlreadyExistsFault
+    _ReservedCacheNodeAlreadyExistsFault,
+
+    -- ** ReservedCacheNodeNotFoundFault
+    _ReservedCacheNodeNotFoundFault,
+
+    -- ** ReservedCacheNodeQuotaExceededFault
+    _ReservedCacheNodeQuotaExceededFault,
+
+    -- ** ReservedCacheNodesOfferingNotFoundFault
+    _ReservedCacheNodesOfferingNotFoundFault,
+
+    -- ** ServiceLinkedRoleNotFoundFault
+    _ServiceLinkedRoleNotFoundFault,
+
+    -- ** ServiceUpdateNotFoundFault
+    _ServiceUpdateNotFoundFault,
+
+    -- ** SnapshotAlreadyExistsFault
+    _SnapshotAlreadyExistsFault,
+
+    -- ** SnapshotFeatureNotSupportedFault
+    _SnapshotFeatureNotSupportedFault,
+
+    -- ** SnapshotNotFoundFault
+    _SnapshotNotFoundFault,
+
+    -- ** SnapshotQuotaExceededFault
+    _SnapshotQuotaExceededFault,
+
+    -- ** SubnetInUse
+    _SubnetInUse,
+
+    -- ** SubnetNotAllowedFault
+    _SubnetNotAllowedFault,
+
+    -- ** TagNotFoundFault
+    _TagNotFoundFault,
+
+    -- ** TagQuotaPerResourceExceeded
+    _TagQuotaPerResourceExceeded,
+
+    -- ** TestFailoverNotAvailableFault
+    _TestFailoverNotAvailableFault,
+
+    -- ** UserAlreadyExistsFault
+    _UserAlreadyExistsFault,
+
+    -- ** UserGroupAlreadyExistsFault
+    _UserGroupAlreadyExistsFault,
+
+    -- ** UserGroupNotFoundFault
+    _UserGroupNotFoundFault,
+
     -- ** UserGroupQuotaExceededFault
     _UserGroupQuotaExceededFault,
+
+    -- ** UserNotFoundFault
+    _UserNotFoundFault,
+
+    -- ** UserQuotaExceededFault
+    _UserQuotaExceededFault,
 
     -- * Waiters
     -- $waiters
 
-    -- ** ReplicationGroupAvailable
-    newReplicationGroupAvailable,
-
     -- ** CacheClusterAvailable
     newCacheClusterAvailable,
 
-    -- ** ReplicationGroupDeleted
-    newReplicationGroupDeleted,
-
     -- ** CacheClusterDeleted
     newCacheClusterDeleted,
+
+    -- ** ReplicationGroupAvailable
+    newReplicationGroupAvailable,
+
+    -- ** ReplicationGroupDeleted
+    newReplicationGroupDeleted,
 
     -- * Operations
     -- $operations

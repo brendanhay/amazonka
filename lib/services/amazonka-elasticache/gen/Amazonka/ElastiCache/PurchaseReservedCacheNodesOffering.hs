@@ -33,9 +33,9 @@ module Amazonka.ElastiCache.PurchaseReservedCacheNodesOffering
     newPurchaseReservedCacheNodesOffering,
 
     -- * Request Lenses
-    purchaseReservedCacheNodesOffering_tags,
     purchaseReservedCacheNodesOffering_cacheNodeCount,
     purchaseReservedCacheNodesOffering_reservedCacheNodeId,
+    purchaseReservedCacheNodesOffering_tags,
     purchaseReservedCacheNodesOffering_reservedCacheNodesOfferingId,
 
     -- * Destructuring the Response
@@ -61,10 +61,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newPurchaseReservedCacheNodesOffering' smart constructor.
 data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering'
-  { -- | A list of tags to be added to this resource. A tag is a key-value pair.
-    -- A tag key must be accompanied by a tag value, although null is accepted.
-    tags :: Prelude.Maybe [Tag],
-    -- | The number of cache node instances to reserve.
+  { -- | The number of cache node instances to reserve.
     --
     -- Default: @1@
     cacheNodeCount :: Prelude.Maybe Prelude.Int,
@@ -76,6 +73,9 @@ data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering'
     --
     -- Example: myreservationID
     reservedCacheNodeId :: Prelude.Maybe Prelude.Text,
+    -- | A list of tags to be added to this resource. A tag is a key-value pair.
+    -- A tag key must be accompanied by a tag value, although null is accepted.
+    tags :: Prelude.Maybe [Tag],
     -- | The ID of the reserved cache node offering to purchase.
     --
     -- Example: @438012d3-4052-4cc7-b2e3-8d3372e0e706@
@@ -91,9 +91,6 @@ data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'purchaseReservedCacheNodesOffering_tags' - A list of tags to be added to this resource. A tag is a key-value pair.
--- A tag key must be accompanied by a tag value, although null is accepted.
---
 -- 'cacheNodeCount', 'purchaseReservedCacheNodesOffering_cacheNodeCount' - The number of cache node instances to reserve.
 --
 -- Default: @1@
@@ -106,6 +103,9 @@ data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering'
 --
 -- Example: myreservationID
 --
+-- 'tags', 'purchaseReservedCacheNodesOffering_tags' - A list of tags to be added to this resource. A tag is a key-value pair.
+-- A tag key must be accompanied by a tag value, although null is accepted.
+--
 -- 'reservedCacheNodesOfferingId', 'purchaseReservedCacheNodesOffering_reservedCacheNodesOfferingId' - The ID of the reserved cache node offering to purchase.
 --
 -- Example: @438012d3-4052-4cc7-b2e3-8d3372e0e706@
@@ -116,18 +116,13 @@ newPurchaseReservedCacheNodesOffering ::
 newPurchaseReservedCacheNodesOffering
   pReservedCacheNodesOfferingId_ =
     PurchaseReservedCacheNodesOffering'
-      { tags =
+      { cacheNodeCount =
           Prelude.Nothing,
-        cacheNodeCount = Prelude.Nothing,
         reservedCacheNodeId = Prelude.Nothing,
+        tags = Prelude.Nothing,
         reservedCacheNodesOfferingId =
           pReservedCacheNodesOfferingId_
       }
-
--- | A list of tags to be added to this resource. A tag is a key-value pair.
--- A tag key must be accompanied by a tag value, although null is accepted.
-purchaseReservedCacheNodesOffering_tags :: Lens.Lens' PurchaseReservedCacheNodesOffering (Prelude.Maybe [Tag])
-purchaseReservedCacheNodesOffering_tags = Lens.lens (\PurchaseReservedCacheNodesOffering' {tags} -> tags) (\s@PurchaseReservedCacheNodesOffering' {} a -> s {tags = a} :: PurchaseReservedCacheNodesOffering) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of cache node instances to reserve.
 --
@@ -144,6 +139,11 @@ purchaseReservedCacheNodesOffering_cacheNodeCount = Lens.lens (\PurchaseReserved
 -- Example: myreservationID
 purchaseReservedCacheNodesOffering_reservedCacheNodeId :: Lens.Lens' PurchaseReservedCacheNodesOffering (Prelude.Maybe Prelude.Text)
 purchaseReservedCacheNodesOffering_reservedCacheNodeId = Lens.lens (\PurchaseReservedCacheNodesOffering' {reservedCacheNodeId} -> reservedCacheNodeId) (\s@PurchaseReservedCacheNodesOffering' {} a -> s {reservedCacheNodeId = a} :: PurchaseReservedCacheNodesOffering)
+
+-- | A list of tags to be added to this resource. A tag is a key-value pair.
+-- A tag key must be accompanied by a tag value, although null is accepted.
+purchaseReservedCacheNodesOffering_tags :: Lens.Lens' PurchaseReservedCacheNodesOffering (Prelude.Maybe [Tag])
+purchaseReservedCacheNodesOffering_tags = Lens.lens (\PurchaseReservedCacheNodesOffering' {tags} -> tags) (\s@PurchaseReservedCacheNodesOffering' {} a -> s {tags = a} :: PurchaseReservedCacheNodesOffering) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the reserved cache node offering to purchase.
 --
@@ -176,9 +176,9 @@ instance
   hashWithSalt
     _salt
     PurchaseReservedCacheNodesOffering' {..} =
-      _salt `Prelude.hashWithSalt` tags
-        `Prelude.hashWithSalt` cacheNodeCount
+      _salt `Prelude.hashWithSalt` cacheNodeCount
         `Prelude.hashWithSalt` reservedCacheNodeId
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` reservedCacheNodesOfferingId
 
 instance
@@ -186,9 +186,9 @@ instance
     PurchaseReservedCacheNodesOffering
   where
   rnf PurchaseReservedCacheNodesOffering' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf cacheNodeCount
+    Prelude.rnf cacheNodeCount
       `Prelude.seq` Prelude.rnf reservedCacheNodeId
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf reservedCacheNodesOfferingId
 
 instance
@@ -215,11 +215,11 @@ instance
                   ),
         "Version"
           Data.=: ("2015-02-02" :: Prelude.ByteString),
+        "CacheNodeCount" Data.=: cacheNodeCount,
+        "ReservedCacheNodeId" Data.=: reservedCacheNodeId,
         "Tags"
           Data.=: Data.toQuery
             (Data.toQueryList "Tag" Prelude.<$> tags),
-        "CacheNodeCount" Data.=: cacheNodeCount,
-        "ReservedCacheNodeId" Data.=: reservedCacheNodeId,
         "ReservedCacheNodesOfferingId"
           Data.=: reservedCacheNodesOfferingId
       ]

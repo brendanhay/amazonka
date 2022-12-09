@@ -41,8 +41,8 @@ module Amazonka.ElastiCache.DescribeCacheSubnetGroups
     newDescribeCacheSubnetGroupsResponse,
 
     -- * Response Lenses
-    describeCacheSubnetGroupsResponse_marker,
     describeCacheSubnetGroupsResponse_cacheSubnetGroups,
+    describeCacheSubnetGroupsResponse_marker,
     describeCacheSubnetGroupsResponse_httpStatus,
   )
 where
@@ -163,11 +163,11 @@ instance Core.AWSRequest DescribeCacheSubnetGroups where
       "DescribeCacheSubnetGroupsResult"
       ( \s h x ->
           DescribeCacheSubnetGroupsResponse'
-            Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x Data..@? "CacheSubnetGroups"
+            Prelude.<$> ( x Data..@? "CacheSubnetGroups"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "CacheSubnetGroup")
                         )
+            Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -205,11 +205,11 @@ instance Data.ToQuery DescribeCacheSubnetGroups where
 --
 -- /See:/ 'newDescribeCacheSubnetGroupsResponse' smart constructor.
 data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse'
-  { -- | Provides an identifier to allow retrieval of paginated results.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | A list of cache subnet groups. Each element in the list contains
+  { -- | A list of cache subnet groups. Each element in the list contains
     -- detailed information about one group.
     cacheSubnetGroups :: Prelude.Maybe [CacheSubnetGroup],
+    -- | Provides an identifier to allow retrieval of paginated results.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -223,10 +223,10 @@ data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'describeCacheSubnetGroupsResponse_marker' - Provides an identifier to allow retrieval of paginated results.
---
 -- 'cacheSubnetGroups', 'describeCacheSubnetGroupsResponse_cacheSubnetGroups' - A list of cache subnet groups. Each element in the list contains
 -- detailed information about one group.
+--
+-- 'marker', 'describeCacheSubnetGroupsResponse_marker' - Provides an identifier to allow retrieval of paginated results.
 --
 -- 'httpStatus', 'describeCacheSubnetGroupsResponse_httpStatus' - The response's http status code.
 newDescribeCacheSubnetGroupsResponse ::
@@ -235,20 +235,20 @@ newDescribeCacheSubnetGroupsResponse ::
   DescribeCacheSubnetGroupsResponse
 newDescribeCacheSubnetGroupsResponse pHttpStatus_ =
   DescribeCacheSubnetGroupsResponse'
-    { marker =
+    { cacheSubnetGroups =
         Prelude.Nothing,
-      cacheSubnetGroups = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Provides an identifier to allow retrieval of paginated results.
-describeCacheSubnetGroupsResponse_marker :: Lens.Lens' DescribeCacheSubnetGroupsResponse (Prelude.Maybe Prelude.Text)
-describeCacheSubnetGroupsResponse_marker = Lens.lens (\DescribeCacheSubnetGroupsResponse' {marker} -> marker) (\s@DescribeCacheSubnetGroupsResponse' {} a -> s {marker = a} :: DescribeCacheSubnetGroupsResponse)
 
 -- | A list of cache subnet groups. Each element in the list contains
 -- detailed information about one group.
 describeCacheSubnetGroupsResponse_cacheSubnetGroups :: Lens.Lens' DescribeCacheSubnetGroupsResponse (Prelude.Maybe [CacheSubnetGroup])
 describeCacheSubnetGroupsResponse_cacheSubnetGroups = Lens.lens (\DescribeCacheSubnetGroupsResponse' {cacheSubnetGroups} -> cacheSubnetGroups) (\s@DescribeCacheSubnetGroupsResponse' {} a -> s {cacheSubnetGroups = a} :: DescribeCacheSubnetGroupsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Provides an identifier to allow retrieval of paginated results.
+describeCacheSubnetGroupsResponse_marker :: Lens.Lens' DescribeCacheSubnetGroupsResponse (Prelude.Maybe Prelude.Text)
+describeCacheSubnetGroupsResponse_marker = Lens.lens (\DescribeCacheSubnetGroupsResponse' {marker} -> marker) (\s@DescribeCacheSubnetGroupsResponse' {} a -> s {marker = a} :: DescribeCacheSubnetGroupsResponse)
 
 -- | The response's http status code.
 describeCacheSubnetGroupsResponse_httpStatus :: Lens.Lens' DescribeCacheSubnetGroupsResponse Prelude.Int
@@ -259,6 +259,6 @@ instance
     DescribeCacheSubnetGroupsResponse
   where
   rnf DescribeCacheSubnetGroupsResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf cacheSubnetGroups
+    Prelude.rnf cacheSubnetGroups
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf httpStatus

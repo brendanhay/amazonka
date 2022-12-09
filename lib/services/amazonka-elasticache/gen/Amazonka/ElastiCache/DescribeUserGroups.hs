@@ -30,8 +30,8 @@ module Amazonka.ElastiCache.DescribeUserGroups
 
     -- * Request Lenses
     describeUserGroups_marker,
-    describeUserGroups_userGroupId,
     describeUserGroups_maxRecords,
+    describeUserGroups_userGroupId,
 
     -- * Destructuring the Response
     DescribeUserGroupsResponse (..),
@@ -59,12 +59,12 @@ data DescribeUserGroups = DescribeUserGroups'
     -- specified, the response includes only records beyond the marker, up to
     -- the value specified by MaxRecords. >
     marker :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the user group.
-    userGroupId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified MaxRecords value, a marker is included
     -- in the response so that the remaining results can be retrieved.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | The ID of the user group.
+    userGroupId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,18 +81,18 @@ data DescribeUserGroups = DescribeUserGroups'
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by MaxRecords. >
 --
--- 'userGroupId', 'describeUserGroups_userGroupId' - The ID of the user group.
---
 -- 'maxRecords', 'describeUserGroups_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified MaxRecords value, a marker is included
 -- in the response so that the remaining results can be retrieved.
+--
+-- 'userGroupId', 'describeUserGroups_userGroupId' - The ID of the user group.
 newDescribeUserGroups ::
   DescribeUserGroups
 newDescribeUserGroups =
   DescribeUserGroups'
     { marker = Prelude.Nothing,
-      userGroupId = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      userGroupId = Prelude.Nothing
     }
 
 -- | An optional marker returned from a prior request. Use this marker for
@@ -102,15 +102,15 @@ newDescribeUserGroups =
 describeUserGroups_marker :: Lens.Lens' DescribeUserGroups (Prelude.Maybe Prelude.Text)
 describeUserGroups_marker = Lens.lens (\DescribeUserGroups' {marker} -> marker) (\s@DescribeUserGroups' {} a -> s {marker = a} :: DescribeUserGroups)
 
--- | The ID of the user group.
-describeUserGroups_userGroupId :: Lens.Lens' DescribeUserGroups (Prelude.Maybe Prelude.Text)
-describeUserGroups_userGroupId = Lens.lens (\DescribeUserGroups' {userGroupId} -> userGroupId) (\s@DescribeUserGroups' {} a -> s {userGroupId = a} :: DescribeUserGroups)
-
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified MaxRecords value, a marker is included
 -- in the response so that the remaining results can be retrieved.
 describeUserGroups_maxRecords :: Lens.Lens' DescribeUserGroups (Prelude.Maybe Prelude.Int)
 describeUserGroups_maxRecords = Lens.lens (\DescribeUserGroups' {maxRecords} -> maxRecords) (\s@DescribeUserGroups' {} a -> s {maxRecords = a} :: DescribeUserGroups)
+
+-- | The ID of the user group.
+describeUserGroups_userGroupId :: Lens.Lens' DescribeUserGroups (Prelude.Maybe Prelude.Text)
+describeUserGroups_userGroupId = Lens.lens (\DescribeUserGroups' {userGroupId} -> userGroupId) (\s@DescribeUserGroups' {} a -> s {userGroupId = a} :: DescribeUserGroups)
 
 instance Core.AWSPager DescribeUserGroups where
   page rq rs
@@ -155,14 +155,14 @@ instance Core.AWSRequest DescribeUserGroups where
 instance Prelude.Hashable DescribeUserGroups where
   hashWithSalt _salt DescribeUserGroups' {..} =
     _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` userGroupId
       `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` userGroupId
 
 instance Prelude.NFData DescribeUserGroups where
   rnf DescribeUserGroups' {..} =
     Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf userGroupId
       `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf userGroupId
 
 instance Data.ToHeaders DescribeUserGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -178,8 +178,8 @@ instance Data.ToQuery DescribeUserGroups where
         "Version"
           Data.=: ("2015-02-02" :: Prelude.ByteString),
         "Marker" Data.=: marker,
-        "UserGroupId" Data.=: userGroupId,
-        "MaxRecords" Data.=: maxRecords
+        "MaxRecords" Data.=: maxRecords,
+        "UserGroupId" Data.=: userGroupId
       ]
 
 -- | /See:/ 'newDescribeUserGroupsResponse' smart constructor.

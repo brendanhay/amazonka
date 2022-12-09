@@ -25,43 +25,6 @@ import Amazonka.ElastiCache.Lens
 import Amazonka.ElastiCache.Types
 import qualified Amazonka.Prelude as Prelude
 
--- | Polls 'Amazonka.ElastiCache.DescribeReplicationGroups' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newReplicationGroupAvailable :: Core.Wait DescribeReplicationGroups
-newReplicationGroupAvailable =
-  Core.Wait
-    { Core.name = "ReplicationGroupAvailable",
-      Core.attempts = 40,
-      Core.delay = 15,
-      Core.acceptors =
-        [ Core.matchAll
-            "available"
-            Core.AcceptSuccess
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeReplicationGroupsResponse_replicationGroups
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. replicationGroup_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAny
-            "deleted"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeReplicationGroupsResponse_replicationGroups
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. replicationGroup_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            )
-        ]
-    }
-
 -- | Polls 'Amazonka.ElastiCache.DescribeCacheClusters' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
 newCacheClusterAvailable :: Core.Wait DescribeCacheClusters
 newCacheClusterAvailable =
@@ -135,46 +98,6 @@ newCacheClusterAvailable =
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             )
-        ]
-    }
-
--- | Polls 'Amazonka.ElastiCache.DescribeReplicationGroups' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newReplicationGroupDeleted :: Core.Wait DescribeReplicationGroups
-newReplicationGroupDeleted =
-  Core.Wait
-    { Core.name = "ReplicationGroupDeleted",
-      Core.attempts = 40,
-      Core.delay = 15,
-      Core.acceptors =
-        [ Core.matchAll
-            "deleted"
-            Core.AcceptSuccess
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeReplicationGroupsResponse_replicationGroups
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. replicationGroup_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchAny
-            "available"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeReplicationGroupsResponse_replicationGroups
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. replicationGroup_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Data.toTextCI
-            ),
-          Core.matchError
-            "ReplicationGroupNotFoundFault"
-            Core.AcceptSuccess
         ]
     }
 
@@ -280,5 +203,82 @@ newCacheClusterDeleted =
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             )
+        ]
+    }
+
+-- | Polls 'Amazonka.ElastiCache.DescribeReplicationGroups' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+newReplicationGroupAvailable :: Core.Wait DescribeReplicationGroups
+newReplicationGroupAvailable =
+  Core.Wait
+    { Core.name = "ReplicationGroupAvailable",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
+        [ Core.matchAll
+            "available"
+            Core.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeReplicationGroupsResponse_replicationGroups
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. replicationGroup_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAny
+            "deleted"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeReplicationGroupsResponse_replicationGroups
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. replicationGroup_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Amazonka.ElastiCache.DescribeReplicationGroups' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+newReplicationGroupDeleted :: Core.Wait DescribeReplicationGroups
+newReplicationGroupDeleted =
+  Core.Wait
+    { Core.name = "ReplicationGroupDeleted",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
+        [ Core.matchAll
+            "deleted"
+            Core.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeReplicationGroupsResponse_replicationGroups
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. replicationGroup_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAny
+            "available"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeReplicationGroupsResponse_replicationGroups
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. replicationGroup_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchError
+            "ReplicationGroupNotFoundFault"
+            Core.AcceptSuccess
         ]
     }

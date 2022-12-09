@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDelegatedService' smart constructor.
 data DelegatedService = DelegatedService'
-  { -- | The name of an Amazon Web Services service that can request an operation
+  { -- | The date that the account became a delegated administrator for this
+    -- service.
+    delegationEnabledDate :: Prelude.Maybe Data.POSIX,
+    -- | The name of an Amazon Web Services service that can request an operation
     -- for the specified service. This is typically in the form of a URL, such
     -- as: @ servicename.amazonaws.com@.
-    servicePrincipal :: Prelude.Maybe Prelude.Text,
-    -- | The date that the account became a delegated administrator for this
-    -- service.
-    delegationEnabledDate :: Prelude.Maybe Data.POSIX
+    servicePrincipal :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,20 +47,25 @@ data DelegatedService = DelegatedService'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'delegationEnabledDate', 'delegatedService_delegationEnabledDate' - The date that the account became a delegated administrator for this
+-- service.
+--
 -- 'servicePrincipal', 'delegatedService_servicePrincipal' - The name of an Amazon Web Services service that can request an operation
 -- for the specified service. This is typically in the form of a URL, such
 -- as: @ servicename.amazonaws.com@.
---
--- 'delegationEnabledDate', 'delegatedService_delegationEnabledDate' - The date that the account became a delegated administrator for this
--- service.
 newDelegatedService ::
   DelegatedService
 newDelegatedService =
   DelegatedService'
-    { servicePrincipal =
+    { delegationEnabledDate =
         Prelude.Nothing,
-      delegationEnabledDate = Prelude.Nothing
+      servicePrincipal = Prelude.Nothing
     }
+
+-- | The date that the account became a delegated administrator for this
+-- service.
+delegatedService_delegationEnabledDate :: Lens.Lens' DelegatedService (Prelude.Maybe Prelude.UTCTime)
+delegatedService_delegationEnabledDate = Lens.lens (\DelegatedService' {delegationEnabledDate} -> delegationEnabledDate) (\s@DelegatedService' {} a -> s {delegationEnabledDate = a} :: DelegatedService) Prelude.. Lens.mapping Data._Time
 
 -- | The name of an Amazon Web Services service that can request an operation
 -- for the specified service. This is typically in the form of a URL, such
@@ -68,27 +73,22 @@ newDelegatedService =
 delegatedService_servicePrincipal :: Lens.Lens' DelegatedService (Prelude.Maybe Prelude.Text)
 delegatedService_servicePrincipal = Lens.lens (\DelegatedService' {servicePrincipal} -> servicePrincipal) (\s@DelegatedService' {} a -> s {servicePrincipal = a} :: DelegatedService)
 
--- | The date that the account became a delegated administrator for this
--- service.
-delegatedService_delegationEnabledDate :: Lens.Lens' DelegatedService (Prelude.Maybe Prelude.UTCTime)
-delegatedService_delegationEnabledDate = Lens.lens (\DelegatedService' {delegationEnabledDate} -> delegationEnabledDate) (\s@DelegatedService' {} a -> s {delegationEnabledDate = a} :: DelegatedService) Prelude.. Lens.mapping Data._Time
-
 instance Data.FromJSON DelegatedService where
   parseJSON =
     Data.withObject
       "DelegatedService"
       ( \x ->
           DelegatedService'
-            Prelude.<$> (x Data..:? "ServicePrincipal")
-            Prelude.<*> (x Data..:? "DelegationEnabledDate")
+            Prelude.<$> (x Data..:? "DelegationEnabledDate")
+            Prelude.<*> (x Data..:? "ServicePrincipal")
       )
 
 instance Prelude.Hashable DelegatedService where
   hashWithSalt _salt DelegatedService' {..} =
-    _salt `Prelude.hashWithSalt` servicePrincipal
-      `Prelude.hashWithSalt` delegationEnabledDate
+    _salt `Prelude.hashWithSalt` delegationEnabledDate
+      `Prelude.hashWithSalt` servicePrincipal
 
 instance Prelude.NFData DelegatedService where
   rnf DelegatedService' {..} =
-    Prelude.rnf servicePrincipal
-      `Prelude.seq` Prelude.rnf delegationEnabledDate
+    Prelude.rnf delegationEnabledDate
+      `Prelude.seq` Prelude.rnf servicePrincipal

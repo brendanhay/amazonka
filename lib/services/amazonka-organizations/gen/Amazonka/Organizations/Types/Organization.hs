@@ -39,17 +39,6 @@ data Organization = Organization'
     -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
     -- in the /Amazon Web Services Service Authorization Reference/.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier (ID) of an organization.
-    --
-    -- The <http://wikipedia.org/wiki/regex regex pattern> for an organization
-    -- ID string requires \"o-\" followed by from 10 to 32 lowercase letters or
-    -- digits.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier (ID) of the management account of an organization.
-    --
-    -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
-    -- string requires exactly 12 digits.
-    masterAccountId :: Prelude.Maybe Prelude.Text,
     -- | Do not use. This field is deprecated and doesn\'t provide complete
     -- information about the policies in your organization.
     --
@@ -64,17 +53,28 @@ data Organization = Organization'
     -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html Enabling All Features in Your Organization>
     -- in the /Organizations User Guide/.
     featureSet :: Prelude.Maybe OrganizationFeatureSet,
-    -- | The email address that is associated with the Amazon Web Services
-    -- account that is designated as the management account for the
-    -- organization.
-    masterAccountEmail :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The unique identifier (ID) of an organization.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for an organization
+    -- ID string requires \"o-\" followed by from 10 to 32 lowercase letters or
+    -- digits.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the account that is designated as the
     -- management account for the organization.
     --
     -- For more information about ARNs in Organizations, see
     -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
     -- in the /Amazon Web Services Service Authorization Reference/.
-    masterAccountArn :: Prelude.Maybe Prelude.Text
+    masterAccountArn :: Prelude.Maybe Prelude.Text,
+    -- | The email address that is associated with the Amazon Web Services
+    -- account that is designated as the management account for the
+    -- organization.
+    masterAccountEmail :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The unique identifier (ID) of the management account of an organization.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
+    -- string requires exactly 12 digits.
+    masterAccountId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -92,17 +92,6 @@ data Organization = Organization'
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
 -- in the /Amazon Web Services Service Authorization Reference/.
 --
--- 'id', 'organization_id' - The unique identifier (ID) of an organization.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for an organization
--- ID string requires \"o-\" followed by from 10 to 32 lowercase letters or
--- digits.
---
--- 'masterAccountId', 'organization_masterAccountId' - The unique identifier (ID) of the management account of an organization.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
--- string requires exactly 12 digits.
---
 -- 'availablePolicyTypes', 'organization_availablePolicyTypes' - Do not use. This field is deprecated and doesn\'t provide complete
 -- information about the policies in your organization.
 --
@@ -117,9 +106,11 @@ data Organization = Organization'
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html Enabling All Features in Your Organization>
 -- in the /Organizations User Guide/.
 --
--- 'masterAccountEmail', 'organization_masterAccountEmail' - The email address that is associated with the Amazon Web Services
--- account that is designated as the management account for the
--- organization.
+-- 'id', 'organization_id' - The unique identifier (ID) of an organization.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for an organization
+-- ID string requires \"o-\" followed by from 10 to 32 lowercase letters or
+-- digits.
 --
 -- 'masterAccountArn', 'organization_masterAccountArn' - The Amazon Resource Name (ARN) of the account that is designated as the
 -- management account for the organization.
@@ -127,17 +118,26 @@ data Organization = Organization'
 -- For more information about ARNs in Organizations, see
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
 -- in the /Amazon Web Services Service Authorization Reference/.
+--
+-- 'masterAccountEmail', 'organization_masterAccountEmail' - The email address that is associated with the Amazon Web Services
+-- account that is designated as the management account for the
+-- organization.
+--
+-- 'masterAccountId', 'organization_masterAccountId' - The unique identifier (ID) of the management account of an organization.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
+-- string requires exactly 12 digits.
 newOrganization ::
   Organization
 newOrganization =
   Organization'
     { arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      masterAccountId = Prelude.Nothing,
       availablePolicyTypes = Prelude.Nothing,
       featureSet = Prelude.Nothing,
+      id = Prelude.Nothing,
+      masterAccountArn = Prelude.Nothing,
       masterAccountEmail = Prelude.Nothing,
-      masterAccountArn = Prelude.Nothing
+      masterAccountId = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of an organization.
@@ -147,21 +147,6 @@ newOrganization =
 -- in the /Amazon Web Services Service Authorization Reference/.
 organization_arn :: Lens.Lens' Organization (Prelude.Maybe Prelude.Text)
 organization_arn = Lens.lens (\Organization' {arn} -> arn) (\s@Organization' {} a -> s {arn = a} :: Organization)
-
--- | The unique identifier (ID) of an organization.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for an organization
--- ID string requires \"o-\" followed by from 10 to 32 lowercase letters or
--- digits.
-organization_id :: Lens.Lens' Organization (Prelude.Maybe Prelude.Text)
-organization_id = Lens.lens (\Organization' {id} -> id) (\s@Organization' {} a -> s {id = a} :: Organization)
-
--- | The unique identifier (ID) of the management account of an organization.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
--- string requires exactly 12 digits.
-organization_masterAccountId :: Lens.Lens' Organization (Prelude.Maybe Prelude.Text)
-organization_masterAccountId = Lens.lens (\Organization' {masterAccountId} -> masterAccountId) (\s@Organization' {} a -> s {masterAccountId = a} :: Organization)
 
 -- | Do not use. This field is deprecated and doesn\'t provide complete
 -- information about the policies in your organization.
@@ -181,11 +166,13 @@ organization_availablePolicyTypes = Lens.lens (\Organization' {availablePolicyTy
 organization_featureSet :: Lens.Lens' Organization (Prelude.Maybe OrganizationFeatureSet)
 organization_featureSet = Lens.lens (\Organization' {featureSet} -> featureSet) (\s@Organization' {} a -> s {featureSet = a} :: Organization)
 
--- | The email address that is associated with the Amazon Web Services
--- account that is designated as the management account for the
--- organization.
-organization_masterAccountEmail :: Lens.Lens' Organization (Prelude.Maybe Prelude.Text)
-organization_masterAccountEmail = Lens.lens (\Organization' {masterAccountEmail} -> masterAccountEmail) (\s@Organization' {} a -> s {masterAccountEmail = a} :: Organization) Prelude.. Lens.mapping Data._Sensitive
+-- | The unique identifier (ID) of an organization.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for an organization
+-- ID string requires \"o-\" followed by from 10 to 32 lowercase letters or
+-- digits.
+organization_id :: Lens.Lens' Organization (Prelude.Maybe Prelude.Text)
+organization_id = Lens.lens (\Organization' {id} -> id) (\s@Organization' {} a -> s {id = a} :: Organization)
 
 -- | The Amazon Resource Name (ARN) of the account that is designated as the
 -- management account for the organization.
@@ -196,6 +183,19 @@ organization_masterAccountEmail = Lens.lens (\Organization' {masterAccountEmail}
 organization_masterAccountArn :: Lens.Lens' Organization (Prelude.Maybe Prelude.Text)
 organization_masterAccountArn = Lens.lens (\Organization' {masterAccountArn} -> masterAccountArn) (\s@Organization' {} a -> s {masterAccountArn = a} :: Organization)
 
+-- | The email address that is associated with the Amazon Web Services
+-- account that is designated as the management account for the
+-- organization.
+organization_masterAccountEmail :: Lens.Lens' Organization (Prelude.Maybe Prelude.Text)
+organization_masterAccountEmail = Lens.lens (\Organization' {masterAccountEmail} -> masterAccountEmail) (\s@Organization' {} a -> s {masterAccountEmail = a} :: Organization) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The unique identifier (ID) of the management account of an organization.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
+-- string requires exactly 12 digits.
+organization_masterAccountId :: Lens.Lens' Organization (Prelude.Maybe Prelude.Text)
+organization_masterAccountId = Lens.lens (\Organization' {masterAccountId} -> masterAccountId) (\s@Organization' {} a -> s {masterAccountId = a} :: Organization)
+
 instance Data.FromJSON Organization where
   parseJSON =
     Data.withObject
@@ -203,32 +203,32 @@ instance Data.FromJSON Organization where
       ( \x ->
           Organization'
             Prelude.<$> (x Data..:? "Arn")
-            Prelude.<*> (x Data..:? "Id")
-            Prelude.<*> (x Data..:? "MasterAccountId")
             Prelude.<*> ( x Data..:? "AvailablePolicyTypes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "FeatureSet")
-            Prelude.<*> (x Data..:? "MasterAccountEmail")
+            Prelude.<*> (x Data..:? "Id")
             Prelude.<*> (x Data..:? "MasterAccountArn")
+            Prelude.<*> (x Data..:? "MasterAccountEmail")
+            Prelude.<*> (x Data..:? "MasterAccountId")
       )
 
 instance Prelude.Hashable Organization where
   hashWithSalt _salt Organization' {..} =
     _salt `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` masterAccountId
       `Prelude.hashWithSalt` availablePolicyTypes
       `Prelude.hashWithSalt` featureSet
-      `Prelude.hashWithSalt` masterAccountEmail
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` masterAccountArn
+      `Prelude.hashWithSalt` masterAccountEmail
+      `Prelude.hashWithSalt` masterAccountId
 
 instance Prelude.NFData Organization where
   rnf Organization' {..} =
     Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf masterAccountId
       `Prelude.seq` Prelude.rnf availablePolicyTypes
       `Prelude.seq` Prelude.rnf featureSet
-      `Prelude.seq` Prelude.rnf masterAccountEmail
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf masterAccountArn
+      `Prelude.seq` Prelude.rnf masterAccountEmail
+      `Prelude.seq` Prelude.rnf masterAccountId

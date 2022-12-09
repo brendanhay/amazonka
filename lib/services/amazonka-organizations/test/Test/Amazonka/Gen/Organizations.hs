@@ -66,6 +66,9 @@ import Test.Tasty
 --         , requestDeletePolicy $
 --             newDeletePolicy
 --
+--         , requestDeleteResourcePolicy $
+--             newDeleteResourcePolicy
+--
 --         , requestDeregisterDelegatedAdministrator $
 --             newDeregisterDelegatedAdministrator
 --
@@ -89,6 +92,9 @@ import Test.Tasty
 --
 --         , requestDescribePolicy $
 --             newDescribePolicy
+--
+--         , requestDescribeResourcePolicy $
+--             newDescribeResourcePolicy
 --
 --         , requestDetachPolicy $
 --             newDetachPolicy
@@ -165,6 +171,9 @@ import Test.Tasty
 --         , requestMoveAccount $
 --             newMoveAccount
 --
+--         , requestPutResourcePolicy $
+--             newPutResourcePolicy
+--
 --         , requestRegisterDelegatedAdministrator $
 --             newRegisterDelegatedAdministrator
 --
@@ -225,6 +234,9 @@ import Test.Tasty
 --         , responseDeletePolicy $
 --             newDeletePolicyResponse
 --
+--         , responseDeleteResourcePolicy $
+--             newDeleteResourcePolicyResponse
+--
 --         , responseDeregisterDelegatedAdministrator $
 --             newDeregisterDelegatedAdministratorResponse
 --
@@ -248,6 +260,9 @@ import Test.Tasty
 --
 --         , responseDescribePolicy $
 --             newDescribePolicyResponse
+--
+--         , responseDescribeResourcePolicy $
+--             newDescribeResourcePolicyResponse
 --
 --         , responseDetachPolicy $
 --             newDetachPolicyResponse
@@ -323,6 +338,9 @@ import Test.Tasty
 --
 --         , responseMoveAccount $
 --             newMoveAccountResponse
+--
+--         , responsePutResourcePolicy $
+--             newPutResourcePolicyResponse
 --
 --         , responseRegisterDelegatedAdministrator $
 --             newRegisterDelegatedAdministratorResponse
@@ -425,6 +443,12 @@ requestDeletePolicy =
     "DeletePolicy"
     "fixture/DeletePolicy.yaml"
 
+requestDeleteResourcePolicy :: DeleteResourcePolicy -> TestTree
+requestDeleteResourcePolicy =
+  req
+    "DeleteResourcePolicy"
+    "fixture/DeleteResourcePolicy.yaml"
+
 requestDeregisterDelegatedAdministrator :: DeregisterDelegatedAdministrator -> TestTree
 requestDeregisterDelegatedAdministrator =
   req
@@ -472,6 +496,12 @@ requestDescribePolicy =
   req
     "DescribePolicy"
     "fixture/DescribePolicy.yaml"
+
+requestDescribeResourcePolicy :: DescribeResourcePolicy -> TestTree
+requestDescribeResourcePolicy =
+  req
+    "DescribeResourcePolicy"
+    "fixture/DescribeResourcePolicy.yaml"
 
 requestDetachPolicy :: DetachPolicy -> TestTree
 requestDetachPolicy =
@@ -623,6 +653,12 @@ requestMoveAccount =
     "MoveAccount"
     "fixture/MoveAccount.yaml"
 
+requestPutResourcePolicy :: PutResourcePolicy -> TestTree
+requestPutResourcePolicy =
+  req
+    "PutResourcePolicy"
+    "fixture/PutResourcePolicy.yaml"
+
 requestRegisterDelegatedAdministrator :: RegisterDelegatedAdministrator -> TestTree
 requestRegisterDelegatedAdministrator =
   req
@@ -765,6 +801,14 @@ responseDeletePolicy =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeletePolicy)
 
+responseDeleteResourcePolicy :: DeleteResourcePolicyResponse -> TestTree
+responseDeleteResourcePolicy =
+  res
+    "DeleteResourcePolicyResponse"
+    "fixture/DeleteResourcePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteResourcePolicy)
+
 responseDeregisterDelegatedAdministrator :: DeregisterDelegatedAdministratorResponse -> TestTree
 responseDeregisterDelegatedAdministrator =
   res
@@ -828,6 +872,14 @@ responseDescribePolicy =
     "fixture/DescribePolicyResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribePolicy)
+
+responseDescribeResourcePolicy :: DescribeResourcePolicyResponse -> TestTree
+responseDescribeResourcePolicy =
+  res
+    "DescribeResourcePolicyResponse"
+    "fixture/DescribeResourcePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeResourcePolicy)
 
 responseDetachPolicy :: DetachPolicyResponse -> TestTree
 responseDetachPolicy =
@@ -1028,6 +1080,14 @@ responseMoveAccount =
     "fixture/MoveAccountResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy MoveAccount)
+
+responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
+responsePutResourcePolicy =
+  res
+    "PutResourcePolicyResponse"
+    "fixture/PutResourcePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutResourcePolicy)
 
 responseRegisterDelegatedAdministrator :: RegisterDelegatedAdministratorResponse -> TestTree
 responseRegisterDelegatedAdministrator =

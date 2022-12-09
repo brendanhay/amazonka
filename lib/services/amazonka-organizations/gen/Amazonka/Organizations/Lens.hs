@@ -32,18 +32,18 @@ module Amazonka.Organizations.Lens
     closeAccount_accountId,
 
     -- ** CreateAccount
-    createAccount_tags,
-    createAccount_roleName,
     createAccount_iamUserAccessToBilling,
+    createAccount_roleName,
+    createAccount_tags,
     createAccount_email,
     createAccount_accountName,
     createAccountResponse_createAccountStatus,
     createAccountResponse_httpStatus,
 
     -- ** CreateGovCloudAccount
-    createGovCloudAccount_tags,
-    createGovCloudAccount_roleName,
     createGovCloudAccount_iamUserAccessToBilling,
+    createGovCloudAccount_roleName,
+    createGovCloudAccount_tags,
     createGovCloudAccount_email,
     createGovCloudAccount_accountName,
     createGovCloudAccountResponse_createAccountStatus,
@@ -82,6 +82,8 @@ module Amazonka.Organizations.Lens
 
     -- ** DeletePolicy
     deletePolicy_policyId,
+
+    -- ** DeleteResourcePolicy
 
     -- ** DeregisterDelegatedAdministrator
     deregisterDelegatedAdministrator_accountId,
@@ -122,6 +124,10 @@ module Amazonka.Organizations.Lens
     describePolicyResponse_policy,
     describePolicyResponse_httpStatus,
 
+    -- ** DescribeResourcePolicy
+    describeResourcePolicyResponse_resourcePolicy,
+    describeResourcePolicyResponse_httpStatus,
+
     -- ** DetachPolicy
     detachPolicy_policyId,
     detachPolicy_targetId,
@@ -149,8 +155,8 @@ module Amazonka.Organizations.Lens
     enablePolicyTypeResponse_httpStatus,
 
     -- ** InviteAccountToOrganization
-    inviteAccountToOrganization_tags,
     inviteAccountToOrganization_notes,
+    inviteAccountToOrganization_tags,
     inviteAccountToOrganization_target,
     inviteAccountToOrganizationResponse_handshake,
     inviteAccountToOrganizationResponse_httpStatus,
@@ -158,103 +164,103 @@ module Amazonka.Organizations.Lens
     -- ** LeaveOrganization
 
     -- ** ListAWSServiceAccessForOrganization
-    listAWSServiceAccessForOrganization_nextToken,
     listAWSServiceAccessForOrganization_maxResults,
-    listAWSServiceAccessForOrganizationResponse_nextToken,
+    listAWSServiceAccessForOrganization_nextToken,
     listAWSServiceAccessForOrganizationResponse_enabledServicePrincipals,
+    listAWSServiceAccessForOrganizationResponse_nextToken,
     listAWSServiceAccessForOrganizationResponse_httpStatus,
 
     -- ** ListAccounts
-    listAccounts_nextToken,
     listAccounts_maxResults,
-    listAccountsResponse_nextToken,
+    listAccounts_nextToken,
     listAccountsResponse_accounts,
+    listAccountsResponse_nextToken,
     listAccountsResponse_httpStatus,
 
     -- ** ListAccountsForParent
-    listAccountsForParent_nextToken,
     listAccountsForParent_maxResults,
+    listAccountsForParent_nextToken,
     listAccountsForParent_parentId,
-    listAccountsForParentResponse_nextToken,
     listAccountsForParentResponse_accounts,
+    listAccountsForParentResponse_nextToken,
     listAccountsForParentResponse_httpStatus,
 
     -- ** ListChildren
-    listChildren_nextToken,
     listChildren_maxResults,
+    listChildren_nextToken,
     listChildren_parentId,
     listChildren_childType,
-    listChildrenResponse_nextToken,
     listChildrenResponse_children,
+    listChildrenResponse_nextToken,
     listChildrenResponse_httpStatus,
 
     -- ** ListCreateAccountStatus
-    listCreateAccountStatus_nextToken,
     listCreateAccountStatus_maxResults,
+    listCreateAccountStatus_nextToken,
     listCreateAccountStatus_states,
-    listCreateAccountStatusResponse_nextToken,
     listCreateAccountStatusResponse_createAccountStatuses,
+    listCreateAccountStatusResponse_nextToken,
     listCreateAccountStatusResponse_httpStatus,
 
     -- ** ListDelegatedAdministrators
-    listDelegatedAdministrators_nextToken,
     listDelegatedAdministrators_maxResults,
+    listDelegatedAdministrators_nextToken,
     listDelegatedAdministrators_servicePrincipal,
-    listDelegatedAdministratorsResponse_nextToken,
     listDelegatedAdministratorsResponse_delegatedAdministrators,
+    listDelegatedAdministratorsResponse_nextToken,
     listDelegatedAdministratorsResponse_httpStatus,
 
     -- ** ListDelegatedServicesForAccount
-    listDelegatedServicesForAccount_nextToken,
     listDelegatedServicesForAccount_maxResults,
+    listDelegatedServicesForAccount_nextToken,
     listDelegatedServicesForAccount_accountId,
-    listDelegatedServicesForAccountResponse_nextToken,
     listDelegatedServicesForAccountResponse_delegatedServices,
+    listDelegatedServicesForAccountResponse_nextToken,
     listDelegatedServicesForAccountResponse_httpStatus,
 
     -- ** ListHandshakesForAccount
-    listHandshakesForAccount_nextToken,
     listHandshakesForAccount_filter,
     listHandshakesForAccount_maxResults,
+    listHandshakesForAccount_nextToken,
     listHandshakesForAccountResponse_handshakes,
     listHandshakesForAccountResponse_nextToken,
     listHandshakesForAccountResponse_httpStatus,
 
     -- ** ListHandshakesForOrganization
-    listHandshakesForOrganization_nextToken,
     listHandshakesForOrganization_filter,
     listHandshakesForOrganization_maxResults,
+    listHandshakesForOrganization_nextToken,
     listHandshakesForOrganizationResponse_handshakes,
     listHandshakesForOrganizationResponse_nextToken,
     listHandshakesForOrganizationResponse_httpStatus,
 
     -- ** ListOrganizationalUnitsForParent
-    listOrganizationalUnitsForParent_nextToken,
     listOrganizationalUnitsForParent_maxResults,
+    listOrganizationalUnitsForParent_nextToken,
     listOrganizationalUnitsForParent_parentId,
     listOrganizationalUnitsForParentResponse_nextToken,
     listOrganizationalUnitsForParentResponse_organizationalUnits,
     listOrganizationalUnitsForParentResponse_httpStatus,
 
     -- ** ListParents
-    listParents_nextToken,
     listParents_maxResults,
+    listParents_nextToken,
     listParents_childId,
     listParentsResponse_nextToken,
     listParentsResponse_parents,
     listParentsResponse_httpStatus,
 
     -- ** ListPolicies
-    listPolicies_nextToken,
     listPolicies_maxResults,
+    listPolicies_nextToken,
     listPolicies_filter,
     listPoliciesResponse_nextToken,
     listPoliciesResponse_policies,
     listPoliciesResponse_httpStatus,
 
     -- ** ListPoliciesForTarget
-    listPoliciesForTarget_nextToken,
     listPoliciesForTarget_maxResults,
+    listPoliciesForTarget_nextToken,
     listPoliciesForTarget_targetId,
     listPoliciesForTarget_filter,
     listPoliciesForTargetResponse_nextToken,
@@ -262,8 +268,8 @@ module Amazonka.Organizations.Lens
     listPoliciesForTargetResponse_httpStatus,
 
     -- ** ListRoots
-    listRoots_nextToken,
     listRoots_maxResults,
+    listRoots_nextToken,
     listRootsResponse_nextToken,
     listRootsResponse_roots,
     listRootsResponse_httpStatus,
@@ -271,13 +277,13 @@ module Amazonka.Organizations.Lens
     -- ** ListTagsForResource
     listTagsForResource_nextToken,
     listTagsForResource_resourceId,
-    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_nextToken,
+    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
 
     -- ** ListTargetsForPolicy
-    listTargetsForPolicy_nextToken,
     listTargetsForPolicy_maxResults,
+    listTargetsForPolicy_nextToken,
     listTargetsForPolicy_policyId,
     listTargetsForPolicyResponse_nextToken,
     listTargetsForPolicyResponse_targets,
@@ -287,6 +293,12 @@ module Amazonka.Organizations.Lens
     moveAccount_accountId,
     moveAccount_sourceParentId,
     moveAccount_destinationParentId,
+
+    -- ** PutResourcePolicy
+    putResourcePolicy_tags,
+    putResourcePolicy_content,
+    putResourcePolicyResponse_resourcePolicy,
+    putResourcePolicyResponse_httpStatus,
 
     -- ** RegisterDelegatedAdministrator
     registerDelegatedAdministrator_accountId,
@@ -310,9 +322,9 @@ module Amazonka.Organizations.Lens
     updateOrganizationalUnitResponse_httpStatus,
 
     -- ** UpdatePolicy
-    updatePolicy_name,
-    updatePolicy_description,
     updatePolicy_content,
+    updatePolicy_description,
+    updatePolicy_name,
     updatePolicy_policyId,
     updatePolicyResponse_policy,
     updatePolicyResponse_httpStatus,
@@ -320,61 +332,61 @@ module Amazonka.Organizations.Lens
     -- * Types
 
     -- ** Account
-    account_name,
-    account_email,
     account_arn,
-    account_status,
+    account_email,
     account_id,
-    account_joinedTimestamp,
     account_joinedMethod,
+    account_joinedTimestamp,
+    account_name,
+    account_status,
 
     -- ** Child
-    child_type,
     child_id,
+    child_type,
 
     -- ** CreateAccountStatus
-    createAccountStatus_requestedTimestamp,
-    createAccountStatus_govCloudAccountId,
-    createAccountStatus_state,
-    createAccountStatus_id,
     createAccountStatus_accountId,
     createAccountStatus_accountName,
     createAccountStatus_completedTimestamp,
     createAccountStatus_failureReason,
+    createAccountStatus_govCloudAccountId,
+    createAccountStatus_id,
+    createAccountStatus_requestedTimestamp,
+    createAccountStatus_state,
 
     -- ** DelegatedAdministrator
-    delegatedAdministrator_name,
-    delegatedAdministrator_email,
     delegatedAdministrator_arn,
-    delegatedAdministrator_status,
-    delegatedAdministrator_id,
-    delegatedAdministrator_joinedTimestamp,
-    delegatedAdministrator_joinedMethod,
     delegatedAdministrator_delegationEnabledDate,
+    delegatedAdministrator_email,
+    delegatedAdministrator_id,
+    delegatedAdministrator_joinedMethod,
+    delegatedAdministrator_joinedTimestamp,
+    delegatedAdministrator_name,
+    delegatedAdministrator_status,
 
     -- ** DelegatedService
-    delegatedService_servicePrincipal,
     delegatedService_delegationEnabledDate,
+    delegatedService_servicePrincipal,
 
     -- ** EffectivePolicy
     effectivePolicy_lastUpdatedTimestamp,
-    effectivePolicy_targetId,
-    effectivePolicy_policyType,
     effectivePolicy_policyContent,
+    effectivePolicy_policyType,
+    effectivePolicy_targetId,
 
     -- ** EnabledServicePrincipal
-    enabledServicePrincipal_servicePrincipal,
     enabledServicePrincipal_dateEnabled,
+    enabledServicePrincipal_servicePrincipal,
 
     -- ** Handshake
+    handshake_action,
     handshake_arn,
-    handshake_requestedTimestamp,
-    handshake_state,
+    handshake_expirationTimestamp,
     handshake_id,
     handshake_parties,
-    handshake_expirationTimestamp,
-    handshake_action,
+    handshake_requestedTimestamp,
     handshake_resources,
+    handshake_state,
 
     -- ** HandshakeFilter
     handshakeFilter_actionType,
@@ -385,55 +397,63 @@ module Amazonka.Organizations.Lens
     handshakeParty_type,
 
     -- ** HandshakeResource
-    handshakeResource_type,
     handshakeResource_resources,
+    handshakeResource_type,
     handshakeResource_value,
 
     -- ** Organization
     organization_arn,
-    organization_id,
-    organization_masterAccountId,
     organization_availablePolicyTypes,
     organization_featureSet,
-    organization_masterAccountEmail,
+    organization_id,
     organization_masterAccountArn,
+    organization_masterAccountEmail,
+    organization_masterAccountId,
 
     -- ** OrganizationalUnit
-    organizationalUnit_name,
     organizationalUnit_arn,
     organizationalUnit_id,
+    organizationalUnit_name,
 
     -- ** Parent
-    parent_type,
     parent_id,
+    parent_type,
 
     -- ** Policy
-    policy_policySummary,
     policy_content,
+    policy_policySummary,
 
     -- ** PolicySummary
-    policySummary_name,
-    policySummary_type,
     policySummary_arn,
     policySummary_awsManaged,
-    policySummary_id,
     policySummary_description,
+    policySummary_id,
+    policySummary_name,
+    policySummary_type,
 
     -- ** PolicyTargetSummary
-    policyTargetSummary_name,
-    policyTargetSummary_type,
-    policyTargetSummary_targetId,
     policyTargetSummary_arn,
+    policyTargetSummary_name,
+    policyTargetSummary_targetId,
+    policyTargetSummary_type,
 
     -- ** PolicyTypeSummary
-    policyTypeSummary_type,
     policyTypeSummary_status,
+    policyTypeSummary_type,
+
+    -- ** ResourcePolicy
+    resourcePolicy_content,
+    resourcePolicy_resourcePolicySummary,
+
+    -- ** ResourcePolicySummary
+    resourcePolicySummary_arn,
+    resourcePolicySummary_id,
 
     -- ** Root
-    root_name,
     root_arn,
-    root_policyTypes,
     root_id,
+    root_name,
+    root_policyTypes,
 
     -- ** Tag
     tag_key,
@@ -454,6 +474,7 @@ import Amazonka.Organizations.DeclineHandshake
 import Amazonka.Organizations.DeleteOrganization
 import Amazonka.Organizations.DeleteOrganizationalUnit
 import Amazonka.Organizations.DeletePolicy
+import Amazonka.Organizations.DeleteResourcePolicy
 import Amazonka.Organizations.DeregisterDelegatedAdministrator
 import Amazonka.Organizations.DescribeAccount
 import Amazonka.Organizations.DescribeCreateAccountStatus
@@ -462,6 +483,7 @@ import Amazonka.Organizations.DescribeHandshake
 import Amazonka.Organizations.DescribeOrganization
 import Amazonka.Organizations.DescribeOrganizationalUnit
 import Amazonka.Organizations.DescribePolicy
+import Amazonka.Organizations.DescribeResourcePolicy
 import Amazonka.Organizations.DetachPolicy
 import Amazonka.Organizations.DisableAWSServiceAccess
 import Amazonka.Organizations.DisablePolicyType
@@ -487,6 +509,7 @@ import Amazonka.Organizations.ListRoots
 import Amazonka.Organizations.ListTagsForResource
 import Amazonka.Organizations.ListTargetsForPolicy
 import Amazonka.Organizations.MoveAccount
+import Amazonka.Organizations.PutResourcePolicy
 import Amazonka.Organizations.RegisterDelegatedAdministrator
 import Amazonka.Organizations.RemoveAccountFromOrganization
 import Amazonka.Organizations.TagResource
@@ -508,6 +531,8 @@ import Amazonka.Organizations.Types.Policy
 import Amazonka.Organizations.Types.PolicySummary
 import Amazonka.Organizations.Types.PolicyTargetSummary
 import Amazonka.Organizations.Types.PolicyTypeSummary
+import Amazonka.Organizations.Types.ResourcePolicy
+import Amazonka.Organizations.Types.ResourcePolicySummary
 import Amazonka.Organizations.Types.Root
 import Amazonka.Organizations.Types.Tag
 import Amazonka.Organizations.UntagResource

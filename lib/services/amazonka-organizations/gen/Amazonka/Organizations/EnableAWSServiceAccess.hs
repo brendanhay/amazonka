@@ -40,7 +40,7 @@
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html Integrating Organizations with Other Amazon Web Services Services>
 -- in the /Organizations User Guide./
 --
--- This operation can be called only from the organization\'s management
+-- You can only call this operation from the organization\'s management
 -- account and only if the organization has
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html enabled all features>.
 module Amazonka.Organizations.EnableAWSServiceAccess

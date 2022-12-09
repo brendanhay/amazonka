@@ -46,8 +46,8 @@ module Amazonka.Organizations.ListRoots
     newListRoots,
 
     -- * Request Lenses
-    listRoots_nextToken,
     listRoots_maxResults,
+    listRoots_nextToken,
 
     -- * Destructuring the Response
     ListRootsResponse (..),
@@ -70,13 +70,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRoots' smart constructor.
 data ListRoots = ListRoots'
-  { -- | The parameter for receiving additional results if you receive a
-    -- @NextToken@ response in a previous request. A @NextToken@ response
-    -- indicates that more output is available. Set this parameter to the value
-    -- of the previous call\'s @NextToken@ response to indicate where the
-    -- output should continue from.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The total number of results that you want included on each page of the
+  { -- | The total number of results that you want included on each page of the
     -- response. If you do not include this parameter, it defaults to a value
     -- that is specific to the operation. If additional items exist beyond the
     -- maximum you specify, the @NextToken@ response element is present and has
@@ -86,7 +80,13 @@ data ListRoots = ListRoots'
     -- maximum even when there are more results available. You should check
     -- @NextToken@ after every operation to ensure that you receive all of the
     -- results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The parameter for receiving additional results if you receive a
+    -- @NextToken@ response in a previous request. A @NextToken@ response
+    -- indicates that more output is available. Set this parameter to the value
+    -- of the previous call\'s @NextToken@ response to indicate where the
+    -- output should continue from.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -98,12 +98,6 @@ data ListRoots = ListRoots'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listRoots_nextToken' - The parameter for receiving additional results if you receive a
--- @NextToken@ response in a previous request. A @NextToken@ response
--- indicates that more output is available. Set this parameter to the value
--- of the previous call\'s @NextToken@ response to indicate where the
--- output should continue from.
---
 -- 'maxResults', 'listRoots_maxResults' - The total number of results that you want included on each page of the
 -- response. If you do not include this parameter, it defaults to a value
 -- that is specific to the operation. If additional items exist beyond the
@@ -114,21 +108,19 @@ data ListRoots = ListRoots'
 -- maximum even when there are more results available. You should check
 -- @NextToken@ after every operation to ensure that you receive all of the
 -- results.
-newListRoots ::
-  ListRoots
-newListRoots =
-  ListRoots'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
-    }
-
--- | The parameter for receiving additional results if you receive a
+--
+-- 'nextToken', 'listRoots_nextToken' - The parameter for receiving additional results if you receive a
 -- @NextToken@ response in a previous request. A @NextToken@ response
 -- indicates that more output is available. Set this parameter to the value
 -- of the previous call\'s @NextToken@ response to indicate where the
 -- output should continue from.
-listRoots_nextToken :: Lens.Lens' ListRoots (Prelude.Maybe Prelude.Text)
-listRoots_nextToken = Lens.lens (\ListRoots' {nextToken} -> nextToken) (\s@ListRoots' {} a -> s {nextToken = a} :: ListRoots)
+newListRoots ::
+  ListRoots
+newListRoots =
+  ListRoots'
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
+    }
 
 -- | The total number of results that you want included on each page of the
 -- response. If you do not include this parameter, it defaults to a value
@@ -142,6 +134,14 @@ listRoots_nextToken = Lens.lens (\ListRoots' {nextToken} -> nextToken) (\s@ListR
 -- results.
 listRoots_maxResults :: Lens.Lens' ListRoots (Prelude.Maybe Prelude.Natural)
 listRoots_maxResults = Lens.lens (\ListRoots' {maxResults} -> maxResults) (\s@ListRoots' {} a -> s {maxResults = a} :: ListRoots)
+
+-- | The parameter for receiving additional results if you receive a
+-- @NextToken@ response in a previous request. A @NextToken@ response
+-- indicates that more output is available. Set this parameter to the value
+-- of the previous call\'s @NextToken@ response to indicate where the
+-- output should continue from.
+listRoots_nextToken :: Lens.Lens' ListRoots (Prelude.Maybe Prelude.Text)
+listRoots_nextToken = Lens.lens (\ListRoots' {nextToken} -> nextToken) (\s@ListRoots' {} a -> s {nextToken = a} :: ListRoots)
 
 instance Core.AWSPager ListRoots where
   page rq rs
@@ -177,13 +177,13 @@ instance Core.AWSRequest ListRoots where
 
 instance Prelude.Hashable ListRoots where
   hashWithSalt _salt ListRoots' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListRoots where
   rnf ListRoots' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListRoots where
   toHeaders =
@@ -204,8 +204,8 @@ instance Data.ToJSON ListRoots where
   toJSON ListRoots' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

@@ -35,8 +35,8 @@ module Amazonka.Translate.GetTerminology
     newGetTerminologyResponse,
 
     -- * Response Lenses
-    getTerminologyResponse_terminologyDataLocation,
     getTerminologyResponse_auxiliaryDataLocation,
+    getTerminologyResponse_terminologyDataLocation,
     getTerminologyResponse_terminologyProperties,
     getTerminologyResponse_httpStatus,
   )
@@ -126,8 +126,8 @@ instance Core.AWSRequest GetTerminology where
     Response.receiveJSON
       ( \s h x ->
           GetTerminologyResponse'
-            Prelude.<$> (x Data..?> "TerminologyDataLocation")
-            Prelude.<*> (x Data..?> "AuxiliaryDataLocation")
+            Prelude.<$> (x Data..?> "AuxiliaryDataLocation")
+            Prelude.<*> (x Data..?> "TerminologyDataLocation")
             Prelude.<*> (x Data..?> "TerminologyProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -175,7 +175,12 @@ instance Data.ToQuery GetTerminology where
 
 -- | /See:/ 'newGetTerminologyResponse' smart constructor.
 data GetTerminologyResponse = GetTerminologyResponse'
-  { -- | The Amazon S3 location of the most recent custom terminology input file
+  { -- | The Amazon S3 location of a file that provides any errors or warnings
+    -- that were produced by your input file. This file was created when Amazon
+    -- Translate attempted to create a terminology resource. The location is
+    -- returned as a presigned URL to that has a 30-minute expiration.
+    auxiliaryDataLocation :: Prelude.Maybe TerminologyDataLocation,
+    -- | The Amazon S3 location of the most recent custom terminology input file
     -- that was successfully imported into Amazon Translate. The location is
     -- returned as a presigned URL that has a 30-minute expiration.
     --
@@ -191,11 +196,6 @@ data GetTerminologyResponse = GetTerminologyResponse'
     -- Before you download an input file from Amazon S3, ensure that you
     -- recognize the file and trust its creator.
     terminologyDataLocation :: Prelude.Maybe TerminologyDataLocation,
-    -- | The Amazon S3 location of a file that provides any errors or warnings
-    -- that were produced by your input file. This file was created when Amazon
-    -- Translate attempted to create a terminology resource. The location is
-    -- returned as a presigned URL to that has a 30-minute expiration.
-    auxiliaryDataLocation :: Prelude.Maybe TerminologyDataLocation,
     -- | The properties of the custom terminology being retrieved.
     terminologyProperties :: Prelude.Maybe TerminologyProperties,
     -- | The response's http status code.
@@ -210,6 +210,11 @@ data GetTerminologyResponse = GetTerminologyResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'auxiliaryDataLocation', 'getTerminologyResponse_auxiliaryDataLocation' - The Amazon S3 location of a file that provides any errors or warnings
+-- that were produced by your input file. This file was created when Amazon
+-- Translate attempted to create a terminology resource. The location is
+-- returned as a presigned URL to that has a 30-minute expiration.
 --
 -- 'terminologyDataLocation', 'getTerminologyResponse_terminologyDataLocation' - The Amazon S3 location of the most recent custom terminology input file
 -- that was successfully imported into Amazon Translate. The location is
@@ -227,11 +232,6 @@ data GetTerminologyResponse = GetTerminologyResponse'
 -- Before you download an input file from Amazon S3, ensure that you
 -- recognize the file and trust its creator.
 --
--- 'auxiliaryDataLocation', 'getTerminologyResponse_auxiliaryDataLocation' - The Amazon S3 location of a file that provides any errors or warnings
--- that were produced by your input file. This file was created when Amazon
--- Translate attempted to create a terminology resource. The location is
--- returned as a presigned URL to that has a 30-minute expiration.
---
 -- 'terminologyProperties', 'getTerminologyResponse_terminologyProperties' - The properties of the custom terminology being retrieved.
 --
 -- 'httpStatus', 'getTerminologyResponse_httpStatus' - The response's http status code.
@@ -241,12 +241,19 @@ newGetTerminologyResponse ::
   GetTerminologyResponse
 newGetTerminologyResponse pHttpStatus_ =
   GetTerminologyResponse'
-    { terminologyDataLocation =
+    { auxiliaryDataLocation =
         Prelude.Nothing,
-      auxiliaryDataLocation = Prelude.Nothing,
+      terminologyDataLocation = Prelude.Nothing,
       terminologyProperties = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon S3 location of a file that provides any errors or warnings
+-- that were produced by your input file. This file was created when Amazon
+-- Translate attempted to create a terminology resource. The location is
+-- returned as a presigned URL to that has a 30-minute expiration.
+getTerminologyResponse_auxiliaryDataLocation :: Lens.Lens' GetTerminologyResponse (Prelude.Maybe TerminologyDataLocation)
+getTerminologyResponse_auxiliaryDataLocation = Lens.lens (\GetTerminologyResponse' {auxiliaryDataLocation} -> auxiliaryDataLocation) (\s@GetTerminologyResponse' {} a -> s {auxiliaryDataLocation = a} :: GetTerminologyResponse)
 
 -- | The Amazon S3 location of the most recent custom terminology input file
 -- that was successfully imported into Amazon Translate. The location is
@@ -266,13 +273,6 @@ newGetTerminologyResponse pHttpStatus_ =
 getTerminologyResponse_terminologyDataLocation :: Lens.Lens' GetTerminologyResponse (Prelude.Maybe TerminologyDataLocation)
 getTerminologyResponse_terminologyDataLocation = Lens.lens (\GetTerminologyResponse' {terminologyDataLocation} -> terminologyDataLocation) (\s@GetTerminologyResponse' {} a -> s {terminologyDataLocation = a} :: GetTerminologyResponse)
 
--- | The Amazon S3 location of a file that provides any errors or warnings
--- that were produced by your input file. This file was created when Amazon
--- Translate attempted to create a terminology resource. The location is
--- returned as a presigned URL to that has a 30-minute expiration.
-getTerminologyResponse_auxiliaryDataLocation :: Lens.Lens' GetTerminologyResponse (Prelude.Maybe TerminologyDataLocation)
-getTerminologyResponse_auxiliaryDataLocation = Lens.lens (\GetTerminologyResponse' {auxiliaryDataLocation} -> auxiliaryDataLocation) (\s@GetTerminologyResponse' {} a -> s {auxiliaryDataLocation = a} :: GetTerminologyResponse)
-
 -- | The properties of the custom terminology being retrieved.
 getTerminologyResponse_terminologyProperties :: Lens.Lens' GetTerminologyResponse (Prelude.Maybe TerminologyProperties)
 getTerminologyResponse_terminologyProperties = Lens.lens (\GetTerminologyResponse' {terminologyProperties} -> terminologyProperties) (\s@GetTerminologyResponse' {} a -> s {terminologyProperties = a} :: GetTerminologyResponse)
@@ -283,7 +283,7 @@ getTerminologyResponse_httpStatus = Lens.lens (\GetTerminologyResponse' {httpSta
 
 instance Prelude.NFData GetTerminologyResponse where
   rnf GetTerminologyResponse' {..} =
-    Prelude.rnf terminologyDataLocation
-      `Prelude.seq` Prelude.rnf auxiliaryDataLocation
+    Prelude.rnf auxiliaryDataLocation
+      `Prelude.seq` Prelude.rnf terminologyDataLocation
       `Prelude.seq` Prelude.rnf terminologyProperties
       `Prelude.seq` Prelude.rnf httpStatus

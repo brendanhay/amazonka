@@ -42,9 +42,9 @@ module Amazonka.Translate.StartTextTranslationJob
 
     -- * Request Lenses
     startTextTranslationJob_jobName,
-    startTextTranslationJob_terminologyNames,
-    startTextTranslationJob_settings,
     startTextTranslationJob_parallelDataNames,
+    startTextTranslationJob_settings,
+    startTextTranslationJob_terminologyNames,
     startTextTranslationJob_inputDataConfig,
     startTextTranslationJob_outputDataConfig,
     startTextTranslationJob_dataAccessRoleArn,
@@ -57,8 +57,8 @@ module Amazonka.Translate.StartTextTranslationJob
     newStartTextTranslationJobResponse,
 
     -- * Response Lenses
-    startTextTranslationJobResponse_jobStatus,
     startTextTranslationJobResponse_jobId,
+    startTextTranslationJobResponse_jobStatus,
     startTextTranslationJobResponse_httpStatus,
   )
 where
@@ -75,26 +75,6 @@ import Amazonka.Translate.Types
 data StartTextTranslationJob = StartTextTranslationJob'
   { -- | The name of the batch translation job to be performed.
     jobName :: Prelude.Maybe Prelude.Text,
-    -- | The name of a custom terminology resource to add to the translation job.
-    -- This resource lists examples source terms and the desired translation
-    -- for each term.
-    --
-    -- This parameter accepts only one custom terminology resource.
-    --
-    -- If you specify multiple target languages for the job, translate uses the
-    -- designated terminology for each requested target language that has an
-    -- entry for the source term in the terminology file.
-    --
-    -- For a list of available custom terminology resources, use the
-    -- ListTerminologies operation.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/translate/latest/dg/how-custom-terminology.html Custom terminology>.
-    terminologyNames :: Prelude.Maybe [Prelude.Text],
-    -- | Settings to configure your translation output, including the option to
-    -- set the formality level of the output text and the option to mask
-    -- profane words and phrases.
-    settings :: Prelude.Maybe TranslationSettings,
     -- | The name of a parallel data resource to add to the translation job. This
     -- resource consists of examples that show how you want segments of text to
     -- be translated. If you specify multiple target languages for the job, the
@@ -116,6 +96,26 @@ data StartTextTranslationJob = StartTextTranslationJob'
     -- For more information, see
     -- <https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-parallel-data.html Customizing your translations with parallel data>.
     parallelDataNames :: Prelude.Maybe [Prelude.Text],
+    -- | Settings to configure your translation output, including the option to
+    -- set the formality level of the output text and the option to mask
+    -- profane words and phrases.
+    settings :: Prelude.Maybe TranslationSettings,
+    -- | The name of a custom terminology resource to add to the translation job.
+    -- This resource lists examples source terms and the desired translation
+    -- for each term.
+    --
+    -- This parameter accepts only one custom terminology resource.
+    --
+    -- If you specify multiple target languages for the job, translate uses the
+    -- designated terminology for each requested target language that has an
+    -- entry for the source term in the terminology file.
+    --
+    -- For a list of available custom terminology resources, use the
+    -- ListTerminologies operation.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/translate/latest/dg/how-custom-terminology.html Custom terminology>.
+    terminologyNames :: Prelude.Maybe [Prelude.Text],
     -- | Specifies the format and location of the input documents for the
     -- translation job.
     inputDataConfig :: InputDataConfig,
@@ -157,26 +157,6 @@ data StartTextTranslationJob = StartTextTranslationJob'
 --
 -- 'jobName', 'startTextTranslationJob_jobName' - The name of the batch translation job to be performed.
 --
--- 'terminologyNames', 'startTextTranslationJob_terminologyNames' - The name of a custom terminology resource to add to the translation job.
--- This resource lists examples source terms and the desired translation
--- for each term.
---
--- This parameter accepts only one custom terminology resource.
---
--- If you specify multiple target languages for the job, translate uses the
--- designated terminology for each requested target language that has an
--- entry for the source term in the terminology file.
---
--- For a list of available custom terminology resources, use the
--- ListTerminologies operation.
---
--- For more information, see
--- <https://docs.aws.amazon.com/translate/latest/dg/how-custom-terminology.html Custom terminology>.
---
--- 'settings', 'startTextTranslationJob_settings' - Settings to configure your translation output, including the option to
--- set the formality level of the output text and the option to mask
--- profane words and phrases.
---
 -- 'parallelDataNames', 'startTextTranslationJob_parallelDataNames' - The name of a parallel data resource to add to the translation job. This
 -- resource consists of examples that show how you want segments of text to
 -- be translated. If you specify multiple target languages for the job, the
@@ -197,6 +177,26 @@ data StartTextTranslationJob = StartTextTranslationJob'
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-parallel-data.html Customizing your translations with parallel data>.
+--
+-- 'settings', 'startTextTranslationJob_settings' - Settings to configure your translation output, including the option to
+-- set the formality level of the output text and the option to mask
+-- profane words and phrases.
+--
+-- 'terminologyNames', 'startTextTranslationJob_terminologyNames' - The name of a custom terminology resource to add to the translation job.
+-- This resource lists examples source terms and the desired translation
+-- for each term.
+--
+-- This parameter accepts only one custom terminology resource.
+--
+-- If you specify multiple target languages for the job, translate uses the
+-- designated terminology for each requested target language that has an
+-- entry for the source term in the terminology file.
+--
+-- For a list of available custom terminology resources, use the
+-- ListTerminologies operation.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/translate/latest/dg/how-custom-terminology.html Custom terminology>.
 --
 -- 'inputDataConfig', 'startTextTranslationJob_inputDataConfig' - Specifies the format and location of the input documents for the
 -- translation job.
@@ -248,9 +248,9 @@ newStartTextTranslationJob
   pClientToken_ =
     StartTextTranslationJob'
       { jobName = Prelude.Nothing,
-        terminologyNames = Prelude.Nothing,
-        settings = Prelude.Nothing,
         parallelDataNames = Prelude.Nothing,
+        settings = Prelude.Nothing,
+        terminologyNames = Prelude.Nothing,
         inputDataConfig = pInputDataConfig_,
         outputDataConfig = pOutputDataConfig_,
         dataAccessRoleArn = pDataAccessRoleArn_,
@@ -263,30 +263,6 @@ newStartTextTranslationJob
 -- | The name of the batch translation job to be performed.
 startTextTranslationJob_jobName :: Lens.Lens' StartTextTranslationJob (Prelude.Maybe Prelude.Text)
 startTextTranslationJob_jobName = Lens.lens (\StartTextTranslationJob' {jobName} -> jobName) (\s@StartTextTranslationJob' {} a -> s {jobName = a} :: StartTextTranslationJob)
-
--- | The name of a custom terminology resource to add to the translation job.
--- This resource lists examples source terms and the desired translation
--- for each term.
---
--- This parameter accepts only one custom terminology resource.
---
--- If you specify multiple target languages for the job, translate uses the
--- designated terminology for each requested target language that has an
--- entry for the source term in the terminology file.
---
--- For a list of available custom terminology resources, use the
--- ListTerminologies operation.
---
--- For more information, see
--- <https://docs.aws.amazon.com/translate/latest/dg/how-custom-terminology.html Custom terminology>.
-startTextTranslationJob_terminologyNames :: Lens.Lens' StartTextTranslationJob (Prelude.Maybe [Prelude.Text])
-startTextTranslationJob_terminologyNames = Lens.lens (\StartTextTranslationJob' {terminologyNames} -> terminologyNames) (\s@StartTextTranslationJob' {} a -> s {terminologyNames = a} :: StartTextTranslationJob) Prelude.. Lens.mapping Lens.coerced
-
--- | Settings to configure your translation output, including the option to
--- set the formality level of the output text and the option to mask
--- profane words and phrases.
-startTextTranslationJob_settings :: Lens.Lens' StartTextTranslationJob (Prelude.Maybe TranslationSettings)
-startTextTranslationJob_settings = Lens.lens (\StartTextTranslationJob' {settings} -> settings) (\s@StartTextTranslationJob' {} a -> s {settings = a} :: StartTextTranslationJob)
 
 -- | The name of a parallel data resource to add to the translation job. This
 -- resource consists of examples that show how you want segments of text to
@@ -310,6 +286,30 @@ startTextTranslationJob_settings = Lens.lens (\StartTextTranslationJob' {setting
 -- <https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-parallel-data.html Customizing your translations with parallel data>.
 startTextTranslationJob_parallelDataNames :: Lens.Lens' StartTextTranslationJob (Prelude.Maybe [Prelude.Text])
 startTextTranslationJob_parallelDataNames = Lens.lens (\StartTextTranslationJob' {parallelDataNames} -> parallelDataNames) (\s@StartTextTranslationJob' {} a -> s {parallelDataNames = a} :: StartTextTranslationJob) Prelude.. Lens.mapping Lens.coerced
+
+-- | Settings to configure your translation output, including the option to
+-- set the formality level of the output text and the option to mask
+-- profane words and phrases.
+startTextTranslationJob_settings :: Lens.Lens' StartTextTranslationJob (Prelude.Maybe TranslationSettings)
+startTextTranslationJob_settings = Lens.lens (\StartTextTranslationJob' {settings} -> settings) (\s@StartTextTranslationJob' {} a -> s {settings = a} :: StartTextTranslationJob)
+
+-- | The name of a custom terminology resource to add to the translation job.
+-- This resource lists examples source terms and the desired translation
+-- for each term.
+--
+-- This parameter accepts only one custom terminology resource.
+--
+-- If you specify multiple target languages for the job, translate uses the
+-- designated terminology for each requested target language that has an
+-- entry for the source term in the terminology file.
+--
+-- For a list of available custom terminology resources, use the
+-- ListTerminologies operation.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/translate/latest/dg/how-custom-terminology.html Custom terminology>.
+startTextTranslationJob_terminologyNames :: Lens.Lens' StartTextTranslationJob (Prelude.Maybe [Prelude.Text])
+startTextTranslationJob_terminologyNames = Lens.lens (\StartTextTranslationJob' {terminologyNames} -> terminologyNames) (\s@StartTextTranslationJob' {} a -> s {terminologyNames = a} :: StartTextTranslationJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the format and location of the input documents for the
 -- translation job.
@@ -361,17 +361,17 @@ instance Core.AWSRequest StartTextTranslationJob where
     Response.receiveJSON
       ( \s h x ->
           StartTextTranslationJobResponse'
-            Prelude.<$> (x Data..?> "JobStatus")
-            Prelude.<*> (x Data..?> "JobId")
+            Prelude.<$> (x Data..?> "JobId")
+            Prelude.<*> (x Data..?> "JobStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable StartTextTranslationJob where
   hashWithSalt _salt StartTextTranslationJob' {..} =
     _salt `Prelude.hashWithSalt` jobName
-      `Prelude.hashWithSalt` terminologyNames
-      `Prelude.hashWithSalt` settings
       `Prelude.hashWithSalt` parallelDataNames
+      `Prelude.hashWithSalt` settings
+      `Prelude.hashWithSalt` terminologyNames
       `Prelude.hashWithSalt` inputDataConfig
       `Prelude.hashWithSalt` outputDataConfig
       `Prelude.hashWithSalt` dataAccessRoleArn
@@ -382,9 +382,9 @@ instance Prelude.Hashable StartTextTranslationJob where
 instance Prelude.NFData StartTextTranslationJob where
   rnf StartTextTranslationJob' {..} =
     Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf terminologyNames
-      `Prelude.seq` Prelude.rnf settings
       `Prelude.seq` Prelude.rnf parallelDataNames
+      `Prelude.seq` Prelude.rnf settings
+      `Prelude.seq` Prelude.rnf terminologyNames
       `Prelude.seq` Prelude.rnf inputDataConfig
       `Prelude.seq` Prelude.rnf outputDataConfig
       `Prelude.seq` Prelude.rnf dataAccessRoleArn
@@ -412,11 +412,11 @@ instance Data.ToJSON StartTextTranslationJob where
     Data.object
       ( Prelude.catMaybes
           [ ("JobName" Data..=) Prelude.<$> jobName,
-            ("TerminologyNames" Data..=)
-              Prelude.<$> terminologyNames,
-            ("Settings" Data..=) Prelude.<$> settings,
             ("ParallelDataNames" Data..=)
               Prelude.<$> parallelDataNames,
+            ("Settings" Data..=) Prelude.<$> settings,
+            ("TerminologyNames" Data..=)
+              Prelude.<$> terminologyNames,
             Prelude.Just
               ("InputDataConfig" Data..= inputDataConfig),
             Prelude.Just
@@ -439,7 +439,10 @@ instance Data.ToQuery StartTextTranslationJob where
 
 -- | /See:/ 'newStartTextTranslationJobResponse' smart constructor.
 data StartTextTranslationJobResponse = StartTextTranslationJobResponse'
-  { -- | The status of the job. Possible values include:
+  { -- | The identifier generated for the job. To get the status of a job, use
+    -- this ID with the DescribeTextTranslationJob operation.
+    jobId :: Prelude.Maybe Prelude.Text,
+    -- | The status of the job. Possible values include:
     --
     -- -   @SUBMITTED@ - The job has been received and is queued for
     --     processing.
@@ -460,9 +463,6 @@ data StartTextTranslationJobResponse = StartTextTranslationJobResponse'
     --
     -- -   @STOPPED@ - The job has been stopped.
     jobStatus :: Prelude.Maybe JobStatus,
-    -- | The identifier generated for the job. To get the status of a job, use
-    -- this ID with the DescribeTextTranslationJob operation.
-    jobId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -475,6 +475,9 @@ data StartTextTranslationJobResponse = StartTextTranslationJobResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'jobId', 'startTextTranslationJobResponse_jobId' - The identifier generated for the job. To get the status of a job, use
+-- this ID with the DescribeTextTranslationJob operation.
 --
 -- 'jobStatus', 'startTextTranslationJobResponse_jobStatus' - The status of the job. Possible values include:
 --
@@ -497,9 +500,6 @@ data StartTextTranslationJobResponse = StartTextTranslationJobResponse'
 --
 -- -   @STOPPED@ - The job has been stopped.
 --
--- 'jobId', 'startTextTranslationJobResponse_jobId' - The identifier generated for the job. To get the status of a job, use
--- this ID with the DescribeTextTranslationJob operation.
---
 -- 'httpStatus', 'startTextTranslationJobResponse_httpStatus' - The response's http status code.
 newStartTextTranslationJobResponse ::
   -- | 'httpStatus'
@@ -507,11 +507,16 @@ newStartTextTranslationJobResponse ::
   StartTextTranslationJobResponse
 newStartTextTranslationJobResponse pHttpStatus_ =
   StartTextTranslationJobResponse'
-    { jobStatus =
+    { jobId =
         Prelude.Nothing,
-      jobId = Prelude.Nothing,
+      jobStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The identifier generated for the job. To get the status of a job, use
+-- this ID with the DescribeTextTranslationJob operation.
+startTextTranslationJobResponse_jobId :: Lens.Lens' StartTextTranslationJobResponse (Prelude.Maybe Prelude.Text)
+startTextTranslationJobResponse_jobId = Lens.lens (\StartTextTranslationJobResponse' {jobId} -> jobId) (\s@StartTextTranslationJobResponse' {} a -> s {jobId = a} :: StartTextTranslationJobResponse)
 
 -- | The status of the job. Possible values include:
 --
@@ -536,11 +541,6 @@ newStartTextTranslationJobResponse pHttpStatus_ =
 startTextTranslationJobResponse_jobStatus :: Lens.Lens' StartTextTranslationJobResponse (Prelude.Maybe JobStatus)
 startTextTranslationJobResponse_jobStatus = Lens.lens (\StartTextTranslationJobResponse' {jobStatus} -> jobStatus) (\s@StartTextTranslationJobResponse' {} a -> s {jobStatus = a} :: StartTextTranslationJobResponse)
 
--- | The identifier generated for the job. To get the status of a job, use
--- this ID with the DescribeTextTranslationJob operation.
-startTextTranslationJobResponse_jobId :: Lens.Lens' StartTextTranslationJobResponse (Prelude.Maybe Prelude.Text)
-startTextTranslationJobResponse_jobId = Lens.lens (\StartTextTranslationJobResponse' {jobId} -> jobId) (\s@StartTextTranslationJobResponse' {} a -> s {jobId = a} :: StartTextTranslationJobResponse)
-
 -- | The response's http status code.
 startTextTranslationJobResponse_httpStatus :: Lens.Lens' StartTextTranslationJobResponse Prelude.Int
 startTextTranslationJobResponse_httpStatus = Lens.lens (\StartTextTranslationJobResponse' {httpStatus} -> httpStatus) (\s@StartTextTranslationJobResponse' {} a -> s {httpStatus = a} :: StartTextTranslationJobResponse)
@@ -550,6 +550,6 @@ instance
     StartTextTranslationJobResponse
   where
   rnf StartTextTranslationJobResponse' {..} =
-    Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf jobId
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobStatus
       `Prelude.seq` Prelude.rnf httpStatus

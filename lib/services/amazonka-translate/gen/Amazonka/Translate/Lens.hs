@@ -15,9 +15,9 @@ module Amazonka.Translate.Lens
   ( -- * Operations
 
     -- ** CreateParallelData
-    createParallelData_tags,
     createParallelData_description,
     createParallelData_encryptionKey,
+    createParallelData_tags,
     createParallelData_name,
     createParallelData_parallelDataConfig,
     createParallelData_clientToken,
@@ -43,22 +43,22 @@ module Amazonka.Translate.Lens
     getParallelData_name,
     getParallelDataResponse_auxiliaryDataLocation,
     getParallelDataResponse_dataLocation,
-    getParallelDataResponse_parallelDataProperties,
     getParallelDataResponse_latestUpdateAttemptAuxiliaryDataLocation,
+    getParallelDataResponse_parallelDataProperties,
     getParallelDataResponse_httpStatus,
 
     -- ** GetTerminology
     getTerminology_terminologyDataFormat,
     getTerminology_name,
-    getTerminologyResponse_terminologyDataLocation,
     getTerminologyResponse_auxiliaryDataLocation,
+    getTerminologyResponse_terminologyDataLocation,
     getTerminologyResponse_terminologyProperties,
     getTerminologyResponse_httpStatus,
 
     -- ** ImportTerminology
-    importTerminology_tags,
     importTerminology_description,
     importTerminology_encryptionKey,
+    importTerminology_tags,
     importTerminology_name,
     importTerminology_mergeStrategy,
     importTerminology_terminologyData,
@@ -67,17 +67,17 @@ module Amazonka.Translate.Lens
     importTerminologyResponse_httpStatus,
 
     -- ** ListLanguages
-    listLanguages_nextToken,
-    listLanguages_maxResults,
     listLanguages_displayLanguageCode,
-    listLanguagesResponse_nextToken,
-    listLanguagesResponse_languages,
+    listLanguages_maxResults,
+    listLanguages_nextToken,
     listLanguagesResponse_displayLanguageCode,
+    listLanguagesResponse_languages,
+    listLanguagesResponse_nextToken,
     listLanguagesResponse_httpStatus,
 
     -- ** ListParallelData
-    listParallelData_nextToken,
     listParallelData_maxResults,
+    listParallelData_nextToken,
     listParallelDataResponse_nextToken,
     listParallelDataResponse_parallelDataPropertiesList,
     listParallelDataResponse_httpStatus,
@@ -88,39 +88,39 @@ module Amazonka.Translate.Lens
     listTagsForResourceResponse_httpStatus,
 
     -- ** ListTerminologies
-    listTerminologies_nextToken,
     listTerminologies_maxResults,
+    listTerminologies_nextToken,
     listTerminologiesResponse_nextToken,
     listTerminologiesResponse_terminologyPropertiesList,
     listTerminologiesResponse_httpStatus,
 
     -- ** ListTextTranslationJobs
-    listTextTranslationJobs_nextToken,
     listTextTranslationJobs_filter,
     listTextTranslationJobs_maxResults,
+    listTextTranslationJobs_nextToken,
     listTextTranslationJobsResponse_nextToken,
     listTextTranslationJobsResponse_textTranslationJobPropertiesList,
     listTextTranslationJobsResponse_httpStatus,
 
     -- ** StartTextTranslationJob
     startTextTranslationJob_jobName,
-    startTextTranslationJob_terminologyNames,
-    startTextTranslationJob_settings,
     startTextTranslationJob_parallelDataNames,
+    startTextTranslationJob_settings,
+    startTextTranslationJob_terminologyNames,
     startTextTranslationJob_inputDataConfig,
     startTextTranslationJob_outputDataConfig,
     startTextTranslationJob_dataAccessRoleArn,
     startTextTranslationJob_sourceLanguageCode,
     startTextTranslationJob_targetLanguageCodes,
     startTextTranslationJob_clientToken,
-    startTextTranslationJobResponse_jobStatus,
     startTextTranslationJobResponse_jobId,
+    startTextTranslationJobResponse_jobStatus,
     startTextTranslationJobResponse_httpStatus,
 
     -- ** StopTextTranslationJob
     stopTextTranslationJob_jobId,
-    stopTextTranslationJobResponse_jobStatus,
     stopTextTranslationJobResponse_jobId,
+    stopTextTranslationJobResponse_jobStatus,
     stopTextTranslationJobResponse_httpStatus,
 
     -- ** TagResource
@@ -129,13 +129,13 @@ module Amazonka.Translate.Lens
     tagResourceResponse_httpStatus,
 
     -- ** TranslateText
-    translateText_terminologyNames,
     translateText_settings,
+    translateText_terminologyNames,
     translateText_text,
     translateText_sourceLanguageCode,
     translateText_targetLanguageCode,
-    translateTextResponse_appliedTerminologies,
     translateTextResponse_appliedSettings,
+    translateTextResponse_appliedTerminologies,
     translateTextResponse_httpStatus,
     translateTextResponse_translatedText,
     translateTextResponse_sourceLanguageCode,
@@ -151,10 +151,10 @@ module Amazonka.Translate.Lens
     updateParallelData_name,
     updateParallelData_parallelDataConfig,
     updateParallelData_clientToken,
-    updateParallelDataResponse_name,
-    updateParallelDataResponse_latestUpdateAttemptStatus,
-    updateParallelDataResponse_status,
     updateParallelDataResponse_latestUpdateAttemptAt,
+    updateParallelDataResponse_latestUpdateAttemptStatus,
+    updateParallelDataResponse_name,
+    updateParallelDataResponse_status,
     updateParallelDataResponse_httpStatus,
 
     -- * Types
@@ -173,8 +173,8 @@ module Amazonka.Translate.Lens
 
     -- ** JobDetails
     jobDetails_documentsWithErrorsCount,
-    jobDetails_translatedDocumentsCount,
     jobDetails_inputDocumentsCount,
+    jobDetails_translatedDocumentsCount,
 
     -- ** Language
     language_languageName,
@@ -193,31 +193,31 @@ module Amazonka.Translate.Lens
     parallelDataDataLocation_location,
 
     -- ** ParallelDataProperties
+    parallelDataProperties_arn,
+    parallelDataProperties_createdAt,
+    parallelDataProperties_description,
+    parallelDataProperties_encryptionKey,
+    parallelDataProperties_failedRecordCount,
+    parallelDataProperties_importedDataSize,
+    parallelDataProperties_importedRecordCount,
+    parallelDataProperties_lastUpdatedAt,
+    parallelDataProperties_latestUpdateAttemptAt,
+    parallelDataProperties_latestUpdateAttemptStatus,
     parallelDataProperties_message,
     parallelDataProperties_name,
-    parallelDataProperties_latestUpdateAttemptStatus,
-    parallelDataProperties_lastUpdatedAt,
-    parallelDataProperties_skippedRecordCount,
-    parallelDataProperties_arn,
-    parallelDataProperties_targetLanguageCodes,
-    parallelDataProperties_status,
-    parallelDataProperties_description,
     parallelDataProperties_parallelDataConfig,
-    parallelDataProperties_latestUpdateAttemptAt,
-    parallelDataProperties_failedRecordCount,
+    parallelDataProperties_skippedRecordCount,
     parallelDataProperties_sourceLanguageCode,
-    parallelDataProperties_importedRecordCount,
-    parallelDataProperties_encryptionKey,
-    parallelDataProperties_importedDataSize,
-    parallelDataProperties_createdAt,
+    parallelDataProperties_status,
+    parallelDataProperties_targetLanguageCodes,
 
     -- ** Tag
     tag_key,
     tag_value,
 
     -- ** Term
-    term_targetText,
     term_sourceText,
+    term_targetText,
 
     -- ** TerminologyData
     terminologyData_directionality,
@@ -229,43 +229,43 @@ module Amazonka.Translate.Lens
     terminologyDataLocation_location,
 
     -- ** TerminologyProperties
-    terminologyProperties_skippedTermCount,
+    terminologyProperties_arn,
+    terminologyProperties_createdAt,
+    terminologyProperties_description,
+    terminologyProperties_directionality,
+    terminologyProperties_encryptionKey,
+    terminologyProperties_format,
+    terminologyProperties_lastUpdatedAt,
     terminologyProperties_message,
     terminologyProperties_name,
-    terminologyProperties_lastUpdatedAt,
-    terminologyProperties_directionality,
-    terminologyProperties_termCount,
-    terminologyProperties_format,
     terminologyProperties_sizeBytes,
-    terminologyProperties_arn,
-    terminologyProperties_targetLanguageCodes,
-    terminologyProperties_description,
+    terminologyProperties_skippedTermCount,
     terminologyProperties_sourceLanguageCode,
-    terminologyProperties_encryptionKey,
-    terminologyProperties_createdAt,
+    terminologyProperties_targetLanguageCodes,
+    terminologyProperties_termCount,
 
     -- ** TextTranslationJobFilter
-    textTranslationJobFilter_jobStatus,
     textTranslationJobFilter_jobName,
-    textTranslationJobFilter_submittedBeforeTime,
+    textTranslationJobFilter_jobStatus,
     textTranslationJobFilter_submittedAfterTime,
+    textTranslationJobFilter_submittedBeforeTime,
 
     -- ** TextTranslationJobProperties
-    textTranslationJobProperties_outputDataConfig,
-    textTranslationJobProperties_message,
-    textTranslationJobProperties_jobStatus,
-    textTranslationJobProperties_jobDetails,
-    textTranslationJobProperties_submittedTime,
-    textTranslationJobProperties_jobName,
-    textTranslationJobProperties_targetLanguageCodes,
-    textTranslationJobProperties_jobId,
     textTranslationJobProperties_dataAccessRoleArn,
-    textTranslationJobProperties_terminologyNames,
     textTranslationJobProperties_endTime,
+    textTranslationJobProperties_inputDataConfig,
+    textTranslationJobProperties_jobDetails,
+    textTranslationJobProperties_jobId,
+    textTranslationJobProperties_jobName,
+    textTranslationJobProperties_jobStatus,
+    textTranslationJobProperties_message,
+    textTranslationJobProperties_outputDataConfig,
+    textTranslationJobProperties_parallelDataNames,
     textTranslationJobProperties_settings,
     textTranslationJobProperties_sourceLanguageCode,
-    textTranslationJobProperties_inputDataConfig,
-    textTranslationJobProperties_parallelDataNames,
+    textTranslationJobProperties_submittedTime,
+    textTranslationJobProperties_targetLanguageCodes,
+    textTranslationJobProperties_terminologyNames,
 
     -- ** TranslationSettings
     translationSettings_formality,

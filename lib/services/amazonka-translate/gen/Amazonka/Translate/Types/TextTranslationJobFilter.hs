@@ -30,18 +30,18 @@ import Amazonka.Translate.Types.JobStatus
 --
 -- /See:/ 'newTextTranslationJobFilter' smart constructor.
 data TextTranslationJobFilter = TextTranslationJobFilter'
-  { -- | Filters the list of jobs based by job status.
-    jobStatus :: Prelude.Maybe JobStatus,
-    -- | Filters the list of jobs by name.
+  { -- | Filters the list of jobs by name.
     jobName :: Prelude.Maybe Prelude.Text,
-    -- | Filters the list of jobs based on the time that the job was submitted
-    -- for processing and returns only the jobs submitted before the specified
-    -- time. Jobs are returned in ascending order, oldest to newest.
-    submittedBeforeTime :: Prelude.Maybe Data.POSIX,
+    -- | Filters the list of jobs based by job status.
+    jobStatus :: Prelude.Maybe JobStatus,
     -- | Filters the list of jobs based on the time that the job was submitted
     -- for processing and returns only the jobs submitted after the specified
     -- time. Jobs are returned in descending order, newest to oldest.
-    submittedAfterTime :: Prelude.Maybe Data.POSIX
+    submittedAfterTime :: Prelude.Maybe Data.POSIX,
+    -- | Filters the list of jobs based on the time that the job was submitted
+    -- for processing and returns only the jobs submitted before the specified
+    -- time. Jobs are returned in ascending order, oldest to newest.
+    submittedBeforeTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,41 +53,35 @@ data TextTranslationJobFilter = TextTranslationJobFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobStatus', 'textTranslationJobFilter_jobStatus' - Filters the list of jobs based by job status.
---
 -- 'jobName', 'textTranslationJobFilter_jobName' - Filters the list of jobs by name.
 --
--- 'submittedBeforeTime', 'textTranslationJobFilter_submittedBeforeTime' - Filters the list of jobs based on the time that the job was submitted
--- for processing and returns only the jobs submitted before the specified
--- time. Jobs are returned in ascending order, oldest to newest.
+-- 'jobStatus', 'textTranslationJobFilter_jobStatus' - Filters the list of jobs based by job status.
 --
 -- 'submittedAfterTime', 'textTranslationJobFilter_submittedAfterTime' - Filters the list of jobs based on the time that the job was submitted
 -- for processing and returns only the jobs submitted after the specified
 -- time. Jobs are returned in descending order, newest to oldest.
+--
+-- 'submittedBeforeTime', 'textTranslationJobFilter_submittedBeforeTime' - Filters the list of jobs based on the time that the job was submitted
+-- for processing and returns only the jobs submitted before the specified
+-- time. Jobs are returned in ascending order, oldest to newest.
 newTextTranslationJobFilter ::
   TextTranslationJobFilter
 newTextTranslationJobFilter =
   TextTranslationJobFilter'
-    { jobStatus =
+    { jobName =
         Prelude.Nothing,
-      jobName = Prelude.Nothing,
-      submittedBeforeTime = Prelude.Nothing,
-      submittedAfterTime = Prelude.Nothing
+      jobStatus = Prelude.Nothing,
+      submittedAfterTime = Prelude.Nothing,
+      submittedBeforeTime = Prelude.Nothing
     }
-
--- | Filters the list of jobs based by job status.
-textTranslationJobFilter_jobStatus :: Lens.Lens' TextTranslationJobFilter (Prelude.Maybe JobStatus)
-textTranslationJobFilter_jobStatus = Lens.lens (\TextTranslationJobFilter' {jobStatus} -> jobStatus) (\s@TextTranslationJobFilter' {} a -> s {jobStatus = a} :: TextTranslationJobFilter)
 
 -- | Filters the list of jobs by name.
 textTranslationJobFilter_jobName :: Lens.Lens' TextTranslationJobFilter (Prelude.Maybe Prelude.Text)
 textTranslationJobFilter_jobName = Lens.lens (\TextTranslationJobFilter' {jobName} -> jobName) (\s@TextTranslationJobFilter' {} a -> s {jobName = a} :: TextTranslationJobFilter)
 
--- | Filters the list of jobs based on the time that the job was submitted
--- for processing and returns only the jobs submitted before the specified
--- time. Jobs are returned in ascending order, oldest to newest.
-textTranslationJobFilter_submittedBeforeTime :: Lens.Lens' TextTranslationJobFilter (Prelude.Maybe Prelude.UTCTime)
-textTranslationJobFilter_submittedBeforeTime = Lens.lens (\TextTranslationJobFilter' {submittedBeforeTime} -> submittedBeforeTime) (\s@TextTranslationJobFilter' {} a -> s {submittedBeforeTime = a} :: TextTranslationJobFilter) Prelude.. Lens.mapping Data._Time
+-- | Filters the list of jobs based by job status.
+textTranslationJobFilter_jobStatus :: Lens.Lens' TextTranslationJobFilter (Prelude.Maybe JobStatus)
+textTranslationJobFilter_jobStatus = Lens.lens (\TextTranslationJobFilter' {jobStatus} -> jobStatus) (\s@TextTranslationJobFilter' {} a -> s {jobStatus = a} :: TextTranslationJobFilter)
 
 -- | Filters the list of jobs based on the time that the job was submitted
 -- for processing and returns only the jobs submitted after the specified
@@ -95,29 +89,35 @@ textTranslationJobFilter_submittedBeforeTime = Lens.lens (\TextTranslationJobFil
 textTranslationJobFilter_submittedAfterTime :: Lens.Lens' TextTranslationJobFilter (Prelude.Maybe Prelude.UTCTime)
 textTranslationJobFilter_submittedAfterTime = Lens.lens (\TextTranslationJobFilter' {submittedAfterTime} -> submittedAfterTime) (\s@TextTranslationJobFilter' {} a -> s {submittedAfterTime = a} :: TextTranslationJobFilter) Prelude.. Lens.mapping Data._Time
 
+-- | Filters the list of jobs based on the time that the job was submitted
+-- for processing and returns only the jobs submitted before the specified
+-- time. Jobs are returned in ascending order, oldest to newest.
+textTranslationJobFilter_submittedBeforeTime :: Lens.Lens' TextTranslationJobFilter (Prelude.Maybe Prelude.UTCTime)
+textTranslationJobFilter_submittedBeforeTime = Lens.lens (\TextTranslationJobFilter' {submittedBeforeTime} -> submittedBeforeTime) (\s@TextTranslationJobFilter' {} a -> s {submittedBeforeTime = a} :: TextTranslationJobFilter) Prelude.. Lens.mapping Data._Time
+
 instance Prelude.Hashable TextTranslationJobFilter where
   hashWithSalt _salt TextTranslationJobFilter' {..} =
-    _salt `Prelude.hashWithSalt` jobStatus
-      `Prelude.hashWithSalt` jobName
-      `Prelude.hashWithSalt` submittedBeforeTime
+    _salt `Prelude.hashWithSalt` jobName
+      `Prelude.hashWithSalt` jobStatus
       `Prelude.hashWithSalt` submittedAfterTime
+      `Prelude.hashWithSalt` submittedBeforeTime
 
 instance Prelude.NFData TextTranslationJobFilter where
   rnf TextTranslationJobFilter' {..} =
-    Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf jobName
-      `Prelude.seq` Prelude.rnf submittedBeforeTime
+    Prelude.rnf jobName
+      `Prelude.seq` Prelude.rnf jobStatus
       `Prelude.seq` Prelude.rnf submittedAfterTime
+      `Prelude.seq` Prelude.rnf submittedBeforeTime
 
 instance Data.ToJSON TextTranslationJobFilter where
   toJSON TextTranslationJobFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("JobStatus" Data..=) Prelude.<$> jobStatus,
-            ("JobName" Data..=) Prelude.<$> jobName,
-            ("SubmittedBeforeTime" Data..=)
-              Prelude.<$> submittedBeforeTime,
+          [ ("JobName" Data..=) Prelude.<$> jobName,
+            ("JobStatus" Data..=) Prelude.<$> jobStatus,
             ("SubmittedAfterTime" Data..=)
-              Prelude.<$> submittedAfterTime
+              Prelude.<$> submittedAfterTime,
+            ("SubmittedBeforeTime" Data..=)
+              Prelude.<$> submittedBeforeTime
           ]
       )

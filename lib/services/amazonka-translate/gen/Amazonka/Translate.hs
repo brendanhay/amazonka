@@ -23,35 +23,32 @@ module Amazonka.Translate
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
 
-    -- ** InternalServerException
-    _InternalServerException,
-
-    -- ** TooManyTagsException
-    _TooManyTagsException,
+    -- ** ConflictException
+    _ConflictException,
 
     -- ** DetectedLanguageLowConfidenceException
     _DetectedLanguageLowConfidenceException,
 
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** UnsupportedLanguagePairException
-    _UnsupportedLanguagePairException,
-
-    -- ** UnsupportedDisplayLanguageCodeException
-    _UnsupportedDisplayLanguageCodeException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** InternalServerException
+    _InternalServerException,
 
     -- ** InvalidFilterException
     _InvalidFilterException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
 
     -- ** TextSizeLimitExceededException
     _TextSizeLimitExceededException,
@@ -59,11 +56,14 @@ module Amazonka.Translate
     -- ** TooManyRequestsException
     _TooManyRequestsException,
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
+    -- ** TooManyTagsException
+    _TooManyTagsException,
 
-    -- ** InvalidParameterValueException
-    _InvalidParameterValueException,
+    -- ** UnsupportedDisplayLanguageCodeException
+    _UnsupportedDisplayLanguageCodeException,
+
+    -- ** UnsupportedLanguagePairException
+    _UnsupportedLanguagePairException,
 
     -- * Waiters
     -- $waiters

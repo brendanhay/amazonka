@@ -28,18 +28,18 @@ module Amazonka.Translate.ListLanguages
     newListLanguages,
 
     -- * Request Lenses
-    listLanguages_nextToken,
-    listLanguages_maxResults,
     listLanguages_displayLanguageCode,
+    listLanguages_maxResults,
+    listLanguages_nextToken,
 
     -- * Destructuring the Response
     ListLanguagesResponse (..),
     newListLanguagesResponse,
 
     -- * Response Lenses
-    listLanguagesResponse_nextToken,
-    listLanguagesResponse_languages,
     listLanguagesResponse_displayLanguageCode,
+    listLanguagesResponse_languages,
+    listLanguagesResponse_nextToken,
     listLanguagesResponse_httpStatus,
   )
 where
@@ -54,14 +54,14 @@ import Amazonka.Translate.Types
 
 -- | /See:/ 'newListLanguages' smart constructor.
 data ListLanguages = ListLanguages'
-  { -- | Include the NextToken value to fetch the next group of supported
-    -- languages.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The language code for the language to use to display the language names
+    -- in the response. The language code is @en@ by default.
+    displayLanguageCode :: Prelude.Maybe DisplayLanguageCode,
     -- | The maximum number of results to return in each response.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The language code for the language to use to display the language names
-    -- in the response. The language code is @en@ by default.
-    displayLanguageCode :: Prelude.Maybe DisplayLanguageCode
+    -- | Include the NextToken value to fetch the next group of supported
+    -- languages.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,35 +73,36 @@ data ListLanguages = ListLanguages'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listLanguages_nextToken' - Include the NextToken value to fetch the next group of supported
--- languages.
+-- 'displayLanguageCode', 'listLanguages_displayLanguageCode' - The language code for the language to use to display the language names
+-- in the response. The language code is @en@ by default.
 --
 -- 'maxResults', 'listLanguages_maxResults' - The maximum number of results to return in each response.
 --
--- 'displayLanguageCode', 'listLanguages_displayLanguageCode' - The language code for the language to use to display the language names
--- in the response. The language code is @en@ by default.
+-- 'nextToken', 'listLanguages_nextToken' - Include the NextToken value to fetch the next group of supported
+-- languages.
 newListLanguages ::
   ListLanguages
 newListLanguages =
   ListLanguages'
-    { nextToken = Prelude.Nothing,
+    { displayLanguageCode =
+        Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      displayLanguageCode = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | Include the NextToken value to fetch the next group of supported
--- languages.
-listLanguages_nextToken :: Lens.Lens' ListLanguages (Prelude.Maybe Prelude.Text)
-listLanguages_nextToken = Lens.lens (\ListLanguages' {nextToken} -> nextToken) (\s@ListLanguages' {} a -> s {nextToken = a} :: ListLanguages)
-
--- | The maximum number of results to return in each response.
-listLanguages_maxResults :: Lens.Lens' ListLanguages (Prelude.Maybe Prelude.Natural)
-listLanguages_maxResults = Lens.lens (\ListLanguages' {maxResults} -> maxResults) (\s@ListLanguages' {} a -> s {maxResults = a} :: ListLanguages)
 
 -- | The language code for the language to use to display the language names
 -- in the response. The language code is @en@ by default.
 listLanguages_displayLanguageCode :: Lens.Lens' ListLanguages (Prelude.Maybe DisplayLanguageCode)
 listLanguages_displayLanguageCode = Lens.lens (\ListLanguages' {displayLanguageCode} -> displayLanguageCode) (\s@ListLanguages' {} a -> s {displayLanguageCode = a} :: ListLanguages)
+
+-- | The maximum number of results to return in each response.
+listLanguages_maxResults :: Lens.Lens' ListLanguages (Prelude.Maybe Prelude.Natural)
+listLanguages_maxResults = Lens.lens (\ListLanguages' {maxResults} -> maxResults) (\s@ListLanguages' {} a -> s {maxResults = a} :: ListLanguages)
+
+-- | Include the NextToken value to fetch the next group of supported
+-- languages.
+listLanguages_nextToken :: Lens.Lens' ListLanguages (Prelude.Maybe Prelude.Text)
+listLanguages_nextToken = Lens.lens (\ListLanguages' {nextToken} -> nextToken) (\s@ListLanguages' {} a -> s {nextToken = a} :: ListLanguages)
 
 instance Core.AWSRequest ListLanguages where
   type
@@ -113,23 +114,23 @@ instance Core.AWSRequest ListLanguages where
     Response.receiveJSON
       ( \s h x ->
           ListLanguagesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
+            Prelude.<$> (x Data..?> "DisplayLanguageCode")
             Prelude.<*> (x Data..?> "Languages" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "DisplayLanguageCode")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListLanguages where
   hashWithSalt _salt ListLanguages' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` displayLanguageCode
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` displayLanguageCode
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListLanguages where
   rnf ListLanguages' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf displayLanguageCode
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf displayLanguageCode
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListLanguages where
   toHeaders =
@@ -150,10 +151,10 @@ instance Data.ToJSON ListLanguages where
   toJSON ListLanguages' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("DisplayLanguageCode" Data..=)
+              Prelude.<$> displayLanguageCode,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("DisplayLanguageCode" Data..=)
-              Prelude.<$> displayLanguageCode
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -165,14 +166,14 @@ instance Data.ToQuery ListLanguages where
 
 -- | /See:/ 'newListLanguagesResponse' smart constructor.
 data ListLanguagesResponse = ListLanguagesResponse'
-  { -- | If the response does not include all remaining results, use the
+  { -- | The language code passed in with the request.
+    displayLanguageCode :: Prelude.Maybe DisplayLanguageCode,
+    -- | The list of supported languages.
+    languages :: Prelude.Maybe [Language],
+    -- | If the response does not include all remaining results, use the
     -- NextToken in the next request to fetch the next group of supported
     -- languages.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of supported languages.
-    languages :: Prelude.Maybe [Language],
-    -- | The language code passed in with the request.
-    displayLanguageCode :: Prelude.Maybe DisplayLanguageCode,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -186,13 +187,13 @@ data ListLanguagesResponse = ListLanguagesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listLanguagesResponse_nextToken' - If the response does not include all remaining results, use the
--- NextToken in the next request to fetch the next group of supported
--- languages.
+-- 'displayLanguageCode', 'listLanguagesResponse_displayLanguageCode' - The language code passed in with the request.
 --
 -- 'languages', 'listLanguagesResponse_languages' - The list of supported languages.
 --
--- 'displayLanguageCode', 'listLanguagesResponse_displayLanguageCode' - The language code passed in with the request.
+-- 'nextToken', 'listLanguagesResponse_nextToken' - If the response does not include all remaining results, use the
+-- NextToken in the next request to fetch the next group of supported
+-- languages.
 --
 -- 'httpStatus', 'listLanguagesResponse_httpStatus' - The response's http status code.
 newListLanguagesResponse ::
@@ -201,11 +202,20 @@ newListLanguagesResponse ::
   ListLanguagesResponse
 newListLanguagesResponse pHttpStatus_ =
   ListLanguagesResponse'
-    { nextToken = Prelude.Nothing,
+    { displayLanguageCode =
+        Prelude.Nothing,
       languages = Prelude.Nothing,
-      displayLanguageCode = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The language code passed in with the request.
+listLanguagesResponse_displayLanguageCode :: Lens.Lens' ListLanguagesResponse (Prelude.Maybe DisplayLanguageCode)
+listLanguagesResponse_displayLanguageCode = Lens.lens (\ListLanguagesResponse' {displayLanguageCode} -> displayLanguageCode) (\s@ListLanguagesResponse' {} a -> s {displayLanguageCode = a} :: ListLanguagesResponse)
+
+-- | The list of supported languages.
+listLanguagesResponse_languages :: Lens.Lens' ListLanguagesResponse (Prelude.Maybe [Language])
+listLanguagesResponse_languages = Lens.lens (\ListLanguagesResponse' {languages} -> languages) (\s@ListLanguagesResponse' {} a -> s {languages = a} :: ListLanguagesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the response does not include all remaining results, use the
 -- NextToken in the next request to fetch the next group of supported
@@ -213,21 +223,13 @@ newListLanguagesResponse pHttpStatus_ =
 listLanguagesResponse_nextToken :: Lens.Lens' ListLanguagesResponse (Prelude.Maybe Prelude.Text)
 listLanguagesResponse_nextToken = Lens.lens (\ListLanguagesResponse' {nextToken} -> nextToken) (\s@ListLanguagesResponse' {} a -> s {nextToken = a} :: ListLanguagesResponse)
 
--- | The list of supported languages.
-listLanguagesResponse_languages :: Lens.Lens' ListLanguagesResponse (Prelude.Maybe [Language])
-listLanguagesResponse_languages = Lens.lens (\ListLanguagesResponse' {languages} -> languages) (\s@ListLanguagesResponse' {} a -> s {languages = a} :: ListLanguagesResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The language code passed in with the request.
-listLanguagesResponse_displayLanguageCode :: Lens.Lens' ListLanguagesResponse (Prelude.Maybe DisplayLanguageCode)
-listLanguagesResponse_displayLanguageCode = Lens.lens (\ListLanguagesResponse' {displayLanguageCode} -> displayLanguageCode) (\s@ListLanguagesResponse' {} a -> s {displayLanguageCode = a} :: ListLanguagesResponse)
-
 -- | The response's http status code.
 listLanguagesResponse_httpStatus :: Lens.Lens' ListLanguagesResponse Prelude.Int
 listLanguagesResponse_httpStatus = Lens.lens (\ListLanguagesResponse' {httpStatus} -> httpStatus) (\s@ListLanguagesResponse' {} a -> s {httpStatus = a} :: ListLanguagesResponse)
 
 instance Prelude.NFData ListLanguagesResponse where
   rnf ListLanguagesResponse' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf displayLanguageCode
       `Prelude.seq` Prelude.rnf languages
-      `Prelude.seq` Prelude.rnf displayLanguageCode
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

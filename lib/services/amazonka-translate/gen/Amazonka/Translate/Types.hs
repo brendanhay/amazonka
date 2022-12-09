@@ -19,20 +19,20 @@ module Amazonka.Translate.Types
 
     -- * Errors
     _ConcurrentModificationException,
-    _InternalServerException,
-    _TooManyTagsException,
-    _DetectedLanguageLowConfidenceException,
-    _ServiceUnavailableException,
-    _ResourceNotFoundException,
-    _UnsupportedLanguagePairException,
-    _UnsupportedDisplayLanguageCodeException,
-    _LimitExceededException,
-    _InvalidFilterException,
     _ConflictException,
+    _DetectedLanguageLowConfidenceException,
+    _InternalServerException,
+    _InvalidFilterException,
+    _InvalidParameterValueException,
+    _InvalidRequestException,
+    _LimitExceededException,
+    _ResourceNotFoundException,
+    _ServiceUnavailableException,
     _TextSizeLimitExceededException,
     _TooManyRequestsException,
-    _InvalidRequestException,
-    _InvalidParameterValueException,
+    _TooManyTagsException,
+    _UnsupportedDisplayLanguageCodeException,
+    _UnsupportedLanguagePairException,
 
     -- * Directionality
     Directionality (..),
@@ -86,8 +86,8 @@ module Amazonka.Translate.Types
     JobDetails (..),
     newJobDetails,
     jobDetails_documentsWithErrorsCount,
-    jobDetails_translatedDocumentsCount,
     jobDetails_inputDocumentsCount,
+    jobDetails_translatedDocumentsCount,
 
     -- * Language
     Language (..),
@@ -116,23 +116,23 @@ module Amazonka.Translate.Types
     -- * ParallelDataProperties
     ParallelDataProperties (..),
     newParallelDataProperties,
+    parallelDataProperties_arn,
+    parallelDataProperties_createdAt,
+    parallelDataProperties_description,
+    parallelDataProperties_encryptionKey,
+    parallelDataProperties_failedRecordCount,
+    parallelDataProperties_importedDataSize,
+    parallelDataProperties_importedRecordCount,
+    parallelDataProperties_lastUpdatedAt,
+    parallelDataProperties_latestUpdateAttemptAt,
+    parallelDataProperties_latestUpdateAttemptStatus,
     parallelDataProperties_message,
     parallelDataProperties_name,
-    parallelDataProperties_latestUpdateAttemptStatus,
-    parallelDataProperties_lastUpdatedAt,
-    parallelDataProperties_skippedRecordCount,
-    parallelDataProperties_arn,
-    parallelDataProperties_targetLanguageCodes,
-    parallelDataProperties_status,
-    parallelDataProperties_description,
     parallelDataProperties_parallelDataConfig,
-    parallelDataProperties_latestUpdateAttemptAt,
-    parallelDataProperties_failedRecordCount,
+    parallelDataProperties_skippedRecordCount,
     parallelDataProperties_sourceLanguageCode,
-    parallelDataProperties_importedRecordCount,
-    parallelDataProperties_encryptionKey,
-    parallelDataProperties_importedDataSize,
-    parallelDataProperties_createdAt,
+    parallelDataProperties_status,
+    parallelDataProperties_targetLanguageCodes,
 
     -- * Tag
     Tag (..),
@@ -143,8 +143,8 @@ module Amazonka.Translate.Types
     -- * Term
     Term (..),
     newTerm,
-    term_targetText,
     term_sourceText,
+    term_targetText,
 
     -- * TerminologyData
     TerminologyData (..),
@@ -162,47 +162,47 @@ module Amazonka.Translate.Types
     -- * TerminologyProperties
     TerminologyProperties (..),
     newTerminologyProperties,
-    terminologyProperties_skippedTermCount,
+    terminologyProperties_arn,
+    terminologyProperties_createdAt,
+    terminologyProperties_description,
+    terminologyProperties_directionality,
+    terminologyProperties_encryptionKey,
+    terminologyProperties_format,
+    terminologyProperties_lastUpdatedAt,
     terminologyProperties_message,
     terminologyProperties_name,
-    terminologyProperties_lastUpdatedAt,
-    terminologyProperties_directionality,
-    terminologyProperties_termCount,
-    terminologyProperties_format,
     terminologyProperties_sizeBytes,
-    terminologyProperties_arn,
-    terminologyProperties_targetLanguageCodes,
-    terminologyProperties_description,
+    terminologyProperties_skippedTermCount,
     terminologyProperties_sourceLanguageCode,
-    terminologyProperties_encryptionKey,
-    terminologyProperties_createdAt,
+    terminologyProperties_targetLanguageCodes,
+    terminologyProperties_termCount,
 
     -- * TextTranslationJobFilter
     TextTranslationJobFilter (..),
     newTextTranslationJobFilter,
-    textTranslationJobFilter_jobStatus,
     textTranslationJobFilter_jobName,
-    textTranslationJobFilter_submittedBeforeTime,
+    textTranslationJobFilter_jobStatus,
     textTranslationJobFilter_submittedAfterTime,
+    textTranslationJobFilter_submittedBeforeTime,
 
     -- * TextTranslationJobProperties
     TextTranslationJobProperties (..),
     newTextTranslationJobProperties,
-    textTranslationJobProperties_outputDataConfig,
-    textTranslationJobProperties_message,
-    textTranslationJobProperties_jobStatus,
-    textTranslationJobProperties_jobDetails,
-    textTranslationJobProperties_submittedTime,
-    textTranslationJobProperties_jobName,
-    textTranslationJobProperties_targetLanguageCodes,
-    textTranslationJobProperties_jobId,
     textTranslationJobProperties_dataAccessRoleArn,
-    textTranslationJobProperties_terminologyNames,
     textTranslationJobProperties_endTime,
+    textTranslationJobProperties_inputDataConfig,
+    textTranslationJobProperties_jobDetails,
+    textTranslationJobProperties_jobId,
+    textTranslationJobProperties_jobName,
+    textTranslationJobProperties_jobStatus,
+    textTranslationJobProperties_message,
+    textTranslationJobProperties_outputDataConfig,
+    textTranslationJobProperties_parallelDataNames,
     textTranslationJobProperties_settings,
     textTranslationJobProperties_sourceLanguageCode,
-    textTranslationJobProperties_inputDataConfig,
-    textTranslationJobProperties_parallelDataNames,
+    textTranslationJobProperties_submittedTime,
+    textTranslationJobProperties_targetLanguageCodes,
+    textTranslationJobProperties_terminologyNames,
 
     -- * TranslationSettings
     TranslationSettings (..),
@@ -269,28 +269,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -298,13 +292,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -312,6 +310,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Another modification is being made. That modification must complete
@@ -322,19 +322,12 @@ _ConcurrentModificationException =
     defaultService
     "ConcurrentModificationException"
 
--- | An internal server error occurred. Retry your request.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
+-- | There was a conflict processing the request. Try your request again.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
   Core._MatchServiceError
     defaultService
-    "InternalServerException"
-
--- | You have added too many tags to this resource. The maximum is 50 tags.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyTagsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyTagsException"
+    "ConflictException"
 
 -- | The confidence that Amazon Comprehend accurately detected the source
 -- language is low. If a low confidence level is acceptable for your
@@ -348,13 +341,44 @@ _DetectedLanguageLowConfidenceException =
     defaultService
     "DetectedLanguageLowConfidenceException"
 
--- | The Amazon Translate service is temporarily unavailable. Wait a bit and
--- then retry your request.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUnavailableException =
+-- | An internal server error occurred. Retry your request.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
   Core._MatchServiceError
     defaultService
-    "ServiceUnavailableException"
+    "InternalServerException"
+
+-- | The filter specified for the operation is not valid. Specify a different
+-- filter.
+_InvalidFilterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidFilterException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidFilterException"
+
+-- | The value of the parameter is not valid. Review the value of the
+-- parameter you are using to correct it, and then retry your operation.
+_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterValueException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidParameterValueException"
+
+-- | The request that you made is not valid. Check your request to determine
+-- why it\'s not valid and then retry the request.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRequestException"
+
+-- | The specified limit has been exceeded. Review your request and retry it
+-- with a quantity below the stated limit.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
 
 -- | The resource you are looking for has not been found. Review the resource
 -- you\'re looking for and see if a different resource will accomplish your
@@ -365,45 +389,13 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
 
--- | Amazon Translate does not support translation from the language of the
--- source text into the requested target language. For more information,
--- see
--- <https://docs.aws.amazon.com/translate/latest/dg/how-to-error-msg.html Error messages>.
-_UnsupportedLanguagePairException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedLanguagePairException =
+-- | The Amazon Translate service is temporarily unavailable. Wait a bit and
+-- then retry your request.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
-    "UnsupportedLanguagePairException"
-
--- | Requested display language code is not supported.
-_UnsupportedDisplayLanguageCodeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedDisplayLanguageCodeException =
-  Core._MatchServiceError
-    defaultService
-    "UnsupportedDisplayLanguageCodeException"
-
--- | The specified limit has been exceeded. Review your request and retry it
--- with a quantity below the stated limit.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
-
--- | The filter specified for the operation is not valid. Specify a different
--- filter.
-_InvalidFilterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidFilterException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidFilterException"
-
--- | There was a conflict processing the request. Try your request again.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
+    "ServiceUnavailableException"
 
 -- | The size of the text you submitted exceeds the size limit. Reduce the
 -- size of the text or use a smaller document and then retry your request.
@@ -421,18 +413,26 @@ _TooManyRequestsException =
     defaultService
     "TooManyRequestsException"
 
--- | The request that you made is not valid. Check your request to determine
--- why it\'s not valid and then retry the request.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRequestException =
+-- | You have added too many tags to this resource. The maximum is 50 tags.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
   Core._MatchServiceError
     defaultService
-    "InvalidRequestException"
+    "TooManyTagsException"
 
--- | The value of the parameter is not valid. Review the value of the
--- parameter you are using to correct it, and then retry your operation.
-_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterValueException =
+-- | Requested display language code is not supported.
+_UnsupportedDisplayLanguageCodeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedDisplayLanguageCodeException =
   Core._MatchServiceError
     defaultService
-    "InvalidParameterValueException"
+    "UnsupportedDisplayLanguageCodeException"
+
+-- | Amazon Translate does not support translation from the language of the
+-- source text into the requested target language. For more information,
+-- see
+-- <https://docs.aws.amazon.com/translate/latest/dg/how-to-error-msg.html Error messages>.
+_UnsupportedLanguagePairException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedLanguagePairException =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedLanguagePairException"

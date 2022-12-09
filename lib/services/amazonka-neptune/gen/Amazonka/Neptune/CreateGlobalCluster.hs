@@ -36,11 +36,11 @@ module Amazonka.Neptune.CreateGlobalCluster
     newCreateGlobalCluster,
 
     -- * Request Lenses
+    createGlobalCluster_deletionProtection,
+    createGlobalCluster_engine,
+    createGlobalCluster_engineVersion,
     createGlobalCluster_sourceDBClusterIdentifier,
     createGlobalCluster_storageEncrypted,
-    createGlobalCluster_engine,
-    createGlobalCluster_deletionProtection,
-    createGlobalCluster_engineVersion,
     createGlobalCluster_globalClusterIdentifier,
 
     -- * Destructuring the Response
@@ -63,22 +63,22 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateGlobalCluster' smart constructor.
 data CreateGlobalCluster = CreateGlobalCluster'
-  { -- | (/Optional/) The Amazon Resource Name (ARN) of an existing Neptune DB
-    -- cluster to use as the primary cluster of the new global database.
-    sourceDBClusterIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The storage encryption setting for the new global database cluster.
-    storageEncrypted :: Prelude.Maybe Prelude.Bool,
+  { -- | The deletion protection setting for the new global database. The global
+    -- database can\'t be deleted when deletion protection is enabled.
+    deletionProtection :: Prelude.Maybe Prelude.Bool,
     -- | The name of the database engine to be used in the global database.
     --
     -- Valid values: @neptune@
     engine :: Prelude.Maybe Prelude.Text,
-    -- | The deletion protection setting for the new global database. The global
-    -- database can\'t be deleted when deletion protection is enabled.
-    deletionProtection :: Prelude.Maybe Prelude.Bool,
     -- | The Neptune engine version to be used by the global database.
     --
     -- Valid values: @1.2.0.0@ or above.
     engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | (/Optional/) The Amazon Resource Name (ARN) of an existing Neptune DB
+    -- cluster to use as the primary cluster of the new global database.
+    sourceDBClusterIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The storage encryption setting for the new global database cluster.
+    storageEncrypted :: Prelude.Maybe Prelude.Bool,
     -- | The cluster identifier of the new global database cluster.
     globalClusterIdentifier :: Prelude.Text
   }
@@ -92,21 +92,21 @@ data CreateGlobalCluster = CreateGlobalCluster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceDBClusterIdentifier', 'createGlobalCluster_sourceDBClusterIdentifier' - (/Optional/) The Amazon Resource Name (ARN) of an existing Neptune DB
--- cluster to use as the primary cluster of the new global database.
---
--- 'storageEncrypted', 'createGlobalCluster_storageEncrypted' - The storage encryption setting for the new global database cluster.
+-- 'deletionProtection', 'createGlobalCluster_deletionProtection' - The deletion protection setting for the new global database. The global
+-- database can\'t be deleted when deletion protection is enabled.
 --
 -- 'engine', 'createGlobalCluster_engine' - The name of the database engine to be used in the global database.
 --
 -- Valid values: @neptune@
 --
--- 'deletionProtection', 'createGlobalCluster_deletionProtection' - The deletion protection setting for the new global database. The global
--- database can\'t be deleted when deletion protection is enabled.
---
 -- 'engineVersion', 'createGlobalCluster_engineVersion' - The Neptune engine version to be used by the global database.
 --
 -- Valid values: @1.2.0.0@ or above.
+--
+-- 'sourceDBClusterIdentifier', 'createGlobalCluster_sourceDBClusterIdentifier' - (/Optional/) The Amazon Resource Name (ARN) of an existing Neptune DB
+-- cluster to use as the primary cluster of the new global database.
+--
+-- 'storageEncrypted', 'createGlobalCluster_storageEncrypted' - The storage encryption setting for the new global database cluster.
 --
 -- 'globalClusterIdentifier', 'createGlobalCluster_globalClusterIdentifier' - The cluster identifier of the new global database cluster.
 newCreateGlobalCluster ::
@@ -115,14 +115,31 @@ newCreateGlobalCluster ::
   CreateGlobalCluster
 newCreateGlobalCluster pGlobalClusterIdentifier_ =
   CreateGlobalCluster'
-    { sourceDBClusterIdentifier =
+    { deletionProtection =
         Prelude.Nothing,
-      storageEncrypted = Prelude.Nothing,
       engine = Prelude.Nothing,
-      deletionProtection = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
+      sourceDBClusterIdentifier = Prelude.Nothing,
+      storageEncrypted = Prelude.Nothing,
       globalClusterIdentifier = pGlobalClusterIdentifier_
     }
+
+-- | The deletion protection setting for the new global database. The global
+-- database can\'t be deleted when deletion protection is enabled.
+createGlobalCluster_deletionProtection :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Bool)
+createGlobalCluster_deletionProtection = Lens.lens (\CreateGlobalCluster' {deletionProtection} -> deletionProtection) (\s@CreateGlobalCluster' {} a -> s {deletionProtection = a} :: CreateGlobalCluster)
+
+-- | The name of the database engine to be used in the global database.
+--
+-- Valid values: @neptune@
+createGlobalCluster_engine :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Text)
+createGlobalCluster_engine = Lens.lens (\CreateGlobalCluster' {engine} -> engine) (\s@CreateGlobalCluster' {} a -> s {engine = a} :: CreateGlobalCluster)
+
+-- | The Neptune engine version to be used by the global database.
+--
+-- Valid values: @1.2.0.0@ or above.
+createGlobalCluster_engineVersion :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Text)
+createGlobalCluster_engineVersion = Lens.lens (\CreateGlobalCluster' {engineVersion} -> engineVersion) (\s@CreateGlobalCluster' {} a -> s {engineVersion = a} :: CreateGlobalCluster)
 
 -- | (/Optional/) The Amazon Resource Name (ARN) of an existing Neptune DB
 -- cluster to use as the primary cluster of the new global database.
@@ -132,23 +149,6 @@ createGlobalCluster_sourceDBClusterIdentifier = Lens.lens (\CreateGlobalCluster'
 -- | The storage encryption setting for the new global database cluster.
 createGlobalCluster_storageEncrypted :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Bool)
 createGlobalCluster_storageEncrypted = Lens.lens (\CreateGlobalCluster' {storageEncrypted} -> storageEncrypted) (\s@CreateGlobalCluster' {} a -> s {storageEncrypted = a} :: CreateGlobalCluster)
-
--- | The name of the database engine to be used in the global database.
---
--- Valid values: @neptune@
-createGlobalCluster_engine :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Text)
-createGlobalCluster_engine = Lens.lens (\CreateGlobalCluster' {engine} -> engine) (\s@CreateGlobalCluster' {} a -> s {engine = a} :: CreateGlobalCluster)
-
--- | The deletion protection setting for the new global database. The global
--- database can\'t be deleted when deletion protection is enabled.
-createGlobalCluster_deletionProtection :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Bool)
-createGlobalCluster_deletionProtection = Lens.lens (\CreateGlobalCluster' {deletionProtection} -> deletionProtection) (\s@CreateGlobalCluster' {} a -> s {deletionProtection = a} :: CreateGlobalCluster)
-
--- | The Neptune engine version to be used by the global database.
---
--- Valid values: @1.2.0.0@ or above.
-createGlobalCluster_engineVersion :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Text)
-createGlobalCluster_engineVersion = Lens.lens (\CreateGlobalCluster' {engineVersion} -> engineVersion) (\s@CreateGlobalCluster' {} a -> s {engineVersion = a} :: CreateGlobalCluster)
 
 -- | The cluster identifier of the new global database cluster.
 createGlobalCluster_globalClusterIdentifier :: Lens.Lens' CreateGlobalCluster Prelude.Text
@@ -171,21 +171,20 @@ instance Core.AWSRequest CreateGlobalCluster where
 
 instance Prelude.Hashable CreateGlobalCluster where
   hashWithSalt _salt CreateGlobalCluster' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` deletionProtection
+      `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` sourceDBClusterIdentifier
       `Prelude.hashWithSalt` storageEncrypted
-      `Prelude.hashWithSalt` engine
-      `Prelude.hashWithSalt` deletionProtection
-      `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` globalClusterIdentifier
 
 instance Prelude.NFData CreateGlobalCluster where
   rnf CreateGlobalCluster' {..} =
-    Prelude.rnf sourceDBClusterIdentifier
-      `Prelude.seq` Prelude.rnf storageEncrypted
+    Prelude.rnf deletionProtection
       `Prelude.seq` Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf deletionProtection
       `Prelude.seq` Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf sourceDBClusterIdentifier
+      `Prelude.seq` Prelude.rnf storageEncrypted
       `Prelude.seq` Prelude.rnf globalClusterIdentifier
 
 instance Data.ToHeaders CreateGlobalCluster where
@@ -201,12 +200,12 @@ instance Data.ToQuery CreateGlobalCluster where
           Data.=: ("CreateGlobalCluster" :: Prelude.ByteString),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "DeletionProtection" Data.=: deletionProtection,
+        "Engine" Data.=: engine,
+        "EngineVersion" Data.=: engineVersion,
         "SourceDBClusterIdentifier"
           Data.=: sourceDBClusterIdentifier,
         "StorageEncrypted" Data.=: storageEncrypted,
-        "Engine" Data.=: engine,
-        "DeletionProtection" Data.=: deletionProtection,
-        "EngineVersion" Data.=: engineVersion,
         "GlobalClusterIdentifier"
           Data.=: globalClusterIdentifier
       ]

@@ -39,20 +39,20 @@ module Amazonka.Neptune.RestoreDBClusterToPointInTime
     newRestoreDBClusterToPointInTime,
 
     -- * Request Lenses
-    restoreDBClusterToPointInTime_tags,
-    restoreDBClusterToPointInTime_port,
-    restoreDBClusterToPointInTime_serverlessV2ScalingConfiguration,
-    restoreDBClusterToPointInTime_vpcSecurityGroupIds,
-    restoreDBClusterToPointInTime_dbSubnetGroupName,
-    restoreDBClusterToPointInTime_optionGroupName,
-    restoreDBClusterToPointInTime_enableIAMDatabaseAuthentication,
-    restoreDBClusterToPointInTime_restoreType,
-    restoreDBClusterToPointInTime_enableCloudwatchLogsExports,
-    restoreDBClusterToPointInTime_restoreToTime,
-    restoreDBClusterToPointInTime_useLatestRestorableTime,
-    restoreDBClusterToPointInTime_kmsKeyId,
-    restoreDBClusterToPointInTime_deletionProtection,
     restoreDBClusterToPointInTime_dbClusterParameterGroupName,
+    restoreDBClusterToPointInTime_dbSubnetGroupName,
+    restoreDBClusterToPointInTime_deletionProtection,
+    restoreDBClusterToPointInTime_enableCloudwatchLogsExports,
+    restoreDBClusterToPointInTime_enableIAMDatabaseAuthentication,
+    restoreDBClusterToPointInTime_kmsKeyId,
+    restoreDBClusterToPointInTime_optionGroupName,
+    restoreDBClusterToPointInTime_port,
+    restoreDBClusterToPointInTime_restoreToTime,
+    restoreDBClusterToPointInTime_restoreType,
+    restoreDBClusterToPointInTime_serverlessV2ScalingConfiguration,
+    restoreDBClusterToPointInTime_tags,
+    restoreDBClusterToPointInTime_useLatestRestorableTime,
+    restoreDBClusterToPointInTime_vpcSecurityGroupIds,
     restoreDBClusterToPointInTime_dbClusterIdentifier,
     restoreDBClusterToPointInTime_sourceDBClusterIdentifier,
 
@@ -76,17 +76,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRestoreDBClusterToPointInTime' smart constructor.
 data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
-  { -- | The tags to be applied to the restored DB cluster.
-    tags :: Prelude.Maybe [Tag],
-    -- | The port number on which the new DB cluster accepts connections.
+  { -- | The name of the DB cluster parameter group to associate with the new DB
+    -- cluster.
     --
-    -- Constraints: Value must be @1150-65535@
+    -- Constraints:
     --
-    -- Default: The same port as the original DB cluster.
-    port :: Prelude.Maybe Prelude.Int,
-    serverlessV2ScalingConfiguration :: Prelude.Maybe ServerlessV2ScalingConfiguration,
-    -- | A list of VPC security groups that the new DB cluster belongs to.
-    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- -   If supplied, must match the name of an existing
+    --     DBClusterParameterGroup.
+    dbClusterParameterGroupName :: Prelude.Maybe Prelude.Text,
     -- | The DB subnet group name to use for the new DB cluster.
     --
     -- Constraints: If supplied, must match the name of an existing
@@ -94,54 +91,18 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
     --
     -- Example: @mySubnetgroup@
     dbSubnetGroupName :: Prelude.Maybe Prelude.Text,
-    -- | /(Not supported by Neptune)/
-    optionGroupName :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates whether the DB cluster has deletion protection
+    -- enabled. The database can\'t be deleted when deletion protection is
+    -- enabled. By default, deletion protection is disabled.
+    deletionProtection :: Prelude.Maybe Prelude.Bool,
+    -- | The list of logs that the restored DB cluster is to export to CloudWatch
+    -- Logs.
+    enableCloudwatchLogsExports :: Prelude.Maybe [Prelude.Text],
     -- | True to enable mapping of Amazon Identity and Access Management (IAM)
     -- accounts to database accounts, and otherwise false.
     --
     -- Default: @false@
     enableIAMDatabaseAuthentication :: Prelude.Maybe Prelude.Bool,
-    -- | The type of restore to be performed. You can specify one of the
-    -- following values:
-    --
-    -- -   @full-copy@ - The new DB cluster is restored as a full copy of the
-    --     source DB cluster.
-    --
-    -- -   @copy-on-write@ - The new DB cluster is restored as a clone of the
-    --     source DB cluster.
-    --
-    -- If you don\'t specify a @RestoreType@ value, then the new DB cluster is
-    -- restored as a full copy of the source DB cluster.
-    restoreType :: Prelude.Maybe Prelude.Text,
-    -- | The list of logs that the restored DB cluster is to export to CloudWatch
-    -- Logs.
-    enableCloudwatchLogsExports :: Prelude.Maybe [Prelude.Text],
-    -- | The date and time to restore the DB cluster to.
-    --
-    -- Valid Values: Value must be a time in Universal Coordinated Time (UTC)
-    -- format
-    --
-    -- Constraints:
-    --
-    -- -   Must be before the latest restorable time for the DB instance
-    --
-    -- -   Must be specified if @UseLatestRestorableTime@ parameter is not
-    --     provided
-    --
-    -- -   Cannot be specified if @UseLatestRestorableTime@ parameter is true
-    --
-    -- -   Cannot be specified if @RestoreType@ parameter is @copy-on-write@
-    --
-    -- Example: @2015-03-07T23:45:00Z@
-    restoreToTime :: Prelude.Maybe Data.ISO8601,
-    -- | A value that is set to @true@ to restore the DB cluster to the latest
-    -- restorable backup time, and @false@ otherwise.
-    --
-    -- Default: @false@
-    --
-    -- Constraints: Cannot be specified if @RestoreToTime@ parameter is
-    -- provided.
-    useLatestRestorableTime :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon KMS key identifier to use when restoring an encrypted DB
     -- cluster from an encrypted DB cluster.
     --
@@ -169,18 +130,57 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
     -- If @DBClusterIdentifier@ refers to a DB cluster that is not encrypted,
     -- then the restore request is rejected.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | A value that indicates whether the DB cluster has deletion protection
-    -- enabled. The database can\'t be deleted when deletion protection is
-    -- enabled. By default, deletion protection is disabled.
-    deletionProtection :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the DB cluster parameter group to associate with the new DB
-    -- cluster.
+    -- | /(Not supported by Neptune)/
+    optionGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The port number on which the new DB cluster accepts connections.
+    --
+    -- Constraints: Value must be @1150-65535@
+    --
+    -- Default: The same port as the original DB cluster.
+    port :: Prelude.Maybe Prelude.Int,
+    -- | The date and time to restore the DB cluster to.
+    --
+    -- Valid Values: Value must be a time in Universal Coordinated Time (UTC)
+    -- format
     --
     -- Constraints:
     --
-    -- -   If supplied, must match the name of an existing
-    --     DBClusterParameterGroup.
-    dbClusterParameterGroupName :: Prelude.Maybe Prelude.Text,
+    -- -   Must be before the latest restorable time for the DB instance
+    --
+    -- -   Must be specified if @UseLatestRestorableTime@ parameter is not
+    --     provided
+    --
+    -- -   Cannot be specified if @UseLatestRestorableTime@ parameter is true
+    --
+    -- -   Cannot be specified if @RestoreType@ parameter is @copy-on-write@
+    --
+    -- Example: @2015-03-07T23:45:00Z@
+    restoreToTime :: Prelude.Maybe Data.ISO8601,
+    -- | The type of restore to be performed. You can specify one of the
+    -- following values:
+    --
+    -- -   @full-copy@ - The new DB cluster is restored as a full copy of the
+    --     source DB cluster.
+    --
+    -- -   @copy-on-write@ - The new DB cluster is restored as a clone of the
+    --     source DB cluster.
+    --
+    -- If you don\'t specify a @RestoreType@ value, then the new DB cluster is
+    -- restored as a full copy of the source DB cluster.
+    restoreType :: Prelude.Maybe Prelude.Text,
+    serverlessV2ScalingConfiguration :: Prelude.Maybe ServerlessV2ScalingConfiguration,
+    -- | The tags to be applied to the restored DB cluster.
+    tags :: Prelude.Maybe [Tag],
+    -- | A value that is set to @true@ to restore the DB cluster to the latest
+    -- restorable backup time, and @false@ otherwise.
+    --
+    -- Default: @false@
+    --
+    -- Constraints: Cannot be specified if @RestoreToTime@ parameter is
+    -- provided.
+    useLatestRestorableTime :: Prelude.Maybe Prelude.Bool,
+    -- | A list of VPC security groups that the new DB cluster belongs to.
+    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The name of the new DB cluster to be created.
     --
     -- Constraints:
@@ -208,17 +208,13 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'restoreDBClusterToPointInTime_tags' - The tags to be applied to the restored DB cluster.
+-- 'dbClusterParameterGroupName', 'restoreDBClusterToPointInTime_dbClusterParameterGroupName' - The name of the DB cluster parameter group to associate with the new DB
+-- cluster.
 --
--- 'port', 'restoreDBClusterToPointInTime_port' - The port number on which the new DB cluster accepts connections.
+-- Constraints:
 --
--- Constraints: Value must be @1150-65535@
---
--- Default: The same port as the original DB cluster.
---
--- 'serverlessV2ScalingConfiguration', 'restoreDBClusterToPointInTime_serverlessV2ScalingConfiguration' - Undocumented member.
---
--- 'vpcSecurityGroupIds', 'restoreDBClusterToPointInTime_vpcSecurityGroupIds' - A list of VPC security groups that the new DB cluster belongs to.
+-- -   If supplied, must match the name of an existing
+--     DBClusterParameterGroup.
 --
 -- 'dbSubnetGroupName', 'restoreDBClusterToPointInTime_dbSubnetGroupName' - The DB subnet group name to use for the new DB cluster.
 --
@@ -227,53 +223,17 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
 --
 -- Example: @mySubnetgroup@
 --
--- 'optionGroupName', 'restoreDBClusterToPointInTime_optionGroupName' - /(Not supported by Neptune)/
+-- 'deletionProtection', 'restoreDBClusterToPointInTime_deletionProtection' - A value that indicates whether the DB cluster has deletion protection
+-- enabled. The database can\'t be deleted when deletion protection is
+-- enabled. By default, deletion protection is disabled.
+--
+-- 'enableCloudwatchLogsExports', 'restoreDBClusterToPointInTime_enableCloudwatchLogsExports' - The list of logs that the restored DB cluster is to export to CloudWatch
+-- Logs.
 --
 -- 'enableIAMDatabaseAuthentication', 'restoreDBClusterToPointInTime_enableIAMDatabaseAuthentication' - True to enable mapping of Amazon Identity and Access Management (IAM)
 -- accounts to database accounts, and otherwise false.
 --
 -- Default: @false@
---
--- 'restoreType', 'restoreDBClusterToPointInTime_restoreType' - The type of restore to be performed. You can specify one of the
--- following values:
---
--- -   @full-copy@ - The new DB cluster is restored as a full copy of the
---     source DB cluster.
---
--- -   @copy-on-write@ - The new DB cluster is restored as a clone of the
---     source DB cluster.
---
--- If you don\'t specify a @RestoreType@ value, then the new DB cluster is
--- restored as a full copy of the source DB cluster.
---
--- 'enableCloudwatchLogsExports', 'restoreDBClusterToPointInTime_enableCloudwatchLogsExports' - The list of logs that the restored DB cluster is to export to CloudWatch
--- Logs.
---
--- 'restoreToTime', 'restoreDBClusterToPointInTime_restoreToTime' - The date and time to restore the DB cluster to.
---
--- Valid Values: Value must be a time in Universal Coordinated Time (UTC)
--- format
---
--- Constraints:
---
--- -   Must be before the latest restorable time for the DB instance
---
--- -   Must be specified if @UseLatestRestorableTime@ parameter is not
---     provided
---
--- -   Cannot be specified if @UseLatestRestorableTime@ parameter is true
---
--- -   Cannot be specified if @RestoreType@ parameter is @copy-on-write@
---
--- Example: @2015-03-07T23:45:00Z@
---
--- 'useLatestRestorableTime', 'restoreDBClusterToPointInTime_useLatestRestorableTime' - A value that is set to @true@ to restore the DB cluster to the latest
--- restorable backup time, and @false@ otherwise.
---
--- Default: @false@
---
--- Constraints: Cannot be specified if @RestoreToTime@ parameter is
--- provided.
 --
 -- 'kmsKeyId', 'restoreDBClusterToPointInTime_kmsKeyId' - The Amazon KMS key identifier to use when restoring an encrypted DB
 -- cluster from an encrypted DB cluster.
@@ -302,17 +262,57 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
 -- If @DBClusterIdentifier@ refers to a DB cluster that is not encrypted,
 -- then the restore request is rejected.
 --
--- 'deletionProtection', 'restoreDBClusterToPointInTime_deletionProtection' - A value that indicates whether the DB cluster has deletion protection
--- enabled. The database can\'t be deleted when deletion protection is
--- enabled. By default, deletion protection is disabled.
+-- 'optionGroupName', 'restoreDBClusterToPointInTime_optionGroupName' - /(Not supported by Neptune)/
 --
--- 'dbClusterParameterGroupName', 'restoreDBClusterToPointInTime_dbClusterParameterGroupName' - The name of the DB cluster parameter group to associate with the new DB
--- cluster.
+-- 'port', 'restoreDBClusterToPointInTime_port' - The port number on which the new DB cluster accepts connections.
+--
+-- Constraints: Value must be @1150-65535@
+--
+-- Default: The same port as the original DB cluster.
+--
+-- 'restoreToTime', 'restoreDBClusterToPointInTime_restoreToTime' - The date and time to restore the DB cluster to.
+--
+-- Valid Values: Value must be a time in Universal Coordinated Time (UTC)
+-- format
 --
 -- Constraints:
 --
--- -   If supplied, must match the name of an existing
---     DBClusterParameterGroup.
+-- -   Must be before the latest restorable time for the DB instance
+--
+-- -   Must be specified if @UseLatestRestorableTime@ parameter is not
+--     provided
+--
+-- -   Cannot be specified if @UseLatestRestorableTime@ parameter is true
+--
+-- -   Cannot be specified if @RestoreType@ parameter is @copy-on-write@
+--
+-- Example: @2015-03-07T23:45:00Z@
+--
+-- 'restoreType', 'restoreDBClusterToPointInTime_restoreType' - The type of restore to be performed. You can specify one of the
+-- following values:
+--
+-- -   @full-copy@ - The new DB cluster is restored as a full copy of the
+--     source DB cluster.
+--
+-- -   @copy-on-write@ - The new DB cluster is restored as a clone of the
+--     source DB cluster.
+--
+-- If you don\'t specify a @RestoreType@ value, then the new DB cluster is
+-- restored as a full copy of the source DB cluster.
+--
+-- 'serverlessV2ScalingConfiguration', 'restoreDBClusterToPointInTime_serverlessV2ScalingConfiguration' - Undocumented member.
+--
+-- 'tags', 'restoreDBClusterToPointInTime_tags' - The tags to be applied to the restored DB cluster.
+--
+-- 'useLatestRestorableTime', 'restoreDBClusterToPointInTime_useLatestRestorableTime' - A value that is set to @true@ to restore the DB cluster to the latest
+-- restorable backup time, and @false@ otherwise.
+--
+-- Default: @false@
+--
+-- Constraints: Cannot be specified if @RestoreToTime@ parameter is
+-- provided.
+--
+-- 'vpcSecurityGroupIds', 'restoreDBClusterToPointInTime_vpcSecurityGroupIds' - A list of VPC security groups that the new DB cluster belongs to.
 --
 -- 'dbClusterIdentifier', 'restoreDBClusterToPointInTime_dbClusterIdentifier' - The name of the new DB cluster to be created.
 --
@@ -339,49 +339,38 @@ newRestoreDBClusterToPointInTime
   pDBClusterIdentifier_
   pSourceDBClusterIdentifier_ =
     RestoreDBClusterToPointInTime'
-      { tags =
+      { dbClusterParameterGroupName =
           Prelude.Nothing,
-        port = Prelude.Nothing,
-        serverlessV2ScalingConfiguration =
-          Prelude.Nothing,
-        vpcSecurityGroupIds = Prelude.Nothing,
         dbSubnetGroupName = Prelude.Nothing,
-        optionGroupName = Prelude.Nothing,
-        enableIAMDatabaseAuthentication =
-          Prelude.Nothing,
-        restoreType = Prelude.Nothing,
+        deletionProtection = Prelude.Nothing,
         enableCloudwatchLogsExports =
           Prelude.Nothing,
-        restoreToTime = Prelude.Nothing,
-        useLatestRestorableTime = Prelude.Nothing,
-        kmsKeyId = Prelude.Nothing,
-        deletionProtection = Prelude.Nothing,
-        dbClusterParameterGroupName =
+        enableIAMDatabaseAuthentication =
           Prelude.Nothing,
+        kmsKeyId = Prelude.Nothing,
+        optionGroupName = Prelude.Nothing,
+        port = Prelude.Nothing,
+        restoreToTime = Prelude.Nothing,
+        restoreType = Prelude.Nothing,
+        serverlessV2ScalingConfiguration =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
+        useLatestRestorableTime = Prelude.Nothing,
+        vpcSecurityGroupIds = Prelude.Nothing,
         dbClusterIdentifier = pDBClusterIdentifier_,
         sourceDBClusterIdentifier =
           pSourceDBClusterIdentifier_
       }
 
--- | The tags to be applied to the restored DB cluster.
-restoreDBClusterToPointInTime_tags :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe [Tag])
-restoreDBClusterToPointInTime_tags = Lens.lens (\RestoreDBClusterToPointInTime' {tags} -> tags) (\s@RestoreDBClusterToPointInTime' {} a -> s {tags = a} :: RestoreDBClusterToPointInTime) Prelude.. Lens.mapping Lens.coerced
-
--- | The port number on which the new DB cluster accepts connections.
+-- | The name of the DB cluster parameter group to associate with the new DB
+-- cluster.
 --
--- Constraints: Value must be @1150-65535@
+-- Constraints:
 --
--- Default: The same port as the original DB cluster.
-restoreDBClusterToPointInTime_port :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.Int)
-restoreDBClusterToPointInTime_port = Lens.lens (\RestoreDBClusterToPointInTime' {port} -> port) (\s@RestoreDBClusterToPointInTime' {} a -> s {port = a} :: RestoreDBClusterToPointInTime)
-
--- | Undocumented member.
-restoreDBClusterToPointInTime_serverlessV2ScalingConfiguration :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe ServerlessV2ScalingConfiguration)
-restoreDBClusterToPointInTime_serverlessV2ScalingConfiguration = Lens.lens (\RestoreDBClusterToPointInTime' {serverlessV2ScalingConfiguration} -> serverlessV2ScalingConfiguration) (\s@RestoreDBClusterToPointInTime' {} a -> s {serverlessV2ScalingConfiguration = a} :: RestoreDBClusterToPointInTime)
-
--- | A list of VPC security groups that the new DB cluster belongs to.
-restoreDBClusterToPointInTime_vpcSecurityGroupIds :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe [Prelude.Text])
-restoreDBClusterToPointInTime_vpcSecurityGroupIds = Lens.lens (\RestoreDBClusterToPointInTime' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@RestoreDBClusterToPointInTime' {} a -> s {vpcSecurityGroupIds = a} :: RestoreDBClusterToPointInTime) Prelude.. Lens.mapping Lens.coerced
+-- -   If supplied, must match the name of an existing
+--     DBClusterParameterGroup.
+restoreDBClusterToPointInTime_dbClusterParameterGroupName :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.Text)
+restoreDBClusterToPointInTime_dbClusterParameterGroupName = Lens.lens (\RestoreDBClusterToPointInTime' {dbClusterParameterGroupName} -> dbClusterParameterGroupName) (\s@RestoreDBClusterToPointInTime' {} a -> s {dbClusterParameterGroupName = a} :: RestoreDBClusterToPointInTime)
 
 -- | The DB subnet group name to use for the new DB cluster.
 --
@@ -392,9 +381,16 @@ restoreDBClusterToPointInTime_vpcSecurityGroupIds = Lens.lens (\RestoreDBCluster
 restoreDBClusterToPointInTime_dbSubnetGroupName :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.Text)
 restoreDBClusterToPointInTime_dbSubnetGroupName = Lens.lens (\RestoreDBClusterToPointInTime' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@RestoreDBClusterToPointInTime' {} a -> s {dbSubnetGroupName = a} :: RestoreDBClusterToPointInTime)
 
--- | /(Not supported by Neptune)/
-restoreDBClusterToPointInTime_optionGroupName :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.Text)
-restoreDBClusterToPointInTime_optionGroupName = Lens.lens (\RestoreDBClusterToPointInTime' {optionGroupName} -> optionGroupName) (\s@RestoreDBClusterToPointInTime' {} a -> s {optionGroupName = a} :: RestoreDBClusterToPointInTime)
+-- | A value that indicates whether the DB cluster has deletion protection
+-- enabled. The database can\'t be deleted when deletion protection is
+-- enabled. By default, deletion protection is disabled.
+restoreDBClusterToPointInTime_deletionProtection :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.Bool)
+restoreDBClusterToPointInTime_deletionProtection = Lens.lens (\RestoreDBClusterToPointInTime' {deletionProtection} -> deletionProtection) (\s@RestoreDBClusterToPointInTime' {} a -> s {deletionProtection = a} :: RestoreDBClusterToPointInTime)
+
+-- | The list of logs that the restored DB cluster is to export to CloudWatch
+-- Logs.
+restoreDBClusterToPointInTime_enableCloudwatchLogsExports :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe [Prelude.Text])
+restoreDBClusterToPointInTime_enableCloudwatchLogsExports = Lens.lens (\RestoreDBClusterToPointInTime' {enableCloudwatchLogsExports} -> enableCloudwatchLogsExports) (\s@RestoreDBClusterToPointInTime' {} a -> s {enableCloudwatchLogsExports = a} :: RestoreDBClusterToPointInTime) Prelude.. Lens.mapping Lens.coerced
 
 -- | True to enable mapping of Amazon Identity and Access Management (IAM)
 -- accounts to database accounts, and otherwise false.
@@ -402,55 +398,6 @@ restoreDBClusterToPointInTime_optionGroupName = Lens.lens (\RestoreDBClusterToPo
 -- Default: @false@
 restoreDBClusterToPointInTime_enableIAMDatabaseAuthentication :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.Bool)
 restoreDBClusterToPointInTime_enableIAMDatabaseAuthentication = Lens.lens (\RestoreDBClusterToPointInTime' {enableIAMDatabaseAuthentication} -> enableIAMDatabaseAuthentication) (\s@RestoreDBClusterToPointInTime' {} a -> s {enableIAMDatabaseAuthentication = a} :: RestoreDBClusterToPointInTime)
-
--- | The type of restore to be performed. You can specify one of the
--- following values:
---
--- -   @full-copy@ - The new DB cluster is restored as a full copy of the
---     source DB cluster.
---
--- -   @copy-on-write@ - The new DB cluster is restored as a clone of the
---     source DB cluster.
---
--- If you don\'t specify a @RestoreType@ value, then the new DB cluster is
--- restored as a full copy of the source DB cluster.
-restoreDBClusterToPointInTime_restoreType :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.Text)
-restoreDBClusterToPointInTime_restoreType = Lens.lens (\RestoreDBClusterToPointInTime' {restoreType} -> restoreType) (\s@RestoreDBClusterToPointInTime' {} a -> s {restoreType = a} :: RestoreDBClusterToPointInTime)
-
--- | The list of logs that the restored DB cluster is to export to CloudWatch
--- Logs.
-restoreDBClusterToPointInTime_enableCloudwatchLogsExports :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe [Prelude.Text])
-restoreDBClusterToPointInTime_enableCloudwatchLogsExports = Lens.lens (\RestoreDBClusterToPointInTime' {enableCloudwatchLogsExports} -> enableCloudwatchLogsExports) (\s@RestoreDBClusterToPointInTime' {} a -> s {enableCloudwatchLogsExports = a} :: RestoreDBClusterToPointInTime) Prelude.. Lens.mapping Lens.coerced
-
--- | The date and time to restore the DB cluster to.
---
--- Valid Values: Value must be a time in Universal Coordinated Time (UTC)
--- format
---
--- Constraints:
---
--- -   Must be before the latest restorable time for the DB instance
---
--- -   Must be specified if @UseLatestRestorableTime@ parameter is not
---     provided
---
--- -   Cannot be specified if @UseLatestRestorableTime@ parameter is true
---
--- -   Cannot be specified if @RestoreType@ parameter is @copy-on-write@
---
--- Example: @2015-03-07T23:45:00Z@
-restoreDBClusterToPointInTime_restoreToTime :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.UTCTime)
-restoreDBClusterToPointInTime_restoreToTime = Lens.lens (\RestoreDBClusterToPointInTime' {restoreToTime} -> restoreToTime) (\s@RestoreDBClusterToPointInTime' {} a -> s {restoreToTime = a} :: RestoreDBClusterToPointInTime) Prelude.. Lens.mapping Data._Time
-
--- | A value that is set to @true@ to restore the DB cluster to the latest
--- restorable backup time, and @false@ otherwise.
---
--- Default: @false@
---
--- Constraints: Cannot be specified if @RestoreToTime@ parameter is
--- provided.
-restoreDBClusterToPointInTime_useLatestRestorableTime :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.Bool)
-restoreDBClusterToPointInTime_useLatestRestorableTime = Lens.lens (\RestoreDBClusterToPointInTime' {useLatestRestorableTime} -> useLatestRestorableTime) (\s@RestoreDBClusterToPointInTime' {} a -> s {useLatestRestorableTime = a} :: RestoreDBClusterToPointInTime)
 
 -- | The Amazon KMS key identifier to use when restoring an encrypted DB
 -- cluster from an encrypted DB cluster.
@@ -481,21 +428,73 @@ restoreDBClusterToPointInTime_useLatestRestorableTime = Lens.lens (\RestoreDBClu
 restoreDBClusterToPointInTime_kmsKeyId :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.Text)
 restoreDBClusterToPointInTime_kmsKeyId = Lens.lens (\RestoreDBClusterToPointInTime' {kmsKeyId} -> kmsKeyId) (\s@RestoreDBClusterToPointInTime' {} a -> s {kmsKeyId = a} :: RestoreDBClusterToPointInTime)
 
--- | A value that indicates whether the DB cluster has deletion protection
--- enabled. The database can\'t be deleted when deletion protection is
--- enabled. By default, deletion protection is disabled.
-restoreDBClusterToPointInTime_deletionProtection :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.Bool)
-restoreDBClusterToPointInTime_deletionProtection = Lens.lens (\RestoreDBClusterToPointInTime' {deletionProtection} -> deletionProtection) (\s@RestoreDBClusterToPointInTime' {} a -> s {deletionProtection = a} :: RestoreDBClusterToPointInTime)
+-- | /(Not supported by Neptune)/
+restoreDBClusterToPointInTime_optionGroupName :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.Text)
+restoreDBClusterToPointInTime_optionGroupName = Lens.lens (\RestoreDBClusterToPointInTime' {optionGroupName} -> optionGroupName) (\s@RestoreDBClusterToPointInTime' {} a -> s {optionGroupName = a} :: RestoreDBClusterToPointInTime)
 
--- | The name of the DB cluster parameter group to associate with the new DB
--- cluster.
+-- | The port number on which the new DB cluster accepts connections.
+--
+-- Constraints: Value must be @1150-65535@
+--
+-- Default: The same port as the original DB cluster.
+restoreDBClusterToPointInTime_port :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.Int)
+restoreDBClusterToPointInTime_port = Lens.lens (\RestoreDBClusterToPointInTime' {port} -> port) (\s@RestoreDBClusterToPointInTime' {} a -> s {port = a} :: RestoreDBClusterToPointInTime)
+
+-- | The date and time to restore the DB cluster to.
+--
+-- Valid Values: Value must be a time in Universal Coordinated Time (UTC)
+-- format
 --
 -- Constraints:
 --
--- -   If supplied, must match the name of an existing
---     DBClusterParameterGroup.
-restoreDBClusterToPointInTime_dbClusterParameterGroupName :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.Text)
-restoreDBClusterToPointInTime_dbClusterParameterGroupName = Lens.lens (\RestoreDBClusterToPointInTime' {dbClusterParameterGroupName} -> dbClusterParameterGroupName) (\s@RestoreDBClusterToPointInTime' {} a -> s {dbClusterParameterGroupName = a} :: RestoreDBClusterToPointInTime)
+-- -   Must be before the latest restorable time for the DB instance
+--
+-- -   Must be specified if @UseLatestRestorableTime@ parameter is not
+--     provided
+--
+-- -   Cannot be specified if @UseLatestRestorableTime@ parameter is true
+--
+-- -   Cannot be specified if @RestoreType@ parameter is @copy-on-write@
+--
+-- Example: @2015-03-07T23:45:00Z@
+restoreDBClusterToPointInTime_restoreToTime :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.UTCTime)
+restoreDBClusterToPointInTime_restoreToTime = Lens.lens (\RestoreDBClusterToPointInTime' {restoreToTime} -> restoreToTime) (\s@RestoreDBClusterToPointInTime' {} a -> s {restoreToTime = a} :: RestoreDBClusterToPointInTime) Prelude.. Lens.mapping Data._Time
+
+-- | The type of restore to be performed. You can specify one of the
+-- following values:
+--
+-- -   @full-copy@ - The new DB cluster is restored as a full copy of the
+--     source DB cluster.
+--
+-- -   @copy-on-write@ - The new DB cluster is restored as a clone of the
+--     source DB cluster.
+--
+-- If you don\'t specify a @RestoreType@ value, then the new DB cluster is
+-- restored as a full copy of the source DB cluster.
+restoreDBClusterToPointInTime_restoreType :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.Text)
+restoreDBClusterToPointInTime_restoreType = Lens.lens (\RestoreDBClusterToPointInTime' {restoreType} -> restoreType) (\s@RestoreDBClusterToPointInTime' {} a -> s {restoreType = a} :: RestoreDBClusterToPointInTime)
+
+-- | Undocumented member.
+restoreDBClusterToPointInTime_serverlessV2ScalingConfiguration :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe ServerlessV2ScalingConfiguration)
+restoreDBClusterToPointInTime_serverlessV2ScalingConfiguration = Lens.lens (\RestoreDBClusterToPointInTime' {serverlessV2ScalingConfiguration} -> serverlessV2ScalingConfiguration) (\s@RestoreDBClusterToPointInTime' {} a -> s {serverlessV2ScalingConfiguration = a} :: RestoreDBClusterToPointInTime)
+
+-- | The tags to be applied to the restored DB cluster.
+restoreDBClusterToPointInTime_tags :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe [Tag])
+restoreDBClusterToPointInTime_tags = Lens.lens (\RestoreDBClusterToPointInTime' {tags} -> tags) (\s@RestoreDBClusterToPointInTime' {} a -> s {tags = a} :: RestoreDBClusterToPointInTime) Prelude.. Lens.mapping Lens.coerced
+
+-- | A value that is set to @true@ to restore the DB cluster to the latest
+-- restorable backup time, and @false@ otherwise.
+--
+-- Default: @false@
+--
+-- Constraints: Cannot be specified if @RestoreToTime@ parameter is
+-- provided.
+restoreDBClusterToPointInTime_useLatestRestorableTime :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.Bool)
+restoreDBClusterToPointInTime_useLatestRestorableTime = Lens.lens (\RestoreDBClusterToPointInTime' {useLatestRestorableTime} -> useLatestRestorableTime) (\s@RestoreDBClusterToPointInTime' {} a -> s {useLatestRestorableTime = a} :: RestoreDBClusterToPointInTime)
+
+-- | A list of VPC security groups that the new DB cluster belongs to.
+restoreDBClusterToPointInTime_vpcSecurityGroupIds :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe [Prelude.Text])
+restoreDBClusterToPointInTime_vpcSecurityGroupIds = Lens.lens (\RestoreDBClusterToPointInTime' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@RestoreDBClusterToPointInTime' {} a -> s {vpcSecurityGroupIds = a} :: RestoreDBClusterToPointInTime) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the new DB cluster to be created.
 --
@@ -540,39 +539,40 @@ instance
     RestoreDBClusterToPointInTime
   where
   hashWithSalt _salt RestoreDBClusterToPointInTime' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` port
-      `Prelude.hashWithSalt` serverlessV2ScalingConfiguration
-      `Prelude.hashWithSalt` vpcSecurityGroupIds
-      `Prelude.hashWithSalt` dbSubnetGroupName
-      `Prelude.hashWithSalt` optionGroupName
-      `Prelude.hashWithSalt` enableIAMDatabaseAuthentication
-      `Prelude.hashWithSalt` restoreType
-      `Prelude.hashWithSalt` enableCloudwatchLogsExports
-      `Prelude.hashWithSalt` restoreToTime
-      `Prelude.hashWithSalt` useLatestRestorableTime
-      `Prelude.hashWithSalt` kmsKeyId
-      `Prelude.hashWithSalt` deletionProtection
+    _salt
       `Prelude.hashWithSalt` dbClusterParameterGroupName
+      `Prelude.hashWithSalt` dbSubnetGroupName
+      `Prelude.hashWithSalt` deletionProtection
+      `Prelude.hashWithSalt` enableCloudwatchLogsExports
+      `Prelude.hashWithSalt` enableIAMDatabaseAuthentication
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` optionGroupName
+      `Prelude.hashWithSalt` port
+      `Prelude.hashWithSalt` restoreToTime
+      `Prelude.hashWithSalt` restoreType
+      `Prelude.hashWithSalt` serverlessV2ScalingConfiguration
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` useLatestRestorableTime
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
       `Prelude.hashWithSalt` dbClusterIdentifier
       `Prelude.hashWithSalt` sourceDBClusterIdentifier
 
 instance Prelude.NFData RestoreDBClusterToPointInTime where
   rnf RestoreDBClusterToPointInTime' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf port
-      `Prelude.seq` Prelude.rnf serverlessV2ScalingConfiguration
-      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
+    Prelude.rnf dbClusterParameterGroupName
       `Prelude.seq` Prelude.rnf dbSubnetGroupName
-      `Prelude.seq` Prelude.rnf optionGroupName
-      `Prelude.seq` Prelude.rnf enableIAMDatabaseAuthentication
-      `Prelude.seq` Prelude.rnf restoreType
-      `Prelude.seq` Prelude.rnf enableCloudwatchLogsExports
-      `Prelude.seq` Prelude.rnf restoreToTime
-      `Prelude.seq` Prelude.rnf useLatestRestorableTime
-      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf deletionProtection
-      `Prelude.seq` Prelude.rnf dbClusterParameterGroupName
+      `Prelude.seq` Prelude.rnf enableCloudwatchLogsExports
+      `Prelude.seq` Prelude.rnf enableIAMDatabaseAuthentication
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf optionGroupName
+      `Prelude.seq` Prelude.rnf port
+      `Prelude.seq` Prelude.rnf restoreToTime
+      `Prelude.seq` Prelude.rnf restoreType
+      `Prelude.seq` Prelude.rnf serverlessV2ScalingConfiguration
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf useLatestRestorableTime
+      `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
       `Prelude.seq` Prelude.rnf dbClusterIdentifier
       `Prelude.seq` Prelude.rnf sourceDBClusterIdentifier
 
@@ -591,34 +591,34 @@ instance Data.ToQuery RestoreDBClusterToPointInTime where
                   ),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
-        "Tags"
-          Data.=: Data.toQuery
-            (Data.toQueryList "Tag" Prelude.<$> tags),
-        "Port" Data.=: port,
-        "ServerlessV2ScalingConfiguration"
-          Data.=: serverlessV2ScalingConfiguration,
-        "VpcSecurityGroupIds"
-          Data.=: Data.toQuery
-            ( Data.toQueryList "VpcSecurityGroupId"
-                Prelude.<$> vpcSecurityGroupIds
-            ),
+        "DBClusterParameterGroupName"
+          Data.=: dbClusterParameterGroupName,
         "DBSubnetGroupName" Data.=: dbSubnetGroupName,
-        "OptionGroupName" Data.=: optionGroupName,
-        "EnableIAMDatabaseAuthentication"
-          Data.=: enableIAMDatabaseAuthentication,
-        "RestoreType" Data.=: restoreType,
+        "DeletionProtection" Data.=: deletionProtection,
         "EnableCloudwatchLogsExports"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"
                 Prelude.<$> enableCloudwatchLogsExports
             ),
+        "EnableIAMDatabaseAuthentication"
+          Data.=: enableIAMDatabaseAuthentication,
+        "KmsKeyId" Data.=: kmsKeyId,
+        "OptionGroupName" Data.=: optionGroupName,
+        "Port" Data.=: port,
         "RestoreToTime" Data.=: restoreToTime,
+        "RestoreType" Data.=: restoreType,
+        "ServerlessV2ScalingConfiguration"
+          Data.=: serverlessV2ScalingConfiguration,
+        "Tags"
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
         "UseLatestRestorableTime"
           Data.=: useLatestRestorableTime,
-        "KmsKeyId" Data.=: kmsKeyId,
-        "DeletionProtection" Data.=: deletionProtection,
-        "DBClusterParameterGroupName"
-          Data.=: dbClusterParameterGroupName,
+        "VpcSecurityGroupIds"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "VpcSecurityGroupId"
+                Prelude.<$> vpcSecurityGroupIds
+            ),
         "DBClusterIdentifier" Data.=: dbClusterIdentifier,
         "SourceDBClusterIdentifier"
           Data.=: sourceDBClusterIdentifier

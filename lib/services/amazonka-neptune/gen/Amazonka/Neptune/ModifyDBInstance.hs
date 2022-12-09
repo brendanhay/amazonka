@@ -31,42 +31,42 @@ module Amazonka.Neptune.ModifyDBInstance
     newModifyDBInstance,
 
     -- * Request Lenses
-    modifyDBInstance_vpcSecurityGroupIds,
-    modifyDBInstance_dbParameterGroupName,
-    modifyDBInstance_preferredBackupWindow,
-    modifyDBInstance_backupRetentionPeriod,
-    modifyDBInstance_dbInstanceClass,
-    modifyDBInstance_copyTagsToSnapshot,
-    modifyDBInstance_domainIAMRoleName,
-    modifyDBInstance_promotionTier,
-    modifyDBInstance_dbSubnetGroupName,
-    modifyDBInstance_autoMinorVersionUpgrade,
-    modifyDBInstance_applyImmediately,
+    modifyDBInstance_allocatedStorage,
     modifyDBInstance_allowMajorVersionUpgrade,
+    modifyDBInstance_applyImmediately,
+    modifyDBInstance_autoMinorVersionUpgrade,
+    modifyDBInstance_backupRetentionPeriod,
+    modifyDBInstance_cACertificateIdentifier,
+    modifyDBInstance_cloudwatchLogsExportConfiguration,
+    modifyDBInstance_copyTagsToSnapshot,
+    modifyDBInstance_dbInstanceClass,
+    modifyDBInstance_dbParameterGroupName,
     modifyDBInstance_dbPortNumber,
+    modifyDBInstance_dbSecurityGroups,
+    modifyDBInstance_dbSubnetGroupName,
+    modifyDBInstance_deletionProtection,
     modifyDBInstance_domain,
+    modifyDBInstance_domainIAMRoleName,
+    modifyDBInstance_enableIAMDatabaseAuthentication,
+    modifyDBInstance_enablePerformanceInsights,
+    modifyDBInstance_engineVersion,
+    modifyDBInstance_iops,
+    modifyDBInstance_licenseModel,
+    modifyDBInstance_masterUserPassword,
+    modifyDBInstance_monitoringInterval,
+    modifyDBInstance_monitoringRoleArn,
+    modifyDBInstance_multiAZ,
+    modifyDBInstance_newDBInstanceIdentifier,
     modifyDBInstance_optionGroupName,
     modifyDBInstance_performanceInsightsKMSKeyId,
-    modifyDBInstance_enableIAMDatabaseAuthentication,
-    modifyDBInstance_dbSecurityGroups,
-    modifyDBInstance_monitoringInterval,
-    modifyDBInstance_tdeCredentialPassword,
-    modifyDBInstance_masterUserPassword,
+    modifyDBInstance_preferredBackupWindow,
+    modifyDBInstance_preferredMaintenanceWindow,
+    modifyDBInstance_promotionTier,
     modifyDBInstance_publiclyAccessible,
     modifyDBInstance_storageType,
-    modifyDBInstance_enablePerformanceInsights,
     modifyDBInstance_tdeCredentialArn,
-    modifyDBInstance_cloudwatchLogsExportConfiguration,
-    modifyDBInstance_cACertificateIdentifier,
-    modifyDBInstance_monitoringRoleArn,
-    modifyDBInstance_allocatedStorage,
-    modifyDBInstance_deletionProtection,
-    modifyDBInstance_newDBInstanceIdentifier,
-    modifyDBInstance_preferredMaintenanceWindow,
-    modifyDBInstance_iops,
-    modifyDBInstance_engineVersion,
-    modifyDBInstance_multiAZ,
-    modifyDBInstance_licenseModel,
+    modifyDBInstance_tdeCredentialPassword,
+    modifyDBInstance_vpcSecurityGroupIds,
     modifyDBInstance_dbInstanceIdentifier,
 
     -- * Destructuring the Response
@@ -89,16 +89,54 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyDBInstance' smart constructor.
 data ModifyDBInstance = ModifyDBInstance'
-  { -- | A list of EC2 VPC security groups to authorize on this DB instance. This
-    -- change is asynchronously applied as soon as possible.
+  { -- | Not supported by Neptune.
+    allocatedStorage :: Prelude.Maybe Prelude.Int,
+    -- | Indicates that major version upgrades are allowed. Changing this
+    -- parameter doesn\'t result in an outage and the change is asynchronously
+    -- applied as soon as possible.
+    allowMajorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies whether the modifications in this request and any pending
+    -- modifications are asynchronously applied as soon as possible, regardless
+    -- of the @PreferredMaintenanceWindow@ setting for the DB instance.
     --
-    -- Not applicable. The associated list of EC2 VPC security groups is
-    -- managed by the DB cluster. For more information, see ModifyDBCluster.
+    -- If this parameter is set to @false@, changes to the DB instance are
+    -- applied during the next maintenance window. Some parameter changes can
+    -- cause an outage and are applied on the next call to RebootDBInstance, or
+    -- the next failure reboot.
     --
-    -- Constraints:
+    -- Default: @false@
+    applyImmediately :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates that minor version upgrades are applied automatically to the
+    -- DB instance during the maintenance window. Changing this parameter
+    -- doesn\'t result in an outage except in the following case and the change
+    -- is asynchronously applied as soon as possible. An outage will result if
+    -- this parameter is set to @true@ during the maintenance window, and a
+    -- newer minor version is available, and Neptune has enabled auto patching
+    -- for that engine version.
+    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    -- | Not applicable. The retention period for automated backups is managed by
+    -- the DB cluster. For more information, see ModifyDBCluster.
     --
-    -- -   If supplied, must match existing VpcSecurityGroupIds.
-    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- Default: Uses existing setting
+    backupRetentionPeriod :: Prelude.Maybe Prelude.Int,
+    -- | Indicates the certificate that needs to be associated with the instance.
+    cACertificateIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The configuration setting for the log types to be enabled for export to
+    -- CloudWatch Logs for a specific DB instance or DB cluster.
+    cloudwatchLogsExportConfiguration :: Prelude.Maybe CloudwatchLogsExportConfiguration,
+    -- | True to copy all tags from the DB instance to snapshots of the DB
+    -- instance, and otherwise false. The default is false.
+    copyTagsToSnapshot :: Prelude.Maybe Prelude.Bool,
+    -- | The new compute and memory capacity of the DB instance, for example,
+    -- @db.m4.large@. Not all DB instance classes are available in all Amazon
+    -- Regions.
+    --
+    -- If you modify the DB instance class, an outage occurs during the change.
+    -- The change is applied during the next maintenance window, unless
+    -- @ApplyImmediately@ is specified as @true@ for this request.
+    --
+    -- Default: Uses existing setting
+    dbInstanceClass :: Prelude.Maybe Prelude.Text,
     -- | The name of the DB parameter group to apply to the DB instance. Changing
     -- this setting doesn\'t result in an outage. The parameter group name
     -- itself is changed immediately, but the actual parameter changes are not
@@ -111,49 +149,24 @@ data ModifyDBInstance = ModifyDBInstance'
     -- Constraints: The DB parameter group must be in the same DB parameter
     -- group family as this DB instance.
     dbParameterGroupName :: Prelude.Maybe Prelude.Text,
-    -- | The daily time range during which automated backups are created if
-    -- automated backups are enabled.
+    -- | The port number on which the database accepts connections.
     --
-    -- Not applicable. The daily time range for creating automated backups is
-    -- managed by the DB cluster. For more information, see ModifyDBCluster.
+    -- The value of the @DBPortNumber@ parameter must not match any of the port
+    -- values specified for options in the option group for the DB instance.
+    --
+    -- Your database will restart when you change the @DBPortNumber@ value
+    -- regardless of the value of the @ApplyImmediately@ parameter.
+    --
+    -- Default: @8182@
+    dbPortNumber :: Prelude.Maybe Prelude.Int,
+    -- | A list of DB security groups to authorize on this DB instance. Changing
+    -- this setting doesn\'t result in an outage and the change is
+    -- asynchronously applied as soon as possible.
     --
     -- Constraints:
     --
-    -- -   Must be in the format hh24:mi-hh24:mi
-    --
-    -- -   Must be in Universal Time Coordinated (UTC)
-    --
-    -- -   Must not conflict with the preferred maintenance window
-    --
-    -- -   Must be at least 30 minutes
-    preferredBackupWindow :: Prelude.Maybe Prelude.Text,
-    -- | Not applicable. The retention period for automated backups is managed by
-    -- the DB cluster. For more information, see ModifyDBCluster.
-    --
-    -- Default: Uses existing setting
-    backupRetentionPeriod :: Prelude.Maybe Prelude.Int,
-    -- | The new compute and memory capacity of the DB instance, for example,
-    -- @db.m4.large@. Not all DB instance classes are available in all Amazon
-    -- Regions.
-    --
-    -- If you modify the DB instance class, an outage occurs during the change.
-    -- The change is applied during the next maintenance window, unless
-    -- @ApplyImmediately@ is specified as @true@ for this request.
-    --
-    -- Default: Uses existing setting
-    dbInstanceClass :: Prelude.Maybe Prelude.Text,
-    -- | True to copy all tags from the DB instance to snapshots of the DB
-    -- instance, and otherwise false. The default is false.
-    copyTagsToSnapshot :: Prelude.Maybe Prelude.Bool,
-    -- | Not supported
-    domainIAMRoleName :: Prelude.Maybe Prelude.Text,
-    -- | A value that specifies the order in which a Read Replica is promoted to
-    -- the primary instance after a failure of the existing primary instance.
-    --
-    -- Default: 1
-    --
-    -- Valid Values: 0 - 15
-    promotionTier :: Prelude.Maybe Prelude.Int,
+    -- -   If supplied, must match existing DBSecurityGroups.
+    dbSecurityGroups :: Prelude.Maybe [Prelude.Text],
     -- | The new DB subnet group for the DB instance. You can use this parameter
     -- to move your DB instance to a different VPC.
     --
@@ -166,45 +179,15 @@ data ModifyDBInstance = ModifyDBInstance'
     --
     -- Example: @mySubnetGroup@
     dbSubnetGroupName :: Prelude.Maybe Prelude.Text,
-    -- | Indicates that minor version upgrades are applied automatically to the
-    -- DB instance during the maintenance window. Changing this parameter
-    -- doesn\'t result in an outage except in the following case and the change
-    -- is asynchronously applied as soon as possible. An outage will result if
-    -- this parameter is set to @true@ during the maintenance window, and a
-    -- newer minor version is available, and Neptune has enabled auto patching
-    -- for that engine version.
-    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies whether the modifications in this request and any pending
-    -- modifications are asynchronously applied as soon as possible, regardless
-    -- of the @PreferredMaintenanceWindow@ setting for the DB instance.
-    --
-    -- If this parameter is set to @false@, changes to the DB instance are
-    -- applied during the next maintenance window. Some parameter changes can
-    -- cause an outage and are applied on the next call to RebootDBInstance, or
-    -- the next failure reboot.
-    --
-    -- Default: @false@
-    applyImmediately :: Prelude.Maybe Prelude.Bool,
-    -- | Indicates that major version upgrades are allowed. Changing this
-    -- parameter doesn\'t result in an outage and the change is asynchronously
-    -- applied as soon as possible.
-    allowMajorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
-    -- | The port number on which the database accepts connections.
-    --
-    -- The value of the @DBPortNumber@ parameter must not match any of the port
-    -- values specified for options in the option group for the DB instance.
-    --
-    -- Your database will restart when you change the @DBPortNumber@ value
-    -- regardless of the value of the @ApplyImmediately@ parameter.
-    --
-    -- Default: @8182@
-    dbPortNumber :: Prelude.Maybe Prelude.Int,
+    -- | A value that indicates whether the DB instance has deletion protection
+    -- enabled. The database can\'t be deleted when deletion protection is
+    -- enabled. By default, deletion protection is disabled. See
+    -- <https://docs.aws.amazon.com/neptune/latest/userguide/manage-console-instances-delete.html Deleting a DB Instance>.
+    deletionProtection :: Prelude.Maybe Prelude.Bool,
     -- | Not supported.
     domain :: Prelude.Maybe Prelude.Text,
-    -- | /(Not supported by Neptune)/
-    optionGroupName :: Prelude.Maybe Prelude.Text,
-    -- | /(Not supported by Neptune)/
-    performanceInsightsKMSKeyId :: Prelude.Maybe Prelude.Text,
+    -- | Not supported
+    domainIAMRoleName :: Prelude.Maybe Prelude.Text,
     -- | True to enable mapping of Amazon Identity and Access Management (IAM)
     -- accounts to database accounts, and otherwise false.
     --
@@ -216,14 +199,25 @@ data ModifyDBInstance = ModifyDBInstance'
     --
     -- Default: @false@
     enableIAMDatabaseAuthentication :: Prelude.Maybe Prelude.Bool,
-    -- | A list of DB security groups to authorize on this DB instance. Changing
-    -- this setting doesn\'t result in an outage and the change is
-    -- asynchronously applied as soon as possible.
+    -- | /(Not supported by Neptune)/
+    enablePerformanceInsights :: Prelude.Maybe Prelude.Bool,
+    -- | The version number of the database engine to upgrade to. Currently,
+    -- setting this parameter has no effect. To upgrade your database engine to
+    -- the most recent release, use the ApplyPendingMaintenanceAction API.
+    engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | The new Provisioned IOPS (I\/O operations per second) value for the
+    -- instance.
     --
-    -- Constraints:
+    -- Changing this setting doesn\'t result in an outage and the change is
+    -- applied during the next maintenance window unless the @ApplyImmediately@
+    -- parameter is set to @true@ for this request.
     --
-    -- -   If supplied, must match existing DBSecurityGroups.
-    dbSecurityGroups :: Prelude.Maybe [Prelude.Text],
+    -- Default: Uses existing setting
+    iops :: Prelude.Maybe Prelude.Int,
+    -- | Not supported by Neptune.
+    licenseModel :: Prelude.Maybe Prelude.Text,
+    -- | Not supported by Neptune.
+    masterUserPassword :: Prelude.Maybe Prelude.Text,
     -- | The interval, in seconds, between points when Enhanced Monitoring
     -- metrics are collected for the DB instance. To disable collecting
     -- Enhanced Monitoring metrics, specify 0. The default is 0.
@@ -233,25 +227,6 @@ data ModifyDBInstance = ModifyDBInstance'
     --
     -- Valid Values: @0, 1, 5, 10, 15, 30, 60@
     monitoringInterval :: Prelude.Maybe Prelude.Int,
-    -- | The password for the given ARN from the key store in order to access the
-    -- device.
-    tdeCredentialPassword :: Prelude.Maybe Prelude.Text,
-    -- | Not supported by Neptune.
-    masterUserPassword :: Prelude.Maybe Prelude.Text,
-    -- | This flag should no longer be used.
-    publiclyAccessible :: Prelude.Maybe Prelude.Bool,
-    -- | Not supported.
-    storageType :: Prelude.Maybe Prelude.Text,
-    -- | /(Not supported by Neptune)/
-    enablePerformanceInsights :: Prelude.Maybe Prelude.Bool,
-    -- | The ARN from the key store with which to associate the instance for TDE
-    -- encryption.
-    tdeCredentialArn :: Prelude.Maybe Prelude.Text,
-    -- | The configuration setting for the log types to be enabled for export to
-    -- CloudWatch Logs for a specific DB instance or DB cluster.
-    cloudwatchLogsExportConfiguration :: Prelude.Maybe CloudwatchLogsExportConfiguration,
-    -- | Indicates the certificate that needs to be associated with the instance.
-    cACertificateIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The ARN for the IAM role that permits Neptune to send enhanced
     -- monitoring metrics to Amazon CloudWatch Logs. For example,
     -- @arn:aws:iam:123456789012:role\/emaccess@.
@@ -259,13 +234,11 @@ data ModifyDBInstance = ModifyDBInstance'
     -- If @MonitoringInterval@ is set to a value other than 0, then you must
     -- supply a @MonitoringRoleArn@ value.
     monitoringRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | Not supported by Neptune.
-    allocatedStorage :: Prelude.Maybe Prelude.Int,
-    -- | A value that indicates whether the DB instance has deletion protection
-    -- enabled. The database can\'t be deleted when deletion protection is
-    -- enabled. By default, deletion protection is disabled. See
-    -- <https://docs.aws.amazon.com/neptune/latest/userguide/manage-console-instances-delete.html Deleting a DB Instance>.
-    deletionProtection :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies if the DB instance is a Multi-AZ deployment. Changing this
+    -- parameter doesn\'t result in an outage and the change is applied during
+    -- the next maintenance window unless the @ApplyImmediately@ parameter is
+    -- set to @true@ for this request.
+    multiAZ :: Prelude.Maybe Prelude.Bool,
     -- | The new DB instance identifier for the DB instance when renaming a DB
     -- instance. When you change the DB instance identifier, an instance reboot
     -- will occur immediately if you set @Apply Immediately@ to true, or will
@@ -282,6 +255,26 @@ data ModifyDBInstance = ModifyDBInstance'
     --
     -- Example: @mydbinstance@
     newDBInstanceIdentifier' :: Prelude.Maybe Prelude.Text,
+    -- | /(Not supported by Neptune)/
+    optionGroupName :: Prelude.Maybe Prelude.Text,
+    -- | /(Not supported by Neptune)/
+    performanceInsightsKMSKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The daily time range during which automated backups are created if
+    -- automated backups are enabled.
+    --
+    -- Not applicable. The daily time range for creating automated backups is
+    -- managed by the DB cluster. For more information, see ModifyDBCluster.
+    --
+    -- Constraints:
+    --
+    -- -   Must be in the format hh24:mi-hh24:mi
+    --
+    -- -   Must be in Universal Time Coordinated (UTC)
+    --
+    -- -   Must not conflict with the preferred maintenance window
+    --
+    -- -   Must be at least 30 minutes
+    preferredBackupWindow :: Prelude.Maybe Prelude.Text,
     -- | The weekly time range (in UTC) during which system maintenance can
     -- occur, which might result in an outage. Changing this parameter doesn\'t
     -- result in an outage, except in the following situation, and the change
@@ -300,26 +293,33 @@ data ModifyDBInstance = ModifyDBInstance'
     --
     -- Constraints: Must be at least 30 minutes
     preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
-    -- | The new Provisioned IOPS (I\/O operations per second) value for the
-    -- instance.
+    -- | A value that specifies the order in which a Read Replica is promoted to
+    -- the primary instance after a failure of the existing primary instance.
     --
-    -- Changing this setting doesn\'t result in an outage and the change is
-    -- applied during the next maintenance window unless the @ApplyImmediately@
-    -- parameter is set to @true@ for this request.
+    -- Default: 1
     --
-    -- Default: Uses existing setting
-    iops :: Prelude.Maybe Prelude.Int,
-    -- | The version number of the database engine to upgrade to. Currently,
-    -- setting this parameter has no effect. To upgrade your database engine to
-    -- the most recent release, use the ApplyPendingMaintenanceAction API.
-    engineVersion :: Prelude.Maybe Prelude.Text,
-    -- | Specifies if the DB instance is a Multi-AZ deployment. Changing this
-    -- parameter doesn\'t result in an outage and the change is applied during
-    -- the next maintenance window unless the @ApplyImmediately@ parameter is
-    -- set to @true@ for this request.
-    multiAZ :: Prelude.Maybe Prelude.Bool,
-    -- | Not supported by Neptune.
-    licenseModel :: Prelude.Maybe Prelude.Text,
+    -- Valid Values: 0 - 15
+    promotionTier :: Prelude.Maybe Prelude.Int,
+    -- | This flag should no longer be used.
+    publiclyAccessible :: Prelude.Maybe Prelude.Bool,
+    -- | Not supported.
+    storageType :: Prelude.Maybe Prelude.Text,
+    -- | The ARN from the key store with which to associate the instance for TDE
+    -- encryption.
+    tdeCredentialArn :: Prelude.Maybe Prelude.Text,
+    -- | The password for the given ARN from the key store in order to access the
+    -- device.
+    tdeCredentialPassword :: Prelude.Maybe Prelude.Text,
+    -- | A list of EC2 VPC security groups to authorize on this DB instance. This
+    -- change is asynchronously applied as soon as possible.
+    --
+    -- Not applicable. The associated list of EC2 VPC security groups is
+    -- managed by the DB cluster. For more information, see ModifyDBCluster.
+    --
+    -- Constraints:
+    --
+    -- -   If supplied, must match existing VpcSecurityGroupIds.
+    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The DB instance identifier. This value is stored as a lowercase string.
     --
     -- Constraints:
@@ -337,15 +337,53 @@ data ModifyDBInstance = ModifyDBInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcSecurityGroupIds', 'modifyDBInstance_vpcSecurityGroupIds' - A list of EC2 VPC security groups to authorize on this DB instance. This
--- change is asynchronously applied as soon as possible.
+-- 'allocatedStorage', 'modifyDBInstance_allocatedStorage' - Not supported by Neptune.
 --
--- Not applicable. The associated list of EC2 VPC security groups is
--- managed by the DB cluster. For more information, see ModifyDBCluster.
+-- 'allowMajorVersionUpgrade', 'modifyDBInstance_allowMajorVersionUpgrade' - Indicates that major version upgrades are allowed. Changing this
+-- parameter doesn\'t result in an outage and the change is asynchronously
+-- applied as soon as possible.
 --
--- Constraints:
+-- 'applyImmediately', 'modifyDBInstance_applyImmediately' - Specifies whether the modifications in this request and any pending
+-- modifications are asynchronously applied as soon as possible, regardless
+-- of the @PreferredMaintenanceWindow@ setting for the DB instance.
 --
--- -   If supplied, must match existing VpcSecurityGroupIds.
+-- If this parameter is set to @false@, changes to the DB instance are
+-- applied during the next maintenance window. Some parameter changes can
+-- cause an outage and are applied on the next call to RebootDBInstance, or
+-- the next failure reboot.
+--
+-- Default: @false@
+--
+-- 'autoMinorVersionUpgrade', 'modifyDBInstance_autoMinorVersionUpgrade' - Indicates that minor version upgrades are applied automatically to the
+-- DB instance during the maintenance window. Changing this parameter
+-- doesn\'t result in an outage except in the following case and the change
+-- is asynchronously applied as soon as possible. An outage will result if
+-- this parameter is set to @true@ during the maintenance window, and a
+-- newer minor version is available, and Neptune has enabled auto patching
+-- for that engine version.
+--
+-- 'backupRetentionPeriod', 'modifyDBInstance_backupRetentionPeriod' - Not applicable. The retention period for automated backups is managed by
+-- the DB cluster. For more information, see ModifyDBCluster.
+--
+-- Default: Uses existing setting
+--
+-- 'cACertificateIdentifier', 'modifyDBInstance_cACertificateIdentifier' - Indicates the certificate that needs to be associated with the instance.
+--
+-- 'cloudwatchLogsExportConfiguration', 'modifyDBInstance_cloudwatchLogsExportConfiguration' - The configuration setting for the log types to be enabled for export to
+-- CloudWatch Logs for a specific DB instance or DB cluster.
+--
+-- 'copyTagsToSnapshot', 'modifyDBInstance_copyTagsToSnapshot' - True to copy all tags from the DB instance to snapshots of the DB
+-- instance, and otherwise false. The default is false.
+--
+-- 'dbInstanceClass', 'modifyDBInstance_dbInstanceClass' - The new compute and memory capacity of the DB instance, for example,
+-- @db.m4.large@. Not all DB instance classes are available in all Amazon
+-- Regions.
+--
+-- If you modify the DB instance class, an outage occurs during the change.
+-- The change is applied during the next maintenance window, unless
+-- @ApplyImmediately@ is specified as @true@ for this request.
+--
+-- Default: Uses existing setting
 --
 -- 'dbParameterGroupName', 'modifyDBInstance_dbParameterGroupName' - The name of the DB parameter group to apply to the DB instance. Changing
 -- this setting doesn\'t result in an outage. The parameter group name
@@ -359,48 +397,23 @@ data ModifyDBInstance = ModifyDBInstance'
 -- Constraints: The DB parameter group must be in the same DB parameter
 -- group family as this DB instance.
 --
--- 'preferredBackupWindow', 'modifyDBInstance_preferredBackupWindow' - The daily time range during which automated backups are created if
--- automated backups are enabled.
+-- 'dbPortNumber', 'modifyDBInstance_dbPortNumber' - The port number on which the database accepts connections.
 --
--- Not applicable. The daily time range for creating automated backups is
--- managed by the DB cluster. For more information, see ModifyDBCluster.
+-- The value of the @DBPortNumber@ parameter must not match any of the port
+-- values specified for options in the option group for the DB instance.
+--
+-- Your database will restart when you change the @DBPortNumber@ value
+-- regardless of the value of the @ApplyImmediately@ parameter.
+--
+-- Default: @8182@
+--
+-- 'dbSecurityGroups', 'modifyDBInstance_dbSecurityGroups' - A list of DB security groups to authorize on this DB instance. Changing
+-- this setting doesn\'t result in an outage and the change is
+-- asynchronously applied as soon as possible.
 --
 -- Constraints:
 --
--- -   Must be in the format hh24:mi-hh24:mi
---
--- -   Must be in Universal Time Coordinated (UTC)
---
--- -   Must not conflict with the preferred maintenance window
---
--- -   Must be at least 30 minutes
---
--- 'backupRetentionPeriod', 'modifyDBInstance_backupRetentionPeriod' - Not applicable. The retention period for automated backups is managed by
--- the DB cluster. For more information, see ModifyDBCluster.
---
--- Default: Uses existing setting
---
--- 'dbInstanceClass', 'modifyDBInstance_dbInstanceClass' - The new compute and memory capacity of the DB instance, for example,
--- @db.m4.large@. Not all DB instance classes are available in all Amazon
--- Regions.
---
--- If you modify the DB instance class, an outage occurs during the change.
--- The change is applied during the next maintenance window, unless
--- @ApplyImmediately@ is specified as @true@ for this request.
---
--- Default: Uses existing setting
---
--- 'copyTagsToSnapshot', 'modifyDBInstance_copyTagsToSnapshot' - True to copy all tags from the DB instance to snapshots of the DB
--- instance, and otherwise false. The default is false.
---
--- 'domainIAMRoleName', 'modifyDBInstance_domainIAMRoleName' - Not supported
---
--- 'promotionTier', 'modifyDBInstance_promotionTier' - A value that specifies the order in which a Read Replica is promoted to
--- the primary instance after a failure of the existing primary instance.
---
--- Default: 1
---
--- Valid Values: 0 - 15
+-- -   If supplied, must match existing DBSecurityGroups.
 --
 -- 'dbSubnetGroupName', 'modifyDBInstance_dbSubnetGroupName' - The new DB subnet group for the DB instance. You can use this parameter
 -- to move your DB instance to a different VPC.
@@ -414,44 +427,14 @@ data ModifyDBInstance = ModifyDBInstance'
 --
 -- Example: @mySubnetGroup@
 --
--- 'autoMinorVersionUpgrade', 'modifyDBInstance_autoMinorVersionUpgrade' - Indicates that minor version upgrades are applied automatically to the
--- DB instance during the maintenance window. Changing this parameter
--- doesn\'t result in an outage except in the following case and the change
--- is asynchronously applied as soon as possible. An outage will result if
--- this parameter is set to @true@ during the maintenance window, and a
--- newer minor version is available, and Neptune has enabled auto patching
--- for that engine version.
---
--- 'applyImmediately', 'modifyDBInstance_applyImmediately' - Specifies whether the modifications in this request and any pending
--- modifications are asynchronously applied as soon as possible, regardless
--- of the @PreferredMaintenanceWindow@ setting for the DB instance.
---
--- If this parameter is set to @false@, changes to the DB instance are
--- applied during the next maintenance window. Some parameter changes can
--- cause an outage and are applied on the next call to RebootDBInstance, or
--- the next failure reboot.
---
--- Default: @false@
---
--- 'allowMajorVersionUpgrade', 'modifyDBInstance_allowMajorVersionUpgrade' - Indicates that major version upgrades are allowed. Changing this
--- parameter doesn\'t result in an outage and the change is asynchronously
--- applied as soon as possible.
---
--- 'dbPortNumber', 'modifyDBInstance_dbPortNumber' - The port number on which the database accepts connections.
---
--- The value of the @DBPortNumber@ parameter must not match any of the port
--- values specified for options in the option group for the DB instance.
---
--- Your database will restart when you change the @DBPortNumber@ value
--- regardless of the value of the @ApplyImmediately@ parameter.
---
--- Default: @8182@
+-- 'deletionProtection', 'modifyDBInstance_deletionProtection' - A value that indicates whether the DB instance has deletion protection
+-- enabled. The database can\'t be deleted when deletion protection is
+-- enabled. By default, deletion protection is disabled. See
+-- <https://docs.aws.amazon.com/neptune/latest/userguide/manage-console-instances-delete.html Deleting a DB Instance>.
 --
 -- 'domain', 'modifyDBInstance_domain' - Not supported.
 --
--- 'optionGroupName', 'modifyDBInstance_optionGroupName' - /(Not supported by Neptune)/
---
--- 'performanceInsightsKMSKeyId', 'modifyDBInstance_performanceInsightsKMSKeyId' - /(Not supported by Neptune)/
+-- 'domainIAMRoleName', 'modifyDBInstance_domainIAMRoleName' - Not supported
 --
 -- 'enableIAMDatabaseAuthentication', 'modifyDBInstance_enableIAMDatabaseAuthentication' - True to enable mapping of Amazon Identity and Access Management (IAM)
 -- accounts to database accounts, and otherwise false.
@@ -464,13 +447,24 @@ data ModifyDBInstance = ModifyDBInstance'
 --
 -- Default: @false@
 --
--- 'dbSecurityGroups', 'modifyDBInstance_dbSecurityGroups' - A list of DB security groups to authorize on this DB instance. Changing
--- this setting doesn\'t result in an outage and the change is
--- asynchronously applied as soon as possible.
+-- 'enablePerformanceInsights', 'modifyDBInstance_enablePerformanceInsights' - /(Not supported by Neptune)/
 --
--- Constraints:
+-- 'engineVersion', 'modifyDBInstance_engineVersion' - The version number of the database engine to upgrade to. Currently,
+-- setting this parameter has no effect. To upgrade your database engine to
+-- the most recent release, use the ApplyPendingMaintenanceAction API.
 --
--- -   If supplied, must match existing DBSecurityGroups.
+-- 'iops', 'modifyDBInstance_iops' - The new Provisioned IOPS (I\/O operations per second) value for the
+-- instance.
+--
+-- Changing this setting doesn\'t result in an outage and the change is
+-- applied during the next maintenance window unless the @ApplyImmediately@
+-- parameter is set to @true@ for this request.
+--
+-- Default: Uses existing setting
+--
+-- 'licenseModel', 'modifyDBInstance_licenseModel' - Not supported by Neptune.
+--
+-- 'masterUserPassword', 'modifyDBInstance_masterUserPassword' - Not supported by Neptune.
 --
 -- 'monitoringInterval', 'modifyDBInstance_monitoringInterval' - The interval, in seconds, between points when Enhanced Monitoring
 -- metrics are collected for the DB instance. To disable collecting
@@ -481,25 +475,6 @@ data ModifyDBInstance = ModifyDBInstance'
 --
 -- Valid Values: @0, 1, 5, 10, 15, 30, 60@
 --
--- 'tdeCredentialPassword', 'modifyDBInstance_tdeCredentialPassword' - The password for the given ARN from the key store in order to access the
--- device.
---
--- 'masterUserPassword', 'modifyDBInstance_masterUserPassword' - Not supported by Neptune.
---
--- 'publiclyAccessible', 'modifyDBInstance_publiclyAccessible' - This flag should no longer be used.
---
--- 'storageType', 'modifyDBInstance_storageType' - Not supported.
---
--- 'enablePerformanceInsights', 'modifyDBInstance_enablePerformanceInsights' - /(Not supported by Neptune)/
---
--- 'tdeCredentialArn', 'modifyDBInstance_tdeCredentialArn' - The ARN from the key store with which to associate the instance for TDE
--- encryption.
---
--- 'cloudwatchLogsExportConfiguration', 'modifyDBInstance_cloudwatchLogsExportConfiguration' - The configuration setting for the log types to be enabled for export to
--- CloudWatch Logs for a specific DB instance or DB cluster.
---
--- 'cACertificateIdentifier', 'modifyDBInstance_cACertificateIdentifier' - Indicates the certificate that needs to be associated with the instance.
---
 -- 'monitoringRoleArn', 'modifyDBInstance_monitoringRoleArn' - The ARN for the IAM role that permits Neptune to send enhanced
 -- monitoring metrics to Amazon CloudWatch Logs. For example,
 -- @arn:aws:iam:123456789012:role\/emaccess@.
@@ -507,12 +482,10 @@ data ModifyDBInstance = ModifyDBInstance'
 -- If @MonitoringInterval@ is set to a value other than 0, then you must
 -- supply a @MonitoringRoleArn@ value.
 --
--- 'allocatedStorage', 'modifyDBInstance_allocatedStorage' - Not supported by Neptune.
---
--- 'deletionProtection', 'modifyDBInstance_deletionProtection' - A value that indicates whether the DB instance has deletion protection
--- enabled. The database can\'t be deleted when deletion protection is
--- enabled. By default, deletion protection is disabled. See
--- <https://docs.aws.amazon.com/neptune/latest/userguide/manage-console-instances-delete.html Deleting a DB Instance>.
+-- 'multiAZ', 'modifyDBInstance_multiAZ' - Specifies if the DB instance is a Multi-AZ deployment. Changing this
+-- parameter doesn\'t result in an outage and the change is applied during
+-- the next maintenance window unless the @ApplyImmediately@ parameter is
+-- set to @true@ for this request.
 --
 -- 'newDBInstanceIdentifier'', 'modifyDBInstance_newDBInstanceIdentifier' - The new DB instance identifier for the DB instance when renaming a DB
 -- instance. When you change the DB instance identifier, an instance reboot
@@ -529,6 +502,26 @@ data ModifyDBInstance = ModifyDBInstance'
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 --
 -- Example: @mydbinstance@
+--
+-- 'optionGroupName', 'modifyDBInstance_optionGroupName' - /(Not supported by Neptune)/
+--
+-- 'performanceInsightsKMSKeyId', 'modifyDBInstance_performanceInsightsKMSKeyId' - /(Not supported by Neptune)/
+--
+-- 'preferredBackupWindow', 'modifyDBInstance_preferredBackupWindow' - The daily time range during which automated backups are created if
+-- automated backups are enabled.
+--
+-- Not applicable. The daily time range for creating automated backups is
+-- managed by the DB cluster. For more information, see ModifyDBCluster.
+--
+-- Constraints:
+--
+-- -   Must be in the format hh24:mi-hh24:mi
+--
+-- -   Must be in Universal Time Coordinated (UTC)
+--
+-- -   Must not conflict with the preferred maintenance window
+--
+-- -   Must be at least 30 minutes
 --
 -- 'preferredMaintenanceWindow', 'modifyDBInstance_preferredMaintenanceWindow' - The weekly time range (in UTC) during which system maintenance can
 -- occur, which might result in an outage. Changing this parameter doesn\'t
@@ -548,25 +541,32 @@ data ModifyDBInstance = ModifyDBInstance'
 --
 -- Constraints: Must be at least 30 minutes
 --
--- 'iops', 'modifyDBInstance_iops' - The new Provisioned IOPS (I\/O operations per second) value for the
--- instance.
+-- 'promotionTier', 'modifyDBInstance_promotionTier' - A value that specifies the order in which a Read Replica is promoted to
+-- the primary instance after a failure of the existing primary instance.
 --
--- Changing this setting doesn\'t result in an outage and the change is
--- applied during the next maintenance window unless the @ApplyImmediately@
--- parameter is set to @true@ for this request.
+-- Default: 1
 --
--- Default: Uses existing setting
+-- Valid Values: 0 - 15
 --
--- 'engineVersion', 'modifyDBInstance_engineVersion' - The version number of the database engine to upgrade to. Currently,
--- setting this parameter has no effect. To upgrade your database engine to
--- the most recent release, use the ApplyPendingMaintenanceAction API.
+-- 'publiclyAccessible', 'modifyDBInstance_publiclyAccessible' - This flag should no longer be used.
 --
--- 'multiAZ', 'modifyDBInstance_multiAZ' - Specifies if the DB instance is a Multi-AZ deployment. Changing this
--- parameter doesn\'t result in an outage and the change is applied during
--- the next maintenance window unless the @ApplyImmediately@ parameter is
--- set to @true@ for this request.
+-- 'storageType', 'modifyDBInstance_storageType' - Not supported.
 --
--- 'licenseModel', 'modifyDBInstance_licenseModel' - Not supported by Neptune.
+-- 'tdeCredentialArn', 'modifyDBInstance_tdeCredentialArn' - The ARN from the key store with which to associate the instance for TDE
+-- encryption.
+--
+-- 'tdeCredentialPassword', 'modifyDBInstance_tdeCredentialPassword' - The password for the given ARN from the key store in order to access the
+-- device.
+--
+-- 'vpcSecurityGroupIds', 'modifyDBInstance_vpcSecurityGroupIds' - A list of EC2 VPC security groups to authorize on this DB instance. This
+-- change is asynchronously applied as soon as possible.
+--
+-- Not applicable. The associated list of EC2 VPC security groups is
+-- managed by the DB cluster. For more information, see ModifyDBCluster.
+--
+-- Constraints:
+--
+-- -   If supplied, must match existing VpcSecurityGroupIds.
 --
 -- 'dbInstanceIdentifier', 'modifyDBInstance_dbInstanceIdentifier' - The DB instance identifier. This value is stored as a lowercase string.
 --
@@ -579,57 +579,111 @@ newModifyDBInstance ::
   ModifyDBInstance
 newModifyDBInstance pDBInstanceIdentifier_ =
   ModifyDBInstance'
-    { vpcSecurityGroupIds =
+    { allocatedStorage =
         Prelude.Nothing,
-      dbParameterGroupName = Prelude.Nothing,
-      preferredBackupWindow = Prelude.Nothing,
-      backupRetentionPeriod = Prelude.Nothing,
-      dbInstanceClass = Prelude.Nothing,
-      copyTagsToSnapshot = Prelude.Nothing,
-      domainIAMRoleName = Prelude.Nothing,
-      promotionTier = Prelude.Nothing,
-      dbSubnetGroupName = Prelude.Nothing,
-      autoMinorVersionUpgrade = Prelude.Nothing,
-      applyImmediately = Prelude.Nothing,
       allowMajorVersionUpgrade = Prelude.Nothing,
+      applyImmediately = Prelude.Nothing,
+      autoMinorVersionUpgrade = Prelude.Nothing,
+      backupRetentionPeriod = Prelude.Nothing,
+      cACertificateIdentifier = Prelude.Nothing,
+      cloudwatchLogsExportConfiguration = Prelude.Nothing,
+      copyTagsToSnapshot = Prelude.Nothing,
+      dbInstanceClass = Prelude.Nothing,
+      dbParameterGroupName = Prelude.Nothing,
       dbPortNumber = Prelude.Nothing,
+      dbSecurityGroups = Prelude.Nothing,
+      dbSubnetGroupName = Prelude.Nothing,
+      deletionProtection = Prelude.Nothing,
       domain = Prelude.Nothing,
+      domainIAMRoleName = Prelude.Nothing,
+      enableIAMDatabaseAuthentication = Prelude.Nothing,
+      enablePerformanceInsights = Prelude.Nothing,
+      engineVersion = Prelude.Nothing,
+      iops = Prelude.Nothing,
+      licenseModel = Prelude.Nothing,
+      masterUserPassword = Prelude.Nothing,
+      monitoringInterval = Prelude.Nothing,
+      monitoringRoleArn = Prelude.Nothing,
+      multiAZ = Prelude.Nothing,
+      newDBInstanceIdentifier' = Prelude.Nothing,
       optionGroupName = Prelude.Nothing,
       performanceInsightsKMSKeyId = Prelude.Nothing,
-      enableIAMDatabaseAuthentication = Prelude.Nothing,
-      dbSecurityGroups = Prelude.Nothing,
-      monitoringInterval = Prelude.Nothing,
-      tdeCredentialPassword = Prelude.Nothing,
-      masterUserPassword = Prelude.Nothing,
+      preferredBackupWindow = Prelude.Nothing,
+      preferredMaintenanceWindow = Prelude.Nothing,
+      promotionTier = Prelude.Nothing,
       publiclyAccessible = Prelude.Nothing,
       storageType = Prelude.Nothing,
-      enablePerformanceInsights = Prelude.Nothing,
       tdeCredentialArn = Prelude.Nothing,
-      cloudwatchLogsExportConfiguration = Prelude.Nothing,
-      cACertificateIdentifier = Prelude.Nothing,
-      monitoringRoleArn = Prelude.Nothing,
-      allocatedStorage = Prelude.Nothing,
-      deletionProtection = Prelude.Nothing,
-      newDBInstanceIdentifier' = Prelude.Nothing,
-      preferredMaintenanceWindow = Prelude.Nothing,
-      iops = Prelude.Nothing,
-      engineVersion = Prelude.Nothing,
-      multiAZ = Prelude.Nothing,
-      licenseModel = Prelude.Nothing,
+      tdeCredentialPassword = Prelude.Nothing,
+      vpcSecurityGroupIds = Prelude.Nothing,
       dbInstanceIdentifier = pDBInstanceIdentifier_
     }
 
--- | A list of EC2 VPC security groups to authorize on this DB instance. This
--- change is asynchronously applied as soon as possible.
+-- | Not supported by Neptune.
+modifyDBInstance_allocatedStorage :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Int)
+modifyDBInstance_allocatedStorage = Lens.lens (\ModifyDBInstance' {allocatedStorage} -> allocatedStorage) (\s@ModifyDBInstance' {} a -> s {allocatedStorage = a} :: ModifyDBInstance)
+
+-- | Indicates that major version upgrades are allowed. Changing this
+-- parameter doesn\'t result in an outage and the change is asynchronously
+-- applied as soon as possible.
+modifyDBInstance_allowMajorVersionUpgrade :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
+modifyDBInstance_allowMajorVersionUpgrade = Lens.lens (\ModifyDBInstance' {allowMajorVersionUpgrade} -> allowMajorVersionUpgrade) (\s@ModifyDBInstance' {} a -> s {allowMajorVersionUpgrade = a} :: ModifyDBInstance)
+
+-- | Specifies whether the modifications in this request and any pending
+-- modifications are asynchronously applied as soon as possible, regardless
+-- of the @PreferredMaintenanceWindow@ setting for the DB instance.
 --
--- Not applicable. The associated list of EC2 VPC security groups is
--- managed by the DB cluster. For more information, see ModifyDBCluster.
+-- If this parameter is set to @false@, changes to the DB instance are
+-- applied during the next maintenance window. Some parameter changes can
+-- cause an outage and are applied on the next call to RebootDBInstance, or
+-- the next failure reboot.
 --
--- Constraints:
+-- Default: @false@
+modifyDBInstance_applyImmediately :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
+modifyDBInstance_applyImmediately = Lens.lens (\ModifyDBInstance' {applyImmediately} -> applyImmediately) (\s@ModifyDBInstance' {} a -> s {applyImmediately = a} :: ModifyDBInstance)
+
+-- | Indicates that minor version upgrades are applied automatically to the
+-- DB instance during the maintenance window. Changing this parameter
+-- doesn\'t result in an outage except in the following case and the change
+-- is asynchronously applied as soon as possible. An outage will result if
+-- this parameter is set to @true@ during the maintenance window, and a
+-- newer minor version is available, and Neptune has enabled auto patching
+-- for that engine version.
+modifyDBInstance_autoMinorVersionUpgrade :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
+modifyDBInstance_autoMinorVersionUpgrade = Lens.lens (\ModifyDBInstance' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@ModifyDBInstance' {} a -> s {autoMinorVersionUpgrade = a} :: ModifyDBInstance)
+
+-- | Not applicable. The retention period for automated backups is managed by
+-- the DB cluster. For more information, see ModifyDBCluster.
 --
--- -   If supplied, must match existing VpcSecurityGroupIds.
-modifyDBInstance_vpcSecurityGroupIds :: Lens.Lens' ModifyDBInstance (Prelude.Maybe [Prelude.Text])
-modifyDBInstance_vpcSecurityGroupIds = Lens.lens (\ModifyDBInstance' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@ModifyDBInstance' {} a -> s {vpcSecurityGroupIds = a} :: ModifyDBInstance) Prelude.. Lens.mapping Lens.coerced
+-- Default: Uses existing setting
+modifyDBInstance_backupRetentionPeriod :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Int)
+modifyDBInstance_backupRetentionPeriod = Lens.lens (\ModifyDBInstance' {backupRetentionPeriod} -> backupRetentionPeriod) (\s@ModifyDBInstance' {} a -> s {backupRetentionPeriod = a} :: ModifyDBInstance)
+
+-- | Indicates the certificate that needs to be associated with the instance.
+modifyDBInstance_cACertificateIdentifier :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_cACertificateIdentifier = Lens.lens (\ModifyDBInstance' {cACertificateIdentifier} -> cACertificateIdentifier) (\s@ModifyDBInstance' {} a -> s {cACertificateIdentifier = a} :: ModifyDBInstance)
+
+-- | The configuration setting for the log types to be enabled for export to
+-- CloudWatch Logs for a specific DB instance or DB cluster.
+modifyDBInstance_cloudwatchLogsExportConfiguration :: Lens.Lens' ModifyDBInstance (Prelude.Maybe CloudwatchLogsExportConfiguration)
+modifyDBInstance_cloudwatchLogsExportConfiguration = Lens.lens (\ModifyDBInstance' {cloudwatchLogsExportConfiguration} -> cloudwatchLogsExportConfiguration) (\s@ModifyDBInstance' {} a -> s {cloudwatchLogsExportConfiguration = a} :: ModifyDBInstance)
+
+-- | True to copy all tags from the DB instance to snapshots of the DB
+-- instance, and otherwise false. The default is false.
+modifyDBInstance_copyTagsToSnapshot :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
+modifyDBInstance_copyTagsToSnapshot = Lens.lens (\ModifyDBInstance' {copyTagsToSnapshot} -> copyTagsToSnapshot) (\s@ModifyDBInstance' {} a -> s {copyTagsToSnapshot = a} :: ModifyDBInstance)
+
+-- | The new compute and memory capacity of the DB instance, for example,
+-- @db.m4.large@. Not all DB instance classes are available in all Amazon
+-- Regions.
+--
+-- If you modify the DB instance class, an outage occurs during the change.
+-- The change is applied during the next maintenance window, unless
+-- @ApplyImmediately@ is specified as @true@ for this request.
+--
+-- Default: Uses existing setting
+modifyDBInstance_dbInstanceClass :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_dbInstanceClass = Lens.lens (\ModifyDBInstance' {dbInstanceClass} -> dbInstanceClass) (\s@ModifyDBInstance' {} a -> s {dbInstanceClass = a} :: ModifyDBInstance)
 
 -- | The name of the DB parameter group to apply to the DB instance. Changing
 -- this setting doesn\'t result in an outage. The parameter group name
@@ -645,60 +699,27 @@ modifyDBInstance_vpcSecurityGroupIds = Lens.lens (\ModifyDBInstance' {vpcSecurit
 modifyDBInstance_dbParameterGroupName :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
 modifyDBInstance_dbParameterGroupName = Lens.lens (\ModifyDBInstance' {dbParameterGroupName} -> dbParameterGroupName) (\s@ModifyDBInstance' {} a -> s {dbParameterGroupName = a} :: ModifyDBInstance)
 
--- | The daily time range during which automated backups are created if
--- automated backups are enabled.
+-- | The port number on which the database accepts connections.
 --
--- Not applicable. The daily time range for creating automated backups is
--- managed by the DB cluster. For more information, see ModifyDBCluster.
+-- The value of the @DBPortNumber@ parameter must not match any of the port
+-- values specified for options in the option group for the DB instance.
+--
+-- Your database will restart when you change the @DBPortNumber@ value
+-- regardless of the value of the @ApplyImmediately@ parameter.
+--
+-- Default: @8182@
+modifyDBInstance_dbPortNumber :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Int)
+modifyDBInstance_dbPortNumber = Lens.lens (\ModifyDBInstance' {dbPortNumber} -> dbPortNumber) (\s@ModifyDBInstance' {} a -> s {dbPortNumber = a} :: ModifyDBInstance)
+
+-- | A list of DB security groups to authorize on this DB instance. Changing
+-- this setting doesn\'t result in an outage and the change is
+-- asynchronously applied as soon as possible.
 --
 -- Constraints:
 --
--- -   Must be in the format hh24:mi-hh24:mi
---
--- -   Must be in Universal Time Coordinated (UTC)
---
--- -   Must not conflict with the preferred maintenance window
---
--- -   Must be at least 30 minutes
-modifyDBInstance_preferredBackupWindow :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
-modifyDBInstance_preferredBackupWindow = Lens.lens (\ModifyDBInstance' {preferredBackupWindow} -> preferredBackupWindow) (\s@ModifyDBInstance' {} a -> s {preferredBackupWindow = a} :: ModifyDBInstance)
-
--- | Not applicable. The retention period for automated backups is managed by
--- the DB cluster. For more information, see ModifyDBCluster.
---
--- Default: Uses existing setting
-modifyDBInstance_backupRetentionPeriod :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Int)
-modifyDBInstance_backupRetentionPeriod = Lens.lens (\ModifyDBInstance' {backupRetentionPeriod} -> backupRetentionPeriod) (\s@ModifyDBInstance' {} a -> s {backupRetentionPeriod = a} :: ModifyDBInstance)
-
--- | The new compute and memory capacity of the DB instance, for example,
--- @db.m4.large@. Not all DB instance classes are available in all Amazon
--- Regions.
---
--- If you modify the DB instance class, an outage occurs during the change.
--- The change is applied during the next maintenance window, unless
--- @ApplyImmediately@ is specified as @true@ for this request.
---
--- Default: Uses existing setting
-modifyDBInstance_dbInstanceClass :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
-modifyDBInstance_dbInstanceClass = Lens.lens (\ModifyDBInstance' {dbInstanceClass} -> dbInstanceClass) (\s@ModifyDBInstance' {} a -> s {dbInstanceClass = a} :: ModifyDBInstance)
-
--- | True to copy all tags from the DB instance to snapshots of the DB
--- instance, and otherwise false. The default is false.
-modifyDBInstance_copyTagsToSnapshot :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
-modifyDBInstance_copyTagsToSnapshot = Lens.lens (\ModifyDBInstance' {copyTagsToSnapshot} -> copyTagsToSnapshot) (\s@ModifyDBInstance' {} a -> s {copyTagsToSnapshot = a} :: ModifyDBInstance)
-
--- | Not supported
-modifyDBInstance_domainIAMRoleName :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
-modifyDBInstance_domainIAMRoleName = Lens.lens (\ModifyDBInstance' {domainIAMRoleName} -> domainIAMRoleName) (\s@ModifyDBInstance' {} a -> s {domainIAMRoleName = a} :: ModifyDBInstance)
-
--- | A value that specifies the order in which a Read Replica is promoted to
--- the primary instance after a failure of the existing primary instance.
---
--- Default: 1
---
--- Valid Values: 0 - 15
-modifyDBInstance_promotionTier :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Int)
-modifyDBInstance_promotionTier = Lens.lens (\ModifyDBInstance' {promotionTier} -> promotionTier) (\s@ModifyDBInstance' {} a -> s {promotionTier = a} :: ModifyDBInstance)
+-- -   If supplied, must match existing DBSecurityGroups.
+modifyDBInstance_dbSecurityGroups :: Lens.Lens' ModifyDBInstance (Prelude.Maybe [Prelude.Text])
+modifyDBInstance_dbSecurityGroups = Lens.lens (\ModifyDBInstance' {dbSecurityGroups} -> dbSecurityGroups) (\s@ModifyDBInstance' {} a -> s {dbSecurityGroups = a} :: ModifyDBInstance) Prelude.. Lens.mapping Lens.coerced
 
 -- | The new DB subnet group for the DB instance. You can use this parameter
 -- to move your DB instance to a different VPC.
@@ -714,58 +735,20 @@ modifyDBInstance_promotionTier = Lens.lens (\ModifyDBInstance' {promotionTier} -
 modifyDBInstance_dbSubnetGroupName :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
 modifyDBInstance_dbSubnetGroupName = Lens.lens (\ModifyDBInstance' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@ModifyDBInstance' {} a -> s {dbSubnetGroupName = a} :: ModifyDBInstance)
 
--- | Indicates that minor version upgrades are applied automatically to the
--- DB instance during the maintenance window. Changing this parameter
--- doesn\'t result in an outage except in the following case and the change
--- is asynchronously applied as soon as possible. An outage will result if
--- this parameter is set to @true@ during the maintenance window, and a
--- newer minor version is available, and Neptune has enabled auto patching
--- for that engine version.
-modifyDBInstance_autoMinorVersionUpgrade :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
-modifyDBInstance_autoMinorVersionUpgrade = Lens.lens (\ModifyDBInstance' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@ModifyDBInstance' {} a -> s {autoMinorVersionUpgrade = a} :: ModifyDBInstance)
-
--- | Specifies whether the modifications in this request and any pending
--- modifications are asynchronously applied as soon as possible, regardless
--- of the @PreferredMaintenanceWindow@ setting for the DB instance.
---
--- If this parameter is set to @false@, changes to the DB instance are
--- applied during the next maintenance window. Some parameter changes can
--- cause an outage and are applied on the next call to RebootDBInstance, or
--- the next failure reboot.
---
--- Default: @false@
-modifyDBInstance_applyImmediately :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
-modifyDBInstance_applyImmediately = Lens.lens (\ModifyDBInstance' {applyImmediately} -> applyImmediately) (\s@ModifyDBInstance' {} a -> s {applyImmediately = a} :: ModifyDBInstance)
-
--- | Indicates that major version upgrades are allowed. Changing this
--- parameter doesn\'t result in an outage and the change is asynchronously
--- applied as soon as possible.
-modifyDBInstance_allowMajorVersionUpgrade :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
-modifyDBInstance_allowMajorVersionUpgrade = Lens.lens (\ModifyDBInstance' {allowMajorVersionUpgrade} -> allowMajorVersionUpgrade) (\s@ModifyDBInstance' {} a -> s {allowMajorVersionUpgrade = a} :: ModifyDBInstance)
-
--- | The port number on which the database accepts connections.
---
--- The value of the @DBPortNumber@ parameter must not match any of the port
--- values specified for options in the option group for the DB instance.
---
--- Your database will restart when you change the @DBPortNumber@ value
--- regardless of the value of the @ApplyImmediately@ parameter.
---
--- Default: @8182@
-modifyDBInstance_dbPortNumber :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Int)
-modifyDBInstance_dbPortNumber = Lens.lens (\ModifyDBInstance' {dbPortNumber} -> dbPortNumber) (\s@ModifyDBInstance' {} a -> s {dbPortNumber = a} :: ModifyDBInstance)
+-- | A value that indicates whether the DB instance has deletion protection
+-- enabled. The database can\'t be deleted when deletion protection is
+-- enabled. By default, deletion protection is disabled. See
+-- <https://docs.aws.amazon.com/neptune/latest/userguide/manage-console-instances-delete.html Deleting a DB Instance>.
+modifyDBInstance_deletionProtection :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
+modifyDBInstance_deletionProtection = Lens.lens (\ModifyDBInstance' {deletionProtection} -> deletionProtection) (\s@ModifyDBInstance' {} a -> s {deletionProtection = a} :: ModifyDBInstance)
 
 -- | Not supported.
 modifyDBInstance_domain :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
 modifyDBInstance_domain = Lens.lens (\ModifyDBInstance' {domain} -> domain) (\s@ModifyDBInstance' {} a -> s {domain = a} :: ModifyDBInstance)
 
--- | /(Not supported by Neptune)/
-modifyDBInstance_optionGroupName :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
-modifyDBInstance_optionGroupName = Lens.lens (\ModifyDBInstance' {optionGroupName} -> optionGroupName) (\s@ModifyDBInstance' {} a -> s {optionGroupName = a} :: ModifyDBInstance)
-
--- | /(Not supported by Neptune)/
-modifyDBInstance_performanceInsightsKMSKeyId :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
-modifyDBInstance_performanceInsightsKMSKeyId = Lens.lens (\ModifyDBInstance' {performanceInsightsKMSKeyId} -> performanceInsightsKMSKeyId) (\s@ModifyDBInstance' {} a -> s {performanceInsightsKMSKeyId = a} :: ModifyDBInstance)
+-- | Not supported
+modifyDBInstance_domainIAMRoleName :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_domainIAMRoleName = Lens.lens (\ModifyDBInstance' {domainIAMRoleName} -> domainIAMRoleName) (\s@ModifyDBInstance' {} a -> s {domainIAMRoleName = a} :: ModifyDBInstance)
 
 -- | True to enable mapping of Amazon Identity and Access Management (IAM)
 -- accounts to database accounts, and otherwise false.
@@ -780,15 +763,34 @@ modifyDBInstance_performanceInsightsKMSKeyId = Lens.lens (\ModifyDBInstance' {pe
 modifyDBInstance_enableIAMDatabaseAuthentication :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
 modifyDBInstance_enableIAMDatabaseAuthentication = Lens.lens (\ModifyDBInstance' {enableIAMDatabaseAuthentication} -> enableIAMDatabaseAuthentication) (\s@ModifyDBInstance' {} a -> s {enableIAMDatabaseAuthentication = a} :: ModifyDBInstance)
 
--- | A list of DB security groups to authorize on this DB instance. Changing
--- this setting doesn\'t result in an outage and the change is
--- asynchronously applied as soon as possible.
+-- | /(Not supported by Neptune)/
+modifyDBInstance_enablePerformanceInsights :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
+modifyDBInstance_enablePerformanceInsights = Lens.lens (\ModifyDBInstance' {enablePerformanceInsights} -> enablePerformanceInsights) (\s@ModifyDBInstance' {} a -> s {enablePerformanceInsights = a} :: ModifyDBInstance)
+
+-- | The version number of the database engine to upgrade to. Currently,
+-- setting this parameter has no effect. To upgrade your database engine to
+-- the most recent release, use the ApplyPendingMaintenanceAction API.
+modifyDBInstance_engineVersion :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_engineVersion = Lens.lens (\ModifyDBInstance' {engineVersion} -> engineVersion) (\s@ModifyDBInstance' {} a -> s {engineVersion = a} :: ModifyDBInstance)
+
+-- | The new Provisioned IOPS (I\/O operations per second) value for the
+-- instance.
 --
--- Constraints:
+-- Changing this setting doesn\'t result in an outage and the change is
+-- applied during the next maintenance window unless the @ApplyImmediately@
+-- parameter is set to @true@ for this request.
 --
--- -   If supplied, must match existing DBSecurityGroups.
-modifyDBInstance_dbSecurityGroups :: Lens.Lens' ModifyDBInstance (Prelude.Maybe [Prelude.Text])
-modifyDBInstance_dbSecurityGroups = Lens.lens (\ModifyDBInstance' {dbSecurityGroups} -> dbSecurityGroups) (\s@ModifyDBInstance' {} a -> s {dbSecurityGroups = a} :: ModifyDBInstance) Prelude.. Lens.mapping Lens.coerced
+-- Default: Uses existing setting
+modifyDBInstance_iops :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Int)
+modifyDBInstance_iops = Lens.lens (\ModifyDBInstance' {iops} -> iops) (\s@ModifyDBInstance' {} a -> s {iops = a} :: ModifyDBInstance)
+
+-- | Not supported by Neptune.
+modifyDBInstance_licenseModel :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_licenseModel = Lens.lens (\ModifyDBInstance' {licenseModel} -> licenseModel) (\s@ModifyDBInstance' {} a -> s {licenseModel = a} :: ModifyDBInstance)
+
+-- | Not supported by Neptune.
+modifyDBInstance_masterUserPassword :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_masterUserPassword = Lens.lens (\ModifyDBInstance' {masterUserPassword} -> masterUserPassword) (\s@ModifyDBInstance' {} a -> s {masterUserPassword = a} :: ModifyDBInstance)
 
 -- | The interval, in seconds, between points when Enhanced Monitoring
 -- metrics are collected for the DB instance. To disable collecting
@@ -801,41 +803,6 @@ modifyDBInstance_dbSecurityGroups = Lens.lens (\ModifyDBInstance' {dbSecurityGro
 modifyDBInstance_monitoringInterval :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Int)
 modifyDBInstance_monitoringInterval = Lens.lens (\ModifyDBInstance' {monitoringInterval} -> monitoringInterval) (\s@ModifyDBInstance' {} a -> s {monitoringInterval = a} :: ModifyDBInstance)
 
--- | The password for the given ARN from the key store in order to access the
--- device.
-modifyDBInstance_tdeCredentialPassword :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
-modifyDBInstance_tdeCredentialPassword = Lens.lens (\ModifyDBInstance' {tdeCredentialPassword} -> tdeCredentialPassword) (\s@ModifyDBInstance' {} a -> s {tdeCredentialPassword = a} :: ModifyDBInstance)
-
--- | Not supported by Neptune.
-modifyDBInstance_masterUserPassword :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
-modifyDBInstance_masterUserPassword = Lens.lens (\ModifyDBInstance' {masterUserPassword} -> masterUserPassword) (\s@ModifyDBInstance' {} a -> s {masterUserPassword = a} :: ModifyDBInstance)
-
--- | This flag should no longer be used.
-modifyDBInstance_publiclyAccessible :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
-modifyDBInstance_publiclyAccessible = Lens.lens (\ModifyDBInstance' {publiclyAccessible} -> publiclyAccessible) (\s@ModifyDBInstance' {} a -> s {publiclyAccessible = a} :: ModifyDBInstance)
-
--- | Not supported.
-modifyDBInstance_storageType :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
-modifyDBInstance_storageType = Lens.lens (\ModifyDBInstance' {storageType} -> storageType) (\s@ModifyDBInstance' {} a -> s {storageType = a} :: ModifyDBInstance)
-
--- | /(Not supported by Neptune)/
-modifyDBInstance_enablePerformanceInsights :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
-modifyDBInstance_enablePerformanceInsights = Lens.lens (\ModifyDBInstance' {enablePerformanceInsights} -> enablePerformanceInsights) (\s@ModifyDBInstance' {} a -> s {enablePerformanceInsights = a} :: ModifyDBInstance)
-
--- | The ARN from the key store with which to associate the instance for TDE
--- encryption.
-modifyDBInstance_tdeCredentialArn :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
-modifyDBInstance_tdeCredentialArn = Lens.lens (\ModifyDBInstance' {tdeCredentialArn} -> tdeCredentialArn) (\s@ModifyDBInstance' {} a -> s {tdeCredentialArn = a} :: ModifyDBInstance)
-
--- | The configuration setting for the log types to be enabled for export to
--- CloudWatch Logs for a specific DB instance or DB cluster.
-modifyDBInstance_cloudwatchLogsExportConfiguration :: Lens.Lens' ModifyDBInstance (Prelude.Maybe CloudwatchLogsExportConfiguration)
-modifyDBInstance_cloudwatchLogsExportConfiguration = Lens.lens (\ModifyDBInstance' {cloudwatchLogsExportConfiguration} -> cloudwatchLogsExportConfiguration) (\s@ModifyDBInstance' {} a -> s {cloudwatchLogsExportConfiguration = a} :: ModifyDBInstance)
-
--- | Indicates the certificate that needs to be associated with the instance.
-modifyDBInstance_cACertificateIdentifier :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
-modifyDBInstance_cACertificateIdentifier = Lens.lens (\ModifyDBInstance' {cACertificateIdentifier} -> cACertificateIdentifier) (\s@ModifyDBInstance' {} a -> s {cACertificateIdentifier = a} :: ModifyDBInstance)
-
 -- | The ARN for the IAM role that permits Neptune to send enhanced
 -- monitoring metrics to Amazon CloudWatch Logs. For example,
 -- @arn:aws:iam:123456789012:role\/emaccess@.
@@ -845,16 +812,12 @@ modifyDBInstance_cACertificateIdentifier = Lens.lens (\ModifyDBInstance' {cACert
 modifyDBInstance_monitoringRoleArn :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
 modifyDBInstance_monitoringRoleArn = Lens.lens (\ModifyDBInstance' {monitoringRoleArn} -> monitoringRoleArn) (\s@ModifyDBInstance' {} a -> s {monitoringRoleArn = a} :: ModifyDBInstance)
 
--- | Not supported by Neptune.
-modifyDBInstance_allocatedStorage :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Int)
-modifyDBInstance_allocatedStorage = Lens.lens (\ModifyDBInstance' {allocatedStorage} -> allocatedStorage) (\s@ModifyDBInstance' {} a -> s {allocatedStorage = a} :: ModifyDBInstance)
-
--- | A value that indicates whether the DB instance has deletion protection
--- enabled. The database can\'t be deleted when deletion protection is
--- enabled. By default, deletion protection is disabled. See
--- <https://docs.aws.amazon.com/neptune/latest/userguide/manage-console-instances-delete.html Deleting a DB Instance>.
-modifyDBInstance_deletionProtection :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
-modifyDBInstance_deletionProtection = Lens.lens (\ModifyDBInstance' {deletionProtection} -> deletionProtection) (\s@ModifyDBInstance' {} a -> s {deletionProtection = a} :: ModifyDBInstance)
+-- | Specifies if the DB instance is a Multi-AZ deployment. Changing this
+-- parameter doesn\'t result in an outage and the change is applied during
+-- the next maintenance window unless the @ApplyImmediately@ parameter is
+-- set to @true@ for this request.
+modifyDBInstance_multiAZ :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
+modifyDBInstance_multiAZ = Lens.lens (\ModifyDBInstance' {multiAZ} -> multiAZ) (\s@ModifyDBInstance' {} a -> s {multiAZ = a} :: ModifyDBInstance)
 
 -- | The new DB instance identifier for the DB instance when renaming a DB
 -- instance. When you change the DB instance identifier, an instance reboot
@@ -873,6 +836,32 @@ modifyDBInstance_deletionProtection = Lens.lens (\ModifyDBInstance' {deletionPro
 -- Example: @mydbinstance@
 modifyDBInstance_newDBInstanceIdentifier :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
 modifyDBInstance_newDBInstanceIdentifier = Lens.lens (\ModifyDBInstance' {newDBInstanceIdentifier'} -> newDBInstanceIdentifier') (\s@ModifyDBInstance' {} a -> s {newDBInstanceIdentifier' = a} :: ModifyDBInstance)
+
+-- | /(Not supported by Neptune)/
+modifyDBInstance_optionGroupName :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_optionGroupName = Lens.lens (\ModifyDBInstance' {optionGroupName} -> optionGroupName) (\s@ModifyDBInstance' {} a -> s {optionGroupName = a} :: ModifyDBInstance)
+
+-- | /(Not supported by Neptune)/
+modifyDBInstance_performanceInsightsKMSKeyId :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_performanceInsightsKMSKeyId = Lens.lens (\ModifyDBInstance' {performanceInsightsKMSKeyId} -> performanceInsightsKMSKeyId) (\s@ModifyDBInstance' {} a -> s {performanceInsightsKMSKeyId = a} :: ModifyDBInstance)
+
+-- | The daily time range during which automated backups are created if
+-- automated backups are enabled.
+--
+-- Not applicable. The daily time range for creating automated backups is
+-- managed by the DB cluster. For more information, see ModifyDBCluster.
+--
+-- Constraints:
+--
+-- -   Must be in the format hh24:mi-hh24:mi
+--
+-- -   Must be in Universal Time Coordinated (UTC)
+--
+-- -   Must not conflict with the preferred maintenance window
+--
+-- -   Must be at least 30 minutes
+modifyDBInstance_preferredBackupWindow :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_preferredBackupWindow = Lens.lens (\ModifyDBInstance' {preferredBackupWindow} -> preferredBackupWindow) (\s@ModifyDBInstance' {} a -> s {preferredBackupWindow = a} :: ModifyDBInstance)
 
 -- | The weekly time range (in UTC) during which system maintenance can
 -- occur, which might result in an outage. Changing this parameter doesn\'t
@@ -894,33 +883,44 @@ modifyDBInstance_newDBInstanceIdentifier = Lens.lens (\ModifyDBInstance' {newDBI
 modifyDBInstance_preferredMaintenanceWindow :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
 modifyDBInstance_preferredMaintenanceWindow = Lens.lens (\ModifyDBInstance' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@ModifyDBInstance' {} a -> s {preferredMaintenanceWindow = a} :: ModifyDBInstance)
 
--- | The new Provisioned IOPS (I\/O operations per second) value for the
--- instance.
+-- | A value that specifies the order in which a Read Replica is promoted to
+-- the primary instance after a failure of the existing primary instance.
 --
--- Changing this setting doesn\'t result in an outage and the change is
--- applied during the next maintenance window unless the @ApplyImmediately@
--- parameter is set to @true@ for this request.
+-- Default: 1
 --
--- Default: Uses existing setting
-modifyDBInstance_iops :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Int)
-modifyDBInstance_iops = Lens.lens (\ModifyDBInstance' {iops} -> iops) (\s@ModifyDBInstance' {} a -> s {iops = a} :: ModifyDBInstance)
+-- Valid Values: 0 - 15
+modifyDBInstance_promotionTier :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Int)
+modifyDBInstance_promotionTier = Lens.lens (\ModifyDBInstance' {promotionTier} -> promotionTier) (\s@ModifyDBInstance' {} a -> s {promotionTier = a} :: ModifyDBInstance)
 
--- | The version number of the database engine to upgrade to. Currently,
--- setting this parameter has no effect. To upgrade your database engine to
--- the most recent release, use the ApplyPendingMaintenanceAction API.
-modifyDBInstance_engineVersion :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
-modifyDBInstance_engineVersion = Lens.lens (\ModifyDBInstance' {engineVersion} -> engineVersion) (\s@ModifyDBInstance' {} a -> s {engineVersion = a} :: ModifyDBInstance)
+-- | This flag should no longer be used.
+modifyDBInstance_publiclyAccessible :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
+modifyDBInstance_publiclyAccessible = Lens.lens (\ModifyDBInstance' {publiclyAccessible} -> publiclyAccessible) (\s@ModifyDBInstance' {} a -> s {publiclyAccessible = a} :: ModifyDBInstance)
 
--- | Specifies if the DB instance is a Multi-AZ deployment. Changing this
--- parameter doesn\'t result in an outage and the change is applied during
--- the next maintenance window unless the @ApplyImmediately@ parameter is
--- set to @true@ for this request.
-modifyDBInstance_multiAZ :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Bool)
-modifyDBInstance_multiAZ = Lens.lens (\ModifyDBInstance' {multiAZ} -> multiAZ) (\s@ModifyDBInstance' {} a -> s {multiAZ = a} :: ModifyDBInstance)
+-- | Not supported.
+modifyDBInstance_storageType :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_storageType = Lens.lens (\ModifyDBInstance' {storageType} -> storageType) (\s@ModifyDBInstance' {} a -> s {storageType = a} :: ModifyDBInstance)
 
--- | Not supported by Neptune.
-modifyDBInstance_licenseModel :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
-modifyDBInstance_licenseModel = Lens.lens (\ModifyDBInstance' {licenseModel} -> licenseModel) (\s@ModifyDBInstance' {} a -> s {licenseModel = a} :: ModifyDBInstance)
+-- | The ARN from the key store with which to associate the instance for TDE
+-- encryption.
+modifyDBInstance_tdeCredentialArn :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_tdeCredentialArn = Lens.lens (\ModifyDBInstance' {tdeCredentialArn} -> tdeCredentialArn) (\s@ModifyDBInstance' {} a -> s {tdeCredentialArn = a} :: ModifyDBInstance)
+
+-- | The password for the given ARN from the key store in order to access the
+-- device.
+modifyDBInstance_tdeCredentialPassword :: Lens.Lens' ModifyDBInstance (Prelude.Maybe Prelude.Text)
+modifyDBInstance_tdeCredentialPassword = Lens.lens (\ModifyDBInstance' {tdeCredentialPassword} -> tdeCredentialPassword) (\s@ModifyDBInstance' {} a -> s {tdeCredentialPassword = a} :: ModifyDBInstance)
+
+-- | A list of EC2 VPC security groups to authorize on this DB instance. This
+-- change is asynchronously applied as soon as possible.
+--
+-- Not applicable. The associated list of EC2 VPC security groups is
+-- managed by the DB cluster. For more information, see ModifyDBCluster.
+--
+-- Constraints:
+--
+-- -   If supplied, must match existing VpcSecurityGroupIds.
+modifyDBInstance_vpcSecurityGroupIds :: Lens.Lens' ModifyDBInstance (Prelude.Maybe [Prelude.Text])
+modifyDBInstance_vpcSecurityGroupIds = Lens.lens (\ModifyDBInstance' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@ModifyDBInstance' {} a -> s {vpcSecurityGroupIds = a} :: ModifyDBInstance) Prelude.. Lens.mapping Lens.coerced
 
 -- | The DB instance identifier. This value is stored as a lowercase string.
 --
@@ -947,100 +947,98 @@ instance Core.AWSRequest ModifyDBInstance where
 
 instance Prelude.Hashable ModifyDBInstance where
   hashWithSalt _salt ModifyDBInstance' {..} =
-    _salt `Prelude.hashWithSalt` vpcSecurityGroupIds
-      `Prelude.hashWithSalt` dbParameterGroupName
-      `Prelude.hashWithSalt` preferredBackupWindow
-      `Prelude.hashWithSalt` backupRetentionPeriod
-      `Prelude.hashWithSalt` dbInstanceClass
-      `Prelude.hashWithSalt` copyTagsToSnapshot
-      `Prelude.hashWithSalt` domainIAMRoleName
-      `Prelude.hashWithSalt` promotionTier
-      `Prelude.hashWithSalt` dbSubnetGroupName
-      `Prelude.hashWithSalt` autoMinorVersionUpgrade
-      `Prelude.hashWithSalt` applyImmediately
+    _salt `Prelude.hashWithSalt` allocatedStorage
       `Prelude.hashWithSalt` allowMajorVersionUpgrade
+      `Prelude.hashWithSalt` applyImmediately
+      `Prelude.hashWithSalt` autoMinorVersionUpgrade
+      `Prelude.hashWithSalt` backupRetentionPeriod
+      `Prelude.hashWithSalt` cACertificateIdentifier
+      `Prelude.hashWithSalt` cloudwatchLogsExportConfiguration
+      `Prelude.hashWithSalt` copyTagsToSnapshot
+      `Prelude.hashWithSalt` dbInstanceClass
+      `Prelude.hashWithSalt` dbParameterGroupName
       `Prelude.hashWithSalt` dbPortNumber
+      `Prelude.hashWithSalt` dbSecurityGroups
+      `Prelude.hashWithSalt` dbSubnetGroupName
+      `Prelude.hashWithSalt` deletionProtection
       `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` domainIAMRoleName
+      `Prelude.hashWithSalt` enableIAMDatabaseAuthentication
+      `Prelude.hashWithSalt` enablePerformanceInsights
+      `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` iops
+      `Prelude.hashWithSalt` licenseModel
+      `Prelude.hashWithSalt` masterUserPassword
+      `Prelude.hashWithSalt` monitoringInterval
+      `Prelude.hashWithSalt` monitoringRoleArn
+      `Prelude.hashWithSalt` multiAZ
+      `Prelude.hashWithSalt` newDBInstanceIdentifier'
       `Prelude.hashWithSalt` optionGroupName
       `Prelude.hashWithSalt` performanceInsightsKMSKeyId
-      `Prelude.hashWithSalt` enableIAMDatabaseAuthentication
-      `Prelude.hashWithSalt` dbSecurityGroups
-      `Prelude.hashWithSalt` monitoringInterval
-      `Prelude.hashWithSalt` tdeCredentialPassword
-      `Prelude.hashWithSalt` masterUserPassword
+      `Prelude.hashWithSalt` preferredBackupWindow
+      `Prelude.hashWithSalt` preferredMaintenanceWindow
+      `Prelude.hashWithSalt` promotionTier
       `Prelude.hashWithSalt` publiclyAccessible
       `Prelude.hashWithSalt` storageType
-      `Prelude.hashWithSalt` enablePerformanceInsights
       `Prelude.hashWithSalt` tdeCredentialArn
-      `Prelude.hashWithSalt` cloudwatchLogsExportConfiguration
-      `Prelude.hashWithSalt` cACertificateIdentifier
-      `Prelude.hashWithSalt` monitoringRoleArn
-      `Prelude.hashWithSalt` allocatedStorage
-      `Prelude.hashWithSalt` deletionProtection
-      `Prelude.hashWithSalt` newDBInstanceIdentifier'
-      `Prelude.hashWithSalt` preferredMaintenanceWindow
-      `Prelude.hashWithSalt` iops
-      `Prelude.hashWithSalt` engineVersion
-      `Prelude.hashWithSalt` multiAZ
-      `Prelude.hashWithSalt` licenseModel
+      `Prelude.hashWithSalt` tdeCredentialPassword
+      `Prelude.hashWithSalt` vpcSecurityGroupIds
       `Prelude.hashWithSalt` dbInstanceIdentifier
 
 instance Prelude.NFData ModifyDBInstance where
   rnf ModifyDBInstance' {..} =
-    Prelude.rnf vpcSecurityGroupIds
-      `Prelude.seq` Prelude.rnf dbParameterGroupName
-      `Prelude.seq` Prelude.rnf preferredBackupWindow
-      `Prelude.seq` Prelude.rnf backupRetentionPeriod
-      `Prelude.seq` Prelude.rnf dbInstanceClass
-      `Prelude.seq` Prelude.rnf copyTagsToSnapshot
-      `Prelude.seq` Prelude.rnf domainIAMRoleName
-      `Prelude.seq` Prelude.rnf promotionTier
-      `Prelude.seq` Prelude.rnf dbSubnetGroupName
-      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
-      `Prelude.seq` Prelude.rnf applyImmediately
+    Prelude.rnf allocatedStorage
       `Prelude.seq` Prelude.rnf allowMajorVersionUpgrade
+      `Prelude.seq` Prelude.rnf applyImmediately
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf backupRetentionPeriod
+      `Prelude.seq` Prelude.rnf cACertificateIdentifier
+      `Prelude.seq` Prelude.rnf cloudwatchLogsExportConfiguration
+      `Prelude.seq` Prelude.rnf copyTagsToSnapshot
+      `Prelude.seq` Prelude.rnf dbInstanceClass
+      `Prelude.seq` Prelude.rnf dbParameterGroupName
       `Prelude.seq` Prelude.rnf dbPortNumber
+      `Prelude.seq` Prelude.rnf dbSecurityGroups
+      `Prelude.seq` Prelude.rnf dbSubnetGroupName
+      `Prelude.seq` Prelude.rnf deletionProtection
       `Prelude.seq` Prelude.rnf domain
-      `Prelude.seq` Prelude.rnf optionGroupName
-      `Prelude.seq` Prelude.rnf
-        performanceInsightsKMSKeyId
+      `Prelude.seq` Prelude.rnf domainIAMRoleName
       `Prelude.seq` Prelude.rnf
         enableIAMDatabaseAuthentication
-      `Prelude.seq` Prelude.rnf dbSecurityGroups
-      `Prelude.seq` Prelude.rnf monitoringInterval
       `Prelude.seq` Prelude.rnf
-        tdeCredentialPassword
+        enablePerformanceInsights
+      `Prelude.seq` Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf iops
+      `Prelude.seq` Prelude.rnf licenseModel
       `Prelude.seq` Prelude.rnf
         masterUserPassword
       `Prelude.seq` Prelude.rnf
-        publiclyAccessible
-      `Prelude.seq` Prelude.rnf storageType
-      `Prelude.seq` Prelude.rnf
-        enablePerformanceInsights
-      `Prelude.seq` Prelude.rnf
-        tdeCredentialArn
-      `Prelude.seq` Prelude.rnf
-        cloudwatchLogsExportConfiguration
-      `Prelude.seq` Prelude.rnf
-        cACertificateIdentifier
+        monitoringInterval
       `Prelude.seq` Prelude.rnf
         monitoringRoleArn
-      `Prelude.seq` Prelude.rnf
-        allocatedStorage
-      `Prelude.seq` Prelude.rnf
-        deletionProtection
+      `Prelude.seq` Prelude.rnf multiAZ
       `Prelude.seq` Prelude.rnf
         newDBInstanceIdentifier'
       `Prelude.seq` Prelude.rnf
+        optionGroupName
+      `Prelude.seq` Prelude.rnf
+        performanceInsightsKMSKeyId
+      `Prelude.seq` Prelude.rnf
+        preferredBackupWindow
+      `Prelude.seq` Prelude.rnf
         preferredMaintenanceWindow
       `Prelude.seq` Prelude.rnf
-        iops
+        promotionTier
       `Prelude.seq` Prelude.rnf
-        engineVersion
+        publiclyAccessible
       `Prelude.seq` Prelude.rnf
-        multiAZ
+        storageType
       `Prelude.seq` Prelude.rnf
-        licenseModel
+        tdeCredentialArn
+      `Prelude.seq` Prelude.rnf
+        tdeCredentialPassword
+      `Prelude.seq` Prelude.rnf
+        vpcSecurityGroupIds
       `Prelude.seq` Prelude.rnf
         dbInstanceIdentifier
 
@@ -1057,62 +1055,62 @@ instance Data.ToQuery ModifyDBInstance where
           Data.=: ("ModifyDBInstance" :: Prelude.ByteString),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
-        "VpcSecurityGroupIds"
-          Data.=: Data.toQuery
-            ( Data.toQueryList "VpcSecurityGroupId"
-                Prelude.<$> vpcSecurityGroupIds
-            ),
-        "DBParameterGroupName" Data.=: dbParameterGroupName,
-        "PreferredBackupWindow"
-          Data.=: preferredBackupWindow,
-        "BackupRetentionPeriod"
-          Data.=: backupRetentionPeriod,
-        "DBInstanceClass" Data.=: dbInstanceClass,
-        "CopyTagsToSnapshot" Data.=: copyTagsToSnapshot,
-        "DomainIAMRoleName" Data.=: domainIAMRoleName,
-        "PromotionTier" Data.=: promotionTier,
-        "DBSubnetGroupName" Data.=: dbSubnetGroupName,
-        "AutoMinorVersionUpgrade"
-          Data.=: autoMinorVersionUpgrade,
-        "ApplyImmediately" Data.=: applyImmediately,
+        "AllocatedStorage" Data.=: allocatedStorage,
         "AllowMajorVersionUpgrade"
           Data.=: allowMajorVersionUpgrade,
+        "ApplyImmediately" Data.=: applyImmediately,
+        "AutoMinorVersionUpgrade"
+          Data.=: autoMinorVersionUpgrade,
+        "BackupRetentionPeriod"
+          Data.=: backupRetentionPeriod,
+        "CACertificateIdentifier"
+          Data.=: cACertificateIdentifier,
+        "CloudwatchLogsExportConfiguration"
+          Data.=: cloudwatchLogsExportConfiguration,
+        "CopyTagsToSnapshot" Data.=: copyTagsToSnapshot,
+        "DBInstanceClass" Data.=: dbInstanceClass,
+        "DBParameterGroupName" Data.=: dbParameterGroupName,
         "DBPortNumber" Data.=: dbPortNumber,
-        "Domain" Data.=: domain,
-        "OptionGroupName" Data.=: optionGroupName,
-        "PerformanceInsightsKMSKeyId"
-          Data.=: performanceInsightsKMSKeyId,
-        "EnableIAMDatabaseAuthentication"
-          Data.=: enableIAMDatabaseAuthentication,
         "DBSecurityGroups"
           Data.=: Data.toQuery
             ( Data.toQueryList "DBSecurityGroupName"
                 Prelude.<$> dbSecurityGroups
             ),
-        "MonitoringInterval" Data.=: monitoringInterval,
-        "TdeCredentialPassword"
-          Data.=: tdeCredentialPassword,
-        "MasterUserPassword" Data.=: masterUserPassword,
-        "PubliclyAccessible" Data.=: publiclyAccessible,
-        "StorageType" Data.=: storageType,
+        "DBSubnetGroupName" Data.=: dbSubnetGroupName,
+        "DeletionProtection" Data.=: deletionProtection,
+        "Domain" Data.=: domain,
+        "DomainIAMRoleName" Data.=: domainIAMRoleName,
+        "EnableIAMDatabaseAuthentication"
+          Data.=: enableIAMDatabaseAuthentication,
         "EnablePerformanceInsights"
           Data.=: enablePerformanceInsights,
-        "TdeCredentialArn" Data.=: tdeCredentialArn,
-        "CloudwatchLogsExportConfiguration"
-          Data.=: cloudwatchLogsExportConfiguration,
-        "CACertificateIdentifier"
-          Data.=: cACertificateIdentifier,
+        "EngineVersion" Data.=: engineVersion,
+        "Iops" Data.=: iops,
+        "LicenseModel" Data.=: licenseModel,
+        "MasterUserPassword" Data.=: masterUserPassword,
+        "MonitoringInterval" Data.=: monitoringInterval,
         "MonitoringRoleArn" Data.=: monitoringRoleArn,
-        "AllocatedStorage" Data.=: allocatedStorage,
-        "DeletionProtection" Data.=: deletionProtection,
+        "MultiAZ" Data.=: multiAZ,
         "NewDBInstanceIdentifier"
           Data.=: newDBInstanceIdentifier',
+        "OptionGroupName" Data.=: optionGroupName,
+        "PerformanceInsightsKMSKeyId"
+          Data.=: performanceInsightsKMSKeyId,
+        "PreferredBackupWindow"
+          Data.=: preferredBackupWindow,
         "PreferredMaintenanceWindow"
           Data.=: preferredMaintenanceWindow,
-        "Iops" Data.=: iops,
-        "EngineVersion" Data.=: engineVersion,
-        "MultiAZ" Data.=: multiAZ,
-        "LicenseModel" Data.=: licenseModel,
+        "PromotionTier" Data.=: promotionTier,
+        "PubliclyAccessible" Data.=: publiclyAccessible,
+        "StorageType" Data.=: storageType,
+        "TdeCredentialArn" Data.=: tdeCredentialArn,
+        "TdeCredentialPassword"
+          Data.=: tdeCredentialPassword,
+        "VpcSecurityGroupIds"
+          Data.=: Data.toQuery
+            ( Data.toQueryList "VpcSecurityGroupId"
+                Prelude.<$> vpcSecurityGroupIds
+            ),
         "DBInstanceIdentifier" Data.=: dbInstanceIdentifier
       ]
 

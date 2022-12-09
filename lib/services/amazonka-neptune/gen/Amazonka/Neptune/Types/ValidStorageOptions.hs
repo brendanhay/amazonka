@@ -34,14 +34,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newValidStorageOptions' smart constructor.
 data ValidStorageOptions = ValidStorageOptions'
-  { -- | The valid range of storage in gibibytes. For example, 100 to 16384.
-    storageSize :: Prelude.Maybe [Range],
-    -- | The valid range of Provisioned IOPS to gibibytes of storage multiplier.
+  { -- | The valid range of Provisioned IOPS to gibibytes of storage multiplier.
     -- For example, 3-10, which means that provisioned IOPS can be between 3
     -- and 10 times storage.
     iopsToStorageRatio :: Prelude.Maybe [DoubleRange],
     -- | The valid range of provisioned IOPS. For example, 1000-20000.
     provisionedIops :: Prelude.Maybe [Range],
+    -- | The valid range of storage in gibibytes. For example, 100 to 16384.
+    storageSize :: Prelude.Maybe [Range],
     -- | The valid storage types for your DB instance. For example, gp2, io1.
     storageType :: Prelude.Maybe Prelude.Text
   }
@@ -55,28 +55,25 @@ data ValidStorageOptions = ValidStorageOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'storageSize', 'validStorageOptions_storageSize' - The valid range of storage in gibibytes. For example, 100 to 16384.
---
 -- 'iopsToStorageRatio', 'validStorageOptions_iopsToStorageRatio' - The valid range of Provisioned IOPS to gibibytes of storage multiplier.
 -- For example, 3-10, which means that provisioned IOPS can be between 3
 -- and 10 times storage.
 --
 -- 'provisionedIops', 'validStorageOptions_provisionedIops' - The valid range of provisioned IOPS. For example, 1000-20000.
 --
+-- 'storageSize', 'validStorageOptions_storageSize' - The valid range of storage in gibibytes. For example, 100 to 16384.
+--
 -- 'storageType', 'validStorageOptions_storageType' - The valid storage types for your DB instance. For example, gp2, io1.
 newValidStorageOptions ::
   ValidStorageOptions
 newValidStorageOptions =
   ValidStorageOptions'
-    { storageSize = Prelude.Nothing,
-      iopsToStorageRatio = Prelude.Nothing,
+    { iopsToStorageRatio =
+        Prelude.Nothing,
       provisionedIops = Prelude.Nothing,
+      storageSize = Prelude.Nothing,
       storageType = Prelude.Nothing
     }
-
--- | The valid range of storage in gibibytes. For example, 100 to 16384.
-validStorageOptions_storageSize :: Lens.Lens' ValidStorageOptions (Prelude.Maybe [Range])
-validStorageOptions_storageSize = Lens.lens (\ValidStorageOptions' {storageSize} -> storageSize) (\s@ValidStorageOptions' {} a -> s {storageSize = a} :: ValidStorageOptions) Prelude.. Lens.mapping Lens.coerced
 
 -- | The valid range of Provisioned IOPS to gibibytes of storage multiplier.
 -- For example, 3-10, which means that provisioned IOPS can be between 3
@@ -88,6 +85,10 @@ validStorageOptions_iopsToStorageRatio = Lens.lens (\ValidStorageOptions' {iopsT
 validStorageOptions_provisionedIops :: Lens.Lens' ValidStorageOptions (Prelude.Maybe [Range])
 validStorageOptions_provisionedIops = Lens.lens (\ValidStorageOptions' {provisionedIops} -> provisionedIops) (\s@ValidStorageOptions' {} a -> s {provisionedIops = a} :: ValidStorageOptions) Prelude.. Lens.mapping Lens.coerced
 
+-- | The valid range of storage in gibibytes. For example, 100 to 16384.
+validStorageOptions_storageSize :: Lens.Lens' ValidStorageOptions (Prelude.Maybe [Range])
+validStorageOptions_storageSize = Lens.lens (\ValidStorageOptions' {storageSize} -> storageSize) (\s@ValidStorageOptions' {} a -> s {storageSize = a} :: ValidStorageOptions) Prelude.. Lens.mapping Lens.coerced
+
 -- | The valid storage types for your DB instance. For example, gp2, io1.
 validStorageOptions_storageType :: Lens.Lens' ValidStorageOptions (Prelude.Maybe Prelude.Text)
 validStorageOptions_storageType = Lens.lens (\ValidStorageOptions' {storageType} -> storageType) (\s@ValidStorageOptions' {} a -> s {storageType = a} :: ValidStorageOptions)
@@ -95,28 +96,28 @@ validStorageOptions_storageType = Lens.lens (\ValidStorageOptions' {storageType}
 instance Data.FromXML ValidStorageOptions where
   parseXML x =
     ValidStorageOptions'
-      Prelude.<$> ( x Data..@? "StorageSize" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Data.parseXMLList "Range")
-                  )
-      Prelude.<*> ( x Data..@? "IopsToStorageRatio"
+      Prelude.<$> ( x Data..@? "IopsToStorageRatio"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "DoubleRange")
                   )
       Prelude.<*> ( x Data..@? "ProvisionedIops" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Range")
                   )
+      Prelude.<*> ( x Data..@? "StorageSize" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "Range")
+                  )
       Prelude.<*> (x Data..@? "StorageType")
 
 instance Prelude.Hashable ValidStorageOptions where
   hashWithSalt _salt ValidStorageOptions' {..} =
-    _salt `Prelude.hashWithSalt` storageSize
-      `Prelude.hashWithSalt` iopsToStorageRatio
+    _salt `Prelude.hashWithSalt` iopsToStorageRatio
       `Prelude.hashWithSalt` provisionedIops
+      `Prelude.hashWithSalt` storageSize
       `Prelude.hashWithSalt` storageType
 
 instance Prelude.NFData ValidStorageOptions where
   rnf ValidStorageOptions' {..} =
-    Prelude.rnf storageSize
-      `Prelude.seq` Prelude.rnf iopsToStorageRatio
+    Prelude.rnf iopsToStorageRatio
       `Prelude.seq` Prelude.rnf provisionedIops
+      `Prelude.seq` Prelude.rnf storageSize
       `Prelude.seq` Prelude.rnf storageType

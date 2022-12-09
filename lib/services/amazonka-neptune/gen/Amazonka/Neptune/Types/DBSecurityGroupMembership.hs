@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDBSecurityGroupMembership' smart constructor.
 data DBSecurityGroupMembership = DBSecurityGroupMembership'
-  { -- | The status of the DB security group.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The name of the DB security group.
-    dbSecurityGroupName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the DB security group.
+    dbSecurityGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The status of the DB security group.
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,38 +43,38 @@ data DBSecurityGroupMembership = DBSecurityGroupMembership'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'dbSecurityGroupMembership_status' - The status of the DB security group.
---
 -- 'dbSecurityGroupName', 'dbSecurityGroupMembership_dbSecurityGroupName' - The name of the DB security group.
+--
+-- 'status', 'dbSecurityGroupMembership_status' - The status of the DB security group.
 newDBSecurityGroupMembership ::
   DBSecurityGroupMembership
 newDBSecurityGroupMembership =
   DBSecurityGroupMembership'
-    { status =
+    { dbSecurityGroupName =
         Prelude.Nothing,
-      dbSecurityGroupName = Prelude.Nothing
+      status = Prelude.Nothing
     }
-
--- | The status of the DB security group.
-dbSecurityGroupMembership_status :: Lens.Lens' DBSecurityGroupMembership (Prelude.Maybe Prelude.Text)
-dbSecurityGroupMembership_status = Lens.lens (\DBSecurityGroupMembership' {status} -> status) (\s@DBSecurityGroupMembership' {} a -> s {status = a} :: DBSecurityGroupMembership)
 
 -- | The name of the DB security group.
 dbSecurityGroupMembership_dbSecurityGroupName :: Lens.Lens' DBSecurityGroupMembership (Prelude.Maybe Prelude.Text)
 dbSecurityGroupMembership_dbSecurityGroupName = Lens.lens (\DBSecurityGroupMembership' {dbSecurityGroupName} -> dbSecurityGroupName) (\s@DBSecurityGroupMembership' {} a -> s {dbSecurityGroupName = a} :: DBSecurityGroupMembership)
 
+-- | The status of the DB security group.
+dbSecurityGroupMembership_status :: Lens.Lens' DBSecurityGroupMembership (Prelude.Maybe Prelude.Text)
+dbSecurityGroupMembership_status = Lens.lens (\DBSecurityGroupMembership' {status} -> status) (\s@DBSecurityGroupMembership' {} a -> s {status = a} :: DBSecurityGroupMembership)
+
 instance Data.FromXML DBSecurityGroupMembership where
   parseXML x =
     DBSecurityGroupMembership'
-      Prelude.<$> (x Data..@? "Status")
-      Prelude.<*> (x Data..@? "DBSecurityGroupName")
+      Prelude.<$> (x Data..@? "DBSecurityGroupName")
+      Prelude.<*> (x Data..@? "Status")
 
 instance Prelude.Hashable DBSecurityGroupMembership where
   hashWithSalt _salt DBSecurityGroupMembership' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` dbSecurityGroupName
+    _salt `Prelude.hashWithSalt` dbSecurityGroupName
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData DBSecurityGroupMembership where
   rnf DBSecurityGroupMembership' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf dbSecurityGroupName
+    Prelude.rnf dbSecurityGroupName
+      `Prelude.seq` Prelude.rnf status

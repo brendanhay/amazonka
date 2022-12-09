@@ -37,14 +37,14 @@ data UpgradeTarget = UpgradeTarget'
     description :: Prelude.Maybe Prelude.Text,
     -- | The name of the upgrade target database engine.
     engine :: Prelude.Maybe Prelude.Text,
-    -- | A value that indicates whether you can use Neptune global databases with
-    -- the target engine version.
-    supportsGlobalDatabases :: Prelude.Maybe Prelude.Bool,
     -- | The version number of the upgrade target database engine.
     engineVersion :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether a database engine is upgraded to a major
     -- version.
-    isMajorVersionUpgrade :: Prelude.Maybe Prelude.Bool
+    isMajorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    -- | A value that indicates whether you can use Neptune global databases with
+    -- the target engine version.
+    supportsGlobalDatabases :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,13 +64,13 @@ data UpgradeTarget = UpgradeTarget'
 --
 -- 'engine', 'upgradeTarget_engine' - The name of the upgrade target database engine.
 --
--- 'supportsGlobalDatabases', 'upgradeTarget_supportsGlobalDatabases' - A value that indicates whether you can use Neptune global databases with
--- the target engine version.
---
 -- 'engineVersion', 'upgradeTarget_engineVersion' - The version number of the upgrade target database engine.
 --
 -- 'isMajorVersionUpgrade', 'upgradeTarget_isMajorVersionUpgrade' - A value that indicates whether a database engine is upgraded to a major
 -- version.
+--
+-- 'supportsGlobalDatabases', 'upgradeTarget_supportsGlobalDatabases' - A value that indicates whether you can use Neptune global databases with
+-- the target engine version.
 newUpgradeTarget ::
   UpgradeTarget
 newUpgradeTarget =
@@ -78,9 +78,9 @@ newUpgradeTarget =
     { autoUpgrade = Prelude.Nothing,
       description = Prelude.Nothing,
       engine = Prelude.Nothing,
-      supportsGlobalDatabases = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
-      isMajorVersionUpgrade = Prelude.Nothing
+      isMajorVersionUpgrade = Prelude.Nothing,
+      supportsGlobalDatabases = Prelude.Nothing
     }
 
 -- | A value that indicates whether the target version is applied to any
@@ -97,11 +97,6 @@ upgradeTarget_description = Lens.lens (\UpgradeTarget' {description} -> descript
 upgradeTarget_engine :: Lens.Lens' UpgradeTarget (Prelude.Maybe Prelude.Text)
 upgradeTarget_engine = Lens.lens (\UpgradeTarget' {engine} -> engine) (\s@UpgradeTarget' {} a -> s {engine = a} :: UpgradeTarget)
 
--- | A value that indicates whether you can use Neptune global databases with
--- the target engine version.
-upgradeTarget_supportsGlobalDatabases :: Lens.Lens' UpgradeTarget (Prelude.Maybe Prelude.Bool)
-upgradeTarget_supportsGlobalDatabases = Lens.lens (\UpgradeTarget' {supportsGlobalDatabases} -> supportsGlobalDatabases) (\s@UpgradeTarget' {} a -> s {supportsGlobalDatabases = a} :: UpgradeTarget)
-
 -- | The version number of the upgrade target database engine.
 upgradeTarget_engineVersion :: Lens.Lens' UpgradeTarget (Prelude.Maybe Prelude.Text)
 upgradeTarget_engineVersion = Lens.lens (\UpgradeTarget' {engineVersion} -> engineVersion) (\s@UpgradeTarget' {} a -> s {engineVersion = a} :: UpgradeTarget)
@@ -111,30 +106,35 @@ upgradeTarget_engineVersion = Lens.lens (\UpgradeTarget' {engineVersion} -> engi
 upgradeTarget_isMajorVersionUpgrade :: Lens.Lens' UpgradeTarget (Prelude.Maybe Prelude.Bool)
 upgradeTarget_isMajorVersionUpgrade = Lens.lens (\UpgradeTarget' {isMajorVersionUpgrade} -> isMajorVersionUpgrade) (\s@UpgradeTarget' {} a -> s {isMajorVersionUpgrade = a} :: UpgradeTarget)
 
+-- | A value that indicates whether you can use Neptune global databases with
+-- the target engine version.
+upgradeTarget_supportsGlobalDatabases :: Lens.Lens' UpgradeTarget (Prelude.Maybe Prelude.Bool)
+upgradeTarget_supportsGlobalDatabases = Lens.lens (\UpgradeTarget' {supportsGlobalDatabases} -> supportsGlobalDatabases) (\s@UpgradeTarget' {} a -> s {supportsGlobalDatabases = a} :: UpgradeTarget)
+
 instance Data.FromXML UpgradeTarget where
   parseXML x =
     UpgradeTarget'
       Prelude.<$> (x Data..@? "AutoUpgrade")
       Prelude.<*> (x Data..@? "Description")
       Prelude.<*> (x Data..@? "Engine")
-      Prelude.<*> (x Data..@? "SupportsGlobalDatabases")
       Prelude.<*> (x Data..@? "EngineVersion")
       Prelude.<*> (x Data..@? "IsMajorVersionUpgrade")
+      Prelude.<*> (x Data..@? "SupportsGlobalDatabases")
 
 instance Prelude.Hashable UpgradeTarget where
   hashWithSalt _salt UpgradeTarget' {..} =
     _salt `Prelude.hashWithSalt` autoUpgrade
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` engine
-      `Prelude.hashWithSalt` supportsGlobalDatabases
       `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` isMajorVersionUpgrade
+      `Prelude.hashWithSalt` supportsGlobalDatabases
 
 instance Prelude.NFData UpgradeTarget where
   rnf UpgradeTarget' {..} =
     Prelude.rnf autoUpgrade
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf engine
-      `Prelude.seq` Prelude.rnf supportsGlobalDatabases
       `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf isMajorVersionUpgrade
+      `Prelude.seq` Prelude.rnf supportsGlobalDatabases

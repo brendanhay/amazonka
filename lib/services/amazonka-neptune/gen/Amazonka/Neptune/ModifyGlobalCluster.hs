@@ -31,8 +31,8 @@ module Amazonka.Neptune.ModifyGlobalCluster
     -- * Request Lenses
     modifyGlobalCluster_allowMajorVersionUpgrade,
     modifyGlobalCluster_deletionProtection,
-    modifyGlobalCluster_newGlobalClusterIdentifier,
     modifyGlobalCluster_engineVersion,
+    modifyGlobalCluster_newGlobalClusterIdentifier,
     modifyGlobalCluster_globalClusterIdentifier,
 
     -- * Destructuring the Response
@@ -70,6 +70,13 @@ data ModifyGlobalCluster = ModifyGlobalCluster'
     -- The global database cannot be deleted when deletion protection is
     -- enabled.
     deletionProtection :: Prelude.Maybe Prelude.Bool,
+    -- | The version number of the database engine to which you want to upgrade.
+    -- Changing this parameter will result in an outage. The change is applied
+    -- during the next maintenance window unless @ApplyImmediately@ is enabled.
+    --
+    -- To list all of the available Neptune engine versions, use the following
+    -- command:
+    engineVersion :: Prelude.Maybe Prelude.Text,
     -- | A new cluster identifier to assign to the global database. This value is
     -- stored as a lowercase string.
     --
@@ -83,13 +90,6 @@ data ModifyGlobalCluster = ModifyGlobalCluster'
     --
     -- Example: @my-cluster2@
     newGlobalClusterIdentifier' :: Prelude.Maybe Prelude.Text,
-    -- | The version number of the database engine to which you want to upgrade.
-    -- Changing this parameter will result in an outage. The change is applied
-    -- during the next maintenance window unless @ApplyImmediately@ is enabled.
-    --
-    -- To list all of the available Neptune engine versions, use the following
-    -- command:
-    engineVersion :: Prelude.Maybe Prelude.Text,
     -- | The DB cluster identifier for the global cluster being modified. This
     -- parameter is not case-sensitive.
     --
@@ -122,6 +122,13 @@ data ModifyGlobalCluster = ModifyGlobalCluster'
 -- The global database cannot be deleted when deletion protection is
 -- enabled.
 --
+-- 'engineVersion', 'modifyGlobalCluster_engineVersion' - The version number of the database engine to which you want to upgrade.
+-- Changing this parameter will result in an outage. The change is applied
+-- during the next maintenance window unless @ApplyImmediately@ is enabled.
+--
+-- To list all of the available Neptune engine versions, use the following
+-- command:
+--
 -- 'newGlobalClusterIdentifier'', 'modifyGlobalCluster_newGlobalClusterIdentifier' - A new cluster identifier to assign to the global database. This value is
 -- stored as a lowercase string.
 --
@@ -134,13 +141,6 @@ data ModifyGlobalCluster = ModifyGlobalCluster'
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens
 --
 -- Example: @my-cluster2@
---
--- 'engineVersion', 'modifyGlobalCluster_engineVersion' - The version number of the database engine to which you want to upgrade.
--- Changing this parameter will result in an outage. The change is applied
--- during the next maintenance window unless @ApplyImmediately@ is enabled.
---
--- To list all of the available Neptune engine versions, use the following
--- command:
 --
 -- 'globalClusterIdentifier', 'modifyGlobalCluster_globalClusterIdentifier' - The DB cluster identifier for the global cluster being modified. This
 -- parameter is not case-sensitive.
@@ -156,8 +156,8 @@ newModifyGlobalCluster pGlobalClusterIdentifier_ =
     { allowMajorVersionUpgrade =
         Prelude.Nothing,
       deletionProtection = Prelude.Nothing,
-      newGlobalClusterIdentifier' = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
+      newGlobalClusterIdentifier' = Prelude.Nothing,
       globalClusterIdentifier = pGlobalClusterIdentifier_
     }
 
@@ -180,6 +180,15 @@ modifyGlobalCluster_allowMajorVersionUpgrade = Lens.lens (\ModifyGlobalCluster' 
 modifyGlobalCluster_deletionProtection :: Lens.Lens' ModifyGlobalCluster (Prelude.Maybe Prelude.Bool)
 modifyGlobalCluster_deletionProtection = Lens.lens (\ModifyGlobalCluster' {deletionProtection} -> deletionProtection) (\s@ModifyGlobalCluster' {} a -> s {deletionProtection = a} :: ModifyGlobalCluster)
 
+-- | The version number of the database engine to which you want to upgrade.
+-- Changing this parameter will result in an outage. The change is applied
+-- during the next maintenance window unless @ApplyImmediately@ is enabled.
+--
+-- To list all of the available Neptune engine versions, use the following
+-- command:
+modifyGlobalCluster_engineVersion :: Lens.Lens' ModifyGlobalCluster (Prelude.Maybe Prelude.Text)
+modifyGlobalCluster_engineVersion = Lens.lens (\ModifyGlobalCluster' {engineVersion} -> engineVersion) (\s@ModifyGlobalCluster' {} a -> s {engineVersion = a} :: ModifyGlobalCluster)
+
 -- | A new cluster identifier to assign to the global database. This value is
 -- stored as a lowercase string.
 --
@@ -194,15 +203,6 @@ modifyGlobalCluster_deletionProtection = Lens.lens (\ModifyGlobalCluster' {delet
 -- Example: @my-cluster2@
 modifyGlobalCluster_newGlobalClusterIdentifier :: Lens.Lens' ModifyGlobalCluster (Prelude.Maybe Prelude.Text)
 modifyGlobalCluster_newGlobalClusterIdentifier = Lens.lens (\ModifyGlobalCluster' {newGlobalClusterIdentifier'} -> newGlobalClusterIdentifier') (\s@ModifyGlobalCluster' {} a -> s {newGlobalClusterIdentifier' = a} :: ModifyGlobalCluster)
-
--- | The version number of the database engine to which you want to upgrade.
--- Changing this parameter will result in an outage. The change is applied
--- during the next maintenance window unless @ApplyImmediately@ is enabled.
---
--- To list all of the available Neptune engine versions, use the following
--- command:
-modifyGlobalCluster_engineVersion :: Lens.Lens' ModifyGlobalCluster (Prelude.Maybe Prelude.Text)
-modifyGlobalCluster_engineVersion = Lens.lens (\ModifyGlobalCluster' {engineVersion} -> engineVersion) (\s@ModifyGlobalCluster' {} a -> s {engineVersion = a} :: ModifyGlobalCluster)
 
 -- | The DB cluster identifier for the global cluster being modified. This
 -- parameter is not case-sensitive.
@@ -232,16 +232,16 @@ instance Prelude.Hashable ModifyGlobalCluster where
     _salt
       `Prelude.hashWithSalt` allowMajorVersionUpgrade
       `Prelude.hashWithSalt` deletionProtection
-      `Prelude.hashWithSalt` newGlobalClusterIdentifier'
       `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` newGlobalClusterIdentifier'
       `Prelude.hashWithSalt` globalClusterIdentifier
 
 instance Prelude.NFData ModifyGlobalCluster where
   rnf ModifyGlobalCluster' {..} =
     Prelude.rnf allowMajorVersionUpgrade
       `Prelude.seq` Prelude.rnf deletionProtection
-      `Prelude.seq` Prelude.rnf newGlobalClusterIdentifier'
       `Prelude.seq` Prelude.rnf engineVersion
+      `Prelude.seq` Prelude.rnf newGlobalClusterIdentifier'
       `Prelude.seq` Prelude.rnf globalClusterIdentifier
 
 instance Data.ToHeaders ModifyGlobalCluster where
@@ -260,9 +260,9 @@ instance Data.ToQuery ModifyGlobalCluster where
         "AllowMajorVersionUpgrade"
           Data.=: allowMajorVersionUpgrade,
         "DeletionProtection" Data.=: deletionProtection,
+        "EngineVersion" Data.=: engineVersion,
         "NewGlobalClusterIdentifier"
           Data.=: newGlobalClusterIdentifier',
-        "EngineVersion" Data.=: engineVersion,
         "GlobalClusterIdentifier"
           Data.=: globalClusterIdentifier
       ]

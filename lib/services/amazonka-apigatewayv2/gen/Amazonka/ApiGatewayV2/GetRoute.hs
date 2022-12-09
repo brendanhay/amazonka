@@ -35,19 +35,19 @@ module Amazonka.ApiGatewayV2.GetRoute
     newGetRouteResponse',
 
     -- * Response Lenses
-    getRouteResponse'_requestModels,
-    getRouteResponse'_requestParameters,
+    getRouteResponse'_apiGatewayManaged,
     getRouteResponse'_apiKeyRequired,
-    getRouteResponse'_target,
-    getRouteResponse'_modelSelectionExpression,
-    getRouteResponse'_routeKey,
-    getRouteResponse'_routeId,
     getRouteResponse'_authorizationScopes,
     getRouteResponse'_authorizationType,
-    getRouteResponse'_operationName,
-    getRouteResponse'_apiGatewayManaged,
-    getRouteResponse'_routeResponseSelectionExpression,
     getRouteResponse'_authorizerId,
+    getRouteResponse'_modelSelectionExpression,
+    getRouteResponse'_operationName,
+    getRouteResponse'_requestModels,
+    getRouteResponse'_requestParameters,
+    getRouteResponse'_routeId,
+    getRouteResponse'_routeKey,
+    getRouteResponse'_routeResponseSelectionExpression,
+    getRouteResponse'_target,
     getRouteResponse'_httpStatus,
   )
 where
@@ -105,23 +105,23 @@ instance Core.AWSRequest GetRoute where
     Response.receiveJSON
       ( \s h x ->
           GetRouteResponse''
-            Prelude.<$> (x Data..?> "requestModels" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "requestParameters"
-                            Core..!@ Prelude.mempty
-                        )
+            Prelude.<$> (x Data..?> "apiGatewayManaged")
             Prelude.<*> (x Data..?> "apiKeyRequired")
-            Prelude.<*> (x Data..?> "target")
-            Prelude.<*> (x Data..?> "modelSelectionExpression")
-            Prelude.<*> (x Data..?> "routeKey")
-            Prelude.<*> (x Data..?> "routeId")
             Prelude.<*> ( x Data..?> "authorizationScopes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "authorizationType")
-            Prelude.<*> (x Data..?> "operationName")
-            Prelude.<*> (x Data..?> "apiGatewayManaged")
-            Prelude.<*> (x Data..?> "routeResponseSelectionExpression")
             Prelude.<*> (x Data..?> "authorizerId")
+            Prelude.<*> (x Data..?> "modelSelectionExpression")
+            Prelude.<*> (x Data..?> "operationName")
+            Prelude.<*> (x Data..?> "requestModels" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "requestParameters"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Data..?> "routeId")
+            Prelude.<*> (x Data..?> "routeKey")
+            Prelude.<*> (x Data..?> "routeResponseSelectionExpression")
+            Prelude.<*> (x Data..?> "target")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,22 +159,13 @@ instance Data.ToQuery GetRoute where
 
 -- | /See:/ 'newGetRouteResponse'' smart constructor.
 data GetRouteResponse' = GetRouteResponse''
-  { -- | The request models for the route. Supported only for WebSocket APIs.
-    requestModels :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The request parameters for the route. Supported only for WebSocket APIs.
-    requestParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text ParameterConstraints),
+  { -- | Specifies whether a route is managed by API Gateway. If you created an
+    -- API using quick create, the $default route is managed by API Gateway.
+    -- You can\'t modify the $default route key.
+    apiGatewayManaged :: Prelude.Maybe Prelude.Bool,
     -- | Specifies whether an API key is required for this route. Supported only
     -- for WebSocket APIs.
     apiKeyRequired :: Prelude.Maybe Prelude.Bool,
-    -- | The target for the route.
-    target :: Prelude.Maybe Prelude.Text,
-    -- | The model selection expression for the route. Supported only for
-    -- WebSocket APIs.
-    modelSelectionExpression :: Prelude.Maybe Prelude.Text,
-    -- | The route key for the route.
-    routeKey :: Prelude.Maybe Prelude.Text,
-    -- | The route ID.
-    routeId :: Prelude.Maybe Prelude.Text,
     -- | A list of authorization scopes configured on a route. The scopes are
     -- used with a JWT authorizer to authorize the method invocation. The
     -- authorization works by matching the route scopes against the scopes
@@ -190,19 +181,28 @@ data GetRouteResponse' = GetRouteResponse''
     -- NONE for open access, JWT for using JSON Web Tokens, AWS_IAM for using
     -- AWS IAM permissions, and CUSTOM for using a Lambda authorizer.
     authorizationType :: Prelude.Maybe AuthorizationType,
-    -- | The operation name for the route.
-    operationName :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether a route is managed by API Gateway. If you created an
-    -- API using quick create, the $default route is managed by API Gateway.
-    -- You can\'t modify the $default route key.
-    apiGatewayManaged :: Prelude.Maybe Prelude.Bool,
-    -- | The route response selection expression for the route. Supported only
-    -- for WebSocket APIs.
-    routeResponseSelectionExpression :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the Authorizer resource to be associated with this
     -- route. The authorizer identifier is generated by API Gateway when you
     -- created the authorizer.
     authorizerId :: Prelude.Maybe Prelude.Text,
+    -- | The model selection expression for the route. Supported only for
+    -- WebSocket APIs.
+    modelSelectionExpression :: Prelude.Maybe Prelude.Text,
+    -- | The operation name for the route.
+    operationName :: Prelude.Maybe Prelude.Text,
+    -- | The request models for the route. Supported only for WebSocket APIs.
+    requestModels :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The request parameters for the route. Supported only for WebSocket APIs.
+    requestParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text ParameterConstraints),
+    -- | The route ID.
+    routeId :: Prelude.Maybe Prelude.Text,
+    -- | The route key for the route.
+    routeKey :: Prelude.Maybe Prelude.Text,
+    -- | The route response selection expression for the route. Supported only
+    -- for WebSocket APIs.
+    routeResponseSelectionExpression :: Prelude.Maybe Prelude.Text,
+    -- | The target for the route.
+    target :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -216,21 +216,12 @@ data GetRouteResponse' = GetRouteResponse''
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestModels', 'getRouteResponse'_requestModels' - The request models for the route. Supported only for WebSocket APIs.
---
--- 'requestParameters', 'getRouteResponse'_requestParameters' - The request parameters for the route. Supported only for WebSocket APIs.
+-- 'apiGatewayManaged', 'getRouteResponse'_apiGatewayManaged' - Specifies whether a route is managed by API Gateway. If you created an
+-- API using quick create, the $default route is managed by API Gateway.
+-- You can\'t modify the $default route key.
 --
 -- 'apiKeyRequired', 'getRouteResponse'_apiKeyRequired' - Specifies whether an API key is required for this route. Supported only
 -- for WebSocket APIs.
---
--- 'target', 'getRouteResponse'_target' - The target for the route.
---
--- 'modelSelectionExpression', 'getRouteResponse'_modelSelectionExpression' - The model selection expression for the route. Supported only for
--- WebSocket APIs.
---
--- 'routeKey', 'getRouteResponse'_routeKey' - The route key for the route.
---
--- 'routeId', 'getRouteResponse'_routeId' - The route ID.
 --
 -- 'authorizationScopes', 'getRouteResponse'_authorizationScopes' - A list of authorization scopes configured on a route. The scopes are
 -- used with a JWT authorizer to authorize the method invocation. The
@@ -247,18 +238,27 @@ data GetRouteResponse' = GetRouteResponse''
 -- NONE for open access, JWT for using JSON Web Tokens, AWS_IAM for using
 -- AWS IAM permissions, and CUSTOM for using a Lambda authorizer.
 --
+-- 'authorizerId', 'getRouteResponse'_authorizerId' - The identifier of the Authorizer resource to be associated with this
+-- route. The authorizer identifier is generated by API Gateway when you
+-- created the authorizer.
+--
+-- 'modelSelectionExpression', 'getRouteResponse'_modelSelectionExpression' - The model selection expression for the route. Supported only for
+-- WebSocket APIs.
+--
 -- 'operationName', 'getRouteResponse'_operationName' - The operation name for the route.
 --
--- 'apiGatewayManaged', 'getRouteResponse'_apiGatewayManaged' - Specifies whether a route is managed by API Gateway. If you created an
--- API using quick create, the $default route is managed by API Gateway.
--- You can\'t modify the $default route key.
+-- 'requestModels', 'getRouteResponse'_requestModels' - The request models for the route. Supported only for WebSocket APIs.
+--
+-- 'requestParameters', 'getRouteResponse'_requestParameters' - The request parameters for the route. Supported only for WebSocket APIs.
+--
+-- 'routeId', 'getRouteResponse'_routeId' - The route ID.
+--
+-- 'routeKey', 'getRouteResponse'_routeKey' - The route key for the route.
 --
 -- 'routeResponseSelectionExpression', 'getRouteResponse'_routeResponseSelectionExpression' - The route response selection expression for the route. Supported only
 -- for WebSocket APIs.
 --
--- 'authorizerId', 'getRouteResponse'_authorizerId' - The identifier of the Authorizer resource to be associated with this
--- route. The authorizer identifier is generated by API Gateway when you
--- created the authorizer.
+-- 'target', 'getRouteResponse'_target' - The target for the route.
 --
 -- 'httpStatus', 'getRouteResponse'_httpStatus' - The response's http status code.
 newGetRouteResponse' ::
@@ -267,51 +267,33 @@ newGetRouteResponse' ::
   GetRouteResponse'
 newGetRouteResponse' pHttpStatus_ =
   GetRouteResponse''
-    { requestModels = Prelude.Nothing,
-      requestParameters = Prelude.Nothing,
+    { apiGatewayManaged =
+        Prelude.Nothing,
       apiKeyRequired = Prelude.Nothing,
-      target = Prelude.Nothing,
-      modelSelectionExpression = Prelude.Nothing,
-      routeKey = Prelude.Nothing,
-      routeId = Prelude.Nothing,
       authorizationScopes = Prelude.Nothing,
       authorizationType = Prelude.Nothing,
-      operationName = Prelude.Nothing,
-      apiGatewayManaged = Prelude.Nothing,
-      routeResponseSelectionExpression = Prelude.Nothing,
       authorizerId = Prelude.Nothing,
+      modelSelectionExpression = Prelude.Nothing,
+      operationName = Prelude.Nothing,
+      requestModels = Prelude.Nothing,
+      requestParameters = Prelude.Nothing,
+      routeId = Prelude.Nothing,
+      routeKey = Prelude.Nothing,
+      routeResponseSelectionExpression = Prelude.Nothing,
+      target = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The request models for the route. Supported only for WebSocket APIs.
-getRouteResponse'_requestModels :: Lens.Lens' GetRouteResponse' (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getRouteResponse'_requestModels = Lens.lens (\GetRouteResponse'' {requestModels} -> requestModels) (\s@GetRouteResponse'' {} a -> s {requestModels = a} :: GetRouteResponse') Prelude.. Lens.mapping Lens.coerced
-
--- | The request parameters for the route. Supported only for WebSocket APIs.
-getRouteResponse'_requestParameters :: Lens.Lens' GetRouteResponse' (Prelude.Maybe (Prelude.HashMap Prelude.Text ParameterConstraints))
-getRouteResponse'_requestParameters = Lens.lens (\GetRouteResponse'' {requestParameters} -> requestParameters) (\s@GetRouteResponse'' {} a -> s {requestParameters = a} :: GetRouteResponse') Prelude.. Lens.mapping Lens.coerced
+-- | Specifies whether a route is managed by API Gateway. If you created an
+-- API using quick create, the $default route is managed by API Gateway.
+-- You can\'t modify the $default route key.
+getRouteResponse'_apiGatewayManaged :: Lens.Lens' GetRouteResponse' (Prelude.Maybe Prelude.Bool)
+getRouteResponse'_apiGatewayManaged = Lens.lens (\GetRouteResponse'' {apiGatewayManaged} -> apiGatewayManaged) (\s@GetRouteResponse'' {} a -> s {apiGatewayManaged = a} :: GetRouteResponse')
 
 -- | Specifies whether an API key is required for this route. Supported only
 -- for WebSocket APIs.
 getRouteResponse'_apiKeyRequired :: Lens.Lens' GetRouteResponse' (Prelude.Maybe Prelude.Bool)
 getRouteResponse'_apiKeyRequired = Lens.lens (\GetRouteResponse'' {apiKeyRequired} -> apiKeyRequired) (\s@GetRouteResponse'' {} a -> s {apiKeyRequired = a} :: GetRouteResponse')
-
--- | The target for the route.
-getRouteResponse'_target :: Lens.Lens' GetRouteResponse' (Prelude.Maybe Prelude.Text)
-getRouteResponse'_target = Lens.lens (\GetRouteResponse'' {target} -> target) (\s@GetRouteResponse'' {} a -> s {target = a} :: GetRouteResponse')
-
--- | The model selection expression for the route. Supported only for
--- WebSocket APIs.
-getRouteResponse'_modelSelectionExpression :: Lens.Lens' GetRouteResponse' (Prelude.Maybe Prelude.Text)
-getRouteResponse'_modelSelectionExpression = Lens.lens (\GetRouteResponse'' {modelSelectionExpression} -> modelSelectionExpression) (\s@GetRouteResponse'' {} a -> s {modelSelectionExpression = a} :: GetRouteResponse')
-
--- | The route key for the route.
-getRouteResponse'_routeKey :: Lens.Lens' GetRouteResponse' (Prelude.Maybe Prelude.Text)
-getRouteResponse'_routeKey = Lens.lens (\GetRouteResponse'' {routeKey} -> routeKey) (\s@GetRouteResponse'' {} a -> s {routeKey = a} :: GetRouteResponse')
-
--- | The route ID.
-getRouteResponse'_routeId :: Lens.Lens' GetRouteResponse' (Prelude.Maybe Prelude.Text)
-getRouteResponse'_routeId = Lens.lens (\GetRouteResponse'' {routeId} -> routeId) (\s@GetRouteResponse'' {} a -> s {routeId = a} :: GetRouteResponse')
 
 -- | A list of authorization scopes configured on a route. The scopes are
 -- used with a JWT authorizer to authorize the method invocation. The
@@ -332,26 +314,45 @@ getRouteResponse'_authorizationScopes = Lens.lens (\GetRouteResponse'' {authoriz
 getRouteResponse'_authorizationType :: Lens.Lens' GetRouteResponse' (Prelude.Maybe AuthorizationType)
 getRouteResponse'_authorizationType = Lens.lens (\GetRouteResponse'' {authorizationType} -> authorizationType) (\s@GetRouteResponse'' {} a -> s {authorizationType = a} :: GetRouteResponse')
 
+-- | The identifier of the Authorizer resource to be associated with this
+-- route. The authorizer identifier is generated by API Gateway when you
+-- created the authorizer.
+getRouteResponse'_authorizerId :: Lens.Lens' GetRouteResponse' (Prelude.Maybe Prelude.Text)
+getRouteResponse'_authorizerId = Lens.lens (\GetRouteResponse'' {authorizerId} -> authorizerId) (\s@GetRouteResponse'' {} a -> s {authorizerId = a} :: GetRouteResponse')
+
+-- | The model selection expression for the route. Supported only for
+-- WebSocket APIs.
+getRouteResponse'_modelSelectionExpression :: Lens.Lens' GetRouteResponse' (Prelude.Maybe Prelude.Text)
+getRouteResponse'_modelSelectionExpression = Lens.lens (\GetRouteResponse'' {modelSelectionExpression} -> modelSelectionExpression) (\s@GetRouteResponse'' {} a -> s {modelSelectionExpression = a} :: GetRouteResponse')
+
 -- | The operation name for the route.
 getRouteResponse'_operationName :: Lens.Lens' GetRouteResponse' (Prelude.Maybe Prelude.Text)
 getRouteResponse'_operationName = Lens.lens (\GetRouteResponse'' {operationName} -> operationName) (\s@GetRouteResponse'' {} a -> s {operationName = a} :: GetRouteResponse')
 
--- | Specifies whether a route is managed by API Gateway. If you created an
--- API using quick create, the $default route is managed by API Gateway.
--- You can\'t modify the $default route key.
-getRouteResponse'_apiGatewayManaged :: Lens.Lens' GetRouteResponse' (Prelude.Maybe Prelude.Bool)
-getRouteResponse'_apiGatewayManaged = Lens.lens (\GetRouteResponse'' {apiGatewayManaged} -> apiGatewayManaged) (\s@GetRouteResponse'' {} a -> s {apiGatewayManaged = a} :: GetRouteResponse')
+-- | The request models for the route. Supported only for WebSocket APIs.
+getRouteResponse'_requestModels :: Lens.Lens' GetRouteResponse' (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getRouteResponse'_requestModels = Lens.lens (\GetRouteResponse'' {requestModels} -> requestModels) (\s@GetRouteResponse'' {} a -> s {requestModels = a} :: GetRouteResponse') Prelude.. Lens.mapping Lens.coerced
+
+-- | The request parameters for the route. Supported only for WebSocket APIs.
+getRouteResponse'_requestParameters :: Lens.Lens' GetRouteResponse' (Prelude.Maybe (Prelude.HashMap Prelude.Text ParameterConstraints))
+getRouteResponse'_requestParameters = Lens.lens (\GetRouteResponse'' {requestParameters} -> requestParameters) (\s@GetRouteResponse'' {} a -> s {requestParameters = a} :: GetRouteResponse') Prelude.. Lens.mapping Lens.coerced
+
+-- | The route ID.
+getRouteResponse'_routeId :: Lens.Lens' GetRouteResponse' (Prelude.Maybe Prelude.Text)
+getRouteResponse'_routeId = Lens.lens (\GetRouteResponse'' {routeId} -> routeId) (\s@GetRouteResponse'' {} a -> s {routeId = a} :: GetRouteResponse')
+
+-- | The route key for the route.
+getRouteResponse'_routeKey :: Lens.Lens' GetRouteResponse' (Prelude.Maybe Prelude.Text)
+getRouteResponse'_routeKey = Lens.lens (\GetRouteResponse'' {routeKey} -> routeKey) (\s@GetRouteResponse'' {} a -> s {routeKey = a} :: GetRouteResponse')
 
 -- | The route response selection expression for the route. Supported only
 -- for WebSocket APIs.
 getRouteResponse'_routeResponseSelectionExpression :: Lens.Lens' GetRouteResponse' (Prelude.Maybe Prelude.Text)
 getRouteResponse'_routeResponseSelectionExpression = Lens.lens (\GetRouteResponse'' {routeResponseSelectionExpression} -> routeResponseSelectionExpression) (\s@GetRouteResponse'' {} a -> s {routeResponseSelectionExpression = a} :: GetRouteResponse')
 
--- | The identifier of the Authorizer resource to be associated with this
--- route. The authorizer identifier is generated by API Gateway when you
--- created the authorizer.
-getRouteResponse'_authorizerId :: Lens.Lens' GetRouteResponse' (Prelude.Maybe Prelude.Text)
-getRouteResponse'_authorizerId = Lens.lens (\GetRouteResponse'' {authorizerId} -> authorizerId) (\s@GetRouteResponse'' {} a -> s {authorizerId = a} :: GetRouteResponse')
+-- | The target for the route.
+getRouteResponse'_target :: Lens.Lens' GetRouteResponse' (Prelude.Maybe Prelude.Text)
+getRouteResponse'_target = Lens.lens (\GetRouteResponse'' {target} -> target) (\s@GetRouteResponse'' {} a -> s {target = a} :: GetRouteResponse')
 
 -- | The response's http status code.
 getRouteResponse'_httpStatus :: Lens.Lens' GetRouteResponse' Prelude.Int
@@ -359,17 +360,17 @@ getRouteResponse'_httpStatus = Lens.lens (\GetRouteResponse'' {httpStatus} -> ht
 
 instance Prelude.NFData GetRouteResponse' where
   rnf GetRouteResponse'' {..} =
-    Prelude.rnf requestModels
-      `Prelude.seq` Prelude.rnf requestParameters
+    Prelude.rnf apiGatewayManaged
       `Prelude.seq` Prelude.rnf apiKeyRequired
-      `Prelude.seq` Prelude.rnf target
-      `Prelude.seq` Prelude.rnf modelSelectionExpression
-      `Prelude.seq` Prelude.rnf routeKey
-      `Prelude.seq` Prelude.rnf routeId
       `Prelude.seq` Prelude.rnf authorizationScopes
       `Prelude.seq` Prelude.rnf authorizationType
-      `Prelude.seq` Prelude.rnf operationName
-      `Prelude.seq` Prelude.rnf apiGatewayManaged
-      `Prelude.seq` Prelude.rnf routeResponseSelectionExpression
       `Prelude.seq` Prelude.rnf authorizerId
+      `Prelude.seq` Prelude.rnf modelSelectionExpression
+      `Prelude.seq` Prelude.rnf operationName
+      `Prelude.seq` Prelude.rnf requestModels
+      `Prelude.seq` Prelude.rnf requestParameters
+      `Prelude.seq` Prelude.rnf routeId
+      `Prelude.seq` Prelude.rnf routeKey
+      `Prelude.seq` Prelude.rnf routeResponseSelectionExpression
+      `Prelude.seq` Prelude.rnf target
       `Prelude.seq` Prelude.rnf httpStatus

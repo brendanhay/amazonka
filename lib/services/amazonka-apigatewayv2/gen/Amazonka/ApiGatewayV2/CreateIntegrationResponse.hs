@@ -27,10 +27,10 @@ module Amazonka.ApiGatewayV2.CreateIntegrationResponse
     newCreateIntegrationResponse,
 
     -- * Request Lenses
-    createIntegrationResponse_templateSelectionExpression,
+    createIntegrationResponse_contentHandlingStrategy,
     createIntegrationResponse_responseParameters,
     createIntegrationResponse_responseTemplates,
-    createIntegrationResponse_contentHandlingStrategy,
+    createIntegrationResponse_templateSelectionExpression,
     createIntegrationResponse_apiId,
     createIntegrationResponse_integrationId,
     createIntegrationResponse_integrationResponseKey,
@@ -40,12 +40,12 @@ module Amazonka.ApiGatewayV2.CreateIntegrationResponse
     newCreateIntegrationResponseResponse,
 
     -- * Response Lenses
-    createIntegrationResponseResponse_templateSelectionExpression,
-    createIntegrationResponseResponse_responseParameters,
-    createIntegrationResponseResponse_integrationResponseKey,
-    createIntegrationResponseResponse_responseTemplates,
     createIntegrationResponseResponse_contentHandlingStrategy,
     createIntegrationResponseResponse_integrationResponseId,
+    createIntegrationResponseResponse_integrationResponseKey,
+    createIntegrationResponseResponse_responseParameters,
+    createIntegrationResponseResponse_responseTemplates,
+    createIntegrationResponseResponse_templateSelectionExpression,
     createIntegrationResponseResponse_httpStatus,
   )
 where
@@ -63,9 +63,20 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateIntegrationResponse' smart constructor.
 data CreateIntegrationResponse = CreateIntegrationResponse'
-  { -- | The template selection expression for the integration response.
-    -- Supported only for WebSocket APIs.
-    templateSelectionExpression :: Prelude.Maybe Prelude.Text,
+  { -- | Specifies how to handle response payload content type conversions.
+    -- Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the
+    -- following behaviors:
+    --
+    -- CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded
+    -- string to the corresponding binary blob.
+    --
+    -- CONVERT_TO_TEXT: Converts a response payload from a binary blob to a
+    -- Base64-encoded string.
+    --
+    -- If this property is not defined, the response payload will be passed
+    -- through from the integration response to the route response or method
+    -- response without modification.
+    contentHandlingStrategy :: Prelude.Maybe ContentHandlingStrategy,
     -- | A key-value map specifying response parameters that are passed to the
     -- method response from the backend. The key is a method response header
     -- parameter name and the mapped value is an integration response header
@@ -83,20 +94,9 @@ data CreateIntegrationResponse = CreateIntegrationResponse'
     -- represented as a key\/value map, with a content-type as the key and a
     -- template as the value.
     responseTemplates :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Specifies how to handle response payload content type conversions.
-    -- Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the
-    -- following behaviors:
-    --
-    -- CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded
-    -- string to the corresponding binary blob.
-    --
-    -- CONVERT_TO_TEXT: Converts a response payload from a binary blob to a
-    -- Base64-encoded string.
-    --
-    -- If this property is not defined, the response payload will be passed
-    -- through from the integration response to the route response or method
-    -- response without modification.
-    contentHandlingStrategy :: Prelude.Maybe ContentHandlingStrategy,
+    -- | The template selection expression for the integration response.
+    -- Supported only for WebSocket APIs.
+    templateSelectionExpression :: Prelude.Maybe Prelude.Text,
     -- | The API identifier.
     apiId :: Prelude.Text,
     -- | The integration ID.
@@ -114,8 +114,19 @@ data CreateIntegrationResponse = CreateIntegrationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'templateSelectionExpression', 'createIntegrationResponse_templateSelectionExpression' - The template selection expression for the integration response.
--- Supported only for WebSocket APIs.
+-- 'contentHandlingStrategy', 'createIntegrationResponse_contentHandlingStrategy' - Specifies how to handle response payload content type conversions.
+-- Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the
+-- following behaviors:
+--
+-- CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded
+-- string to the corresponding binary blob.
+--
+-- CONVERT_TO_TEXT: Converts a response payload from a binary blob to a
+-- Base64-encoded string.
+--
+-- If this property is not defined, the response payload will be passed
+-- through from the integration response to the route response or method
+-- response without modification.
 --
 -- 'responseParameters', 'createIntegrationResponse_responseParameters' - A key-value map specifying response parameters that are passed to the
 -- method response from the backend. The key is a method response header
@@ -134,19 +145,8 @@ data CreateIntegrationResponse = CreateIntegrationResponse'
 -- represented as a key\/value map, with a content-type as the key and a
 -- template as the value.
 --
--- 'contentHandlingStrategy', 'createIntegrationResponse_contentHandlingStrategy' - Specifies how to handle response payload content type conversions.
--- Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the
--- following behaviors:
---
--- CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded
--- string to the corresponding binary blob.
---
--- CONVERT_TO_TEXT: Converts a response payload from a binary blob to a
--- Base64-encoded string.
---
--- If this property is not defined, the response payload will be passed
--- through from the integration response to the route response or method
--- response without modification.
+-- 'templateSelectionExpression', 'createIntegrationResponse_templateSelectionExpression' - The template selection expression for the integration response.
+-- Supported only for WebSocket APIs.
 --
 -- 'apiId', 'createIntegrationResponse_apiId' - The API identifier.
 --
@@ -166,21 +166,32 @@ newCreateIntegrationResponse
   pIntegrationId_
   pIntegrationResponseKey_ =
     CreateIntegrationResponse'
-      { templateSelectionExpression =
+      { contentHandlingStrategy =
           Prelude.Nothing,
         responseParameters = Prelude.Nothing,
         responseTemplates = Prelude.Nothing,
-        contentHandlingStrategy = Prelude.Nothing,
+        templateSelectionExpression = Prelude.Nothing,
         apiId = pApiId_,
         integrationId = pIntegrationId_,
         integrationResponseKey =
           pIntegrationResponseKey_
       }
 
--- | The template selection expression for the integration response.
--- Supported only for WebSocket APIs.
-createIntegrationResponse_templateSelectionExpression :: Lens.Lens' CreateIntegrationResponse (Prelude.Maybe Prelude.Text)
-createIntegrationResponse_templateSelectionExpression = Lens.lens (\CreateIntegrationResponse' {templateSelectionExpression} -> templateSelectionExpression) (\s@CreateIntegrationResponse' {} a -> s {templateSelectionExpression = a} :: CreateIntegrationResponse)
+-- | Specifies how to handle response payload content type conversions.
+-- Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the
+-- following behaviors:
+--
+-- CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded
+-- string to the corresponding binary blob.
+--
+-- CONVERT_TO_TEXT: Converts a response payload from a binary blob to a
+-- Base64-encoded string.
+--
+-- If this property is not defined, the response payload will be passed
+-- through from the integration response to the route response or method
+-- response without modification.
+createIntegrationResponse_contentHandlingStrategy :: Lens.Lens' CreateIntegrationResponse (Prelude.Maybe ContentHandlingStrategy)
+createIntegrationResponse_contentHandlingStrategy = Lens.lens (\CreateIntegrationResponse' {contentHandlingStrategy} -> contentHandlingStrategy) (\s@CreateIntegrationResponse' {} a -> s {contentHandlingStrategy = a} :: CreateIntegrationResponse)
 
 -- | A key-value map specifying response parameters that are passed to the
 -- method response from the backend. The key is a method response header
@@ -203,21 +214,10 @@ createIntegrationResponse_responseParameters = Lens.lens (\CreateIntegrationResp
 createIntegrationResponse_responseTemplates :: Lens.Lens' CreateIntegrationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createIntegrationResponse_responseTemplates = Lens.lens (\CreateIntegrationResponse' {responseTemplates} -> responseTemplates) (\s@CreateIntegrationResponse' {} a -> s {responseTemplates = a} :: CreateIntegrationResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Specifies how to handle response payload content type conversions.
--- Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the
--- following behaviors:
---
--- CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded
--- string to the corresponding binary blob.
---
--- CONVERT_TO_TEXT: Converts a response payload from a binary blob to a
--- Base64-encoded string.
---
--- If this property is not defined, the response payload will be passed
--- through from the integration response to the route response or method
--- response without modification.
-createIntegrationResponse_contentHandlingStrategy :: Lens.Lens' CreateIntegrationResponse (Prelude.Maybe ContentHandlingStrategy)
-createIntegrationResponse_contentHandlingStrategy = Lens.lens (\CreateIntegrationResponse' {contentHandlingStrategy} -> contentHandlingStrategy) (\s@CreateIntegrationResponse' {} a -> s {contentHandlingStrategy = a} :: CreateIntegrationResponse)
+-- | The template selection expression for the integration response.
+-- Supported only for WebSocket APIs.
+createIntegrationResponse_templateSelectionExpression :: Lens.Lens' CreateIntegrationResponse (Prelude.Maybe Prelude.Text)
+createIntegrationResponse_templateSelectionExpression = Lens.lens (\CreateIntegrationResponse' {templateSelectionExpression} -> templateSelectionExpression) (\s@CreateIntegrationResponse' {} a -> s {templateSelectionExpression = a} :: CreateIntegrationResponse)
 
 -- | The API identifier.
 createIntegrationResponse_apiId :: Lens.Lens' CreateIntegrationResponse Prelude.Text
@@ -241,36 +241,36 @@ instance Core.AWSRequest CreateIntegrationResponse where
     Response.receiveJSON
       ( \s h x ->
           CreateIntegrationResponseResponse'
-            Prelude.<$> (x Data..?> "templateSelectionExpression")
+            Prelude.<$> (x Data..?> "contentHandlingStrategy")
+            Prelude.<*> (x Data..?> "integrationResponseId")
+            Prelude.<*> (x Data..?> "integrationResponseKey")
             Prelude.<*> ( x Data..?> "responseParameters"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "integrationResponseKey")
             Prelude.<*> ( x Data..?> "responseTemplates"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "contentHandlingStrategy")
-            Prelude.<*> (x Data..?> "integrationResponseId")
+            Prelude.<*> (x Data..?> "templateSelectionExpression")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateIntegrationResponse where
   hashWithSalt _salt CreateIntegrationResponse' {..} =
     _salt
-      `Prelude.hashWithSalt` templateSelectionExpression
+      `Prelude.hashWithSalt` contentHandlingStrategy
       `Prelude.hashWithSalt` responseParameters
       `Prelude.hashWithSalt` responseTemplates
-      `Prelude.hashWithSalt` contentHandlingStrategy
+      `Prelude.hashWithSalt` templateSelectionExpression
       `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` integrationId
       `Prelude.hashWithSalt` integrationResponseKey
 
 instance Prelude.NFData CreateIntegrationResponse where
   rnf CreateIntegrationResponse' {..} =
-    Prelude.rnf templateSelectionExpression
+    Prelude.rnf contentHandlingStrategy
       `Prelude.seq` Prelude.rnf responseParameters
       `Prelude.seq` Prelude.rnf responseTemplates
-      `Prelude.seq` Prelude.rnf contentHandlingStrategy
+      `Prelude.seq` Prelude.rnf templateSelectionExpression
       `Prelude.seq` Prelude.rnf apiId
       `Prelude.seq` Prelude.rnf integrationId
       `Prelude.seq` Prelude.rnf integrationResponseKey
@@ -290,14 +290,14 @@ instance Data.ToJSON CreateIntegrationResponse where
   toJSON CreateIntegrationResponse' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("templateSelectionExpression" Data..=)
-              Prelude.<$> templateSelectionExpression,
+          [ ("contentHandlingStrategy" Data..=)
+              Prelude.<$> contentHandlingStrategy,
             ("responseParameters" Data..=)
               Prelude.<$> responseParameters,
             ("responseTemplates" Data..=)
               Prelude.<$> responseTemplates,
-            ("contentHandlingStrategy" Data..=)
-              Prelude.<$> contentHandlingStrategy,
+            ("templateSelectionExpression" Data..=)
+              Prelude.<$> templateSelectionExpression,
             Prelude.Just
               ( "integrationResponseKey"
                   Data..= integrationResponseKey
@@ -320,28 +320,7 @@ instance Data.ToQuery CreateIntegrationResponse where
 
 -- | /See:/ 'newCreateIntegrationResponseResponse' smart constructor.
 data CreateIntegrationResponseResponse = CreateIntegrationResponseResponse'
-  { -- | The template selection expressions for the integration response.
-    templateSelectionExpression :: Prelude.Maybe Prelude.Text,
-    -- | A key-value map specifying response parameters that are passed to the
-    -- method response from the backend. The key is a method response header
-    -- parameter name and the mapped value is an integration response header
-    -- value, a static value enclosed within a pair of single quotes, or a JSON
-    -- expression from the integration response body. The mapping key must
-    -- match the pattern of method.response.header.{name}, where name is a
-    -- valid and unique header name. The mapped non-static value must match the
-    -- pattern of integration.response.header.{name} or
-    -- integration.response.body.{JSON-expression}, where name is a valid and
-    -- unique response header name and JSON-expression is a valid JSON
-    -- expression without the $ prefix.
-    responseParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The integration response key.
-    integrationResponseKey :: Prelude.Maybe Prelude.Text,
-    -- | The collection of response templates for the integration response as a
-    -- string-to-string map of key-value pairs. Response templates are
-    -- represented as a key\/value map, with a content-type as the key and a
-    -- template as the value.
-    responseTemplates :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Supported only for WebSocket APIs. Specifies how to handle response
+  { -- | Supported only for WebSocket APIs. Specifies how to handle response
     -- payload content type conversions. Supported values are CONVERT_TO_BINARY
     -- and CONVERT_TO_TEXT, with the following behaviors:
     --
@@ -357,6 +336,27 @@ data CreateIntegrationResponseResponse = CreateIntegrationResponseResponse'
     contentHandlingStrategy :: Prelude.Maybe ContentHandlingStrategy,
     -- | The integration response ID.
     integrationResponseId :: Prelude.Maybe Prelude.Text,
+    -- | The integration response key.
+    integrationResponseKey :: Prelude.Maybe Prelude.Text,
+    -- | A key-value map specifying response parameters that are passed to the
+    -- method response from the backend. The key is a method response header
+    -- parameter name and the mapped value is an integration response header
+    -- value, a static value enclosed within a pair of single quotes, or a JSON
+    -- expression from the integration response body. The mapping key must
+    -- match the pattern of method.response.header.{name}, where name is a
+    -- valid and unique header name. The mapped non-static value must match the
+    -- pattern of integration.response.header.{name} or
+    -- integration.response.body.{JSON-expression}, where name is a valid and
+    -- unique response header name and JSON-expression is a valid JSON
+    -- expression without the $ prefix.
+    responseParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The collection of response templates for the integration response as a
+    -- string-to-string map of key-value pairs. Response templates are
+    -- represented as a key\/value map, with a content-type as the key and a
+    -- template as the value.
+    responseTemplates :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The template selection expressions for the integration response.
+    templateSelectionExpression :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -369,27 +369,6 @@ data CreateIntegrationResponseResponse = CreateIntegrationResponseResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'templateSelectionExpression', 'createIntegrationResponseResponse_templateSelectionExpression' - The template selection expressions for the integration response.
---
--- 'responseParameters', 'createIntegrationResponseResponse_responseParameters' - A key-value map specifying response parameters that are passed to the
--- method response from the backend. The key is a method response header
--- parameter name and the mapped value is an integration response header
--- value, a static value enclosed within a pair of single quotes, or a JSON
--- expression from the integration response body. The mapping key must
--- match the pattern of method.response.header.{name}, where name is a
--- valid and unique header name. The mapped non-static value must match the
--- pattern of integration.response.header.{name} or
--- integration.response.body.{JSON-expression}, where name is a valid and
--- unique response header name and JSON-expression is a valid JSON
--- expression without the $ prefix.
---
--- 'integrationResponseKey', 'createIntegrationResponseResponse_integrationResponseKey' - The integration response key.
---
--- 'responseTemplates', 'createIntegrationResponseResponse_responseTemplates' - The collection of response templates for the integration response as a
--- string-to-string map of key-value pairs. Response templates are
--- represented as a key\/value map, with a content-type as the key and a
--- template as the value.
 --
 -- 'contentHandlingStrategy', 'createIntegrationResponseResponse_contentHandlingStrategy' - Supported only for WebSocket APIs. Specifies how to handle response
 -- payload content type conversions. Supported values are CONVERT_TO_BINARY
@@ -407,29 +386,9 @@ data CreateIntegrationResponseResponse = CreateIntegrationResponseResponse'
 --
 -- 'integrationResponseId', 'createIntegrationResponseResponse_integrationResponseId' - The integration response ID.
 --
--- 'httpStatus', 'createIntegrationResponseResponse_httpStatus' - The response's http status code.
-newCreateIntegrationResponseResponse ::
-  -- | 'httpStatus'
-  Prelude.Int ->
-  CreateIntegrationResponseResponse
-newCreateIntegrationResponseResponse pHttpStatus_ =
-  CreateIntegrationResponseResponse'
-    { templateSelectionExpression =
-        Prelude.Nothing,
-      responseParameters = Prelude.Nothing,
-      integrationResponseKey = Prelude.Nothing,
-      responseTemplates = Prelude.Nothing,
-      contentHandlingStrategy =
-        Prelude.Nothing,
-      integrationResponseId = Prelude.Nothing,
-      httpStatus = pHttpStatus_
-    }
-
--- | The template selection expressions for the integration response.
-createIntegrationResponseResponse_templateSelectionExpression :: Lens.Lens' CreateIntegrationResponseResponse (Prelude.Maybe Prelude.Text)
-createIntegrationResponseResponse_templateSelectionExpression = Lens.lens (\CreateIntegrationResponseResponse' {templateSelectionExpression} -> templateSelectionExpression) (\s@CreateIntegrationResponseResponse' {} a -> s {templateSelectionExpression = a} :: CreateIntegrationResponseResponse)
-
--- | A key-value map specifying response parameters that are passed to the
+-- 'integrationResponseKey', 'createIntegrationResponseResponse_integrationResponseKey' - The integration response key.
+--
+-- 'responseParameters', 'createIntegrationResponseResponse_responseParameters' - A key-value map specifying response parameters that are passed to the
 -- method response from the backend. The key is a method response header
 -- parameter name and the mapped value is an integration response header
 -- value, a static value enclosed within a pair of single quotes, or a JSON
@@ -440,19 +399,31 @@ createIntegrationResponseResponse_templateSelectionExpression = Lens.lens (\Crea
 -- integration.response.body.{JSON-expression}, where name is a valid and
 -- unique response header name and JSON-expression is a valid JSON
 -- expression without the $ prefix.
-createIntegrationResponseResponse_responseParameters :: Lens.Lens' CreateIntegrationResponseResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createIntegrationResponseResponse_responseParameters = Lens.lens (\CreateIntegrationResponseResponse' {responseParameters} -> responseParameters) (\s@CreateIntegrationResponseResponse' {} a -> s {responseParameters = a} :: CreateIntegrationResponseResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The integration response key.
-createIntegrationResponseResponse_integrationResponseKey :: Lens.Lens' CreateIntegrationResponseResponse (Prelude.Maybe Prelude.Text)
-createIntegrationResponseResponse_integrationResponseKey = Lens.lens (\CreateIntegrationResponseResponse' {integrationResponseKey} -> integrationResponseKey) (\s@CreateIntegrationResponseResponse' {} a -> s {integrationResponseKey = a} :: CreateIntegrationResponseResponse)
-
--- | The collection of response templates for the integration response as a
+--
+-- 'responseTemplates', 'createIntegrationResponseResponse_responseTemplates' - The collection of response templates for the integration response as a
 -- string-to-string map of key-value pairs. Response templates are
 -- represented as a key\/value map, with a content-type as the key and a
 -- template as the value.
-createIntegrationResponseResponse_responseTemplates :: Lens.Lens' CreateIntegrationResponseResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createIntegrationResponseResponse_responseTemplates = Lens.lens (\CreateIntegrationResponseResponse' {responseTemplates} -> responseTemplates) (\s@CreateIntegrationResponseResponse' {} a -> s {responseTemplates = a} :: CreateIntegrationResponseResponse) Prelude.. Lens.mapping Lens.coerced
+--
+-- 'templateSelectionExpression', 'createIntegrationResponseResponse_templateSelectionExpression' - The template selection expressions for the integration response.
+--
+-- 'httpStatus', 'createIntegrationResponseResponse_httpStatus' - The response's http status code.
+newCreateIntegrationResponseResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateIntegrationResponseResponse
+newCreateIntegrationResponseResponse pHttpStatus_ =
+  CreateIntegrationResponseResponse'
+    { contentHandlingStrategy =
+        Prelude.Nothing,
+      integrationResponseId = Prelude.Nothing,
+      integrationResponseKey = Prelude.Nothing,
+      responseParameters = Prelude.Nothing,
+      responseTemplates = Prelude.Nothing,
+      templateSelectionExpression =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Supported only for WebSocket APIs. Specifies how to handle response
 -- payload content type conversions. Supported values are CONVERT_TO_BINARY
@@ -474,6 +445,35 @@ createIntegrationResponseResponse_contentHandlingStrategy = Lens.lens (\CreateIn
 createIntegrationResponseResponse_integrationResponseId :: Lens.Lens' CreateIntegrationResponseResponse (Prelude.Maybe Prelude.Text)
 createIntegrationResponseResponse_integrationResponseId = Lens.lens (\CreateIntegrationResponseResponse' {integrationResponseId} -> integrationResponseId) (\s@CreateIntegrationResponseResponse' {} a -> s {integrationResponseId = a} :: CreateIntegrationResponseResponse)
 
+-- | The integration response key.
+createIntegrationResponseResponse_integrationResponseKey :: Lens.Lens' CreateIntegrationResponseResponse (Prelude.Maybe Prelude.Text)
+createIntegrationResponseResponse_integrationResponseKey = Lens.lens (\CreateIntegrationResponseResponse' {integrationResponseKey} -> integrationResponseKey) (\s@CreateIntegrationResponseResponse' {} a -> s {integrationResponseKey = a} :: CreateIntegrationResponseResponse)
+
+-- | A key-value map specifying response parameters that are passed to the
+-- method response from the backend. The key is a method response header
+-- parameter name and the mapped value is an integration response header
+-- value, a static value enclosed within a pair of single quotes, or a JSON
+-- expression from the integration response body. The mapping key must
+-- match the pattern of method.response.header.{name}, where name is a
+-- valid and unique header name. The mapped non-static value must match the
+-- pattern of integration.response.header.{name} or
+-- integration.response.body.{JSON-expression}, where name is a valid and
+-- unique response header name and JSON-expression is a valid JSON
+-- expression without the $ prefix.
+createIntegrationResponseResponse_responseParameters :: Lens.Lens' CreateIntegrationResponseResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createIntegrationResponseResponse_responseParameters = Lens.lens (\CreateIntegrationResponseResponse' {responseParameters} -> responseParameters) (\s@CreateIntegrationResponseResponse' {} a -> s {responseParameters = a} :: CreateIntegrationResponseResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The collection of response templates for the integration response as a
+-- string-to-string map of key-value pairs. Response templates are
+-- represented as a key\/value map, with a content-type as the key and a
+-- template as the value.
+createIntegrationResponseResponse_responseTemplates :: Lens.Lens' CreateIntegrationResponseResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createIntegrationResponseResponse_responseTemplates = Lens.lens (\CreateIntegrationResponseResponse' {responseTemplates} -> responseTemplates) (\s@CreateIntegrationResponseResponse' {} a -> s {responseTemplates = a} :: CreateIntegrationResponseResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The template selection expressions for the integration response.
+createIntegrationResponseResponse_templateSelectionExpression :: Lens.Lens' CreateIntegrationResponseResponse (Prelude.Maybe Prelude.Text)
+createIntegrationResponseResponse_templateSelectionExpression = Lens.lens (\CreateIntegrationResponseResponse' {templateSelectionExpression} -> templateSelectionExpression) (\s@CreateIntegrationResponseResponse' {} a -> s {templateSelectionExpression = a} :: CreateIntegrationResponseResponse)
+
 -- | The response's http status code.
 createIntegrationResponseResponse_httpStatus :: Lens.Lens' CreateIntegrationResponseResponse Prelude.Int
 createIntegrationResponseResponse_httpStatus = Lens.lens (\CreateIntegrationResponseResponse' {httpStatus} -> httpStatus) (\s@CreateIntegrationResponseResponse' {} a -> s {httpStatus = a} :: CreateIntegrationResponseResponse)
@@ -483,10 +483,10 @@ instance
     CreateIntegrationResponseResponse
   where
   rnf CreateIntegrationResponseResponse' {..} =
-    Prelude.rnf templateSelectionExpression
-      `Prelude.seq` Prelude.rnf responseParameters
-      `Prelude.seq` Prelude.rnf integrationResponseKey
-      `Prelude.seq` Prelude.rnf responseTemplates
-      `Prelude.seq` Prelude.rnf contentHandlingStrategy
+    Prelude.rnf contentHandlingStrategy
       `Prelude.seq` Prelude.rnf integrationResponseId
+      `Prelude.seq` Prelude.rnf integrationResponseKey
+      `Prelude.seq` Prelude.rnf responseParameters
+      `Prelude.seq` Prelude.rnf responseTemplates
+      `Prelude.seq` Prelude.rnf templateSelectionExpression
       `Prelude.seq` Prelude.rnf httpStatus

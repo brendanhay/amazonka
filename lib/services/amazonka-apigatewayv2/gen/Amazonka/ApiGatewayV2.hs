@@ -22,14 +22,14 @@ module Amazonka.ApiGatewayV2
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** NotFoundException
-    _NotFoundException,
+    -- ** BadRequestException
+    _BadRequestException,
 
     -- ** ConflictException
     _ConflictException,
 
-    -- ** BadRequestException
-    _BadRequestException,
+    -- ** NotFoundException
+    _NotFoundException,
 
     -- ** TooManyRequestsException
     _TooManyRequestsException,

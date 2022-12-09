@@ -35,20 +35,20 @@ module Amazonka.ApiGatewayV2.GetStage
     newGetStageResponse,
 
     -- * Response Lenses
-    getStageResponse_tags,
-    getStageResponse_stageName,
     getStageResponse_accessLogSettings,
-    getStageResponse_deploymentId,
-    getStageResponse_autoDeploy,
-    getStageResponse_lastUpdatedDate,
-    getStageResponse_stageVariables,
-    getStageResponse_description,
-    getStageResponse_clientCertificateId,
-    getStageResponse_lastDeploymentStatusMessage,
-    getStageResponse_defaultRouteSettings,
-    getStageResponse_createdDate,
     getStageResponse_apiGatewayManaged,
+    getStageResponse_autoDeploy,
+    getStageResponse_clientCertificateId,
+    getStageResponse_createdDate,
+    getStageResponse_defaultRouteSettings,
+    getStageResponse_deploymentId,
+    getStageResponse_description,
+    getStageResponse_lastDeploymentStatusMessage,
+    getStageResponse_lastUpdatedDate,
     getStageResponse_routeSettings,
+    getStageResponse_stageName,
+    getStageResponse_stageVariables,
+    getStageResponse_tags,
     getStageResponse_httpStatus,
   )
 where
@@ -109,20 +109,20 @@ instance Core.AWSRequest GetStage where
     Response.receiveJSON
       ( \s h x ->
           GetStageResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "stageName")
-            Prelude.<*> (x Data..?> "accessLogSettings")
-            Prelude.<*> (x Data..?> "deploymentId")
-            Prelude.<*> (x Data..?> "autoDeploy")
-            Prelude.<*> (x Data..?> "lastUpdatedDate")
-            Prelude.<*> (x Data..?> "stageVariables" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "description")
-            Prelude.<*> (x Data..?> "clientCertificateId")
-            Prelude.<*> (x Data..?> "lastDeploymentStatusMessage")
-            Prelude.<*> (x Data..?> "defaultRouteSettings")
-            Prelude.<*> (x Data..?> "createdDate")
+            Prelude.<$> (x Data..?> "accessLogSettings")
             Prelude.<*> (x Data..?> "apiGatewayManaged")
+            Prelude.<*> (x Data..?> "autoDeploy")
+            Prelude.<*> (x Data..?> "clientCertificateId")
+            Prelude.<*> (x Data..?> "createdDate")
+            Prelude.<*> (x Data..?> "defaultRouteSettings")
+            Prelude.<*> (x Data..?> "deploymentId")
+            Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "lastDeploymentStatusMessage")
+            Prelude.<*> (x Data..?> "lastUpdatedDate")
             Prelude.<*> (x Data..?> "routeSettings" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "stageName")
+            Prelude.<*> (x Data..?> "stageVariables" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,43 +161,43 @@ instance Data.ToQuery GetStage where
 
 -- | /See:/ 'newGetStageResponse' smart constructor.
 data GetStageResponse = GetStageResponse'
-  { -- | The collection of tags. Each tag element is associated with a given
-    -- resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The name of the stage.
-    stageName :: Prelude.Maybe Prelude.Text,
-    -- | Settings for logging access in this stage.
+  { -- | Settings for logging access in this stage.
     accessLogSettings :: Prelude.Maybe AccessLogSettings,
-    -- | The identifier of the Deployment that the Stage is associated with.
-    -- Can\'t be updated if autoDeploy is enabled.
-    deploymentId :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether updates to an API automatically trigger a new
-    -- deployment. The default value is false.
-    autoDeploy :: Prelude.Maybe Prelude.Bool,
-    -- | The timestamp when the stage was last updated.
-    lastUpdatedDate :: Prelude.Maybe Data.POSIX,
-    -- | A map that defines the stage variables for a stage resource. Variable
-    -- names can have alphanumeric and underscore characters, and the values
-    -- must match [A-Za-z0-9-._~:\/?#&=,]+.
-    stageVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The description of the stage.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of a client certificate for a Stage. Supported only for
-    -- WebSocket APIs.
-    clientCertificateId :: Prelude.Maybe Prelude.Text,
-    -- | Describes the status of the last deployment of a stage. Supported only
-    -- for stages with autoDeploy enabled.
-    lastDeploymentStatusMessage :: Prelude.Maybe Prelude.Text,
-    -- | Default route settings for the stage.
-    defaultRouteSettings :: Prelude.Maybe RouteSettings,
-    -- | The timestamp when the stage was created.
-    createdDate :: Prelude.Maybe Data.POSIX,
     -- | Specifies whether a stage is managed by API Gateway. If you created an
     -- API using quick create, the $default stage is managed by API Gateway.
     -- You can\'t modify the $default stage.
     apiGatewayManaged :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies whether updates to an API automatically trigger a new
+    -- deployment. The default value is false.
+    autoDeploy :: Prelude.Maybe Prelude.Bool,
+    -- | The identifier of a client certificate for a Stage. Supported only for
+    -- WebSocket APIs.
+    clientCertificateId :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp when the stage was created.
+    createdDate :: Prelude.Maybe Data.POSIX,
+    -- | Default route settings for the stage.
+    defaultRouteSettings :: Prelude.Maybe RouteSettings,
+    -- | The identifier of the Deployment that the Stage is associated with.
+    -- Can\'t be updated if autoDeploy is enabled.
+    deploymentId :: Prelude.Maybe Prelude.Text,
+    -- | The description of the stage.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Describes the status of the last deployment of a stage. Supported only
+    -- for stages with autoDeploy enabled.
+    lastDeploymentStatusMessage :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp when the stage was last updated.
+    lastUpdatedDate :: Prelude.Maybe Data.POSIX,
     -- | Route settings for the stage, by routeKey.
     routeSettings :: Prelude.Maybe (Prelude.HashMap Prelude.Text RouteSettings),
+    -- | The name of the stage.
+    stageName :: Prelude.Maybe Prelude.Text,
+    -- | A map that defines the stage variables for a stage resource. Variable
+    -- names can have alphanumeric and underscore characters, and the values
+    -- must match [A-Za-z0-9-._~:\/?#&=,]+.
+    stageVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The collection of tags. Each tag element is associated with a given
+    -- resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -211,42 +211,42 @@ data GetStageResponse = GetStageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'getStageResponse_tags' - The collection of tags. Each tag element is associated with a given
--- resource.
---
--- 'stageName', 'getStageResponse_stageName' - The name of the stage.
---
 -- 'accessLogSettings', 'getStageResponse_accessLogSettings' - Settings for logging access in this stage.
---
--- 'deploymentId', 'getStageResponse_deploymentId' - The identifier of the Deployment that the Stage is associated with.
--- Can\'t be updated if autoDeploy is enabled.
---
--- 'autoDeploy', 'getStageResponse_autoDeploy' - Specifies whether updates to an API automatically trigger a new
--- deployment. The default value is false.
---
--- 'lastUpdatedDate', 'getStageResponse_lastUpdatedDate' - The timestamp when the stage was last updated.
---
--- 'stageVariables', 'getStageResponse_stageVariables' - A map that defines the stage variables for a stage resource. Variable
--- names can have alphanumeric and underscore characters, and the values
--- must match [A-Za-z0-9-._~:\/?#&=,]+.
---
--- 'description', 'getStageResponse_description' - The description of the stage.
---
--- 'clientCertificateId', 'getStageResponse_clientCertificateId' - The identifier of a client certificate for a Stage. Supported only for
--- WebSocket APIs.
---
--- 'lastDeploymentStatusMessage', 'getStageResponse_lastDeploymentStatusMessage' - Describes the status of the last deployment of a stage. Supported only
--- for stages with autoDeploy enabled.
---
--- 'defaultRouteSettings', 'getStageResponse_defaultRouteSettings' - Default route settings for the stage.
---
--- 'createdDate', 'getStageResponse_createdDate' - The timestamp when the stage was created.
 --
 -- 'apiGatewayManaged', 'getStageResponse_apiGatewayManaged' - Specifies whether a stage is managed by API Gateway. If you created an
 -- API using quick create, the $default stage is managed by API Gateway.
 -- You can\'t modify the $default stage.
 --
+-- 'autoDeploy', 'getStageResponse_autoDeploy' - Specifies whether updates to an API automatically trigger a new
+-- deployment. The default value is false.
+--
+-- 'clientCertificateId', 'getStageResponse_clientCertificateId' - The identifier of a client certificate for a Stage. Supported only for
+-- WebSocket APIs.
+--
+-- 'createdDate', 'getStageResponse_createdDate' - The timestamp when the stage was created.
+--
+-- 'defaultRouteSettings', 'getStageResponse_defaultRouteSettings' - Default route settings for the stage.
+--
+-- 'deploymentId', 'getStageResponse_deploymentId' - The identifier of the Deployment that the Stage is associated with.
+-- Can\'t be updated if autoDeploy is enabled.
+--
+-- 'description', 'getStageResponse_description' - The description of the stage.
+--
+-- 'lastDeploymentStatusMessage', 'getStageResponse_lastDeploymentStatusMessage' - Describes the status of the last deployment of a stage. Supported only
+-- for stages with autoDeploy enabled.
+--
+-- 'lastUpdatedDate', 'getStageResponse_lastUpdatedDate' - The timestamp when the stage was last updated.
+--
 -- 'routeSettings', 'getStageResponse_routeSettings' - Route settings for the stage, by routeKey.
+--
+-- 'stageName', 'getStageResponse_stageName' - The name of the stage.
+--
+-- 'stageVariables', 'getStageResponse_stageVariables' - A map that defines the stage variables for a stage resource. Variable
+-- names can have alphanumeric and underscore characters, and the values
+-- must match [A-Za-z0-9-._~:\/?#&=,]+.
+--
+-- 'tags', 'getStageResponse_tags' - The collection of tags. Each tag element is associated with a given
+-- resource.
 --
 -- 'httpStatus', 'getStageResponse_httpStatus' - The response's http status code.
 newGetStageResponse ::
@@ -255,77 +255,27 @@ newGetStageResponse ::
   GetStageResponse
 newGetStageResponse pHttpStatus_ =
   GetStageResponse'
-    { tags = Prelude.Nothing,
-      stageName = Prelude.Nothing,
-      accessLogSettings = Prelude.Nothing,
-      deploymentId = Prelude.Nothing,
-      autoDeploy = Prelude.Nothing,
-      lastUpdatedDate = Prelude.Nothing,
-      stageVariables = Prelude.Nothing,
-      description = Prelude.Nothing,
-      clientCertificateId = Prelude.Nothing,
-      lastDeploymentStatusMessage = Prelude.Nothing,
-      defaultRouteSettings = Prelude.Nothing,
-      createdDate = Prelude.Nothing,
+    { accessLogSettings =
+        Prelude.Nothing,
       apiGatewayManaged = Prelude.Nothing,
+      autoDeploy = Prelude.Nothing,
+      clientCertificateId = Prelude.Nothing,
+      createdDate = Prelude.Nothing,
+      defaultRouteSettings = Prelude.Nothing,
+      deploymentId = Prelude.Nothing,
+      description = Prelude.Nothing,
+      lastDeploymentStatusMessage = Prelude.Nothing,
+      lastUpdatedDate = Prelude.Nothing,
       routeSettings = Prelude.Nothing,
+      stageName = Prelude.Nothing,
+      stageVariables = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The collection of tags. Each tag element is associated with a given
--- resource.
-getStageResponse_tags :: Lens.Lens' GetStageResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getStageResponse_tags = Lens.lens (\GetStageResponse' {tags} -> tags) (\s@GetStageResponse' {} a -> s {tags = a} :: GetStageResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the stage.
-getStageResponse_stageName :: Lens.Lens' GetStageResponse (Prelude.Maybe Prelude.Text)
-getStageResponse_stageName = Lens.lens (\GetStageResponse' {stageName} -> stageName) (\s@GetStageResponse' {} a -> s {stageName = a} :: GetStageResponse)
 
 -- | Settings for logging access in this stage.
 getStageResponse_accessLogSettings :: Lens.Lens' GetStageResponse (Prelude.Maybe AccessLogSettings)
 getStageResponse_accessLogSettings = Lens.lens (\GetStageResponse' {accessLogSettings} -> accessLogSettings) (\s@GetStageResponse' {} a -> s {accessLogSettings = a} :: GetStageResponse)
-
--- | The identifier of the Deployment that the Stage is associated with.
--- Can\'t be updated if autoDeploy is enabled.
-getStageResponse_deploymentId :: Lens.Lens' GetStageResponse (Prelude.Maybe Prelude.Text)
-getStageResponse_deploymentId = Lens.lens (\GetStageResponse' {deploymentId} -> deploymentId) (\s@GetStageResponse' {} a -> s {deploymentId = a} :: GetStageResponse)
-
--- | Specifies whether updates to an API automatically trigger a new
--- deployment. The default value is false.
-getStageResponse_autoDeploy :: Lens.Lens' GetStageResponse (Prelude.Maybe Prelude.Bool)
-getStageResponse_autoDeploy = Lens.lens (\GetStageResponse' {autoDeploy} -> autoDeploy) (\s@GetStageResponse' {} a -> s {autoDeploy = a} :: GetStageResponse)
-
--- | The timestamp when the stage was last updated.
-getStageResponse_lastUpdatedDate :: Lens.Lens' GetStageResponse (Prelude.Maybe Prelude.UTCTime)
-getStageResponse_lastUpdatedDate = Lens.lens (\GetStageResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@GetStageResponse' {} a -> s {lastUpdatedDate = a} :: GetStageResponse) Prelude.. Lens.mapping Data._Time
-
--- | A map that defines the stage variables for a stage resource. Variable
--- names can have alphanumeric and underscore characters, and the values
--- must match [A-Za-z0-9-._~:\/?#&=,]+.
-getStageResponse_stageVariables :: Lens.Lens' GetStageResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getStageResponse_stageVariables = Lens.lens (\GetStageResponse' {stageVariables} -> stageVariables) (\s@GetStageResponse' {} a -> s {stageVariables = a} :: GetStageResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The description of the stage.
-getStageResponse_description :: Lens.Lens' GetStageResponse (Prelude.Maybe Prelude.Text)
-getStageResponse_description = Lens.lens (\GetStageResponse' {description} -> description) (\s@GetStageResponse' {} a -> s {description = a} :: GetStageResponse)
-
--- | The identifier of a client certificate for a Stage. Supported only for
--- WebSocket APIs.
-getStageResponse_clientCertificateId :: Lens.Lens' GetStageResponse (Prelude.Maybe Prelude.Text)
-getStageResponse_clientCertificateId = Lens.lens (\GetStageResponse' {clientCertificateId} -> clientCertificateId) (\s@GetStageResponse' {} a -> s {clientCertificateId = a} :: GetStageResponse)
-
--- | Describes the status of the last deployment of a stage. Supported only
--- for stages with autoDeploy enabled.
-getStageResponse_lastDeploymentStatusMessage :: Lens.Lens' GetStageResponse (Prelude.Maybe Prelude.Text)
-getStageResponse_lastDeploymentStatusMessage = Lens.lens (\GetStageResponse' {lastDeploymentStatusMessage} -> lastDeploymentStatusMessage) (\s@GetStageResponse' {} a -> s {lastDeploymentStatusMessage = a} :: GetStageResponse)
-
--- | Default route settings for the stage.
-getStageResponse_defaultRouteSettings :: Lens.Lens' GetStageResponse (Prelude.Maybe RouteSettings)
-getStageResponse_defaultRouteSettings = Lens.lens (\GetStageResponse' {defaultRouteSettings} -> defaultRouteSettings) (\s@GetStageResponse' {} a -> s {defaultRouteSettings = a} :: GetStageResponse)
-
--- | The timestamp when the stage was created.
-getStageResponse_createdDate :: Lens.Lens' GetStageResponse (Prelude.Maybe Prelude.UTCTime)
-getStageResponse_createdDate = Lens.lens (\GetStageResponse' {createdDate} -> createdDate) (\s@GetStageResponse' {} a -> s {createdDate = a} :: GetStageResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Specifies whether a stage is managed by API Gateway. If you created an
 -- API using quick create, the $default stage is managed by API Gateway.
@@ -333,9 +283,60 @@ getStageResponse_createdDate = Lens.lens (\GetStageResponse' {createdDate} -> cr
 getStageResponse_apiGatewayManaged :: Lens.Lens' GetStageResponse (Prelude.Maybe Prelude.Bool)
 getStageResponse_apiGatewayManaged = Lens.lens (\GetStageResponse' {apiGatewayManaged} -> apiGatewayManaged) (\s@GetStageResponse' {} a -> s {apiGatewayManaged = a} :: GetStageResponse)
 
+-- | Specifies whether updates to an API automatically trigger a new
+-- deployment. The default value is false.
+getStageResponse_autoDeploy :: Lens.Lens' GetStageResponse (Prelude.Maybe Prelude.Bool)
+getStageResponse_autoDeploy = Lens.lens (\GetStageResponse' {autoDeploy} -> autoDeploy) (\s@GetStageResponse' {} a -> s {autoDeploy = a} :: GetStageResponse)
+
+-- | The identifier of a client certificate for a Stage. Supported only for
+-- WebSocket APIs.
+getStageResponse_clientCertificateId :: Lens.Lens' GetStageResponse (Prelude.Maybe Prelude.Text)
+getStageResponse_clientCertificateId = Lens.lens (\GetStageResponse' {clientCertificateId} -> clientCertificateId) (\s@GetStageResponse' {} a -> s {clientCertificateId = a} :: GetStageResponse)
+
+-- | The timestamp when the stage was created.
+getStageResponse_createdDate :: Lens.Lens' GetStageResponse (Prelude.Maybe Prelude.UTCTime)
+getStageResponse_createdDate = Lens.lens (\GetStageResponse' {createdDate} -> createdDate) (\s@GetStageResponse' {} a -> s {createdDate = a} :: GetStageResponse) Prelude.. Lens.mapping Data._Time
+
+-- | Default route settings for the stage.
+getStageResponse_defaultRouteSettings :: Lens.Lens' GetStageResponse (Prelude.Maybe RouteSettings)
+getStageResponse_defaultRouteSettings = Lens.lens (\GetStageResponse' {defaultRouteSettings} -> defaultRouteSettings) (\s@GetStageResponse' {} a -> s {defaultRouteSettings = a} :: GetStageResponse)
+
+-- | The identifier of the Deployment that the Stage is associated with.
+-- Can\'t be updated if autoDeploy is enabled.
+getStageResponse_deploymentId :: Lens.Lens' GetStageResponse (Prelude.Maybe Prelude.Text)
+getStageResponse_deploymentId = Lens.lens (\GetStageResponse' {deploymentId} -> deploymentId) (\s@GetStageResponse' {} a -> s {deploymentId = a} :: GetStageResponse)
+
+-- | The description of the stage.
+getStageResponse_description :: Lens.Lens' GetStageResponse (Prelude.Maybe Prelude.Text)
+getStageResponse_description = Lens.lens (\GetStageResponse' {description} -> description) (\s@GetStageResponse' {} a -> s {description = a} :: GetStageResponse)
+
+-- | Describes the status of the last deployment of a stage. Supported only
+-- for stages with autoDeploy enabled.
+getStageResponse_lastDeploymentStatusMessage :: Lens.Lens' GetStageResponse (Prelude.Maybe Prelude.Text)
+getStageResponse_lastDeploymentStatusMessage = Lens.lens (\GetStageResponse' {lastDeploymentStatusMessage} -> lastDeploymentStatusMessage) (\s@GetStageResponse' {} a -> s {lastDeploymentStatusMessage = a} :: GetStageResponse)
+
+-- | The timestamp when the stage was last updated.
+getStageResponse_lastUpdatedDate :: Lens.Lens' GetStageResponse (Prelude.Maybe Prelude.UTCTime)
+getStageResponse_lastUpdatedDate = Lens.lens (\GetStageResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@GetStageResponse' {} a -> s {lastUpdatedDate = a} :: GetStageResponse) Prelude.. Lens.mapping Data._Time
+
 -- | Route settings for the stage, by routeKey.
 getStageResponse_routeSettings :: Lens.Lens' GetStageResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text RouteSettings))
 getStageResponse_routeSettings = Lens.lens (\GetStageResponse' {routeSettings} -> routeSettings) (\s@GetStageResponse' {} a -> s {routeSettings = a} :: GetStageResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the stage.
+getStageResponse_stageName :: Lens.Lens' GetStageResponse (Prelude.Maybe Prelude.Text)
+getStageResponse_stageName = Lens.lens (\GetStageResponse' {stageName} -> stageName) (\s@GetStageResponse' {} a -> s {stageName = a} :: GetStageResponse)
+
+-- | A map that defines the stage variables for a stage resource. Variable
+-- names can have alphanumeric and underscore characters, and the values
+-- must match [A-Za-z0-9-._~:\/?#&=,]+.
+getStageResponse_stageVariables :: Lens.Lens' GetStageResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getStageResponse_stageVariables = Lens.lens (\GetStageResponse' {stageVariables} -> stageVariables) (\s@GetStageResponse' {} a -> s {stageVariables = a} :: GetStageResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The collection of tags. Each tag element is associated with a given
+-- resource.
+getStageResponse_tags :: Lens.Lens' GetStageResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getStageResponse_tags = Lens.lens (\GetStageResponse' {tags} -> tags) (\s@GetStageResponse' {} a -> s {tags = a} :: GetStageResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getStageResponse_httpStatus :: Lens.Lens' GetStageResponse Prelude.Int
@@ -343,18 +344,18 @@ getStageResponse_httpStatus = Lens.lens (\GetStageResponse' {httpStatus} -> http
 
 instance Prelude.NFData GetStageResponse where
   rnf GetStageResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf stageName
-      `Prelude.seq` Prelude.rnf accessLogSettings
-      `Prelude.seq` Prelude.rnf deploymentId
-      `Prelude.seq` Prelude.rnf autoDeploy
-      `Prelude.seq` Prelude.rnf lastUpdatedDate
-      `Prelude.seq` Prelude.rnf stageVariables
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf clientCertificateId
-      `Prelude.seq` Prelude.rnf lastDeploymentStatusMessage
-      `Prelude.seq` Prelude.rnf defaultRouteSettings
-      `Prelude.seq` Prelude.rnf createdDate
+    Prelude.rnf accessLogSettings
       `Prelude.seq` Prelude.rnf apiGatewayManaged
+      `Prelude.seq` Prelude.rnf autoDeploy
+      `Prelude.seq` Prelude.rnf clientCertificateId
+      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf defaultRouteSettings
+      `Prelude.seq` Prelude.rnf deploymentId
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lastDeploymentStatusMessage
+      `Prelude.seq` Prelude.rnf lastUpdatedDate
       `Prelude.seq` Prelude.rnf routeSettings
+      `Prelude.seq` Prelude.rnf stageName
+      `Prelude.seq` Prelude.rnf stageVariables
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

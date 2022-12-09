@@ -19,9 +19,9 @@ module Amazonka.ApiGatewayV2.Types
 
     -- * Errors
     _AccessDeniedException,
-    _NotFoundException,
-    _ConflictException,
     _BadRequestException,
+    _ConflictException,
+    _NotFoundException,
     _TooManyRequestsException,
 
     -- * AuthorizationType
@@ -69,25 +69,25 @@ module Amazonka.ApiGatewayV2.Types
     -- * AccessLogSettings
     AccessLogSettings (..),
     newAccessLogSettings,
-    accessLogSettings_format,
     accessLogSettings_destinationArn,
+    accessLogSettings_format,
 
     -- * Api
     Api (..),
     newApi,
-    api_tags,
     api_apiEndpoint,
+    api_apiGatewayManaged,
     api_apiId,
-    api_description,
-    api_warnings,
     api_apiKeySelectionExpression,
-    api_disableExecuteApiEndpoint,
+    api_corsConfiguration,
     api_createdDate,
+    api_description,
+    api_disableExecuteApiEndpoint,
     api_disableSchemaValidation,
     api_importInfo,
-    api_corsConfiguration,
-    api_apiGatewayManaged,
+    api_tags,
     api_version,
+    api_warnings,
     api_routeSelectionExpression,
     api_name,
     api_protocolType,
@@ -95,8 +95,8 @@ module Amazonka.ApiGatewayV2.Types
     -- * ApiMapping
     ApiMapping (..),
     newApiMapping,
-    apiMapping_apiMappingKey,
     apiMapping_apiMappingId,
+    apiMapping_apiMappingKey,
     apiMapping_stage,
     apiMapping_apiId,
 
@@ -104,121 +104,121 @@ module Amazonka.ApiGatewayV2.Types
     Authorizer (..),
     newAuthorizer,
     authorizer_authorizerCredentialsArn,
-    authorizer_identitySource,
-    authorizer_authorizerResultTtlInSeconds,
-    authorizer_jwtConfiguration,
-    authorizer_identityValidationExpression,
-    authorizer_authorizerUri,
-    authorizer_authorizerType,
-    authorizer_enableSimpleResponses,
     authorizer_authorizerId,
     authorizer_authorizerPayloadFormatVersion,
+    authorizer_authorizerResultTtlInSeconds,
+    authorizer_authorizerType,
+    authorizer_authorizerUri,
+    authorizer_enableSimpleResponses,
+    authorizer_identitySource,
+    authorizer_identityValidationExpression,
+    authorizer_jwtConfiguration,
     authorizer_name,
 
     -- * Cors
     Cors (..),
     newCors,
-    cors_allowHeaders,
-    cors_exposeHeaders,
     cors_allowCredentials,
+    cors_allowHeaders,
     cors_allowMethods,
     cors_allowOrigins,
+    cors_exposeHeaders,
     cors_maxAge,
 
     -- * Deployment
     Deployment (..),
     newDeployment,
-    deployment_deploymentStatus,
     deployment_autoDeployed,
-    deployment_deploymentId,
-    deployment_description,
-    deployment_deploymentStatusMessage,
     deployment_createdDate,
+    deployment_deploymentId,
+    deployment_deploymentStatus,
+    deployment_deploymentStatusMessage,
+    deployment_description,
 
     -- * DomainName
     DomainName (..),
     newDomainName,
-    domainName_tags,
-    domainName_mutualTlsAuthentication,
-    domainName_domainNameConfigurations,
     domainName_apiMappingSelectionExpression,
+    domainName_domainNameConfigurations,
+    domainName_mutualTlsAuthentication,
+    domainName_tags,
     domainName_domainName,
 
     -- * DomainNameConfiguration
     DomainNameConfiguration (..),
     newDomainNameConfiguration,
-    domainNameConfiguration_hostedZoneId,
-    domainNameConfiguration_domainNameStatus,
-    domainNameConfiguration_ownershipVerificationCertificateArn,
-    domainNameConfiguration_certificateName,
-    domainNameConfiguration_endpointType,
-    domainNameConfiguration_domainNameStatusMessage,
-    domainNameConfiguration_certificateArn,
-    domainNameConfiguration_certificateUploadDate,
     domainNameConfiguration_apiGatewayDomainName,
+    domainNameConfiguration_certificateArn,
+    domainNameConfiguration_certificateName,
+    domainNameConfiguration_certificateUploadDate,
+    domainNameConfiguration_domainNameStatus,
+    domainNameConfiguration_domainNameStatusMessage,
+    domainNameConfiguration_endpointType,
+    domainNameConfiguration_hostedZoneId,
+    domainNameConfiguration_ownershipVerificationCertificateArn,
     domainNameConfiguration_securityPolicy,
 
     -- * Integration
     Integration (..),
     newIntegration,
-    integration_credentialsArn,
-    integration_requestParameters,
-    integration_connectionType,
-    integration_tlsConfig,
-    integration_templateSelectionExpression,
-    integration_integrationResponseSelectionExpression,
-    integration_connectionId,
-    integration_description,
-    integration_integrationMethod,
-    integration_integrationUri,
-    integration_integrationType,
-    integration_responseParameters,
-    integration_payloadFormatVersion,
-    integration_timeoutInMillis,
-    integration_integrationId,
-    integration_contentHandlingStrategy,
-    integration_requestTemplates,
     integration_apiGatewayManaged,
-    integration_passthroughBehavior,
+    integration_connectionId,
+    integration_connectionType,
+    integration_contentHandlingStrategy,
+    integration_credentialsArn,
+    integration_description,
+    integration_integrationId,
+    integration_integrationMethod,
+    integration_integrationResponseSelectionExpression,
     integration_integrationSubtype,
+    integration_integrationType,
+    integration_integrationUri,
+    integration_passthroughBehavior,
+    integration_payloadFormatVersion,
+    integration_requestParameters,
+    integration_requestTemplates,
+    integration_responseParameters,
+    integration_templateSelectionExpression,
+    integration_timeoutInMillis,
+    integration_tlsConfig,
 
     -- * IntegrationResponse
     IntegrationResponse (..),
     newIntegrationResponse,
-    integrationResponse_templateSelectionExpression,
-    integrationResponse_responseParameters,
-    integrationResponse_responseTemplates,
     integrationResponse_contentHandlingStrategy,
     integrationResponse_integrationResponseId,
+    integrationResponse_responseParameters,
+    integrationResponse_responseTemplates,
+    integrationResponse_templateSelectionExpression,
     integrationResponse_integrationResponseKey,
 
     -- * JWTConfiguration
     JWTConfiguration (..),
     newJWTConfiguration,
-    jWTConfiguration_issuer,
     jWTConfiguration_audience,
+    jWTConfiguration_issuer,
 
     -- * Model
     Model (..),
     newModel,
-    model_description,
-    model_schema,
-    model_modelId,
     model_contentType,
+    model_description,
+    model_modelId,
+    model_schema,
     model_name,
 
     -- * MutualTlsAuthentication
     MutualTlsAuthentication (..),
     newMutualTlsAuthentication,
-    mutualTlsAuthentication_truststoreWarnings,
-    mutualTlsAuthentication_truststoreVersion,
     mutualTlsAuthentication_truststoreUri,
+    mutualTlsAuthentication_truststoreVersion,
+    mutualTlsAuthentication_truststoreWarnings,
 
     -- * MutualTlsAuthenticationInput
     MutualTlsAuthenticationInput (..),
     newMutualTlsAuthenticationInput,
-    mutualTlsAuthenticationInput_truststoreVersion,
     mutualTlsAuthenticationInput_truststoreUri,
+    mutualTlsAuthenticationInput_truststoreVersion,
 
     -- * ParameterConstraints
     ParameterConstraints (..),
@@ -228,54 +228,54 @@ module Amazonka.ApiGatewayV2.Types
     -- * Route
     Route (..),
     newRoute,
-    route_requestModels,
-    route_requestParameters,
+    route_apiGatewayManaged,
     route_apiKeyRequired,
-    route_target,
-    route_modelSelectionExpression,
-    route_routeId,
     route_authorizationScopes,
     route_authorizationType,
-    route_operationName,
-    route_apiGatewayManaged,
-    route_routeResponseSelectionExpression,
     route_authorizerId,
+    route_modelSelectionExpression,
+    route_operationName,
+    route_requestModels,
+    route_requestParameters,
+    route_routeId,
+    route_routeResponseSelectionExpression,
+    route_target,
     route_routeKey,
 
     -- * RouteResponse
     RouteResponse (..),
     newRouteResponse,
     routeResponse_modelSelectionExpression,
-    routeResponse_responseParameters,
     routeResponse_responseModels,
+    routeResponse_responseParameters,
     routeResponse_routeResponseId,
     routeResponse_routeResponseKey,
 
     -- * RouteSettings
     RouteSettings (..),
     newRouteSettings,
-    routeSettings_throttlingRateLimit,
+    routeSettings_dataTraceEnabled,
+    routeSettings_detailedMetricsEnabled,
     routeSettings_loggingLevel,
     routeSettings_throttlingBurstLimit,
-    routeSettings_detailedMetricsEnabled,
-    routeSettings_dataTraceEnabled,
+    routeSettings_throttlingRateLimit,
 
     -- * Stage
     Stage (..),
     newStage,
-    stage_tags,
     stage_accessLogSettings,
-    stage_deploymentId,
-    stage_autoDeploy,
-    stage_lastUpdatedDate,
-    stage_stageVariables,
-    stage_description,
-    stage_clientCertificateId,
-    stage_lastDeploymentStatusMessage,
-    stage_defaultRouteSettings,
-    stage_createdDate,
     stage_apiGatewayManaged,
+    stage_autoDeploy,
+    stage_clientCertificateId,
+    stage_createdDate,
+    stage_defaultRouteSettings,
+    stage_deploymentId,
+    stage_description,
+    stage_lastDeploymentStatusMessage,
+    stage_lastUpdatedDate,
     stage_routeSettings,
+    stage_stageVariables,
+    stage_tags,
     stage_stageName,
 
     -- * TlsConfig
@@ -291,11 +291,11 @@ module Amazonka.ApiGatewayV2.Types
     -- * VpcLink
     VpcLink (..),
     newVpcLink,
+    vpcLink_createdDate,
     vpcLink_tags,
+    vpcLink_vpcLinkStatus,
     vpcLink_vpcLinkStatusMessage,
     vpcLink_vpcLinkVersion,
-    vpcLink_vpcLinkStatus,
-    vpcLink_createdDate,
     vpcLink_vpcLinkId,
     vpcLink_securityGroupIds,
     vpcLink_subnetIds,
@@ -369,28 +369,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -398,13 +392,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -412,6 +410,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Prism for AccessDeniedException' errors.
@@ -422,14 +422,14 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
--- | The resource specified in the request was not found. See the message
--- field for more information.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotFoundException =
+-- | The request is not valid, for example, the input is incomplete or
+-- incorrect. See the accompanying error message for details.
+_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
   Core._MatchServiceError
     defaultService
-    "NotFoundException"
-    Prelude.. Core.hasStatus 404
+    "BadRequestException"
+    Prelude.. Core.hasStatus 400
 
 -- | The requested operation would cause a conflict with the current state of
 -- a service resource associated with the request. Resolve the conflict
@@ -442,14 +442,14 @@ _ConflictException =
     "ConflictException"
     Prelude.. Core.hasStatus 409
 
--- | The request is not valid, for example, the input is incomplete or
--- incorrect. See the accompanying error message for details.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BadRequestException =
+-- | The resource specified in the request was not found. See the message
+-- field for more information.
+_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
   Core._MatchServiceError
     defaultService
-    "BadRequestException"
-    Prelude.. Core.hasStatus 400
+    "NotFoundException"
+    Prelude.. Core.hasStatus 404
 
 -- | A limit has been exceeded. See the accompanying error message for
 -- details.

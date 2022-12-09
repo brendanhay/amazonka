@@ -27,9 +27,9 @@ module Amazonka.ApiGatewayV2.ExportApi
     newExportApi,
 
     -- * Request Lenses
-    exportApi_stageName,
     exportApi_exportVersion,
     exportApi_includeExtensions,
+    exportApi_stageName,
     exportApi_specification,
     exportApi_outputType,
     exportApi_apiId,
@@ -54,10 +54,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newExportApi' smart constructor.
 data ExportApi = ExportApi'
-  { -- | The name of the API stage to export. If you don\'t specify this
-    -- property, a representation of the latest API configuration is exported.
-    stageName :: Prelude.Maybe Prelude.Text,
-    -- | The version of the API Gateway export algorithm. API Gateway uses the
+  { -- | The version of the API Gateway export algorithm. API Gateway uses the
     -- latest version by default. Currently, the only supported version is 1.0.
     exportVersion :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether to include
@@ -65,6 +62,9 @@ data ExportApi = ExportApi'
     -- in the exported API definition. API Gateway extensions are included by
     -- default.
     includeExtensions :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the API stage to export. If you don\'t specify this
+    -- property, a representation of the latest API configuration is exported.
+    stageName :: Prelude.Maybe Prelude.Text,
     -- | The version of the API specification to use. OAS30, for OpenAPI 3.0, is
     -- the only supported value.
     specification :: Prelude.Text,
@@ -84,9 +84,6 @@ data ExportApi = ExportApi'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stageName', 'exportApi_stageName' - The name of the API stage to export. If you don\'t specify this
--- property, a representation of the latest API configuration is exported.
---
 -- 'exportVersion', 'exportApi_exportVersion' - The version of the API Gateway export algorithm. API Gateway uses the
 -- latest version by default. Currently, the only supported version is 1.0.
 --
@@ -94,6 +91,9 @@ data ExportApi = ExportApi'
 -- <https://docs.aws.amazon.com//apigateway/latest/developerguide/api-gateway-swagger-extensions.html API Gateway extensions>
 -- in the exported API definition. API Gateway extensions are included by
 -- default.
+--
+-- 'stageName', 'exportApi_stageName' - The name of the API stage to export. If you don\'t specify this
+-- property, a representation of the latest API configuration is exported.
 --
 -- 'specification', 'exportApi_specification' - The version of the API specification to use. OAS30, for OpenAPI 3.0, is
 -- the only supported value.
@@ -112,18 +112,13 @@ newExportApi ::
   ExportApi
 newExportApi pSpecification_ pOutputType_ pApiId_ =
   ExportApi'
-    { stageName = Prelude.Nothing,
-      exportVersion = Prelude.Nothing,
+    { exportVersion = Prelude.Nothing,
       includeExtensions = Prelude.Nothing,
+      stageName = Prelude.Nothing,
       specification = pSpecification_,
       outputType = pOutputType_,
       apiId = pApiId_
     }
-
--- | The name of the API stage to export. If you don\'t specify this
--- property, a representation of the latest API configuration is exported.
-exportApi_stageName :: Lens.Lens' ExportApi (Prelude.Maybe Prelude.Text)
-exportApi_stageName = Lens.lens (\ExportApi' {stageName} -> stageName) (\s@ExportApi' {} a -> s {stageName = a} :: ExportApi)
 
 -- | The version of the API Gateway export algorithm. API Gateway uses the
 -- latest version by default. Currently, the only supported version is 1.0.
@@ -136,6 +131,11 @@ exportApi_exportVersion = Lens.lens (\ExportApi' {exportVersion} -> exportVersio
 -- default.
 exportApi_includeExtensions :: Lens.Lens' ExportApi (Prelude.Maybe Prelude.Bool)
 exportApi_includeExtensions = Lens.lens (\ExportApi' {includeExtensions} -> includeExtensions) (\s@ExportApi' {} a -> s {includeExtensions = a} :: ExportApi)
+
+-- | The name of the API stage to export. If you don\'t specify this
+-- property, a representation of the latest API configuration is exported.
+exportApi_stageName :: Lens.Lens' ExportApi (Prelude.Maybe Prelude.Text)
+exportApi_stageName = Lens.lens (\ExportApi' {stageName} -> stageName) (\s@ExportApi' {} a -> s {stageName = a} :: ExportApi)
 
 -- | The version of the API specification to use. OAS30, for OpenAPI 3.0, is
 -- the only supported value.
@@ -165,18 +165,18 @@ instance Core.AWSRequest ExportApi where
 
 instance Prelude.Hashable ExportApi where
   hashWithSalt _salt ExportApi' {..} =
-    _salt `Prelude.hashWithSalt` stageName
-      `Prelude.hashWithSalt` exportVersion
+    _salt `Prelude.hashWithSalt` exportVersion
       `Prelude.hashWithSalt` includeExtensions
+      `Prelude.hashWithSalt` stageName
       `Prelude.hashWithSalt` specification
       `Prelude.hashWithSalt` outputType
       `Prelude.hashWithSalt` apiId
 
 instance Prelude.NFData ExportApi where
   rnf ExportApi' {..} =
-    Prelude.rnf stageName
-      `Prelude.seq` Prelude.rnf exportVersion
+    Prelude.rnf exportVersion
       `Prelude.seq` Prelude.rnf includeExtensions
+      `Prelude.seq` Prelude.rnf stageName
       `Prelude.seq` Prelude.rnf specification
       `Prelude.seq` Prelude.rnf outputType
       `Prelude.seq` Prelude.rnf apiId
@@ -204,9 +204,9 @@ instance Data.ToPath ExportApi where
 instance Data.ToQuery ExportApi where
   toQuery ExportApi' {..} =
     Prelude.mconcat
-      [ "stageName" Data.=: stageName,
-        "exportVersion" Data.=: exportVersion,
+      [ "exportVersion" Data.=: exportVersion,
         "includeExtensions" Data.=: includeExtensions,
+        "stageName" Data.=: stageName,
         "outputType" Data.=: outputType
       ]
 

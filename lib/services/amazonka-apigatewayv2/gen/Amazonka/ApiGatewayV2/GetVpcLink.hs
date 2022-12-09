@@ -34,15 +34,15 @@ module Amazonka.ApiGatewayV2.GetVpcLink
     newGetVpcLinkResponse,
 
     -- * Response Lenses
-    getVpcLinkResponse_tags,
-    getVpcLinkResponse_vpcLinkStatusMessage,
+    getVpcLinkResponse_createdDate,
     getVpcLinkResponse_name,
     getVpcLinkResponse_securityGroupIds,
-    getVpcLinkResponse_vpcLinkVersion,
-    getVpcLinkResponse_vpcLinkStatus,
-    getVpcLinkResponse_vpcLinkId,
-    getVpcLinkResponse_createdDate,
     getVpcLinkResponse_subnetIds,
+    getVpcLinkResponse_tags,
+    getVpcLinkResponse_vpcLinkId,
+    getVpcLinkResponse_vpcLinkStatus,
+    getVpcLinkResponse_vpcLinkStatusMessage,
+    getVpcLinkResponse_vpcLinkVersion,
     getVpcLinkResponse_httpStatus,
   )
 where
@@ -90,17 +90,17 @@ instance Core.AWSRequest GetVpcLink where
     Response.receiveJSON
       ( \s h x ->
           GetVpcLinkResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "vpcLinkStatusMessage")
+            Prelude.<$> (x Data..?> "createdDate")
             Prelude.<*> (x Data..?> "name")
             Prelude.<*> ( x Data..?> "securityGroupIds"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "vpcLinkVersion")
-            Prelude.<*> (x Data..?> "vpcLinkStatus")
-            Prelude.<*> (x Data..?> "vpcLinkId")
-            Prelude.<*> (x Data..?> "createdDate")
             Prelude.<*> (x Data..?> "subnetIds" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "vpcLinkId")
+            Prelude.<*> (x Data..?> "vpcLinkStatus")
+            Prelude.<*> (x Data..?> "vpcLinkStatusMessage")
+            Prelude.<*> (x Data..?> "vpcLinkVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -132,24 +132,24 @@ instance Data.ToQuery GetVpcLink where
 
 -- | /See:/ 'newGetVpcLinkResponse' smart constructor.
 data GetVpcLinkResponse = GetVpcLinkResponse'
-  { -- | Tags for the VPC link.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A message summarizing the cause of the status of the VPC link.
-    vpcLinkStatusMessage :: Prelude.Maybe Prelude.Text,
+  { -- | The timestamp when the VPC link was created.
+    createdDate :: Prelude.Maybe Data.POSIX,
     -- | The name of the VPC link.
     name :: Prelude.Maybe Prelude.Text,
     -- | A list of security group IDs for the VPC link.
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The version of the VPC link.
-    vpcLinkVersion :: Prelude.Maybe VpcLinkVersion,
-    -- | The status of the VPC link.
-    vpcLinkStatus :: Prelude.Maybe VpcLinkStatus,
-    -- | The ID of the VPC link.
-    vpcLinkId :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp when the VPC link was created.
-    createdDate :: Prelude.Maybe Data.POSIX,
     -- | A list of subnet IDs to include in the VPC link.
     subnetIds :: Prelude.Maybe [Prelude.Text],
+    -- | Tags for the VPC link.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The ID of the VPC link.
+    vpcLinkId :: Prelude.Maybe Prelude.Text,
+    -- | The status of the VPC link.
+    vpcLinkStatus :: Prelude.Maybe VpcLinkStatus,
+    -- | A message summarizing the cause of the status of the VPC link.
+    vpcLinkStatusMessage :: Prelude.Maybe Prelude.Text,
+    -- | The version of the VPC link.
+    vpcLinkVersion :: Prelude.Maybe VpcLinkVersion,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -163,23 +163,23 @@ data GetVpcLinkResponse = GetVpcLinkResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'getVpcLinkResponse_tags' - Tags for the VPC link.
---
--- 'vpcLinkStatusMessage', 'getVpcLinkResponse_vpcLinkStatusMessage' - A message summarizing the cause of the status of the VPC link.
+-- 'createdDate', 'getVpcLinkResponse_createdDate' - The timestamp when the VPC link was created.
 --
 -- 'name', 'getVpcLinkResponse_name' - The name of the VPC link.
 --
 -- 'securityGroupIds', 'getVpcLinkResponse_securityGroupIds' - A list of security group IDs for the VPC link.
 --
--- 'vpcLinkVersion', 'getVpcLinkResponse_vpcLinkVersion' - The version of the VPC link.
+-- 'subnetIds', 'getVpcLinkResponse_subnetIds' - A list of subnet IDs to include in the VPC link.
 --
--- 'vpcLinkStatus', 'getVpcLinkResponse_vpcLinkStatus' - The status of the VPC link.
+-- 'tags', 'getVpcLinkResponse_tags' - Tags for the VPC link.
 --
 -- 'vpcLinkId', 'getVpcLinkResponse_vpcLinkId' - The ID of the VPC link.
 --
--- 'createdDate', 'getVpcLinkResponse_createdDate' - The timestamp when the VPC link was created.
+-- 'vpcLinkStatus', 'getVpcLinkResponse_vpcLinkStatus' - The status of the VPC link.
 --
--- 'subnetIds', 'getVpcLinkResponse_subnetIds' - A list of subnet IDs to include in the VPC link.
+-- 'vpcLinkStatusMessage', 'getVpcLinkResponse_vpcLinkStatusMessage' - A message summarizing the cause of the status of the VPC link.
+--
+-- 'vpcLinkVersion', 'getVpcLinkResponse_vpcLinkVersion' - The version of the VPC link.
 --
 -- 'httpStatus', 'getVpcLinkResponse_httpStatus' - The response's http status code.
 newGetVpcLinkResponse ::
@@ -188,25 +188,21 @@ newGetVpcLinkResponse ::
   GetVpcLinkResponse
 newGetVpcLinkResponse pHttpStatus_ =
   GetVpcLinkResponse'
-    { tags = Prelude.Nothing,
-      vpcLinkStatusMessage = Prelude.Nothing,
+    { createdDate = Prelude.Nothing,
       name = Prelude.Nothing,
       securityGroupIds = Prelude.Nothing,
-      vpcLinkVersion = Prelude.Nothing,
-      vpcLinkStatus = Prelude.Nothing,
-      vpcLinkId = Prelude.Nothing,
-      createdDate = Prelude.Nothing,
       subnetIds = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      vpcLinkId = Prelude.Nothing,
+      vpcLinkStatus = Prelude.Nothing,
+      vpcLinkStatusMessage = Prelude.Nothing,
+      vpcLinkVersion = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Tags for the VPC link.
-getVpcLinkResponse_tags :: Lens.Lens' GetVpcLinkResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getVpcLinkResponse_tags = Lens.lens (\GetVpcLinkResponse' {tags} -> tags) (\s@GetVpcLinkResponse' {} a -> s {tags = a} :: GetVpcLinkResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | A message summarizing the cause of the status of the VPC link.
-getVpcLinkResponse_vpcLinkStatusMessage :: Lens.Lens' GetVpcLinkResponse (Prelude.Maybe Prelude.Text)
-getVpcLinkResponse_vpcLinkStatusMessage = Lens.lens (\GetVpcLinkResponse' {vpcLinkStatusMessage} -> vpcLinkStatusMessage) (\s@GetVpcLinkResponse' {} a -> s {vpcLinkStatusMessage = a} :: GetVpcLinkResponse)
+-- | The timestamp when the VPC link was created.
+getVpcLinkResponse_createdDate :: Lens.Lens' GetVpcLinkResponse (Prelude.Maybe Prelude.UTCTime)
+getVpcLinkResponse_createdDate = Lens.lens (\GetVpcLinkResponse' {createdDate} -> createdDate) (\s@GetVpcLinkResponse' {} a -> s {createdDate = a} :: GetVpcLinkResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the VPC link.
 getVpcLinkResponse_name :: Lens.Lens' GetVpcLinkResponse (Prelude.Maybe Prelude.Text)
@@ -216,25 +212,29 @@ getVpcLinkResponse_name = Lens.lens (\GetVpcLinkResponse' {name} -> name) (\s@Ge
 getVpcLinkResponse_securityGroupIds :: Lens.Lens' GetVpcLinkResponse (Prelude.Maybe [Prelude.Text])
 getVpcLinkResponse_securityGroupIds = Lens.lens (\GetVpcLinkResponse' {securityGroupIds} -> securityGroupIds) (\s@GetVpcLinkResponse' {} a -> s {securityGroupIds = a} :: GetVpcLinkResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The version of the VPC link.
-getVpcLinkResponse_vpcLinkVersion :: Lens.Lens' GetVpcLinkResponse (Prelude.Maybe VpcLinkVersion)
-getVpcLinkResponse_vpcLinkVersion = Lens.lens (\GetVpcLinkResponse' {vpcLinkVersion} -> vpcLinkVersion) (\s@GetVpcLinkResponse' {} a -> s {vpcLinkVersion = a} :: GetVpcLinkResponse)
+-- | A list of subnet IDs to include in the VPC link.
+getVpcLinkResponse_subnetIds :: Lens.Lens' GetVpcLinkResponse (Prelude.Maybe [Prelude.Text])
+getVpcLinkResponse_subnetIds = Lens.lens (\GetVpcLinkResponse' {subnetIds} -> subnetIds) (\s@GetVpcLinkResponse' {} a -> s {subnetIds = a} :: GetVpcLinkResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The status of the VPC link.
-getVpcLinkResponse_vpcLinkStatus :: Lens.Lens' GetVpcLinkResponse (Prelude.Maybe VpcLinkStatus)
-getVpcLinkResponse_vpcLinkStatus = Lens.lens (\GetVpcLinkResponse' {vpcLinkStatus} -> vpcLinkStatus) (\s@GetVpcLinkResponse' {} a -> s {vpcLinkStatus = a} :: GetVpcLinkResponse)
+-- | Tags for the VPC link.
+getVpcLinkResponse_tags :: Lens.Lens' GetVpcLinkResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getVpcLinkResponse_tags = Lens.lens (\GetVpcLinkResponse' {tags} -> tags) (\s@GetVpcLinkResponse' {} a -> s {tags = a} :: GetVpcLinkResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the VPC link.
 getVpcLinkResponse_vpcLinkId :: Lens.Lens' GetVpcLinkResponse (Prelude.Maybe Prelude.Text)
 getVpcLinkResponse_vpcLinkId = Lens.lens (\GetVpcLinkResponse' {vpcLinkId} -> vpcLinkId) (\s@GetVpcLinkResponse' {} a -> s {vpcLinkId = a} :: GetVpcLinkResponse)
 
--- | The timestamp when the VPC link was created.
-getVpcLinkResponse_createdDate :: Lens.Lens' GetVpcLinkResponse (Prelude.Maybe Prelude.UTCTime)
-getVpcLinkResponse_createdDate = Lens.lens (\GetVpcLinkResponse' {createdDate} -> createdDate) (\s@GetVpcLinkResponse' {} a -> s {createdDate = a} :: GetVpcLinkResponse) Prelude.. Lens.mapping Data._Time
+-- | The status of the VPC link.
+getVpcLinkResponse_vpcLinkStatus :: Lens.Lens' GetVpcLinkResponse (Prelude.Maybe VpcLinkStatus)
+getVpcLinkResponse_vpcLinkStatus = Lens.lens (\GetVpcLinkResponse' {vpcLinkStatus} -> vpcLinkStatus) (\s@GetVpcLinkResponse' {} a -> s {vpcLinkStatus = a} :: GetVpcLinkResponse)
 
--- | A list of subnet IDs to include in the VPC link.
-getVpcLinkResponse_subnetIds :: Lens.Lens' GetVpcLinkResponse (Prelude.Maybe [Prelude.Text])
-getVpcLinkResponse_subnetIds = Lens.lens (\GetVpcLinkResponse' {subnetIds} -> subnetIds) (\s@GetVpcLinkResponse' {} a -> s {subnetIds = a} :: GetVpcLinkResponse) Prelude.. Lens.mapping Lens.coerced
+-- | A message summarizing the cause of the status of the VPC link.
+getVpcLinkResponse_vpcLinkStatusMessage :: Lens.Lens' GetVpcLinkResponse (Prelude.Maybe Prelude.Text)
+getVpcLinkResponse_vpcLinkStatusMessage = Lens.lens (\GetVpcLinkResponse' {vpcLinkStatusMessage} -> vpcLinkStatusMessage) (\s@GetVpcLinkResponse' {} a -> s {vpcLinkStatusMessage = a} :: GetVpcLinkResponse)
+
+-- | The version of the VPC link.
+getVpcLinkResponse_vpcLinkVersion :: Lens.Lens' GetVpcLinkResponse (Prelude.Maybe VpcLinkVersion)
+getVpcLinkResponse_vpcLinkVersion = Lens.lens (\GetVpcLinkResponse' {vpcLinkVersion} -> vpcLinkVersion) (\s@GetVpcLinkResponse' {} a -> s {vpcLinkVersion = a} :: GetVpcLinkResponse)
 
 -- | The response's http status code.
 getVpcLinkResponse_httpStatus :: Lens.Lens' GetVpcLinkResponse Prelude.Int
@@ -242,13 +242,13 @@ getVpcLinkResponse_httpStatus = Lens.lens (\GetVpcLinkResponse' {httpStatus} -> 
 
 instance Prelude.NFData GetVpcLinkResponse where
   rnf GetVpcLinkResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcLinkStatusMessage
+    Prelude.rnf createdDate
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf vpcLinkVersion
-      `Prelude.seq` Prelude.rnf vpcLinkStatus
-      `Prelude.seq` Prelude.rnf vpcLinkId
-      `Prelude.seq` Prelude.rnf createdDate
       `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vpcLinkId
+      `Prelude.seq` Prelude.rnf vpcLinkStatus
+      `Prelude.seq` Prelude.rnf vpcLinkStatusMessage
+      `Prelude.seq` Prelude.rnf vpcLinkVersion
       `Prelude.seq` Prelude.rnf httpStatus

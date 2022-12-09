@@ -29,8 +29,8 @@ module Amazonka.ApiGatewayV2.GetRouteResponses
     newGetRouteResponses,
 
     -- * Request Lenses
-    getRouteResponses_nextToken,
     getRouteResponses_maxResults,
+    getRouteResponses_nextToken,
     getRouteResponses_routeId,
     getRouteResponses_apiId,
 
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetRouteResponses' smart constructor.
 data GetRouteResponses = GetRouteResponses'
-  { -- | The next page of elements from this collection. Not valid for the last
+  { -- | The maximum number of elements to be returned for this resource.
+    maxResults :: Prelude.Maybe Prelude.Text,
+    -- | The next page of elements from this collection. Not valid for the last
     -- element of the collection.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of elements to be returned for this resource.
-    maxResults :: Prelude.Maybe Prelude.Text,
     -- | The route ID.
     routeId :: Prelude.Text,
     -- | The API identifier.
@@ -75,10 +75,10 @@ data GetRouteResponses = GetRouteResponses'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'getRouteResponses_maxResults' - The maximum number of elements to be returned for this resource.
+--
 -- 'nextToken', 'getRouteResponses_nextToken' - The next page of elements from this collection. Not valid for the last
 -- element of the collection.
---
--- 'maxResults', 'getRouteResponses_maxResults' - The maximum number of elements to be returned for this resource.
 --
 -- 'routeId', 'getRouteResponses_routeId' - The route ID.
 --
@@ -91,20 +91,20 @@ newGetRouteResponses ::
   GetRouteResponses
 newGetRouteResponses pRouteId_ pApiId_ =
   GetRouteResponses'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       routeId = pRouteId_,
       apiId = pApiId_
     }
+
+-- | The maximum number of elements to be returned for this resource.
+getRouteResponses_maxResults :: Lens.Lens' GetRouteResponses (Prelude.Maybe Prelude.Text)
+getRouteResponses_maxResults = Lens.lens (\GetRouteResponses' {maxResults} -> maxResults) (\s@GetRouteResponses' {} a -> s {maxResults = a} :: GetRouteResponses)
 
 -- | The next page of elements from this collection. Not valid for the last
 -- element of the collection.
 getRouteResponses_nextToken :: Lens.Lens' GetRouteResponses (Prelude.Maybe Prelude.Text)
 getRouteResponses_nextToken = Lens.lens (\GetRouteResponses' {nextToken} -> nextToken) (\s@GetRouteResponses' {} a -> s {nextToken = a} :: GetRouteResponses)
-
--- | The maximum number of elements to be returned for this resource.
-getRouteResponses_maxResults :: Lens.Lens' GetRouteResponses (Prelude.Maybe Prelude.Text)
-getRouteResponses_maxResults = Lens.lens (\GetRouteResponses' {maxResults} -> maxResults) (\s@GetRouteResponses' {} a -> s {maxResults = a} :: GetRouteResponses)
 
 -- | The route ID.
 getRouteResponses_routeId :: Lens.Lens' GetRouteResponses Prelude.Text
@@ -152,15 +152,15 @@ instance Core.AWSRequest GetRouteResponses where
 
 instance Prelude.Hashable GetRouteResponses where
   hashWithSalt _salt GetRouteResponses' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` routeId
       `Prelude.hashWithSalt` apiId
 
 instance Prelude.NFData GetRouteResponses where
   rnf GetRouteResponses' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf routeId
       `Prelude.seq` Prelude.rnf apiId
 
@@ -188,8 +188,8 @@ instance Data.ToPath GetRouteResponses where
 instance Data.ToQuery GetRouteResponses where
   toQuery GetRouteResponses' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newGetRouteResponsesResponse' smart constructor.

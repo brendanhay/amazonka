@@ -29,8 +29,8 @@ module Amazonka.ApiGatewayV2.GetIntegrationResponses
     newGetIntegrationResponses,
 
     -- * Request Lenses
-    getIntegrationResponses_nextToken,
     getIntegrationResponses_maxResults,
+    getIntegrationResponses_nextToken,
     getIntegrationResponses_integrationId,
     getIntegrationResponses_apiId,
 
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetIntegrationResponses' smart constructor.
 data GetIntegrationResponses = GetIntegrationResponses'
-  { -- | The next page of elements from this collection. Not valid for the last
+  { -- | The maximum number of elements to be returned for this resource.
+    maxResults :: Prelude.Maybe Prelude.Text,
+    -- | The next page of elements from this collection. Not valid for the last
     -- element of the collection.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of elements to be returned for this resource.
-    maxResults :: Prelude.Maybe Prelude.Text,
     -- | The integration ID.
     integrationId :: Prelude.Text,
     -- | The API identifier.
@@ -75,10 +75,10 @@ data GetIntegrationResponses = GetIntegrationResponses'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'getIntegrationResponses_maxResults' - The maximum number of elements to be returned for this resource.
+--
 -- 'nextToken', 'getIntegrationResponses_nextToken' - The next page of elements from this collection. Not valid for the last
 -- element of the collection.
---
--- 'maxResults', 'getIntegrationResponses_maxResults' - The maximum number of elements to be returned for this resource.
 --
 -- 'integrationId', 'getIntegrationResponses_integrationId' - The integration ID.
 --
@@ -91,21 +91,21 @@ newGetIntegrationResponses ::
   GetIntegrationResponses
 newGetIntegrationResponses pIntegrationId_ pApiId_ =
   GetIntegrationResponses'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       integrationId = pIntegrationId_,
       apiId = pApiId_
     }
+
+-- | The maximum number of elements to be returned for this resource.
+getIntegrationResponses_maxResults :: Lens.Lens' GetIntegrationResponses (Prelude.Maybe Prelude.Text)
+getIntegrationResponses_maxResults = Lens.lens (\GetIntegrationResponses' {maxResults} -> maxResults) (\s@GetIntegrationResponses' {} a -> s {maxResults = a} :: GetIntegrationResponses)
 
 -- | The next page of elements from this collection. Not valid for the last
 -- element of the collection.
 getIntegrationResponses_nextToken :: Lens.Lens' GetIntegrationResponses (Prelude.Maybe Prelude.Text)
 getIntegrationResponses_nextToken = Lens.lens (\GetIntegrationResponses' {nextToken} -> nextToken) (\s@GetIntegrationResponses' {} a -> s {nextToken = a} :: GetIntegrationResponses)
-
--- | The maximum number of elements to be returned for this resource.
-getIntegrationResponses_maxResults :: Lens.Lens' GetIntegrationResponses (Prelude.Maybe Prelude.Text)
-getIntegrationResponses_maxResults = Lens.lens (\GetIntegrationResponses' {maxResults} -> maxResults) (\s@GetIntegrationResponses' {} a -> s {maxResults = a} :: GetIntegrationResponses)
 
 -- | The integration ID.
 getIntegrationResponses_integrationId :: Lens.Lens' GetIntegrationResponses Prelude.Text
@@ -154,15 +154,15 @@ instance Core.AWSRequest GetIntegrationResponses where
 
 instance Prelude.Hashable GetIntegrationResponses where
   hashWithSalt _salt GetIntegrationResponses' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` integrationId
       `Prelude.hashWithSalt` apiId
 
 instance Prelude.NFData GetIntegrationResponses where
   rnf GetIntegrationResponses' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf integrationId
       `Prelude.seq` Prelude.rnf apiId
 
@@ -190,8 +190,8 @@ instance Data.ToPath GetIntegrationResponses where
 instance Data.ToQuery GetIntegrationResponses where
   toQuery GetIntegrationResponses' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newGetIntegrationResponsesResponse' smart constructor.

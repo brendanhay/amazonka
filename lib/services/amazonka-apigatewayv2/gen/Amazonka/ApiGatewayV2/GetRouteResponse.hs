@@ -36,11 +36,11 @@ module Amazonka.ApiGatewayV2.GetRouteResponse
     newGetRouteResponseResponse,
 
     -- * Response Lenses
-    getRouteResponseResponse_routeResponseKey,
     getRouteResponseResponse_modelSelectionExpression,
-    getRouteResponseResponse_responseParameters,
     getRouteResponseResponse_responseModels,
+    getRouteResponseResponse_responseParameters,
     getRouteResponseResponse_routeResponseId,
+    getRouteResponseResponse_routeResponseKey,
     getRouteResponseResponse_httpStatus,
   )
 where
@@ -118,13 +118,13 @@ instance Core.AWSRequest GetRouteResponse where
     Response.receiveJSON
       ( \s h x ->
           GetRouteResponseResponse'
-            Prelude.<$> (x Data..?> "routeResponseKey")
-            Prelude.<*> (x Data..?> "modelSelectionExpression")
+            Prelude.<$> (x Data..?> "modelSelectionExpression")
+            Prelude.<*> (x Data..?> "responseModels" Core..!@ Prelude.mempty)
             Prelude.<*> ( x Data..?> "responseParameters"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "responseModels" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "routeResponseId")
+            Prelude.<*> (x Data..?> "routeResponseKey")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,17 +167,17 @@ instance Data.ToQuery GetRouteResponse where
 
 -- | /See:/ 'newGetRouteResponseResponse' smart constructor.
 data GetRouteResponseResponse = GetRouteResponseResponse'
-  { -- | Represents the route response key of a route response.
-    routeResponseKey :: Prelude.Maybe Prelude.Text,
-    -- | Represents the model selection expression of a route response. Supported
+  { -- | Represents the model selection expression of a route response. Supported
     -- only for WebSocket APIs.
     modelSelectionExpression :: Prelude.Maybe Prelude.Text,
-    -- | Represents the response parameters of a route response.
-    responseParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text ParameterConstraints),
     -- | Represents the response models of a route response.
     responseModels :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Represents the response parameters of a route response.
+    responseParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text ParameterConstraints),
     -- | Represents the identifier of a route response.
     routeResponseId :: Prelude.Maybe Prelude.Text,
+    -- | Represents the route response key of a route response.
+    routeResponseKey :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -191,16 +191,16 @@ data GetRouteResponseResponse = GetRouteResponseResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'routeResponseKey', 'getRouteResponseResponse_routeResponseKey' - Represents the route response key of a route response.
---
 -- 'modelSelectionExpression', 'getRouteResponseResponse_modelSelectionExpression' - Represents the model selection expression of a route response. Supported
 -- only for WebSocket APIs.
 --
--- 'responseParameters', 'getRouteResponseResponse_responseParameters' - Represents the response parameters of a route response.
---
 -- 'responseModels', 'getRouteResponseResponse_responseModels' - Represents the response models of a route response.
 --
+-- 'responseParameters', 'getRouteResponseResponse_responseParameters' - Represents the response parameters of a route response.
+--
 -- 'routeResponseId', 'getRouteResponseResponse_routeResponseId' - Represents the identifier of a route response.
+--
+-- 'routeResponseKey', 'getRouteResponseResponse_routeResponseKey' - Represents the route response key of a route response.
 --
 -- 'httpStatus', 'getRouteResponseResponse_httpStatus' - The response's http status code.
 newGetRouteResponseResponse ::
@@ -209,35 +209,35 @@ newGetRouteResponseResponse ::
   GetRouteResponseResponse
 newGetRouteResponseResponse pHttpStatus_ =
   GetRouteResponseResponse'
-    { routeResponseKey =
+    { modelSelectionExpression =
         Prelude.Nothing,
-      modelSelectionExpression = Prelude.Nothing,
-      responseParameters = Prelude.Nothing,
       responseModels = Prelude.Nothing,
+      responseParameters = Prelude.Nothing,
       routeResponseId = Prelude.Nothing,
+      routeResponseKey = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Represents the route response key of a route response.
-getRouteResponseResponse_routeResponseKey :: Lens.Lens' GetRouteResponseResponse (Prelude.Maybe Prelude.Text)
-getRouteResponseResponse_routeResponseKey = Lens.lens (\GetRouteResponseResponse' {routeResponseKey} -> routeResponseKey) (\s@GetRouteResponseResponse' {} a -> s {routeResponseKey = a} :: GetRouteResponseResponse)
 
 -- | Represents the model selection expression of a route response. Supported
 -- only for WebSocket APIs.
 getRouteResponseResponse_modelSelectionExpression :: Lens.Lens' GetRouteResponseResponse (Prelude.Maybe Prelude.Text)
 getRouteResponseResponse_modelSelectionExpression = Lens.lens (\GetRouteResponseResponse' {modelSelectionExpression} -> modelSelectionExpression) (\s@GetRouteResponseResponse' {} a -> s {modelSelectionExpression = a} :: GetRouteResponseResponse)
 
--- | Represents the response parameters of a route response.
-getRouteResponseResponse_responseParameters :: Lens.Lens' GetRouteResponseResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text ParameterConstraints))
-getRouteResponseResponse_responseParameters = Lens.lens (\GetRouteResponseResponse' {responseParameters} -> responseParameters) (\s@GetRouteResponseResponse' {} a -> s {responseParameters = a} :: GetRouteResponseResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | Represents the response models of a route response.
 getRouteResponseResponse_responseModels :: Lens.Lens' GetRouteResponseResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getRouteResponseResponse_responseModels = Lens.lens (\GetRouteResponseResponse' {responseModels} -> responseModels) (\s@GetRouteResponseResponse' {} a -> s {responseModels = a} :: GetRouteResponseResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | Represents the response parameters of a route response.
+getRouteResponseResponse_responseParameters :: Lens.Lens' GetRouteResponseResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text ParameterConstraints))
+getRouteResponseResponse_responseParameters = Lens.lens (\GetRouteResponseResponse' {responseParameters} -> responseParameters) (\s@GetRouteResponseResponse' {} a -> s {responseParameters = a} :: GetRouteResponseResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | Represents the identifier of a route response.
 getRouteResponseResponse_routeResponseId :: Lens.Lens' GetRouteResponseResponse (Prelude.Maybe Prelude.Text)
 getRouteResponseResponse_routeResponseId = Lens.lens (\GetRouteResponseResponse' {routeResponseId} -> routeResponseId) (\s@GetRouteResponseResponse' {} a -> s {routeResponseId = a} :: GetRouteResponseResponse)
+
+-- | Represents the route response key of a route response.
+getRouteResponseResponse_routeResponseKey :: Lens.Lens' GetRouteResponseResponse (Prelude.Maybe Prelude.Text)
+getRouteResponseResponse_routeResponseKey = Lens.lens (\GetRouteResponseResponse' {routeResponseKey} -> routeResponseKey) (\s@GetRouteResponseResponse' {} a -> s {routeResponseKey = a} :: GetRouteResponseResponse)
 
 -- | The response's http status code.
 getRouteResponseResponse_httpStatus :: Lens.Lens' GetRouteResponseResponse Prelude.Int
@@ -245,9 +245,9 @@ getRouteResponseResponse_httpStatus = Lens.lens (\GetRouteResponseResponse' {htt
 
 instance Prelude.NFData GetRouteResponseResponse where
   rnf GetRouteResponseResponse' {..} =
-    Prelude.rnf routeResponseKey
-      `Prelude.seq` Prelude.rnf modelSelectionExpression
-      `Prelude.seq` Prelude.rnf responseParameters
+    Prelude.rnf modelSelectionExpression
       `Prelude.seq` Prelude.rnf responseModels
+      `Prelude.seq` Prelude.rnf responseParameters
       `Prelude.seq` Prelude.rnf routeResponseId
+      `Prelude.seq` Prelude.rnf routeResponseKey
       `Prelude.seq` Prelude.rnf httpStatus

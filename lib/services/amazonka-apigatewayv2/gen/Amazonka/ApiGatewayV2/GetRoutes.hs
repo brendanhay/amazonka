@@ -29,8 +29,8 @@ module Amazonka.ApiGatewayV2.GetRoutes
     newGetRoutes,
 
     -- * Request Lenses
-    getRoutes_nextToken,
     getRoutes_maxResults,
+    getRoutes_nextToken,
     getRoutes_apiId,
 
     -- * Destructuring the Response
@@ -54,11 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetRoutes' smart constructor.
 data GetRoutes = GetRoutes'
-  { -- | The next page of elements from this collection. Not valid for the last
+  { -- | The maximum number of elements to be returned for this resource.
+    maxResults :: Prelude.Maybe Prelude.Text,
+    -- | The next page of elements from this collection. Not valid for the last
     -- element of the collection.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of elements to be returned for this resource.
-    maxResults :: Prelude.Maybe Prelude.Text,
     -- | The API identifier.
     apiId :: Prelude.Text
   }
@@ -72,10 +72,10 @@ data GetRoutes = GetRoutes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'getRoutes_maxResults' - The maximum number of elements to be returned for this resource.
+--
 -- 'nextToken', 'getRoutes_nextToken' - The next page of elements from this collection. Not valid for the last
 -- element of the collection.
---
--- 'maxResults', 'getRoutes_maxResults' - The maximum number of elements to be returned for this resource.
 --
 -- 'apiId', 'getRoutes_apiId' - The API identifier.
 newGetRoutes ::
@@ -84,19 +84,19 @@ newGetRoutes ::
   GetRoutes
 newGetRoutes pApiId_ =
   GetRoutes'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       apiId = pApiId_
     }
+
+-- | The maximum number of elements to be returned for this resource.
+getRoutes_maxResults :: Lens.Lens' GetRoutes (Prelude.Maybe Prelude.Text)
+getRoutes_maxResults = Lens.lens (\GetRoutes' {maxResults} -> maxResults) (\s@GetRoutes' {} a -> s {maxResults = a} :: GetRoutes)
 
 -- | The next page of elements from this collection. Not valid for the last
 -- element of the collection.
 getRoutes_nextToken :: Lens.Lens' GetRoutes (Prelude.Maybe Prelude.Text)
 getRoutes_nextToken = Lens.lens (\GetRoutes' {nextToken} -> nextToken) (\s@GetRoutes' {} a -> s {nextToken = a} :: GetRoutes)
-
--- | The maximum number of elements to be returned for this resource.
-getRoutes_maxResults :: Lens.Lens' GetRoutes (Prelude.Maybe Prelude.Text)
-getRoutes_maxResults = Lens.lens (\GetRoutes' {maxResults} -> maxResults) (\s@GetRoutes' {} a -> s {maxResults = a} :: GetRoutes)
 
 -- | The API identifier.
 getRoutes_apiId :: Lens.Lens' GetRoutes Prelude.Text
@@ -136,14 +136,14 @@ instance Core.AWSRequest GetRoutes where
 
 instance Prelude.Hashable GetRoutes where
   hashWithSalt _salt GetRoutes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` apiId
 
 instance Prelude.NFData GetRoutes where
   rnf GetRoutes' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf apiId
 
 instance Data.ToHeaders GetRoutes where
@@ -165,8 +165,8 @@ instance Data.ToPath GetRoutes where
 instance Data.ToQuery GetRoutes where
   toQuery GetRoutes' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newGetRoutesResponse' smart constructor.

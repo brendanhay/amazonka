@@ -27,8 +27,8 @@ module Amazonka.ApiGatewayV2.GetApiMappings
     newGetApiMappings,
 
     -- * Request Lenses
-    getApiMappings_nextToken,
     getApiMappings_maxResults,
+    getApiMappings_nextToken,
     getApiMappings_domainName,
 
     -- * Destructuring the Response
@@ -52,11 +52,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetApiMappings' smart constructor.
 data GetApiMappings = GetApiMappings'
-  { -- | The next page of elements from this collection. Not valid for the last
+  { -- | The maximum number of elements to be returned for this resource.
+    maxResults :: Prelude.Maybe Prelude.Text,
+    -- | The next page of elements from this collection. Not valid for the last
     -- element of the collection.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of elements to be returned for this resource.
-    maxResults :: Prelude.Maybe Prelude.Text,
     -- | The domain name.
     domainName :: Prelude.Text
   }
@@ -70,10 +70,10 @@ data GetApiMappings = GetApiMappings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'getApiMappings_maxResults' - The maximum number of elements to be returned for this resource.
+--
 -- 'nextToken', 'getApiMappings_nextToken' - The next page of elements from this collection. Not valid for the last
 -- element of the collection.
---
--- 'maxResults', 'getApiMappings_maxResults' - The maximum number of elements to be returned for this resource.
 --
 -- 'domainName', 'getApiMappings_domainName' - The domain name.
 newGetApiMappings ::
@@ -82,19 +82,19 @@ newGetApiMappings ::
   GetApiMappings
 newGetApiMappings pDomainName_ =
   GetApiMappings'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       domainName = pDomainName_
     }
+
+-- | The maximum number of elements to be returned for this resource.
+getApiMappings_maxResults :: Lens.Lens' GetApiMappings (Prelude.Maybe Prelude.Text)
+getApiMappings_maxResults = Lens.lens (\GetApiMappings' {maxResults} -> maxResults) (\s@GetApiMappings' {} a -> s {maxResults = a} :: GetApiMappings)
 
 -- | The next page of elements from this collection. Not valid for the last
 -- element of the collection.
 getApiMappings_nextToken :: Lens.Lens' GetApiMappings (Prelude.Maybe Prelude.Text)
 getApiMappings_nextToken = Lens.lens (\GetApiMappings' {nextToken} -> nextToken) (\s@GetApiMappings' {} a -> s {nextToken = a} :: GetApiMappings)
-
--- | The maximum number of elements to be returned for this resource.
-getApiMappings_maxResults :: Lens.Lens' GetApiMappings (Prelude.Maybe Prelude.Text)
-getApiMappings_maxResults = Lens.lens (\GetApiMappings' {maxResults} -> maxResults) (\s@GetApiMappings' {} a -> s {maxResults = a} :: GetApiMappings)
 
 -- | The domain name.
 getApiMappings_domainName :: Lens.Lens' GetApiMappings Prelude.Text
@@ -117,14 +117,14 @@ instance Core.AWSRequest GetApiMappings where
 
 instance Prelude.Hashable GetApiMappings where
   hashWithSalt _salt GetApiMappings' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData GetApiMappings where
   rnf GetApiMappings' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf domainName
 
 instance Data.ToHeaders GetApiMappings where
@@ -149,8 +149,8 @@ instance Data.ToPath GetApiMappings where
 instance Data.ToQuery GetApiMappings where
   toQuery GetApiMappings' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newGetApiMappingsResponse' smart constructor.

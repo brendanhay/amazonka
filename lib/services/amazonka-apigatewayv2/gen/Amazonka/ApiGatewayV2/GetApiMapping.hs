@@ -36,9 +36,9 @@ module Amazonka.ApiGatewayV2.GetApiMapping
 
     -- * Response Lenses
     getApiMappingResponse_apiId,
+    getApiMappingResponse_apiMappingId,
     getApiMappingResponse_apiMappingKey,
     getApiMappingResponse_stage,
-    getApiMappingResponse_apiMappingId,
     getApiMappingResponse_httpStatus,
   )
 where
@@ -102,9 +102,9 @@ instance Core.AWSRequest GetApiMapping where
       ( \s h x ->
           GetApiMappingResponse'
             Prelude.<$> (x Data..?> "apiId")
+            Prelude.<*> (x Data..?> "apiMappingId")
             Prelude.<*> (x Data..?> "apiMappingKey")
             Prelude.<*> (x Data..?> "stage")
-            Prelude.<*> (x Data..?> "apiMappingId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,12 +145,12 @@ instance Data.ToQuery GetApiMapping where
 data GetApiMappingResponse = GetApiMappingResponse'
   { -- | The API identifier.
     apiId :: Prelude.Maybe Prelude.Text,
+    -- | The API mapping identifier.
+    apiMappingId :: Prelude.Maybe Prelude.Text,
     -- | The API mapping key.
     apiMappingKey :: Prelude.Maybe Prelude.Text,
     -- | The API stage.
     stage :: Prelude.Maybe Prelude.Text,
-    -- | The API mapping identifier.
-    apiMappingId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -166,11 +166,11 @@ data GetApiMappingResponse = GetApiMappingResponse'
 --
 -- 'apiId', 'getApiMappingResponse_apiId' - The API identifier.
 --
+-- 'apiMappingId', 'getApiMappingResponse_apiMappingId' - The API mapping identifier.
+--
 -- 'apiMappingKey', 'getApiMappingResponse_apiMappingKey' - The API mapping key.
 --
 -- 'stage', 'getApiMappingResponse_stage' - The API stage.
---
--- 'apiMappingId', 'getApiMappingResponse_apiMappingId' - The API mapping identifier.
 --
 -- 'httpStatus', 'getApiMappingResponse_httpStatus' - The response's http status code.
 newGetApiMappingResponse ::
@@ -180,15 +180,19 @@ newGetApiMappingResponse ::
 newGetApiMappingResponse pHttpStatus_ =
   GetApiMappingResponse'
     { apiId = Prelude.Nothing,
+      apiMappingId = Prelude.Nothing,
       apiMappingKey = Prelude.Nothing,
       stage = Prelude.Nothing,
-      apiMappingId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The API identifier.
 getApiMappingResponse_apiId :: Lens.Lens' GetApiMappingResponse (Prelude.Maybe Prelude.Text)
 getApiMappingResponse_apiId = Lens.lens (\GetApiMappingResponse' {apiId} -> apiId) (\s@GetApiMappingResponse' {} a -> s {apiId = a} :: GetApiMappingResponse)
+
+-- | The API mapping identifier.
+getApiMappingResponse_apiMappingId :: Lens.Lens' GetApiMappingResponse (Prelude.Maybe Prelude.Text)
+getApiMappingResponse_apiMappingId = Lens.lens (\GetApiMappingResponse' {apiMappingId} -> apiMappingId) (\s@GetApiMappingResponse' {} a -> s {apiMappingId = a} :: GetApiMappingResponse)
 
 -- | The API mapping key.
 getApiMappingResponse_apiMappingKey :: Lens.Lens' GetApiMappingResponse (Prelude.Maybe Prelude.Text)
@@ -198,10 +202,6 @@ getApiMappingResponse_apiMappingKey = Lens.lens (\GetApiMappingResponse' {apiMap
 getApiMappingResponse_stage :: Lens.Lens' GetApiMappingResponse (Prelude.Maybe Prelude.Text)
 getApiMappingResponse_stage = Lens.lens (\GetApiMappingResponse' {stage} -> stage) (\s@GetApiMappingResponse' {} a -> s {stage = a} :: GetApiMappingResponse)
 
--- | The API mapping identifier.
-getApiMappingResponse_apiMappingId :: Lens.Lens' GetApiMappingResponse (Prelude.Maybe Prelude.Text)
-getApiMappingResponse_apiMappingId = Lens.lens (\GetApiMappingResponse' {apiMappingId} -> apiMappingId) (\s@GetApiMappingResponse' {} a -> s {apiMappingId = a} :: GetApiMappingResponse)
-
 -- | The response's http status code.
 getApiMappingResponse_httpStatus :: Lens.Lens' GetApiMappingResponse Prelude.Int
 getApiMappingResponse_httpStatus = Lens.lens (\GetApiMappingResponse' {httpStatus} -> httpStatus) (\s@GetApiMappingResponse' {} a -> s {httpStatus = a} :: GetApiMappingResponse)
@@ -209,7 +209,7 @@ getApiMappingResponse_httpStatus = Lens.lens (\GetApiMappingResponse' {httpStatu
 instance Prelude.NFData GetApiMappingResponse where
   rnf GetApiMappingResponse' {..} =
     Prelude.rnf apiId
+      `Prelude.seq` Prelude.rnf apiMappingId
       `Prelude.seq` Prelude.rnf apiMappingKey
       `Prelude.seq` Prelude.rnf stage
-      `Prelude.seq` Prelude.rnf apiMappingId
       `Prelude.seq` Prelude.rnf httpStatus

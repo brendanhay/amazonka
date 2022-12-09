@@ -29,8 +29,8 @@ module Amazonka.ApiGatewayV2.GetApis
     newGetApis,
 
     -- * Request Lenses
-    getApis_nextToken,
     getApis_maxResults,
+    getApis_nextToken,
 
     -- * Destructuring the Response
     GetApisResponse (..),
@@ -53,11 +53,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetApis' smart constructor.
 data GetApis = GetApis'
-  { -- | The next page of elements from this collection. Not valid for the last
+  { -- | The maximum number of elements to be returned for this resource.
+    maxResults :: Prelude.Maybe Prelude.Text,
+    -- | The next page of elements from this collection. Not valid for the last
     -- element of the collection.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of elements to be returned for this resource.
-    maxResults :: Prelude.Maybe Prelude.Text
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,26 +69,26 @@ data GetApis = GetApis'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'getApis_maxResults' - The maximum number of elements to be returned for this resource.
+--
 -- 'nextToken', 'getApis_nextToken' - The next page of elements from this collection. Not valid for the last
 -- element of the collection.
---
--- 'maxResults', 'getApis_maxResults' - The maximum number of elements to be returned for this resource.
 newGetApis ::
   GetApis
 newGetApis =
   GetApis'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of elements to be returned for this resource.
+getApis_maxResults :: Lens.Lens' GetApis (Prelude.Maybe Prelude.Text)
+getApis_maxResults = Lens.lens (\GetApis' {maxResults} -> maxResults) (\s@GetApis' {} a -> s {maxResults = a} :: GetApis)
 
 -- | The next page of elements from this collection. Not valid for the last
 -- element of the collection.
 getApis_nextToken :: Lens.Lens' GetApis (Prelude.Maybe Prelude.Text)
 getApis_nextToken = Lens.lens (\GetApis' {nextToken} -> nextToken) (\s@GetApis' {} a -> s {nextToken = a} :: GetApis)
-
--- | The maximum number of elements to be returned for this resource.
-getApis_maxResults :: Lens.Lens' GetApis (Prelude.Maybe Prelude.Text)
-getApis_maxResults = Lens.lens (\GetApis' {maxResults} -> maxResults) (\s@GetApis' {} a -> s {maxResults = a} :: GetApis)
 
 instance Core.AWSPager GetApis where
   page rq rs
@@ -124,13 +124,13 @@ instance Core.AWSRequest GetApis where
 
 instance Prelude.Hashable GetApis where
   hashWithSalt _salt GetApis' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData GetApis where
   rnf GetApis' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders GetApis where
   toHeaders =
@@ -149,8 +149,8 @@ instance Data.ToPath GetApis where
 instance Data.ToQuery GetApis where
   toQuery GetApis' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newGetApisResponse' smart constructor.

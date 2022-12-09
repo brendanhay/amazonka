@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAccessLogSettings' smart constructor.
 data AccessLogSettings = AccessLogSettings'
-  { -- | A single line format of the access logs of data, as specified by
+  { -- | The ARN of the CloudWatch Logs log group to receive access logs.
+    destinationArn :: Prelude.Maybe Prelude.Text,
+    -- | A single line format of the access logs of data, as specified by
     -- selected $context variables. The format must include at least
     -- \$context.requestId.
-    format :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the CloudWatch Logs log group to receive access logs.
-    destinationArn :: Prelude.Maybe Prelude.Text
+    format :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,18 +45,23 @@ data AccessLogSettings = AccessLogSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'destinationArn', 'accessLogSettings_destinationArn' - The ARN of the CloudWatch Logs log group to receive access logs.
+--
 -- 'format', 'accessLogSettings_format' - A single line format of the access logs of data, as specified by
 -- selected $context variables. The format must include at least
 -- \$context.requestId.
---
--- 'destinationArn', 'accessLogSettings_destinationArn' - The ARN of the CloudWatch Logs log group to receive access logs.
 newAccessLogSettings ::
   AccessLogSettings
 newAccessLogSettings =
   AccessLogSettings'
-    { format = Prelude.Nothing,
-      destinationArn = Prelude.Nothing
+    { destinationArn =
+        Prelude.Nothing,
+      format = Prelude.Nothing
     }
+
+-- | The ARN of the CloudWatch Logs log group to receive access logs.
+accessLogSettings_destinationArn :: Lens.Lens' AccessLogSettings (Prelude.Maybe Prelude.Text)
+accessLogSettings_destinationArn = Lens.lens (\AccessLogSettings' {destinationArn} -> destinationArn) (\s@AccessLogSettings' {} a -> s {destinationArn = a} :: AccessLogSettings)
 
 -- | A single line format of the access logs of data, as specified by
 -- selected $context variables. The format must include at least
@@ -64,36 +69,32 @@ newAccessLogSettings =
 accessLogSettings_format :: Lens.Lens' AccessLogSettings (Prelude.Maybe Prelude.Text)
 accessLogSettings_format = Lens.lens (\AccessLogSettings' {format} -> format) (\s@AccessLogSettings' {} a -> s {format = a} :: AccessLogSettings)
 
--- | The ARN of the CloudWatch Logs log group to receive access logs.
-accessLogSettings_destinationArn :: Lens.Lens' AccessLogSettings (Prelude.Maybe Prelude.Text)
-accessLogSettings_destinationArn = Lens.lens (\AccessLogSettings' {destinationArn} -> destinationArn) (\s@AccessLogSettings' {} a -> s {destinationArn = a} :: AccessLogSettings)
-
 instance Data.FromJSON AccessLogSettings where
   parseJSON =
     Data.withObject
       "AccessLogSettings"
       ( \x ->
           AccessLogSettings'
-            Prelude.<$> (x Data..:? "format")
-            Prelude.<*> (x Data..:? "destinationArn")
+            Prelude.<$> (x Data..:? "destinationArn")
+            Prelude.<*> (x Data..:? "format")
       )
 
 instance Prelude.Hashable AccessLogSettings where
   hashWithSalt _salt AccessLogSettings' {..} =
-    _salt `Prelude.hashWithSalt` format
-      `Prelude.hashWithSalt` destinationArn
+    _salt `Prelude.hashWithSalt` destinationArn
+      `Prelude.hashWithSalt` format
 
 instance Prelude.NFData AccessLogSettings where
   rnf AccessLogSettings' {..} =
-    Prelude.rnf format
-      `Prelude.seq` Prelude.rnf destinationArn
+    Prelude.rnf destinationArn
+      `Prelude.seq` Prelude.rnf format
 
 instance Data.ToJSON AccessLogSettings where
   toJSON AccessLogSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("format" Data..=) Prelude.<$> format,
-            ("destinationArn" Data..=)
-              Prelude.<$> destinationArn
+          [ ("destinationArn" Data..=)
+              Prelude.<$> destinationArn,
+            ("format" Data..=) Prelude.<$> format
           ]
       )

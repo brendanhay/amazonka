@@ -33,11 +33,11 @@ import qualified Amazonka.Prelude as Prelude
 data CertificateValidationRecord = CertificateValidationRecord'
   { -- | The certificate CNAME record name.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The record type, always @CNAME@.
-    type' :: Prelude.Maybe Prelude.Text,
     -- | The current state of the certificate CNAME record validation. It should
     -- change to @SUCCESS@ after App Runner completes validation with your DNS.
     status :: Prelude.Maybe CertificateValidationRecordStatus,
+    -- | The record type, always @CNAME@.
+    type' :: Prelude.Maybe Prelude.Text,
     -- | The certificate CNAME record value.
     value :: Prelude.Maybe Prelude.Text
   }
@@ -53,10 +53,10 @@ data CertificateValidationRecord = CertificateValidationRecord'
 --
 -- 'name', 'certificateValidationRecord_name' - The certificate CNAME record name.
 --
--- 'type'', 'certificateValidationRecord_type' - The record type, always @CNAME@.
---
 -- 'status', 'certificateValidationRecord_status' - The current state of the certificate CNAME record validation. It should
 -- change to @SUCCESS@ after App Runner completes validation with your DNS.
+--
+-- 'type'', 'certificateValidationRecord_type' - The record type, always @CNAME@.
 --
 -- 'value', 'certificateValidationRecord_value' - The certificate CNAME record value.
 newCertificateValidationRecord ::
@@ -65,8 +65,8 @@ newCertificateValidationRecord =
   CertificateValidationRecord'
     { name =
         Prelude.Nothing,
-      type' = Prelude.Nothing,
       status = Prelude.Nothing,
+      type' = Prelude.Nothing,
       value = Prelude.Nothing
     }
 
@@ -74,14 +74,14 @@ newCertificateValidationRecord =
 certificateValidationRecord_name :: Lens.Lens' CertificateValidationRecord (Prelude.Maybe Prelude.Text)
 certificateValidationRecord_name = Lens.lens (\CertificateValidationRecord' {name} -> name) (\s@CertificateValidationRecord' {} a -> s {name = a} :: CertificateValidationRecord)
 
--- | The record type, always @CNAME@.
-certificateValidationRecord_type :: Lens.Lens' CertificateValidationRecord (Prelude.Maybe Prelude.Text)
-certificateValidationRecord_type = Lens.lens (\CertificateValidationRecord' {type'} -> type') (\s@CertificateValidationRecord' {} a -> s {type' = a} :: CertificateValidationRecord)
-
 -- | The current state of the certificate CNAME record validation. It should
 -- change to @SUCCESS@ after App Runner completes validation with your DNS.
 certificateValidationRecord_status :: Lens.Lens' CertificateValidationRecord (Prelude.Maybe CertificateValidationRecordStatus)
 certificateValidationRecord_status = Lens.lens (\CertificateValidationRecord' {status} -> status) (\s@CertificateValidationRecord' {} a -> s {status = a} :: CertificateValidationRecord)
+
+-- | The record type, always @CNAME@.
+certificateValidationRecord_type :: Lens.Lens' CertificateValidationRecord (Prelude.Maybe Prelude.Text)
+certificateValidationRecord_type = Lens.lens (\CertificateValidationRecord' {type'} -> type') (\s@CertificateValidationRecord' {} a -> s {type' = a} :: CertificateValidationRecord)
 
 -- | The certificate CNAME record value.
 certificateValidationRecord_value :: Lens.Lens' CertificateValidationRecord (Prelude.Maybe Prelude.Text)
@@ -94,21 +94,21 @@ instance Data.FromJSON CertificateValidationRecord where
       ( \x ->
           CertificateValidationRecord'
             Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Type")
             Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Type")
             Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable CertificateValidationRecord where
   hashWithSalt _salt CertificateValidationRecord' {..} =
     _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData CertificateValidationRecord where
   rnf CertificateValidationRecord' {..} =
     Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf value

@@ -33,14 +33,14 @@ data ImageConfiguration = ImageConfiguration'
     --
     -- Default: @8080@
     port :: Prelude.Maybe Prelude.Text,
-    -- | An optional command that App Runner runs to start the application in the
-    -- source image. If specified, this command overrides the Docker image’s
-    -- default start command.
-    startCommand :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Environment variables that are available to your running App Runner
     -- service. An array of key-value pairs. Keys with a prefix of
     -- @AWSAPPRUNNER@ are reserved for system use and aren\'t valid.
-    runtimeEnvironmentVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text))
+    runtimeEnvironmentVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text)),
+    -- | An optional command that App Runner runs to start the application in the
+    -- source image. If specified, this command overrides the Docker image’s
+    -- default start command.
+    startCommand :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -56,20 +56,20 @@ data ImageConfiguration = ImageConfiguration'
 --
 -- Default: @8080@
 --
--- 'startCommand', 'imageConfiguration_startCommand' - An optional command that App Runner runs to start the application in the
--- source image. If specified, this command overrides the Docker image’s
--- default start command.
---
 -- 'runtimeEnvironmentVariables', 'imageConfiguration_runtimeEnvironmentVariables' - Environment variables that are available to your running App Runner
 -- service. An array of key-value pairs. Keys with a prefix of
 -- @AWSAPPRUNNER@ are reserved for system use and aren\'t valid.
+--
+-- 'startCommand', 'imageConfiguration_startCommand' - An optional command that App Runner runs to start the application in the
+-- source image. If specified, this command overrides the Docker image’s
+-- default start command.
 newImageConfiguration ::
   ImageConfiguration
 newImageConfiguration =
   ImageConfiguration'
     { port = Prelude.Nothing,
-      startCommand = Prelude.Nothing,
-      runtimeEnvironmentVariables = Prelude.Nothing
+      runtimeEnvironmentVariables = Prelude.Nothing,
+      startCommand = Prelude.Nothing
     }
 
 -- | The port that your application listens to in the container.
@@ -78,17 +78,17 @@ newImageConfiguration =
 imageConfiguration_port :: Lens.Lens' ImageConfiguration (Prelude.Maybe Prelude.Text)
 imageConfiguration_port = Lens.lens (\ImageConfiguration' {port} -> port) (\s@ImageConfiguration' {} a -> s {port = a} :: ImageConfiguration)
 
--- | An optional command that App Runner runs to start the application in the
--- source image. If specified, this command overrides the Docker image’s
--- default start command.
-imageConfiguration_startCommand :: Lens.Lens' ImageConfiguration (Prelude.Maybe Prelude.Text)
-imageConfiguration_startCommand = Lens.lens (\ImageConfiguration' {startCommand} -> startCommand) (\s@ImageConfiguration' {} a -> s {startCommand = a} :: ImageConfiguration) Prelude.. Lens.mapping Data._Sensitive
-
 -- | Environment variables that are available to your running App Runner
 -- service. An array of key-value pairs. Keys with a prefix of
 -- @AWSAPPRUNNER@ are reserved for system use and aren\'t valid.
 imageConfiguration_runtimeEnvironmentVariables :: Lens.Lens' ImageConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 imageConfiguration_runtimeEnvironmentVariables = Lens.lens (\ImageConfiguration' {runtimeEnvironmentVariables} -> runtimeEnvironmentVariables) (\s@ImageConfiguration' {} a -> s {runtimeEnvironmentVariables = a} :: ImageConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | An optional command that App Runner runs to start the application in the
+-- source image. If specified, this command overrides the Docker image’s
+-- default start command.
+imageConfiguration_startCommand :: Lens.Lens' ImageConfiguration (Prelude.Maybe Prelude.Text)
+imageConfiguration_startCommand = Lens.lens (\ImageConfiguration' {startCommand} -> startCommand) (\s@ImageConfiguration' {} a -> s {startCommand = a} :: ImageConfiguration) Prelude.. Lens.mapping Data._Sensitive
 
 instance Data.FromJSON ImageConfiguration where
   parseJSON =
@@ -97,31 +97,31 @@ instance Data.FromJSON ImageConfiguration where
       ( \x ->
           ImageConfiguration'
             Prelude.<$> (x Data..:? "Port")
-            Prelude.<*> (x Data..:? "StartCommand")
             Prelude.<*> ( x Data..:? "RuntimeEnvironmentVariables"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "StartCommand")
       )
 
 instance Prelude.Hashable ImageConfiguration where
   hashWithSalt _salt ImageConfiguration' {..} =
     _salt `Prelude.hashWithSalt` port
-      `Prelude.hashWithSalt` startCommand
       `Prelude.hashWithSalt` runtimeEnvironmentVariables
+      `Prelude.hashWithSalt` startCommand
 
 instance Prelude.NFData ImageConfiguration where
   rnf ImageConfiguration' {..} =
     Prelude.rnf port
-      `Prelude.seq` Prelude.rnf startCommand
       `Prelude.seq` Prelude.rnf runtimeEnvironmentVariables
+      `Prelude.seq` Prelude.rnf startCommand
 
 instance Data.ToJSON ImageConfiguration where
   toJSON ImageConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("Port" Data..=) Prelude.<$> port,
-            ("StartCommand" Data..=) Prelude.<$> startCommand,
             ("RuntimeEnvironmentVariables" Data..=)
-              Prelude.<$> runtimeEnvironmentVariables
+              Prelude.<$> runtimeEnvironmentVariables,
+            ("StartCommand" Data..=) Prelude.<$> startCommand
           ]
       )

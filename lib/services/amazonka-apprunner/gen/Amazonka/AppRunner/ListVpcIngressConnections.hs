@@ -28,9 +28,9 @@ module Amazonka.AppRunner.ListVpcIngressConnections
     newListVpcIngressConnections,
 
     -- * Request Lenses
-    listVpcIngressConnections_nextToken,
     listVpcIngressConnections_filter,
     listVpcIngressConnections_maxResults,
+    listVpcIngressConnections_nextToken,
 
     -- * Destructuring the Response
     ListVpcIngressConnectionsResponse (..),
@@ -53,14 +53,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListVpcIngressConnections' smart constructor.
 data ListVpcIngressConnections = ListVpcIngressConnections'
-  { -- | A token from a previous result page. It\'s used for a paginated request.
-    -- The request retrieves the next result page. All other parameter values
-    -- must be identical to the ones that are specified in the initial request.
-    --
-    -- If you don\'t specify @NextToken@, the request retrieves the first
-    -- result page.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The VPC Ingress Connections to be listed based on either the Service Arn
+  { -- | The VPC Ingress Connections to be listed based on either the Service Arn
     -- or Vpc Endpoint Id, or both.
     filter' :: Prelude.Maybe ListVpcIngressConnectionsFilter,
     -- | The maximum number of results to include in each response (result page).
@@ -68,7 +61,14 @@ data ListVpcIngressConnections = ListVpcIngressConnections'
     --
     -- If you don\'t specify @MaxResults@, the request retrieves all available
     -- results in a single response.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token from a previous result page. It\'s used for a paginated request.
+    -- The request retrieves the next result page. All other parameter values
+    -- must be identical to the ones that are specified in the initial request.
+    --
+    -- If you don\'t specify @NextToken@, the request retrieves the first
+    -- result page.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,13 +80,6 @@ data ListVpcIngressConnections = ListVpcIngressConnections'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listVpcIngressConnections_nextToken' - A token from a previous result page. It\'s used for a paginated request.
--- The request retrieves the next result page. All other parameter values
--- must be identical to the ones that are specified in the initial request.
---
--- If you don\'t specify @NextToken@, the request retrieves the first
--- result page.
---
 -- 'filter'', 'listVpcIngressConnections_filter' - The VPC Ingress Connections to be listed based on either the Service Arn
 -- or Vpc Endpoint Id, or both.
 --
@@ -95,24 +88,22 @@ data ListVpcIngressConnections = ListVpcIngressConnections'
 --
 -- If you don\'t specify @MaxResults@, the request retrieves all available
 -- results in a single response.
-newListVpcIngressConnections ::
-  ListVpcIngressConnections
-newListVpcIngressConnections =
-  ListVpcIngressConnections'
-    { nextToken =
-        Prelude.Nothing,
-      filter' = Prelude.Nothing,
-      maxResults = Prelude.Nothing
-    }
-
--- | A token from a previous result page. It\'s used for a paginated request.
+--
+-- 'nextToken', 'listVpcIngressConnections_nextToken' - A token from a previous result page. It\'s used for a paginated request.
 -- The request retrieves the next result page. All other parameter values
 -- must be identical to the ones that are specified in the initial request.
 --
 -- If you don\'t specify @NextToken@, the request retrieves the first
 -- result page.
-listVpcIngressConnections_nextToken :: Lens.Lens' ListVpcIngressConnections (Prelude.Maybe Prelude.Text)
-listVpcIngressConnections_nextToken = Lens.lens (\ListVpcIngressConnections' {nextToken} -> nextToken) (\s@ListVpcIngressConnections' {} a -> s {nextToken = a} :: ListVpcIngressConnections)
+newListVpcIngressConnections ::
+  ListVpcIngressConnections
+newListVpcIngressConnections =
+  ListVpcIngressConnections'
+    { filter' =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
+    }
 
 -- | The VPC Ingress Connections to be listed based on either the Service Arn
 -- or Vpc Endpoint Id, or both.
@@ -126,6 +117,15 @@ listVpcIngressConnections_filter = Lens.lens (\ListVpcIngressConnections' {filte
 -- results in a single response.
 listVpcIngressConnections_maxResults :: Lens.Lens' ListVpcIngressConnections (Prelude.Maybe Prelude.Natural)
 listVpcIngressConnections_maxResults = Lens.lens (\ListVpcIngressConnections' {maxResults} -> maxResults) (\s@ListVpcIngressConnections' {} a -> s {maxResults = a} :: ListVpcIngressConnections)
+
+-- | A token from a previous result page. It\'s used for a paginated request.
+-- The request retrieves the next result page. All other parameter values
+-- must be identical to the ones that are specified in the initial request.
+--
+-- If you don\'t specify @NextToken@, the request retrieves the first
+-- result page.
+listVpcIngressConnections_nextToken :: Lens.Lens' ListVpcIngressConnections (Prelude.Maybe Prelude.Text)
+listVpcIngressConnections_nextToken = Lens.lens (\ListVpcIngressConnections' {nextToken} -> nextToken) (\s@ListVpcIngressConnections' {} a -> s {nextToken = a} :: ListVpcIngressConnections)
 
 instance Core.AWSRequest ListVpcIngressConnections where
   type
@@ -146,15 +146,15 @@ instance Core.AWSRequest ListVpcIngressConnections where
 
 instance Prelude.Hashable ListVpcIngressConnections where
   hashWithSalt _salt ListVpcIngressConnections' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filter'
+    _salt `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListVpcIngressConnections where
   rnf ListVpcIngressConnections' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListVpcIngressConnections where
   toHeaders =
@@ -175,9 +175,9 @@ instance Data.ToJSON ListVpcIngressConnections where
   toJSON ListVpcIngressConnections' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filter" Data..=) Prelude.<$> filter',
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filter" Data..=) Prelude.<$> filter',
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

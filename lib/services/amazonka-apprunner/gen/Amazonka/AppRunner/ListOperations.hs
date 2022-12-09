@@ -31,8 +31,8 @@ module Amazonka.AppRunner.ListOperations
     newListOperations,
 
     -- * Request Lenses
-    listOperations_nextToken,
     listOperations_maxResults,
+    listOperations_nextToken,
     listOperations_serviceArn,
 
     -- * Destructuring the Response
@@ -56,19 +56,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListOperations' smart constructor.
 data ListOperations = ListOperations'
-  { -- | A token from a previous result page. It\'s used for a paginated request.
+  { -- | The maximum number of results to include in each response (result page).
+    -- It\'s used for a paginated request.
+    --
+    -- If you don\'t specify @MaxResults@, the request retrieves all available
+    -- results in a single response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token from a previous result page. It\'s used for a paginated request.
     -- The request retrieves the next result page. All other parameter values
     -- must be identical to the ones specified in the initial request.
     --
     -- If you don\'t specify @NextToken@, the request retrieves the first
     -- result page.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to include in each response (result page).
-    -- It\'s used for a paginated request.
-    --
-    -- If you don\'t specify @MaxResults@, the request retrieves all available
-    -- results in a single response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the App Runner service that you want a
     -- list of operations for.
     serviceArn :: Prelude.Text
@@ -83,18 +83,18 @@ data ListOperations = ListOperations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listOperations_maxResults' - The maximum number of results to include in each response (result page).
+-- It\'s used for a paginated request.
+--
+-- If you don\'t specify @MaxResults@, the request retrieves all available
+-- results in a single response.
+--
 -- 'nextToken', 'listOperations_nextToken' - A token from a previous result page. It\'s used for a paginated request.
 -- The request retrieves the next result page. All other parameter values
 -- must be identical to the ones specified in the initial request.
 --
 -- If you don\'t specify @NextToken@, the request retrieves the first
 -- result page.
---
--- 'maxResults', 'listOperations_maxResults' - The maximum number of results to include in each response (result page).
--- It\'s used for a paginated request.
---
--- If you don\'t specify @MaxResults@, the request retrieves all available
--- results in a single response.
 --
 -- 'serviceArn', 'listOperations_serviceArn' - The Amazon Resource Name (ARN) of the App Runner service that you want a
 -- list of operations for.
@@ -104,10 +104,18 @@ newListOperations ::
   ListOperations
 newListOperations pServiceArn_ =
   ListOperations'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       serviceArn = pServiceArn_
     }
+
+-- | The maximum number of results to include in each response (result page).
+-- It\'s used for a paginated request.
+--
+-- If you don\'t specify @MaxResults@, the request retrieves all available
+-- results in a single response.
+listOperations_maxResults :: Lens.Lens' ListOperations (Prelude.Maybe Prelude.Natural)
+listOperations_maxResults = Lens.lens (\ListOperations' {maxResults} -> maxResults) (\s@ListOperations' {} a -> s {maxResults = a} :: ListOperations)
 
 -- | A token from a previous result page. It\'s used for a paginated request.
 -- The request retrieves the next result page. All other parameter values
@@ -117,14 +125,6 @@ newListOperations pServiceArn_ =
 -- result page.
 listOperations_nextToken :: Lens.Lens' ListOperations (Prelude.Maybe Prelude.Text)
 listOperations_nextToken = Lens.lens (\ListOperations' {nextToken} -> nextToken) (\s@ListOperations' {} a -> s {nextToken = a} :: ListOperations)
-
--- | The maximum number of results to include in each response (result page).
--- It\'s used for a paginated request.
---
--- If you don\'t specify @MaxResults@, the request retrieves all available
--- results in a single response.
-listOperations_maxResults :: Lens.Lens' ListOperations (Prelude.Maybe Prelude.Natural)
-listOperations_maxResults = Lens.lens (\ListOperations' {maxResults} -> maxResults) (\s@ListOperations' {} a -> s {maxResults = a} :: ListOperations)
 
 -- | The Amazon Resource Name (ARN) of the App Runner service that you want a
 -- list of operations for.
@@ -150,14 +150,14 @@ instance Core.AWSRequest ListOperations where
 
 instance Prelude.Hashable ListOperations where
   hashWithSalt _salt ListOperations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` serviceArn
 
 instance Prelude.NFData ListOperations where
   rnf ListOperations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf serviceArn
 
 instance Data.ToHeaders ListOperations where
@@ -177,8 +177,8 @@ instance Data.ToJSON ListOperations where
   toJSON ListOperations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("ServiceArn" Data..= serviceArn)
           ]
       )

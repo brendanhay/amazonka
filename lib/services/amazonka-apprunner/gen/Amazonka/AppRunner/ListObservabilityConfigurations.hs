@@ -35,10 +35,10 @@ module Amazonka.AppRunner.ListObservabilityConfigurations
     newListObservabilityConfigurations,
 
     -- * Request Lenses
-    listObservabilityConfigurations_nextToken,
-    listObservabilityConfigurations_observabilityConfigurationName,
     listObservabilityConfigurations_latestOnly,
     listObservabilityConfigurations_maxResults,
+    listObservabilityConfigurations_nextToken,
+    listObservabilityConfigurations_observabilityConfigurationName,
 
     -- * Destructuring the Response
     ListObservabilityConfigurationsResponse (..),
@@ -61,19 +61,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListObservabilityConfigurations' smart constructor.
 data ListObservabilityConfigurations = ListObservabilityConfigurations'
-  { -- | A token from a previous result page. It\'s used for a paginated request.
-    -- The request retrieves the next result page. All other parameter values
-    -- must be identical to the ones that are specified in the initial request.
-    --
-    -- If you don\'t specify @NextToken@, the request retrieves the first
-    -- result page.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of the App Runner observability configuration that you want to
-    -- list. If specified, App Runner lists revisions that share this name. If
-    -- not specified, App Runner returns revisions of all active
-    -- configurations.
-    observabilityConfigurationName :: Prelude.Maybe Prelude.Text,
-    -- | Set to @true@ to list only the latest revision for each requested
+  { -- | Set to @true@ to list only the latest revision for each requested
     -- configuration name.
     --
     -- Set to @false@ to list all revisions for each requested configuration
@@ -86,7 +74,19 @@ data ListObservabilityConfigurations = ListObservabilityConfigurations'
     --
     -- If you don\'t specify @MaxResults@, the request retrieves all available
     -- results in a single response.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token from a previous result page. It\'s used for a paginated request.
+    -- The request retrieves the next result page. All other parameter values
+    -- must be identical to the ones that are specified in the initial request.
+    --
+    -- If you don\'t specify @NextToken@, the request retrieves the first
+    -- result page.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of the App Runner observability configuration that you want to
+    -- list. If specified, App Runner lists revisions that share this name. If
+    -- not specified, App Runner returns revisions of all active
+    -- configurations.
+    observabilityConfigurationName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -97,18 +97,6 @@ data ListObservabilityConfigurations = ListObservabilityConfigurations'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'listObservabilityConfigurations_nextToken' - A token from a previous result page. It\'s used for a paginated request.
--- The request retrieves the next result page. All other parameter values
--- must be identical to the ones that are specified in the initial request.
---
--- If you don\'t specify @NextToken@, the request retrieves the first
--- result page.
---
--- 'observabilityConfigurationName', 'listObservabilityConfigurations_observabilityConfigurationName' - The name of the App Runner observability configuration that you want to
--- list. If specified, App Runner lists revisions that share this name. If
--- not specified, App Runner returns revisions of all active
--- configurations.
 --
 -- 'latestOnly', 'listObservabilityConfigurations_latestOnly' - Set to @true@ to list only the latest revision for each requested
 -- configuration name.
@@ -123,33 +111,29 @@ data ListObservabilityConfigurations = ListObservabilityConfigurations'
 --
 -- If you don\'t specify @MaxResults@, the request retrieves all available
 -- results in a single response.
-newListObservabilityConfigurations ::
-  ListObservabilityConfigurations
-newListObservabilityConfigurations =
-  ListObservabilityConfigurations'
-    { nextToken =
-        Prelude.Nothing,
-      observabilityConfigurationName =
-        Prelude.Nothing,
-      latestOnly = Prelude.Nothing,
-      maxResults = Prelude.Nothing
-    }
-
--- | A token from a previous result page. It\'s used for a paginated request.
+--
+-- 'nextToken', 'listObservabilityConfigurations_nextToken' - A token from a previous result page. It\'s used for a paginated request.
 -- The request retrieves the next result page. All other parameter values
 -- must be identical to the ones that are specified in the initial request.
 --
 -- If you don\'t specify @NextToken@, the request retrieves the first
 -- result page.
-listObservabilityConfigurations_nextToken :: Lens.Lens' ListObservabilityConfigurations (Prelude.Maybe Prelude.Text)
-listObservabilityConfigurations_nextToken = Lens.lens (\ListObservabilityConfigurations' {nextToken} -> nextToken) (\s@ListObservabilityConfigurations' {} a -> s {nextToken = a} :: ListObservabilityConfigurations)
-
--- | The name of the App Runner observability configuration that you want to
+--
+-- 'observabilityConfigurationName', 'listObservabilityConfigurations_observabilityConfigurationName' - The name of the App Runner observability configuration that you want to
 -- list. If specified, App Runner lists revisions that share this name. If
 -- not specified, App Runner returns revisions of all active
 -- configurations.
-listObservabilityConfigurations_observabilityConfigurationName :: Lens.Lens' ListObservabilityConfigurations (Prelude.Maybe Prelude.Text)
-listObservabilityConfigurations_observabilityConfigurationName = Lens.lens (\ListObservabilityConfigurations' {observabilityConfigurationName} -> observabilityConfigurationName) (\s@ListObservabilityConfigurations' {} a -> s {observabilityConfigurationName = a} :: ListObservabilityConfigurations)
+newListObservabilityConfigurations ::
+  ListObservabilityConfigurations
+newListObservabilityConfigurations =
+  ListObservabilityConfigurations'
+    { latestOnly =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      observabilityConfigurationName =
+        Prelude.Nothing
+    }
 
 -- | Set to @true@ to list only the latest revision for each requested
 -- configuration name.
@@ -168,6 +152,22 @@ listObservabilityConfigurations_latestOnly = Lens.lens (\ListObservabilityConfig
 -- results in a single response.
 listObservabilityConfigurations_maxResults :: Lens.Lens' ListObservabilityConfigurations (Prelude.Maybe Prelude.Natural)
 listObservabilityConfigurations_maxResults = Lens.lens (\ListObservabilityConfigurations' {maxResults} -> maxResults) (\s@ListObservabilityConfigurations' {} a -> s {maxResults = a} :: ListObservabilityConfigurations)
+
+-- | A token from a previous result page. It\'s used for a paginated request.
+-- The request retrieves the next result page. All other parameter values
+-- must be identical to the ones that are specified in the initial request.
+--
+-- If you don\'t specify @NextToken@, the request retrieves the first
+-- result page.
+listObservabilityConfigurations_nextToken :: Lens.Lens' ListObservabilityConfigurations (Prelude.Maybe Prelude.Text)
+listObservabilityConfigurations_nextToken = Lens.lens (\ListObservabilityConfigurations' {nextToken} -> nextToken) (\s@ListObservabilityConfigurations' {} a -> s {nextToken = a} :: ListObservabilityConfigurations)
+
+-- | The name of the App Runner observability configuration that you want to
+-- list. If specified, App Runner lists revisions that share this name. If
+-- not specified, App Runner returns revisions of all active
+-- configurations.
+listObservabilityConfigurations_observabilityConfigurationName :: Lens.Lens' ListObservabilityConfigurations (Prelude.Maybe Prelude.Text)
+listObservabilityConfigurations_observabilityConfigurationName = Lens.lens (\ListObservabilityConfigurations' {observabilityConfigurationName} -> observabilityConfigurationName) (\s@ListObservabilityConfigurations' {} a -> s {observabilityConfigurationName = a} :: ListObservabilityConfigurations)
 
 instance
   Core.AWSRequest
@@ -196,20 +196,20 @@ instance
   hashWithSalt
     _salt
     ListObservabilityConfigurations' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` observabilityConfigurationName
-        `Prelude.hashWithSalt` latestOnly
+      _salt `Prelude.hashWithSalt` latestOnly
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` observabilityConfigurationName
 
 instance
   Prelude.NFData
     ListObservabilityConfigurations
   where
   rnf ListObservabilityConfigurations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf observabilityConfigurationName
-      `Prelude.seq` Prelude.rnf latestOnly
+    Prelude.rnf latestOnly
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf observabilityConfigurationName
 
 instance
   Data.ToHeaders
@@ -233,11 +233,11 @@ instance Data.ToJSON ListObservabilityConfigurations where
   toJSON ListObservabilityConfigurations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("LatestOnly" Data..=) Prelude.<$> latestOnly,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("ObservabilityConfigurationName" Data..=)
-              Prelude.<$> observabilityConfigurationName,
-            ("LatestOnly" Data..=) Prelude.<$> latestOnly,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+              Prelude.<$> observabilityConfigurationName
           ]
       )
 

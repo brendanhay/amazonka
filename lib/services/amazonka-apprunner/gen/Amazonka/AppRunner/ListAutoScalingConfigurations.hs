@@ -35,10 +35,10 @@ module Amazonka.AppRunner.ListAutoScalingConfigurations
     newListAutoScalingConfigurations,
 
     -- * Request Lenses
-    listAutoScalingConfigurations_nextToken,
+    listAutoScalingConfigurations_autoScalingConfigurationName,
     listAutoScalingConfigurations_latestOnly,
     listAutoScalingConfigurations_maxResults,
-    listAutoScalingConfigurations_autoScalingConfigurationName,
+    listAutoScalingConfigurations_nextToken,
 
     -- * Destructuring the Response
     ListAutoScalingConfigurationsResponse (..),
@@ -61,13 +61,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAutoScalingConfigurations' smart constructor.
 data ListAutoScalingConfigurations = ListAutoScalingConfigurations'
-  { -- | A token from a previous result page. It\'s used for a paginated request.
-    -- The request retrieves the next result page. All other parameter values
-    -- must be identical to the ones that are specified in the initial request.
-    --
-    -- If you don\'t specify @NextToken@, the request retrieves the first
-    -- result page.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The name of the App Runner auto scaling configuration that you want to
+    -- list. If specified, App Runner lists revisions that share this name. If
+    -- not specified, App Runner returns revisions of all active
+    -- configurations.
+    autoScalingConfigurationName :: Prelude.Maybe Prelude.Text,
     -- | Set to @true@ to list only the latest revision for each requested
     -- configuration name.
     --
@@ -82,11 +80,13 @@ data ListAutoScalingConfigurations = ListAutoScalingConfigurations'
     -- If you don\'t specify @MaxResults@, the request retrieves all available
     -- results in a single response.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The name of the App Runner auto scaling configuration that you want to
-    -- list. If specified, App Runner lists revisions that share this name. If
-    -- not specified, App Runner returns revisions of all active
-    -- configurations.
-    autoScalingConfigurationName :: Prelude.Maybe Prelude.Text
+    -- | A token from a previous result page. It\'s used for a paginated request.
+    -- The request retrieves the next result page. All other parameter values
+    -- must be identical to the ones that are specified in the initial request.
+    --
+    -- If you don\'t specify @NextToken@, the request retrieves the first
+    -- result page.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -98,12 +98,10 @@ data ListAutoScalingConfigurations = ListAutoScalingConfigurations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAutoScalingConfigurations_nextToken' - A token from a previous result page. It\'s used for a paginated request.
--- The request retrieves the next result page. All other parameter values
--- must be identical to the ones that are specified in the initial request.
---
--- If you don\'t specify @NextToken@, the request retrieves the first
--- result page.
+-- 'autoScalingConfigurationName', 'listAutoScalingConfigurations_autoScalingConfigurationName' - The name of the App Runner auto scaling configuration that you want to
+-- list. If specified, App Runner lists revisions that share this name. If
+-- not specified, App Runner returns revisions of all active
+-- configurations.
 --
 -- 'latestOnly', 'listAutoScalingConfigurations_latestOnly' - Set to @true@ to list only the latest revision for each requested
 -- configuration name.
@@ -119,30 +117,29 @@ data ListAutoScalingConfigurations = ListAutoScalingConfigurations'
 -- If you don\'t specify @MaxResults@, the request retrieves all available
 -- results in a single response.
 --
--- 'autoScalingConfigurationName', 'listAutoScalingConfigurations_autoScalingConfigurationName' - The name of the App Runner auto scaling configuration that you want to
--- list. If specified, App Runner lists revisions that share this name. If
--- not specified, App Runner returns revisions of all active
--- configurations.
-newListAutoScalingConfigurations ::
-  ListAutoScalingConfigurations
-newListAutoScalingConfigurations =
-  ListAutoScalingConfigurations'
-    { nextToken =
-        Prelude.Nothing,
-      latestOnly = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      autoScalingConfigurationName =
-        Prelude.Nothing
-    }
-
--- | A token from a previous result page. It\'s used for a paginated request.
+-- 'nextToken', 'listAutoScalingConfigurations_nextToken' - A token from a previous result page. It\'s used for a paginated request.
 -- The request retrieves the next result page. All other parameter values
 -- must be identical to the ones that are specified in the initial request.
 --
 -- If you don\'t specify @NextToken@, the request retrieves the first
 -- result page.
-listAutoScalingConfigurations_nextToken :: Lens.Lens' ListAutoScalingConfigurations (Prelude.Maybe Prelude.Text)
-listAutoScalingConfigurations_nextToken = Lens.lens (\ListAutoScalingConfigurations' {nextToken} -> nextToken) (\s@ListAutoScalingConfigurations' {} a -> s {nextToken = a} :: ListAutoScalingConfigurations)
+newListAutoScalingConfigurations ::
+  ListAutoScalingConfigurations
+newListAutoScalingConfigurations =
+  ListAutoScalingConfigurations'
+    { autoScalingConfigurationName =
+        Prelude.Nothing,
+      latestOnly = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
+    }
+
+-- | The name of the App Runner auto scaling configuration that you want to
+-- list. If specified, App Runner lists revisions that share this name. If
+-- not specified, App Runner returns revisions of all active
+-- configurations.
+listAutoScalingConfigurations_autoScalingConfigurationName :: Lens.Lens' ListAutoScalingConfigurations (Prelude.Maybe Prelude.Text)
+listAutoScalingConfigurations_autoScalingConfigurationName = Lens.lens (\ListAutoScalingConfigurations' {autoScalingConfigurationName} -> autoScalingConfigurationName) (\s@ListAutoScalingConfigurations' {} a -> s {autoScalingConfigurationName = a} :: ListAutoScalingConfigurations)
 
 -- | Set to @true@ to list only the latest revision for each requested
 -- configuration name.
@@ -162,12 +159,14 @@ listAutoScalingConfigurations_latestOnly = Lens.lens (\ListAutoScalingConfigurat
 listAutoScalingConfigurations_maxResults :: Lens.Lens' ListAutoScalingConfigurations (Prelude.Maybe Prelude.Natural)
 listAutoScalingConfigurations_maxResults = Lens.lens (\ListAutoScalingConfigurations' {maxResults} -> maxResults) (\s@ListAutoScalingConfigurations' {} a -> s {maxResults = a} :: ListAutoScalingConfigurations)
 
--- | The name of the App Runner auto scaling configuration that you want to
--- list. If specified, App Runner lists revisions that share this name. If
--- not specified, App Runner returns revisions of all active
--- configurations.
-listAutoScalingConfigurations_autoScalingConfigurationName :: Lens.Lens' ListAutoScalingConfigurations (Prelude.Maybe Prelude.Text)
-listAutoScalingConfigurations_autoScalingConfigurationName = Lens.lens (\ListAutoScalingConfigurations' {autoScalingConfigurationName} -> autoScalingConfigurationName) (\s@ListAutoScalingConfigurations' {} a -> s {autoScalingConfigurationName = a} :: ListAutoScalingConfigurations)
+-- | A token from a previous result page. It\'s used for a paginated request.
+-- The request retrieves the next result page. All other parameter values
+-- must be identical to the ones that are specified in the initial request.
+--
+-- If you don\'t specify @NextToken@, the request retrieves the first
+-- result page.
+listAutoScalingConfigurations_nextToken :: Lens.Lens' ListAutoScalingConfigurations (Prelude.Maybe Prelude.Text)
+listAutoScalingConfigurations_nextToken = Lens.lens (\ListAutoScalingConfigurations' {nextToken} -> nextToken) (\s@ListAutoScalingConfigurations' {} a -> s {nextToken = a} :: ListAutoScalingConfigurations)
 
 instance
   Core.AWSRequest
@@ -194,17 +193,18 @@ instance
     ListAutoScalingConfigurations
   where
   hashWithSalt _salt ListAutoScalingConfigurations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` autoScalingConfigurationName
       `Prelude.hashWithSalt` latestOnly
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` autoScalingConfigurationName
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListAutoScalingConfigurations where
   rnf ListAutoScalingConfigurations' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf autoScalingConfigurationName
       `Prelude.seq` Prelude.rnf latestOnly
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf autoScalingConfigurationName
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListAutoScalingConfigurations where
   toHeaders =
@@ -225,11 +225,11 @@ instance Data.ToJSON ListAutoScalingConfigurations where
   toJSON ListAutoScalingConfigurations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("AutoScalingConfigurationName" Data..=)
+              Prelude.<$> autoScalingConfigurationName,
             ("LatestOnly" Data..=) Prelude.<$> latestOnly,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("AutoScalingConfigurationName" Data..=)
-              Prelude.<$> autoScalingConfigurationName
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

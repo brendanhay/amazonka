@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVpcIngressConnectionSummary' smart constructor.
 data VpcIngressConnectionSummary = VpcIngressConnectionSummary'
-  { -- | The Amazon Resource Name (ARN) of the VPC Ingress Connection.
-    vpcIngressConnectionArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the service associated with the VPC
+  { -- | The Amazon Resource Name (ARN) of the service associated with the VPC
     -- Ingress Connection.
-    serviceArn :: Prelude.Maybe Prelude.Text
+    serviceArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the VPC Ingress Connection.
+    vpcIngressConnectionArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,27 +45,27 @@ data VpcIngressConnectionSummary = VpcIngressConnectionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcIngressConnectionArn', 'vpcIngressConnectionSummary_vpcIngressConnectionArn' - The Amazon Resource Name (ARN) of the VPC Ingress Connection.
---
 -- 'serviceArn', 'vpcIngressConnectionSummary_serviceArn' - The Amazon Resource Name (ARN) of the service associated with the VPC
 -- Ingress Connection.
+--
+-- 'vpcIngressConnectionArn', 'vpcIngressConnectionSummary_vpcIngressConnectionArn' - The Amazon Resource Name (ARN) of the VPC Ingress Connection.
 newVpcIngressConnectionSummary ::
   VpcIngressConnectionSummary
 newVpcIngressConnectionSummary =
   VpcIngressConnectionSummary'
-    { vpcIngressConnectionArn =
+    { serviceArn =
         Prelude.Nothing,
-      serviceArn = Prelude.Nothing
+      vpcIngressConnectionArn = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the VPC Ingress Connection.
-vpcIngressConnectionSummary_vpcIngressConnectionArn :: Lens.Lens' VpcIngressConnectionSummary (Prelude.Maybe Prelude.Text)
-vpcIngressConnectionSummary_vpcIngressConnectionArn = Lens.lens (\VpcIngressConnectionSummary' {vpcIngressConnectionArn} -> vpcIngressConnectionArn) (\s@VpcIngressConnectionSummary' {} a -> s {vpcIngressConnectionArn = a} :: VpcIngressConnectionSummary)
 
 -- | The Amazon Resource Name (ARN) of the service associated with the VPC
 -- Ingress Connection.
 vpcIngressConnectionSummary_serviceArn :: Lens.Lens' VpcIngressConnectionSummary (Prelude.Maybe Prelude.Text)
 vpcIngressConnectionSummary_serviceArn = Lens.lens (\VpcIngressConnectionSummary' {serviceArn} -> serviceArn) (\s@VpcIngressConnectionSummary' {} a -> s {serviceArn = a} :: VpcIngressConnectionSummary)
+
+-- | The Amazon Resource Name (ARN) of the VPC Ingress Connection.
+vpcIngressConnectionSummary_vpcIngressConnectionArn :: Lens.Lens' VpcIngressConnectionSummary (Prelude.Maybe Prelude.Text)
+vpcIngressConnectionSummary_vpcIngressConnectionArn = Lens.lens (\VpcIngressConnectionSummary' {vpcIngressConnectionArn} -> vpcIngressConnectionArn) (\s@VpcIngressConnectionSummary' {} a -> s {vpcIngressConnectionArn = a} :: VpcIngressConnectionSummary)
 
 instance Data.FromJSON VpcIngressConnectionSummary where
   parseJSON =
@@ -73,17 +73,16 @@ instance Data.FromJSON VpcIngressConnectionSummary where
       "VpcIngressConnectionSummary"
       ( \x ->
           VpcIngressConnectionSummary'
-            Prelude.<$> (x Data..:? "VpcIngressConnectionArn")
-            Prelude.<*> (x Data..:? "ServiceArn")
+            Prelude.<$> (x Data..:? "ServiceArn")
+            Prelude.<*> (x Data..:? "VpcIngressConnectionArn")
       )
 
 instance Prelude.Hashable VpcIngressConnectionSummary where
   hashWithSalt _salt VpcIngressConnectionSummary' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` serviceArn
       `Prelude.hashWithSalt` vpcIngressConnectionArn
-      `Prelude.hashWithSalt` serviceArn
 
 instance Prelude.NFData VpcIngressConnectionSummary where
   rnf VpcIngressConnectionSummary' {..} =
-    Prelude.rnf vpcIngressConnectionArn
-      `Prelude.seq` Prelude.rnf serviceArn
+    Prelude.rnf serviceArn
+      `Prelude.seq` Prelude.rnf vpcIngressConnectionArn

@@ -30,17 +30,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEgressConfiguration' smart constructor.
 data EgressConfiguration = EgressConfiguration'
-  { -- | The Amazon Resource Name (ARN) of the App Runner VPC connector that you
-    -- want to associate with your App Runner service. Only valid when
-    -- @EgressType = VPC@.
-    vpcConnectorArn :: Prelude.Maybe Prelude.Text,
-    -- | The type of egress configuration.
+  { -- | The type of egress configuration.
     --
     -- Set to @DEFAULT@ for access to resources hosted on public networks.
     --
     -- Set to @VPC@ to associate your service to a custom VPC specified by
     -- @VpcConnectorArn@.
-    egressType :: Prelude.Maybe EgressType
+    egressType :: Prelude.Maybe EgressType,
+    -- | The Amazon Resource Name (ARN) of the App Runner VPC connector that you
+    -- want to associate with your App Runner service. Only valid when
+    -- @EgressType = VPC@.
+    vpcConnectorArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,30 +52,23 @@ data EgressConfiguration = EgressConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcConnectorArn', 'egressConfiguration_vpcConnectorArn' - The Amazon Resource Name (ARN) of the App Runner VPC connector that you
--- want to associate with your App Runner service. Only valid when
--- @EgressType = VPC@.
---
 -- 'egressType', 'egressConfiguration_egressType' - The type of egress configuration.
 --
 -- Set to @DEFAULT@ for access to resources hosted on public networks.
 --
 -- Set to @VPC@ to associate your service to a custom VPC specified by
 -- @VpcConnectorArn@.
+--
+-- 'vpcConnectorArn', 'egressConfiguration_vpcConnectorArn' - The Amazon Resource Name (ARN) of the App Runner VPC connector that you
+-- want to associate with your App Runner service. Only valid when
+-- @EgressType = VPC@.
 newEgressConfiguration ::
   EgressConfiguration
 newEgressConfiguration =
   EgressConfiguration'
-    { vpcConnectorArn =
-        Prelude.Nothing,
-      egressType = Prelude.Nothing
+    { egressType = Prelude.Nothing,
+      vpcConnectorArn = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the App Runner VPC connector that you
--- want to associate with your App Runner service. Only valid when
--- @EgressType = VPC@.
-egressConfiguration_vpcConnectorArn :: Lens.Lens' EgressConfiguration (Prelude.Maybe Prelude.Text)
-egressConfiguration_vpcConnectorArn = Lens.lens (\EgressConfiguration' {vpcConnectorArn} -> vpcConnectorArn) (\s@EgressConfiguration' {} a -> s {vpcConnectorArn = a} :: EgressConfiguration)
 
 -- | The type of egress configuration.
 --
@@ -86,32 +79,38 @@ egressConfiguration_vpcConnectorArn = Lens.lens (\EgressConfiguration' {vpcConne
 egressConfiguration_egressType :: Lens.Lens' EgressConfiguration (Prelude.Maybe EgressType)
 egressConfiguration_egressType = Lens.lens (\EgressConfiguration' {egressType} -> egressType) (\s@EgressConfiguration' {} a -> s {egressType = a} :: EgressConfiguration)
 
+-- | The Amazon Resource Name (ARN) of the App Runner VPC connector that you
+-- want to associate with your App Runner service. Only valid when
+-- @EgressType = VPC@.
+egressConfiguration_vpcConnectorArn :: Lens.Lens' EgressConfiguration (Prelude.Maybe Prelude.Text)
+egressConfiguration_vpcConnectorArn = Lens.lens (\EgressConfiguration' {vpcConnectorArn} -> vpcConnectorArn) (\s@EgressConfiguration' {} a -> s {vpcConnectorArn = a} :: EgressConfiguration)
+
 instance Data.FromJSON EgressConfiguration where
   parseJSON =
     Data.withObject
       "EgressConfiguration"
       ( \x ->
           EgressConfiguration'
-            Prelude.<$> (x Data..:? "VpcConnectorArn")
-            Prelude.<*> (x Data..:? "EgressType")
+            Prelude.<$> (x Data..:? "EgressType")
+            Prelude.<*> (x Data..:? "VpcConnectorArn")
       )
 
 instance Prelude.Hashable EgressConfiguration where
   hashWithSalt _salt EgressConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` vpcConnectorArn
-      `Prelude.hashWithSalt` egressType
+    _salt `Prelude.hashWithSalt` egressType
+      `Prelude.hashWithSalt` vpcConnectorArn
 
 instance Prelude.NFData EgressConfiguration where
   rnf EgressConfiguration' {..} =
-    Prelude.rnf vpcConnectorArn
-      `Prelude.seq` Prelude.rnf egressType
+    Prelude.rnf egressType
+      `Prelude.seq` Prelude.rnf vpcConnectorArn
 
 instance Data.ToJSON EgressConfiguration where
   toJSON EgressConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("VpcConnectorArn" Data..=)
-              Prelude.<$> vpcConnectorArn,
-            ("EgressType" Data..=) Prelude.<$> egressType
+          [ ("EgressType" Data..=) Prelude.<$> egressType,
+            ("VpcConnectorArn" Data..=)
+              Prelude.<$> vpcConnectorArn
           ]
       )

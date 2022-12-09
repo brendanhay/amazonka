@@ -37,15 +37,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newObservabilityConfigurationSummary' smart constructor.
 data ObservabilityConfigurationSummary = ObservabilityConfigurationSummary'
-  { -- | The customer-provided observability configuration name. It can be used
+  { -- | The Amazon Resource Name (ARN) of this observability configuration.
+    observabilityConfigurationArn :: Prelude.Maybe Prelude.Text,
+    -- | The customer-provided observability configuration name. It can be used
     -- in multiple revisions of a configuration.
     observabilityConfigurationName :: Prelude.Maybe Prelude.Text,
     -- | The revision of this observability configuration. It\'s unique among all
     -- the active configurations (@\"Status\": \"ACTIVE\"@) that share the same
     -- @ObservabilityConfigurationName@.
-    observabilityConfigurationRevision :: Prelude.Maybe Prelude.Int,
-    -- | The Amazon Resource Name (ARN) of this observability configuration.
-    observabilityConfigurationArn :: Prelude.Maybe Prelude.Text
+    observabilityConfigurationRevision :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,25 +57,29 @@ data ObservabilityConfigurationSummary = ObservabilityConfigurationSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'observabilityConfigurationArn', 'observabilityConfigurationSummary_observabilityConfigurationArn' - The Amazon Resource Name (ARN) of this observability configuration.
+--
 -- 'observabilityConfigurationName', 'observabilityConfigurationSummary_observabilityConfigurationName' - The customer-provided observability configuration name. It can be used
 -- in multiple revisions of a configuration.
 --
 -- 'observabilityConfigurationRevision', 'observabilityConfigurationSummary_observabilityConfigurationRevision' - The revision of this observability configuration. It\'s unique among all
 -- the active configurations (@\"Status\": \"ACTIVE\"@) that share the same
 -- @ObservabilityConfigurationName@.
---
--- 'observabilityConfigurationArn', 'observabilityConfigurationSummary_observabilityConfigurationArn' - The Amazon Resource Name (ARN) of this observability configuration.
 newObservabilityConfigurationSummary ::
   ObservabilityConfigurationSummary
 newObservabilityConfigurationSummary =
   ObservabilityConfigurationSummary'
-    { observabilityConfigurationName =
+    { observabilityConfigurationArn =
+        Prelude.Nothing,
+      observabilityConfigurationName =
         Prelude.Nothing,
       observabilityConfigurationRevision =
-        Prelude.Nothing,
-      observabilityConfigurationArn =
         Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of this observability configuration.
+observabilityConfigurationSummary_observabilityConfigurationArn :: Lens.Lens' ObservabilityConfigurationSummary (Prelude.Maybe Prelude.Text)
+observabilityConfigurationSummary_observabilityConfigurationArn = Lens.lens (\ObservabilityConfigurationSummary' {observabilityConfigurationArn} -> observabilityConfigurationArn) (\s@ObservabilityConfigurationSummary' {} a -> s {observabilityConfigurationArn = a} :: ObservabilityConfigurationSummary)
 
 -- | The customer-provided observability configuration name. It can be used
 -- in multiple revisions of a configuration.
@@ -88,10 +92,6 @@ observabilityConfigurationSummary_observabilityConfigurationName = Lens.lens (\O
 observabilityConfigurationSummary_observabilityConfigurationRevision :: Lens.Lens' ObservabilityConfigurationSummary (Prelude.Maybe Prelude.Int)
 observabilityConfigurationSummary_observabilityConfigurationRevision = Lens.lens (\ObservabilityConfigurationSummary' {observabilityConfigurationRevision} -> observabilityConfigurationRevision) (\s@ObservabilityConfigurationSummary' {} a -> s {observabilityConfigurationRevision = a} :: ObservabilityConfigurationSummary)
 
--- | The Amazon Resource Name (ARN) of this observability configuration.
-observabilityConfigurationSummary_observabilityConfigurationArn :: Lens.Lens' ObservabilityConfigurationSummary (Prelude.Maybe Prelude.Text)
-observabilityConfigurationSummary_observabilityConfigurationArn = Lens.lens (\ObservabilityConfigurationSummary' {observabilityConfigurationArn} -> observabilityConfigurationArn) (\s@ObservabilityConfigurationSummary' {} a -> s {observabilityConfigurationArn = a} :: ObservabilityConfigurationSummary)
-
 instance
   Data.FromJSON
     ObservabilityConfigurationSummary
@@ -101,9 +101,9 @@ instance
       "ObservabilityConfigurationSummary"
       ( \x ->
           ObservabilityConfigurationSummary'
-            Prelude.<$> (x Data..:? "ObservabilityConfigurationName")
+            Prelude.<$> (x Data..:? "ObservabilityConfigurationArn")
+            Prelude.<*> (x Data..:? "ObservabilityConfigurationName")
             Prelude.<*> (x Data..:? "ObservabilityConfigurationRevision")
-            Prelude.<*> (x Data..:? "ObservabilityConfigurationArn")
       )
 
 instance
@@ -114,15 +114,15 @@ instance
     _salt
     ObservabilityConfigurationSummary' {..} =
       _salt
+        `Prelude.hashWithSalt` observabilityConfigurationArn
         `Prelude.hashWithSalt` observabilityConfigurationName
         `Prelude.hashWithSalt` observabilityConfigurationRevision
-        `Prelude.hashWithSalt` observabilityConfigurationArn
 
 instance
   Prelude.NFData
     ObservabilityConfigurationSummary
   where
   rnf ObservabilityConfigurationSummary' {..} =
-    Prelude.rnf observabilityConfigurationName
+    Prelude.rnf observabilityConfigurationArn
+      `Prelude.seq` Prelude.rnf observabilityConfigurationName
       `Prelude.seq` Prelude.rnf observabilityConfigurationRevision
-      `Prelude.seq` Prelude.rnf observabilityConfigurationArn

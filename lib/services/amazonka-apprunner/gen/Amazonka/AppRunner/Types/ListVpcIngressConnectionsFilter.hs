@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newListVpcIngressConnectionsFilter' smart constructor.
 data ListVpcIngressConnectionsFilter = ListVpcIngressConnectionsFilter'
-  { -- | The ID of a VPC Endpoint to filter by.
-    vpcEndpointId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of a service to filter by.
-    serviceArn :: Prelude.Maybe Prelude.Text
+  { -- | The Amazon Resource Name (ARN) of a service to filter by.
+    serviceArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of a VPC Endpoint to filter by.
+    vpcEndpointId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data ListVpcIngressConnectionsFilter = ListVpcIngressConnectionsFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcEndpointId', 'listVpcIngressConnectionsFilter_vpcEndpointId' - The ID of a VPC Endpoint to filter by.
---
 -- 'serviceArn', 'listVpcIngressConnectionsFilter_serviceArn' - The Amazon Resource Name (ARN) of a service to filter by.
+--
+-- 'vpcEndpointId', 'listVpcIngressConnectionsFilter_vpcEndpointId' - The ID of a VPC Endpoint to filter by.
 newListVpcIngressConnectionsFilter ::
   ListVpcIngressConnectionsFilter
 newListVpcIngressConnectionsFilter =
   ListVpcIngressConnectionsFilter'
-    { vpcEndpointId =
+    { serviceArn =
         Prelude.Nothing,
-      serviceArn = Prelude.Nothing
+      vpcEndpointId = Prelude.Nothing
     }
-
--- | The ID of a VPC Endpoint to filter by.
-listVpcIngressConnectionsFilter_vpcEndpointId :: Lens.Lens' ListVpcIngressConnectionsFilter (Prelude.Maybe Prelude.Text)
-listVpcIngressConnectionsFilter_vpcEndpointId = Lens.lens (\ListVpcIngressConnectionsFilter' {vpcEndpointId} -> vpcEndpointId) (\s@ListVpcIngressConnectionsFilter' {} a -> s {vpcEndpointId = a} :: ListVpcIngressConnectionsFilter)
 
 -- | The Amazon Resource Name (ARN) of a service to filter by.
 listVpcIngressConnectionsFilter_serviceArn :: Lens.Lens' ListVpcIngressConnectionsFilter (Prelude.Maybe Prelude.Text)
 listVpcIngressConnectionsFilter_serviceArn = Lens.lens (\ListVpcIngressConnectionsFilter' {serviceArn} -> serviceArn) (\s@ListVpcIngressConnectionsFilter' {} a -> s {serviceArn = a} :: ListVpcIngressConnectionsFilter)
+
+-- | The ID of a VPC Endpoint to filter by.
+listVpcIngressConnectionsFilter_vpcEndpointId :: Lens.Lens' ListVpcIngressConnectionsFilter (Prelude.Maybe Prelude.Text)
+listVpcIngressConnectionsFilter_vpcEndpointId = Lens.lens (\ListVpcIngressConnectionsFilter' {vpcEndpointId} -> vpcEndpointId) (\s@ListVpcIngressConnectionsFilter' {} a -> s {vpcEndpointId = a} :: ListVpcIngressConnectionsFilter)
 
 instance
   Prelude.Hashable
@@ -71,22 +71,22 @@ instance
   hashWithSalt
     _salt
     ListVpcIngressConnectionsFilter' {..} =
-      _salt `Prelude.hashWithSalt` vpcEndpointId
-        `Prelude.hashWithSalt` serviceArn
+      _salt `Prelude.hashWithSalt` serviceArn
+        `Prelude.hashWithSalt` vpcEndpointId
 
 instance
   Prelude.NFData
     ListVpcIngressConnectionsFilter
   where
   rnf ListVpcIngressConnectionsFilter' {..} =
-    Prelude.rnf vpcEndpointId
-      `Prelude.seq` Prelude.rnf serviceArn
+    Prelude.rnf serviceArn
+      `Prelude.seq` Prelude.rnf vpcEndpointId
 
 instance Data.ToJSON ListVpcIngressConnectionsFilter where
   toJSON ListVpcIngressConnectionsFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("VpcEndpointId" Data..=) Prelude.<$> vpcEndpointId,
-            ("ServiceArn" Data..=) Prelude.<$> serviceArn
+          [ ("ServiceArn" Data..=) Prelude.<$> serviceArn,
+            ("VpcEndpointId" Data..=) Prelude.<$> vpcEndpointId
           ]
       )

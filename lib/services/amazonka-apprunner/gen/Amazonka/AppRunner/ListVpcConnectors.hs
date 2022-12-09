@@ -28,8 +28,8 @@ module Amazonka.AppRunner.ListVpcConnectors
     newListVpcConnectors,
 
     -- * Request Lenses
-    listVpcConnectors_nextToken,
     listVpcConnectors_maxResults,
+    listVpcConnectors_nextToken,
 
     -- * Destructuring the Response
     ListVpcConnectorsResponse (..),
@@ -52,19 +52,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListVpcConnectors' smart constructor.
 data ListVpcConnectors = ListVpcConnectors'
-  { -- | A token from a previous result page. It\'s used for a paginated request.
+  { -- | The maximum number of results to include in each response (result page).
+    -- It\'s used for a paginated request.
+    --
+    -- If you don\'t specify @MaxResults@, the request retrieves all available
+    -- results in a single response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token from a previous result page. It\'s used for a paginated request.
     -- The request retrieves the next result page. All other parameter values
     -- must be identical to the ones that are specified in the initial request.
     --
     -- If you don\'t specify @NextToken@, the request retrieves the first
     -- result page.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to include in each response (result page).
-    -- It\'s used for a paginated request.
-    --
-    -- If you don\'t specify @MaxResults@, the request retrieves all available
-    -- results in a single response.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,25 +76,33 @@ data ListVpcConnectors = ListVpcConnectors'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listVpcConnectors_maxResults' - The maximum number of results to include in each response (result page).
+-- It\'s used for a paginated request.
+--
+-- If you don\'t specify @MaxResults@, the request retrieves all available
+-- results in a single response.
+--
 -- 'nextToken', 'listVpcConnectors_nextToken' - A token from a previous result page. It\'s used for a paginated request.
 -- The request retrieves the next result page. All other parameter values
 -- must be identical to the ones that are specified in the initial request.
 --
 -- If you don\'t specify @NextToken@, the request retrieves the first
 -- result page.
---
--- 'maxResults', 'listVpcConnectors_maxResults' - The maximum number of results to include in each response (result page).
--- It\'s used for a paginated request.
---
--- If you don\'t specify @MaxResults@, the request retrieves all available
--- results in a single response.
 newListVpcConnectors ::
   ListVpcConnectors
 newListVpcConnectors =
   ListVpcConnectors'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to include in each response (result page).
+-- It\'s used for a paginated request.
+--
+-- If you don\'t specify @MaxResults@, the request retrieves all available
+-- results in a single response.
+listVpcConnectors_maxResults :: Lens.Lens' ListVpcConnectors (Prelude.Maybe Prelude.Natural)
+listVpcConnectors_maxResults = Lens.lens (\ListVpcConnectors' {maxResults} -> maxResults) (\s@ListVpcConnectors' {} a -> s {maxResults = a} :: ListVpcConnectors)
 
 -- | A token from a previous result page. It\'s used for a paginated request.
 -- The request retrieves the next result page. All other parameter values
@@ -104,14 +112,6 @@ newListVpcConnectors =
 -- result page.
 listVpcConnectors_nextToken :: Lens.Lens' ListVpcConnectors (Prelude.Maybe Prelude.Text)
 listVpcConnectors_nextToken = Lens.lens (\ListVpcConnectors' {nextToken} -> nextToken) (\s@ListVpcConnectors' {} a -> s {nextToken = a} :: ListVpcConnectors)
-
--- | The maximum number of results to include in each response (result page).
--- It\'s used for a paginated request.
---
--- If you don\'t specify @MaxResults@, the request retrieves all available
--- results in a single response.
-listVpcConnectors_maxResults :: Lens.Lens' ListVpcConnectors (Prelude.Maybe Prelude.Natural)
-listVpcConnectors_maxResults = Lens.lens (\ListVpcConnectors' {maxResults} -> maxResults) (\s@ListVpcConnectors' {} a -> s {maxResults = a} :: ListVpcConnectors)
 
 instance Core.AWSRequest ListVpcConnectors where
   type
@@ -130,13 +130,13 @@ instance Core.AWSRequest ListVpcConnectors where
 
 instance Prelude.Hashable ListVpcConnectors where
   hashWithSalt _salt ListVpcConnectors' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListVpcConnectors where
   rnf ListVpcConnectors' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListVpcConnectors where
   toHeaders =
@@ -157,8 +157,8 @@ instance Data.ToJSON ListVpcConnectors where
   toJSON ListVpcConnectors' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

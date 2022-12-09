@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHealthCheckConfiguration' smart constructor.
 data HealthCheckConfiguration = HealthCheckConfiguration'
-  { -- | The time, in seconds, to wait for a health check response before
-    -- deciding it failed.
+  { -- | The number of consecutive checks that must succeed before App Runner
+    -- decides that the service is healthy.
     --
-    -- Default: @2@
-    timeout :: Prelude.Maybe Prelude.Natural,
+    -- Default: @1@
+    healthyThreshold :: Prelude.Maybe Prelude.Natural,
     -- | The time interval, in seconds, between health checks.
     --
     -- Default: @5@
@@ -45,16 +45,6 @@ data HealthCheckConfiguration = HealthCheckConfiguration'
     --
     -- Default: @\"\/\"@
     path :: Prelude.Maybe Prelude.Text,
-    -- | The number of consecutive checks that must succeed before App Runner
-    -- decides that the service is healthy.
-    --
-    -- Default: @1@
-    healthyThreshold :: Prelude.Maybe Prelude.Natural,
-    -- | The number of consecutive checks that must fail before App Runner
-    -- decides that the service is unhealthy.
-    --
-    -- Default: @5@
-    unhealthyThreshold :: Prelude.Maybe Prelude.Natural,
     -- | The IP protocol that App Runner uses to perform health checks for your
     -- service.
     --
@@ -62,7 +52,17 @@ data HealthCheckConfiguration = HealthCheckConfiguration'
     -- to the HTTP path specified by @Path@.
     --
     -- Default: @TCP@
-    protocol :: Prelude.Maybe HealthCheckProtocol
+    protocol :: Prelude.Maybe HealthCheckProtocol,
+    -- | The time, in seconds, to wait for a health check response before
+    -- deciding it failed.
+    --
+    -- Default: @2@
+    timeout :: Prelude.Maybe Prelude.Natural,
+    -- | The number of consecutive checks that must fail before App Runner
+    -- decides that the service is unhealthy.
+    --
+    -- Default: @5@
+    unhealthyThreshold :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,10 +74,10 @@ data HealthCheckConfiguration = HealthCheckConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timeout', 'healthCheckConfiguration_timeout' - The time, in seconds, to wait for a health check response before
--- deciding it failed.
+-- 'healthyThreshold', 'healthCheckConfiguration_healthyThreshold' - The number of consecutive checks that must succeed before App Runner
+-- decides that the service is healthy.
 --
--- Default: @2@
+-- Default: @1@
 --
 -- 'interval', 'healthCheckConfiguration_interval' - The time interval, in seconds, between health checks.
 --
@@ -89,16 +89,6 @@ data HealthCheckConfiguration = HealthCheckConfiguration'
 --
 -- Default: @\"\/\"@
 --
--- 'healthyThreshold', 'healthCheckConfiguration_healthyThreshold' - The number of consecutive checks that must succeed before App Runner
--- decides that the service is healthy.
---
--- Default: @1@
---
--- 'unhealthyThreshold', 'healthCheckConfiguration_unhealthyThreshold' - The number of consecutive checks that must fail before App Runner
--- decides that the service is unhealthy.
---
--- Default: @5@
---
 -- 'protocol', 'healthCheckConfiguration_protocol' - The IP protocol that App Runner uses to perform health checks for your
 -- service.
 --
@@ -106,25 +96,35 @@ data HealthCheckConfiguration = HealthCheckConfiguration'
 -- to the HTTP path specified by @Path@.
 --
 -- Default: @TCP@
+--
+-- 'timeout', 'healthCheckConfiguration_timeout' - The time, in seconds, to wait for a health check response before
+-- deciding it failed.
+--
+-- Default: @2@
+--
+-- 'unhealthyThreshold', 'healthCheckConfiguration_unhealthyThreshold' - The number of consecutive checks that must fail before App Runner
+-- decides that the service is unhealthy.
+--
+-- Default: @5@
 newHealthCheckConfiguration ::
   HealthCheckConfiguration
 newHealthCheckConfiguration =
   HealthCheckConfiguration'
-    { timeout =
+    { healthyThreshold =
         Prelude.Nothing,
       interval = Prelude.Nothing,
       path = Prelude.Nothing,
-      healthyThreshold = Prelude.Nothing,
-      unhealthyThreshold = Prelude.Nothing,
-      protocol = Prelude.Nothing
+      protocol = Prelude.Nothing,
+      timeout = Prelude.Nothing,
+      unhealthyThreshold = Prelude.Nothing
     }
 
--- | The time, in seconds, to wait for a health check response before
--- deciding it failed.
+-- | The number of consecutive checks that must succeed before App Runner
+-- decides that the service is healthy.
 --
--- Default: @2@
-healthCheckConfiguration_timeout :: Lens.Lens' HealthCheckConfiguration (Prelude.Maybe Prelude.Natural)
-healthCheckConfiguration_timeout = Lens.lens (\HealthCheckConfiguration' {timeout} -> timeout) (\s@HealthCheckConfiguration' {} a -> s {timeout = a} :: HealthCheckConfiguration)
+-- Default: @1@
+healthCheckConfiguration_healthyThreshold :: Lens.Lens' HealthCheckConfiguration (Prelude.Maybe Prelude.Natural)
+healthCheckConfiguration_healthyThreshold = Lens.lens (\HealthCheckConfiguration' {healthyThreshold} -> healthyThreshold) (\s@HealthCheckConfiguration' {} a -> s {healthyThreshold = a} :: HealthCheckConfiguration)
 
 -- | The time interval, in seconds, between health checks.
 --
@@ -140,20 +140,6 @@ healthCheckConfiguration_interval = Lens.lens (\HealthCheckConfiguration' {inter
 healthCheckConfiguration_path :: Lens.Lens' HealthCheckConfiguration (Prelude.Maybe Prelude.Text)
 healthCheckConfiguration_path = Lens.lens (\HealthCheckConfiguration' {path} -> path) (\s@HealthCheckConfiguration' {} a -> s {path = a} :: HealthCheckConfiguration)
 
--- | The number of consecutive checks that must succeed before App Runner
--- decides that the service is healthy.
---
--- Default: @1@
-healthCheckConfiguration_healthyThreshold :: Lens.Lens' HealthCheckConfiguration (Prelude.Maybe Prelude.Natural)
-healthCheckConfiguration_healthyThreshold = Lens.lens (\HealthCheckConfiguration' {healthyThreshold} -> healthyThreshold) (\s@HealthCheckConfiguration' {} a -> s {healthyThreshold = a} :: HealthCheckConfiguration)
-
--- | The number of consecutive checks that must fail before App Runner
--- decides that the service is unhealthy.
---
--- Default: @5@
-healthCheckConfiguration_unhealthyThreshold :: Lens.Lens' HealthCheckConfiguration (Prelude.Maybe Prelude.Natural)
-healthCheckConfiguration_unhealthyThreshold = Lens.lens (\HealthCheckConfiguration' {unhealthyThreshold} -> unhealthyThreshold) (\s@HealthCheckConfiguration' {} a -> s {unhealthyThreshold = a} :: HealthCheckConfiguration)
-
 -- | The IP protocol that App Runner uses to perform health checks for your
 -- service.
 --
@@ -164,49 +150,63 @@ healthCheckConfiguration_unhealthyThreshold = Lens.lens (\HealthCheckConfigurati
 healthCheckConfiguration_protocol :: Lens.Lens' HealthCheckConfiguration (Prelude.Maybe HealthCheckProtocol)
 healthCheckConfiguration_protocol = Lens.lens (\HealthCheckConfiguration' {protocol} -> protocol) (\s@HealthCheckConfiguration' {} a -> s {protocol = a} :: HealthCheckConfiguration)
 
+-- | The time, in seconds, to wait for a health check response before
+-- deciding it failed.
+--
+-- Default: @2@
+healthCheckConfiguration_timeout :: Lens.Lens' HealthCheckConfiguration (Prelude.Maybe Prelude.Natural)
+healthCheckConfiguration_timeout = Lens.lens (\HealthCheckConfiguration' {timeout} -> timeout) (\s@HealthCheckConfiguration' {} a -> s {timeout = a} :: HealthCheckConfiguration)
+
+-- | The number of consecutive checks that must fail before App Runner
+-- decides that the service is unhealthy.
+--
+-- Default: @5@
+healthCheckConfiguration_unhealthyThreshold :: Lens.Lens' HealthCheckConfiguration (Prelude.Maybe Prelude.Natural)
+healthCheckConfiguration_unhealthyThreshold = Lens.lens (\HealthCheckConfiguration' {unhealthyThreshold} -> unhealthyThreshold) (\s@HealthCheckConfiguration' {} a -> s {unhealthyThreshold = a} :: HealthCheckConfiguration)
+
 instance Data.FromJSON HealthCheckConfiguration where
   parseJSON =
     Data.withObject
       "HealthCheckConfiguration"
       ( \x ->
           HealthCheckConfiguration'
-            Prelude.<$> (x Data..:? "Timeout")
+            Prelude.<$> (x Data..:? "HealthyThreshold")
             Prelude.<*> (x Data..:? "Interval")
             Prelude.<*> (x Data..:? "Path")
-            Prelude.<*> (x Data..:? "HealthyThreshold")
-            Prelude.<*> (x Data..:? "UnhealthyThreshold")
             Prelude.<*> (x Data..:? "Protocol")
+            Prelude.<*> (x Data..:? "Timeout")
+            Prelude.<*> (x Data..:? "UnhealthyThreshold")
       )
 
 instance Prelude.Hashable HealthCheckConfiguration where
   hashWithSalt _salt HealthCheckConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` timeout
+    _salt `Prelude.hashWithSalt` healthyThreshold
       `Prelude.hashWithSalt` interval
       `Prelude.hashWithSalt` path
-      `Prelude.hashWithSalt` healthyThreshold
-      `Prelude.hashWithSalt` unhealthyThreshold
       `Prelude.hashWithSalt` protocol
+      `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` unhealthyThreshold
 
 instance Prelude.NFData HealthCheckConfiguration where
   rnf HealthCheckConfiguration' {..} =
-    Prelude.rnf timeout
+    Prelude.rnf healthyThreshold
       `Prelude.seq` Prelude.rnf interval
       `Prelude.seq` Prelude.rnf path
-      `Prelude.seq` Prelude.rnf healthyThreshold
-      `Prelude.seq` Prelude.rnf unhealthyThreshold
       `Prelude.seq` Prelude.rnf protocol
+      `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf unhealthyThreshold
 
 instance Data.ToJSON HealthCheckConfiguration where
   toJSON HealthCheckConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Timeout" Data..=) Prelude.<$> timeout,
+          [ ("HealthyThreshold" Data..=)
+              Prelude.<$> healthyThreshold,
             ("Interval" Data..=) Prelude.<$> interval,
             ("Path" Data..=) Prelude.<$> path,
-            ("HealthyThreshold" Data..=)
-              Prelude.<$> healthyThreshold,
+            ("Protocol" Data..=) Prelude.<$> protocol,
+            ("Timeout" Data..=) Prelude.<$> timeout,
             ("UnhealthyThreshold" Data..=)
-              Prelude.<$> unhealthyThreshold,
-            ("Protocol" Data..=) Prelude.<$> protocol
+              Prelude.<$> unhealthyThreshold
           ]
       )

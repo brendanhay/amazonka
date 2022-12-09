@@ -69,53 +69,53 @@ module Amazonka.MarketplaceMetering
     -- ** CustomerNotEntitledException
     _CustomerNotEntitledException,
 
-    -- ** InvalidTokenException
-    _InvalidTokenException,
-
-    -- ** InvalidEndpointRegionException
-    _InvalidEndpointRegionException,
-
     -- ** DisabledApiException
     _DisabledApiException,
-
-    -- ** InvalidCustomerIdentifierException
-    _InvalidCustomerIdentifierException,
-
-    -- ** InvalidProductCodeException
-    _InvalidProductCodeException,
-
-    -- ** ExpiredTokenException
-    _ExpiredTokenException,
-
-    -- ** PlatformNotSupportedException
-    _PlatformNotSupportedException,
-
-    -- ** InvalidUsageAllocationsException
-    _InvalidUsageAllocationsException,
-
-    -- ** TimestampOutOfBoundsException
-    _TimestampOutOfBoundsException,
-
-    -- ** InvalidRegionException
-    _InvalidRegionException,
-
-    -- ** InvalidUsageDimensionException
-    _InvalidUsageDimensionException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
-
-    -- ** InvalidPublicKeyVersionException
-    _InvalidPublicKeyVersionException,
-
-    -- ** InvalidTagException
-    _InvalidTagException,
 
     -- ** DuplicateRequestException
     _DuplicateRequestException,
 
+    -- ** ExpiredTokenException
+    _ExpiredTokenException,
+
     -- ** InternalServiceErrorException
     _InternalServiceErrorException,
+
+    -- ** InvalidCustomerIdentifierException
+    _InvalidCustomerIdentifierException,
+
+    -- ** InvalidEndpointRegionException
+    _InvalidEndpointRegionException,
+
+    -- ** InvalidProductCodeException
+    _InvalidProductCodeException,
+
+    -- ** InvalidPublicKeyVersionException
+    _InvalidPublicKeyVersionException,
+
+    -- ** InvalidRegionException
+    _InvalidRegionException,
+
+    -- ** InvalidTagException
+    _InvalidTagException,
+
+    -- ** InvalidTokenException
+    _InvalidTokenException,
+
+    -- ** InvalidUsageAllocationsException
+    _InvalidUsageAllocationsException,
+
+    -- ** InvalidUsageDimensionException
+    _InvalidUsageDimensionException,
+
+    -- ** PlatformNotSupportedException
+    _PlatformNotSupportedException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** TimestampOutOfBoundsException
+    _TimestampOutOfBoundsException,
 
     -- * Waiters
     -- $waiters

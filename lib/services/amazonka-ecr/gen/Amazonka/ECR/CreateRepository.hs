@@ -29,11 +29,11 @@ module Amazonka.ECR.CreateRepository
     newCreateRepository,
 
     -- * Request Lenses
-    createRepository_tags,
-    createRepository_imageTagMutability,
     createRepository_encryptionConfiguration,
-    createRepository_registryId,
     createRepository_imageScanningConfiguration,
+    createRepository_imageTagMutability,
+    createRepository_registryId,
+    createRepository_tags,
     createRepository_repositoryName,
 
     -- * Destructuring the Response
@@ -56,28 +56,28 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateRepository' smart constructor.
 data CreateRepository = CreateRepository'
-  { -- | The metadata that you apply to the repository to help you categorize and
-    -- organize them. Each tag consists of a key and an optional value, both of
-    -- which you define. Tag keys can have a maximum character length of 128
-    -- characters, and tag values can have a maximum length of 256 characters.
-    tags :: Prelude.Maybe [Tag],
+  { -- | The encryption configuration for the repository. This determines how the
+    -- contents of your repository are encrypted at rest.
+    encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
+    -- | The image scanning configuration for the repository. This determines
+    -- whether images are scanned for known vulnerabilities after being pushed
+    -- to the repository.
+    imageScanningConfiguration :: Prelude.Maybe ImageScanningConfiguration,
     -- | The tag mutability setting for the repository. If this parameter is
     -- omitted, the default setting of @MUTABLE@ will be used which will allow
     -- image tags to be overwritten. If @IMMUTABLE@ is specified, all image
     -- tags within the repository will be immutable which will prevent them
     -- from being overwritten.
     imageTagMutability :: Prelude.Maybe ImageTagMutability,
-    -- | The encryption configuration for the repository. This determines how the
-    -- contents of your repository are encrypted at rest.
-    encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
     -- | The Amazon Web Services account ID associated with the registry to
     -- create the repository. If you do not specify a registry, the default
     -- registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
-    -- | The image scanning configuration for the repository. This determines
-    -- whether images are scanned for known vulnerabilities after being pushed
-    -- to the repository.
-    imageScanningConfiguration :: Prelude.Maybe ImageScanningConfiguration,
+    -- | The metadata that you apply to the repository to help you categorize and
+    -- organize them. Each tag consists of a key and an optional value, both of
+    -- which you define. Tag keys can have a maximum character length of 128
+    -- characters, and tag values can have a maximum length of 256 characters.
+    tags :: Prelude.Maybe [Tag],
     -- | The name to use for the repository. The repository name may be specified
     -- on its own (such as @nginx-web-app@) or it can be prepended with a
     -- namespace to group the repository into a category (such as
@@ -94,10 +94,12 @@ data CreateRepository = CreateRepository'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createRepository_tags' - The metadata that you apply to the repository to help you categorize and
--- organize them. Each tag consists of a key and an optional value, both of
--- which you define. Tag keys can have a maximum character length of 128
--- characters, and tag values can have a maximum length of 256 characters.
+-- 'encryptionConfiguration', 'createRepository_encryptionConfiguration' - The encryption configuration for the repository. This determines how the
+-- contents of your repository are encrypted at rest.
+--
+-- 'imageScanningConfiguration', 'createRepository_imageScanningConfiguration' - The image scanning configuration for the repository. This determines
+-- whether images are scanned for known vulnerabilities after being pushed
+-- to the repository.
 --
 -- 'imageTagMutability', 'createRepository_imageTagMutability' - The tag mutability setting for the repository. If this parameter is
 -- omitted, the default setting of @MUTABLE@ will be used which will allow
@@ -105,16 +107,14 @@ data CreateRepository = CreateRepository'
 -- tags within the repository will be immutable which will prevent them
 -- from being overwritten.
 --
--- 'encryptionConfiguration', 'createRepository_encryptionConfiguration' - The encryption configuration for the repository. This determines how the
--- contents of your repository are encrypted at rest.
---
 -- 'registryId', 'createRepository_registryId' - The Amazon Web Services account ID associated with the registry to
 -- create the repository. If you do not specify a registry, the default
 -- registry is assumed.
 --
--- 'imageScanningConfiguration', 'createRepository_imageScanningConfiguration' - The image scanning configuration for the repository. This determines
--- whether images are scanned for known vulnerabilities after being pushed
--- to the repository.
+-- 'tags', 'createRepository_tags' - The metadata that you apply to the repository to help you categorize and
+-- organize them. Each tag consists of a key and an optional value, both of
+-- which you define. Tag keys can have a maximum character length of 128
+-- characters, and tag values can have a maximum length of 256 characters.
 --
 -- 'repositoryName', 'createRepository_repositoryName' - The name to use for the repository. The repository name may be specified
 -- on its own (such as @nginx-web-app@) or it can be prepended with a
@@ -126,20 +126,25 @@ newCreateRepository ::
   CreateRepository
 newCreateRepository pRepositoryName_ =
   CreateRepository'
-    { tags = Prelude.Nothing,
-      imageTagMutability = Prelude.Nothing,
-      encryptionConfiguration = Prelude.Nothing,
-      registryId = Prelude.Nothing,
+    { encryptionConfiguration =
+        Prelude.Nothing,
       imageScanningConfiguration = Prelude.Nothing,
+      imageTagMutability = Prelude.Nothing,
+      registryId = Prelude.Nothing,
+      tags = Prelude.Nothing,
       repositoryName = pRepositoryName_
     }
 
--- | The metadata that you apply to the repository to help you categorize and
--- organize them. Each tag consists of a key and an optional value, both of
--- which you define. Tag keys can have a maximum character length of 128
--- characters, and tag values can have a maximum length of 256 characters.
-createRepository_tags :: Lens.Lens' CreateRepository (Prelude.Maybe [Tag])
-createRepository_tags = Lens.lens (\CreateRepository' {tags} -> tags) (\s@CreateRepository' {} a -> s {tags = a} :: CreateRepository) Prelude.. Lens.mapping Lens.coerced
+-- | The encryption configuration for the repository. This determines how the
+-- contents of your repository are encrypted at rest.
+createRepository_encryptionConfiguration :: Lens.Lens' CreateRepository (Prelude.Maybe EncryptionConfiguration)
+createRepository_encryptionConfiguration = Lens.lens (\CreateRepository' {encryptionConfiguration} -> encryptionConfiguration) (\s@CreateRepository' {} a -> s {encryptionConfiguration = a} :: CreateRepository)
+
+-- | The image scanning configuration for the repository. This determines
+-- whether images are scanned for known vulnerabilities after being pushed
+-- to the repository.
+createRepository_imageScanningConfiguration :: Lens.Lens' CreateRepository (Prelude.Maybe ImageScanningConfiguration)
+createRepository_imageScanningConfiguration = Lens.lens (\CreateRepository' {imageScanningConfiguration} -> imageScanningConfiguration) (\s@CreateRepository' {} a -> s {imageScanningConfiguration = a} :: CreateRepository)
 
 -- | The tag mutability setting for the repository. If this parameter is
 -- omitted, the default setting of @MUTABLE@ will be used which will allow
@@ -149,22 +154,18 @@ createRepository_tags = Lens.lens (\CreateRepository' {tags} -> tags) (\s@Create
 createRepository_imageTagMutability :: Lens.Lens' CreateRepository (Prelude.Maybe ImageTagMutability)
 createRepository_imageTagMutability = Lens.lens (\CreateRepository' {imageTagMutability} -> imageTagMutability) (\s@CreateRepository' {} a -> s {imageTagMutability = a} :: CreateRepository)
 
--- | The encryption configuration for the repository. This determines how the
--- contents of your repository are encrypted at rest.
-createRepository_encryptionConfiguration :: Lens.Lens' CreateRepository (Prelude.Maybe EncryptionConfiguration)
-createRepository_encryptionConfiguration = Lens.lens (\CreateRepository' {encryptionConfiguration} -> encryptionConfiguration) (\s@CreateRepository' {} a -> s {encryptionConfiguration = a} :: CreateRepository)
-
 -- | The Amazon Web Services account ID associated with the registry to
 -- create the repository. If you do not specify a registry, the default
 -- registry is assumed.
 createRepository_registryId :: Lens.Lens' CreateRepository (Prelude.Maybe Prelude.Text)
 createRepository_registryId = Lens.lens (\CreateRepository' {registryId} -> registryId) (\s@CreateRepository' {} a -> s {registryId = a} :: CreateRepository)
 
--- | The image scanning configuration for the repository. This determines
--- whether images are scanned for known vulnerabilities after being pushed
--- to the repository.
-createRepository_imageScanningConfiguration :: Lens.Lens' CreateRepository (Prelude.Maybe ImageScanningConfiguration)
-createRepository_imageScanningConfiguration = Lens.lens (\CreateRepository' {imageScanningConfiguration} -> imageScanningConfiguration) (\s@CreateRepository' {} a -> s {imageScanningConfiguration = a} :: CreateRepository)
+-- | The metadata that you apply to the repository to help you categorize and
+-- organize them. Each tag consists of a key and an optional value, both of
+-- which you define. Tag keys can have a maximum character length of 128
+-- characters, and tag values can have a maximum length of 256 characters.
+createRepository_tags :: Lens.Lens' CreateRepository (Prelude.Maybe [Tag])
+createRepository_tags = Lens.lens (\CreateRepository' {tags} -> tags) (\s@CreateRepository' {} a -> s {tags = a} :: CreateRepository) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name to use for the repository. The repository name may be specified
 -- on its own (such as @nginx-web-app@) or it can be prepended with a
@@ -189,20 +190,21 @@ instance Core.AWSRequest CreateRepository where
 
 instance Prelude.Hashable CreateRepository where
   hashWithSalt _salt CreateRepository' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` imageTagMutability
+    _salt
       `Prelude.hashWithSalt` encryptionConfiguration
-      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` imageScanningConfiguration
+      `Prelude.hashWithSalt` imageTagMutability
+      `Prelude.hashWithSalt` registryId
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` repositoryName
 
 instance Prelude.NFData CreateRepository where
   rnf CreateRepository' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf imageTagMutability
-      `Prelude.seq` Prelude.rnf encryptionConfiguration
-      `Prelude.seq` Prelude.rnf registryId
+    Prelude.rnf encryptionConfiguration
       `Prelude.seq` Prelude.rnf imageScanningConfiguration
+      `Prelude.seq` Prelude.rnf imageTagMutability
+      `Prelude.seq` Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf repositoryName
 
 instance Data.ToHeaders CreateRepository where
@@ -224,14 +226,14 @@ instance Data.ToJSON CreateRepository where
   toJSON CreateRepository' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("imageTagMutability" Data..=)
-              Prelude.<$> imageTagMutability,
-            ("encryptionConfiguration" Data..=)
+          [ ("encryptionConfiguration" Data..=)
               Prelude.<$> encryptionConfiguration,
-            ("registryId" Data..=) Prelude.<$> registryId,
             ("imageScanningConfiguration" Data..=)
               Prelude.<$> imageScanningConfiguration,
+            ("imageTagMutability" Data..=)
+              Prelude.<$> imageTagMutability,
+            ("registryId" Data..=) Prelude.<$> registryId,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("repositoryName" Data..= repositoryName)
           ]

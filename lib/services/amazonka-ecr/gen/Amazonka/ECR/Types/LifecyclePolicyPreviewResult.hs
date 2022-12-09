@@ -29,17 +29,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLifecyclePolicyPreviewResult' smart constructor.
 data LifecyclePolicyPreviewResult = LifecyclePolicyPreviewResult'
-  { -- | The priority of the applied rule.
+  { -- | The type of action to be taken.
+    action :: Prelude.Maybe LifecyclePolicyRuleAction,
+    -- | The priority of the applied rule.
     appliedRulePriority :: Prelude.Maybe Prelude.Natural,
+    -- | The @sha256@ digest of the image manifest.
+    imageDigest :: Prelude.Maybe Prelude.Text,
     -- | The date and time, expressed in standard JavaScript date format, at
     -- which the current image was pushed to the repository.
     imagePushedAt :: Prelude.Maybe Data.POSIX,
     -- | The list of tags associated with this image.
-    imageTags :: Prelude.Maybe [Prelude.Text],
-    -- | The type of action to be taken.
-    action :: Prelude.Maybe LifecyclePolicyRuleAction,
-    -- | The @sha256@ digest of the image manifest.
-    imageDigest :: Prelude.Maybe Prelude.Text
+    imageTags :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,31 +51,39 @@ data LifecyclePolicyPreviewResult = LifecyclePolicyPreviewResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'action', 'lifecyclePolicyPreviewResult_action' - The type of action to be taken.
+--
 -- 'appliedRulePriority', 'lifecyclePolicyPreviewResult_appliedRulePriority' - The priority of the applied rule.
+--
+-- 'imageDigest', 'lifecyclePolicyPreviewResult_imageDigest' - The @sha256@ digest of the image manifest.
 --
 -- 'imagePushedAt', 'lifecyclePolicyPreviewResult_imagePushedAt' - The date and time, expressed in standard JavaScript date format, at
 -- which the current image was pushed to the repository.
 --
 -- 'imageTags', 'lifecyclePolicyPreviewResult_imageTags' - The list of tags associated with this image.
---
--- 'action', 'lifecyclePolicyPreviewResult_action' - The type of action to be taken.
---
--- 'imageDigest', 'lifecyclePolicyPreviewResult_imageDigest' - The @sha256@ digest of the image manifest.
 newLifecyclePolicyPreviewResult ::
   LifecyclePolicyPreviewResult
 newLifecyclePolicyPreviewResult =
   LifecyclePolicyPreviewResult'
-    { appliedRulePriority =
+    { action =
         Prelude.Nothing,
+      appliedRulePriority = Prelude.Nothing,
+      imageDigest = Prelude.Nothing,
       imagePushedAt = Prelude.Nothing,
-      imageTags = Prelude.Nothing,
-      action = Prelude.Nothing,
-      imageDigest = Prelude.Nothing
+      imageTags = Prelude.Nothing
     }
+
+-- | The type of action to be taken.
+lifecyclePolicyPreviewResult_action :: Lens.Lens' LifecyclePolicyPreviewResult (Prelude.Maybe LifecyclePolicyRuleAction)
+lifecyclePolicyPreviewResult_action = Lens.lens (\LifecyclePolicyPreviewResult' {action} -> action) (\s@LifecyclePolicyPreviewResult' {} a -> s {action = a} :: LifecyclePolicyPreviewResult)
 
 -- | The priority of the applied rule.
 lifecyclePolicyPreviewResult_appliedRulePriority :: Lens.Lens' LifecyclePolicyPreviewResult (Prelude.Maybe Prelude.Natural)
 lifecyclePolicyPreviewResult_appliedRulePriority = Lens.lens (\LifecyclePolicyPreviewResult' {appliedRulePriority} -> appliedRulePriority) (\s@LifecyclePolicyPreviewResult' {} a -> s {appliedRulePriority = a} :: LifecyclePolicyPreviewResult)
+
+-- | The @sha256@ digest of the image manifest.
+lifecyclePolicyPreviewResult_imageDigest :: Lens.Lens' LifecyclePolicyPreviewResult (Prelude.Maybe Prelude.Text)
+lifecyclePolicyPreviewResult_imageDigest = Lens.lens (\LifecyclePolicyPreviewResult' {imageDigest} -> imageDigest) (\s@LifecyclePolicyPreviewResult' {} a -> s {imageDigest = a} :: LifecyclePolicyPreviewResult)
 
 -- | The date and time, expressed in standard JavaScript date format, at
 -- which the current image was pushed to the repository.
@@ -86,25 +94,17 @@ lifecyclePolicyPreviewResult_imagePushedAt = Lens.lens (\LifecyclePolicyPreviewR
 lifecyclePolicyPreviewResult_imageTags :: Lens.Lens' LifecyclePolicyPreviewResult (Prelude.Maybe [Prelude.Text])
 lifecyclePolicyPreviewResult_imageTags = Lens.lens (\LifecyclePolicyPreviewResult' {imageTags} -> imageTags) (\s@LifecyclePolicyPreviewResult' {} a -> s {imageTags = a} :: LifecyclePolicyPreviewResult) Prelude.. Lens.mapping Lens.coerced
 
--- | The type of action to be taken.
-lifecyclePolicyPreviewResult_action :: Lens.Lens' LifecyclePolicyPreviewResult (Prelude.Maybe LifecyclePolicyRuleAction)
-lifecyclePolicyPreviewResult_action = Lens.lens (\LifecyclePolicyPreviewResult' {action} -> action) (\s@LifecyclePolicyPreviewResult' {} a -> s {action = a} :: LifecyclePolicyPreviewResult)
-
--- | The @sha256@ digest of the image manifest.
-lifecyclePolicyPreviewResult_imageDigest :: Lens.Lens' LifecyclePolicyPreviewResult (Prelude.Maybe Prelude.Text)
-lifecyclePolicyPreviewResult_imageDigest = Lens.lens (\LifecyclePolicyPreviewResult' {imageDigest} -> imageDigest) (\s@LifecyclePolicyPreviewResult' {} a -> s {imageDigest = a} :: LifecyclePolicyPreviewResult)
-
 instance Data.FromJSON LifecyclePolicyPreviewResult where
   parseJSON =
     Data.withObject
       "LifecyclePolicyPreviewResult"
       ( \x ->
           LifecyclePolicyPreviewResult'
-            Prelude.<$> (x Data..:? "appliedRulePriority")
+            Prelude.<$> (x Data..:? "action")
+            Prelude.<*> (x Data..:? "appliedRulePriority")
+            Prelude.<*> (x Data..:? "imageDigest")
             Prelude.<*> (x Data..:? "imagePushedAt")
             Prelude.<*> (x Data..:? "imageTags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "action")
-            Prelude.<*> (x Data..:? "imageDigest")
       )
 
 instance
@@ -112,16 +112,16 @@ instance
     LifecyclePolicyPreviewResult
   where
   hashWithSalt _salt LifecyclePolicyPreviewResult' {..} =
-    _salt `Prelude.hashWithSalt` appliedRulePriority
+    _salt `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` appliedRulePriority
+      `Prelude.hashWithSalt` imageDigest
       `Prelude.hashWithSalt` imagePushedAt
       `Prelude.hashWithSalt` imageTags
-      `Prelude.hashWithSalt` action
-      `Prelude.hashWithSalt` imageDigest
 
 instance Prelude.NFData LifecyclePolicyPreviewResult where
   rnf LifecyclePolicyPreviewResult' {..} =
-    Prelude.rnf appliedRulePriority
+    Prelude.rnf action
+      `Prelude.seq` Prelude.rnf appliedRulePriority
+      `Prelude.seq` Prelude.rnf imageDigest
       `Prelude.seq` Prelude.rnf imagePushedAt
       `Prelude.seq` Prelude.rnf imageTags
-      `Prelude.seq` Prelude.rnf action
-      `Prelude.seq` Prelude.rnf imageDigest

@@ -32,10 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 data RepositoryScanningConfigurationFailure = RepositoryScanningConfigurationFailure'
   { -- | The failure code.
     failureCode :: Prelude.Maybe ScanningConfigurationFailureCode,
-    -- | The name of the repository.
-    repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The reason for the failure.
-    failureReason :: Prelude.Maybe Prelude.Text
+    failureReason :: Prelude.Maybe Prelude.Text,
+    -- | The name of the repository.
+    repositoryName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,30 +49,30 @@ data RepositoryScanningConfigurationFailure = RepositoryScanningConfigurationFai
 --
 -- 'failureCode', 'repositoryScanningConfigurationFailure_failureCode' - The failure code.
 --
--- 'repositoryName', 'repositoryScanningConfigurationFailure_repositoryName' - The name of the repository.
---
 -- 'failureReason', 'repositoryScanningConfigurationFailure_failureReason' - The reason for the failure.
+--
+-- 'repositoryName', 'repositoryScanningConfigurationFailure_repositoryName' - The name of the repository.
 newRepositoryScanningConfigurationFailure ::
   RepositoryScanningConfigurationFailure
 newRepositoryScanningConfigurationFailure =
   RepositoryScanningConfigurationFailure'
     { failureCode =
         Prelude.Nothing,
-      repositoryName = Prelude.Nothing,
-      failureReason = Prelude.Nothing
+      failureReason = Prelude.Nothing,
+      repositoryName = Prelude.Nothing
     }
 
 -- | The failure code.
 repositoryScanningConfigurationFailure_failureCode :: Lens.Lens' RepositoryScanningConfigurationFailure (Prelude.Maybe ScanningConfigurationFailureCode)
 repositoryScanningConfigurationFailure_failureCode = Lens.lens (\RepositoryScanningConfigurationFailure' {failureCode} -> failureCode) (\s@RepositoryScanningConfigurationFailure' {} a -> s {failureCode = a} :: RepositoryScanningConfigurationFailure)
 
--- | The name of the repository.
-repositoryScanningConfigurationFailure_repositoryName :: Lens.Lens' RepositoryScanningConfigurationFailure (Prelude.Maybe Prelude.Text)
-repositoryScanningConfigurationFailure_repositoryName = Lens.lens (\RepositoryScanningConfigurationFailure' {repositoryName} -> repositoryName) (\s@RepositoryScanningConfigurationFailure' {} a -> s {repositoryName = a} :: RepositoryScanningConfigurationFailure)
-
 -- | The reason for the failure.
 repositoryScanningConfigurationFailure_failureReason :: Lens.Lens' RepositoryScanningConfigurationFailure (Prelude.Maybe Prelude.Text)
 repositoryScanningConfigurationFailure_failureReason = Lens.lens (\RepositoryScanningConfigurationFailure' {failureReason} -> failureReason) (\s@RepositoryScanningConfigurationFailure' {} a -> s {failureReason = a} :: RepositoryScanningConfigurationFailure)
+
+-- | The name of the repository.
+repositoryScanningConfigurationFailure_repositoryName :: Lens.Lens' RepositoryScanningConfigurationFailure (Prelude.Maybe Prelude.Text)
+repositoryScanningConfigurationFailure_repositoryName = Lens.lens (\RepositoryScanningConfigurationFailure' {repositoryName} -> repositoryName) (\s@RepositoryScanningConfigurationFailure' {} a -> s {repositoryName = a} :: RepositoryScanningConfigurationFailure)
 
 instance
   Data.FromJSON
@@ -84,8 +84,8 @@ instance
       ( \x ->
           RepositoryScanningConfigurationFailure'
             Prelude.<$> (x Data..:? "failureCode")
-            Prelude.<*> (x Data..:? "repositoryName")
             Prelude.<*> (x Data..:? "failureReason")
+            Prelude.<*> (x Data..:? "repositoryName")
       )
 
 instance
@@ -96,8 +96,8 @@ instance
     _salt
     RepositoryScanningConfigurationFailure' {..} =
       _salt `Prelude.hashWithSalt` failureCode
-        `Prelude.hashWithSalt` repositoryName
         `Prelude.hashWithSalt` failureReason
+        `Prelude.hashWithSalt` repositoryName
 
 instance
   Prelude.NFData
@@ -105,5 +105,5 @@ instance
   where
   rnf RepositoryScanningConfigurationFailure' {..} =
     Prelude.rnf failureCode
-      `Prelude.seq` Prelude.rnf repositoryName
       `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf repositoryName

@@ -31,8 +31,8 @@ module Amazonka.ECR.GetRegistryScanningConfiguration
     newGetRegistryScanningConfigurationResponse,
 
     -- * Response Lenses
-    getRegistryScanningConfigurationResponse_scanningConfiguration,
     getRegistryScanningConfigurationResponse_registryId,
+    getRegistryScanningConfigurationResponse_scanningConfiguration,
     getRegistryScanningConfigurationResponse_httpStatus,
   )
 where
@@ -73,8 +73,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetRegistryScanningConfigurationResponse'
-            Prelude.<$> (x Data..?> "scanningConfiguration")
-            Prelude.<*> (x Data..?> "registryId")
+            Prelude.<$> (x Data..?> "registryId")
+            Prelude.<*> (x Data..?> "scanningConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -123,10 +123,10 @@ instance
 
 -- | /See:/ 'newGetRegistryScanningConfigurationResponse' smart constructor.
 data GetRegistryScanningConfigurationResponse = GetRegistryScanningConfigurationResponse'
-  { -- | The scanning configuration for the registry.
-    scanningConfiguration :: Prelude.Maybe RegistryScanningConfiguration,
-    -- | The ID of the registry.
+  { -- | The ID of the registry.
     registryId :: Prelude.Maybe Prelude.Text,
+    -- | The scanning configuration for the registry.
+    scanningConfiguration :: Prelude.Maybe RegistryScanningConfiguration,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -140,9 +140,9 @@ data GetRegistryScanningConfigurationResponse = GetRegistryScanningConfiguration
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'scanningConfiguration', 'getRegistryScanningConfigurationResponse_scanningConfiguration' - The scanning configuration for the registry.
---
 -- 'registryId', 'getRegistryScanningConfigurationResponse_registryId' - The ID of the registry.
+--
+-- 'scanningConfiguration', 'getRegistryScanningConfigurationResponse_scanningConfiguration' - The scanning configuration for the registry.
 --
 -- 'httpStatus', 'getRegistryScanningConfigurationResponse_httpStatus' - The response's http status code.
 newGetRegistryScanningConfigurationResponse ::
@@ -152,19 +152,20 @@ newGetRegistryScanningConfigurationResponse ::
 newGetRegistryScanningConfigurationResponse
   pHttpStatus_ =
     GetRegistryScanningConfigurationResponse'
-      { scanningConfiguration =
+      { registryId =
           Prelude.Nothing,
-        registryId = Prelude.Nothing,
+        scanningConfiguration =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The scanning configuration for the registry.
-getRegistryScanningConfigurationResponse_scanningConfiguration :: Lens.Lens' GetRegistryScanningConfigurationResponse (Prelude.Maybe RegistryScanningConfiguration)
-getRegistryScanningConfigurationResponse_scanningConfiguration = Lens.lens (\GetRegistryScanningConfigurationResponse' {scanningConfiguration} -> scanningConfiguration) (\s@GetRegistryScanningConfigurationResponse' {} a -> s {scanningConfiguration = a} :: GetRegistryScanningConfigurationResponse)
 
 -- | The ID of the registry.
 getRegistryScanningConfigurationResponse_registryId :: Lens.Lens' GetRegistryScanningConfigurationResponse (Prelude.Maybe Prelude.Text)
 getRegistryScanningConfigurationResponse_registryId = Lens.lens (\GetRegistryScanningConfigurationResponse' {registryId} -> registryId) (\s@GetRegistryScanningConfigurationResponse' {} a -> s {registryId = a} :: GetRegistryScanningConfigurationResponse)
+
+-- | The scanning configuration for the registry.
+getRegistryScanningConfigurationResponse_scanningConfiguration :: Lens.Lens' GetRegistryScanningConfigurationResponse (Prelude.Maybe RegistryScanningConfiguration)
+getRegistryScanningConfigurationResponse_scanningConfiguration = Lens.lens (\GetRegistryScanningConfigurationResponse' {scanningConfiguration} -> scanningConfiguration) (\s@GetRegistryScanningConfigurationResponse' {} a -> s {scanningConfiguration = a} :: GetRegistryScanningConfigurationResponse)
 
 -- | The response's http status code.
 getRegistryScanningConfigurationResponse_httpStatus :: Lens.Lens' GetRegistryScanningConfigurationResponse Prelude.Int
@@ -175,6 +176,6 @@ instance
     GetRegistryScanningConfigurationResponse
   where
   rnf GetRegistryScanningConfigurationResponse' {..} =
-    Prelude.rnf scanningConfiguration
-      `Prelude.seq` Prelude.rnf registryId
+    Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf scanningConfiguration
       `Prelude.seq` Prelude.rnf httpStatus

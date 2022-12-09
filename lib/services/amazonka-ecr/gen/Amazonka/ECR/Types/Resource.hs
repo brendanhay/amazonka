@@ -29,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResource' smart constructor.
 data Resource = Resource'
-  { -- | The tags attached to the resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The type of resource.
-    type' :: Prelude.Maybe Prelude.Text,
-    -- | An object that contains details about the resource involved in a
+  { -- | An object that contains details about the resource involved in a
     -- finding.
     details :: Prelude.Maybe ResourceDetails,
     -- | The ID of the resource.
-    id :: Prelude.Maybe Prelude.Text
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The tags attached to the resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The type of resource.
+    type' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,31 +49,23 @@ data Resource = Resource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'resource_tags' - The tags attached to the resource.
---
--- 'type'', 'resource_type' - The type of resource.
---
 -- 'details', 'resource_details' - An object that contains details about the resource involved in a
 -- finding.
 --
 -- 'id', 'resource_id' - The ID of the resource.
+--
+-- 'tags', 'resource_tags' - The tags attached to the resource.
+--
+-- 'type'', 'resource_type' - The type of resource.
 newResource ::
   Resource
 newResource =
   Resource'
-    { tags = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      details = Prelude.Nothing,
-      id = Prelude.Nothing
+    { details = Prelude.Nothing,
+      id = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
-
--- | The tags attached to the resource.
-resource_tags :: Lens.Lens' Resource (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-resource_tags = Lens.lens (\Resource' {tags} -> tags) (\s@Resource' {} a -> s {tags = a} :: Resource) Prelude.. Lens.mapping Lens.coerced
-
--- | The type of resource.
-resource_type :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
-resource_type = Lens.lens (\Resource' {type'} -> type') (\s@Resource' {} a -> s {type' = a} :: Resource)
 
 -- | An object that contains details about the resource involved in a
 -- finding.
@@ -84,28 +76,36 @@ resource_details = Lens.lens (\Resource' {details} -> details) (\s@Resource' {} 
 resource_id :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_id = Lens.lens (\Resource' {id} -> id) (\s@Resource' {} a -> s {id = a} :: Resource)
 
+-- | The tags attached to the resource.
+resource_tags :: Lens.Lens' Resource (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+resource_tags = Lens.lens (\Resource' {tags} -> tags) (\s@Resource' {} a -> s {tags = a} :: Resource) Prelude.. Lens.mapping Lens.coerced
+
+-- | The type of resource.
+resource_type :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
+resource_type = Lens.lens (\Resource' {type'} -> type') (\s@Resource' {} a -> s {type' = a} :: Resource)
+
 instance Data.FromJSON Resource where
   parseJSON =
     Data.withObject
       "Resource"
       ( \x ->
           Resource'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "type")
-            Prelude.<*> (x Data..:? "details")
+            Prelude.<$> (x Data..:? "details")
             Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "type")
       )
 
 instance Prelude.Hashable Resource where
   hashWithSalt _salt Resource' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` details
+    _salt `Prelude.hashWithSalt` details
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Resource where
   rnf Resource' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf details
+    Prelude.rnf details
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf type'

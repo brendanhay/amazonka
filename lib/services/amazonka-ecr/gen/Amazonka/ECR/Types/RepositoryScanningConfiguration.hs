@@ -30,16 +30,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRepositoryScanningConfiguration' smart constructor.
 data RepositoryScanningConfiguration = RepositoryScanningConfiguration'
-  { -- | The ARN of the repository.
+  { -- | The scan filters applied to the repository.
+    appliedScanFilters :: Prelude.Maybe [ScanningRepositoryFilter],
+    -- | The ARN of the repository.
     repositoryArn :: Prelude.Maybe Prelude.Text,
-    -- | Whether or not scan on push is configured for the repository.
-    scanOnPush :: Prelude.Maybe Prelude.Bool,
-    -- | The scan frequency for the repository.
-    scanFrequency :: Prelude.Maybe ScanFrequency,
     -- | The name of the repository.
     repositoryName :: Prelude.Maybe Prelude.Text,
-    -- | The scan filters applied to the repository.
-    appliedScanFilters :: Prelude.Maybe [ScanningRepositoryFilter]
+    -- | The scan frequency for the repository.
+    scanFrequency :: Prelude.Maybe ScanFrequency,
+    -- | Whether or not scan on push is configured for the repository.
+    scanOnPush :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,46 +51,46 @@ data RepositoryScanningConfiguration = RepositoryScanningConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'appliedScanFilters', 'repositoryScanningConfiguration_appliedScanFilters' - The scan filters applied to the repository.
+--
 -- 'repositoryArn', 'repositoryScanningConfiguration_repositoryArn' - The ARN of the repository.
---
--- 'scanOnPush', 'repositoryScanningConfiguration_scanOnPush' - Whether or not scan on push is configured for the repository.
---
--- 'scanFrequency', 'repositoryScanningConfiguration_scanFrequency' - The scan frequency for the repository.
 --
 -- 'repositoryName', 'repositoryScanningConfiguration_repositoryName' - The name of the repository.
 --
--- 'appliedScanFilters', 'repositoryScanningConfiguration_appliedScanFilters' - The scan filters applied to the repository.
+-- 'scanFrequency', 'repositoryScanningConfiguration_scanFrequency' - The scan frequency for the repository.
+--
+-- 'scanOnPush', 'repositoryScanningConfiguration_scanOnPush' - Whether or not scan on push is configured for the repository.
 newRepositoryScanningConfiguration ::
   RepositoryScanningConfiguration
 newRepositoryScanningConfiguration =
   RepositoryScanningConfiguration'
-    { repositoryArn =
+    { appliedScanFilters =
         Prelude.Nothing,
-      scanOnPush = Prelude.Nothing,
-      scanFrequency = Prelude.Nothing,
+      repositoryArn = Prelude.Nothing,
       repositoryName = Prelude.Nothing,
-      appliedScanFilters = Prelude.Nothing
+      scanFrequency = Prelude.Nothing,
+      scanOnPush = Prelude.Nothing
     }
+
+-- | The scan filters applied to the repository.
+repositoryScanningConfiguration_appliedScanFilters :: Lens.Lens' RepositoryScanningConfiguration (Prelude.Maybe [ScanningRepositoryFilter])
+repositoryScanningConfiguration_appliedScanFilters = Lens.lens (\RepositoryScanningConfiguration' {appliedScanFilters} -> appliedScanFilters) (\s@RepositoryScanningConfiguration' {} a -> s {appliedScanFilters = a} :: RepositoryScanningConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the repository.
 repositoryScanningConfiguration_repositoryArn :: Lens.Lens' RepositoryScanningConfiguration (Prelude.Maybe Prelude.Text)
 repositoryScanningConfiguration_repositoryArn = Lens.lens (\RepositoryScanningConfiguration' {repositoryArn} -> repositoryArn) (\s@RepositoryScanningConfiguration' {} a -> s {repositoryArn = a} :: RepositoryScanningConfiguration)
 
--- | Whether or not scan on push is configured for the repository.
-repositoryScanningConfiguration_scanOnPush :: Lens.Lens' RepositoryScanningConfiguration (Prelude.Maybe Prelude.Bool)
-repositoryScanningConfiguration_scanOnPush = Lens.lens (\RepositoryScanningConfiguration' {scanOnPush} -> scanOnPush) (\s@RepositoryScanningConfiguration' {} a -> s {scanOnPush = a} :: RepositoryScanningConfiguration)
+-- | The name of the repository.
+repositoryScanningConfiguration_repositoryName :: Lens.Lens' RepositoryScanningConfiguration (Prelude.Maybe Prelude.Text)
+repositoryScanningConfiguration_repositoryName = Lens.lens (\RepositoryScanningConfiguration' {repositoryName} -> repositoryName) (\s@RepositoryScanningConfiguration' {} a -> s {repositoryName = a} :: RepositoryScanningConfiguration)
 
 -- | The scan frequency for the repository.
 repositoryScanningConfiguration_scanFrequency :: Lens.Lens' RepositoryScanningConfiguration (Prelude.Maybe ScanFrequency)
 repositoryScanningConfiguration_scanFrequency = Lens.lens (\RepositoryScanningConfiguration' {scanFrequency} -> scanFrequency) (\s@RepositoryScanningConfiguration' {} a -> s {scanFrequency = a} :: RepositoryScanningConfiguration)
 
--- | The name of the repository.
-repositoryScanningConfiguration_repositoryName :: Lens.Lens' RepositoryScanningConfiguration (Prelude.Maybe Prelude.Text)
-repositoryScanningConfiguration_repositoryName = Lens.lens (\RepositoryScanningConfiguration' {repositoryName} -> repositoryName) (\s@RepositoryScanningConfiguration' {} a -> s {repositoryName = a} :: RepositoryScanningConfiguration)
-
--- | The scan filters applied to the repository.
-repositoryScanningConfiguration_appliedScanFilters :: Lens.Lens' RepositoryScanningConfiguration (Prelude.Maybe [ScanningRepositoryFilter])
-repositoryScanningConfiguration_appliedScanFilters = Lens.lens (\RepositoryScanningConfiguration' {appliedScanFilters} -> appliedScanFilters) (\s@RepositoryScanningConfiguration' {} a -> s {appliedScanFilters = a} :: RepositoryScanningConfiguration) Prelude.. Lens.mapping Lens.coerced
+-- | Whether or not scan on push is configured for the repository.
+repositoryScanningConfiguration_scanOnPush :: Lens.Lens' RepositoryScanningConfiguration (Prelude.Maybe Prelude.Bool)
+repositoryScanningConfiguration_scanOnPush = Lens.lens (\RepositoryScanningConfiguration' {scanOnPush} -> scanOnPush) (\s@RepositoryScanningConfiguration' {} a -> s {scanOnPush = a} :: RepositoryScanningConfiguration)
 
 instance
   Data.FromJSON
@@ -101,13 +101,13 @@ instance
       "RepositoryScanningConfiguration"
       ( \x ->
           RepositoryScanningConfiguration'
-            Prelude.<$> (x Data..:? "repositoryArn")
-            Prelude.<*> (x Data..:? "scanOnPush")
-            Prelude.<*> (x Data..:? "scanFrequency")
-            Prelude.<*> (x Data..:? "repositoryName")
-            Prelude.<*> ( x Data..:? "appliedScanFilters"
+            Prelude.<$> ( x Data..:? "appliedScanFilters"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "repositoryArn")
+            Prelude.<*> (x Data..:? "repositoryName")
+            Prelude.<*> (x Data..:? "scanFrequency")
+            Prelude.<*> (x Data..:? "scanOnPush")
       )
 
 instance
@@ -117,19 +117,19 @@ instance
   hashWithSalt
     _salt
     RepositoryScanningConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` repositoryArn
-        `Prelude.hashWithSalt` scanOnPush
-        `Prelude.hashWithSalt` scanFrequency
+      _salt `Prelude.hashWithSalt` appliedScanFilters
+        `Prelude.hashWithSalt` repositoryArn
         `Prelude.hashWithSalt` repositoryName
-        `Prelude.hashWithSalt` appliedScanFilters
+        `Prelude.hashWithSalt` scanFrequency
+        `Prelude.hashWithSalt` scanOnPush
 
 instance
   Prelude.NFData
     RepositoryScanningConfiguration
   where
   rnf RepositoryScanningConfiguration' {..} =
-    Prelude.rnf repositoryArn
-      `Prelude.seq` Prelude.rnf scanOnPush
-      `Prelude.seq` Prelude.rnf scanFrequency
+    Prelude.rnf appliedScanFilters
+      `Prelude.seq` Prelude.rnf repositoryArn
       `Prelude.seq` Prelude.rnf repositoryName
-      `Prelude.seq` Prelude.rnf appliedScanFilters
+      `Prelude.seq` Prelude.rnf scanFrequency
+      `Prelude.seq` Prelude.rnf scanOnPush

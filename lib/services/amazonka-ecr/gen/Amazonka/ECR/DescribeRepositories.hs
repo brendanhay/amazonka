@@ -29,8 +29,8 @@ module Amazonka.ECR.DescribeRepositories
     newDescribeRepositories,
 
     -- * Request Lenses
-    describeRepositories_nextToken,
     describeRepositories_maxResults,
+    describeRepositories_nextToken,
     describeRepositories_registryId,
     describeRepositories_repositoryNames,
 
@@ -55,7 +55,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeRepositories' smart constructor.
 data DescribeRepositories = DescribeRepositories'
-  { -- | The @nextToken@ value returned from a previous paginated
+  { -- | The maximum number of repository results returned by
+    -- @DescribeRepositories@ in paginated output. When this parameter is used,
+    -- @DescribeRepositories@ only returns @maxResults@ results in a single
+    -- page along with a @nextToken@ response element. The remaining results of
+    -- the initial request can be seen by sending another
+    -- @DescribeRepositories@ request with the returned @nextToken@ value. This
+    -- value can be between 1 and 1000. If this parameter is not used, then
+    -- @DescribeRepositories@ returns up to 100 results and a @nextToken@
+    -- value, if applicable. This option cannot be used when you specify
+    -- repositories with @repositoryNames@.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The @nextToken@ value returned from a previous paginated
     -- @DescribeRepositories@ request where @maxResults@ was used and the
     -- results exceeded the value of that parameter. Pagination continues from
     -- the end of the previous results that returned the @nextToken@ value.
@@ -67,17 +78,6 @@ data DescribeRepositories = DescribeRepositories'
     -- to retrieve the next items in a list and not for other programmatic
     -- purposes.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of repository results returned by
-    -- @DescribeRepositories@ in paginated output. When this parameter is used,
-    -- @DescribeRepositories@ only returns @maxResults@ results in a single
-    -- page along with a @nextToken@ response element. The remaining results of
-    -- the initial request can be seen by sending another
-    -- @DescribeRepositories@ request with the returned @nextToken@ value. This
-    -- value can be between 1 and 1000. If this parameter is not used, then
-    -- @DescribeRepositories@ returns up to 100 results and a @nextToken@
-    -- value, if applicable. This option cannot be used when you specify
-    -- repositories with @repositoryNames@.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Web Services account ID associated with the registry that
     -- contains the repositories to be described. If you do not specify a
     -- registry, the default registry is assumed.
@@ -96,6 +96,17 @@ data DescribeRepositories = DescribeRepositories'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'describeRepositories_maxResults' - The maximum number of repository results returned by
+-- @DescribeRepositories@ in paginated output. When this parameter is used,
+-- @DescribeRepositories@ only returns @maxResults@ results in a single
+-- page along with a @nextToken@ response element. The remaining results of
+-- the initial request can be seen by sending another
+-- @DescribeRepositories@ request with the returned @nextToken@ value. This
+-- value can be between 1 and 1000. If this parameter is not used, then
+-- @DescribeRepositories@ returns up to 100 results and a @nextToken@
+-- value, if applicable. This option cannot be used when you specify
+-- repositories with @repositoryNames@.
+--
 -- 'nextToken', 'describeRepositories_nextToken' - The @nextToken@ value returned from a previous paginated
 -- @DescribeRepositories@ request where @maxResults@ was used and the
 -- results exceeded the value of that parameter. Pagination continues from
@@ -108,17 +119,6 @@ data DescribeRepositories = DescribeRepositories'
 -- to retrieve the next items in a list and not for other programmatic
 -- purposes.
 --
--- 'maxResults', 'describeRepositories_maxResults' - The maximum number of repository results returned by
--- @DescribeRepositories@ in paginated output. When this parameter is used,
--- @DescribeRepositories@ only returns @maxResults@ results in a single
--- page along with a @nextToken@ response element. The remaining results of
--- the initial request can be seen by sending another
--- @DescribeRepositories@ request with the returned @nextToken@ value. This
--- value can be between 1 and 1000. If this parameter is not used, then
--- @DescribeRepositories@ returns up to 100 results and a @nextToken@
--- value, if applicable. This option cannot be used when you specify
--- repositories with @repositoryNames@.
---
 -- 'registryId', 'describeRepositories_registryId' - The Amazon Web Services account ID associated with the registry that
 -- contains the repositories to be described. If you do not specify a
 -- registry, the default registry is assumed.
@@ -129,11 +129,24 @@ newDescribeRepositories ::
   DescribeRepositories
 newDescribeRepositories =
   DescribeRepositories'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       registryId = Prelude.Nothing,
       repositoryNames = Prelude.Nothing
     }
+
+-- | The maximum number of repository results returned by
+-- @DescribeRepositories@ in paginated output. When this parameter is used,
+-- @DescribeRepositories@ only returns @maxResults@ results in a single
+-- page along with a @nextToken@ response element. The remaining results of
+-- the initial request can be seen by sending another
+-- @DescribeRepositories@ request with the returned @nextToken@ value. This
+-- value can be between 1 and 1000. If this parameter is not used, then
+-- @DescribeRepositories@ returns up to 100 results and a @nextToken@
+-- value, if applicable. This option cannot be used when you specify
+-- repositories with @repositoryNames@.
+describeRepositories_maxResults :: Lens.Lens' DescribeRepositories (Prelude.Maybe Prelude.Natural)
+describeRepositories_maxResults = Lens.lens (\DescribeRepositories' {maxResults} -> maxResults) (\s@DescribeRepositories' {} a -> s {maxResults = a} :: DescribeRepositories)
 
 -- | The @nextToken@ value returned from a previous paginated
 -- @DescribeRepositories@ request where @maxResults@ was used and the
@@ -148,19 +161,6 @@ newDescribeRepositories =
 -- purposes.
 describeRepositories_nextToken :: Lens.Lens' DescribeRepositories (Prelude.Maybe Prelude.Text)
 describeRepositories_nextToken = Lens.lens (\DescribeRepositories' {nextToken} -> nextToken) (\s@DescribeRepositories' {} a -> s {nextToken = a} :: DescribeRepositories)
-
--- | The maximum number of repository results returned by
--- @DescribeRepositories@ in paginated output. When this parameter is used,
--- @DescribeRepositories@ only returns @maxResults@ results in a single
--- page along with a @nextToken@ response element. The remaining results of
--- the initial request can be seen by sending another
--- @DescribeRepositories@ request with the returned @nextToken@ value. This
--- value can be between 1 and 1000. If this parameter is not used, then
--- @DescribeRepositories@ returns up to 100 results and a @nextToken@
--- value, if applicable. This option cannot be used when you specify
--- repositories with @repositoryNames@.
-describeRepositories_maxResults :: Lens.Lens' DescribeRepositories (Prelude.Maybe Prelude.Natural)
-describeRepositories_maxResults = Lens.lens (\DescribeRepositories' {maxResults} -> maxResults) (\s@DescribeRepositories' {} a -> s {maxResults = a} :: DescribeRepositories)
 
 -- | The Amazon Web Services account ID associated with the registry that
 -- contains the repositories to be described. If you do not specify a
@@ -212,15 +212,15 @@ instance Core.AWSRequest DescribeRepositories where
 
 instance Prelude.Hashable DescribeRepositories where
   hashWithSalt _salt DescribeRepositories' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryNames
 
 instance Prelude.NFData DescribeRepositories where
   rnf DescribeRepositories' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf registryId
       `Prelude.seq` Prelude.rnf repositoryNames
 
@@ -243,8 +243,8 @@ instance Data.ToJSON DescribeRepositories where
   toJSON DescribeRepositories' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             ("registryId" Data..=) Prelude.<$> registryId,
             ("repositoryNames" Data..=)
               Prelude.<$> repositoryNames

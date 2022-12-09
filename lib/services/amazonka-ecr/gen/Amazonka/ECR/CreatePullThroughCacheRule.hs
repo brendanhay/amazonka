@@ -38,10 +38,10 @@ module Amazonka.ECR.CreatePullThroughCacheRule
     newCreatePullThroughCacheRuleResponse,
 
     -- * Response Lenses
-    createPullThroughCacheRuleResponse_upstreamRegistryUrl,
-    createPullThroughCacheRuleResponse_registryId,
-    createPullThroughCacheRuleResponse_ecrRepositoryPrefix,
     createPullThroughCacheRuleResponse_createdAt,
+    createPullThroughCacheRuleResponse_ecrRepositoryPrefix,
+    createPullThroughCacheRuleResponse_registryId,
+    createPullThroughCacheRuleResponse_upstreamRegistryUrl,
     createPullThroughCacheRuleResponse_httpStatus,
   )
 where
@@ -128,10 +128,10 @@ instance Core.AWSRequest CreatePullThroughCacheRule where
     Response.receiveJSON
       ( \s h x ->
           CreatePullThroughCacheRuleResponse'
-            Prelude.<$> (x Data..?> "upstreamRegistryUrl")
-            Prelude.<*> (x Data..?> "registryId")
+            Prelude.<$> (x Data..?> "createdAt")
             Prelude.<*> (x Data..?> "ecrRepositoryPrefix")
-            Prelude.<*> (x Data..?> "createdAt")
+            Prelude.<*> (x Data..?> "registryId")
+            Prelude.<*> (x Data..?> "upstreamRegistryUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -182,16 +182,16 @@ instance Data.ToQuery CreatePullThroughCacheRule where
 
 -- | /See:/ 'newCreatePullThroughCacheRuleResponse' smart constructor.
 data CreatePullThroughCacheRuleResponse = CreatePullThroughCacheRuleResponse'
-  { -- | The upstream registry URL associated with the pull through cache rule.
-    upstreamRegistryUrl :: Prelude.Maybe Prelude.Text,
-    -- | The registry ID associated with the request.
-    registryId :: Prelude.Maybe Prelude.Text,
+  { -- | The date and time, in JavaScript date format, when the pull through
+    -- cache rule was created.
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The Amazon ECR repository prefix associated with the pull through cache
     -- rule.
     ecrRepositoryPrefix :: Prelude.Maybe Prelude.Text,
-    -- | The date and time, in JavaScript date format, when the pull through
-    -- cache rule was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The registry ID associated with the request.
+    registryId :: Prelude.Maybe Prelude.Text,
+    -- | The upstream registry URL associated with the pull through cache rule.
+    upstreamRegistryUrl :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -205,15 +205,15 @@ data CreatePullThroughCacheRuleResponse = CreatePullThroughCacheRuleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'upstreamRegistryUrl', 'createPullThroughCacheRuleResponse_upstreamRegistryUrl' - The upstream registry URL associated with the pull through cache rule.
---
--- 'registryId', 'createPullThroughCacheRuleResponse_registryId' - The registry ID associated with the request.
+-- 'createdAt', 'createPullThroughCacheRuleResponse_createdAt' - The date and time, in JavaScript date format, when the pull through
+-- cache rule was created.
 --
 -- 'ecrRepositoryPrefix', 'createPullThroughCacheRuleResponse_ecrRepositoryPrefix' - The Amazon ECR repository prefix associated with the pull through cache
 -- rule.
 --
--- 'createdAt', 'createPullThroughCacheRuleResponse_createdAt' - The date and time, in JavaScript date format, when the pull through
--- cache rule was created.
+-- 'registryId', 'createPullThroughCacheRuleResponse_registryId' - The registry ID associated with the request.
+--
+-- 'upstreamRegistryUrl', 'createPullThroughCacheRuleResponse_upstreamRegistryUrl' - The upstream registry URL associated with the pull through cache rule.
 --
 -- 'httpStatus', 'createPullThroughCacheRuleResponse_httpStatus' - The response's http status code.
 newCreatePullThroughCacheRuleResponse ::
@@ -222,31 +222,31 @@ newCreatePullThroughCacheRuleResponse ::
   CreatePullThroughCacheRuleResponse
 newCreatePullThroughCacheRuleResponse pHttpStatus_ =
   CreatePullThroughCacheRuleResponse'
-    { upstreamRegistryUrl =
+    { createdAt =
         Prelude.Nothing,
-      registryId = Prelude.Nothing,
       ecrRepositoryPrefix = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
+      registryId = Prelude.Nothing,
+      upstreamRegistryUrl = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The upstream registry URL associated with the pull through cache rule.
-createPullThroughCacheRuleResponse_upstreamRegistryUrl :: Lens.Lens' CreatePullThroughCacheRuleResponse (Prelude.Maybe Prelude.Text)
-createPullThroughCacheRuleResponse_upstreamRegistryUrl = Lens.lens (\CreatePullThroughCacheRuleResponse' {upstreamRegistryUrl} -> upstreamRegistryUrl) (\s@CreatePullThroughCacheRuleResponse' {} a -> s {upstreamRegistryUrl = a} :: CreatePullThroughCacheRuleResponse)
-
--- | The registry ID associated with the request.
-createPullThroughCacheRuleResponse_registryId :: Lens.Lens' CreatePullThroughCacheRuleResponse (Prelude.Maybe Prelude.Text)
-createPullThroughCacheRuleResponse_registryId = Lens.lens (\CreatePullThroughCacheRuleResponse' {registryId} -> registryId) (\s@CreatePullThroughCacheRuleResponse' {} a -> s {registryId = a} :: CreatePullThroughCacheRuleResponse)
+-- | The date and time, in JavaScript date format, when the pull through
+-- cache rule was created.
+createPullThroughCacheRuleResponse_createdAt :: Lens.Lens' CreatePullThroughCacheRuleResponse (Prelude.Maybe Prelude.UTCTime)
+createPullThroughCacheRuleResponse_createdAt = Lens.lens (\CreatePullThroughCacheRuleResponse' {createdAt} -> createdAt) (\s@CreatePullThroughCacheRuleResponse' {} a -> s {createdAt = a} :: CreatePullThroughCacheRuleResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon ECR repository prefix associated with the pull through cache
 -- rule.
 createPullThroughCacheRuleResponse_ecrRepositoryPrefix :: Lens.Lens' CreatePullThroughCacheRuleResponse (Prelude.Maybe Prelude.Text)
 createPullThroughCacheRuleResponse_ecrRepositoryPrefix = Lens.lens (\CreatePullThroughCacheRuleResponse' {ecrRepositoryPrefix} -> ecrRepositoryPrefix) (\s@CreatePullThroughCacheRuleResponse' {} a -> s {ecrRepositoryPrefix = a} :: CreatePullThroughCacheRuleResponse)
 
--- | The date and time, in JavaScript date format, when the pull through
--- cache rule was created.
-createPullThroughCacheRuleResponse_createdAt :: Lens.Lens' CreatePullThroughCacheRuleResponse (Prelude.Maybe Prelude.UTCTime)
-createPullThroughCacheRuleResponse_createdAt = Lens.lens (\CreatePullThroughCacheRuleResponse' {createdAt} -> createdAt) (\s@CreatePullThroughCacheRuleResponse' {} a -> s {createdAt = a} :: CreatePullThroughCacheRuleResponse) Prelude.. Lens.mapping Data._Time
+-- | The registry ID associated with the request.
+createPullThroughCacheRuleResponse_registryId :: Lens.Lens' CreatePullThroughCacheRuleResponse (Prelude.Maybe Prelude.Text)
+createPullThroughCacheRuleResponse_registryId = Lens.lens (\CreatePullThroughCacheRuleResponse' {registryId} -> registryId) (\s@CreatePullThroughCacheRuleResponse' {} a -> s {registryId = a} :: CreatePullThroughCacheRuleResponse)
+
+-- | The upstream registry URL associated with the pull through cache rule.
+createPullThroughCacheRuleResponse_upstreamRegistryUrl :: Lens.Lens' CreatePullThroughCacheRuleResponse (Prelude.Maybe Prelude.Text)
+createPullThroughCacheRuleResponse_upstreamRegistryUrl = Lens.lens (\CreatePullThroughCacheRuleResponse' {upstreamRegistryUrl} -> upstreamRegistryUrl) (\s@CreatePullThroughCacheRuleResponse' {} a -> s {upstreamRegistryUrl = a} :: CreatePullThroughCacheRuleResponse)
 
 -- | The response's http status code.
 createPullThroughCacheRuleResponse_httpStatus :: Lens.Lens' CreatePullThroughCacheRuleResponse Prelude.Int
@@ -257,8 +257,8 @@ instance
     CreatePullThroughCacheRuleResponse
   where
   rnf CreatePullThroughCacheRuleResponse' {..} =
-    Prelude.rnf upstreamRegistryUrl
-      `Prelude.seq` Prelude.rnf registryId
+    Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf ecrRepositoryPrefix
-      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf registryId
+      `Prelude.seq` Prelude.rnf upstreamRegistryUrl
       `Prelude.seq` Prelude.rnf httpStatus

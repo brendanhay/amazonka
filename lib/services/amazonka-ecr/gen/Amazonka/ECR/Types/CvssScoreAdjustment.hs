@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCvssScoreAdjustment' smart constructor.
 data CvssScoreAdjustment = CvssScoreAdjustment'
-  { -- | The reason the CVSS score has been adjustment.
-    reason :: Prelude.Maybe Prelude.Text,
-    -- | The metric used to adjust the CVSS score.
-    metric :: Prelude.Maybe Prelude.Text
+  { -- | The metric used to adjust the CVSS score.
+    metric :: Prelude.Maybe Prelude.Text,
+    -- | The reason the CVSS score has been adjustment.
+    reason :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data CvssScoreAdjustment = CvssScoreAdjustment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reason', 'cvssScoreAdjustment_reason' - The reason the CVSS score has been adjustment.
---
 -- 'metric', 'cvssScoreAdjustment_metric' - The metric used to adjust the CVSS score.
+--
+-- 'reason', 'cvssScoreAdjustment_reason' - The reason the CVSS score has been adjustment.
 newCvssScoreAdjustment ::
   CvssScoreAdjustment
 newCvssScoreAdjustment =
   CvssScoreAdjustment'
-    { reason = Prelude.Nothing,
-      metric = Prelude.Nothing
+    { metric = Prelude.Nothing,
+      reason = Prelude.Nothing
     }
-
--- | The reason the CVSS score has been adjustment.
-cvssScoreAdjustment_reason :: Lens.Lens' CvssScoreAdjustment (Prelude.Maybe Prelude.Text)
-cvssScoreAdjustment_reason = Lens.lens (\CvssScoreAdjustment' {reason} -> reason) (\s@CvssScoreAdjustment' {} a -> s {reason = a} :: CvssScoreAdjustment)
 
 -- | The metric used to adjust the CVSS score.
 cvssScoreAdjustment_metric :: Lens.Lens' CvssScoreAdjustment (Prelude.Maybe Prelude.Text)
 cvssScoreAdjustment_metric = Lens.lens (\CvssScoreAdjustment' {metric} -> metric) (\s@CvssScoreAdjustment' {} a -> s {metric = a} :: CvssScoreAdjustment)
+
+-- | The reason the CVSS score has been adjustment.
+cvssScoreAdjustment_reason :: Lens.Lens' CvssScoreAdjustment (Prelude.Maybe Prelude.Text)
+cvssScoreAdjustment_reason = Lens.lens (\CvssScoreAdjustment' {reason} -> reason) (\s@CvssScoreAdjustment' {} a -> s {reason = a} :: CvssScoreAdjustment)
 
 instance Data.FromJSON CvssScoreAdjustment where
   parseJSON =
@@ -69,15 +69,15 @@ instance Data.FromJSON CvssScoreAdjustment where
       "CvssScoreAdjustment"
       ( \x ->
           CvssScoreAdjustment'
-            Prelude.<$> (x Data..:? "reason")
-            Prelude.<*> (x Data..:? "metric")
+            Prelude.<$> (x Data..:? "metric")
+            Prelude.<*> (x Data..:? "reason")
       )
 
 instance Prelude.Hashable CvssScoreAdjustment where
   hashWithSalt _salt CvssScoreAdjustment' {..} =
-    _salt `Prelude.hashWithSalt` reason
-      `Prelude.hashWithSalt` metric
+    _salt `Prelude.hashWithSalt` metric
+      `Prelude.hashWithSalt` reason
 
 instance Prelude.NFData CvssScoreAdjustment where
   rnf CvssScoreAdjustment' {..} =
-    Prelude.rnf reason `Prelude.seq` Prelude.rnf metric
+    Prelude.rnf metric `Prelude.seq` Prelude.rnf reason

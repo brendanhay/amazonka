@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVulnerablePackage' smart constructor.
 data VulnerablePackage = VulnerablePackage'
-  { -- | The name of the vulnerable package.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The file path of the vulnerable package.
-    filePath :: Prelude.Maybe Prelude.Text,
-    -- | The architecture of the vulnerable package.
+  { -- | The architecture of the vulnerable package.
     arch :: Prelude.Maybe Prelude.Text,
     -- | The epoch of the vulnerable package.
     epoch :: Prelude.Maybe Prelude.Int,
+    -- | The file path of the vulnerable package.
+    filePath :: Prelude.Maybe Prelude.Text,
+    -- | The name of the vulnerable package.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The package manager of the vulnerable package.
     packageManager :: Prelude.Maybe Prelude.Text,
     -- | The release of the vulnerable package.
@@ -55,13 +55,13 @@ data VulnerablePackage = VulnerablePackage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'vulnerablePackage_name' - The name of the vulnerable package.
---
--- 'filePath', 'vulnerablePackage_filePath' - The file path of the vulnerable package.
---
 -- 'arch', 'vulnerablePackage_arch' - The architecture of the vulnerable package.
 --
 -- 'epoch', 'vulnerablePackage_epoch' - The epoch of the vulnerable package.
+--
+-- 'filePath', 'vulnerablePackage_filePath' - The file path of the vulnerable package.
+--
+-- 'name', 'vulnerablePackage_name' - The name of the vulnerable package.
 --
 -- 'packageManager', 'vulnerablePackage_packageManager' - The package manager of the vulnerable package.
 --
@@ -74,23 +74,15 @@ newVulnerablePackage ::
   VulnerablePackage
 newVulnerablePackage =
   VulnerablePackage'
-    { name = Prelude.Nothing,
-      filePath = Prelude.Nothing,
-      arch = Prelude.Nothing,
+    { arch = Prelude.Nothing,
       epoch = Prelude.Nothing,
+      filePath = Prelude.Nothing,
+      name = Prelude.Nothing,
       packageManager = Prelude.Nothing,
       release = Prelude.Nothing,
       sourceLayerHash = Prelude.Nothing,
       version = Prelude.Nothing
     }
-
--- | The name of the vulnerable package.
-vulnerablePackage_name :: Lens.Lens' VulnerablePackage (Prelude.Maybe Prelude.Text)
-vulnerablePackage_name = Lens.lens (\VulnerablePackage' {name} -> name) (\s@VulnerablePackage' {} a -> s {name = a} :: VulnerablePackage)
-
--- | The file path of the vulnerable package.
-vulnerablePackage_filePath :: Lens.Lens' VulnerablePackage (Prelude.Maybe Prelude.Text)
-vulnerablePackage_filePath = Lens.lens (\VulnerablePackage' {filePath} -> filePath) (\s@VulnerablePackage' {} a -> s {filePath = a} :: VulnerablePackage)
 
 -- | The architecture of the vulnerable package.
 vulnerablePackage_arch :: Lens.Lens' VulnerablePackage (Prelude.Maybe Prelude.Text)
@@ -99,6 +91,14 @@ vulnerablePackage_arch = Lens.lens (\VulnerablePackage' {arch} -> arch) (\s@Vuln
 -- | The epoch of the vulnerable package.
 vulnerablePackage_epoch :: Lens.Lens' VulnerablePackage (Prelude.Maybe Prelude.Int)
 vulnerablePackage_epoch = Lens.lens (\VulnerablePackage' {epoch} -> epoch) (\s@VulnerablePackage' {} a -> s {epoch = a} :: VulnerablePackage)
+
+-- | The file path of the vulnerable package.
+vulnerablePackage_filePath :: Lens.Lens' VulnerablePackage (Prelude.Maybe Prelude.Text)
+vulnerablePackage_filePath = Lens.lens (\VulnerablePackage' {filePath} -> filePath) (\s@VulnerablePackage' {} a -> s {filePath = a} :: VulnerablePackage)
+
+-- | The name of the vulnerable package.
+vulnerablePackage_name :: Lens.Lens' VulnerablePackage (Prelude.Maybe Prelude.Text)
+vulnerablePackage_name = Lens.lens (\VulnerablePackage' {name} -> name) (\s@VulnerablePackage' {} a -> s {name = a} :: VulnerablePackage)
 
 -- | The package manager of the vulnerable package.
 vulnerablePackage_packageManager :: Lens.Lens' VulnerablePackage (Prelude.Maybe Prelude.Text)
@@ -122,10 +122,10 @@ instance Data.FromJSON VulnerablePackage where
       "VulnerablePackage"
       ( \x ->
           VulnerablePackage'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "filePath")
-            Prelude.<*> (x Data..:? "arch")
+            Prelude.<$> (x Data..:? "arch")
             Prelude.<*> (x Data..:? "epoch")
+            Prelude.<*> (x Data..:? "filePath")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "packageManager")
             Prelude.<*> (x Data..:? "release")
             Prelude.<*> (x Data..:? "sourceLayerHash")
@@ -134,10 +134,10 @@ instance Data.FromJSON VulnerablePackage where
 
 instance Prelude.Hashable VulnerablePackage where
   hashWithSalt _salt VulnerablePackage' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` filePath
-      `Prelude.hashWithSalt` arch
+    _salt `Prelude.hashWithSalt` arch
       `Prelude.hashWithSalt` epoch
+      `Prelude.hashWithSalt` filePath
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` packageManager
       `Prelude.hashWithSalt` release
       `Prelude.hashWithSalt` sourceLayerHash
@@ -145,10 +145,10 @@ instance Prelude.Hashable VulnerablePackage where
 
 instance Prelude.NFData VulnerablePackage where
   rnf VulnerablePackage' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf filePath
-      `Prelude.seq` Prelude.rnf arch
+    Prelude.rnf arch
       `Prelude.seq` Prelude.rnf epoch
+      `Prelude.seq` Prelude.rnf filePath
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf packageManager
       `Prelude.seq` Prelude.rnf release
       `Prelude.seq` Prelude.rnf sourceLayerHash

@@ -28,9 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCopyCommand' smart constructor.
 data CopyCommand = CopyCommand'
-  { -- | A comma-separated list of column names.
-    dataTableColumns :: Prelude.Maybe Prelude.Text,
-    -- | Optional parameters to use with the Amazon Redshift @COPY@ command. For
+  { -- | Optional parameters to use with the Amazon Redshift @COPY@ command. For
     -- more information, see the \"Optional Parameters\" section of
     -- <https://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html Amazon Redshift COPY command>.
     -- Some possible examples that would apply to Kinesis Data Firehose are as
@@ -54,6 +52,8 @@ data CopyCommand = CopyCommand'
     -- For more examples, see
     -- <https://docs.aws.amazon.com/redshift/latest/dg/r_COPY_command_examples.html Amazon Redshift COPY command examples>.
     copyOptions :: Prelude.Maybe Prelude.Text,
+    -- | A comma-separated list of column names.
+    dataTableColumns :: Prelude.Maybe Prelude.Text,
     -- | The name of the target table. The table must already exist in the
     -- database.
     dataTableName :: Prelude.Text
@@ -67,8 +67,6 @@ data CopyCommand = CopyCommand'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'dataTableColumns', 'copyCommand_dataTableColumns' - A comma-separated list of column names.
 --
 -- 'copyOptions', 'copyCommand_copyOptions' - Optional parameters to use with the Amazon Redshift @COPY@ command. For
 -- more information, see the \"Optional Parameters\" section of
@@ -94,6 +92,8 @@ data CopyCommand = CopyCommand'
 -- For more examples, see
 -- <https://docs.aws.amazon.com/redshift/latest/dg/r_COPY_command_examples.html Amazon Redshift COPY command examples>.
 --
+-- 'dataTableColumns', 'copyCommand_dataTableColumns' - A comma-separated list of column names.
+--
 -- 'dataTableName', 'copyCommand_dataTableName' - The name of the target table. The table must already exist in the
 -- database.
 newCopyCommand ::
@@ -102,14 +102,10 @@ newCopyCommand ::
   CopyCommand
 newCopyCommand pDataTableName_ =
   CopyCommand'
-    { dataTableColumns = Prelude.Nothing,
-      copyOptions = Prelude.Nothing,
+    { copyOptions = Prelude.Nothing,
+      dataTableColumns = Prelude.Nothing,
       dataTableName = pDataTableName_
     }
-
--- | A comma-separated list of column names.
-copyCommand_dataTableColumns :: Lens.Lens' CopyCommand (Prelude.Maybe Prelude.Text)
-copyCommand_dataTableColumns = Lens.lens (\CopyCommand' {dataTableColumns} -> dataTableColumns) (\s@CopyCommand' {} a -> s {dataTableColumns = a} :: CopyCommand)
 
 -- | Optional parameters to use with the Amazon Redshift @COPY@ command. For
 -- more information, see the \"Optional Parameters\" section of
@@ -137,6 +133,10 @@ copyCommand_dataTableColumns = Lens.lens (\CopyCommand' {dataTableColumns} -> da
 copyCommand_copyOptions :: Lens.Lens' CopyCommand (Prelude.Maybe Prelude.Text)
 copyCommand_copyOptions = Lens.lens (\CopyCommand' {copyOptions} -> copyOptions) (\s@CopyCommand' {} a -> s {copyOptions = a} :: CopyCommand)
 
+-- | A comma-separated list of column names.
+copyCommand_dataTableColumns :: Lens.Lens' CopyCommand (Prelude.Maybe Prelude.Text)
+copyCommand_dataTableColumns = Lens.lens (\CopyCommand' {dataTableColumns} -> dataTableColumns) (\s@CopyCommand' {} a -> s {dataTableColumns = a} :: CopyCommand)
+
 -- | The name of the target table. The table must already exist in the
 -- database.
 copyCommand_dataTableName :: Lens.Lens' CopyCommand Prelude.Text
@@ -148,30 +148,30 @@ instance Data.FromJSON CopyCommand where
       "CopyCommand"
       ( \x ->
           CopyCommand'
-            Prelude.<$> (x Data..:? "DataTableColumns")
-            Prelude.<*> (x Data..:? "CopyOptions")
+            Prelude.<$> (x Data..:? "CopyOptions")
+            Prelude.<*> (x Data..:? "DataTableColumns")
             Prelude.<*> (x Data..: "DataTableName")
       )
 
 instance Prelude.Hashable CopyCommand where
   hashWithSalt _salt CopyCommand' {..} =
-    _salt `Prelude.hashWithSalt` dataTableColumns
-      `Prelude.hashWithSalt` copyOptions
+    _salt `Prelude.hashWithSalt` copyOptions
+      `Prelude.hashWithSalt` dataTableColumns
       `Prelude.hashWithSalt` dataTableName
 
 instance Prelude.NFData CopyCommand where
   rnf CopyCommand' {..} =
-    Prelude.rnf dataTableColumns
-      `Prelude.seq` Prelude.rnf copyOptions
+    Prelude.rnf copyOptions
+      `Prelude.seq` Prelude.rnf dataTableColumns
       `Prelude.seq` Prelude.rnf dataTableName
 
 instance Data.ToJSON CopyCommand where
   toJSON CopyCommand' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DataTableColumns" Data..=)
+          [ ("CopyOptions" Data..=) Prelude.<$> copyOptions,
+            ("DataTableColumns" Data..=)
               Prelude.<$> dataTableColumns,
-            ("CopyOptions" Data..=) Prelude.<$> copyOptions,
             Prelude.Just
               ("DataTableName" Data..= dataTableName)
           ]

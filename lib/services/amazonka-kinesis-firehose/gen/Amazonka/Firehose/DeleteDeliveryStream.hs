@@ -69,8 +69,8 @@ data DeleteDeliveryStream = DeleteDeliveryStream'
     -- force deletion, you can then use the
     -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html RevokeGrant>
     -- operation to revoke the grant you gave to Kinesis Data Firehose. If a
-    -- failure to retire the grant happens due to an AWS KMS issue, Kinesis
-    -- Data Firehose keeps retrying the delete operation.
+    -- failure to retire the grant happens due to an Amazon Web Services KMS
+    -- issue, Kinesis Data Firehose keeps retrying the delete operation.
     --
     -- The default value is false.
     allowForceDelete :: Prelude.Maybe Prelude.Bool,
@@ -94,8 +94,8 @@ data DeleteDeliveryStream = DeleteDeliveryStream'
 -- force deletion, you can then use the
 -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html RevokeGrant>
 -- operation to revoke the grant you gave to Kinesis Data Firehose. If a
--- failure to retire the grant happens due to an AWS KMS issue, Kinesis
--- Data Firehose keeps retrying the delete operation.
+-- failure to retire the grant happens due to an Amazon Web Services KMS
+-- issue, Kinesis Data Firehose keeps retrying the delete operation.
 --
 -- The default value is false.
 --
@@ -118,8 +118,8 @@ newDeleteDeliveryStream pDeliveryStreamName_ =
 -- force deletion, you can then use the
 -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html RevokeGrant>
 -- operation to revoke the grant you gave to Kinesis Data Firehose. If a
--- failure to retire the grant happens due to an AWS KMS issue, Kinesis
--- Data Firehose keeps retrying the delete operation.
+-- failure to retire the grant happens due to an Amazon Web Services KMS
+-- issue, Kinesis Data Firehose keeps retrying the delete operation.
 --
 -- The default value is false.
 deleteDeliveryStream_allowForceDelete :: Lens.Lens' DeleteDeliveryStream (Prelude.Maybe Prelude.Bool)

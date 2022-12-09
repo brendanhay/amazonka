@@ -22,7 +22,8 @@
 --
 -- Creates a Kinesis Data Firehose delivery stream.
 --
--- By default, you can create up to 50 delivery streams per AWS Region.
+-- By default, you can create up to 50 delivery streams per Amazon Web
+-- Services Region.
 --
 -- This is an asynchronous operation that immediately returns. The initial
 -- status of the delivery stream is @CREATING@. After the delivery stream
@@ -98,17 +99,18 @@ module Amazonka.Firehose.CreateDeliveryStream
     newCreateDeliveryStream,
 
     -- * Request Lenses
-    createDeliveryStream_tags,
-    createDeliveryStream_s3DestinationConfiguration,
-    createDeliveryStream_httpEndpointDestinationConfiguration,
-    createDeliveryStream_deliveryStreamType,
-    createDeliveryStream_splunkDestinationConfiguration,
-    createDeliveryStream_elasticsearchDestinationConfiguration,
-    createDeliveryStream_redshiftDestinationConfiguration,
-    createDeliveryStream_deliveryStreamEncryptionConfigurationInput,
-    createDeliveryStream_extendedS3DestinationConfiguration,
-    createDeliveryStream_kinesisStreamSourceConfiguration,
+    createDeliveryStream_amazonOpenSearchServerlessDestinationConfiguration,
     createDeliveryStream_amazonopensearchserviceDestinationConfiguration,
+    createDeliveryStream_deliveryStreamEncryptionConfigurationInput,
+    createDeliveryStream_deliveryStreamType,
+    createDeliveryStream_elasticsearchDestinationConfiguration,
+    createDeliveryStream_extendedS3DestinationConfiguration,
+    createDeliveryStream_httpEndpointDestinationConfiguration,
+    createDeliveryStream_kinesisStreamSourceConfiguration,
+    createDeliveryStream_redshiftDestinationConfiguration,
+    createDeliveryStream_s3DestinationConfiguration,
+    createDeliveryStream_splunkDestinationConfiguration,
+    createDeliveryStream_tags,
     createDeliveryStream_deliveryStreamName,
 
     -- * Destructuring the Response
@@ -131,22 +133,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDeliveryStream' smart constructor.
 data CreateDeliveryStream = CreateDeliveryStream'
-  { -- | A set of tags to assign to the delivery stream. A tag is a key-value
-    -- pair that you can define and assign to AWS resources. Tags are metadata.
-    -- For example, you can add friendly names and descriptions or other types
-    -- of information that can help you distinguish the delivery stream. For
-    -- more information about tags, see
-    -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Using Cost Allocation Tags>
-    -- in the AWS Billing and Cost Management User Guide.
-    --
-    -- You can specify up to 50 tags when creating a delivery stream.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | [Deprecated] The destination in Amazon S3. You can specify only one
+  { -- | The destination in the Serverless offering for Amazon OpenSearch
+    -- Service. You can specify only one destination.
+    amazonOpenSearchServerlessDestinationConfiguration :: Prelude.Maybe AmazonOpenSearchServerlessDestinationConfiguration,
+    -- | The destination in Amazon OpenSearch Service. You can specify only one
     -- destination.
-    s3DestinationConfiguration :: Prelude.Maybe S3DestinationConfiguration,
-    -- | Enables configuring Kinesis Firehose to deliver data to any HTTP
-    -- endpoint destination. You can specify only one destination.
-    httpEndpointDestinationConfiguration :: Prelude.Maybe HttpEndpointDestinationConfiguration,
+    amazonopensearchserviceDestinationConfiguration :: Prelude.Maybe AmazonopensearchserviceDestinationConfiguration,
+    -- | Used to specify the type and Amazon Resource Name (ARN) of the KMS key
+    -- needed for Server-Side Encryption (SSE).
+    deliveryStreamEncryptionConfigurationInput :: Prelude.Maybe DeliveryStreamEncryptionConfigurationInput,
     -- | The delivery stream type. This parameter can be one of the following
     -- values:
     --
@@ -156,28 +151,40 @@ data CreateDeliveryStream = CreateDeliveryStream'
     -- -   @KinesisStreamAsSource@: The delivery stream uses a Kinesis data
     --     stream as a source.
     deliveryStreamType :: Prelude.Maybe DeliveryStreamType,
-    -- | The destination in Splunk. You can specify only one destination.
-    splunkDestinationConfiguration :: Prelude.Maybe SplunkDestinationConfiguration,
     -- | The destination in Amazon ES. You can specify only one destination.
     elasticsearchDestinationConfiguration :: Prelude.Maybe ElasticsearchDestinationConfiguration,
-    -- | The destination in Amazon Redshift. You can specify only one
-    -- destination.
-    redshiftDestinationConfiguration :: Prelude.Maybe RedshiftDestinationConfiguration,
-    -- | Used to specify the type and Amazon Resource Name (ARN) of the KMS key
-    -- needed for Server-Side Encryption (SSE).
-    deliveryStreamEncryptionConfigurationInput :: Prelude.Maybe DeliveryStreamEncryptionConfigurationInput,
     -- | The destination in Amazon S3. You can specify only one destination.
     extendedS3DestinationConfiguration :: Prelude.Maybe ExtendedS3DestinationConfiguration,
+    -- | Enables configuring Kinesis Firehose to deliver data to any HTTP
+    -- endpoint destination. You can specify only one destination.
+    httpEndpointDestinationConfiguration :: Prelude.Maybe HttpEndpointDestinationConfiguration,
     -- | When a Kinesis data stream is used as the source for the delivery
     -- stream, a KinesisStreamSourceConfiguration containing the Kinesis data
     -- stream Amazon Resource Name (ARN) and the role ARN for the source
     -- stream.
     kinesisStreamSourceConfiguration :: Prelude.Maybe KinesisStreamSourceConfiguration,
-    amazonopensearchserviceDestinationConfiguration :: Prelude.Maybe AmazonopensearchserviceDestinationConfiguration,
-    -- | The name of the delivery stream. This name must be unique per AWS
-    -- account in the same AWS Region. If the delivery streams are in different
-    -- accounts or different Regions, you can have multiple delivery streams
-    -- with the same name.
+    -- | The destination in Amazon Redshift. You can specify only one
+    -- destination.
+    redshiftDestinationConfiguration :: Prelude.Maybe RedshiftDestinationConfiguration,
+    -- | [Deprecated] The destination in Amazon S3. You can specify only one
+    -- destination.
+    s3DestinationConfiguration :: Prelude.Maybe S3DestinationConfiguration,
+    -- | The destination in Splunk. You can specify only one destination.
+    splunkDestinationConfiguration :: Prelude.Maybe SplunkDestinationConfiguration,
+    -- | A set of tags to assign to the delivery stream. A tag is a key-value
+    -- pair that you can define and assign to Amazon Web Services resources.
+    -- Tags are metadata. For example, you can add friendly names and
+    -- descriptions or other types of information that can help you distinguish
+    -- the delivery stream. For more information about tags, see
+    -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Using Cost Allocation Tags>
+    -- in the Amazon Web Services Billing and Cost Management User Guide.
+    --
+    -- You can specify up to 50 tags when creating a delivery stream.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The name of the delivery stream. This name must be unique per Amazon Web
+    -- Services account in the same Amazon Web Services Region. If the delivery
+    -- streams are in different accounts or different Regions, you can have
+    -- multiple delivery streams with the same name.
     deliveryStreamName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -190,21 +197,14 @@ data CreateDeliveryStream = CreateDeliveryStream'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createDeliveryStream_tags' - A set of tags to assign to the delivery stream. A tag is a key-value
--- pair that you can define and assign to AWS resources. Tags are metadata.
--- For example, you can add friendly names and descriptions or other types
--- of information that can help you distinguish the delivery stream. For
--- more information about tags, see
--- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Using Cost Allocation Tags>
--- in the AWS Billing and Cost Management User Guide.
+-- 'amazonOpenSearchServerlessDestinationConfiguration', 'createDeliveryStream_amazonOpenSearchServerlessDestinationConfiguration' - The destination in the Serverless offering for Amazon OpenSearch
+-- Service. You can specify only one destination.
 --
--- You can specify up to 50 tags when creating a delivery stream.
---
--- 's3DestinationConfiguration', 'createDeliveryStream_s3DestinationConfiguration' - [Deprecated] The destination in Amazon S3. You can specify only one
+-- 'amazonopensearchserviceDestinationConfiguration', 'createDeliveryStream_amazonopensearchserviceDestinationConfiguration' - The destination in Amazon OpenSearch Service. You can specify only one
 -- destination.
 --
--- 'httpEndpointDestinationConfiguration', 'createDeliveryStream_httpEndpointDestinationConfiguration' - Enables configuring Kinesis Firehose to deliver data to any HTTP
--- endpoint destination. You can specify only one destination.
+-- 'deliveryStreamEncryptionConfigurationInput', 'createDeliveryStream_deliveryStreamEncryptionConfigurationInput' - Used to specify the type and Amazon Resource Name (ARN) of the KMS key
+-- needed for Server-Side Encryption (SSE).
 --
 -- 'deliveryStreamType', 'createDeliveryStream_deliveryStreamType' - The delivery stream type. This parameter can be one of the following
 -- values:
@@ -215,74 +215,80 @@ data CreateDeliveryStream = CreateDeliveryStream'
 -- -   @KinesisStreamAsSource@: The delivery stream uses a Kinesis data
 --     stream as a source.
 --
--- 'splunkDestinationConfiguration', 'createDeliveryStream_splunkDestinationConfiguration' - The destination in Splunk. You can specify only one destination.
---
 -- 'elasticsearchDestinationConfiguration', 'createDeliveryStream_elasticsearchDestinationConfiguration' - The destination in Amazon ES. You can specify only one destination.
 --
--- 'redshiftDestinationConfiguration', 'createDeliveryStream_redshiftDestinationConfiguration' - The destination in Amazon Redshift. You can specify only one
--- destination.
---
--- 'deliveryStreamEncryptionConfigurationInput', 'createDeliveryStream_deliveryStreamEncryptionConfigurationInput' - Used to specify the type and Amazon Resource Name (ARN) of the KMS key
--- needed for Server-Side Encryption (SSE).
---
 -- 'extendedS3DestinationConfiguration', 'createDeliveryStream_extendedS3DestinationConfiguration' - The destination in Amazon S3. You can specify only one destination.
+--
+-- 'httpEndpointDestinationConfiguration', 'createDeliveryStream_httpEndpointDestinationConfiguration' - Enables configuring Kinesis Firehose to deliver data to any HTTP
+-- endpoint destination. You can specify only one destination.
 --
 -- 'kinesisStreamSourceConfiguration', 'createDeliveryStream_kinesisStreamSourceConfiguration' - When a Kinesis data stream is used as the source for the delivery
 -- stream, a KinesisStreamSourceConfiguration containing the Kinesis data
 -- stream Amazon Resource Name (ARN) and the role ARN for the source
 -- stream.
 --
--- 'amazonopensearchserviceDestinationConfiguration', 'createDeliveryStream_amazonopensearchserviceDestinationConfiguration' - Undocumented member.
+-- 'redshiftDestinationConfiguration', 'createDeliveryStream_redshiftDestinationConfiguration' - The destination in Amazon Redshift. You can specify only one
+-- destination.
 --
--- 'deliveryStreamName', 'createDeliveryStream_deliveryStreamName' - The name of the delivery stream. This name must be unique per AWS
--- account in the same AWS Region. If the delivery streams are in different
--- accounts or different Regions, you can have multiple delivery streams
--- with the same name.
+-- 's3DestinationConfiguration', 'createDeliveryStream_s3DestinationConfiguration' - [Deprecated] The destination in Amazon S3. You can specify only one
+-- destination.
+--
+-- 'splunkDestinationConfiguration', 'createDeliveryStream_splunkDestinationConfiguration' - The destination in Splunk. You can specify only one destination.
+--
+-- 'tags', 'createDeliveryStream_tags' - A set of tags to assign to the delivery stream. A tag is a key-value
+-- pair that you can define and assign to Amazon Web Services resources.
+-- Tags are metadata. For example, you can add friendly names and
+-- descriptions or other types of information that can help you distinguish
+-- the delivery stream. For more information about tags, see
+-- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Using Cost Allocation Tags>
+-- in the Amazon Web Services Billing and Cost Management User Guide.
+--
+-- You can specify up to 50 tags when creating a delivery stream.
+--
+-- 'deliveryStreamName', 'createDeliveryStream_deliveryStreamName' - The name of the delivery stream. This name must be unique per Amazon Web
+-- Services account in the same Amazon Web Services Region. If the delivery
+-- streams are in different accounts or different Regions, you can have
+-- multiple delivery streams with the same name.
 newCreateDeliveryStream ::
   -- | 'deliveryStreamName'
   Prelude.Text ->
   CreateDeliveryStream
 newCreateDeliveryStream pDeliveryStreamName_ =
   CreateDeliveryStream'
-    { tags = Prelude.Nothing,
-      s3DestinationConfiguration = Prelude.Nothing,
-      httpEndpointDestinationConfiguration =
+    { amazonOpenSearchServerlessDestinationConfiguration =
         Prelude.Nothing,
-      deliveryStreamType = Prelude.Nothing,
-      splunkDestinationConfiguration = Prelude.Nothing,
-      elasticsearchDestinationConfiguration =
-        Prelude.Nothing,
-      redshiftDestinationConfiguration = Prelude.Nothing,
-      deliveryStreamEncryptionConfigurationInput =
-        Prelude.Nothing,
-      extendedS3DestinationConfiguration = Prelude.Nothing,
-      kinesisStreamSourceConfiguration = Prelude.Nothing,
       amazonopensearchserviceDestinationConfiguration =
         Prelude.Nothing,
+      deliveryStreamEncryptionConfigurationInput =
+        Prelude.Nothing,
+      deliveryStreamType = Prelude.Nothing,
+      elasticsearchDestinationConfiguration =
+        Prelude.Nothing,
+      extendedS3DestinationConfiguration = Prelude.Nothing,
+      httpEndpointDestinationConfiguration =
+        Prelude.Nothing,
+      kinesisStreamSourceConfiguration = Prelude.Nothing,
+      redshiftDestinationConfiguration = Prelude.Nothing,
+      s3DestinationConfiguration = Prelude.Nothing,
+      splunkDestinationConfiguration = Prelude.Nothing,
+      tags = Prelude.Nothing,
       deliveryStreamName = pDeliveryStreamName_
     }
 
--- | A set of tags to assign to the delivery stream. A tag is a key-value
--- pair that you can define and assign to AWS resources. Tags are metadata.
--- For example, you can add friendly names and descriptions or other types
--- of information that can help you distinguish the delivery stream. For
--- more information about tags, see
--- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Using Cost Allocation Tags>
--- in the AWS Billing and Cost Management User Guide.
---
--- You can specify up to 50 tags when creating a delivery stream.
-createDeliveryStream_tags :: Lens.Lens' CreateDeliveryStream (Prelude.Maybe (Prelude.NonEmpty Tag))
-createDeliveryStream_tags = Lens.lens (\CreateDeliveryStream' {tags} -> tags) (\s@CreateDeliveryStream' {} a -> s {tags = a} :: CreateDeliveryStream) Prelude.. Lens.mapping Lens.coerced
+-- | The destination in the Serverless offering for Amazon OpenSearch
+-- Service. You can specify only one destination.
+createDeliveryStream_amazonOpenSearchServerlessDestinationConfiguration :: Lens.Lens' CreateDeliveryStream (Prelude.Maybe AmazonOpenSearchServerlessDestinationConfiguration)
+createDeliveryStream_amazonOpenSearchServerlessDestinationConfiguration = Lens.lens (\CreateDeliveryStream' {amazonOpenSearchServerlessDestinationConfiguration} -> amazonOpenSearchServerlessDestinationConfiguration) (\s@CreateDeliveryStream' {} a -> s {amazonOpenSearchServerlessDestinationConfiguration = a} :: CreateDeliveryStream)
 
--- | [Deprecated] The destination in Amazon S3. You can specify only one
+-- | The destination in Amazon OpenSearch Service. You can specify only one
 -- destination.
-createDeliveryStream_s3DestinationConfiguration :: Lens.Lens' CreateDeliveryStream (Prelude.Maybe S3DestinationConfiguration)
-createDeliveryStream_s3DestinationConfiguration = Lens.lens (\CreateDeliveryStream' {s3DestinationConfiguration} -> s3DestinationConfiguration) (\s@CreateDeliveryStream' {} a -> s {s3DestinationConfiguration = a} :: CreateDeliveryStream)
+createDeliveryStream_amazonopensearchserviceDestinationConfiguration :: Lens.Lens' CreateDeliveryStream (Prelude.Maybe AmazonopensearchserviceDestinationConfiguration)
+createDeliveryStream_amazonopensearchserviceDestinationConfiguration = Lens.lens (\CreateDeliveryStream' {amazonopensearchserviceDestinationConfiguration} -> amazonopensearchserviceDestinationConfiguration) (\s@CreateDeliveryStream' {} a -> s {amazonopensearchserviceDestinationConfiguration = a} :: CreateDeliveryStream)
 
--- | Enables configuring Kinesis Firehose to deliver data to any HTTP
--- endpoint destination. You can specify only one destination.
-createDeliveryStream_httpEndpointDestinationConfiguration :: Lens.Lens' CreateDeliveryStream (Prelude.Maybe HttpEndpointDestinationConfiguration)
-createDeliveryStream_httpEndpointDestinationConfiguration = Lens.lens (\CreateDeliveryStream' {httpEndpointDestinationConfiguration} -> httpEndpointDestinationConfiguration) (\s@CreateDeliveryStream' {} a -> s {httpEndpointDestinationConfiguration = a} :: CreateDeliveryStream)
+-- | Used to specify the type and Amazon Resource Name (ARN) of the KMS key
+-- needed for Server-Side Encryption (SSE).
+createDeliveryStream_deliveryStreamEncryptionConfigurationInput :: Lens.Lens' CreateDeliveryStream (Prelude.Maybe DeliveryStreamEncryptionConfigurationInput)
+createDeliveryStream_deliveryStreamEncryptionConfigurationInput = Lens.lens (\CreateDeliveryStream' {deliveryStreamEncryptionConfigurationInput} -> deliveryStreamEncryptionConfigurationInput) (\s@CreateDeliveryStream' {} a -> s {deliveryStreamEncryptionConfigurationInput = a} :: CreateDeliveryStream)
 
 -- | The delivery stream type. This parameter can be one of the following
 -- values:
@@ -295,27 +301,18 @@ createDeliveryStream_httpEndpointDestinationConfiguration = Lens.lens (\CreateDe
 createDeliveryStream_deliveryStreamType :: Lens.Lens' CreateDeliveryStream (Prelude.Maybe DeliveryStreamType)
 createDeliveryStream_deliveryStreamType = Lens.lens (\CreateDeliveryStream' {deliveryStreamType} -> deliveryStreamType) (\s@CreateDeliveryStream' {} a -> s {deliveryStreamType = a} :: CreateDeliveryStream)
 
--- | The destination in Splunk. You can specify only one destination.
-createDeliveryStream_splunkDestinationConfiguration :: Lens.Lens' CreateDeliveryStream (Prelude.Maybe SplunkDestinationConfiguration)
-createDeliveryStream_splunkDestinationConfiguration = Lens.lens (\CreateDeliveryStream' {splunkDestinationConfiguration} -> splunkDestinationConfiguration) (\s@CreateDeliveryStream' {} a -> s {splunkDestinationConfiguration = a} :: CreateDeliveryStream)
-
 -- | The destination in Amazon ES. You can specify only one destination.
 createDeliveryStream_elasticsearchDestinationConfiguration :: Lens.Lens' CreateDeliveryStream (Prelude.Maybe ElasticsearchDestinationConfiguration)
 createDeliveryStream_elasticsearchDestinationConfiguration = Lens.lens (\CreateDeliveryStream' {elasticsearchDestinationConfiguration} -> elasticsearchDestinationConfiguration) (\s@CreateDeliveryStream' {} a -> s {elasticsearchDestinationConfiguration = a} :: CreateDeliveryStream)
 
--- | The destination in Amazon Redshift. You can specify only one
--- destination.
-createDeliveryStream_redshiftDestinationConfiguration :: Lens.Lens' CreateDeliveryStream (Prelude.Maybe RedshiftDestinationConfiguration)
-createDeliveryStream_redshiftDestinationConfiguration = Lens.lens (\CreateDeliveryStream' {redshiftDestinationConfiguration} -> redshiftDestinationConfiguration) (\s@CreateDeliveryStream' {} a -> s {redshiftDestinationConfiguration = a} :: CreateDeliveryStream)
-
--- | Used to specify the type and Amazon Resource Name (ARN) of the KMS key
--- needed for Server-Side Encryption (SSE).
-createDeliveryStream_deliveryStreamEncryptionConfigurationInput :: Lens.Lens' CreateDeliveryStream (Prelude.Maybe DeliveryStreamEncryptionConfigurationInput)
-createDeliveryStream_deliveryStreamEncryptionConfigurationInput = Lens.lens (\CreateDeliveryStream' {deliveryStreamEncryptionConfigurationInput} -> deliveryStreamEncryptionConfigurationInput) (\s@CreateDeliveryStream' {} a -> s {deliveryStreamEncryptionConfigurationInput = a} :: CreateDeliveryStream)
-
 -- | The destination in Amazon S3. You can specify only one destination.
 createDeliveryStream_extendedS3DestinationConfiguration :: Lens.Lens' CreateDeliveryStream (Prelude.Maybe ExtendedS3DestinationConfiguration)
 createDeliveryStream_extendedS3DestinationConfiguration = Lens.lens (\CreateDeliveryStream' {extendedS3DestinationConfiguration} -> extendedS3DestinationConfiguration) (\s@CreateDeliveryStream' {} a -> s {extendedS3DestinationConfiguration = a} :: CreateDeliveryStream)
+
+-- | Enables configuring Kinesis Firehose to deliver data to any HTTP
+-- endpoint destination. You can specify only one destination.
+createDeliveryStream_httpEndpointDestinationConfiguration :: Lens.Lens' CreateDeliveryStream (Prelude.Maybe HttpEndpointDestinationConfiguration)
+createDeliveryStream_httpEndpointDestinationConfiguration = Lens.lens (\CreateDeliveryStream' {httpEndpointDestinationConfiguration} -> httpEndpointDestinationConfiguration) (\s@CreateDeliveryStream' {} a -> s {httpEndpointDestinationConfiguration = a} :: CreateDeliveryStream)
 
 -- | When a Kinesis data stream is used as the source for the delivery
 -- stream, a KinesisStreamSourceConfiguration containing the Kinesis data
@@ -324,14 +321,36 @@ createDeliveryStream_extendedS3DestinationConfiguration = Lens.lens (\CreateDeli
 createDeliveryStream_kinesisStreamSourceConfiguration :: Lens.Lens' CreateDeliveryStream (Prelude.Maybe KinesisStreamSourceConfiguration)
 createDeliveryStream_kinesisStreamSourceConfiguration = Lens.lens (\CreateDeliveryStream' {kinesisStreamSourceConfiguration} -> kinesisStreamSourceConfiguration) (\s@CreateDeliveryStream' {} a -> s {kinesisStreamSourceConfiguration = a} :: CreateDeliveryStream)
 
--- | Undocumented member.
-createDeliveryStream_amazonopensearchserviceDestinationConfiguration :: Lens.Lens' CreateDeliveryStream (Prelude.Maybe AmazonopensearchserviceDestinationConfiguration)
-createDeliveryStream_amazonopensearchserviceDestinationConfiguration = Lens.lens (\CreateDeliveryStream' {amazonopensearchserviceDestinationConfiguration} -> amazonopensearchserviceDestinationConfiguration) (\s@CreateDeliveryStream' {} a -> s {amazonopensearchserviceDestinationConfiguration = a} :: CreateDeliveryStream)
+-- | The destination in Amazon Redshift. You can specify only one
+-- destination.
+createDeliveryStream_redshiftDestinationConfiguration :: Lens.Lens' CreateDeliveryStream (Prelude.Maybe RedshiftDestinationConfiguration)
+createDeliveryStream_redshiftDestinationConfiguration = Lens.lens (\CreateDeliveryStream' {redshiftDestinationConfiguration} -> redshiftDestinationConfiguration) (\s@CreateDeliveryStream' {} a -> s {redshiftDestinationConfiguration = a} :: CreateDeliveryStream)
 
--- | The name of the delivery stream. This name must be unique per AWS
--- account in the same AWS Region. If the delivery streams are in different
--- accounts or different Regions, you can have multiple delivery streams
--- with the same name.
+-- | [Deprecated] The destination in Amazon S3. You can specify only one
+-- destination.
+createDeliveryStream_s3DestinationConfiguration :: Lens.Lens' CreateDeliveryStream (Prelude.Maybe S3DestinationConfiguration)
+createDeliveryStream_s3DestinationConfiguration = Lens.lens (\CreateDeliveryStream' {s3DestinationConfiguration} -> s3DestinationConfiguration) (\s@CreateDeliveryStream' {} a -> s {s3DestinationConfiguration = a} :: CreateDeliveryStream)
+
+-- | The destination in Splunk. You can specify only one destination.
+createDeliveryStream_splunkDestinationConfiguration :: Lens.Lens' CreateDeliveryStream (Prelude.Maybe SplunkDestinationConfiguration)
+createDeliveryStream_splunkDestinationConfiguration = Lens.lens (\CreateDeliveryStream' {splunkDestinationConfiguration} -> splunkDestinationConfiguration) (\s@CreateDeliveryStream' {} a -> s {splunkDestinationConfiguration = a} :: CreateDeliveryStream)
+
+-- | A set of tags to assign to the delivery stream. A tag is a key-value
+-- pair that you can define and assign to Amazon Web Services resources.
+-- Tags are metadata. For example, you can add friendly names and
+-- descriptions or other types of information that can help you distinguish
+-- the delivery stream. For more information about tags, see
+-- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Using Cost Allocation Tags>
+-- in the Amazon Web Services Billing and Cost Management User Guide.
+--
+-- You can specify up to 50 tags when creating a delivery stream.
+createDeliveryStream_tags :: Lens.Lens' CreateDeliveryStream (Prelude.Maybe (Prelude.NonEmpty Tag))
+createDeliveryStream_tags = Lens.lens (\CreateDeliveryStream' {tags} -> tags) (\s@CreateDeliveryStream' {} a -> s {tags = a} :: CreateDeliveryStream) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the delivery stream. This name must be unique per Amazon Web
+-- Services account in the same Amazon Web Services Region. If the delivery
+-- streams are in different accounts or different Regions, you can have
+-- multiple delivery streams with the same name.
 createDeliveryStream_deliveryStreamName :: Lens.Lens' CreateDeliveryStream Prelude.Text
 createDeliveryStream_deliveryStreamName = Lens.lens (\CreateDeliveryStream' {deliveryStreamName} -> deliveryStreamName) (\s@CreateDeliveryStream' {} a -> s {deliveryStreamName = a} :: CreateDeliveryStream)
 
@@ -351,34 +370,38 @@ instance Core.AWSRequest CreateDeliveryStream where
 
 instance Prelude.Hashable CreateDeliveryStream where
   hashWithSalt _salt CreateDeliveryStream' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` s3DestinationConfiguration
-      `Prelude.hashWithSalt` httpEndpointDestinationConfiguration
-      `Prelude.hashWithSalt` deliveryStreamType
-      `Prelude.hashWithSalt` splunkDestinationConfiguration
-      `Prelude.hashWithSalt` elasticsearchDestinationConfiguration
-      `Prelude.hashWithSalt` redshiftDestinationConfiguration
-      `Prelude.hashWithSalt` deliveryStreamEncryptionConfigurationInput
-      `Prelude.hashWithSalt` extendedS3DestinationConfiguration
-      `Prelude.hashWithSalt` kinesisStreamSourceConfiguration
+    _salt
+      `Prelude.hashWithSalt` amazonOpenSearchServerlessDestinationConfiguration
       `Prelude.hashWithSalt` amazonopensearchserviceDestinationConfiguration
+      `Prelude.hashWithSalt` deliveryStreamEncryptionConfigurationInput
+      `Prelude.hashWithSalt` deliveryStreamType
+      `Prelude.hashWithSalt` elasticsearchDestinationConfiguration
+      `Prelude.hashWithSalt` extendedS3DestinationConfiguration
+      `Prelude.hashWithSalt` httpEndpointDestinationConfiguration
+      `Prelude.hashWithSalt` kinesisStreamSourceConfiguration
+      `Prelude.hashWithSalt` redshiftDestinationConfiguration
+      `Prelude.hashWithSalt` s3DestinationConfiguration
+      `Prelude.hashWithSalt` splunkDestinationConfiguration
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` deliveryStreamName
 
 instance Prelude.NFData CreateDeliveryStream where
   rnf CreateDeliveryStream' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf s3DestinationConfiguration
-      `Prelude.seq` Prelude.rnf httpEndpointDestinationConfiguration
-      `Prelude.seq` Prelude.rnf deliveryStreamType
-      `Prelude.seq` Prelude.rnf splunkDestinationConfiguration
-      `Prelude.seq` Prelude.rnf elasticsearchDestinationConfiguration
-      `Prelude.seq` Prelude.rnf redshiftDestinationConfiguration
-      `Prelude.seq` Prelude.rnf
-        deliveryStreamEncryptionConfigurationInput
-      `Prelude.seq` Prelude.rnf extendedS3DestinationConfiguration
-      `Prelude.seq` Prelude.rnf kinesisStreamSourceConfiguration
+    Prelude.rnf
+      amazonOpenSearchServerlessDestinationConfiguration
       `Prelude.seq` Prelude.rnf
         amazonopensearchserviceDestinationConfiguration
+      `Prelude.seq` Prelude.rnf
+        deliveryStreamEncryptionConfigurationInput
+      `Prelude.seq` Prelude.rnf deliveryStreamType
+      `Prelude.seq` Prelude.rnf elasticsearchDestinationConfiguration
+      `Prelude.seq` Prelude.rnf extendedS3DestinationConfiguration
+      `Prelude.seq` Prelude.rnf httpEndpointDestinationConfiguration
+      `Prelude.seq` Prelude.rnf kinesisStreamSourceConfiguration
+      `Prelude.seq` Prelude.rnf redshiftDestinationConfiguration
+      `Prelude.seq` Prelude.rnf s3DestinationConfiguration
+      `Prelude.seq` Prelude.rnf splunkDestinationConfiguration
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf deliveryStreamName
 
 instance Data.ToHeaders CreateDeliveryStream where
@@ -400,31 +423,35 @@ instance Data.ToJSON CreateDeliveryStream where
   toJSON CreateDeliveryStream' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("S3DestinationConfiguration" Data..=)
-              Prelude.<$> s3DestinationConfiguration,
-            ("HttpEndpointDestinationConfiguration" Data..=)
-              Prelude.<$> httpEndpointDestinationConfiguration,
-            ("DeliveryStreamType" Data..=)
-              Prelude.<$> deliveryStreamType,
-            ("SplunkDestinationConfiguration" Data..=)
-              Prelude.<$> splunkDestinationConfiguration,
-            ("ElasticsearchDestinationConfiguration" Data..=)
-              Prelude.<$> elasticsearchDestinationConfiguration,
-            ("RedshiftDestinationConfiguration" Data..=)
-              Prelude.<$> redshiftDestinationConfiguration,
-            ( "DeliveryStreamEncryptionConfigurationInput"
+          [ ( "AmazonOpenSearchServerlessDestinationConfiguration"
                 Data..=
             )
-              Prelude.<$> deliveryStreamEncryptionConfigurationInput,
-            ("ExtendedS3DestinationConfiguration" Data..=)
-              Prelude.<$> extendedS3DestinationConfiguration,
-            ("KinesisStreamSourceConfiguration" Data..=)
-              Prelude.<$> kinesisStreamSourceConfiguration,
+              Prelude.<$> amazonOpenSearchServerlessDestinationConfiguration,
             ( "AmazonopensearchserviceDestinationConfiguration"
                 Data..=
             )
               Prelude.<$> amazonopensearchserviceDestinationConfiguration,
+            ( "DeliveryStreamEncryptionConfigurationInput"
+                Data..=
+            )
+              Prelude.<$> deliveryStreamEncryptionConfigurationInput,
+            ("DeliveryStreamType" Data..=)
+              Prelude.<$> deliveryStreamType,
+            ("ElasticsearchDestinationConfiguration" Data..=)
+              Prelude.<$> elasticsearchDestinationConfiguration,
+            ("ExtendedS3DestinationConfiguration" Data..=)
+              Prelude.<$> extendedS3DestinationConfiguration,
+            ("HttpEndpointDestinationConfiguration" Data..=)
+              Prelude.<$> httpEndpointDestinationConfiguration,
+            ("KinesisStreamSourceConfiguration" Data..=)
+              Prelude.<$> kinesisStreamSourceConfiguration,
+            ("RedshiftDestinationConfiguration" Data..=)
+              Prelude.<$> redshiftDestinationConfiguration,
+            ("S3DestinationConfiguration" Data..=)
+              Prelude.<$> s3DestinationConfiguration,
+            ("SplunkDestinationConfiguration" Data..=)
+              Prelude.<$> splunkDestinationConfiguration,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("DeliveryStreamName" Data..= deliveryStreamName)
           ]

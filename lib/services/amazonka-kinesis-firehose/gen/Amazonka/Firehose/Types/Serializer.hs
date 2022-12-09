@@ -35,14 +35,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSerializer' smart constructor.
 data Serializer = Serializer'
-  { -- | A serializer to use for converting data to the Parquet format before
-    -- storing it in Amazon S3. For more information, see
-    -- <https://parquet.apache.org/documentation/latest/ Apache Parquet>.
-    parquetSerDe :: Prelude.Maybe ParquetSerDe,
-    -- | A serializer to use for converting data to the ORC format before storing
+  { -- | A serializer to use for converting data to the ORC format before storing
     -- it in Amazon S3. For more information, see
     -- <https://orc.apache.org/docs/ Apache ORC>.
-    orcSerDe :: Prelude.Maybe OrcSerDe
+    orcSerDe :: Prelude.Maybe OrcSerDe,
+    -- | A serializer to use for converting data to the Parquet format before
+    -- storing it in Amazon S3. For more information, see
+    -- <https://parquet.apache.org/documentation/latest/ Apache Parquet>.
+    parquetSerDe :: Prelude.Maybe ParquetSerDe
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,26 +54,20 @@ data Serializer = Serializer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parquetSerDe', 'serializer_parquetSerDe' - A serializer to use for converting data to the Parquet format before
--- storing it in Amazon S3. For more information, see
--- <https://parquet.apache.org/documentation/latest/ Apache Parquet>.
---
 -- 'orcSerDe', 'serializer_orcSerDe' - A serializer to use for converting data to the ORC format before storing
 -- it in Amazon S3. For more information, see
 -- <https://orc.apache.org/docs/ Apache ORC>.
+--
+-- 'parquetSerDe', 'serializer_parquetSerDe' - A serializer to use for converting data to the Parquet format before
+-- storing it in Amazon S3. For more information, see
+-- <https://parquet.apache.org/documentation/latest/ Apache Parquet>.
 newSerializer ::
   Serializer
 newSerializer =
   Serializer'
-    { parquetSerDe = Prelude.Nothing,
-      orcSerDe = Prelude.Nothing
+    { orcSerDe = Prelude.Nothing,
+      parquetSerDe = Prelude.Nothing
     }
-
--- | A serializer to use for converting data to the Parquet format before
--- storing it in Amazon S3. For more information, see
--- <https://parquet.apache.org/documentation/latest/ Apache Parquet>.
-serializer_parquetSerDe :: Lens.Lens' Serializer (Prelude.Maybe ParquetSerDe)
-serializer_parquetSerDe = Lens.lens (\Serializer' {parquetSerDe} -> parquetSerDe) (\s@Serializer' {} a -> s {parquetSerDe = a} :: Serializer)
 
 -- | A serializer to use for converting data to the ORC format before storing
 -- it in Amazon S3. For more information, see
@@ -81,31 +75,37 @@ serializer_parquetSerDe = Lens.lens (\Serializer' {parquetSerDe} -> parquetSerDe
 serializer_orcSerDe :: Lens.Lens' Serializer (Prelude.Maybe OrcSerDe)
 serializer_orcSerDe = Lens.lens (\Serializer' {orcSerDe} -> orcSerDe) (\s@Serializer' {} a -> s {orcSerDe = a} :: Serializer)
 
+-- | A serializer to use for converting data to the Parquet format before
+-- storing it in Amazon S3. For more information, see
+-- <https://parquet.apache.org/documentation/latest/ Apache Parquet>.
+serializer_parquetSerDe :: Lens.Lens' Serializer (Prelude.Maybe ParquetSerDe)
+serializer_parquetSerDe = Lens.lens (\Serializer' {parquetSerDe} -> parquetSerDe) (\s@Serializer' {} a -> s {parquetSerDe = a} :: Serializer)
+
 instance Data.FromJSON Serializer where
   parseJSON =
     Data.withObject
       "Serializer"
       ( \x ->
           Serializer'
-            Prelude.<$> (x Data..:? "ParquetSerDe")
-            Prelude.<*> (x Data..:? "OrcSerDe")
+            Prelude.<$> (x Data..:? "OrcSerDe")
+            Prelude.<*> (x Data..:? "ParquetSerDe")
       )
 
 instance Prelude.Hashable Serializer where
   hashWithSalt _salt Serializer' {..} =
-    _salt `Prelude.hashWithSalt` parquetSerDe
-      `Prelude.hashWithSalt` orcSerDe
+    _salt `Prelude.hashWithSalt` orcSerDe
+      `Prelude.hashWithSalt` parquetSerDe
 
 instance Prelude.NFData Serializer where
   rnf Serializer' {..} =
-    Prelude.rnf parquetSerDe
-      `Prelude.seq` Prelude.rnf orcSerDe
+    Prelude.rnf orcSerDe
+      `Prelude.seq` Prelude.rnf parquetSerDe
 
 instance Data.ToJSON Serializer where
   toJSON Serializer' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ParquetSerDe" Data..=) Prelude.<$> parquetSerDe,
-            ("OrcSerDe" Data..=) Prelude.<$> orcSerDe
+          [ ("OrcSerDe" Data..=) Prelude.<$> orcSerDe,
+            ("ParquetSerDe" Data..=) Prelude.<$> parquetSerDe
           ]
       )

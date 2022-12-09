@@ -29,17 +29,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newKinesisStreamSourceDescription' smart constructor.
 data KinesisStreamSourceDescription = KinesisStreamSourceDescription'
-  { -- | The ARN of the role used by the source Kinesis data stream. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM) ARN Format>.
-    roleARN :: Prelude.Maybe Prelude.Text,
+  { -- | Kinesis Data Firehose starts retrieving records from the Kinesis data
+    -- stream starting with this timestamp.
+    deliveryStartTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the source Kinesis data stream. For
     -- more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Kinesis Data Streams ARN Format>.
     kinesisStreamARN :: Prelude.Maybe Prelude.Text,
-    -- | Kinesis Data Firehose starts retrieving records from the Kinesis data
-    -- stream starting with this timestamp.
-    deliveryStartTimestamp :: Prelude.Maybe Data.POSIX
+    -- | The ARN of the role used by the source Kinesis data stream. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam Amazon Web Services Identity and Access Management (IAM) ARN Format>.
+    roleARN :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,31 +51,30 @@ data KinesisStreamSourceDescription = KinesisStreamSourceDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleARN', 'kinesisStreamSourceDescription_roleARN' - The ARN of the role used by the source Kinesis data stream. For more
--- information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM) ARN Format>.
+-- 'deliveryStartTimestamp', 'kinesisStreamSourceDescription_deliveryStartTimestamp' - Kinesis Data Firehose starts retrieving records from the Kinesis data
+-- stream starting with this timestamp.
 --
 -- 'kinesisStreamARN', 'kinesisStreamSourceDescription_kinesisStreamARN' - The Amazon Resource Name (ARN) of the source Kinesis data stream. For
 -- more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Kinesis Data Streams ARN Format>.
 --
--- 'deliveryStartTimestamp', 'kinesisStreamSourceDescription_deliveryStartTimestamp' - Kinesis Data Firehose starts retrieving records from the Kinesis data
--- stream starting with this timestamp.
+-- 'roleARN', 'kinesisStreamSourceDescription_roleARN' - The ARN of the role used by the source Kinesis data stream. For more
+-- information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam Amazon Web Services Identity and Access Management (IAM) ARN Format>.
 newKinesisStreamSourceDescription ::
   KinesisStreamSourceDescription
 newKinesisStreamSourceDescription =
   KinesisStreamSourceDescription'
-    { roleARN =
+    { deliveryStartTimestamp =
         Prelude.Nothing,
       kinesisStreamARN = Prelude.Nothing,
-      deliveryStartTimestamp = Prelude.Nothing
+      roleARN = Prelude.Nothing
     }
 
--- | The ARN of the role used by the source Kinesis data stream. For more
--- information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM) ARN Format>.
-kinesisStreamSourceDescription_roleARN :: Lens.Lens' KinesisStreamSourceDescription (Prelude.Maybe Prelude.Text)
-kinesisStreamSourceDescription_roleARN = Lens.lens (\KinesisStreamSourceDescription' {roleARN} -> roleARN) (\s@KinesisStreamSourceDescription' {} a -> s {roleARN = a} :: KinesisStreamSourceDescription)
+-- | Kinesis Data Firehose starts retrieving records from the Kinesis data
+-- stream starting with this timestamp.
+kinesisStreamSourceDescription_deliveryStartTimestamp :: Lens.Lens' KinesisStreamSourceDescription (Prelude.Maybe Prelude.UTCTime)
+kinesisStreamSourceDescription_deliveryStartTimestamp = Lens.lens (\KinesisStreamSourceDescription' {deliveryStartTimestamp} -> deliveryStartTimestamp) (\s@KinesisStreamSourceDescription' {} a -> s {deliveryStartTimestamp = a} :: KinesisStreamSourceDescription) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the source Kinesis data stream. For
 -- more information, see
@@ -83,10 +82,11 @@ kinesisStreamSourceDescription_roleARN = Lens.lens (\KinesisStreamSourceDescript
 kinesisStreamSourceDescription_kinesisStreamARN :: Lens.Lens' KinesisStreamSourceDescription (Prelude.Maybe Prelude.Text)
 kinesisStreamSourceDescription_kinesisStreamARN = Lens.lens (\KinesisStreamSourceDescription' {kinesisStreamARN} -> kinesisStreamARN) (\s@KinesisStreamSourceDescription' {} a -> s {kinesisStreamARN = a} :: KinesisStreamSourceDescription)
 
--- | Kinesis Data Firehose starts retrieving records from the Kinesis data
--- stream starting with this timestamp.
-kinesisStreamSourceDescription_deliveryStartTimestamp :: Lens.Lens' KinesisStreamSourceDescription (Prelude.Maybe Prelude.UTCTime)
-kinesisStreamSourceDescription_deliveryStartTimestamp = Lens.lens (\KinesisStreamSourceDescription' {deliveryStartTimestamp} -> deliveryStartTimestamp) (\s@KinesisStreamSourceDescription' {} a -> s {deliveryStartTimestamp = a} :: KinesisStreamSourceDescription) Prelude.. Lens.mapping Data._Time
+-- | The ARN of the role used by the source Kinesis data stream. For more
+-- information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam Amazon Web Services Identity and Access Management (IAM) ARN Format>.
+kinesisStreamSourceDescription_roleARN :: Lens.Lens' KinesisStreamSourceDescription (Prelude.Maybe Prelude.Text)
+kinesisStreamSourceDescription_roleARN = Lens.lens (\KinesisStreamSourceDescription' {roleARN} -> roleARN) (\s@KinesisStreamSourceDescription' {} a -> s {roleARN = a} :: KinesisStreamSourceDescription)
 
 instance Data.FromJSON KinesisStreamSourceDescription where
   parseJSON =
@@ -94,9 +94,9 @@ instance Data.FromJSON KinesisStreamSourceDescription where
       "KinesisStreamSourceDescription"
       ( \x ->
           KinesisStreamSourceDescription'
-            Prelude.<$> (x Data..:? "RoleARN")
+            Prelude.<$> (x Data..:? "DeliveryStartTimestamp")
             Prelude.<*> (x Data..:? "KinesisStreamARN")
-            Prelude.<*> (x Data..:? "DeliveryStartTimestamp")
+            Prelude.<*> (x Data..:? "RoleARN")
       )
 
 instance
@@ -106,15 +106,15 @@ instance
   hashWithSalt
     _salt
     KinesisStreamSourceDescription' {..} =
-      _salt `Prelude.hashWithSalt` roleARN
+      _salt `Prelude.hashWithSalt` deliveryStartTimestamp
         `Prelude.hashWithSalt` kinesisStreamARN
-        `Prelude.hashWithSalt` deliveryStartTimestamp
+        `Prelude.hashWithSalt` roleARN
 
 instance
   Prelude.NFData
     KinesisStreamSourceDescription
   where
   rnf KinesisStreamSourceDescription' {..} =
-    Prelude.rnf roleARN
+    Prelude.rnf deliveryStartTimestamp
       `Prelude.seq` Prelude.rnf kinesisStreamARN
-      `Prelude.seq` Prelude.rnf deliveryStartTimestamp
+      `Prelude.seq` Prelude.rnf roleARN

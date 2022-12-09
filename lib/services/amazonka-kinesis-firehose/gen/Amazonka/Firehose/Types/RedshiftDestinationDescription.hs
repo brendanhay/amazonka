@@ -34,20 +34,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRedshiftDestinationDescription' smart constructor.
 data RedshiftDestinationDescription = RedshiftDestinationDescription'
-  { -- | The data processing configuration.
-    processingConfiguration :: Prelude.Maybe ProcessingConfiguration,
-    -- | The configuration for backup in Amazon S3.
-    s3BackupDescription :: Prelude.Maybe S3DestinationDescription,
-    -- | The Amazon CloudWatch logging options for your delivery stream.
+  { -- | The Amazon CloudWatch logging options for your delivery stream.
     cloudWatchLoggingOptions :: Prelude.Maybe CloudWatchLoggingOptions,
-    -- | The Amazon S3 backup mode.
-    s3BackupMode :: Prelude.Maybe RedshiftS3BackupMode,
+    -- | The data processing configuration.
+    processingConfiguration :: Prelude.Maybe ProcessingConfiguration,
     -- | The retry behavior in case Kinesis Data Firehose is unable to deliver
     -- documents to Amazon Redshift. Default value is 3600 (60 minutes).
     retryOptions :: Prelude.Maybe RedshiftRetryOptions,
-    -- | The Amazon Resource Name (ARN) of the AWS credentials. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+    -- | The configuration for backup in Amazon S3.
+    s3BackupDescription :: Prelude.Maybe S3DestinationDescription,
+    -- | The Amazon S3 backup mode.
+    s3BackupMode :: Prelude.Maybe RedshiftS3BackupMode,
+    -- | The Amazon Resource Name (ARN) of the Amazon Web Services credentials.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>.
     roleARN :: Prelude.Text,
     -- | The database connection string.
     clusterJDBCURL :: Prelude.Text,
@@ -68,20 +68,20 @@ data RedshiftDestinationDescription = RedshiftDestinationDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'processingConfiguration', 'redshiftDestinationDescription_processingConfiguration' - The data processing configuration.
---
--- 's3BackupDescription', 'redshiftDestinationDescription_s3BackupDescription' - The configuration for backup in Amazon S3.
---
 -- 'cloudWatchLoggingOptions', 'redshiftDestinationDescription_cloudWatchLoggingOptions' - The Amazon CloudWatch logging options for your delivery stream.
 --
--- 's3BackupMode', 'redshiftDestinationDescription_s3BackupMode' - The Amazon S3 backup mode.
+-- 'processingConfiguration', 'redshiftDestinationDescription_processingConfiguration' - The data processing configuration.
 --
 -- 'retryOptions', 'redshiftDestinationDescription_retryOptions' - The retry behavior in case Kinesis Data Firehose is unable to deliver
 -- documents to Amazon Redshift. Default value is 3600 (60 minutes).
 --
--- 'roleARN', 'redshiftDestinationDescription_roleARN' - The Amazon Resource Name (ARN) of the AWS credentials. For more
--- information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+-- 's3BackupDescription', 'redshiftDestinationDescription_s3BackupDescription' - The configuration for backup in Amazon S3.
+--
+-- 's3BackupMode', 'redshiftDestinationDescription_s3BackupMode' - The Amazon S3 backup mode.
+--
+-- 'roleARN', 'redshiftDestinationDescription_roleARN' - The Amazon Resource Name (ARN) of the Amazon Web Services credentials.
+-- For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>.
 --
 -- 'clusterJDBCURL', 'redshiftDestinationDescription_clusterJDBCURL' - The database connection string.
 --
@@ -109,12 +109,12 @@ newRedshiftDestinationDescription
   pUsername_
   pS3DestinationDescription_ =
     RedshiftDestinationDescription'
-      { processingConfiguration =
+      { cloudWatchLoggingOptions =
           Prelude.Nothing,
-        s3BackupDescription = Prelude.Nothing,
-        cloudWatchLoggingOptions = Prelude.Nothing,
-        s3BackupMode = Prelude.Nothing,
+        processingConfiguration = Prelude.Nothing,
         retryOptions = Prelude.Nothing,
+        s3BackupDescription = Prelude.Nothing,
+        s3BackupMode = Prelude.Nothing,
         roleARN = pRoleARN_,
         clusterJDBCURL = pClusterJDBCURL_,
         copyCommand = pCopyCommand_,
@@ -124,30 +124,30 @@ newRedshiftDestinationDescription
           pS3DestinationDescription_
       }
 
--- | The data processing configuration.
-redshiftDestinationDescription_processingConfiguration :: Lens.Lens' RedshiftDestinationDescription (Prelude.Maybe ProcessingConfiguration)
-redshiftDestinationDescription_processingConfiguration = Lens.lens (\RedshiftDestinationDescription' {processingConfiguration} -> processingConfiguration) (\s@RedshiftDestinationDescription' {} a -> s {processingConfiguration = a} :: RedshiftDestinationDescription)
-
--- | The configuration for backup in Amazon S3.
-redshiftDestinationDescription_s3BackupDescription :: Lens.Lens' RedshiftDestinationDescription (Prelude.Maybe S3DestinationDescription)
-redshiftDestinationDescription_s3BackupDescription = Lens.lens (\RedshiftDestinationDescription' {s3BackupDescription} -> s3BackupDescription) (\s@RedshiftDestinationDescription' {} a -> s {s3BackupDescription = a} :: RedshiftDestinationDescription)
-
 -- | The Amazon CloudWatch logging options for your delivery stream.
 redshiftDestinationDescription_cloudWatchLoggingOptions :: Lens.Lens' RedshiftDestinationDescription (Prelude.Maybe CloudWatchLoggingOptions)
 redshiftDestinationDescription_cloudWatchLoggingOptions = Lens.lens (\RedshiftDestinationDescription' {cloudWatchLoggingOptions} -> cloudWatchLoggingOptions) (\s@RedshiftDestinationDescription' {} a -> s {cloudWatchLoggingOptions = a} :: RedshiftDestinationDescription)
 
--- | The Amazon S3 backup mode.
-redshiftDestinationDescription_s3BackupMode :: Lens.Lens' RedshiftDestinationDescription (Prelude.Maybe RedshiftS3BackupMode)
-redshiftDestinationDescription_s3BackupMode = Lens.lens (\RedshiftDestinationDescription' {s3BackupMode} -> s3BackupMode) (\s@RedshiftDestinationDescription' {} a -> s {s3BackupMode = a} :: RedshiftDestinationDescription)
+-- | The data processing configuration.
+redshiftDestinationDescription_processingConfiguration :: Lens.Lens' RedshiftDestinationDescription (Prelude.Maybe ProcessingConfiguration)
+redshiftDestinationDescription_processingConfiguration = Lens.lens (\RedshiftDestinationDescription' {processingConfiguration} -> processingConfiguration) (\s@RedshiftDestinationDescription' {} a -> s {processingConfiguration = a} :: RedshiftDestinationDescription)
 
 -- | The retry behavior in case Kinesis Data Firehose is unable to deliver
 -- documents to Amazon Redshift. Default value is 3600 (60 minutes).
 redshiftDestinationDescription_retryOptions :: Lens.Lens' RedshiftDestinationDescription (Prelude.Maybe RedshiftRetryOptions)
 redshiftDestinationDescription_retryOptions = Lens.lens (\RedshiftDestinationDescription' {retryOptions} -> retryOptions) (\s@RedshiftDestinationDescription' {} a -> s {retryOptions = a} :: RedshiftDestinationDescription)
 
--- | The Amazon Resource Name (ARN) of the AWS credentials. For more
--- information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+-- | The configuration for backup in Amazon S3.
+redshiftDestinationDescription_s3BackupDescription :: Lens.Lens' RedshiftDestinationDescription (Prelude.Maybe S3DestinationDescription)
+redshiftDestinationDescription_s3BackupDescription = Lens.lens (\RedshiftDestinationDescription' {s3BackupDescription} -> s3BackupDescription) (\s@RedshiftDestinationDescription' {} a -> s {s3BackupDescription = a} :: RedshiftDestinationDescription)
+
+-- | The Amazon S3 backup mode.
+redshiftDestinationDescription_s3BackupMode :: Lens.Lens' RedshiftDestinationDescription (Prelude.Maybe RedshiftS3BackupMode)
+redshiftDestinationDescription_s3BackupMode = Lens.lens (\RedshiftDestinationDescription' {s3BackupMode} -> s3BackupMode) (\s@RedshiftDestinationDescription' {} a -> s {s3BackupMode = a} :: RedshiftDestinationDescription)
+
+-- | The Amazon Resource Name (ARN) of the Amazon Web Services credentials.
+-- For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>.
 redshiftDestinationDescription_roleARN :: Lens.Lens' RedshiftDestinationDescription Prelude.Text
 redshiftDestinationDescription_roleARN = Lens.lens (\RedshiftDestinationDescription' {roleARN} -> roleARN) (\s@RedshiftDestinationDescription' {} a -> s {roleARN = a} :: RedshiftDestinationDescription)
 
@@ -173,11 +173,11 @@ instance Data.FromJSON RedshiftDestinationDescription where
       "RedshiftDestinationDescription"
       ( \x ->
           RedshiftDestinationDescription'
-            Prelude.<$> (x Data..:? "ProcessingConfiguration")
-            Prelude.<*> (x Data..:? "S3BackupDescription")
-            Prelude.<*> (x Data..:? "CloudWatchLoggingOptions")
-            Prelude.<*> (x Data..:? "S3BackupMode")
+            Prelude.<$> (x Data..:? "CloudWatchLoggingOptions")
+            Prelude.<*> (x Data..:? "ProcessingConfiguration")
             Prelude.<*> (x Data..:? "RetryOptions")
+            Prelude.<*> (x Data..:? "S3BackupDescription")
+            Prelude.<*> (x Data..:? "S3BackupMode")
             Prelude.<*> (x Data..: "RoleARN")
             Prelude.<*> (x Data..: "ClusterJDBCURL")
             Prelude.<*> (x Data..: "CopyCommand")
@@ -193,11 +193,11 @@ instance
     _salt
     RedshiftDestinationDescription' {..} =
       _salt
-        `Prelude.hashWithSalt` processingConfiguration
-        `Prelude.hashWithSalt` s3BackupDescription
         `Prelude.hashWithSalt` cloudWatchLoggingOptions
-        `Prelude.hashWithSalt` s3BackupMode
+        `Prelude.hashWithSalt` processingConfiguration
         `Prelude.hashWithSalt` retryOptions
+        `Prelude.hashWithSalt` s3BackupDescription
+        `Prelude.hashWithSalt` s3BackupMode
         `Prelude.hashWithSalt` roleARN
         `Prelude.hashWithSalt` clusterJDBCURL
         `Prelude.hashWithSalt` copyCommand
@@ -209,11 +209,11 @@ instance
     RedshiftDestinationDescription
   where
   rnf RedshiftDestinationDescription' {..} =
-    Prelude.rnf processingConfiguration
-      `Prelude.seq` Prelude.rnf s3BackupDescription
-      `Prelude.seq` Prelude.rnf cloudWatchLoggingOptions
-      `Prelude.seq` Prelude.rnf s3BackupMode
+    Prelude.rnf cloudWatchLoggingOptions
+      `Prelude.seq` Prelude.rnf processingConfiguration
       `Prelude.seq` Prelude.rnf retryOptions
+      `Prelude.seq` Prelude.rnf s3BackupDescription
+      `Prelude.seq` Prelude.rnf s3BackupMode
       `Prelude.seq` Prelude.rnf roleARN
       `Prelude.seq` Prelude.rnf clusterJDBCURL
       `Prelude.seq` Prelude.rnf copyCommand

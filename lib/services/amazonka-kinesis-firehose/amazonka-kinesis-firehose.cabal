@@ -56,6 +56,12 @@ library
     Amazonka.Firehose.StopDeliveryStreamEncryption
     Amazonka.Firehose.TagDeliveryStream
     Amazonka.Firehose.Types
+    Amazonka.Firehose.Types.AmazonOpenSearchServerlessBufferingHints
+    Amazonka.Firehose.Types.AmazonOpenSearchServerlessDestinationConfiguration
+    Amazonka.Firehose.Types.AmazonOpenSearchServerlessDestinationDescription
+    Amazonka.Firehose.Types.AmazonOpenSearchServerlessDestinationUpdate
+    Amazonka.Firehose.Types.AmazonOpenSearchServerlessRetryOptions
+    Amazonka.Firehose.Types.AmazonOpenSearchServerlessS3BackupMode
     Amazonka.Firehose.Types.AmazonopensearchserviceBufferingHints
     Amazonka.Firehose.Types.AmazonopensearchserviceDestinationConfiguration
     Amazonka.Firehose.Types.AmazonopensearchserviceDestinationDescription

@@ -29,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newKMSEncryptionConfig' smart constructor.
 data KMSEncryptionConfig = KMSEncryptionConfig'
   { -- | The Amazon Resource Name (ARN) of the encryption key. Must belong to the
-    -- same AWS Region as the destination Amazon S3 bucket. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+    -- same Amazon Web Services Region as the destination Amazon S3 bucket. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>.
     aWSKMSKeyARN :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,9 +45,9 @@ data KMSEncryptionConfig = KMSEncryptionConfig'
 -- for backwards compatibility:
 --
 -- 'aWSKMSKeyARN', 'kmsEncryptionConfig_aWSKMSKeyARN' - The Amazon Resource Name (ARN) of the encryption key. Must belong to the
--- same AWS Region as the destination Amazon S3 bucket. For more
--- information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+-- same Amazon Web Services Region as the destination Amazon S3 bucket. For
+-- more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>.
 newKMSEncryptionConfig ::
   -- | 'aWSKMSKeyARN'
   Prelude.Text ->
@@ -56,9 +56,9 @@ newKMSEncryptionConfig pAWSKMSKeyARN_ =
   KMSEncryptionConfig' {aWSKMSKeyARN = pAWSKMSKeyARN_}
 
 -- | The Amazon Resource Name (ARN) of the encryption key. Must belong to the
--- same AWS Region as the destination Amazon S3 bucket. For more
--- information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+-- same Amazon Web Services Region as the destination Amazon S3 bucket. For
+-- more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>.
 kmsEncryptionConfig_aWSKMSKeyARN :: Lens.Lens' KMSEncryptionConfig Prelude.Text
 kmsEncryptionConfig_aWSKMSKeyARN = Lens.lens (\KMSEncryptionConfig' {aWSKMSKeyARN} -> aWSKMSKeyARN) (\s@KMSEncryptionConfig' {} a -> s {aWSKMSKeyARN = a} :: KMSEncryptionConfig)
 

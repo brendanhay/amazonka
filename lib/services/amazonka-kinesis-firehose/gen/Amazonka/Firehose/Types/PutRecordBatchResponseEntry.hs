@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPutRecordBatchResponseEntry' smart constructor.
 data PutRecordBatchResponseEntry = PutRecordBatchResponseEntry'
-  { -- | The error message for an individual record result.
+  { -- | The error code for an individual record result.
+    errorCode :: Prelude.Maybe Prelude.Text,
+    -- | The error message for an individual record result.
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The ID of the record.
-    recordId :: Prelude.Maybe Prelude.Text,
-    -- | The error code for an individual record result.
-    errorCode :: Prelude.Maybe Prelude.Text
+    recordId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,20 +48,24 @@ data PutRecordBatchResponseEntry = PutRecordBatchResponseEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'errorCode', 'putRecordBatchResponseEntry_errorCode' - The error code for an individual record result.
+--
 -- 'errorMessage', 'putRecordBatchResponseEntry_errorMessage' - The error message for an individual record result.
 --
 -- 'recordId', 'putRecordBatchResponseEntry_recordId' - The ID of the record.
---
--- 'errorCode', 'putRecordBatchResponseEntry_errorCode' - The error code for an individual record result.
 newPutRecordBatchResponseEntry ::
   PutRecordBatchResponseEntry
 newPutRecordBatchResponseEntry =
   PutRecordBatchResponseEntry'
-    { errorMessage =
+    { errorCode =
         Prelude.Nothing,
-      recordId = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+      errorMessage = Prelude.Nothing,
+      recordId = Prelude.Nothing
     }
+
+-- | The error code for an individual record result.
+putRecordBatchResponseEntry_errorCode :: Lens.Lens' PutRecordBatchResponseEntry (Prelude.Maybe Prelude.Text)
+putRecordBatchResponseEntry_errorCode = Lens.lens (\PutRecordBatchResponseEntry' {errorCode} -> errorCode) (\s@PutRecordBatchResponseEntry' {} a -> s {errorCode = a} :: PutRecordBatchResponseEntry)
 
 -- | The error message for an individual record result.
 putRecordBatchResponseEntry_errorMessage :: Lens.Lens' PutRecordBatchResponseEntry (Prelude.Maybe Prelude.Text)
@@ -71,29 +75,25 @@ putRecordBatchResponseEntry_errorMessage = Lens.lens (\PutRecordBatchResponseEnt
 putRecordBatchResponseEntry_recordId :: Lens.Lens' PutRecordBatchResponseEntry (Prelude.Maybe Prelude.Text)
 putRecordBatchResponseEntry_recordId = Lens.lens (\PutRecordBatchResponseEntry' {recordId} -> recordId) (\s@PutRecordBatchResponseEntry' {} a -> s {recordId = a} :: PutRecordBatchResponseEntry)
 
--- | The error code for an individual record result.
-putRecordBatchResponseEntry_errorCode :: Lens.Lens' PutRecordBatchResponseEntry (Prelude.Maybe Prelude.Text)
-putRecordBatchResponseEntry_errorCode = Lens.lens (\PutRecordBatchResponseEntry' {errorCode} -> errorCode) (\s@PutRecordBatchResponseEntry' {} a -> s {errorCode = a} :: PutRecordBatchResponseEntry)
-
 instance Data.FromJSON PutRecordBatchResponseEntry where
   parseJSON =
     Data.withObject
       "PutRecordBatchResponseEntry"
       ( \x ->
           PutRecordBatchResponseEntry'
-            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<$> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "ErrorMessage")
             Prelude.<*> (x Data..:? "RecordId")
-            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance Prelude.Hashable PutRecordBatchResponseEntry where
   hashWithSalt _salt PutRecordBatchResponseEntry' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` recordId
-      `Prelude.hashWithSalt` errorCode
 
 instance Prelude.NFData PutRecordBatchResponseEntry where
   rnf PutRecordBatchResponseEntry' {..} =
-    Prelude.rnf errorMessage
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf recordId
-      `Prelude.seq` Prelude.rnf errorCode

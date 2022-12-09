@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 data CloudWatchLoggingOptions = CloudWatchLoggingOptions'
   { -- | Enables or disables CloudWatch logging.
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The CloudWatch log stream name for logging. This value is required if
-    -- CloudWatch logging is enabled.
-    logStreamName :: Prelude.Maybe Prelude.Text,
     -- | The CloudWatch group name for logging. This value is required if
     -- CloudWatch logging is enabled.
-    logGroupName :: Prelude.Maybe Prelude.Text
+    logGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The CloudWatch log stream name for logging. This value is required if
+    -- CloudWatch logging is enabled.
+    logStreamName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,10 +50,10 @@ data CloudWatchLoggingOptions = CloudWatchLoggingOptions'
 --
 -- 'enabled', 'cloudWatchLoggingOptions_enabled' - Enables or disables CloudWatch logging.
 --
--- 'logStreamName', 'cloudWatchLoggingOptions_logStreamName' - The CloudWatch log stream name for logging. This value is required if
+-- 'logGroupName', 'cloudWatchLoggingOptions_logGroupName' - The CloudWatch group name for logging. This value is required if
 -- CloudWatch logging is enabled.
 --
--- 'logGroupName', 'cloudWatchLoggingOptions_logGroupName' - The CloudWatch group name for logging. This value is required if
+-- 'logStreamName', 'cloudWatchLoggingOptions_logStreamName' - The CloudWatch log stream name for logging. This value is required if
 -- CloudWatch logging is enabled.
 newCloudWatchLoggingOptions ::
   CloudWatchLoggingOptions
@@ -61,23 +61,23 @@ newCloudWatchLoggingOptions =
   CloudWatchLoggingOptions'
     { enabled =
         Prelude.Nothing,
-      logStreamName = Prelude.Nothing,
-      logGroupName = Prelude.Nothing
+      logGroupName = Prelude.Nothing,
+      logStreamName = Prelude.Nothing
     }
 
 -- | Enables or disables CloudWatch logging.
 cloudWatchLoggingOptions_enabled :: Lens.Lens' CloudWatchLoggingOptions (Prelude.Maybe Prelude.Bool)
 cloudWatchLoggingOptions_enabled = Lens.lens (\CloudWatchLoggingOptions' {enabled} -> enabled) (\s@CloudWatchLoggingOptions' {} a -> s {enabled = a} :: CloudWatchLoggingOptions)
 
--- | The CloudWatch log stream name for logging. This value is required if
--- CloudWatch logging is enabled.
-cloudWatchLoggingOptions_logStreamName :: Lens.Lens' CloudWatchLoggingOptions (Prelude.Maybe Prelude.Text)
-cloudWatchLoggingOptions_logStreamName = Lens.lens (\CloudWatchLoggingOptions' {logStreamName} -> logStreamName) (\s@CloudWatchLoggingOptions' {} a -> s {logStreamName = a} :: CloudWatchLoggingOptions)
-
 -- | The CloudWatch group name for logging. This value is required if
 -- CloudWatch logging is enabled.
 cloudWatchLoggingOptions_logGroupName :: Lens.Lens' CloudWatchLoggingOptions (Prelude.Maybe Prelude.Text)
 cloudWatchLoggingOptions_logGroupName = Lens.lens (\CloudWatchLoggingOptions' {logGroupName} -> logGroupName) (\s@CloudWatchLoggingOptions' {} a -> s {logGroupName = a} :: CloudWatchLoggingOptions)
+
+-- | The CloudWatch log stream name for logging. This value is required if
+-- CloudWatch logging is enabled.
+cloudWatchLoggingOptions_logStreamName :: Lens.Lens' CloudWatchLoggingOptions (Prelude.Maybe Prelude.Text)
+cloudWatchLoggingOptions_logStreamName = Lens.lens (\CloudWatchLoggingOptions' {logStreamName} -> logStreamName) (\s@CloudWatchLoggingOptions' {} a -> s {logStreamName = a} :: CloudWatchLoggingOptions)
 
 instance Data.FromJSON CloudWatchLoggingOptions where
   parseJSON =
@@ -86,28 +86,28 @@ instance Data.FromJSON CloudWatchLoggingOptions where
       ( \x ->
           CloudWatchLoggingOptions'
             Prelude.<$> (x Data..:? "Enabled")
-            Prelude.<*> (x Data..:? "LogStreamName")
             Prelude.<*> (x Data..:? "LogGroupName")
+            Prelude.<*> (x Data..:? "LogStreamName")
       )
 
 instance Prelude.Hashable CloudWatchLoggingOptions where
   hashWithSalt _salt CloudWatchLoggingOptions' {..} =
     _salt `Prelude.hashWithSalt` enabled
-      `Prelude.hashWithSalt` logStreamName
       `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` logStreamName
 
 instance Prelude.NFData CloudWatchLoggingOptions where
   rnf CloudWatchLoggingOptions' {..} =
     Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf logStreamName
       `Prelude.seq` Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf logStreamName
 
 instance Data.ToJSON CloudWatchLoggingOptions where
   toJSON CloudWatchLoggingOptions' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("Enabled" Data..=) Prelude.<$> enabled,
-            ("LogStreamName" Data..=) Prelude.<$> logStreamName,
-            ("LogGroupName" Data..=) Prelude.<$> logGroupName
+            ("LogGroupName" Data..=) Prelude.<$> logGroupName,
+            ("LogStreamName" Data..=) Prelude.<$> logStreamName
           ]
       )

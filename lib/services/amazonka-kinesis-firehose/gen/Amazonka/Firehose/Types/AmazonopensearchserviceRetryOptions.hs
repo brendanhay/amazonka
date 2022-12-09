@@ -24,9 +24,17 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newAmazonopensearchserviceRetryOptions' smart constructor.
+-- | Configures retry behavior in case Kinesis Data Firehose is unable to
+-- deliver documents to Amazon OpenSearch Service.
+--
+-- /See:/ 'newAmazonopensearchserviceRetryOptions' smart constructor.
 data AmazonopensearchserviceRetryOptions = AmazonopensearchserviceRetryOptions'
-  { durationInSeconds :: Prelude.Maybe Prelude.Natural
+  { -- | After an initial failure to deliver to Amazon OpenSearch Service, the
+    -- total amount of time during which Kinesis Data Firehose retries delivery
+    -- (including the first attempt). After this time has elapsed, the failed
+    -- documents are written to Amazon S3. Default value is 300 seconds (5
+    -- minutes). A value of 0 (zero) results in no retries.
+    durationInSeconds :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -38,7 +46,11 @@ data AmazonopensearchserviceRetryOptions = AmazonopensearchserviceRetryOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'durationInSeconds', 'amazonopensearchserviceRetryOptions_durationInSeconds' - Undocumented member.
+-- 'durationInSeconds', 'amazonopensearchserviceRetryOptions_durationInSeconds' - After an initial failure to deliver to Amazon OpenSearch Service, the
+-- total amount of time during which Kinesis Data Firehose retries delivery
+-- (including the first attempt). After this time has elapsed, the failed
+-- documents are written to Amazon S3. Default value is 300 seconds (5
+-- minutes). A value of 0 (zero) results in no retries.
 newAmazonopensearchserviceRetryOptions ::
   AmazonopensearchserviceRetryOptions
 newAmazonopensearchserviceRetryOptions =
@@ -47,7 +59,11 @@ newAmazonopensearchserviceRetryOptions =
         Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | After an initial failure to deliver to Amazon OpenSearch Service, the
+-- total amount of time during which Kinesis Data Firehose retries delivery
+-- (including the first attempt). After this time has elapsed, the failed
+-- documents are written to Amazon S3. Default value is 300 seconds (5
+-- minutes). A value of 0 (zero) results in no retries.
 amazonopensearchserviceRetryOptions_durationInSeconds :: Lens.Lens' AmazonopensearchserviceRetryOptions (Prelude.Maybe Prelude.Natural)
 amazonopensearchserviceRetryOptions_durationInSeconds = Lens.lens (\AmazonopensearchserviceRetryOptions' {durationInSeconds} -> durationInSeconds) (\s@AmazonopensearchserviceRetryOptions' {} a -> s {durationInSeconds = a} :: AmazonopensearchserviceRetryOptions)
 

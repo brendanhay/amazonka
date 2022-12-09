@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 data Name = Name'
   { -- | The family name of the user.
     familyName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The honorific prefix of the user. For example, \"Dr.\"
-    honorificPrefix :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A string containing a formatted version of the name for display.
     formatted :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The given name of the user.
     givenName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The honorific prefix of the user. For example, \"Dr.\"
+    honorificPrefix :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The honorific suffix of the user. For example, \"M.D.\"
     honorificSuffix :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The middle name of the user.
@@ -53,11 +53,11 @@ data Name = Name'
 --
 -- 'familyName', 'name_familyName' - The family name of the user.
 --
--- 'honorificPrefix', 'name_honorificPrefix' - The honorific prefix of the user. For example, \"Dr.\"
---
 -- 'formatted', 'name_formatted' - A string containing a formatted version of the name for display.
 --
 -- 'givenName', 'name_givenName' - The given name of the user.
+--
+-- 'honorificPrefix', 'name_honorificPrefix' - The honorific prefix of the user. For example, \"Dr.\"
 --
 -- 'honorificSuffix', 'name_honorificSuffix' - The honorific suffix of the user. For example, \"M.D.\"
 --
@@ -67,9 +67,9 @@ newName ::
 newName =
   Name'
     { familyName = Prelude.Nothing,
-      honorificPrefix = Prelude.Nothing,
       formatted = Prelude.Nothing,
       givenName = Prelude.Nothing,
+      honorificPrefix = Prelude.Nothing,
       honorificSuffix = Prelude.Nothing,
       middleName = Prelude.Nothing
     }
@@ -78,10 +78,6 @@ newName =
 name_familyName :: Lens.Lens' Name (Prelude.Maybe Prelude.Text)
 name_familyName = Lens.lens (\Name' {familyName} -> familyName) (\s@Name' {} a -> s {familyName = a} :: Name) Prelude.. Lens.mapping Data._Sensitive
 
--- | The honorific prefix of the user. For example, \"Dr.\"
-name_honorificPrefix :: Lens.Lens' Name (Prelude.Maybe Prelude.Text)
-name_honorificPrefix = Lens.lens (\Name' {honorificPrefix} -> honorificPrefix) (\s@Name' {} a -> s {honorificPrefix = a} :: Name) Prelude.. Lens.mapping Data._Sensitive
-
 -- | A string containing a formatted version of the name for display.
 name_formatted :: Lens.Lens' Name (Prelude.Maybe Prelude.Text)
 name_formatted = Lens.lens (\Name' {formatted} -> formatted) (\s@Name' {} a -> s {formatted = a} :: Name) Prelude.. Lens.mapping Data._Sensitive
@@ -89,6 +85,10 @@ name_formatted = Lens.lens (\Name' {formatted} -> formatted) (\s@Name' {} a -> s
 -- | The given name of the user.
 name_givenName :: Lens.Lens' Name (Prelude.Maybe Prelude.Text)
 name_givenName = Lens.lens (\Name' {givenName} -> givenName) (\s@Name' {} a -> s {givenName = a} :: Name) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The honorific prefix of the user. For example, \"Dr.\"
+name_honorificPrefix :: Lens.Lens' Name (Prelude.Maybe Prelude.Text)
+name_honorificPrefix = Lens.lens (\Name' {honorificPrefix} -> honorificPrefix) (\s@Name' {} a -> s {honorificPrefix = a} :: Name) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The honorific suffix of the user. For example, \"M.D.\"
 name_honorificSuffix :: Lens.Lens' Name (Prelude.Maybe Prelude.Text)
@@ -105,9 +105,9 @@ instance Data.FromJSON Name where
       ( \x ->
           Name'
             Prelude.<$> (x Data..:? "FamilyName")
-            Prelude.<*> (x Data..:? "HonorificPrefix")
             Prelude.<*> (x Data..:? "Formatted")
             Prelude.<*> (x Data..:? "GivenName")
+            Prelude.<*> (x Data..:? "HonorificPrefix")
             Prelude.<*> (x Data..:? "HonorificSuffix")
             Prelude.<*> (x Data..:? "MiddleName")
       )
@@ -115,18 +115,18 @@ instance Data.FromJSON Name where
 instance Prelude.Hashable Name where
   hashWithSalt _salt Name' {..} =
     _salt `Prelude.hashWithSalt` familyName
-      `Prelude.hashWithSalt` honorificPrefix
       `Prelude.hashWithSalt` formatted
       `Prelude.hashWithSalt` givenName
+      `Prelude.hashWithSalt` honorificPrefix
       `Prelude.hashWithSalt` honorificSuffix
       `Prelude.hashWithSalt` middleName
 
 instance Prelude.NFData Name where
   rnf Name' {..} =
     Prelude.rnf familyName
-      `Prelude.seq` Prelude.rnf honorificPrefix
       `Prelude.seq` Prelude.rnf formatted
       `Prelude.seq` Prelude.rnf givenName
+      `Prelude.seq` Prelude.rnf honorificPrefix
       `Prelude.seq` Prelude.rnf honorificSuffix
       `Prelude.seq` Prelude.rnf middleName
 
@@ -135,10 +135,10 @@ instance Data.ToJSON Name where
     Data.object
       ( Prelude.catMaybes
           [ ("FamilyName" Data..=) Prelude.<$> familyName,
-            ("HonorificPrefix" Data..=)
-              Prelude.<$> honorificPrefix,
             ("Formatted" Data..=) Prelude.<$> formatted,
             ("GivenName" Data..=) Prelude.<$> givenName,
+            ("HonorificPrefix" Data..=)
+              Prelude.<$> honorificPrefix,
             ("HonorificSuffix" Data..=)
               Prelude.<$> honorificSuffix,
             ("MiddleName" Data..=) Prelude.<$> middleName

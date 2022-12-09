@@ -19,24 +19,24 @@ module Amazonka.IdentityStore.Types
 
     -- * Errors
     _AccessDeniedException,
-    _InternalServerException,
-    _ServiceQuotaExceededException,
-    _ResourceNotFoundException,
     _ConflictException,
+    _InternalServerException,
+    _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
     _ThrottlingException,
     _ValidationException,
 
     -- * Address
     Address (..),
     newAddress,
-    address_type,
-    address_streetAddress,
-    address_formatted,
-    address_postalCode,
     address_country,
-    address_region,
+    address_formatted,
     address_locality,
+    address_postalCode,
     address_primary,
+    address_region,
+    address_streetAddress,
+    address_type,
 
     -- * AlternateIdentifier
     AlternateIdentifier (..),
@@ -57,8 +57,8 @@ module Amazonka.IdentityStore.Types
     -- * Email
     Email (..),
     newEmail,
-    email_type,
     email_primary,
+    email_type,
     email_value,
 
     -- * ExternalId
@@ -76,26 +76,26 @@ module Amazonka.IdentityStore.Types
     -- * Group
     Group (..),
     newGroup,
-    group_externalIds,
-    group_displayName,
     group_description,
+    group_displayName,
+    group_externalIds,
     group_groupId,
     group_identityStoreId,
 
     -- * GroupMembership
     GroupMembership (..),
     newGroupMembership,
+    groupMembership_groupId,
     groupMembership_memberId,
     groupMembership_membershipId,
-    groupMembership_groupId,
     groupMembership_identityStoreId,
 
     -- * GroupMembershipExistenceResult
     GroupMembershipExistenceResult (..),
     newGroupMembershipExistenceResult,
+    groupMembershipExistenceResult_groupId,
     groupMembershipExistenceResult_memberId,
     groupMembershipExistenceResult_membershipExists,
-    groupMembershipExistenceResult_groupId,
 
     -- * MemberId
     MemberId (..),
@@ -106,17 +106,17 @@ module Amazonka.IdentityStore.Types
     Name (..),
     newName,
     name_familyName,
-    name_honorificPrefix,
     name_formatted,
     name_givenName,
+    name_honorificPrefix,
     name_honorificSuffix,
     name_middleName,
 
     -- * PhoneNumber
     PhoneNumber (..),
     newPhoneNumber,
-    phoneNumber_type,
     phoneNumber_primary,
+    phoneNumber_type,
     phoneNumber_value,
 
     -- * UniqueAttribute
@@ -128,20 +128,20 @@ module Amazonka.IdentityStore.Types
     -- * User
     User (..),
     newUser,
-    user_name,
-    user_externalIds,
-    user_userName,
-    user_locale,
-    user_timezone,
-    user_displayName,
-    user_userType,
-    user_profileUrl,
-    user_preferredLanguage,
-    user_title,
-    user_emails,
     user_addresses,
+    user_displayName,
+    user_emails,
+    user_externalIds,
+    user_locale,
+    user_name,
     user_nickName,
     user_phoneNumbers,
+    user_preferredLanguage,
+    user_profileUrl,
+    user_timezone,
+    user_title,
+    user_userName,
+    user_userType,
     user_userId,
     user_identityStoreId,
   )
@@ -192,28 +192,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -221,13 +215,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -235,6 +233,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
@@ -243,29 +243,6 @@ _AccessDeniedException =
   Core._MatchServiceError
     defaultService
     "AccessDeniedException"
-
--- | The request processing has failed because of an unknown error, exception
--- or failure with an internal server.
-_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerException"
-
--- | The request would cause the number of users or groups in the identity
--- store to exceed the maximum allowed.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceQuotaExceededException"
-
--- | Indicates that a requested resource is not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
 
 -- | This request cannot be completed for one of the following reasons:
 --
@@ -280,6 +257,29 @@ _ConflictException =
   Core._MatchServiceError
     defaultService
     "ConflictException"
+
+-- | The request processing has failed because of an unknown error, exception
+-- or failure with an internal server.
+_InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerException"
+
+-- | Indicates that a requested resource is not found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+
+-- | The request would cause the number of users or groups in the identity
+-- store to exceed the maximum allowed.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceQuotaExceededException"
 
 -- | Indicates that the principal has crossed the throttling limits of the
 -- API operations.

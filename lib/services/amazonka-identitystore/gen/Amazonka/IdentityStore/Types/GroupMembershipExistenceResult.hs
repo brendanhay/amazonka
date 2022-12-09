@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGroupMembershipExistenceResult' smart constructor.
 data GroupMembershipExistenceResult = GroupMembershipExistenceResult'
-  { -- | An object that contains the identifier of a group member. Setting the
+  { -- | The identifier for a group in the identity store.
+    groupId :: Prelude.Maybe Prelude.Text,
+    -- | An object that contains the identifier of a group member. Setting the
     -- @UserID@ field to the specific identifier for a user indicates that the
     -- user is a member of the group.
     memberId :: Prelude.Maybe MemberId,
     -- | Indicates whether a membership relation exists or not.
-    membershipExists :: Prelude.Maybe (Data.Sensitive Prelude.Bool),
-    -- | The identifier for a group in the identity store.
-    groupId :: Prelude.Maybe Prelude.Text
+    membershipExists :: Prelude.Maybe (Data.Sensitive Prelude.Bool)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -49,22 +49,26 @@ data GroupMembershipExistenceResult = GroupMembershipExistenceResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'groupId', 'groupMembershipExistenceResult_groupId' - The identifier for a group in the identity store.
+--
 -- 'memberId', 'groupMembershipExistenceResult_memberId' - An object that contains the identifier of a group member. Setting the
 -- @UserID@ field to the specific identifier for a user indicates that the
 -- user is a member of the group.
 --
 -- 'membershipExists', 'groupMembershipExistenceResult_membershipExists' - Indicates whether a membership relation exists or not.
---
--- 'groupId', 'groupMembershipExistenceResult_groupId' - The identifier for a group in the identity store.
 newGroupMembershipExistenceResult ::
   GroupMembershipExistenceResult
 newGroupMembershipExistenceResult =
   GroupMembershipExistenceResult'
-    { memberId =
+    { groupId =
         Prelude.Nothing,
-      membershipExists = Prelude.Nothing,
-      groupId = Prelude.Nothing
+      memberId = Prelude.Nothing,
+      membershipExists = Prelude.Nothing
     }
+
+-- | The identifier for a group in the identity store.
+groupMembershipExistenceResult_groupId :: Lens.Lens' GroupMembershipExistenceResult (Prelude.Maybe Prelude.Text)
+groupMembershipExistenceResult_groupId = Lens.lens (\GroupMembershipExistenceResult' {groupId} -> groupId) (\s@GroupMembershipExistenceResult' {} a -> s {groupId = a} :: GroupMembershipExistenceResult)
 
 -- | An object that contains the identifier of a group member. Setting the
 -- @UserID@ field to the specific identifier for a user indicates that the
@@ -76,19 +80,15 @@ groupMembershipExistenceResult_memberId = Lens.lens (\GroupMembershipExistenceRe
 groupMembershipExistenceResult_membershipExists :: Lens.Lens' GroupMembershipExistenceResult (Prelude.Maybe Prelude.Bool)
 groupMembershipExistenceResult_membershipExists = Lens.lens (\GroupMembershipExistenceResult' {membershipExists} -> membershipExists) (\s@GroupMembershipExistenceResult' {} a -> s {membershipExists = a} :: GroupMembershipExistenceResult) Prelude.. Lens.mapping Data._Sensitive
 
--- | The identifier for a group in the identity store.
-groupMembershipExistenceResult_groupId :: Lens.Lens' GroupMembershipExistenceResult (Prelude.Maybe Prelude.Text)
-groupMembershipExistenceResult_groupId = Lens.lens (\GroupMembershipExistenceResult' {groupId} -> groupId) (\s@GroupMembershipExistenceResult' {} a -> s {groupId = a} :: GroupMembershipExistenceResult)
-
 instance Data.FromJSON GroupMembershipExistenceResult where
   parseJSON =
     Data.withObject
       "GroupMembershipExistenceResult"
       ( \x ->
           GroupMembershipExistenceResult'
-            Prelude.<$> (x Data..:? "MemberId")
+            Prelude.<$> (x Data..:? "GroupId")
+            Prelude.<*> (x Data..:? "MemberId")
             Prelude.<*> (x Data..:? "MembershipExists")
-            Prelude.<*> (x Data..:? "GroupId")
       )
 
 instance
@@ -98,15 +98,15 @@ instance
   hashWithSalt
     _salt
     GroupMembershipExistenceResult' {..} =
-      _salt `Prelude.hashWithSalt` memberId
+      _salt `Prelude.hashWithSalt` groupId
+        `Prelude.hashWithSalt` memberId
         `Prelude.hashWithSalt` membershipExists
-        `Prelude.hashWithSalt` groupId
 
 instance
   Prelude.NFData
     GroupMembershipExistenceResult
   where
   rnf GroupMembershipExistenceResult' {..} =
-    Prelude.rnf memberId
+    Prelude.rnf groupId
+      `Prelude.seq` Prelude.rnf memberId
       `Prelude.seq` Prelude.rnf membershipExists
-      `Prelude.seq` Prelude.rnf groupId

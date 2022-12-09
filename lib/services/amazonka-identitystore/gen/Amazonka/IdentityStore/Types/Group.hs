@@ -30,9 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGroup' smart constructor.
 data Group = Group'
-  { -- | A list of @ExternalId@ objects that contains the identifiers issued to
-    -- this resource by an external identity provider.
-    externalIds :: Prelude.Maybe (Prelude.NonEmpty ExternalId),
+  { -- | A string containing a description of the specified group.
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The group’s display name value. The length limit is 1,024 characters.
     -- This value can consist of letters, accented characters, symbols,
     -- numbers, punctuation, tab, new line, carriage return, space, and
@@ -40,8 +39,9 @@ data Group = Group'
     -- the group is created and stored as an attribute of the group object in
     -- the identity store.
     displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A string containing a description of the specified group.
-    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | A list of @ExternalId@ objects that contains the identifiers issued to
+    -- this resource by an external identity provider.
+    externalIds :: Prelude.Maybe (Prelude.NonEmpty ExternalId),
     -- | The identifier for a group in the identity store.
     groupId :: Prelude.Text,
     -- | The globally unique identifier for the identity store.
@@ -57,8 +57,7 @@ data Group = Group'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'externalIds', 'group_externalIds' - A list of @ExternalId@ objects that contains the identifiers issued to
--- this resource by an external identity provider.
+-- 'description', 'group_description' - A string containing a description of the specified group.
 --
 -- 'displayName', 'group_displayName' - The group’s display name value. The length limit is 1,024 characters.
 -- This value can consist of letters, accented characters, symbols,
@@ -67,7 +66,8 @@ data Group = Group'
 -- the group is created and stored as an attribute of the group object in
 -- the identity store.
 --
--- 'description', 'group_description' - A string containing a description of the specified group.
+-- 'externalIds', 'group_externalIds' - A list of @ExternalId@ objects that contains the identifiers issued to
+-- this resource by an external identity provider.
 --
 -- 'groupId', 'group_groupId' - The identifier for a group in the identity store.
 --
@@ -80,17 +80,16 @@ newGroup ::
   Group
 newGroup pGroupId_ pIdentityStoreId_ =
   Group'
-    { externalIds = Prelude.Nothing,
+    { description = Prelude.Nothing,
       displayName = Prelude.Nothing,
-      description = Prelude.Nothing,
+      externalIds = Prelude.Nothing,
       groupId = pGroupId_,
       identityStoreId = pIdentityStoreId_
     }
 
--- | A list of @ExternalId@ objects that contains the identifiers issued to
--- this resource by an external identity provider.
-group_externalIds :: Lens.Lens' Group (Prelude.Maybe (Prelude.NonEmpty ExternalId))
-group_externalIds = Lens.lens (\Group' {externalIds} -> externalIds) (\s@Group' {} a -> s {externalIds = a} :: Group) Prelude.. Lens.mapping Lens.coerced
+-- | A string containing a description of the specified group.
+group_description :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
+group_description = Lens.lens (\Group' {description} -> description) (\s@Group' {} a -> s {description = a} :: Group) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The group’s display name value. The length limit is 1,024 characters.
 -- This value can consist of letters, accented characters, symbols,
@@ -101,9 +100,10 @@ group_externalIds = Lens.lens (\Group' {externalIds} -> externalIds) (\s@Group' 
 group_displayName :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
 group_displayName = Lens.lens (\Group' {displayName} -> displayName) (\s@Group' {} a -> s {displayName = a} :: Group) Prelude.. Lens.mapping Data._Sensitive
 
--- | A string containing a description of the specified group.
-group_description :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
-group_description = Lens.lens (\Group' {description} -> description) (\s@Group' {} a -> s {description = a} :: Group) Prelude.. Lens.mapping Data._Sensitive
+-- | A list of @ExternalId@ objects that contains the identifiers issued to
+-- this resource by an external identity provider.
+group_externalIds :: Lens.Lens' Group (Prelude.Maybe (Prelude.NonEmpty ExternalId))
+group_externalIds = Lens.lens (\Group' {externalIds} -> externalIds) (\s@Group' {} a -> s {externalIds = a} :: Group) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier for a group in the identity store.
 group_groupId :: Lens.Lens' Group Prelude.Text
@@ -119,25 +119,25 @@ instance Data.FromJSON Group where
       "Group"
       ( \x ->
           Group'
-            Prelude.<$> (x Data..:? "ExternalIds")
+            Prelude.<$> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "DisplayName")
-            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "ExternalIds")
             Prelude.<*> (x Data..: "GroupId")
             Prelude.<*> (x Data..: "IdentityStoreId")
       )
 
 instance Prelude.Hashable Group where
   hashWithSalt _salt Group' {..} =
-    _salt `Prelude.hashWithSalt` externalIds
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayName
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` externalIds
       `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` identityStoreId
 
 instance Prelude.NFData Group where
   rnf Group' {..} =
-    Prelude.rnf externalIds
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf externalIds
       `Prelude.seq` Prelude.rnf groupId
       `Prelude.seq` Prelude.rnf identityStoreId

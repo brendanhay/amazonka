@@ -33,7 +33,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDatasetImportJobSummary' smart constructor.
 data DatasetImportJobSummary = DatasetImportJobSummary'
-  { -- | The last time the resource was modified. The timestamp depends on the
+  { -- | When the dataset import job was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The location of the training data to import and an AWS Identity and
+    -- Access Management (IAM) role that Amazon Forecast can assume to access
+    -- the data. The training data must be stored in an Amazon S3 bucket.
+    --
+    -- If encryption is used, @DataSource@ includes an AWS Key Management
+    -- Service (KMS) key.
+    dataSource :: Prelude.Maybe DataSource,
+    -- | The Amazon Resource Name (ARN) of the dataset import job.
+    datasetImportJobArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the dataset import job.
+    datasetImportJobName :: Prelude.Maybe Prelude.Text,
+    -- | The last time the resource was modified. The timestamp depends on the
     -- status of the job:
     --
     -- -   @CREATE_PENDING@ - The @CreationTime@.
@@ -57,20 +70,7 @@ data DatasetImportJobSummary = DatasetImportJobSummary'
     -- -   @DELETE_PENDING@, @DELETE_IN_PROGRESS@, @DELETE_FAILED@
     --
     -- -   @CREATE_STOPPING@, @CREATE_STOPPED@
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the dataset import job.
-    datasetImportJobArn :: Prelude.Maybe Prelude.Text,
-    -- | The location of the training data to import and an AWS Identity and
-    -- Access Management (IAM) role that Amazon Forecast can assume to access
-    -- the data. The training data must be stored in an Amazon S3 bucket.
-    --
-    -- If encryption is used, @DataSource@ includes an AWS Key Management
-    -- Service (KMS) key.
-    dataSource :: Prelude.Maybe DataSource,
-    -- | When the dataset import job was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
-    -- | The name of the dataset import job.
-    datasetImportJobName :: Prelude.Maybe Prelude.Text
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,6 +81,19 @@ data DatasetImportJobSummary = DatasetImportJobSummary'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'creationTime', 'datasetImportJobSummary_creationTime' - When the dataset import job was created.
+--
+-- 'dataSource', 'datasetImportJobSummary_dataSource' - The location of the training data to import and an AWS Identity and
+-- Access Management (IAM) role that Amazon Forecast can assume to access
+-- the data. The training data must be stored in an Amazon S3 bucket.
+--
+-- If encryption is used, @DataSource@ includes an AWS Key Management
+-- Service (KMS) key.
+--
+-- 'datasetImportJobArn', 'datasetImportJobSummary_datasetImportJobArn' - The Amazon Resource Name (ARN) of the dataset import job.
+--
+-- 'datasetImportJobName', 'datasetImportJobSummary_datasetImportJobName' - The name of the dataset import job.
 --
 -- 'lastModificationTime', 'datasetImportJobSummary_lastModificationTime' - The last time the resource was modified. The timestamp depends on the
 -- status of the job:
@@ -106,32 +119,40 @@ data DatasetImportJobSummary = DatasetImportJobSummary'
 -- -   @DELETE_PENDING@, @DELETE_IN_PROGRESS@, @DELETE_FAILED@
 --
 -- -   @CREATE_STOPPING@, @CREATE_STOPPED@
---
--- 'datasetImportJobArn', 'datasetImportJobSummary_datasetImportJobArn' - The Amazon Resource Name (ARN) of the dataset import job.
---
--- 'dataSource', 'datasetImportJobSummary_dataSource' - The location of the training data to import and an AWS Identity and
+newDatasetImportJobSummary ::
+  DatasetImportJobSummary
+newDatasetImportJobSummary =
+  DatasetImportJobSummary'
+    { creationTime =
+        Prelude.Nothing,
+      dataSource = Prelude.Nothing,
+      datasetImportJobArn = Prelude.Nothing,
+      datasetImportJobName = Prelude.Nothing,
+      lastModificationTime = Prelude.Nothing,
+      message = Prelude.Nothing,
+      status = Prelude.Nothing
+    }
+
+-- | When the dataset import job was created.
+datasetImportJobSummary_creationTime :: Lens.Lens' DatasetImportJobSummary (Prelude.Maybe Prelude.UTCTime)
+datasetImportJobSummary_creationTime = Lens.lens (\DatasetImportJobSummary' {creationTime} -> creationTime) (\s@DatasetImportJobSummary' {} a -> s {creationTime = a} :: DatasetImportJobSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The location of the training data to import and an AWS Identity and
 -- Access Management (IAM) role that Amazon Forecast can assume to access
 -- the data. The training data must be stored in an Amazon S3 bucket.
 --
 -- If encryption is used, @DataSource@ includes an AWS Key Management
 -- Service (KMS) key.
---
--- 'creationTime', 'datasetImportJobSummary_creationTime' - When the dataset import job was created.
---
--- 'datasetImportJobName', 'datasetImportJobSummary_datasetImportJobName' - The name of the dataset import job.
-newDatasetImportJobSummary ::
-  DatasetImportJobSummary
-newDatasetImportJobSummary =
-  DatasetImportJobSummary'
-    { lastModificationTime =
-        Prelude.Nothing,
-      message = Prelude.Nothing,
-      status = Prelude.Nothing,
-      datasetImportJobArn = Prelude.Nothing,
-      dataSource = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      datasetImportJobName = Prelude.Nothing
-    }
+datasetImportJobSummary_dataSource :: Lens.Lens' DatasetImportJobSummary (Prelude.Maybe DataSource)
+datasetImportJobSummary_dataSource = Lens.lens (\DatasetImportJobSummary' {dataSource} -> dataSource) (\s@DatasetImportJobSummary' {} a -> s {dataSource = a} :: DatasetImportJobSummary)
+
+-- | The Amazon Resource Name (ARN) of the dataset import job.
+datasetImportJobSummary_datasetImportJobArn :: Lens.Lens' DatasetImportJobSummary (Prelude.Maybe Prelude.Text)
+datasetImportJobSummary_datasetImportJobArn = Lens.lens (\DatasetImportJobSummary' {datasetImportJobArn} -> datasetImportJobArn) (\s@DatasetImportJobSummary' {} a -> s {datasetImportJobArn = a} :: DatasetImportJobSummary)
+
+-- | The name of the dataset import job.
+datasetImportJobSummary_datasetImportJobName :: Lens.Lens' DatasetImportJobSummary (Prelude.Maybe Prelude.Text)
+datasetImportJobSummary_datasetImportJobName = Lens.lens (\DatasetImportJobSummary' {datasetImportJobName} -> datasetImportJobName) (\s@DatasetImportJobSummary' {} a -> s {datasetImportJobName = a} :: DatasetImportJobSummary)
 
 -- | The last time the resource was modified. The timestamp depends on the
 -- status of the job:
@@ -164,58 +185,37 @@ datasetImportJobSummary_message = Lens.lens (\DatasetImportJobSummary' {message}
 datasetImportJobSummary_status :: Lens.Lens' DatasetImportJobSummary (Prelude.Maybe Prelude.Text)
 datasetImportJobSummary_status = Lens.lens (\DatasetImportJobSummary' {status} -> status) (\s@DatasetImportJobSummary' {} a -> s {status = a} :: DatasetImportJobSummary)
 
--- | The Amazon Resource Name (ARN) of the dataset import job.
-datasetImportJobSummary_datasetImportJobArn :: Lens.Lens' DatasetImportJobSummary (Prelude.Maybe Prelude.Text)
-datasetImportJobSummary_datasetImportJobArn = Lens.lens (\DatasetImportJobSummary' {datasetImportJobArn} -> datasetImportJobArn) (\s@DatasetImportJobSummary' {} a -> s {datasetImportJobArn = a} :: DatasetImportJobSummary)
-
--- | The location of the training data to import and an AWS Identity and
--- Access Management (IAM) role that Amazon Forecast can assume to access
--- the data. The training data must be stored in an Amazon S3 bucket.
---
--- If encryption is used, @DataSource@ includes an AWS Key Management
--- Service (KMS) key.
-datasetImportJobSummary_dataSource :: Lens.Lens' DatasetImportJobSummary (Prelude.Maybe DataSource)
-datasetImportJobSummary_dataSource = Lens.lens (\DatasetImportJobSummary' {dataSource} -> dataSource) (\s@DatasetImportJobSummary' {} a -> s {dataSource = a} :: DatasetImportJobSummary)
-
--- | When the dataset import job was created.
-datasetImportJobSummary_creationTime :: Lens.Lens' DatasetImportJobSummary (Prelude.Maybe Prelude.UTCTime)
-datasetImportJobSummary_creationTime = Lens.lens (\DatasetImportJobSummary' {creationTime} -> creationTime) (\s@DatasetImportJobSummary' {} a -> s {creationTime = a} :: DatasetImportJobSummary) Prelude.. Lens.mapping Data._Time
-
--- | The name of the dataset import job.
-datasetImportJobSummary_datasetImportJobName :: Lens.Lens' DatasetImportJobSummary (Prelude.Maybe Prelude.Text)
-datasetImportJobSummary_datasetImportJobName = Lens.lens (\DatasetImportJobSummary' {datasetImportJobName} -> datasetImportJobName) (\s@DatasetImportJobSummary' {} a -> s {datasetImportJobName = a} :: DatasetImportJobSummary)
-
 instance Data.FromJSON DatasetImportJobSummary where
   parseJSON =
     Data.withObject
       "DatasetImportJobSummary"
       ( \x ->
           DatasetImportJobSummary'
-            Prelude.<$> (x Data..:? "LastModificationTime")
+            Prelude.<$> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "DataSource")
+            Prelude.<*> (x Data..:? "DatasetImportJobArn")
+            Prelude.<*> (x Data..:? "DatasetImportJobName")
+            Prelude.<*> (x Data..:? "LastModificationTime")
             Prelude.<*> (x Data..:? "Message")
             Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "DatasetImportJobArn")
-            Prelude.<*> (x Data..:? "DataSource")
-            Prelude.<*> (x Data..:? "CreationTime")
-            Prelude.<*> (x Data..:? "DatasetImportJobName")
       )
 
 instance Prelude.Hashable DatasetImportJobSummary where
   hashWithSalt _salt DatasetImportJobSummary' {..} =
-    _salt `Prelude.hashWithSalt` lastModificationTime
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` dataSource
+      `Prelude.hashWithSalt` datasetImportJobArn
+      `Prelude.hashWithSalt` datasetImportJobName
+      `Prelude.hashWithSalt` lastModificationTime
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` datasetImportJobArn
-      `Prelude.hashWithSalt` dataSource
-      `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` datasetImportJobName
 
 instance Prelude.NFData DatasetImportJobSummary where
   rnf DatasetImportJobSummary' {..} =
-    Prelude.rnf lastModificationTime
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf dataSource
+      `Prelude.seq` Prelude.rnf datasetImportJobArn
+      `Prelude.seq` Prelude.rnf datasetImportJobName
+      `Prelude.seq` Prelude.rnf lastModificationTime
       `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf datasetImportJobArn
-      `Prelude.seq` Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf datasetImportJobName

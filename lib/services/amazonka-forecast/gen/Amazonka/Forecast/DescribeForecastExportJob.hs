@@ -47,15 +47,15 @@ module Amazonka.Forecast.DescribeForecastExportJob
     newDescribeForecastExportJobResponse,
 
     -- * Response Lenses
-    describeForecastExportJobResponse_lastModificationTime,
+    describeForecastExportJobResponse_creationTime,
     describeForecastExportJobResponse_destination,
-    describeForecastExportJobResponse_message,
+    describeForecastExportJobResponse_forecastArn,
+    describeForecastExportJobResponse_forecastExportJobArn,
     describeForecastExportJobResponse_forecastExportJobName,
     describeForecastExportJobResponse_format,
-    describeForecastExportJobResponse_forecastExportJobArn,
+    describeForecastExportJobResponse_lastModificationTime,
+    describeForecastExportJobResponse_message,
     describeForecastExportJobResponse_status,
-    describeForecastExportJobResponse_forecastArn,
-    describeForecastExportJobResponse_creationTime,
     describeForecastExportJobResponse_httpStatus,
   )
 where
@@ -108,15 +108,15 @@ instance Core.AWSRequest DescribeForecastExportJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeForecastExportJobResponse'
-            Prelude.<$> (x Data..?> "LastModificationTime")
+            Prelude.<$> (x Data..?> "CreationTime")
             Prelude.<*> (x Data..?> "Destination")
-            Prelude.<*> (x Data..?> "Message")
+            Prelude.<*> (x Data..?> "ForecastArn")
+            Prelude.<*> (x Data..?> "ForecastExportJobArn")
             Prelude.<*> (x Data..?> "ForecastExportJobName")
             Prelude.<*> (x Data..?> "Format")
-            Prelude.<*> (x Data..?> "ForecastExportJobArn")
+            Prelude.<*> (x Data..?> "LastModificationTime")
+            Prelude.<*> (x Data..?> "Message")
             Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "ForecastArn")
-            Prelude.<*> (x Data..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,7 +162,20 @@ instance Data.ToQuery DescribeForecastExportJob where
 
 -- | /See:/ 'newDescribeForecastExportJobResponse' smart constructor.
 data DescribeForecastExportJobResponse = DescribeForecastExportJobResponse'
-  { -- | The last time the resource was modified. The timestamp depends on the
+  { -- | When the forecast export job was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The path to the Amazon Simple Storage Service (Amazon S3) bucket where
+    -- the forecast is exported.
+    destination :: Prelude.Maybe DataDestination,
+    -- | The Amazon Resource Name (ARN) of the exported forecast.
+    forecastArn :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the forecast export job.
+    forecastExportJobArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the forecast export job.
+    forecastExportJobName :: Prelude.Maybe Prelude.Text,
+    -- | The format of the exported data, CSV or PARQUET.
+    format :: Prelude.Maybe Prelude.Text,
+    -- | The last time the resource was modified. The timestamp depends on the
     -- status of the job:
     --
     -- -   @CREATE_PENDING@ - The @CreationTime@.
@@ -175,17 +188,8 @@ data DescribeForecastExportJobResponse = DescribeForecastExportJobResponse'
     --
     -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
     lastModificationTime :: Prelude.Maybe Data.POSIX,
-    -- | The path to the Amazon Simple Storage Service (Amazon S3) bucket where
-    -- the forecast is exported.
-    destination :: Prelude.Maybe DataDestination,
     -- | If an error occurred, an informational message about the error.
     message :: Prelude.Maybe Prelude.Text,
-    -- | The name of the forecast export job.
-    forecastExportJobName :: Prelude.Maybe Prelude.Text,
-    -- | The format of the exported data, CSV or PARQUET.
-    format :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the forecast export job.
-    forecastExportJobArn :: Prelude.Maybe Prelude.Text,
     -- | The status of the forecast export job. States include:
     --
     -- -   @ACTIVE@
@@ -199,10 +203,6 @@ data DescribeForecastExportJobResponse = DescribeForecastExportJobResponse'
     -- The @Status@ of the forecast export job must be @ACTIVE@ before you can
     -- access the forecast in your S3 bucket.
     status :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the exported forecast.
-    forecastArn :: Prelude.Maybe Prelude.Text,
-    -- | When the forecast export job was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -215,6 +215,19 @@ data DescribeForecastExportJobResponse = DescribeForecastExportJobResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'creationTime', 'describeForecastExportJobResponse_creationTime' - When the forecast export job was created.
+--
+-- 'destination', 'describeForecastExportJobResponse_destination' - The path to the Amazon Simple Storage Service (Amazon S3) bucket where
+-- the forecast is exported.
+--
+-- 'forecastArn', 'describeForecastExportJobResponse_forecastArn' - The Amazon Resource Name (ARN) of the exported forecast.
+--
+-- 'forecastExportJobArn', 'describeForecastExportJobResponse_forecastExportJobArn' - The ARN of the forecast export job.
+--
+-- 'forecastExportJobName', 'describeForecastExportJobResponse_forecastExportJobName' - The name of the forecast export job.
+--
+-- 'format', 'describeForecastExportJobResponse_format' - The format of the exported data, CSV or PARQUET.
 --
 -- 'lastModificationTime', 'describeForecastExportJobResponse_lastModificationTime' - The last time the resource was modified. The timestamp depends on the
 -- status of the job:
@@ -229,16 +242,7 @@ data DescribeForecastExportJobResponse = DescribeForecastExportJobResponse'
 --
 -- -   @ACTIVE@ or @CREATE_FAILED@ - When the job finished or failed.
 --
--- 'destination', 'describeForecastExportJobResponse_destination' - The path to the Amazon Simple Storage Service (Amazon S3) bucket where
--- the forecast is exported.
---
 -- 'message', 'describeForecastExportJobResponse_message' - If an error occurred, an informational message about the error.
---
--- 'forecastExportJobName', 'describeForecastExportJobResponse_forecastExportJobName' - The name of the forecast export job.
---
--- 'format', 'describeForecastExportJobResponse_format' - The format of the exported data, CSV or PARQUET.
---
--- 'forecastExportJobArn', 'describeForecastExportJobResponse_forecastExportJobArn' - The ARN of the forecast export job.
 --
 -- 'status', 'describeForecastExportJobResponse_status' - The status of the forecast export job. States include:
 --
@@ -253,10 +257,6 @@ data DescribeForecastExportJobResponse = DescribeForecastExportJobResponse'
 -- The @Status@ of the forecast export job must be @ACTIVE@ before you can
 -- access the forecast in your S3 bucket.
 --
--- 'forecastArn', 'describeForecastExportJobResponse_forecastArn' - The Amazon Resource Name (ARN) of the exported forecast.
---
--- 'creationTime', 'describeForecastExportJobResponse_creationTime' - When the forecast export job was created.
---
 -- 'httpStatus', 'describeForecastExportJobResponse_httpStatus' - The response's http status code.
 newDescribeForecastExportJobResponse ::
   -- | 'httpStatus'
@@ -264,18 +264,43 @@ newDescribeForecastExportJobResponse ::
   DescribeForecastExportJobResponse
 newDescribeForecastExportJobResponse pHttpStatus_ =
   DescribeForecastExportJobResponse'
-    { lastModificationTime =
+    { creationTime =
         Prelude.Nothing,
       destination = Prelude.Nothing,
-      message = Prelude.Nothing,
+      forecastArn = Prelude.Nothing,
+      forecastExportJobArn = Prelude.Nothing,
       forecastExportJobName = Prelude.Nothing,
       format = Prelude.Nothing,
-      forecastExportJobArn = Prelude.Nothing,
+      lastModificationTime = Prelude.Nothing,
+      message = Prelude.Nothing,
       status = Prelude.Nothing,
-      forecastArn = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | When the forecast export job was created.
+describeForecastExportJobResponse_creationTime :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe Prelude.UTCTime)
+describeForecastExportJobResponse_creationTime = Lens.lens (\DescribeForecastExportJobResponse' {creationTime} -> creationTime) (\s@DescribeForecastExportJobResponse' {} a -> s {creationTime = a} :: DescribeForecastExportJobResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The path to the Amazon Simple Storage Service (Amazon S3) bucket where
+-- the forecast is exported.
+describeForecastExportJobResponse_destination :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe DataDestination)
+describeForecastExportJobResponse_destination = Lens.lens (\DescribeForecastExportJobResponse' {destination} -> destination) (\s@DescribeForecastExportJobResponse' {} a -> s {destination = a} :: DescribeForecastExportJobResponse)
+
+-- | The Amazon Resource Name (ARN) of the exported forecast.
+describeForecastExportJobResponse_forecastArn :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe Prelude.Text)
+describeForecastExportJobResponse_forecastArn = Lens.lens (\DescribeForecastExportJobResponse' {forecastArn} -> forecastArn) (\s@DescribeForecastExportJobResponse' {} a -> s {forecastArn = a} :: DescribeForecastExportJobResponse)
+
+-- | The ARN of the forecast export job.
+describeForecastExportJobResponse_forecastExportJobArn :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe Prelude.Text)
+describeForecastExportJobResponse_forecastExportJobArn = Lens.lens (\DescribeForecastExportJobResponse' {forecastExportJobArn} -> forecastExportJobArn) (\s@DescribeForecastExportJobResponse' {} a -> s {forecastExportJobArn = a} :: DescribeForecastExportJobResponse)
+
+-- | The name of the forecast export job.
+describeForecastExportJobResponse_forecastExportJobName :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe Prelude.Text)
+describeForecastExportJobResponse_forecastExportJobName = Lens.lens (\DescribeForecastExportJobResponse' {forecastExportJobName} -> forecastExportJobName) (\s@DescribeForecastExportJobResponse' {} a -> s {forecastExportJobName = a} :: DescribeForecastExportJobResponse)
+
+-- | The format of the exported data, CSV or PARQUET.
+describeForecastExportJobResponse_format :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe Prelude.Text)
+describeForecastExportJobResponse_format = Lens.lens (\DescribeForecastExportJobResponse' {format} -> format) (\s@DescribeForecastExportJobResponse' {} a -> s {format = a} :: DescribeForecastExportJobResponse)
 
 -- | The last time the resource was modified. The timestamp depends on the
 -- status of the job:
@@ -292,26 +317,9 @@ newDescribeForecastExportJobResponse pHttpStatus_ =
 describeForecastExportJobResponse_lastModificationTime :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe Prelude.UTCTime)
 describeForecastExportJobResponse_lastModificationTime = Lens.lens (\DescribeForecastExportJobResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeForecastExportJobResponse' {} a -> s {lastModificationTime = a} :: DescribeForecastExportJobResponse) Prelude.. Lens.mapping Data._Time
 
--- | The path to the Amazon Simple Storage Service (Amazon S3) bucket where
--- the forecast is exported.
-describeForecastExportJobResponse_destination :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe DataDestination)
-describeForecastExportJobResponse_destination = Lens.lens (\DescribeForecastExportJobResponse' {destination} -> destination) (\s@DescribeForecastExportJobResponse' {} a -> s {destination = a} :: DescribeForecastExportJobResponse)
-
 -- | If an error occurred, an informational message about the error.
 describeForecastExportJobResponse_message :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe Prelude.Text)
 describeForecastExportJobResponse_message = Lens.lens (\DescribeForecastExportJobResponse' {message} -> message) (\s@DescribeForecastExportJobResponse' {} a -> s {message = a} :: DescribeForecastExportJobResponse)
-
--- | The name of the forecast export job.
-describeForecastExportJobResponse_forecastExportJobName :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe Prelude.Text)
-describeForecastExportJobResponse_forecastExportJobName = Lens.lens (\DescribeForecastExportJobResponse' {forecastExportJobName} -> forecastExportJobName) (\s@DescribeForecastExportJobResponse' {} a -> s {forecastExportJobName = a} :: DescribeForecastExportJobResponse)
-
--- | The format of the exported data, CSV or PARQUET.
-describeForecastExportJobResponse_format :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe Prelude.Text)
-describeForecastExportJobResponse_format = Lens.lens (\DescribeForecastExportJobResponse' {format} -> format) (\s@DescribeForecastExportJobResponse' {} a -> s {format = a} :: DescribeForecastExportJobResponse)
-
--- | The ARN of the forecast export job.
-describeForecastExportJobResponse_forecastExportJobArn :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe Prelude.Text)
-describeForecastExportJobResponse_forecastExportJobArn = Lens.lens (\DescribeForecastExportJobResponse' {forecastExportJobArn} -> forecastExportJobArn) (\s@DescribeForecastExportJobResponse' {} a -> s {forecastExportJobArn = a} :: DescribeForecastExportJobResponse)
 
 -- | The status of the forecast export job. States include:
 --
@@ -328,14 +336,6 @@ describeForecastExportJobResponse_forecastExportJobArn = Lens.lens (\DescribeFor
 describeForecastExportJobResponse_status :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe Prelude.Text)
 describeForecastExportJobResponse_status = Lens.lens (\DescribeForecastExportJobResponse' {status} -> status) (\s@DescribeForecastExportJobResponse' {} a -> s {status = a} :: DescribeForecastExportJobResponse)
 
--- | The Amazon Resource Name (ARN) of the exported forecast.
-describeForecastExportJobResponse_forecastArn :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe Prelude.Text)
-describeForecastExportJobResponse_forecastArn = Lens.lens (\DescribeForecastExportJobResponse' {forecastArn} -> forecastArn) (\s@DescribeForecastExportJobResponse' {} a -> s {forecastArn = a} :: DescribeForecastExportJobResponse)
-
--- | When the forecast export job was created.
-describeForecastExportJobResponse_creationTime :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeForecastExportJobResponse_creationTime = Lens.lens (\DescribeForecastExportJobResponse' {creationTime} -> creationTime) (\s@DescribeForecastExportJobResponse' {} a -> s {creationTime = a} :: DescribeForecastExportJobResponse) Prelude.. Lens.mapping Data._Time
-
 -- | The response's http status code.
 describeForecastExportJobResponse_httpStatus :: Lens.Lens' DescribeForecastExportJobResponse Prelude.Int
 describeForecastExportJobResponse_httpStatus = Lens.lens (\DescribeForecastExportJobResponse' {httpStatus} -> httpStatus) (\s@DescribeForecastExportJobResponse' {} a -> s {httpStatus = a} :: DescribeForecastExportJobResponse)
@@ -345,13 +345,13 @@ instance
     DescribeForecastExportJobResponse
   where
   rnf DescribeForecastExportJobResponse' {..} =
-    Prelude.rnf lastModificationTime
+    Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf destination
-      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf forecastArn
+      `Prelude.seq` Prelude.rnf forecastExportJobArn
       `Prelude.seq` Prelude.rnf forecastExportJobName
       `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf forecastExportJobArn
+      `Prelude.seq` Prelude.rnf lastModificationTime
+      `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf forecastArn
-      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf httpStatus

@@ -101,12 +101,12 @@ module Amazonka.Forecast.CreateExplainability
     newCreateExplainability,
 
     -- * Request Lenses
-    createExplainability_tags,
-    createExplainability_enableVisualization,
-    createExplainability_startDateTime,
-    createExplainability_schema,
     createExplainability_dataSource,
+    createExplainability_enableVisualization,
     createExplainability_endDateTime,
+    createExplainability_schema,
+    createExplainability_startDateTime,
+    createExplainability_tags,
     createExplainability_explainabilityName,
     createExplainability_resourceArn,
     createExplainability_explainabilityConfig,
@@ -131,7 +131,24 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateExplainability' smart constructor.
 data CreateExplainability = CreateExplainability'
-  { -- | Optional metadata to help you categorize and organize your resources.
+  { dataSource :: Prelude.Maybe DataSource,
+    -- | Create an Explainability visualization that is viewable within the AWS
+    -- console.
+    enableVisualization :: Prelude.Maybe Prelude.Bool,
+    -- | If @TimePointGranularity@ is set to @SPECIFIC@, define the last time
+    -- point for the Explainability.
+    --
+    -- Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example:
+    -- 2015-01-01T20:00:00)
+    endDateTime :: Prelude.Maybe Prelude.Text,
+    schema :: Prelude.Maybe Schema,
+    -- | If @TimePointGranularity@ is set to @SPECIFIC@, define the first point
+    -- for the Explainability.
+    --
+    -- Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example:
+    -- 2015-01-01T20:00:00)
+    startDateTime :: Prelude.Maybe Prelude.Text,
+    -- | Optional metadata to help you categorize and organize your resources.
     -- Each tag consists of a key and an optional value, both of which you
     -- define. Tag keys and values are case sensitive.
     --
@@ -158,23 +175,6 @@ data CreateExplainability = CreateExplainability'
     --     only the key prefix of @aws@ do not count against your tags per
     --     resource limit. You cannot edit or delete tag keys with this prefix.
     tags :: Prelude.Maybe [Tag],
-    -- | Create an Explainability visualization that is viewable within the AWS
-    -- console.
-    enableVisualization :: Prelude.Maybe Prelude.Bool,
-    -- | If @TimePointGranularity@ is set to @SPECIFIC@, define the first point
-    -- for the Explainability.
-    --
-    -- Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example:
-    -- 2015-01-01T20:00:00)
-    startDateTime :: Prelude.Maybe Prelude.Text,
-    schema :: Prelude.Maybe Schema,
-    dataSource :: Prelude.Maybe DataSource,
-    -- | If @TimePointGranularity@ is set to @SPECIFIC@, define the last time
-    -- point for the Explainability.
-    --
-    -- Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example:
-    -- 2015-01-01T20:00:00)
-    endDateTime :: Prelude.Maybe Prelude.Text,
     -- | A unique name for the Explainability.
     explainabilityName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Predictor or Forecast used to
@@ -193,6 +193,25 @@ data CreateExplainability = CreateExplainability'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'dataSource', 'createExplainability_dataSource' - Undocumented member.
+--
+-- 'enableVisualization', 'createExplainability_enableVisualization' - Create an Explainability visualization that is viewable within the AWS
+-- console.
+--
+-- 'endDateTime', 'createExplainability_endDateTime' - If @TimePointGranularity@ is set to @SPECIFIC@, define the last time
+-- point for the Explainability.
+--
+-- Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example:
+-- 2015-01-01T20:00:00)
+--
+-- 'schema', 'createExplainability_schema' - Undocumented member.
+--
+-- 'startDateTime', 'createExplainability_startDateTime' - If @TimePointGranularity@ is set to @SPECIFIC@, define the first point
+-- for the Explainability.
+--
+-- Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example:
+-- 2015-01-01T20:00:00)
 --
 -- 'tags', 'createExplainability_tags' - Optional metadata to help you categorize and organize your resources.
 -- Each tag consists of a key and an optional value, both of which you
@@ -221,25 +240,6 @@ data CreateExplainability = CreateExplainability'
 --     only the key prefix of @aws@ do not count against your tags per
 --     resource limit. You cannot edit or delete tag keys with this prefix.
 --
--- 'enableVisualization', 'createExplainability_enableVisualization' - Create an Explainability visualization that is viewable within the AWS
--- console.
---
--- 'startDateTime', 'createExplainability_startDateTime' - If @TimePointGranularity@ is set to @SPECIFIC@, define the first point
--- for the Explainability.
---
--- Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example:
--- 2015-01-01T20:00:00)
---
--- 'schema', 'createExplainability_schema' - Undocumented member.
---
--- 'dataSource', 'createExplainability_dataSource' - Undocumented member.
---
--- 'endDateTime', 'createExplainability_endDateTime' - If @TimePointGranularity@ is set to @SPECIFIC@, define the last time
--- point for the Explainability.
---
--- Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example:
--- 2015-01-01T20:00:00)
---
 -- 'explainabilityName', 'createExplainability_explainabilityName' - A unique name for the Explainability.
 --
 -- 'resourceArn', 'createExplainability_resourceArn' - The Amazon Resource Name (ARN) of the Predictor or Forecast used to
@@ -260,16 +260,45 @@ newCreateExplainability
   pResourceArn_
   pExplainabilityConfig_ =
     CreateExplainability'
-      { tags = Prelude.Nothing,
+      { dataSource = Prelude.Nothing,
         enableVisualization = Prelude.Nothing,
-        startDateTime = Prelude.Nothing,
-        schema = Prelude.Nothing,
-        dataSource = Prelude.Nothing,
         endDateTime = Prelude.Nothing,
+        schema = Prelude.Nothing,
+        startDateTime = Prelude.Nothing,
+        tags = Prelude.Nothing,
         explainabilityName = pExplainabilityName_,
         resourceArn = pResourceArn_,
         explainabilityConfig = pExplainabilityConfig_
       }
+
+-- | Undocumented member.
+createExplainability_dataSource :: Lens.Lens' CreateExplainability (Prelude.Maybe DataSource)
+createExplainability_dataSource = Lens.lens (\CreateExplainability' {dataSource} -> dataSource) (\s@CreateExplainability' {} a -> s {dataSource = a} :: CreateExplainability)
+
+-- | Create an Explainability visualization that is viewable within the AWS
+-- console.
+createExplainability_enableVisualization :: Lens.Lens' CreateExplainability (Prelude.Maybe Prelude.Bool)
+createExplainability_enableVisualization = Lens.lens (\CreateExplainability' {enableVisualization} -> enableVisualization) (\s@CreateExplainability' {} a -> s {enableVisualization = a} :: CreateExplainability)
+
+-- | If @TimePointGranularity@ is set to @SPECIFIC@, define the last time
+-- point for the Explainability.
+--
+-- Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example:
+-- 2015-01-01T20:00:00)
+createExplainability_endDateTime :: Lens.Lens' CreateExplainability (Prelude.Maybe Prelude.Text)
+createExplainability_endDateTime = Lens.lens (\CreateExplainability' {endDateTime} -> endDateTime) (\s@CreateExplainability' {} a -> s {endDateTime = a} :: CreateExplainability)
+
+-- | Undocumented member.
+createExplainability_schema :: Lens.Lens' CreateExplainability (Prelude.Maybe Schema)
+createExplainability_schema = Lens.lens (\CreateExplainability' {schema} -> schema) (\s@CreateExplainability' {} a -> s {schema = a} :: CreateExplainability)
+
+-- | If @TimePointGranularity@ is set to @SPECIFIC@, define the first point
+-- for the Explainability.
+--
+-- Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example:
+-- 2015-01-01T20:00:00)
+createExplainability_startDateTime :: Lens.Lens' CreateExplainability (Prelude.Maybe Prelude.Text)
+createExplainability_startDateTime = Lens.lens (\CreateExplainability' {startDateTime} -> startDateTime) (\s@CreateExplainability' {} a -> s {startDateTime = a} :: CreateExplainability)
 
 -- | Optional metadata to help you categorize and organize your resources.
 -- Each tag consists of a key and an optional value, both of which you
@@ -299,35 +328,6 @@ newCreateExplainability
 --     resource limit. You cannot edit or delete tag keys with this prefix.
 createExplainability_tags :: Lens.Lens' CreateExplainability (Prelude.Maybe [Tag])
 createExplainability_tags = Lens.lens (\CreateExplainability' {tags} -> tags) (\s@CreateExplainability' {} a -> s {tags = a} :: CreateExplainability) Prelude.. Lens.mapping Lens.coerced
-
--- | Create an Explainability visualization that is viewable within the AWS
--- console.
-createExplainability_enableVisualization :: Lens.Lens' CreateExplainability (Prelude.Maybe Prelude.Bool)
-createExplainability_enableVisualization = Lens.lens (\CreateExplainability' {enableVisualization} -> enableVisualization) (\s@CreateExplainability' {} a -> s {enableVisualization = a} :: CreateExplainability)
-
--- | If @TimePointGranularity@ is set to @SPECIFIC@, define the first point
--- for the Explainability.
---
--- Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example:
--- 2015-01-01T20:00:00)
-createExplainability_startDateTime :: Lens.Lens' CreateExplainability (Prelude.Maybe Prelude.Text)
-createExplainability_startDateTime = Lens.lens (\CreateExplainability' {startDateTime} -> startDateTime) (\s@CreateExplainability' {} a -> s {startDateTime = a} :: CreateExplainability)
-
--- | Undocumented member.
-createExplainability_schema :: Lens.Lens' CreateExplainability (Prelude.Maybe Schema)
-createExplainability_schema = Lens.lens (\CreateExplainability' {schema} -> schema) (\s@CreateExplainability' {} a -> s {schema = a} :: CreateExplainability)
-
--- | Undocumented member.
-createExplainability_dataSource :: Lens.Lens' CreateExplainability (Prelude.Maybe DataSource)
-createExplainability_dataSource = Lens.lens (\CreateExplainability' {dataSource} -> dataSource) (\s@CreateExplainability' {} a -> s {dataSource = a} :: CreateExplainability)
-
--- | If @TimePointGranularity@ is set to @SPECIFIC@, define the last time
--- point for the Explainability.
---
--- Use the following timestamp format: yyyy-MM-ddTHH:mm:ss (example:
--- 2015-01-01T20:00:00)
-createExplainability_endDateTime :: Lens.Lens' CreateExplainability (Prelude.Maybe Prelude.Text)
-createExplainability_endDateTime = Lens.lens (\CreateExplainability' {endDateTime} -> endDateTime) (\s@CreateExplainability' {} a -> s {endDateTime = a} :: CreateExplainability)
 
 -- | A unique name for the Explainability.
 createExplainability_explainabilityName :: Lens.Lens' CreateExplainability Prelude.Text
@@ -359,24 +359,24 @@ instance Core.AWSRequest CreateExplainability where
 
 instance Prelude.Hashable CreateExplainability where
   hashWithSalt _salt CreateExplainability' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` dataSource
       `Prelude.hashWithSalt` enableVisualization
-      `Prelude.hashWithSalt` startDateTime
-      `Prelude.hashWithSalt` schema
-      `Prelude.hashWithSalt` dataSource
       `Prelude.hashWithSalt` endDateTime
+      `Prelude.hashWithSalt` schema
+      `Prelude.hashWithSalt` startDateTime
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` explainabilityName
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` explainabilityConfig
 
 instance Prelude.NFData CreateExplainability where
   rnf CreateExplainability' {..} =
-    Prelude.rnf tags
+    Prelude.rnf dataSource
       `Prelude.seq` Prelude.rnf enableVisualization
-      `Prelude.seq` Prelude.rnf startDateTime
-      `Prelude.seq` Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf dataSource
       `Prelude.seq` Prelude.rnf endDateTime
+      `Prelude.seq` Prelude.rnf schema
+      `Prelude.seq` Prelude.rnf startDateTime
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf explainabilityName
       `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf explainabilityConfig
@@ -400,13 +400,13 @@ instance Data.ToJSON CreateExplainability where
   toJSON CreateExplainability' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("DataSource" Data..=) Prelude.<$> dataSource,
             ("EnableVisualization" Data..=)
               Prelude.<$> enableVisualization,
-            ("StartDateTime" Data..=) Prelude.<$> startDateTime,
-            ("Schema" Data..=) Prelude.<$> schema,
-            ("DataSource" Data..=) Prelude.<$> dataSource,
             ("EndDateTime" Data..=) Prelude.<$> endDateTime,
+            ("Schema" Data..=) Prelude.<$> schema,
+            ("StartDateTime" Data..=) Prelude.<$> startDateTime,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("ExplainabilityName" Data..= explainabilityName),
             Prelude.Just ("ResourceArn" Data..= resourceArn),

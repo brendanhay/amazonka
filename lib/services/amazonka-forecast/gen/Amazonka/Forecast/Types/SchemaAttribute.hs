@@ -32,14 +32,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSchemaAttribute' smart constructor.
 data SchemaAttribute = SchemaAttribute'
-  { -- | The data type of the field.
+  { -- | The name of the dataset field.
+    attributeName :: Prelude.Maybe Prelude.Text,
+    -- | The data type of the field.
     --
     -- For a related time series dataset, other than date, item_id, and
     -- forecast dimensions attributes, all attributes should be of numerical
     -- type (integer\/float).
-    attributeType :: Prelude.Maybe AttributeType,
-    -- | The name of the dataset field.
-    attributeName :: Prelude.Maybe Prelude.Text
+    attributeType :: Prelude.Maybe AttributeType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,20 +51,24 @@ data SchemaAttribute = SchemaAttribute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attributeName', 'schemaAttribute_attributeName' - The name of the dataset field.
+--
 -- 'attributeType', 'schemaAttribute_attributeType' - The data type of the field.
 --
 -- For a related time series dataset, other than date, item_id, and
 -- forecast dimensions attributes, all attributes should be of numerical
 -- type (integer\/float).
---
--- 'attributeName', 'schemaAttribute_attributeName' - The name of the dataset field.
 newSchemaAttribute ::
   SchemaAttribute
 newSchemaAttribute =
   SchemaAttribute'
-    { attributeType = Prelude.Nothing,
-      attributeName = Prelude.Nothing
+    { attributeName = Prelude.Nothing,
+      attributeType = Prelude.Nothing
     }
+
+-- | The name of the dataset field.
+schemaAttribute_attributeName :: Lens.Lens' SchemaAttribute (Prelude.Maybe Prelude.Text)
+schemaAttribute_attributeName = Lens.lens (\SchemaAttribute' {attributeName} -> attributeName) (\s@SchemaAttribute' {} a -> s {attributeName = a} :: SchemaAttribute)
 
 -- | The data type of the field.
 --
@@ -74,35 +78,31 @@ newSchemaAttribute =
 schemaAttribute_attributeType :: Lens.Lens' SchemaAttribute (Prelude.Maybe AttributeType)
 schemaAttribute_attributeType = Lens.lens (\SchemaAttribute' {attributeType} -> attributeType) (\s@SchemaAttribute' {} a -> s {attributeType = a} :: SchemaAttribute)
 
--- | The name of the dataset field.
-schemaAttribute_attributeName :: Lens.Lens' SchemaAttribute (Prelude.Maybe Prelude.Text)
-schemaAttribute_attributeName = Lens.lens (\SchemaAttribute' {attributeName} -> attributeName) (\s@SchemaAttribute' {} a -> s {attributeName = a} :: SchemaAttribute)
-
 instance Data.FromJSON SchemaAttribute where
   parseJSON =
     Data.withObject
       "SchemaAttribute"
       ( \x ->
           SchemaAttribute'
-            Prelude.<$> (x Data..:? "AttributeType")
-            Prelude.<*> (x Data..:? "AttributeName")
+            Prelude.<$> (x Data..:? "AttributeName")
+            Prelude.<*> (x Data..:? "AttributeType")
       )
 
 instance Prelude.Hashable SchemaAttribute where
   hashWithSalt _salt SchemaAttribute' {..} =
-    _salt `Prelude.hashWithSalt` attributeType
-      `Prelude.hashWithSalt` attributeName
+    _salt `Prelude.hashWithSalt` attributeName
+      `Prelude.hashWithSalt` attributeType
 
 instance Prelude.NFData SchemaAttribute where
   rnf SchemaAttribute' {..} =
-    Prelude.rnf attributeType
-      `Prelude.seq` Prelude.rnf attributeName
+    Prelude.rnf attributeName
+      `Prelude.seq` Prelude.rnf attributeType
 
 instance Data.ToJSON SchemaAttribute where
   toJSON SchemaAttribute' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("AttributeType" Data..=) Prelude.<$> attributeType,
-            ("AttributeName" Data..=) Prelude.<$> attributeName
+          [ ("AttributeName" Data..=) Prelude.<$> attributeName,
+            ("AttributeType" Data..=) Prelude.<$> attributeType
           ]
       )

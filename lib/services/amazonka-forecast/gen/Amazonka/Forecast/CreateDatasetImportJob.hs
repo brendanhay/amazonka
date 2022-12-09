@@ -56,12 +56,12 @@ module Amazonka.Forecast.CreateDatasetImportJob
     newCreateDatasetImportJob,
 
     -- * Request Lenses
-    createDatasetImportJob_tags,
     createDatasetImportJob_format,
-    createDatasetImportJob_timeZone,
-    createDatasetImportJob_useGeolocationForTimeZone,
-    createDatasetImportJob_timestampFormat,
     createDatasetImportJob_geolocationFormat,
+    createDatasetImportJob_tags,
+    createDatasetImportJob_timeZone,
+    createDatasetImportJob_timestampFormat,
+    createDatasetImportJob_useGeolocationForTimeZone,
     createDatasetImportJob_datasetImportJobName,
     createDatasetImportJob_datasetArn,
     createDatasetImportJob_dataSource,
@@ -86,7 +86,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDatasetImportJob' smart constructor.
 data CreateDatasetImportJob = CreateDatasetImportJob'
-  { -- | The optional metadata that you apply to the dataset import job to help
+  { -- | The format of the imported data, CSV or PARQUET. The default value is
+    -- CSV.
+    format :: Prelude.Maybe Prelude.Text,
+    -- | The format of the geolocation attribute. The geolocation attribute can
+    -- be formatted in one of two ways:
+    --
+    -- -   @LAT_LONG@ - the latitude and longitude in decimal format (Example:
+    --     47.61_-122.33).
+    --
+    -- -   @CC_POSTALCODE@ (US Only) - the country code (US), followed by the
+    --     5-digit ZIP code (Example: US_98121).
+    geolocationFormat :: Prelude.Maybe Prelude.Text,
+    -- | The optional metadata that you apply to the dataset import job to help
     -- you categorize and organize them. Each tag consists of a key and an
     -- optional value, both of which you define.
     --
@@ -117,9 +129,6 @@ data CreateDatasetImportJob = CreateDatasetImportJob'
     --     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
     --     count against your tags per resource limit.
     tags :: Prelude.Maybe [Tag],
-    -- | The format of the imported data, CSV or PARQUET. The default value is
-    -- CSV.
-    format :: Prelude.Maybe Prelude.Text,
     -- | A single time zone for every item in your dataset. This option is ideal
     -- for datasets with all timestamps within a single time zone, or if all
     -- timestamps are normalized to a single time zone.
@@ -128,10 +137,6 @@ data CreateDatasetImportJob = CreateDatasetImportJob'
     -- <http://joda-time.sourceforge.net/timezones.html Joda-Time API> for a
     -- complete list of valid time zone names.
     timeZone :: Prelude.Maybe Prelude.Text,
-    -- | Automatically derive time zone information from the geolocation
-    -- attribute. This option is ideal for datasets that contain timestamps in
-    -- multiple time zones and those timestamps are expressed in local time.
-    useGeolocationForTimeZone :: Prelude.Maybe Prelude.Bool,
     -- | The format of timestamps in the dataset. The format that you specify
     -- depends on the @DataFrequency@ specified when the dataset was created.
     -- The following formats are supported
@@ -148,15 +153,10 @@ data CreateDatasetImportJob = CreateDatasetImportJob'
     -- If the format isn\'t specified, Amazon Forecast expects the format to be
     -- \"yyyy-MM-dd HH:mm:ss\".
     timestampFormat :: Prelude.Maybe Prelude.Text,
-    -- | The format of the geolocation attribute. The geolocation attribute can
-    -- be formatted in one of two ways:
-    --
-    -- -   @LAT_LONG@ - the latitude and longitude in decimal format (Example:
-    --     47.61_-122.33).
-    --
-    -- -   @CC_POSTALCODE@ (US Only) - the country code (US), followed by the
-    --     5-digit ZIP code (Example: US_98121).
-    geolocationFormat :: Prelude.Maybe Prelude.Text,
+    -- | Automatically derive time zone information from the geolocation
+    -- attribute. This option is ideal for datasets that contain timestamps in
+    -- multiple time zones and those timestamps are expressed in local time.
+    useGeolocationForTimeZone :: Prelude.Maybe Prelude.Bool,
     -- | The name for the dataset import job. We recommend including the current
     -- timestamp in the name, for example, @20190721DatasetImport@. This can
     -- help you avoid getting a @ResourceAlreadyExistsException@ exception.
@@ -185,6 +185,18 @@ data CreateDatasetImportJob = CreateDatasetImportJob'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'format', 'createDatasetImportJob_format' - The format of the imported data, CSV or PARQUET. The default value is
+-- CSV.
+--
+-- 'geolocationFormat', 'createDatasetImportJob_geolocationFormat' - The format of the geolocation attribute. The geolocation attribute can
+-- be formatted in one of two ways:
+--
+-- -   @LAT_LONG@ - the latitude and longitude in decimal format (Example:
+--     47.61_-122.33).
+--
+-- -   @CC_POSTALCODE@ (US Only) - the country code (US), followed by the
+--     5-digit ZIP code (Example: US_98121).
 --
 -- 'tags', 'createDatasetImportJob_tags' - The optional metadata that you apply to the dataset import job to help
 -- you categorize and organize them. Each tag consists of a key and an
@@ -217,9 +229,6 @@ data CreateDatasetImportJob = CreateDatasetImportJob'
 --     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
 --     count against your tags per resource limit.
 --
--- 'format', 'createDatasetImportJob_format' - The format of the imported data, CSV or PARQUET. The default value is
--- CSV.
---
 -- 'timeZone', 'createDatasetImportJob_timeZone' - A single time zone for every item in your dataset. This option is ideal
 -- for datasets with all timestamps within a single time zone, or if all
 -- timestamps are normalized to a single time zone.
@@ -227,10 +236,6 @@ data CreateDatasetImportJob = CreateDatasetImportJob'
 -- Refer to the
 -- <http://joda-time.sourceforge.net/timezones.html Joda-Time API> for a
 -- complete list of valid time zone names.
---
--- 'useGeolocationForTimeZone', 'createDatasetImportJob_useGeolocationForTimeZone' - Automatically derive time zone information from the geolocation
--- attribute. This option is ideal for datasets that contain timestamps in
--- multiple time zones and those timestamps are expressed in local time.
 --
 -- 'timestampFormat', 'createDatasetImportJob_timestampFormat' - The format of timestamps in the dataset. The format that you specify
 -- depends on the @DataFrequency@ specified when the dataset was created.
@@ -248,14 +253,9 @@ data CreateDatasetImportJob = CreateDatasetImportJob'
 -- If the format isn\'t specified, Amazon Forecast expects the format to be
 -- \"yyyy-MM-dd HH:mm:ss\".
 --
--- 'geolocationFormat', 'createDatasetImportJob_geolocationFormat' - The format of the geolocation attribute. The geolocation attribute can
--- be formatted in one of two ways:
---
--- -   @LAT_LONG@ - the latitude and longitude in decimal format (Example:
---     47.61_-122.33).
---
--- -   @CC_POSTALCODE@ (US Only) - the country code (US), followed by the
---     5-digit ZIP code (Example: US_98121).
+-- 'useGeolocationForTimeZone', 'createDatasetImportJob_useGeolocationForTimeZone' - Automatically derive time zone information from the geolocation
+-- attribute. This option is ideal for datasets that contain timestamps in
+-- multiple time zones and those timestamps are expressed in local time.
 --
 -- 'datasetImportJobName', 'createDatasetImportJob_datasetImportJobName' - The name for the dataset import job. We recommend including the current
 -- timestamp in the name, for example, @20190721DatasetImport@. This can
@@ -287,16 +287,32 @@ newCreateDatasetImportJob
   pDatasetArn_
   pDataSource_ =
     CreateDatasetImportJob'
-      { tags = Prelude.Nothing,
-        format = Prelude.Nothing,
-        timeZone = Prelude.Nothing,
-        useGeolocationForTimeZone = Prelude.Nothing,
-        timestampFormat = Prelude.Nothing,
+      { format = Prelude.Nothing,
         geolocationFormat = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        timeZone = Prelude.Nothing,
+        timestampFormat = Prelude.Nothing,
+        useGeolocationForTimeZone = Prelude.Nothing,
         datasetImportJobName = pDatasetImportJobName_,
         datasetArn = pDatasetArn_,
         dataSource = pDataSource_
       }
+
+-- | The format of the imported data, CSV or PARQUET. The default value is
+-- CSV.
+createDatasetImportJob_format :: Lens.Lens' CreateDatasetImportJob (Prelude.Maybe Prelude.Text)
+createDatasetImportJob_format = Lens.lens (\CreateDatasetImportJob' {format} -> format) (\s@CreateDatasetImportJob' {} a -> s {format = a} :: CreateDatasetImportJob)
+
+-- | The format of the geolocation attribute. The geolocation attribute can
+-- be formatted in one of two ways:
+--
+-- -   @LAT_LONG@ - the latitude and longitude in decimal format (Example:
+--     47.61_-122.33).
+--
+-- -   @CC_POSTALCODE@ (US Only) - the country code (US), followed by the
+--     5-digit ZIP code (Example: US_98121).
+createDatasetImportJob_geolocationFormat :: Lens.Lens' CreateDatasetImportJob (Prelude.Maybe Prelude.Text)
+createDatasetImportJob_geolocationFormat = Lens.lens (\CreateDatasetImportJob' {geolocationFormat} -> geolocationFormat) (\s@CreateDatasetImportJob' {} a -> s {geolocationFormat = a} :: CreateDatasetImportJob)
 
 -- | The optional metadata that you apply to the dataset import job to help
 -- you categorize and organize them. Each tag consists of a key and an
@@ -331,11 +347,6 @@ newCreateDatasetImportJob
 createDatasetImportJob_tags :: Lens.Lens' CreateDatasetImportJob (Prelude.Maybe [Tag])
 createDatasetImportJob_tags = Lens.lens (\CreateDatasetImportJob' {tags} -> tags) (\s@CreateDatasetImportJob' {} a -> s {tags = a} :: CreateDatasetImportJob) Prelude.. Lens.mapping Lens.coerced
 
--- | The format of the imported data, CSV or PARQUET. The default value is
--- CSV.
-createDatasetImportJob_format :: Lens.Lens' CreateDatasetImportJob (Prelude.Maybe Prelude.Text)
-createDatasetImportJob_format = Lens.lens (\CreateDatasetImportJob' {format} -> format) (\s@CreateDatasetImportJob' {} a -> s {format = a} :: CreateDatasetImportJob)
-
 -- | A single time zone for every item in your dataset. This option is ideal
 -- for datasets with all timestamps within a single time zone, or if all
 -- timestamps are normalized to a single time zone.
@@ -345,12 +356,6 @@ createDatasetImportJob_format = Lens.lens (\CreateDatasetImportJob' {format} -> 
 -- complete list of valid time zone names.
 createDatasetImportJob_timeZone :: Lens.Lens' CreateDatasetImportJob (Prelude.Maybe Prelude.Text)
 createDatasetImportJob_timeZone = Lens.lens (\CreateDatasetImportJob' {timeZone} -> timeZone) (\s@CreateDatasetImportJob' {} a -> s {timeZone = a} :: CreateDatasetImportJob)
-
--- | Automatically derive time zone information from the geolocation
--- attribute. This option is ideal for datasets that contain timestamps in
--- multiple time zones and those timestamps are expressed in local time.
-createDatasetImportJob_useGeolocationForTimeZone :: Lens.Lens' CreateDatasetImportJob (Prelude.Maybe Prelude.Bool)
-createDatasetImportJob_useGeolocationForTimeZone = Lens.lens (\CreateDatasetImportJob' {useGeolocationForTimeZone} -> useGeolocationForTimeZone) (\s@CreateDatasetImportJob' {} a -> s {useGeolocationForTimeZone = a} :: CreateDatasetImportJob)
 
 -- | The format of timestamps in the dataset. The format that you specify
 -- depends on the @DataFrequency@ specified when the dataset was created.
@@ -370,16 +375,11 @@ createDatasetImportJob_useGeolocationForTimeZone = Lens.lens (\CreateDatasetImpo
 createDatasetImportJob_timestampFormat :: Lens.Lens' CreateDatasetImportJob (Prelude.Maybe Prelude.Text)
 createDatasetImportJob_timestampFormat = Lens.lens (\CreateDatasetImportJob' {timestampFormat} -> timestampFormat) (\s@CreateDatasetImportJob' {} a -> s {timestampFormat = a} :: CreateDatasetImportJob)
 
--- | The format of the geolocation attribute. The geolocation attribute can
--- be formatted in one of two ways:
---
--- -   @LAT_LONG@ - the latitude and longitude in decimal format (Example:
---     47.61_-122.33).
---
--- -   @CC_POSTALCODE@ (US Only) - the country code (US), followed by the
---     5-digit ZIP code (Example: US_98121).
-createDatasetImportJob_geolocationFormat :: Lens.Lens' CreateDatasetImportJob (Prelude.Maybe Prelude.Text)
-createDatasetImportJob_geolocationFormat = Lens.lens (\CreateDatasetImportJob' {geolocationFormat} -> geolocationFormat) (\s@CreateDatasetImportJob' {} a -> s {geolocationFormat = a} :: CreateDatasetImportJob)
+-- | Automatically derive time zone information from the geolocation
+-- attribute. This option is ideal for datasets that contain timestamps in
+-- multiple time zones and those timestamps are expressed in local time.
+createDatasetImportJob_useGeolocationForTimeZone :: Lens.Lens' CreateDatasetImportJob (Prelude.Maybe Prelude.Bool)
+createDatasetImportJob_useGeolocationForTimeZone = Lens.lens (\CreateDatasetImportJob' {useGeolocationForTimeZone} -> useGeolocationForTimeZone) (\s@CreateDatasetImportJob' {} a -> s {useGeolocationForTimeZone = a} :: CreateDatasetImportJob)
 
 -- | The name for the dataset import job. We recommend including the current
 -- timestamp in the name, for example, @20190721DatasetImport@. This can
@@ -421,24 +421,24 @@ instance Core.AWSRequest CreateDatasetImportJob where
 
 instance Prelude.Hashable CreateDatasetImportJob where
   hashWithSalt _salt CreateDatasetImportJob' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` format
-      `Prelude.hashWithSalt` timeZone
-      `Prelude.hashWithSalt` useGeolocationForTimeZone
-      `Prelude.hashWithSalt` timestampFormat
+    _salt `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` geolocationFormat
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` timeZone
+      `Prelude.hashWithSalt` timestampFormat
+      `Prelude.hashWithSalt` useGeolocationForTimeZone
       `Prelude.hashWithSalt` datasetImportJobName
       `Prelude.hashWithSalt` datasetArn
       `Prelude.hashWithSalt` dataSource
 
 instance Prelude.NFData CreateDatasetImportJob where
   rnf CreateDatasetImportJob' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf timeZone
-      `Prelude.seq` Prelude.rnf useGeolocationForTimeZone
-      `Prelude.seq` Prelude.rnf timestampFormat
+    Prelude.rnf format
       `Prelude.seq` Prelude.rnf geolocationFormat
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf timeZone
+      `Prelude.seq` Prelude.rnf timestampFormat
+      `Prelude.seq` Prelude.rnf useGeolocationForTimeZone
       `Prelude.seq` Prelude.rnf datasetImportJobName
       `Prelude.seq` Prelude.rnf datasetArn
       `Prelude.seq` Prelude.rnf dataSource
@@ -462,15 +462,15 @@ instance Data.ToJSON CreateDatasetImportJob where
   toJSON CreateDatasetImportJob' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Format" Data..=) Prelude.<$> format,
-            ("TimeZone" Data..=) Prelude.<$> timeZone,
-            ("UseGeolocationForTimeZone" Data..=)
-              Prelude.<$> useGeolocationForTimeZone,
-            ("TimestampFormat" Data..=)
-              Prelude.<$> timestampFormat,
+          [ ("Format" Data..=) Prelude.<$> format,
             ("GeolocationFormat" Data..=)
               Prelude.<$> geolocationFormat,
+            ("Tags" Data..=) Prelude.<$> tags,
+            ("TimeZone" Data..=) Prelude.<$> timeZone,
+            ("TimestampFormat" Data..=)
+              Prelude.<$> timestampFormat,
+            ("UseGeolocationForTimeZone" Data..=)
+              Prelude.<$> useGeolocationForTimeZone,
             Prelude.Just
               ( "DatasetImportJobName"
                   Data..= datasetImportJobName

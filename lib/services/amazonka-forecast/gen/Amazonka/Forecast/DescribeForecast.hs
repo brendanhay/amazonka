@@ -48,17 +48,17 @@ module Amazonka.Forecast.DescribeForecast
     newDescribeForecastResponse,
 
     -- * Response Lenses
-    describeForecastResponse_lastModificationTime,
-    describeForecastResponse_message,
-    describeForecastResponse_forecastTypes,
-    describeForecastResponse_status,
-    describeForecastResponse_estimatedTimeRemainingInMinutes,
-    describeForecastResponse_predictorArn,
-    describeForecastResponse_forecastArn,
     describeForecastResponse_creationTime,
     describeForecastResponse_datasetGroupArn,
-    describeForecastResponse_timeSeriesSelector,
+    describeForecastResponse_estimatedTimeRemainingInMinutes,
+    describeForecastResponse_forecastArn,
     describeForecastResponse_forecastName,
+    describeForecastResponse_forecastTypes,
+    describeForecastResponse_lastModificationTime,
+    describeForecastResponse_message,
+    describeForecastResponse_predictorArn,
+    describeForecastResponse_status,
+    describeForecastResponse_timeSeriesSelector,
     describeForecastResponse_httpStatus,
   )
 where
@@ -108,17 +108,17 @@ instance Core.AWSRequest DescribeForecast where
     Response.receiveJSON
       ( \s h x ->
           DescribeForecastResponse'
-            Prelude.<$> (x Data..?> "LastModificationTime")
-            Prelude.<*> (x Data..?> "Message")
-            Prelude.<*> (x Data..?> "ForecastTypes")
-            Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "EstimatedTimeRemainingInMinutes")
-            Prelude.<*> (x Data..?> "PredictorArn")
-            Prelude.<*> (x Data..?> "ForecastArn")
-            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<$> (x Data..?> "CreationTime")
             Prelude.<*> (x Data..?> "DatasetGroupArn")
-            Prelude.<*> (x Data..?> "TimeSeriesSelector")
+            Prelude.<*> (x Data..?> "EstimatedTimeRemainingInMinutes")
+            Prelude.<*> (x Data..?> "ForecastArn")
             Prelude.<*> (x Data..?> "ForecastName")
+            Prelude.<*> (x Data..?> "ForecastTypes")
+            Prelude.<*> (x Data..?> "LastModificationTime")
+            Prelude.<*> (x Data..?> "Message")
+            Prelude.<*> (x Data..?> "PredictorArn")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "TimeSeriesSelector")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,7 +159,21 @@ instance Data.ToQuery DescribeForecast where
 
 -- | /See:/ 'newDescribeForecastResponse' smart constructor.
 data DescribeForecastResponse = DescribeForecastResponse'
-  { -- | The last time the resource was modified. The timestamp depends on the
+  { -- | When the forecast creation task was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The ARN of the dataset group that provided the data used to train the
+    -- predictor.
+    datasetGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | The estimated time remaining in minutes for the forecast job to
+    -- complete.
+    estimatedTimeRemainingInMinutes :: Prelude.Maybe Prelude.Integer,
+    -- | The forecast ARN as specified in the request.
+    forecastArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the forecast.
+    forecastName :: Prelude.Maybe Prelude.Text,
+    -- | The quantiles at which probabilistic forecasts were generated.
+    forecastTypes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The last time the resource was modified. The timestamp depends on the
     -- status of the job:
     --
     -- -   @CREATE_PENDING@ - The @CreationTime@.
@@ -174,8 +188,8 @@ data DescribeForecastResponse = DescribeForecastResponse'
     lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | If an error occurred, an informational message about the error.
     message :: Prelude.Maybe Prelude.Text,
-    -- | The quantiles at which probabilistic forecasts were generated.
-    forecastTypes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The ARN of the predictor used to generate the forecast.
+    predictorArn :: Prelude.Maybe Prelude.Text,
     -- | The status of the forecast. States include:
     --
     -- -   @ACTIVE@
@@ -189,22 +203,8 @@ data DescribeForecastResponse = DescribeForecastResponse'
     -- The @Status@ of the forecast must be @ACTIVE@ before you can query or
     -- export the forecast.
     status :: Prelude.Maybe Prelude.Text,
-    -- | The estimated time remaining in minutes for the forecast job to
-    -- complete.
-    estimatedTimeRemainingInMinutes :: Prelude.Maybe Prelude.Integer,
-    -- | The ARN of the predictor used to generate the forecast.
-    predictorArn :: Prelude.Maybe Prelude.Text,
-    -- | The forecast ARN as specified in the request.
-    forecastArn :: Prelude.Maybe Prelude.Text,
-    -- | When the forecast creation task was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
-    -- | The ARN of the dataset group that provided the data used to train the
-    -- predictor.
-    datasetGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The time series to include in the forecast.
     timeSeriesSelector :: Prelude.Maybe TimeSeriesSelector,
-    -- | The name of the forecast.
-    forecastName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -217,6 +217,20 @@ data DescribeForecastResponse = DescribeForecastResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'creationTime', 'describeForecastResponse_creationTime' - When the forecast creation task was created.
+--
+-- 'datasetGroupArn', 'describeForecastResponse_datasetGroupArn' - The ARN of the dataset group that provided the data used to train the
+-- predictor.
+--
+-- 'estimatedTimeRemainingInMinutes', 'describeForecastResponse_estimatedTimeRemainingInMinutes' - The estimated time remaining in minutes for the forecast job to
+-- complete.
+--
+-- 'forecastArn', 'describeForecastResponse_forecastArn' - The forecast ARN as specified in the request.
+--
+-- 'forecastName', 'describeForecastResponse_forecastName' - The name of the forecast.
+--
+-- 'forecastTypes', 'describeForecastResponse_forecastTypes' - The quantiles at which probabilistic forecasts were generated.
 --
 -- 'lastModificationTime', 'describeForecastResponse_lastModificationTime' - The last time the resource was modified. The timestamp depends on the
 -- status of the job:
@@ -233,7 +247,7 @@ data DescribeForecastResponse = DescribeForecastResponse'
 --
 -- 'message', 'describeForecastResponse_message' - If an error occurred, an informational message about the error.
 --
--- 'forecastTypes', 'describeForecastResponse_forecastTypes' - The quantiles at which probabilistic forecasts were generated.
+-- 'predictorArn', 'describeForecastResponse_predictorArn' - The ARN of the predictor used to generate the forecast.
 --
 -- 'status', 'describeForecastResponse_status' - The status of the forecast. States include:
 --
@@ -248,21 +262,7 @@ data DescribeForecastResponse = DescribeForecastResponse'
 -- The @Status@ of the forecast must be @ACTIVE@ before you can query or
 -- export the forecast.
 --
--- 'estimatedTimeRemainingInMinutes', 'describeForecastResponse_estimatedTimeRemainingInMinutes' - The estimated time remaining in minutes for the forecast job to
--- complete.
---
--- 'predictorArn', 'describeForecastResponse_predictorArn' - The ARN of the predictor used to generate the forecast.
---
--- 'forecastArn', 'describeForecastResponse_forecastArn' - The forecast ARN as specified in the request.
---
--- 'creationTime', 'describeForecastResponse_creationTime' - When the forecast creation task was created.
---
--- 'datasetGroupArn', 'describeForecastResponse_datasetGroupArn' - The ARN of the dataset group that provided the data used to train the
--- predictor.
---
 -- 'timeSeriesSelector', 'describeForecastResponse_timeSeriesSelector' - The time series to include in the forecast.
---
--- 'forecastName', 'describeForecastResponse_forecastName' - The name of the forecast.
 --
 -- 'httpStatus', 'describeForecastResponse_httpStatus' - The response's http status code.
 newDescribeForecastResponse ::
@@ -271,20 +271,46 @@ newDescribeForecastResponse ::
   DescribeForecastResponse
 newDescribeForecastResponse pHttpStatus_ =
   DescribeForecastResponse'
-    { lastModificationTime =
+    { creationTime =
         Prelude.Nothing,
-      message = Prelude.Nothing,
-      forecastTypes = Prelude.Nothing,
-      status = Prelude.Nothing,
-      estimatedTimeRemainingInMinutes = Prelude.Nothing,
-      predictorArn = Prelude.Nothing,
-      forecastArn = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
       datasetGroupArn = Prelude.Nothing,
-      timeSeriesSelector = Prelude.Nothing,
+      estimatedTimeRemainingInMinutes = Prelude.Nothing,
+      forecastArn = Prelude.Nothing,
       forecastName = Prelude.Nothing,
+      forecastTypes = Prelude.Nothing,
+      lastModificationTime = Prelude.Nothing,
+      message = Prelude.Nothing,
+      predictorArn = Prelude.Nothing,
+      status = Prelude.Nothing,
+      timeSeriesSelector = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | When the forecast creation task was created.
+describeForecastResponse_creationTime :: Lens.Lens' DescribeForecastResponse (Prelude.Maybe Prelude.UTCTime)
+describeForecastResponse_creationTime = Lens.lens (\DescribeForecastResponse' {creationTime} -> creationTime) (\s@DescribeForecastResponse' {} a -> s {creationTime = a} :: DescribeForecastResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The ARN of the dataset group that provided the data used to train the
+-- predictor.
+describeForecastResponse_datasetGroupArn :: Lens.Lens' DescribeForecastResponse (Prelude.Maybe Prelude.Text)
+describeForecastResponse_datasetGroupArn = Lens.lens (\DescribeForecastResponse' {datasetGroupArn} -> datasetGroupArn) (\s@DescribeForecastResponse' {} a -> s {datasetGroupArn = a} :: DescribeForecastResponse)
+
+-- | The estimated time remaining in minutes for the forecast job to
+-- complete.
+describeForecastResponse_estimatedTimeRemainingInMinutes :: Lens.Lens' DescribeForecastResponse (Prelude.Maybe Prelude.Integer)
+describeForecastResponse_estimatedTimeRemainingInMinutes = Lens.lens (\DescribeForecastResponse' {estimatedTimeRemainingInMinutes} -> estimatedTimeRemainingInMinutes) (\s@DescribeForecastResponse' {} a -> s {estimatedTimeRemainingInMinutes = a} :: DescribeForecastResponse)
+
+-- | The forecast ARN as specified in the request.
+describeForecastResponse_forecastArn :: Lens.Lens' DescribeForecastResponse (Prelude.Maybe Prelude.Text)
+describeForecastResponse_forecastArn = Lens.lens (\DescribeForecastResponse' {forecastArn} -> forecastArn) (\s@DescribeForecastResponse' {} a -> s {forecastArn = a} :: DescribeForecastResponse)
+
+-- | The name of the forecast.
+describeForecastResponse_forecastName :: Lens.Lens' DescribeForecastResponse (Prelude.Maybe Prelude.Text)
+describeForecastResponse_forecastName = Lens.lens (\DescribeForecastResponse' {forecastName} -> forecastName) (\s@DescribeForecastResponse' {} a -> s {forecastName = a} :: DescribeForecastResponse)
+
+-- | The quantiles at which probabilistic forecasts were generated.
+describeForecastResponse_forecastTypes :: Lens.Lens' DescribeForecastResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+describeForecastResponse_forecastTypes = Lens.lens (\DescribeForecastResponse' {forecastTypes} -> forecastTypes) (\s@DescribeForecastResponse' {} a -> s {forecastTypes = a} :: DescribeForecastResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The last time the resource was modified. The timestamp depends on the
 -- status of the job:
@@ -305,9 +331,9 @@ describeForecastResponse_lastModificationTime = Lens.lens (\DescribeForecastResp
 describeForecastResponse_message :: Lens.Lens' DescribeForecastResponse (Prelude.Maybe Prelude.Text)
 describeForecastResponse_message = Lens.lens (\DescribeForecastResponse' {message} -> message) (\s@DescribeForecastResponse' {} a -> s {message = a} :: DescribeForecastResponse)
 
--- | The quantiles at which probabilistic forecasts were generated.
-describeForecastResponse_forecastTypes :: Lens.Lens' DescribeForecastResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-describeForecastResponse_forecastTypes = Lens.lens (\DescribeForecastResponse' {forecastTypes} -> forecastTypes) (\s@DescribeForecastResponse' {} a -> s {forecastTypes = a} :: DescribeForecastResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The ARN of the predictor used to generate the forecast.
+describeForecastResponse_predictorArn :: Lens.Lens' DescribeForecastResponse (Prelude.Maybe Prelude.Text)
+describeForecastResponse_predictorArn = Lens.lens (\DescribeForecastResponse' {predictorArn} -> predictorArn) (\s@DescribeForecastResponse' {} a -> s {predictorArn = a} :: DescribeForecastResponse)
 
 -- | The status of the forecast. States include:
 --
@@ -324,35 +350,9 @@ describeForecastResponse_forecastTypes = Lens.lens (\DescribeForecastResponse' {
 describeForecastResponse_status :: Lens.Lens' DescribeForecastResponse (Prelude.Maybe Prelude.Text)
 describeForecastResponse_status = Lens.lens (\DescribeForecastResponse' {status} -> status) (\s@DescribeForecastResponse' {} a -> s {status = a} :: DescribeForecastResponse)
 
--- | The estimated time remaining in minutes for the forecast job to
--- complete.
-describeForecastResponse_estimatedTimeRemainingInMinutes :: Lens.Lens' DescribeForecastResponse (Prelude.Maybe Prelude.Integer)
-describeForecastResponse_estimatedTimeRemainingInMinutes = Lens.lens (\DescribeForecastResponse' {estimatedTimeRemainingInMinutes} -> estimatedTimeRemainingInMinutes) (\s@DescribeForecastResponse' {} a -> s {estimatedTimeRemainingInMinutes = a} :: DescribeForecastResponse)
-
--- | The ARN of the predictor used to generate the forecast.
-describeForecastResponse_predictorArn :: Lens.Lens' DescribeForecastResponse (Prelude.Maybe Prelude.Text)
-describeForecastResponse_predictorArn = Lens.lens (\DescribeForecastResponse' {predictorArn} -> predictorArn) (\s@DescribeForecastResponse' {} a -> s {predictorArn = a} :: DescribeForecastResponse)
-
--- | The forecast ARN as specified in the request.
-describeForecastResponse_forecastArn :: Lens.Lens' DescribeForecastResponse (Prelude.Maybe Prelude.Text)
-describeForecastResponse_forecastArn = Lens.lens (\DescribeForecastResponse' {forecastArn} -> forecastArn) (\s@DescribeForecastResponse' {} a -> s {forecastArn = a} :: DescribeForecastResponse)
-
--- | When the forecast creation task was created.
-describeForecastResponse_creationTime :: Lens.Lens' DescribeForecastResponse (Prelude.Maybe Prelude.UTCTime)
-describeForecastResponse_creationTime = Lens.lens (\DescribeForecastResponse' {creationTime} -> creationTime) (\s@DescribeForecastResponse' {} a -> s {creationTime = a} :: DescribeForecastResponse) Prelude.. Lens.mapping Data._Time
-
--- | The ARN of the dataset group that provided the data used to train the
--- predictor.
-describeForecastResponse_datasetGroupArn :: Lens.Lens' DescribeForecastResponse (Prelude.Maybe Prelude.Text)
-describeForecastResponse_datasetGroupArn = Lens.lens (\DescribeForecastResponse' {datasetGroupArn} -> datasetGroupArn) (\s@DescribeForecastResponse' {} a -> s {datasetGroupArn = a} :: DescribeForecastResponse)
-
 -- | The time series to include in the forecast.
 describeForecastResponse_timeSeriesSelector :: Lens.Lens' DescribeForecastResponse (Prelude.Maybe TimeSeriesSelector)
 describeForecastResponse_timeSeriesSelector = Lens.lens (\DescribeForecastResponse' {timeSeriesSelector} -> timeSeriesSelector) (\s@DescribeForecastResponse' {} a -> s {timeSeriesSelector = a} :: DescribeForecastResponse)
-
--- | The name of the forecast.
-describeForecastResponse_forecastName :: Lens.Lens' DescribeForecastResponse (Prelude.Maybe Prelude.Text)
-describeForecastResponse_forecastName = Lens.lens (\DescribeForecastResponse' {forecastName} -> forecastName) (\s@DescribeForecastResponse' {} a -> s {forecastName = a} :: DescribeForecastResponse)
 
 -- | The response's http status code.
 describeForecastResponse_httpStatus :: Lens.Lens' DescribeForecastResponse Prelude.Int
@@ -360,15 +360,15 @@ describeForecastResponse_httpStatus = Lens.lens (\DescribeForecastResponse' {htt
 
 instance Prelude.NFData DescribeForecastResponse where
   rnf DescribeForecastResponse' {..} =
-    Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf forecastTypes
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf estimatedTimeRemainingInMinutes
-      `Prelude.seq` Prelude.rnf predictorArn
-      `Prelude.seq` Prelude.rnf forecastArn
-      `Prelude.seq` Prelude.rnf creationTime
+    Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf datasetGroupArn
-      `Prelude.seq` Prelude.rnf timeSeriesSelector
+      `Prelude.seq` Prelude.rnf estimatedTimeRemainingInMinutes
+      `Prelude.seq` Prelude.rnf forecastArn
       `Prelude.seq` Prelude.rnf forecastName
+      `Prelude.seq` Prelude.rnf forecastTypes
+      `Prelude.seq` Prelude.rnf lastModificationTime
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf predictorArn
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf timeSeriesSelector
       `Prelude.seq` Prelude.rnf httpStatus

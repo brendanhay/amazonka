@@ -38,8 +38,8 @@ module Amazonka.Forecast.CreateExplainabilityExport
     newCreateExplainabilityExport,
 
     -- * Request Lenses
-    createExplainabilityExport_tags,
     createExplainabilityExport_format,
+    createExplainabilityExport_tags,
     createExplainabilityExport_explainabilityExportName,
     createExplainabilityExport_explainabilityArn,
     createExplainabilityExport_destination,
@@ -64,7 +64,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateExplainabilityExport' smart constructor.
 data CreateExplainabilityExport = CreateExplainabilityExport'
-  { -- | Optional metadata to help you categorize and organize your resources.
+  { -- | The format of the exported data, CSV or PARQUET.
+    format :: Prelude.Maybe Prelude.Text,
+    -- | Optional metadata to help you categorize and organize your resources.
     -- Each tag consists of a key and an optional value, both of which you
     -- define. Tag keys and values are case sensitive.
     --
@@ -91,8 +93,6 @@ data CreateExplainabilityExport = CreateExplainabilityExport'
     --     only the key prefix of @aws@ do not count against your tags per
     --     resource limit. You cannot edit or delete tag keys with this prefix.
     tags :: Prelude.Maybe [Tag],
-    -- | The format of the exported data, CSV or PARQUET.
-    format :: Prelude.Maybe Prelude.Text,
     -- | A unique name for the Explainability export.
     explainabilityExportName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Explainability to export.
@@ -108,6 +108,8 @@ data CreateExplainabilityExport = CreateExplainabilityExport'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'format', 'createExplainabilityExport_format' - The format of the exported data, CSV or PARQUET.
 --
 -- 'tags', 'createExplainabilityExport_tags' - Optional metadata to help you categorize and organize your resources.
 -- Each tag consists of a key and an optional value, both of which you
@@ -136,8 +138,6 @@ data CreateExplainabilityExport = CreateExplainabilityExport'
 --     only the key prefix of @aws@ do not count against your tags per
 --     resource limit. You cannot edit or delete tag keys with this prefix.
 --
--- 'format', 'createExplainabilityExport_format' - The format of the exported data, CSV or PARQUET.
---
 -- 'explainabilityExportName', 'createExplainabilityExport_explainabilityExportName' - A unique name for the Explainability export.
 --
 -- 'explainabilityArn', 'createExplainabilityExport_explainabilityArn' - The Amazon Resource Name (ARN) of the Explainability to export.
@@ -156,13 +156,18 @@ newCreateExplainabilityExport
   pExplainabilityArn_
   pDestination_ =
     CreateExplainabilityExport'
-      { tags = Prelude.Nothing,
-        format = Prelude.Nothing,
+      { format =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         explainabilityExportName =
           pExplainabilityExportName_,
         explainabilityArn = pExplainabilityArn_,
         destination = pDestination_
       }
+
+-- | The format of the exported data, CSV or PARQUET.
+createExplainabilityExport_format :: Lens.Lens' CreateExplainabilityExport (Prelude.Maybe Prelude.Text)
+createExplainabilityExport_format = Lens.lens (\CreateExplainabilityExport' {format} -> format) (\s@CreateExplainabilityExport' {} a -> s {format = a} :: CreateExplainabilityExport)
 
 -- | Optional metadata to help you categorize and organize your resources.
 -- Each tag consists of a key and an optional value, both of which you
@@ -193,10 +198,6 @@ newCreateExplainabilityExport
 createExplainabilityExport_tags :: Lens.Lens' CreateExplainabilityExport (Prelude.Maybe [Tag])
 createExplainabilityExport_tags = Lens.lens (\CreateExplainabilityExport' {tags} -> tags) (\s@CreateExplainabilityExport' {} a -> s {tags = a} :: CreateExplainabilityExport) Prelude.. Lens.mapping Lens.coerced
 
--- | The format of the exported data, CSV or PARQUET.
-createExplainabilityExport_format :: Lens.Lens' CreateExplainabilityExport (Prelude.Maybe Prelude.Text)
-createExplainabilityExport_format = Lens.lens (\CreateExplainabilityExport' {format} -> format) (\s@CreateExplainabilityExport' {} a -> s {format = a} :: CreateExplainabilityExport)
-
 -- | A unique name for the Explainability export.
 createExplainabilityExport_explainabilityExportName :: Lens.Lens' CreateExplainabilityExport Prelude.Text
 createExplainabilityExport_explainabilityExportName = Lens.lens (\CreateExplainabilityExport' {explainabilityExportName} -> explainabilityExportName) (\s@CreateExplainabilityExport' {} a -> s {explainabilityExportName = a} :: CreateExplainabilityExport)
@@ -225,16 +226,16 @@ instance Core.AWSRequest CreateExplainabilityExport where
 
 instance Prelude.Hashable CreateExplainabilityExport where
   hashWithSalt _salt CreateExplainabilityExport' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` format
+    _salt `Prelude.hashWithSalt` format
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` explainabilityExportName
       `Prelude.hashWithSalt` explainabilityArn
       `Prelude.hashWithSalt` destination
 
 instance Prelude.NFData CreateExplainabilityExport where
   rnf CreateExplainabilityExport' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf format
+    Prelude.rnf format
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf explainabilityExportName
       `Prelude.seq` Prelude.rnf explainabilityArn
       `Prelude.seq` Prelude.rnf destination
@@ -258,8 +259,8 @@ instance Data.ToJSON CreateExplainabilityExport where
   toJSON CreateExplainabilityExport' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Format" Data..=) Prelude.<$> format,
+          [ ("Format" Data..=) Prelude.<$> format,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ( "ExplainabilityExportName"
                   Data..= explainabilityExportName

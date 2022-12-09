@@ -82,16 +82,16 @@ module Amazonka.Forecast.CreatePredictor
     newCreatePredictor,
 
     -- * Request Lenses
-    createPredictor_tags,
-    createPredictor_encryptionConfig,
-    createPredictor_performAutoML,
-    createPredictor_performHPO,
-    createPredictor_optimizationMetric,
-    createPredictor_evaluationParameters,
-    createPredictor_forecastTypes,
     createPredictor_algorithmArn,
     createPredictor_autoMLOverrideStrategy,
+    createPredictor_encryptionConfig,
+    createPredictor_evaluationParameters,
+    createPredictor_forecastTypes,
     createPredictor_hPOConfig,
+    createPredictor_optimizationMetric,
+    createPredictor_performAutoML,
+    createPredictor_performHPO,
+    createPredictor_tags,
     createPredictor_trainingParameters,
     createPredictor_predictorName,
     createPredictor_forecastHorizon,
@@ -118,40 +118,59 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreatePredictor' smart constructor.
 data CreatePredictor = CreatePredictor'
-  { -- | The optional metadata that you apply to the predictor to help you
-    -- categorize and organize them. Each tag consists of a key and an optional
-    -- value, both of which you define.
+  { -- | The Amazon Resource Name (ARN) of the algorithm to use for model
+    -- training. Required if @PerformAutoML@ is not set to @true@.
     --
-    -- The following basic restrictions apply to tags:
+    -- __Supported algorithms:__
     --
-    -- -   Maximum number of tags per resource - 50.
+    -- -   @arn:aws:forecast:::algorithm\/ARIMA@
     --
-    -- -   For each resource, each tag key must be unique, and each tag key can
-    --     have only one value.
+    -- -   @arn:aws:forecast:::algorithm\/CNN-QR@
     --
-    -- -   Maximum key length - 128 Unicode characters in UTF-8.
+    -- -   @arn:aws:forecast:::algorithm\/Deep_AR_Plus@
     --
-    -- -   Maximum value length - 256 Unicode characters in UTF-8.
+    -- -   @arn:aws:forecast:::algorithm\/ETS@
     --
-    -- -   If your tagging schema is used across multiple services and
-    --     resources, remember that other services may have restrictions on
-    --     allowed characters. Generally allowed characters are: letters,
-    --     numbers, and spaces representable in UTF-8, and the following
-    --     characters: + - = . _ : \/ \@.
+    -- -   @arn:aws:forecast:::algorithm\/NPTS@
     --
-    -- -   Tag keys and values are case sensitive.
+    -- -   @arn:aws:forecast:::algorithm\/Prophet@
+    algorithmArn :: Prelude.Maybe Prelude.Text,
+    -- | The @LatencyOptimized@ AutoML override strategy is only available in
+    -- private beta. Contact AWS Support or your account manager to learn more
+    -- about access privileges.
     --
-    -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
-    --     such as a prefix for keys as it is reserved for AWS use. You cannot
-    --     edit or delete tag keys with this prefix. Values can have this
-    --     prefix. If a tag value has @aws@ as its prefix but the key does not,
-    --     then Forecast considers it to be a user tag and will count against
-    --     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
-    --     count against your tags per resource limit.
-    tags :: Prelude.Maybe [Tag],
+    -- Used to overide the default AutoML strategy, which is to optimize
+    -- predictor accuracy. To apply an AutoML strategy that minimizes training
+    -- time, use @LatencyOptimized@.
+    --
+    -- This parameter is only valid for predictors trained using AutoML.
+    autoMLOverrideStrategy :: Prelude.Maybe AutoMLOverrideStrategy,
     -- | An AWS Key Management Service (KMS) key and the AWS Identity and Access
     -- Management (IAM) role that Amazon Forecast can assume to access the key.
     encryptionConfig :: Prelude.Maybe EncryptionConfig,
+    -- | Used to override the default evaluation parameters of the specified
+    -- algorithm. Amazon Forecast evaluates a predictor by splitting a dataset
+    -- into training data and testing data. The evaluation parameters define
+    -- how to perform the split and the number of iterations.
+    evaluationParameters :: Prelude.Maybe EvaluationParameters,
+    -- | Specifies the forecast types used to train a predictor. You can specify
+    -- up to five forecast types. Forecast types can be quantiles from 0.01 to
+    -- 0.99, by increments of 0.01 or higher. You can also specify the mean
+    -- forecast with @mean@.
+    --
+    -- The default value is @[\"0.10\", \"0.50\", \"0.9\"]@.
+    forecastTypes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | Provides hyperparameter override values for the algorithm. If you don\'t
+    -- provide this parameter, Amazon Forecast uses default values. The
+    -- individual algorithms specify which hyperparameters support
+    -- hyperparameter optimization (HPO). For more information, see
+    -- aws-forecast-choosing-recipes.
+    --
+    -- If you included the @HPOConfig@ object, you must set @PerformHPO@ to
+    -- true.
+    hPOConfig :: Prelude.Maybe HyperParameterTuningJobConfig,
+    -- | The accuracy metric used to optimize the predictor.
+    optimizationMetric :: Prelude.Maybe OptimizationMetric,
     -- | Whether to perform AutoML. When Amazon Forecast performs AutoML, it
     -- evaluates the algorithms it provides and chooses the best algorithm and
     -- configuration for your training dataset.
@@ -183,56 +202,37 @@ data CreatePredictor = CreatePredictor'
     --
     -- -   CNN-QR
     performHPO :: Prelude.Maybe Prelude.Bool,
-    -- | The accuracy metric used to optimize the predictor.
-    optimizationMetric :: Prelude.Maybe OptimizationMetric,
-    -- | Used to override the default evaluation parameters of the specified
-    -- algorithm. Amazon Forecast evaluates a predictor by splitting a dataset
-    -- into training data and testing data. The evaluation parameters define
-    -- how to perform the split and the number of iterations.
-    evaluationParameters :: Prelude.Maybe EvaluationParameters,
-    -- | Specifies the forecast types used to train a predictor. You can specify
-    -- up to five forecast types. Forecast types can be quantiles from 0.01 to
-    -- 0.99, by increments of 0.01 or higher. You can also specify the mean
-    -- forecast with @mean@.
+    -- | The optional metadata that you apply to the predictor to help you
+    -- categorize and organize them. Each tag consists of a key and an optional
+    -- value, both of which you define.
     --
-    -- The default value is @[\"0.10\", \"0.50\", \"0.9\"]@.
-    forecastTypes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The Amazon Resource Name (ARN) of the algorithm to use for model
-    -- training. Required if @PerformAutoML@ is not set to @true@.
+    -- The following basic restrictions apply to tags:
     --
-    -- __Supported algorithms:__
+    -- -   Maximum number of tags per resource - 50.
     --
-    -- -   @arn:aws:forecast:::algorithm\/ARIMA@
+    -- -   For each resource, each tag key must be unique, and each tag key can
+    --     have only one value.
     --
-    -- -   @arn:aws:forecast:::algorithm\/CNN-QR@
+    -- -   Maximum key length - 128 Unicode characters in UTF-8.
     --
-    -- -   @arn:aws:forecast:::algorithm\/Deep_AR_Plus@
+    -- -   Maximum value length - 256 Unicode characters in UTF-8.
     --
-    -- -   @arn:aws:forecast:::algorithm\/ETS@
+    -- -   If your tagging schema is used across multiple services and
+    --     resources, remember that other services may have restrictions on
+    --     allowed characters. Generally allowed characters are: letters,
+    --     numbers, and spaces representable in UTF-8, and the following
+    --     characters: + - = . _ : \/ \@.
     --
-    -- -   @arn:aws:forecast:::algorithm\/NPTS@
+    -- -   Tag keys and values are case sensitive.
     --
-    -- -   @arn:aws:forecast:::algorithm\/Prophet@
-    algorithmArn :: Prelude.Maybe Prelude.Text,
-    -- | The @LatencyOptimized@ AutoML override strategy is only available in
-    -- private beta. Contact AWS Support or your account manager to learn more
-    -- about access privileges.
-    --
-    -- Used to overide the default AutoML strategy, which is to optimize
-    -- predictor accuracy. To apply an AutoML strategy that minimizes training
-    -- time, use @LatencyOptimized@.
-    --
-    -- This parameter is only valid for predictors trained using AutoML.
-    autoMLOverrideStrategy :: Prelude.Maybe AutoMLOverrideStrategy,
-    -- | Provides hyperparameter override values for the algorithm. If you don\'t
-    -- provide this parameter, Amazon Forecast uses default values. The
-    -- individual algorithms specify which hyperparameters support
-    -- hyperparameter optimization (HPO). For more information, see
-    -- aws-forecast-choosing-recipes.
-    --
-    -- If you included the @HPOConfig@ object, you must set @PerformHPO@ to
-    -- true.
-    hPOConfig :: Prelude.Maybe HyperParameterTuningJobConfig,
+    -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
+    --     such as a prefix for keys as it is reserved for AWS use. You cannot
+    --     edit or delete tag keys with this prefix. Values can have this
+    --     prefix. If a tag value has @aws@ as its prefix but the key does not,
+    --     then Forecast considers it to be a user tag and will count against
+    --     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
+    --     count against your tags per resource limit.
+    tags :: Prelude.Maybe [Tag],
     -- | The hyperparameters to override for model training. The hyperparameters
     -- that you can override are listed in the individual algorithms. For the
     -- list of supported algorithms, see aws-forecast-choosing-recipes.
@@ -265,39 +265,58 @@ data CreatePredictor = CreatePredictor'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createPredictor_tags' - The optional metadata that you apply to the predictor to help you
--- categorize and organize them. Each tag consists of a key and an optional
--- value, both of which you define.
+-- 'algorithmArn', 'createPredictor_algorithmArn' - The Amazon Resource Name (ARN) of the algorithm to use for model
+-- training. Required if @PerformAutoML@ is not set to @true@.
 --
--- The following basic restrictions apply to tags:
+-- __Supported algorithms:__
 --
--- -   Maximum number of tags per resource - 50.
+-- -   @arn:aws:forecast:::algorithm\/ARIMA@
 --
--- -   For each resource, each tag key must be unique, and each tag key can
---     have only one value.
+-- -   @arn:aws:forecast:::algorithm\/CNN-QR@
 --
--- -   Maximum key length - 128 Unicode characters in UTF-8.
+-- -   @arn:aws:forecast:::algorithm\/Deep_AR_Plus@
 --
--- -   Maximum value length - 256 Unicode characters in UTF-8.
+-- -   @arn:aws:forecast:::algorithm\/ETS@
 --
--- -   If your tagging schema is used across multiple services and
---     resources, remember that other services may have restrictions on
---     allowed characters. Generally allowed characters are: letters,
---     numbers, and spaces representable in UTF-8, and the following
---     characters: + - = . _ : \/ \@.
+-- -   @arn:aws:forecast:::algorithm\/NPTS@
 --
--- -   Tag keys and values are case sensitive.
+-- -   @arn:aws:forecast:::algorithm\/Prophet@
 --
--- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for keys as it is reserved for AWS use. You cannot
---     edit or delete tag keys with this prefix. Values can have this
---     prefix. If a tag value has @aws@ as its prefix but the key does not,
---     then Forecast considers it to be a user tag and will count against
---     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
---     count against your tags per resource limit.
+-- 'autoMLOverrideStrategy', 'createPredictor_autoMLOverrideStrategy' - The @LatencyOptimized@ AutoML override strategy is only available in
+-- private beta. Contact AWS Support or your account manager to learn more
+-- about access privileges.
+--
+-- Used to overide the default AutoML strategy, which is to optimize
+-- predictor accuracy. To apply an AutoML strategy that minimizes training
+-- time, use @LatencyOptimized@.
+--
+-- This parameter is only valid for predictors trained using AutoML.
 --
 -- 'encryptionConfig', 'createPredictor_encryptionConfig' - An AWS Key Management Service (KMS) key and the AWS Identity and Access
 -- Management (IAM) role that Amazon Forecast can assume to access the key.
+--
+-- 'evaluationParameters', 'createPredictor_evaluationParameters' - Used to override the default evaluation parameters of the specified
+-- algorithm. Amazon Forecast evaluates a predictor by splitting a dataset
+-- into training data and testing data. The evaluation parameters define
+-- how to perform the split and the number of iterations.
+--
+-- 'forecastTypes', 'createPredictor_forecastTypes' - Specifies the forecast types used to train a predictor. You can specify
+-- up to five forecast types. Forecast types can be quantiles from 0.01 to
+-- 0.99, by increments of 0.01 or higher. You can also specify the mean
+-- forecast with @mean@.
+--
+-- The default value is @[\"0.10\", \"0.50\", \"0.9\"]@.
+--
+-- 'hPOConfig', 'createPredictor_hPOConfig' - Provides hyperparameter override values for the algorithm. If you don\'t
+-- provide this parameter, Amazon Forecast uses default values. The
+-- individual algorithms specify which hyperparameters support
+-- hyperparameter optimization (HPO). For more information, see
+-- aws-forecast-choosing-recipes.
+--
+-- If you included the @HPOConfig@ object, you must set @PerformHPO@ to
+-- true.
+--
+-- 'optimizationMetric', 'createPredictor_optimizationMetric' - The accuracy metric used to optimize the predictor.
 --
 -- 'performAutoML', 'createPredictor_performAutoML' - Whether to perform AutoML. When Amazon Forecast performs AutoML, it
 -- evaluates the algorithms it provides and chooses the best algorithm and
@@ -330,55 +349,36 @@ data CreatePredictor = CreatePredictor'
 --
 -- -   CNN-QR
 --
--- 'optimizationMetric', 'createPredictor_optimizationMetric' - The accuracy metric used to optimize the predictor.
+-- 'tags', 'createPredictor_tags' - The optional metadata that you apply to the predictor to help you
+-- categorize and organize them. Each tag consists of a key and an optional
+-- value, both of which you define.
 --
--- 'evaluationParameters', 'createPredictor_evaluationParameters' - Used to override the default evaluation parameters of the specified
--- algorithm. Amazon Forecast evaluates a predictor by splitting a dataset
--- into training data and testing data. The evaluation parameters define
--- how to perform the split and the number of iterations.
+-- The following basic restrictions apply to tags:
 --
--- 'forecastTypes', 'createPredictor_forecastTypes' - Specifies the forecast types used to train a predictor. You can specify
--- up to five forecast types. Forecast types can be quantiles from 0.01 to
--- 0.99, by increments of 0.01 or higher. You can also specify the mean
--- forecast with @mean@.
+-- -   Maximum number of tags per resource - 50.
 --
--- The default value is @[\"0.10\", \"0.50\", \"0.9\"]@.
+-- -   For each resource, each tag key must be unique, and each tag key can
+--     have only one value.
 --
--- 'algorithmArn', 'createPredictor_algorithmArn' - The Amazon Resource Name (ARN) of the algorithm to use for model
--- training. Required if @PerformAutoML@ is not set to @true@.
+-- -   Maximum key length - 128 Unicode characters in UTF-8.
 --
--- __Supported algorithms:__
+-- -   Maximum value length - 256 Unicode characters in UTF-8.
 --
--- -   @arn:aws:forecast:::algorithm\/ARIMA@
+-- -   If your tagging schema is used across multiple services and
+--     resources, remember that other services may have restrictions on
+--     allowed characters. Generally allowed characters are: letters,
+--     numbers, and spaces representable in UTF-8, and the following
+--     characters: + - = . _ : \/ \@.
 --
--- -   @arn:aws:forecast:::algorithm\/CNN-QR@
+-- -   Tag keys and values are case sensitive.
 --
--- -   @arn:aws:forecast:::algorithm\/Deep_AR_Plus@
---
--- -   @arn:aws:forecast:::algorithm\/ETS@
---
--- -   @arn:aws:forecast:::algorithm\/NPTS@
---
--- -   @arn:aws:forecast:::algorithm\/Prophet@
---
--- 'autoMLOverrideStrategy', 'createPredictor_autoMLOverrideStrategy' - The @LatencyOptimized@ AutoML override strategy is only available in
--- private beta. Contact AWS Support or your account manager to learn more
--- about access privileges.
---
--- Used to overide the default AutoML strategy, which is to optimize
--- predictor accuracy. To apply an AutoML strategy that minimizes training
--- time, use @LatencyOptimized@.
---
--- This parameter is only valid for predictors trained using AutoML.
---
--- 'hPOConfig', 'createPredictor_hPOConfig' - Provides hyperparameter override values for the algorithm. If you don\'t
--- provide this parameter, Amazon Forecast uses default values. The
--- individual algorithms specify which hyperparameters support
--- hyperparameter optimization (HPO). For more information, see
--- aws-forecast-choosing-recipes.
---
--- If you included the @HPOConfig@ object, you must set @PerformHPO@ to
--- true.
+-- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
+--     such as a prefix for keys as it is reserved for AWS use. You cannot
+--     edit or delete tag keys with this prefix. Values can have this
+--     prefix. If a tag value has @aws@ as its prefix but the key does not,
+--     then Forecast considers it to be a user tag and will count against
+--     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
+--     count against your tags per resource limit.
 --
 -- 'trainingParameters', 'createPredictor_trainingParameters' - The hyperparameters to override for model training. The hyperparameters
 -- that you can override are listed in the individual algorithms. For the
@@ -416,16 +416,16 @@ newCreatePredictor
   pInputDataConfig_
   pFeaturizationConfig_ =
     CreatePredictor'
-      { tags = Prelude.Nothing,
+      { algorithmArn = Prelude.Nothing,
+        autoMLOverrideStrategy = Prelude.Nothing,
         encryptionConfig = Prelude.Nothing,
-        performAutoML = Prelude.Nothing,
-        performHPO = Prelude.Nothing,
-        optimizationMetric = Prelude.Nothing,
         evaluationParameters = Prelude.Nothing,
         forecastTypes = Prelude.Nothing,
-        algorithmArn = Prelude.Nothing,
-        autoMLOverrideStrategy = Prelude.Nothing,
         hPOConfig = Prelude.Nothing,
+        optimizationMetric = Prelude.Nothing,
+        performAutoML = Prelude.Nothing,
+        performHPO = Prelude.Nothing,
+        tags = Prelude.Nothing,
         trainingParameters = Prelude.Nothing,
         predictorName = pPredictorName_,
         forecastHorizon = pForecastHorizon_,
@@ -433,43 +433,72 @@ newCreatePredictor
         featurizationConfig = pFeaturizationConfig_
       }
 
--- | The optional metadata that you apply to the predictor to help you
--- categorize and organize them. Each tag consists of a key and an optional
--- value, both of which you define.
+-- | The Amazon Resource Name (ARN) of the algorithm to use for model
+-- training. Required if @PerformAutoML@ is not set to @true@.
 --
--- The following basic restrictions apply to tags:
+-- __Supported algorithms:__
 --
--- -   Maximum number of tags per resource - 50.
+-- -   @arn:aws:forecast:::algorithm\/ARIMA@
 --
--- -   For each resource, each tag key must be unique, and each tag key can
---     have only one value.
+-- -   @arn:aws:forecast:::algorithm\/CNN-QR@
 --
--- -   Maximum key length - 128 Unicode characters in UTF-8.
+-- -   @arn:aws:forecast:::algorithm\/Deep_AR_Plus@
 --
--- -   Maximum value length - 256 Unicode characters in UTF-8.
+-- -   @arn:aws:forecast:::algorithm\/ETS@
 --
--- -   If your tagging schema is used across multiple services and
---     resources, remember that other services may have restrictions on
---     allowed characters. Generally allowed characters are: letters,
---     numbers, and spaces representable in UTF-8, and the following
---     characters: + - = . _ : \/ \@.
+-- -   @arn:aws:forecast:::algorithm\/NPTS@
 --
--- -   Tag keys and values are case sensitive.
+-- -   @arn:aws:forecast:::algorithm\/Prophet@
+createPredictor_algorithmArn :: Lens.Lens' CreatePredictor (Prelude.Maybe Prelude.Text)
+createPredictor_algorithmArn = Lens.lens (\CreatePredictor' {algorithmArn} -> algorithmArn) (\s@CreatePredictor' {} a -> s {algorithmArn = a} :: CreatePredictor)
+
+-- | The @LatencyOptimized@ AutoML override strategy is only available in
+-- private beta. Contact AWS Support or your account manager to learn more
+-- about access privileges.
 --
--- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for keys as it is reserved for AWS use. You cannot
---     edit or delete tag keys with this prefix. Values can have this
---     prefix. If a tag value has @aws@ as its prefix but the key does not,
---     then Forecast considers it to be a user tag and will count against
---     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
---     count against your tags per resource limit.
-createPredictor_tags :: Lens.Lens' CreatePredictor (Prelude.Maybe [Tag])
-createPredictor_tags = Lens.lens (\CreatePredictor' {tags} -> tags) (\s@CreatePredictor' {} a -> s {tags = a} :: CreatePredictor) Prelude.. Lens.mapping Lens.coerced
+-- Used to overide the default AutoML strategy, which is to optimize
+-- predictor accuracy. To apply an AutoML strategy that minimizes training
+-- time, use @LatencyOptimized@.
+--
+-- This parameter is only valid for predictors trained using AutoML.
+createPredictor_autoMLOverrideStrategy :: Lens.Lens' CreatePredictor (Prelude.Maybe AutoMLOverrideStrategy)
+createPredictor_autoMLOverrideStrategy = Lens.lens (\CreatePredictor' {autoMLOverrideStrategy} -> autoMLOverrideStrategy) (\s@CreatePredictor' {} a -> s {autoMLOverrideStrategy = a} :: CreatePredictor)
 
 -- | An AWS Key Management Service (KMS) key and the AWS Identity and Access
 -- Management (IAM) role that Amazon Forecast can assume to access the key.
 createPredictor_encryptionConfig :: Lens.Lens' CreatePredictor (Prelude.Maybe EncryptionConfig)
 createPredictor_encryptionConfig = Lens.lens (\CreatePredictor' {encryptionConfig} -> encryptionConfig) (\s@CreatePredictor' {} a -> s {encryptionConfig = a} :: CreatePredictor)
+
+-- | Used to override the default evaluation parameters of the specified
+-- algorithm. Amazon Forecast evaluates a predictor by splitting a dataset
+-- into training data and testing data. The evaluation parameters define
+-- how to perform the split and the number of iterations.
+createPredictor_evaluationParameters :: Lens.Lens' CreatePredictor (Prelude.Maybe EvaluationParameters)
+createPredictor_evaluationParameters = Lens.lens (\CreatePredictor' {evaluationParameters} -> evaluationParameters) (\s@CreatePredictor' {} a -> s {evaluationParameters = a} :: CreatePredictor)
+
+-- | Specifies the forecast types used to train a predictor. You can specify
+-- up to five forecast types. Forecast types can be quantiles from 0.01 to
+-- 0.99, by increments of 0.01 or higher. You can also specify the mean
+-- forecast with @mean@.
+--
+-- The default value is @[\"0.10\", \"0.50\", \"0.9\"]@.
+createPredictor_forecastTypes :: Lens.Lens' CreatePredictor (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+createPredictor_forecastTypes = Lens.lens (\CreatePredictor' {forecastTypes} -> forecastTypes) (\s@CreatePredictor' {} a -> s {forecastTypes = a} :: CreatePredictor) Prelude.. Lens.mapping Lens.coerced
+
+-- | Provides hyperparameter override values for the algorithm. If you don\'t
+-- provide this parameter, Amazon Forecast uses default values. The
+-- individual algorithms specify which hyperparameters support
+-- hyperparameter optimization (HPO). For more information, see
+-- aws-forecast-choosing-recipes.
+--
+-- If you included the @HPOConfig@ object, you must set @PerformHPO@ to
+-- true.
+createPredictor_hPOConfig :: Lens.Lens' CreatePredictor (Prelude.Maybe HyperParameterTuningJobConfig)
+createPredictor_hPOConfig = Lens.lens (\CreatePredictor' {hPOConfig} -> hPOConfig) (\s@CreatePredictor' {} a -> s {hPOConfig = a} :: CreatePredictor)
+
+-- | The accuracy metric used to optimize the predictor.
+createPredictor_optimizationMetric :: Lens.Lens' CreatePredictor (Prelude.Maybe OptimizationMetric)
+createPredictor_optimizationMetric = Lens.lens (\CreatePredictor' {optimizationMetric} -> optimizationMetric) (\s@CreatePredictor' {} a -> s {optimizationMetric = a} :: CreatePredictor)
 
 -- | Whether to perform AutoML. When Amazon Forecast performs AutoML, it
 -- evaluates the algorithms it provides and chooses the best algorithm and
@@ -506,67 +535,38 @@ createPredictor_performAutoML = Lens.lens (\CreatePredictor' {performAutoML} -> 
 createPredictor_performHPO :: Lens.Lens' CreatePredictor (Prelude.Maybe Prelude.Bool)
 createPredictor_performHPO = Lens.lens (\CreatePredictor' {performHPO} -> performHPO) (\s@CreatePredictor' {} a -> s {performHPO = a} :: CreatePredictor)
 
--- | The accuracy metric used to optimize the predictor.
-createPredictor_optimizationMetric :: Lens.Lens' CreatePredictor (Prelude.Maybe OptimizationMetric)
-createPredictor_optimizationMetric = Lens.lens (\CreatePredictor' {optimizationMetric} -> optimizationMetric) (\s@CreatePredictor' {} a -> s {optimizationMetric = a} :: CreatePredictor)
-
--- | Used to override the default evaluation parameters of the specified
--- algorithm. Amazon Forecast evaluates a predictor by splitting a dataset
--- into training data and testing data. The evaluation parameters define
--- how to perform the split and the number of iterations.
-createPredictor_evaluationParameters :: Lens.Lens' CreatePredictor (Prelude.Maybe EvaluationParameters)
-createPredictor_evaluationParameters = Lens.lens (\CreatePredictor' {evaluationParameters} -> evaluationParameters) (\s@CreatePredictor' {} a -> s {evaluationParameters = a} :: CreatePredictor)
-
--- | Specifies the forecast types used to train a predictor. You can specify
--- up to five forecast types. Forecast types can be quantiles from 0.01 to
--- 0.99, by increments of 0.01 or higher. You can also specify the mean
--- forecast with @mean@.
+-- | The optional metadata that you apply to the predictor to help you
+-- categorize and organize them. Each tag consists of a key and an optional
+-- value, both of which you define.
 --
--- The default value is @[\"0.10\", \"0.50\", \"0.9\"]@.
-createPredictor_forecastTypes :: Lens.Lens' CreatePredictor (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-createPredictor_forecastTypes = Lens.lens (\CreatePredictor' {forecastTypes} -> forecastTypes) (\s@CreatePredictor' {} a -> s {forecastTypes = a} :: CreatePredictor) Prelude.. Lens.mapping Lens.coerced
-
--- | The Amazon Resource Name (ARN) of the algorithm to use for model
--- training. Required if @PerformAutoML@ is not set to @true@.
+-- The following basic restrictions apply to tags:
 --
--- __Supported algorithms:__
+-- -   Maximum number of tags per resource - 50.
 --
--- -   @arn:aws:forecast:::algorithm\/ARIMA@
+-- -   For each resource, each tag key must be unique, and each tag key can
+--     have only one value.
 --
--- -   @arn:aws:forecast:::algorithm\/CNN-QR@
+-- -   Maximum key length - 128 Unicode characters in UTF-8.
 --
--- -   @arn:aws:forecast:::algorithm\/Deep_AR_Plus@
+-- -   Maximum value length - 256 Unicode characters in UTF-8.
 --
--- -   @arn:aws:forecast:::algorithm\/ETS@
+-- -   If your tagging schema is used across multiple services and
+--     resources, remember that other services may have restrictions on
+--     allowed characters. Generally allowed characters are: letters,
+--     numbers, and spaces representable in UTF-8, and the following
+--     characters: + - = . _ : \/ \@.
 --
--- -   @arn:aws:forecast:::algorithm\/NPTS@
+-- -   Tag keys and values are case sensitive.
 --
--- -   @arn:aws:forecast:::algorithm\/Prophet@
-createPredictor_algorithmArn :: Lens.Lens' CreatePredictor (Prelude.Maybe Prelude.Text)
-createPredictor_algorithmArn = Lens.lens (\CreatePredictor' {algorithmArn} -> algorithmArn) (\s@CreatePredictor' {} a -> s {algorithmArn = a} :: CreatePredictor)
-
--- | The @LatencyOptimized@ AutoML override strategy is only available in
--- private beta. Contact AWS Support or your account manager to learn more
--- about access privileges.
---
--- Used to overide the default AutoML strategy, which is to optimize
--- predictor accuracy. To apply an AutoML strategy that minimizes training
--- time, use @LatencyOptimized@.
---
--- This parameter is only valid for predictors trained using AutoML.
-createPredictor_autoMLOverrideStrategy :: Lens.Lens' CreatePredictor (Prelude.Maybe AutoMLOverrideStrategy)
-createPredictor_autoMLOverrideStrategy = Lens.lens (\CreatePredictor' {autoMLOverrideStrategy} -> autoMLOverrideStrategy) (\s@CreatePredictor' {} a -> s {autoMLOverrideStrategy = a} :: CreatePredictor)
-
--- | Provides hyperparameter override values for the algorithm. If you don\'t
--- provide this parameter, Amazon Forecast uses default values. The
--- individual algorithms specify which hyperparameters support
--- hyperparameter optimization (HPO). For more information, see
--- aws-forecast-choosing-recipes.
---
--- If you included the @HPOConfig@ object, you must set @PerformHPO@ to
--- true.
-createPredictor_hPOConfig :: Lens.Lens' CreatePredictor (Prelude.Maybe HyperParameterTuningJobConfig)
-createPredictor_hPOConfig = Lens.lens (\CreatePredictor' {hPOConfig} -> hPOConfig) (\s@CreatePredictor' {} a -> s {hPOConfig = a} :: CreatePredictor)
+-- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
+--     such as a prefix for keys as it is reserved for AWS use. You cannot
+--     edit or delete tag keys with this prefix. Values can have this
+--     prefix. If a tag value has @aws@ as its prefix but the key does not,
+--     then Forecast considers it to be a user tag and will count against
+--     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
+--     count against your tags per resource limit.
+createPredictor_tags :: Lens.Lens' CreatePredictor (Prelude.Maybe [Tag])
+createPredictor_tags = Lens.lens (\CreatePredictor' {tags} -> tags) (\s@CreatePredictor' {} a -> s {tags = a} :: CreatePredictor) Prelude.. Lens.mapping Lens.coerced
 
 -- | The hyperparameters to override for model training. The hyperparameters
 -- that you can override are listed in the individual algorithms. For the
@@ -615,16 +615,16 @@ instance Core.AWSRequest CreatePredictor where
 
 instance Prelude.Hashable CreatePredictor where
   hashWithSalt _salt CreatePredictor' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` algorithmArn
+      `Prelude.hashWithSalt` autoMLOverrideStrategy
       `Prelude.hashWithSalt` encryptionConfig
-      `Prelude.hashWithSalt` performAutoML
-      `Prelude.hashWithSalt` performHPO
-      `Prelude.hashWithSalt` optimizationMetric
       `Prelude.hashWithSalt` evaluationParameters
       `Prelude.hashWithSalt` forecastTypes
-      `Prelude.hashWithSalt` algorithmArn
-      `Prelude.hashWithSalt` autoMLOverrideStrategy
       `Prelude.hashWithSalt` hPOConfig
+      `Prelude.hashWithSalt` optimizationMetric
+      `Prelude.hashWithSalt` performAutoML
+      `Prelude.hashWithSalt` performHPO
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` trainingParameters
       `Prelude.hashWithSalt` predictorName
       `Prelude.hashWithSalt` forecastHorizon
@@ -633,16 +633,16 @@ instance Prelude.Hashable CreatePredictor where
 
 instance Prelude.NFData CreatePredictor where
   rnf CreatePredictor' {..} =
-    Prelude.rnf tags
+    Prelude.rnf algorithmArn
+      `Prelude.seq` Prelude.rnf autoMLOverrideStrategy
       `Prelude.seq` Prelude.rnf encryptionConfig
-      `Prelude.seq` Prelude.rnf performAutoML
-      `Prelude.seq` Prelude.rnf performHPO
-      `Prelude.seq` Prelude.rnf optimizationMetric
       `Prelude.seq` Prelude.rnf evaluationParameters
       `Prelude.seq` Prelude.rnf forecastTypes
-      `Prelude.seq` Prelude.rnf algorithmArn
-      `Prelude.seq` Prelude.rnf autoMLOverrideStrategy
       `Prelude.seq` Prelude.rnf hPOConfig
+      `Prelude.seq` Prelude.rnf optimizationMetric
+      `Prelude.seq` Prelude.rnf performAutoML
+      `Prelude.seq` Prelude.rnf performHPO
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf trainingParameters
       `Prelude.seq` Prelude.rnf predictorName
       `Prelude.seq` Prelude.rnf forecastHorizon
@@ -668,20 +668,20 @@ instance Data.ToJSON CreatePredictor where
   toJSON CreatePredictor' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("AlgorithmArn" Data..=) Prelude.<$> algorithmArn,
+            ("AutoMLOverrideStrategy" Data..=)
+              Prelude.<$> autoMLOverrideStrategy,
             ("EncryptionConfig" Data..=)
               Prelude.<$> encryptionConfig,
-            ("PerformAutoML" Data..=) Prelude.<$> performAutoML,
-            ("PerformHPO" Data..=) Prelude.<$> performHPO,
-            ("OptimizationMetric" Data..=)
-              Prelude.<$> optimizationMetric,
             ("EvaluationParameters" Data..=)
               Prelude.<$> evaluationParameters,
             ("ForecastTypes" Data..=) Prelude.<$> forecastTypes,
-            ("AlgorithmArn" Data..=) Prelude.<$> algorithmArn,
-            ("AutoMLOverrideStrategy" Data..=)
-              Prelude.<$> autoMLOverrideStrategy,
             ("HPOConfig" Data..=) Prelude.<$> hPOConfig,
+            ("OptimizationMetric" Data..=)
+              Prelude.<$> optimizationMetric,
+            ("PerformAutoML" Data..=) Prelude.<$> performAutoML,
+            ("PerformHPO" Data..=) Prelude.<$> performHPO,
+            ("Tags" Data..=) Prelude.<$> tags,
             ("TrainingParameters" Data..=)
               Prelude.<$> trainingParameters,
             Prelude.Just ("PredictorName" Data..= predictorName),

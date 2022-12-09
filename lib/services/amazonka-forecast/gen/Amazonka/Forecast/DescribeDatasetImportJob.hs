@@ -52,22 +52,22 @@ module Amazonka.Forecast.DescribeDatasetImportJob
     newDescribeDatasetImportJobResponse,
 
     -- * Response Lenses
+    describeDatasetImportJobResponse_creationTime,
+    describeDatasetImportJobResponse_dataSize,
+    describeDatasetImportJobResponse_dataSource,
+    describeDatasetImportJobResponse_datasetArn,
+    describeDatasetImportJobResponse_datasetImportJobArn,
+    describeDatasetImportJobResponse_datasetImportJobName,
+    describeDatasetImportJobResponse_estimatedTimeRemainingInMinutes,
+    describeDatasetImportJobResponse_fieldStatistics,
+    describeDatasetImportJobResponse_format,
+    describeDatasetImportJobResponse_geolocationFormat,
     describeDatasetImportJobResponse_lastModificationTime,
     describeDatasetImportJobResponse_message,
-    describeDatasetImportJobResponse_format,
-    describeDatasetImportJobResponse_timeZone,
-    describeDatasetImportJobResponse_fieldStatistics,
     describeDatasetImportJobResponse_status,
-    describeDatasetImportJobResponse_datasetArn,
-    describeDatasetImportJobResponse_dataSize,
-    describeDatasetImportJobResponse_datasetImportJobArn,
-    describeDatasetImportJobResponse_useGeolocationForTimeZone,
-    describeDatasetImportJobResponse_estimatedTimeRemainingInMinutes,
-    describeDatasetImportJobResponse_dataSource,
+    describeDatasetImportJobResponse_timeZone,
     describeDatasetImportJobResponse_timestampFormat,
-    describeDatasetImportJobResponse_creationTime,
-    describeDatasetImportJobResponse_datasetImportJobName,
-    describeDatasetImportJobResponse_geolocationFormat,
+    describeDatasetImportJobResponse_useGeolocationForTimeZone,
     describeDatasetImportJobResponse_httpStatus,
   )
 where
@@ -120,24 +120,24 @@ instance Core.AWSRequest DescribeDatasetImportJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeDatasetImportJobResponse'
-            Prelude.<$> (x Data..?> "LastModificationTime")
-            Prelude.<*> (x Data..?> "Message")
-            Prelude.<*> (x Data..?> "Format")
-            Prelude.<*> (x Data..?> "TimeZone")
+            Prelude.<$> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "DataSize")
+            Prelude.<*> (x Data..?> "DataSource")
+            Prelude.<*> (x Data..?> "DatasetArn")
+            Prelude.<*> (x Data..?> "DatasetImportJobArn")
+            Prelude.<*> (x Data..?> "DatasetImportJobName")
+            Prelude.<*> (x Data..?> "EstimatedTimeRemainingInMinutes")
             Prelude.<*> ( x Data..?> "FieldStatistics"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "DatasetArn")
-            Prelude.<*> (x Data..?> "DataSize")
-            Prelude.<*> (x Data..?> "DatasetImportJobArn")
-            Prelude.<*> (x Data..?> "UseGeolocationForTimeZone")
-            Prelude.<*> (x Data..?> "EstimatedTimeRemainingInMinutes")
-            Prelude.<*> (x Data..?> "DataSource")
-            Prelude.<*> (x Data..?> "TimestampFormat")
-            Prelude.<*> (x Data..?> "CreationTime")
-            Prelude.<*> (x Data..?> "DatasetImportJobName")
+            Prelude.<*> (x Data..?> "Format")
             Prelude.<*> (x Data..?> "GeolocationFormat")
+            Prelude.<*> (x Data..?> "LastModificationTime")
+            Prelude.<*> (x Data..?> "Message")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "TimeZone")
+            Prelude.<*> (x Data..?> "TimestampFormat")
+            Prelude.<*> (x Data..?> "UseGeolocationForTimeZone")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,7 +181,36 @@ instance Data.ToQuery DescribeDatasetImportJob where
 
 -- | /See:/ 'newDescribeDatasetImportJobResponse' smart constructor.
 data DescribeDatasetImportJobResponse = DescribeDatasetImportJobResponse'
-  { -- | The last time the resource was modified. The timestamp depends on the
+  { -- | When the dataset import job was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The size of the dataset in gigabytes (GB) after the import job has
+    -- finished.
+    dataSize :: Prelude.Maybe Prelude.Double,
+    -- | The location of the training data to import and an AWS Identity and
+    -- Access Management (IAM) role that Amazon Forecast can assume to access
+    -- the data.
+    --
+    -- If encryption is used, @DataSource@ includes an AWS Key Management
+    -- Service (KMS) key.
+    dataSource :: Prelude.Maybe DataSource,
+    -- | The Amazon Resource Name (ARN) of the dataset that the training data was
+    -- imported to.
+    datasetArn :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the dataset import job.
+    datasetImportJobArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the dataset import job.
+    datasetImportJobName :: Prelude.Maybe Prelude.Text,
+    -- | The estimated time remaining in minutes for the dataset import job to
+    -- complete.
+    estimatedTimeRemainingInMinutes :: Prelude.Maybe Prelude.Integer,
+    -- | Statistical information about each field in the input data.
+    fieldStatistics :: Prelude.Maybe (Prelude.HashMap Prelude.Text Statistics),
+    -- | The format of the imported data, CSV or PARQUET.
+    format :: Prelude.Maybe Prelude.Text,
+    -- | The format of the geolocation attribute. Valid Values:@\"LAT_LONG\"@ and
+    -- @\"CC_POSTALCODE\"@.
+    geolocationFormat :: Prelude.Maybe Prelude.Text,
+    -- | The last time the resource was modified. The timestamp depends on the
     -- status of the job:
     --
     -- -   @CREATE_PENDING@ - The @CreationTime@.
@@ -196,12 +225,6 @@ data DescribeDatasetImportJobResponse = DescribeDatasetImportJobResponse'
     lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | If an error occurred, an informational message about the error.
     message :: Prelude.Maybe Prelude.Text,
-    -- | The format of the imported data, CSV or PARQUET.
-    format :: Prelude.Maybe Prelude.Text,
-    -- | The single time zone applied to every item in the dataset
-    timeZone :: Prelude.Maybe Prelude.Text,
-    -- | Statistical information about each field in the input data.
-    fieldStatistics :: Prelude.Maybe (Prelude.HashMap Prelude.Text Statistics),
     -- | The status of the dataset import job. States include:
     --
     -- -   @ACTIVE@
@@ -212,27 +235,8 @@ data DescribeDatasetImportJobResponse = DescribeDatasetImportJobResponse'
     --
     -- -   @CREATE_STOPPING@, @CREATE_STOPPED@
     status :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the dataset that the training data was
-    -- imported to.
-    datasetArn :: Prelude.Maybe Prelude.Text,
-    -- | The size of the dataset in gigabytes (GB) after the import job has
-    -- finished.
-    dataSize :: Prelude.Maybe Prelude.Double,
-    -- | The ARN of the dataset import job.
-    datasetImportJobArn :: Prelude.Maybe Prelude.Text,
-    -- | Whether @TimeZone@ is automatically derived from the geolocation
-    -- attribute.
-    useGeolocationForTimeZone :: Prelude.Maybe Prelude.Bool,
-    -- | The estimated time remaining in minutes for the dataset import job to
-    -- complete.
-    estimatedTimeRemainingInMinutes :: Prelude.Maybe Prelude.Integer,
-    -- | The location of the training data to import and an AWS Identity and
-    -- Access Management (IAM) role that Amazon Forecast can assume to access
-    -- the data.
-    --
-    -- If encryption is used, @DataSource@ includes an AWS Key Management
-    -- Service (KMS) key.
-    dataSource :: Prelude.Maybe DataSource,
+    -- | The single time zone applied to every item in the dataset
+    timeZone :: Prelude.Maybe Prelude.Text,
     -- | The format of timestamps in the dataset. The format that you specify
     -- depends on the @DataFrequency@ specified when the dataset was created.
     -- The following formats are supported
@@ -246,13 +250,9 @@ data DescribeDatasetImportJobResponse = DescribeDatasetImportJobResponse'
     --     For the following data frequencies: H, 30min, 15min, and 1min; and
     --     optionally, for: Y, M, W, and D
     timestampFormat :: Prelude.Maybe Prelude.Text,
-    -- | When the dataset import job was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
-    -- | The name of the dataset import job.
-    datasetImportJobName :: Prelude.Maybe Prelude.Text,
-    -- | The format of the geolocation attribute. Valid Values:@\"LAT_LONG\"@ and
-    -- @\"CC_POSTALCODE\"@.
-    geolocationFormat :: Prelude.Maybe Prelude.Text,
+    -- | Whether @TimeZone@ is automatically derived from the geolocation
+    -- attribute.
+    useGeolocationForTimeZone :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -265,6 +265,35 @@ data DescribeDatasetImportJobResponse = DescribeDatasetImportJobResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'creationTime', 'describeDatasetImportJobResponse_creationTime' - When the dataset import job was created.
+--
+-- 'dataSize', 'describeDatasetImportJobResponse_dataSize' - The size of the dataset in gigabytes (GB) after the import job has
+-- finished.
+--
+-- 'dataSource', 'describeDatasetImportJobResponse_dataSource' - The location of the training data to import and an AWS Identity and
+-- Access Management (IAM) role that Amazon Forecast can assume to access
+-- the data.
+--
+-- If encryption is used, @DataSource@ includes an AWS Key Management
+-- Service (KMS) key.
+--
+-- 'datasetArn', 'describeDatasetImportJobResponse_datasetArn' - The Amazon Resource Name (ARN) of the dataset that the training data was
+-- imported to.
+--
+-- 'datasetImportJobArn', 'describeDatasetImportJobResponse_datasetImportJobArn' - The ARN of the dataset import job.
+--
+-- 'datasetImportJobName', 'describeDatasetImportJobResponse_datasetImportJobName' - The name of the dataset import job.
+--
+-- 'estimatedTimeRemainingInMinutes', 'describeDatasetImportJobResponse_estimatedTimeRemainingInMinutes' - The estimated time remaining in minutes for the dataset import job to
+-- complete.
+--
+-- 'fieldStatistics', 'describeDatasetImportJobResponse_fieldStatistics' - Statistical information about each field in the input data.
+--
+-- 'format', 'describeDatasetImportJobResponse_format' - The format of the imported data, CSV or PARQUET.
+--
+-- 'geolocationFormat', 'describeDatasetImportJobResponse_geolocationFormat' - The format of the geolocation attribute. Valid Values:@\"LAT_LONG\"@ and
+-- @\"CC_POSTALCODE\"@.
 --
 -- 'lastModificationTime', 'describeDatasetImportJobResponse_lastModificationTime' - The last time the resource was modified. The timestamp depends on the
 -- status of the job:
@@ -281,12 +310,6 @@ data DescribeDatasetImportJobResponse = DescribeDatasetImportJobResponse'
 --
 -- 'message', 'describeDatasetImportJobResponse_message' - If an error occurred, an informational message about the error.
 --
--- 'format', 'describeDatasetImportJobResponse_format' - The format of the imported data, CSV or PARQUET.
---
--- 'timeZone', 'describeDatasetImportJobResponse_timeZone' - The single time zone applied to every item in the dataset
---
--- 'fieldStatistics', 'describeDatasetImportJobResponse_fieldStatistics' - Statistical information about each field in the input data.
---
 -- 'status', 'describeDatasetImportJobResponse_status' - The status of the dataset import job. States include:
 --
 -- -   @ACTIVE@
@@ -297,26 +320,7 @@ data DescribeDatasetImportJobResponse = DescribeDatasetImportJobResponse'
 --
 -- -   @CREATE_STOPPING@, @CREATE_STOPPED@
 --
--- 'datasetArn', 'describeDatasetImportJobResponse_datasetArn' - The Amazon Resource Name (ARN) of the dataset that the training data was
--- imported to.
---
--- 'dataSize', 'describeDatasetImportJobResponse_dataSize' - The size of the dataset in gigabytes (GB) after the import job has
--- finished.
---
--- 'datasetImportJobArn', 'describeDatasetImportJobResponse_datasetImportJobArn' - The ARN of the dataset import job.
---
--- 'useGeolocationForTimeZone', 'describeDatasetImportJobResponse_useGeolocationForTimeZone' - Whether @TimeZone@ is automatically derived from the geolocation
--- attribute.
---
--- 'estimatedTimeRemainingInMinutes', 'describeDatasetImportJobResponse_estimatedTimeRemainingInMinutes' - The estimated time remaining in minutes for the dataset import job to
--- complete.
---
--- 'dataSource', 'describeDatasetImportJobResponse_dataSource' - The location of the training data to import and an AWS Identity and
--- Access Management (IAM) role that Amazon Forecast can assume to access
--- the data.
---
--- If encryption is used, @DataSource@ includes an AWS Key Management
--- Service (KMS) key.
+-- 'timeZone', 'describeDatasetImportJobResponse_timeZone' - The single time zone applied to every item in the dataset
 --
 -- 'timestampFormat', 'describeDatasetImportJobResponse_timestampFormat' - The format of timestamps in the dataset. The format that you specify
 -- depends on the @DataFrequency@ specified when the dataset was created.
@@ -331,12 +335,8 @@ data DescribeDatasetImportJobResponse = DescribeDatasetImportJobResponse'
 --     For the following data frequencies: H, 30min, 15min, and 1min; and
 --     optionally, for: Y, M, W, and D
 --
--- 'creationTime', 'describeDatasetImportJobResponse_creationTime' - When the dataset import job was created.
---
--- 'datasetImportJobName', 'describeDatasetImportJobResponse_datasetImportJobName' - The name of the dataset import job.
---
--- 'geolocationFormat', 'describeDatasetImportJobResponse_geolocationFormat' - The format of the geolocation attribute. Valid Values:@\"LAT_LONG\"@ and
--- @\"CC_POSTALCODE\"@.
+-- 'useGeolocationForTimeZone', 'describeDatasetImportJobResponse_useGeolocationForTimeZone' - Whether @TimeZone@ is automatically derived from the geolocation
+-- attribute.
 --
 -- 'httpStatus', 'describeDatasetImportJobResponse_httpStatus' - The response's http status code.
 newDescribeDatasetImportJobResponse ::
@@ -345,27 +345,76 @@ newDescribeDatasetImportJobResponse ::
   DescribeDatasetImportJobResponse
 newDescribeDatasetImportJobResponse pHttpStatus_ =
   DescribeDatasetImportJobResponse'
-    { lastModificationTime =
+    { creationTime =
         Prelude.Nothing,
-      message = Prelude.Nothing,
-      format = Prelude.Nothing,
-      timeZone = Prelude.Nothing,
-      fieldStatistics = Prelude.Nothing,
-      status = Prelude.Nothing,
-      datasetArn = Prelude.Nothing,
       dataSize = Prelude.Nothing,
+      dataSource = Prelude.Nothing,
+      datasetArn = Prelude.Nothing,
       datasetImportJobArn = Prelude.Nothing,
-      useGeolocationForTimeZone =
-        Prelude.Nothing,
+      datasetImportJobName = Prelude.Nothing,
       estimatedTimeRemainingInMinutes =
         Prelude.Nothing,
-      dataSource = Prelude.Nothing,
-      timestampFormat = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      datasetImportJobName = Prelude.Nothing,
+      fieldStatistics = Prelude.Nothing,
+      format = Prelude.Nothing,
       geolocationFormat = Prelude.Nothing,
+      lastModificationTime = Prelude.Nothing,
+      message = Prelude.Nothing,
+      status = Prelude.Nothing,
+      timeZone = Prelude.Nothing,
+      timestampFormat = Prelude.Nothing,
+      useGeolocationForTimeZone =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | When the dataset import job was created.
+describeDatasetImportJobResponse_creationTime :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe Prelude.UTCTime)
+describeDatasetImportJobResponse_creationTime = Lens.lens (\DescribeDatasetImportJobResponse' {creationTime} -> creationTime) (\s@DescribeDatasetImportJobResponse' {} a -> s {creationTime = a} :: DescribeDatasetImportJobResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The size of the dataset in gigabytes (GB) after the import job has
+-- finished.
+describeDatasetImportJobResponse_dataSize :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe Prelude.Double)
+describeDatasetImportJobResponse_dataSize = Lens.lens (\DescribeDatasetImportJobResponse' {dataSize} -> dataSize) (\s@DescribeDatasetImportJobResponse' {} a -> s {dataSize = a} :: DescribeDatasetImportJobResponse)
+
+-- | The location of the training data to import and an AWS Identity and
+-- Access Management (IAM) role that Amazon Forecast can assume to access
+-- the data.
+--
+-- If encryption is used, @DataSource@ includes an AWS Key Management
+-- Service (KMS) key.
+describeDatasetImportJobResponse_dataSource :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe DataSource)
+describeDatasetImportJobResponse_dataSource = Lens.lens (\DescribeDatasetImportJobResponse' {dataSource} -> dataSource) (\s@DescribeDatasetImportJobResponse' {} a -> s {dataSource = a} :: DescribeDatasetImportJobResponse)
+
+-- | The Amazon Resource Name (ARN) of the dataset that the training data was
+-- imported to.
+describeDatasetImportJobResponse_datasetArn :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe Prelude.Text)
+describeDatasetImportJobResponse_datasetArn = Lens.lens (\DescribeDatasetImportJobResponse' {datasetArn} -> datasetArn) (\s@DescribeDatasetImportJobResponse' {} a -> s {datasetArn = a} :: DescribeDatasetImportJobResponse)
+
+-- | The ARN of the dataset import job.
+describeDatasetImportJobResponse_datasetImportJobArn :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe Prelude.Text)
+describeDatasetImportJobResponse_datasetImportJobArn = Lens.lens (\DescribeDatasetImportJobResponse' {datasetImportJobArn} -> datasetImportJobArn) (\s@DescribeDatasetImportJobResponse' {} a -> s {datasetImportJobArn = a} :: DescribeDatasetImportJobResponse)
+
+-- | The name of the dataset import job.
+describeDatasetImportJobResponse_datasetImportJobName :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe Prelude.Text)
+describeDatasetImportJobResponse_datasetImportJobName = Lens.lens (\DescribeDatasetImportJobResponse' {datasetImportJobName} -> datasetImportJobName) (\s@DescribeDatasetImportJobResponse' {} a -> s {datasetImportJobName = a} :: DescribeDatasetImportJobResponse)
+
+-- | The estimated time remaining in minutes for the dataset import job to
+-- complete.
+describeDatasetImportJobResponse_estimatedTimeRemainingInMinutes :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe Prelude.Integer)
+describeDatasetImportJobResponse_estimatedTimeRemainingInMinutes = Lens.lens (\DescribeDatasetImportJobResponse' {estimatedTimeRemainingInMinutes} -> estimatedTimeRemainingInMinutes) (\s@DescribeDatasetImportJobResponse' {} a -> s {estimatedTimeRemainingInMinutes = a} :: DescribeDatasetImportJobResponse)
+
+-- | Statistical information about each field in the input data.
+describeDatasetImportJobResponse_fieldStatistics :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Statistics))
+describeDatasetImportJobResponse_fieldStatistics = Lens.lens (\DescribeDatasetImportJobResponse' {fieldStatistics} -> fieldStatistics) (\s@DescribeDatasetImportJobResponse' {} a -> s {fieldStatistics = a} :: DescribeDatasetImportJobResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The format of the imported data, CSV or PARQUET.
+describeDatasetImportJobResponse_format :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe Prelude.Text)
+describeDatasetImportJobResponse_format = Lens.lens (\DescribeDatasetImportJobResponse' {format} -> format) (\s@DescribeDatasetImportJobResponse' {} a -> s {format = a} :: DescribeDatasetImportJobResponse)
+
+-- | The format of the geolocation attribute. Valid Values:@\"LAT_LONG\"@ and
+-- @\"CC_POSTALCODE\"@.
+describeDatasetImportJobResponse_geolocationFormat :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe Prelude.Text)
+describeDatasetImportJobResponse_geolocationFormat = Lens.lens (\DescribeDatasetImportJobResponse' {geolocationFormat} -> geolocationFormat) (\s@DescribeDatasetImportJobResponse' {} a -> s {geolocationFormat = a} :: DescribeDatasetImportJobResponse)
 
 -- | The last time the resource was modified. The timestamp depends on the
 -- status of the job:
@@ -386,18 +435,6 @@ describeDatasetImportJobResponse_lastModificationTime = Lens.lens (\DescribeData
 describeDatasetImportJobResponse_message :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe Prelude.Text)
 describeDatasetImportJobResponse_message = Lens.lens (\DescribeDatasetImportJobResponse' {message} -> message) (\s@DescribeDatasetImportJobResponse' {} a -> s {message = a} :: DescribeDatasetImportJobResponse)
 
--- | The format of the imported data, CSV or PARQUET.
-describeDatasetImportJobResponse_format :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe Prelude.Text)
-describeDatasetImportJobResponse_format = Lens.lens (\DescribeDatasetImportJobResponse' {format} -> format) (\s@DescribeDatasetImportJobResponse' {} a -> s {format = a} :: DescribeDatasetImportJobResponse)
-
--- | The single time zone applied to every item in the dataset
-describeDatasetImportJobResponse_timeZone :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe Prelude.Text)
-describeDatasetImportJobResponse_timeZone = Lens.lens (\DescribeDatasetImportJobResponse' {timeZone} -> timeZone) (\s@DescribeDatasetImportJobResponse' {} a -> s {timeZone = a} :: DescribeDatasetImportJobResponse)
-
--- | Statistical information about each field in the input data.
-describeDatasetImportJobResponse_fieldStatistics :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Statistics))
-describeDatasetImportJobResponse_fieldStatistics = Lens.lens (\DescribeDatasetImportJobResponse' {fieldStatistics} -> fieldStatistics) (\s@DescribeDatasetImportJobResponse' {} a -> s {fieldStatistics = a} :: DescribeDatasetImportJobResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The status of the dataset import job. States include:
 --
 -- -   @ACTIVE@
@@ -410,38 +447,9 @@ describeDatasetImportJobResponse_fieldStatistics = Lens.lens (\DescribeDatasetIm
 describeDatasetImportJobResponse_status :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe Prelude.Text)
 describeDatasetImportJobResponse_status = Lens.lens (\DescribeDatasetImportJobResponse' {status} -> status) (\s@DescribeDatasetImportJobResponse' {} a -> s {status = a} :: DescribeDatasetImportJobResponse)
 
--- | The Amazon Resource Name (ARN) of the dataset that the training data was
--- imported to.
-describeDatasetImportJobResponse_datasetArn :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe Prelude.Text)
-describeDatasetImportJobResponse_datasetArn = Lens.lens (\DescribeDatasetImportJobResponse' {datasetArn} -> datasetArn) (\s@DescribeDatasetImportJobResponse' {} a -> s {datasetArn = a} :: DescribeDatasetImportJobResponse)
-
--- | The size of the dataset in gigabytes (GB) after the import job has
--- finished.
-describeDatasetImportJobResponse_dataSize :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe Prelude.Double)
-describeDatasetImportJobResponse_dataSize = Lens.lens (\DescribeDatasetImportJobResponse' {dataSize} -> dataSize) (\s@DescribeDatasetImportJobResponse' {} a -> s {dataSize = a} :: DescribeDatasetImportJobResponse)
-
--- | The ARN of the dataset import job.
-describeDatasetImportJobResponse_datasetImportJobArn :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe Prelude.Text)
-describeDatasetImportJobResponse_datasetImportJobArn = Lens.lens (\DescribeDatasetImportJobResponse' {datasetImportJobArn} -> datasetImportJobArn) (\s@DescribeDatasetImportJobResponse' {} a -> s {datasetImportJobArn = a} :: DescribeDatasetImportJobResponse)
-
--- | Whether @TimeZone@ is automatically derived from the geolocation
--- attribute.
-describeDatasetImportJobResponse_useGeolocationForTimeZone :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe Prelude.Bool)
-describeDatasetImportJobResponse_useGeolocationForTimeZone = Lens.lens (\DescribeDatasetImportJobResponse' {useGeolocationForTimeZone} -> useGeolocationForTimeZone) (\s@DescribeDatasetImportJobResponse' {} a -> s {useGeolocationForTimeZone = a} :: DescribeDatasetImportJobResponse)
-
--- | The estimated time remaining in minutes for the dataset import job to
--- complete.
-describeDatasetImportJobResponse_estimatedTimeRemainingInMinutes :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe Prelude.Integer)
-describeDatasetImportJobResponse_estimatedTimeRemainingInMinutes = Lens.lens (\DescribeDatasetImportJobResponse' {estimatedTimeRemainingInMinutes} -> estimatedTimeRemainingInMinutes) (\s@DescribeDatasetImportJobResponse' {} a -> s {estimatedTimeRemainingInMinutes = a} :: DescribeDatasetImportJobResponse)
-
--- | The location of the training data to import and an AWS Identity and
--- Access Management (IAM) role that Amazon Forecast can assume to access
--- the data.
---
--- If encryption is used, @DataSource@ includes an AWS Key Management
--- Service (KMS) key.
-describeDatasetImportJobResponse_dataSource :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe DataSource)
-describeDatasetImportJobResponse_dataSource = Lens.lens (\DescribeDatasetImportJobResponse' {dataSource} -> dataSource) (\s@DescribeDatasetImportJobResponse' {} a -> s {dataSource = a} :: DescribeDatasetImportJobResponse)
+-- | The single time zone applied to every item in the dataset
+describeDatasetImportJobResponse_timeZone :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe Prelude.Text)
+describeDatasetImportJobResponse_timeZone = Lens.lens (\DescribeDatasetImportJobResponse' {timeZone} -> timeZone) (\s@DescribeDatasetImportJobResponse' {} a -> s {timeZone = a} :: DescribeDatasetImportJobResponse)
 
 -- | The format of timestamps in the dataset. The format that you specify
 -- depends on the @DataFrequency@ specified when the dataset was created.
@@ -458,18 +466,10 @@ describeDatasetImportJobResponse_dataSource = Lens.lens (\DescribeDatasetImportJ
 describeDatasetImportJobResponse_timestampFormat :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe Prelude.Text)
 describeDatasetImportJobResponse_timestampFormat = Lens.lens (\DescribeDatasetImportJobResponse' {timestampFormat} -> timestampFormat) (\s@DescribeDatasetImportJobResponse' {} a -> s {timestampFormat = a} :: DescribeDatasetImportJobResponse)
 
--- | When the dataset import job was created.
-describeDatasetImportJobResponse_creationTime :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeDatasetImportJobResponse_creationTime = Lens.lens (\DescribeDatasetImportJobResponse' {creationTime} -> creationTime) (\s@DescribeDatasetImportJobResponse' {} a -> s {creationTime = a} :: DescribeDatasetImportJobResponse) Prelude.. Lens.mapping Data._Time
-
--- | The name of the dataset import job.
-describeDatasetImportJobResponse_datasetImportJobName :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe Prelude.Text)
-describeDatasetImportJobResponse_datasetImportJobName = Lens.lens (\DescribeDatasetImportJobResponse' {datasetImportJobName} -> datasetImportJobName) (\s@DescribeDatasetImportJobResponse' {} a -> s {datasetImportJobName = a} :: DescribeDatasetImportJobResponse)
-
--- | The format of the geolocation attribute. Valid Values:@\"LAT_LONG\"@ and
--- @\"CC_POSTALCODE\"@.
-describeDatasetImportJobResponse_geolocationFormat :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe Prelude.Text)
-describeDatasetImportJobResponse_geolocationFormat = Lens.lens (\DescribeDatasetImportJobResponse' {geolocationFormat} -> geolocationFormat) (\s@DescribeDatasetImportJobResponse' {} a -> s {geolocationFormat = a} :: DescribeDatasetImportJobResponse)
+-- | Whether @TimeZone@ is automatically derived from the geolocation
+-- attribute.
+describeDatasetImportJobResponse_useGeolocationForTimeZone :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe Prelude.Bool)
+describeDatasetImportJobResponse_useGeolocationForTimeZone = Lens.lens (\DescribeDatasetImportJobResponse' {useGeolocationForTimeZone} -> useGeolocationForTimeZone) (\s@DescribeDatasetImportJobResponse' {} a -> s {useGeolocationForTimeZone = a} :: DescribeDatasetImportJobResponse)
 
 -- | The response's http status code.
 describeDatasetImportJobResponse_httpStatus :: Lens.Lens' DescribeDatasetImportJobResponse Prelude.Int
@@ -480,20 +480,20 @@ instance
     DescribeDatasetImportJobResponse
   where
   rnf DescribeDatasetImportJobResponse' {..} =
-    Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf format
-      `Prelude.seq` Prelude.rnf timeZone
-      `Prelude.seq` Prelude.rnf fieldStatistics
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf datasetArn
+    Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf dataSize
-      `Prelude.seq` Prelude.rnf datasetImportJobArn
-      `Prelude.seq` Prelude.rnf useGeolocationForTimeZone
-      `Prelude.seq` Prelude.rnf estimatedTimeRemainingInMinutes
       `Prelude.seq` Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf timestampFormat
-      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf datasetArn
+      `Prelude.seq` Prelude.rnf datasetImportJobArn
       `Prelude.seq` Prelude.rnf datasetImportJobName
+      `Prelude.seq` Prelude.rnf estimatedTimeRemainingInMinutes
+      `Prelude.seq` Prelude.rnf fieldStatistics
+      `Prelude.seq` Prelude.rnf format
       `Prelude.seq` Prelude.rnf geolocationFormat
+      `Prelude.seq` Prelude.rnf lastModificationTime
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf timeZone
+      `Prelude.seq` Prelude.rnf timestampFormat
+      `Prelude.seq` Prelude.rnf useGeolocationForTimeZone
       `Prelude.seq` Prelude.rnf httpStatus

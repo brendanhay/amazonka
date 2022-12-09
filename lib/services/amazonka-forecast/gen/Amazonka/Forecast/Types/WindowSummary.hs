@@ -34,16 +34,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWindowSummary' smart constructor.
 data WindowSummary = WindowSummary'
-  { -- | The number of data points within the window.
-    itemCount :: Prelude.Maybe Prelude.Int,
-    -- | Provides metrics used to evaluate the performance of a predictor.
-    metrics :: Prelude.Maybe Metrics,
-    -- | The type of evaluation.
+  { -- | The type of evaluation.
     --
     -- -   @SUMMARY@ - The average metrics across all windows.
     --
     -- -   @COMPUTED@ - The metrics for the specified window.
     evaluationType :: Prelude.Maybe EvaluationType,
+    -- | The number of data points within the window.
+    itemCount :: Prelude.Maybe Prelude.Int,
+    -- | Provides metrics used to evaluate the performance of a predictor.
+    metrics :: Prelude.Maybe Metrics,
     -- | The timestamp that defines the end of the window.
     testWindowEnd :: Prelude.Maybe Data.POSIX,
     -- | The timestamp that defines the start of the window.
@@ -59,15 +59,15 @@ data WindowSummary = WindowSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'itemCount', 'windowSummary_itemCount' - The number of data points within the window.
---
--- 'metrics', 'windowSummary_metrics' - Provides metrics used to evaluate the performance of a predictor.
---
 -- 'evaluationType', 'windowSummary_evaluationType' - The type of evaluation.
 --
 -- -   @SUMMARY@ - The average metrics across all windows.
 --
 -- -   @COMPUTED@ - The metrics for the specified window.
+--
+-- 'itemCount', 'windowSummary_itemCount' - The number of data points within the window.
+--
+-- 'metrics', 'windowSummary_metrics' - Provides metrics used to evaluate the performance of a predictor.
 --
 -- 'testWindowEnd', 'windowSummary_testWindowEnd' - The timestamp that defines the end of the window.
 --
@@ -76,20 +76,12 @@ newWindowSummary ::
   WindowSummary
 newWindowSummary =
   WindowSummary'
-    { itemCount = Prelude.Nothing,
+    { evaluationType = Prelude.Nothing,
+      itemCount = Prelude.Nothing,
       metrics = Prelude.Nothing,
-      evaluationType = Prelude.Nothing,
       testWindowEnd = Prelude.Nothing,
       testWindowStart = Prelude.Nothing
     }
-
--- | The number of data points within the window.
-windowSummary_itemCount :: Lens.Lens' WindowSummary (Prelude.Maybe Prelude.Int)
-windowSummary_itemCount = Lens.lens (\WindowSummary' {itemCount} -> itemCount) (\s@WindowSummary' {} a -> s {itemCount = a} :: WindowSummary)
-
--- | Provides metrics used to evaluate the performance of a predictor.
-windowSummary_metrics :: Lens.Lens' WindowSummary (Prelude.Maybe Metrics)
-windowSummary_metrics = Lens.lens (\WindowSummary' {metrics} -> metrics) (\s@WindowSummary' {} a -> s {metrics = a} :: WindowSummary)
 
 -- | The type of evaluation.
 --
@@ -98,6 +90,14 @@ windowSummary_metrics = Lens.lens (\WindowSummary' {metrics} -> metrics) (\s@Win
 -- -   @COMPUTED@ - The metrics for the specified window.
 windowSummary_evaluationType :: Lens.Lens' WindowSummary (Prelude.Maybe EvaluationType)
 windowSummary_evaluationType = Lens.lens (\WindowSummary' {evaluationType} -> evaluationType) (\s@WindowSummary' {} a -> s {evaluationType = a} :: WindowSummary)
+
+-- | The number of data points within the window.
+windowSummary_itemCount :: Lens.Lens' WindowSummary (Prelude.Maybe Prelude.Int)
+windowSummary_itemCount = Lens.lens (\WindowSummary' {itemCount} -> itemCount) (\s@WindowSummary' {} a -> s {itemCount = a} :: WindowSummary)
+
+-- | Provides metrics used to evaluate the performance of a predictor.
+windowSummary_metrics :: Lens.Lens' WindowSummary (Prelude.Maybe Metrics)
+windowSummary_metrics = Lens.lens (\WindowSummary' {metrics} -> metrics) (\s@WindowSummary' {} a -> s {metrics = a} :: WindowSummary)
 
 -- | The timestamp that defines the end of the window.
 windowSummary_testWindowEnd :: Lens.Lens' WindowSummary (Prelude.Maybe Prelude.UTCTime)
@@ -113,25 +113,25 @@ instance Data.FromJSON WindowSummary where
       "WindowSummary"
       ( \x ->
           WindowSummary'
-            Prelude.<$> (x Data..:? "ItemCount")
+            Prelude.<$> (x Data..:? "EvaluationType")
+            Prelude.<*> (x Data..:? "ItemCount")
             Prelude.<*> (x Data..:? "Metrics")
-            Prelude.<*> (x Data..:? "EvaluationType")
             Prelude.<*> (x Data..:? "TestWindowEnd")
             Prelude.<*> (x Data..:? "TestWindowStart")
       )
 
 instance Prelude.Hashable WindowSummary where
   hashWithSalt _salt WindowSummary' {..} =
-    _salt `Prelude.hashWithSalt` itemCount
+    _salt `Prelude.hashWithSalt` evaluationType
+      `Prelude.hashWithSalt` itemCount
       `Prelude.hashWithSalt` metrics
-      `Prelude.hashWithSalt` evaluationType
       `Prelude.hashWithSalt` testWindowEnd
       `Prelude.hashWithSalt` testWindowStart
 
 instance Prelude.NFData WindowSummary where
   rnf WindowSummary' {..} =
-    Prelude.rnf itemCount
+    Prelude.rnf evaluationType
+      `Prelude.seq` Prelude.rnf itemCount
       `Prelude.seq` Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf evaluationType
       `Prelude.seq` Prelude.rnf testWindowEnd
       `Prelude.seq` Prelude.rnf testWindowStart

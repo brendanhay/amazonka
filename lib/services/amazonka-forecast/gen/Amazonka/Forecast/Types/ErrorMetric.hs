@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newErrorMetric' smart constructor.
 data ErrorMetric = ErrorMetric'
-  { -- | The weighted absolute percentage error (WAPE).
-    wape :: Prelude.Maybe Prelude.Double,
+  { -- | The Forecast type used to compute WAPE, MAPE, MASE, and RMSE.
+    forecastType :: Prelude.Maybe Prelude.Text,
+    -- | The Mean Absolute Percentage Error (MAPE)
+    mape :: Prelude.Maybe Prelude.Double,
     -- | The Mean Absolute Scaled Error (MASE)
     mase :: Prelude.Maybe Prelude.Double,
-    -- | The Forecast type used to compute WAPE, MAPE, MASE, and RMSE.
-    forecastType :: Prelude.Maybe Prelude.Text,
     -- | The root-mean-square error (RMSE).
     rmse :: Prelude.Maybe Prelude.Double,
-    -- | The Mean Absolute Percentage Error (MAPE)
-    mape :: Prelude.Maybe Prelude.Double
+    -- | The weighted absolute percentage error (WAPE).
+    wape :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,45 +50,45 @@ data ErrorMetric = ErrorMetric'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'wape', 'errorMetric_wape' - The weighted absolute percentage error (WAPE).
+-- 'forecastType', 'errorMetric_forecastType' - The Forecast type used to compute WAPE, MAPE, MASE, and RMSE.
+--
+-- 'mape', 'errorMetric_mape' - The Mean Absolute Percentage Error (MAPE)
 --
 -- 'mase', 'errorMetric_mase' - The Mean Absolute Scaled Error (MASE)
 --
--- 'forecastType', 'errorMetric_forecastType' - The Forecast type used to compute WAPE, MAPE, MASE, and RMSE.
---
 -- 'rmse', 'errorMetric_rmse' - The root-mean-square error (RMSE).
 --
--- 'mape', 'errorMetric_mape' - The Mean Absolute Percentage Error (MAPE)
+-- 'wape', 'errorMetric_wape' - The weighted absolute percentage error (WAPE).
 newErrorMetric ::
   ErrorMetric
 newErrorMetric =
   ErrorMetric'
-    { wape = Prelude.Nothing,
+    { forecastType = Prelude.Nothing,
+      mape = Prelude.Nothing,
       mase = Prelude.Nothing,
-      forecastType = Prelude.Nothing,
       rmse = Prelude.Nothing,
-      mape = Prelude.Nothing
+      wape = Prelude.Nothing
     }
-
--- | The weighted absolute percentage error (WAPE).
-errorMetric_wape :: Lens.Lens' ErrorMetric (Prelude.Maybe Prelude.Double)
-errorMetric_wape = Lens.lens (\ErrorMetric' {wape} -> wape) (\s@ErrorMetric' {} a -> s {wape = a} :: ErrorMetric)
-
--- | The Mean Absolute Scaled Error (MASE)
-errorMetric_mase :: Lens.Lens' ErrorMetric (Prelude.Maybe Prelude.Double)
-errorMetric_mase = Lens.lens (\ErrorMetric' {mase} -> mase) (\s@ErrorMetric' {} a -> s {mase = a} :: ErrorMetric)
 
 -- | The Forecast type used to compute WAPE, MAPE, MASE, and RMSE.
 errorMetric_forecastType :: Lens.Lens' ErrorMetric (Prelude.Maybe Prelude.Text)
 errorMetric_forecastType = Lens.lens (\ErrorMetric' {forecastType} -> forecastType) (\s@ErrorMetric' {} a -> s {forecastType = a} :: ErrorMetric)
 
+-- | The Mean Absolute Percentage Error (MAPE)
+errorMetric_mape :: Lens.Lens' ErrorMetric (Prelude.Maybe Prelude.Double)
+errorMetric_mape = Lens.lens (\ErrorMetric' {mape} -> mape) (\s@ErrorMetric' {} a -> s {mape = a} :: ErrorMetric)
+
+-- | The Mean Absolute Scaled Error (MASE)
+errorMetric_mase :: Lens.Lens' ErrorMetric (Prelude.Maybe Prelude.Double)
+errorMetric_mase = Lens.lens (\ErrorMetric' {mase} -> mase) (\s@ErrorMetric' {} a -> s {mase = a} :: ErrorMetric)
+
 -- | The root-mean-square error (RMSE).
 errorMetric_rmse :: Lens.Lens' ErrorMetric (Prelude.Maybe Prelude.Double)
 errorMetric_rmse = Lens.lens (\ErrorMetric' {rmse} -> rmse) (\s@ErrorMetric' {} a -> s {rmse = a} :: ErrorMetric)
 
--- | The Mean Absolute Percentage Error (MAPE)
-errorMetric_mape :: Lens.Lens' ErrorMetric (Prelude.Maybe Prelude.Double)
-errorMetric_mape = Lens.lens (\ErrorMetric' {mape} -> mape) (\s@ErrorMetric' {} a -> s {mape = a} :: ErrorMetric)
+-- | The weighted absolute percentage error (WAPE).
+errorMetric_wape :: Lens.Lens' ErrorMetric (Prelude.Maybe Prelude.Double)
+errorMetric_wape = Lens.lens (\ErrorMetric' {wape} -> wape) (\s@ErrorMetric' {} a -> s {wape = a} :: ErrorMetric)
 
 instance Data.FromJSON ErrorMetric where
   parseJSON =
@@ -96,25 +96,25 @@ instance Data.FromJSON ErrorMetric where
       "ErrorMetric"
       ( \x ->
           ErrorMetric'
-            Prelude.<$> (x Data..:? "WAPE")
-            Prelude.<*> (x Data..:? "MASE")
-            Prelude.<*> (x Data..:? "ForecastType")
-            Prelude.<*> (x Data..:? "RMSE")
+            Prelude.<$> (x Data..:? "ForecastType")
             Prelude.<*> (x Data..:? "MAPE")
+            Prelude.<*> (x Data..:? "MASE")
+            Prelude.<*> (x Data..:? "RMSE")
+            Prelude.<*> (x Data..:? "WAPE")
       )
 
 instance Prelude.Hashable ErrorMetric where
   hashWithSalt _salt ErrorMetric' {..} =
-    _salt `Prelude.hashWithSalt` wape
-      `Prelude.hashWithSalt` mase
-      `Prelude.hashWithSalt` forecastType
-      `Prelude.hashWithSalt` rmse
+    _salt `Prelude.hashWithSalt` forecastType
       `Prelude.hashWithSalt` mape
+      `Prelude.hashWithSalt` mase
+      `Prelude.hashWithSalt` rmse
+      `Prelude.hashWithSalt` wape
 
 instance Prelude.NFData ErrorMetric where
   rnf ErrorMetric' {..} =
-    Prelude.rnf wape
-      `Prelude.seq` Prelude.rnf mase
-      `Prelude.seq` Prelude.rnf forecastType
-      `Prelude.seq` Prelude.rnf rmse
+    Prelude.rnf forecastType
       `Prelude.seq` Prelude.rnf mape
+      `Prelude.seq` Prelude.rnf mase
+      `Prelude.seq` Prelude.rnf rmse
+      `Prelude.seq` Prelude.rnf wape

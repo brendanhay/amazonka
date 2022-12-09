@@ -32,7 +32,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExplainabilitySummary' smart constructor.
 data ExplainabilitySummary = ExplainabilitySummary'
-  { -- | The last time the resource was modified. The timestamp depends on the
+  { -- | When the Explainability was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The Amazon Resource Name (ARN) of the Explainability.
+    explainabilityArn :: Prelude.Maybe Prelude.Text,
+    -- | The configuration settings that define the granularity of time series
+    -- and time points for the Explainability.
+    explainabilityConfig :: Prelude.Maybe ExplainabilityConfig,
+    -- | The name of the Explainability.
+    explainabilityName :: Prelude.Maybe Prelude.Text,
+    -- | The last time the resource was modified. The timestamp depends on the
     -- status of the job:
     --
     -- -   @CREATE_PENDING@ - The @CreationTime@.
@@ -48,9 +57,9 @@ data ExplainabilitySummary = ExplainabilitySummary'
     -- | Information about any errors that may have occurred during the
     -- Explainability creation process.
     message :: Prelude.Maybe Prelude.Text,
-    -- | The configuration settings that define the granularity of time series
-    -- and time points for the Explainability.
-    explainabilityConfig :: Prelude.Maybe ExplainabilityConfig,
+    -- | The Amazon Resource Name (ARN) of the Predictor or Forecast used to
+    -- create the Explainability.
+    resourceArn :: Prelude.Maybe Prelude.Text,
     -- | The status of the Explainability. States include:
     --
     -- -   @ACTIVE@
@@ -60,16 +69,7 @@ data ExplainabilitySummary = ExplainabilitySummary'
     -- -   @CREATE_STOPPING@, @CREATE_STOPPED@
     --
     -- -   @DELETE_PENDING@, @DELETE_IN_PROGRESS@, @DELETE_FAILED@
-    status :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the Explainability.
-    explainabilityArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Explainability.
-    explainabilityName :: Prelude.Maybe Prelude.Text,
-    -- | When the Explainability was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
-    -- | The Amazon Resource Name (ARN) of the Predictor or Forecast used to
-    -- create the Explainability.
-    resourceArn :: Prelude.Maybe Prelude.Text
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,6 +80,15 @@ data ExplainabilitySummary = ExplainabilitySummary'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'creationTime', 'explainabilitySummary_creationTime' - When the Explainability was created.
+--
+-- 'explainabilityArn', 'explainabilitySummary_explainabilityArn' - The Amazon Resource Name (ARN) of the Explainability.
+--
+-- 'explainabilityConfig', 'explainabilitySummary_explainabilityConfig' - The configuration settings that define the granularity of time series
+-- and time points for the Explainability.
+--
+-- 'explainabilityName', 'explainabilitySummary_explainabilityName' - The name of the Explainability.
 --
 -- 'lastModificationTime', 'explainabilitySummary_lastModificationTime' - The last time the resource was modified. The timestamp depends on the
 -- status of the job:
@@ -97,8 +106,8 @@ data ExplainabilitySummary = ExplainabilitySummary'
 -- 'message', 'explainabilitySummary_message' - Information about any errors that may have occurred during the
 -- Explainability creation process.
 --
--- 'explainabilityConfig', 'explainabilitySummary_explainabilityConfig' - The configuration settings that define the granularity of time series
--- and time points for the Explainability.
+-- 'resourceArn', 'explainabilitySummary_resourceArn' - The Amazon Resource Name (ARN) of the Predictor or Forecast used to
+-- create the Explainability.
 --
 -- 'status', 'explainabilitySummary_status' - The status of the Explainability. States include:
 --
@@ -109,29 +118,37 @@ data ExplainabilitySummary = ExplainabilitySummary'
 -- -   @CREATE_STOPPING@, @CREATE_STOPPED@
 --
 -- -   @DELETE_PENDING@, @DELETE_IN_PROGRESS@, @DELETE_FAILED@
---
--- 'explainabilityArn', 'explainabilitySummary_explainabilityArn' - The Amazon Resource Name (ARN) of the Explainability.
---
--- 'explainabilityName', 'explainabilitySummary_explainabilityName' - The name of the Explainability.
---
--- 'creationTime', 'explainabilitySummary_creationTime' - When the Explainability was created.
---
--- 'resourceArn', 'explainabilitySummary_resourceArn' - The Amazon Resource Name (ARN) of the Predictor or Forecast used to
--- create the Explainability.
 newExplainabilitySummary ::
   ExplainabilitySummary
 newExplainabilitySummary =
   ExplainabilitySummary'
-    { lastModificationTime =
+    { creationTime =
         Prelude.Nothing,
-      message = Prelude.Nothing,
-      explainabilityConfig = Prelude.Nothing,
-      status = Prelude.Nothing,
       explainabilityArn = Prelude.Nothing,
+      explainabilityConfig = Prelude.Nothing,
       explainabilityName = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      resourceArn = Prelude.Nothing
+      lastModificationTime = Prelude.Nothing,
+      message = Prelude.Nothing,
+      resourceArn = Prelude.Nothing,
+      status = Prelude.Nothing
     }
+
+-- | When the Explainability was created.
+explainabilitySummary_creationTime :: Lens.Lens' ExplainabilitySummary (Prelude.Maybe Prelude.UTCTime)
+explainabilitySummary_creationTime = Lens.lens (\ExplainabilitySummary' {creationTime} -> creationTime) (\s@ExplainabilitySummary' {} a -> s {creationTime = a} :: ExplainabilitySummary) Prelude.. Lens.mapping Data._Time
+
+-- | The Amazon Resource Name (ARN) of the Explainability.
+explainabilitySummary_explainabilityArn :: Lens.Lens' ExplainabilitySummary (Prelude.Maybe Prelude.Text)
+explainabilitySummary_explainabilityArn = Lens.lens (\ExplainabilitySummary' {explainabilityArn} -> explainabilityArn) (\s@ExplainabilitySummary' {} a -> s {explainabilityArn = a} :: ExplainabilitySummary)
+
+-- | The configuration settings that define the granularity of time series
+-- and time points for the Explainability.
+explainabilitySummary_explainabilityConfig :: Lens.Lens' ExplainabilitySummary (Prelude.Maybe ExplainabilityConfig)
+explainabilitySummary_explainabilityConfig = Lens.lens (\ExplainabilitySummary' {explainabilityConfig} -> explainabilityConfig) (\s@ExplainabilitySummary' {} a -> s {explainabilityConfig = a} :: ExplainabilitySummary)
+
+-- | The name of the Explainability.
+explainabilitySummary_explainabilityName :: Lens.Lens' ExplainabilitySummary (Prelude.Maybe Prelude.Text)
+explainabilitySummary_explainabilityName = Lens.lens (\ExplainabilitySummary' {explainabilityName} -> explainabilityName) (\s@ExplainabilitySummary' {} a -> s {explainabilityName = a} :: ExplainabilitySummary)
 
 -- | The last time the resource was modified. The timestamp depends on the
 -- status of the job:
@@ -153,10 +170,10 @@ explainabilitySummary_lastModificationTime = Lens.lens (\ExplainabilitySummary' 
 explainabilitySummary_message :: Lens.Lens' ExplainabilitySummary (Prelude.Maybe Prelude.Text)
 explainabilitySummary_message = Lens.lens (\ExplainabilitySummary' {message} -> message) (\s@ExplainabilitySummary' {} a -> s {message = a} :: ExplainabilitySummary)
 
--- | The configuration settings that define the granularity of time series
--- and time points for the Explainability.
-explainabilitySummary_explainabilityConfig :: Lens.Lens' ExplainabilitySummary (Prelude.Maybe ExplainabilityConfig)
-explainabilitySummary_explainabilityConfig = Lens.lens (\ExplainabilitySummary' {explainabilityConfig} -> explainabilityConfig) (\s@ExplainabilitySummary' {} a -> s {explainabilityConfig = a} :: ExplainabilitySummary)
+-- | The Amazon Resource Name (ARN) of the Predictor or Forecast used to
+-- create the Explainability.
+explainabilitySummary_resourceArn :: Lens.Lens' ExplainabilitySummary (Prelude.Maybe Prelude.Text)
+explainabilitySummary_resourceArn = Lens.lens (\ExplainabilitySummary' {resourceArn} -> resourceArn) (\s@ExplainabilitySummary' {} a -> s {resourceArn = a} :: ExplainabilitySummary)
 
 -- | The status of the Explainability. States include:
 --
@@ -170,57 +187,40 @@ explainabilitySummary_explainabilityConfig = Lens.lens (\ExplainabilitySummary' 
 explainabilitySummary_status :: Lens.Lens' ExplainabilitySummary (Prelude.Maybe Prelude.Text)
 explainabilitySummary_status = Lens.lens (\ExplainabilitySummary' {status} -> status) (\s@ExplainabilitySummary' {} a -> s {status = a} :: ExplainabilitySummary)
 
--- | The Amazon Resource Name (ARN) of the Explainability.
-explainabilitySummary_explainabilityArn :: Lens.Lens' ExplainabilitySummary (Prelude.Maybe Prelude.Text)
-explainabilitySummary_explainabilityArn = Lens.lens (\ExplainabilitySummary' {explainabilityArn} -> explainabilityArn) (\s@ExplainabilitySummary' {} a -> s {explainabilityArn = a} :: ExplainabilitySummary)
-
--- | The name of the Explainability.
-explainabilitySummary_explainabilityName :: Lens.Lens' ExplainabilitySummary (Prelude.Maybe Prelude.Text)
-explainabilitySummary_explainabilityName = Lens.lens (\ExplainabilitySummary' {explainabilityName} -> explainabilityName) (\s@ExplainabilitySummary' {} a -> s {explainabilityName = a} :: ExplainabilitySummary)
-
--- | When the Explainability was created.
-explainabilitySummary_creationTime :: Lens.Lens' ExplainabilitySummary (Prelude.Maybe Prelude.UTCTime)
-explainabilitySummary_creationTime = Lens.lens (\ExplainabilitySummary' {creationTime} -> creationTime) (\s@ExplainabilitySummary' {} a -> s {creationTime = a} :: ExplainabilitySummary) Prelude.. Lens.mapping Data._Time
-
--- | The Amazon Resource Name (ARN) of the Predictor or Forecast used to
--- create the Explainability.
-explainabilitySummary_resourceArn :: Lens.Lens' ExplainabilitySummary (Prelude.Maybe Prelude.Text)
-explainabilitySummary_resourceArn = Lens.lens (\ExplainabilitySummary' {resourceArn} -> resourceArn) (\s@ExplainabilitySummary' {} a -> s {resourceArn = a} :: ExplainabilitySummary)
-
 instance Data.FromJSON ExplainabilitySummary where
   parseJSON =
     Data.withObject
       "ExplainabilitySummary"
       ( \x ->
           ExplainabilitySummary'
-            Prelude.<$> (x Data..:? "LastModificationTime")
-            Prelude.<*> (x Data..:? "Message")
-            Prelude.<*> (x Data..:? "ExplainabilityConfig")
-            Prelude.<*> (x Data..:? "Status")
+            Prelude.<$> (x Data..:? "CreationTime")
             Prelude.<*> (x Data..:? "ExplainabilityArn")
+            Prelude.<*> (x Data..:? "ExplainabilityConfig")
             Prelude.<*> (x Data..:? "ExplainabilityName")
-            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "LastModificationTime")
+            Prelude.<*> (x Data..:? "Message")
             Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable ExplainabilitySummary where
   hashWithSalt _salt ExplainabilitySummary' {..} =
-    _salt `Prelude.hashWithSalt` lastModificationTime
-      `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` explainabilityConfig
-      `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` explainabilityArn
+      `Prelude.hashWithSalt` explainabilityConfig
       `Prelude.hashWithSalt` explainabilityName
-      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` lastModificationTime
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ExplainabilitySummary where
   rnf ExplainabilitySummary' {..} =
-    Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf explainabilityConfig
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf explainabilityArn
+      `Prelude.seq` Prelude.rnf explainabilityConfig
       `Prelude.seq` Prelude.rnf explainabilityName
-      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastModificationTime
+      `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf status

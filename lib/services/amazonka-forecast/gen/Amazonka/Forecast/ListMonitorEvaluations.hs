@@ -34,9 +34,9 @@ module Amazonka.Forecast.ListMonitorEvaluations
     newListMonitorEvaluations,
 
     -- * Request Lenses
-    listMonitorEvaluations_nextToken,
     listMonitorEvaluations_filters,
     listMonitorEvaluations_maxResults,
+    listMonitorEvaluations_nextToken,
     listMonitorEvaluations_monitorArn,
 
     -- * Destructuring the Response
@@ -60,11 +60,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListMonitorEvaluations' smart constructor.
 data ListMonitorEvaluations = ListMonitorEvaluations'
-  { -- | If the result of the previous request was truncated, the response
-    -- includes a @NextToken@. To retrieve the next set of results, use the
-    -- token in the next request. Tokens expire after 24 hours.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of filters. For each filter, provide a condition and a match
+  { -- | An array of filters. For each filter, provide a condition and a match
     -- statement. The condition is either @IS@ or @IS_NOT@, which specifies
     -- whether to include or exclude the resources that match the statement
     -- from the list. The match statement consists of a key and a value.
@@ -87,6 +83,10 @@ data ListMonitorEvaluations = ListMonitorEvaluations'
     filters :: Prelude.Maybe [Filter],
     -- | The maximum number of monitoring results to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the result of the previous request was truncated, the response
+    -- includes a @NextToken@. To retrieve the next set of results, use the
+    -- token in the next request. Tokens expire after 24 hours.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the monitor resource to get results
     -- from.
     monitorArn :: Prelude.Text
@@ -100,10 +100,6 @@ data ListMonitorEvaluations = ListMonitorEvaluations'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'listMonitorEvaluations_nextToken' - If the result of the previous request was truncated, the response
--- includes a @NextToken@. To retrieve the next set of results, use the
--- token in the next request. Tokens expire after 24 hours.
 --
 -- 'filters', 'listMonitorEvaluations_filters' - An array of filters. For each filter, provide a condition and a match
 -- statement. The condition is either @IS@ or @IS_NOT@, which specifies
@@ -128,6 +124,10 @@ data ListMonitorEvaluations = ListMonitorEvaluations'
 --
 -- 'maxResults', 'listMonitorEvaluations_maxResults' - The maximum number of monitoring results to return.
 --
+-- 'nextToken', 'listMonitorEvaluations_nextToken' - If the result of the previous request was truncated, the response
+-- includes a @NextToken@. To retrieve the next set of results, use the
+-- token in the next request. Tokens expire after 24 hours.
+--
 -- 'monitorArn', 'listMonitorEvaluations_monitorArn' - The Amazon Resource Name (ARN) of the monitor resource to get results
 -- from.
 newListMonitorEvaluations ::
@@ -136,18 +136,11 @@ newListMonitorEvaluations ::
   ListMonitorEvaluations
 newListMonitorEvaluations pMonitorArn_ =
   ListMonitorEvaluations'
-    { nextToken =
-        Prelude.Nothing,
-      filters = Prelude.Nothing,
+    { filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       monitorArn = pMonitorArn_
     }
-
--- | If the result of the previous request was truncated, the response
--- includes a @NextToken@. To retrieve the next set of results, use the
--- token in the next request. Tokens expire after 24 hours.
-listMonitorEvaluations_nextToken :: Lens.Lens' ListMonitorEvaluations (Prelude.Maybe Prelude.Text)
-listMonitorEvaluations_nextToken = Lens.lens (\ListMonitorEvaluations' {nextToken} -> nextToken) (\s@ListMonitorEvaluations' {} a -> s {nextToken = a} :: ListMonitorEvaluations)
 
 -- | An array of filters. For each filter, provide a condition and a match
 -- statement. The condition is either @IS@ or @IS_NOT@, which specifies
@@ -175,6 +168,12 @@ listMonitorEvaluations_filters = Lens.lens (\ListMonitorEvaluations' {filters} -
 -- | The maximum number of monitoring results to return.
 listMonitorEvaluations_maxResults :: Lens.Lens' ListMonitorEvaluations (Prelude.Maybe Prelude.Natural)
 listMonitorEvaluations_maxResults = Lens.lens (\ListMonitorEvaluations' {maxResults} -> maxResults) (\s@ListMonitorEvaluations' {} a -> s {maxResults = a} :: ListMonitorEvaluations)
+
+-- | If the result of the previous request was truncated, the response
+-- includes a @NextToken@. To retrieve the next set of results, use the
+-- token in the next request. Tokens expire after 24 hours.
+listMonitorEvaluations_nextToken :: Lens.Lens' ListMonitorEvaluations (Prelude.Maybe Prelude.Text)
+listMonitorEvaluations_nextToken = Lens.lens (\ListMonitorEvaluations' {nextToken} -> nextToken) (\s@ListMonitorEvaluations' {} a -> s {nextToken = a} :: ListMonitorEvaluations)
 
 -- | The Amazon Resource Name (ARN) of the monitor resource to get results
 -- from.
@@ -222,16 +221,16 @@ instance Core.AWSRequest ListMonitorEvaluations where
 
 instance Prelude.Hashable ListMonitorEvaluations where
   hashWithSalt _salt ListMonitorEvaluations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` monitorArn
 
 instance Prelude.NFData ListMonitorEvaluations where
   rnf ListMonitorEvaluations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf monitorArn
 
 instance Data.ToHeaders ListMonitorEvaluations where
@@ -253,9 +252,9 @@ instance Data.ToJSON ListMonitorEvaluations where
   toJSON ListMonitorEvaluations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
+          [ ("Filters" Data..=) Prelude.<$> filters,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("MonitorArn" Data..= monitorArn)
           ]
       )

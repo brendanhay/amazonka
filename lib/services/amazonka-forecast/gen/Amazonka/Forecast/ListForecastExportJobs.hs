@@ -34,17 +34,17 @@ module Amazonka.Forecast.ListForecastExportJobs
     newListForecastExportJobs,
 
     -- * Request Lenses
-    listForecastExportJobs_nextToken,
     listForecastExportJobs_filters,
     listForecastExportJobs_maxResults,
+    listForecastExportJobs_nextToken,
 
     -- * Destructuring the Response
     ListForecastExportJobsResponse (..),
     newListForecastExportJobsResponse,
 
     -- * Response Lenses
-    listForecastExportJobsResponse_nextToken,
     listForecastExportJobsResponse_forecastExportJobs,
+    listForecastExportJobsResponse_nextToken,
     listForecastExportJobsResponse_httpStatus,
   )
 where
@@ -59,11 +59,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListForecastExportJobs' smart constructor.
 data ListForecastExportJobs = ListForecastExportJobs'
-  { -- | If the result of the previous request was truncated, the response
-    -- includes a @NextToken@. To retrieve the next set of results, use the
-    -- token in the next request. Tokens expire after 24 hours.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of filters. For each filter, you provide a condition and a
+  { -- | An array of filters. For each filter, you provide a condition and a
     -- match statement. The condition is either @IS@ or @IS_NOT@, which
     -- specifies whether to include or exclude the forecast export jobs that
     -- match the statement from the list, respectively. The match statement
@@ -87,7 +83,11 @@ data ListForecastExportJobs = ListForecastExportJobs'
     -- @\"Filters\": [ { \"Condition\": \"IS\", \"Key\": \"ForecastArn\", \"Value\": \"arn:aws:forecast:us-west-2:\<acct-id>:forecast\/electricityforecast\" } ]@
     filters :: Prelude.Maybe [Filter],
     -- | The number of items to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the result of the previous request was truncated, the response
+    -- includes a @NextToken@. To retrieve the next set of results, use the
+    -- token in the next request. Tokens expire after 24 hours.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -98,10 +98,6 @@ data ListForecastExportJobs = ListForecastExportJobs'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'listForecastExportJobs_nextToken' - If the result of the previous request was truncated, the response
--- includes a @NextToken@. To retrieve the next set of results, use the
--- token in the next request. Tokens expire after 24 hours.
 --
 -- 'filters', 'listForecastExportJobs_filters' - An array of filters. For each filter, you provide a condition and a
 -- match statement. The condition is either @IS@ or @IS_NOT@, which
@@ -127,21 +123,18 @@ data ListForecastExportJobs = ListForecastExportJobs'
 -- @\"Filters\": [ { \"Condition\": \"IS\", \"Key\": \"ForecastArn\", \"Value\": \"arn:aws:forecast:us-west-2:\<acct-id>:forecast\/electricityforecast\" } ]@
 --
 -- 'maxResults', 'listForecastExportJobs_maxResults' - The number of items to return in the response.
+--
+-- 'nextToken', 'listForecastExportJobs_nextToken' - If the result of the previous request was truncated, the response
+-- includes a @NextToken@. To retrieve the next set of results, use the
+-- token in the next request. Tokens expire after 24 hours.
 newListForecastExportJobs ::
   ListForecastExportJobs
 newListForecastExportJobs =
   ListForecastExportJobs'
-    { nextToken =
-        Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | If the result of the previous request was truncated, the response
--- includes a @NextToken@. To retrieve the next set of results, use the
--- token in the next request. Tokens expire after 24 hours.
-listForecastExportJobs_nextToken :: Lens.Lens' ListForecastExportJobs (Prelude.Maybe Prelude.Text)
-listForecastExportJobs_nextToken = Lens.lens (\ListForecastExportJobs' {nextToken} -> nextToken) (\s@ListForecastExportJobs' {} a -> s {nextToken = a} :: ListForecastExportJobs)
 
 -- | An array of filters. For each filter, you provide a condition and a
 -- match statement. The condition is either @IS@ or @IS_NOT@, which
@@ -171,6 +164,12 @@ listForecastExportJobs_filters = Lens.lens (\ListForecastExportJobs' {filters} -
 -- | The number of items to return in the response.
 listForecastExportJobs_maxResults :: Lens.Lens' ListForecastExportJobs (Prelude.Maybe Prelude.Natural)
 listForecastExportJobs_maxResults = Lens.lens (\ListForecastExportJobs' {maxResults} -> maxResults) (\s@ListForecastExportJobs' {} a -> s {maxResults = a} :: ListForecastExportJobs)
+
+-- | If the result of the previous request was truncated, the response
+-- includes a @NextToken@. To retrieve the next set of results, use the
+-- token in the next request. Tokens expire after 24 hours.
+listForecastExportJobs_nextToken :: Lens.Lens' ListForecastExportJobs (Prelude.Maybe Prelude.Text)
+listForecastExportJobs_nextToken = Lens.lens (\ListForecastExportJobs' {nextToken} -> nextToken) (\s@ListForecastExportJobs' {} a -> s {nextToken = a} :: ListForecastExportJobs)
 
 instance Core.AWSPager ListForecastExportJobs where
   page rq rs
@@ -204,24 +203,24 @@ instance Core.AWSRequest ListForecastExportJobs where
     Response.receiveJSON
       ( \s h x ->
           ListForecastExportJobsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ForecastExportJobs"
+            Prelude.<$> ( x Data..?> "ForecastExportJobs"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListForecastExportJobs where
   hashWithSalt _salt ListForecastExportJobs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filters
+    _salt `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListForecastExportJobs where
   rnf ListForecastExportJobs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListForecastExportJobs where
   toHeaders =
@@ -242,9 +241,9 @@ instance Data.ToJSON ListForecastExportJobs where
   toJSON ListForecastExportJobs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filters" Data..=) Prelude.<$> filters,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("Filters" Data..=) Prelude.<$> filters,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -256,11 +255,11 @@ instance Data.ToQuery ListForecastExportJobs where
 
 -- | /See:/ 'newListForecastExportJobsResponse' smart constructor.
 data ListForecastExportJobsResponse = ListForecastExportJobsResponse'
-  { -- | If the response is truncated, Amazon Forecast returns this token. To
+  { -- | An array of objects that summarize each export job\'s properties.
+    forecastExportJobs :: Prelude.Maybe [ForecastExportJobSummary],
+    -- | If the response is truncated, Amazon Forecast returns this token. To
     -- retrieve the next set of results, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of objects that summarize each export job\'s properties.
-    forecastExportJobs :: Prelude.Maybe [ForecastExportJobSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -274,10 +273,10 @@ data ListForecastExportJobsResponse = ListForecastExportJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'forecastExportJobs', 'listForecastExportJobsResponse_forecastExportJobs' - An array of objects that summarize each export job\'s properties.
+--
 -- 'nextToken', 'listForecastExportJobsResponse_nextToken' - If the response is truncated, Amazon Forecast returns this token. To
 -- retrieve the next set of results, use the token in the next request.
---
--- 'forecastExportJobs', 'listForecastExportJobsResponse_forecastExportJobs' - An array of objects that summarize each export job\'s properties.
 --
 -- 'httpStatus', 'listForecastExportJobsResponse_httpStatus' - The response's http status code.
 newListForecastExportJobsResponse ::
@@ -286,20 +285,20 @@ newListForecastExportJobsResponse ::
   ListForecastExportJobsResponse
 newListForecastExportJobsResponse pHttpStatus_ =
   ListForecastExportJobsResponse'
-    { nextToken =
+    { forecastExportJobs =
         Prelude.Nothing,
-      forecastExportJobs = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of objects that summarize each export job\'s properties.
+listForecastExportJobsResponse_forecastExportJobs :: Lens.Lens' ListForecastExportJobsResponse (Prelude.Maybe [ForecastExportJobSummary])
+listForecastExportJobsResponse_forecastExportJobs = Lens.lens (\ListForecastExportJobsResponse' {forecastExportJobs} -> forecastExportJobs) (\s@ListForecastExportJobsResponse' {} a -> s {forecastExportJobs = a} :: ListForecastExportJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the response is truncated, Amazon Forecast returns this token. To
 -- retrieve the next set of results, use the token in the next request.
 listForecastExportJobsResponse_nextToken :: Lens.Lens' ListForecastExportJobsResponse (Prelude.Maybe Prelude.Text)
 listForecastExportJobsResponse_nextToken = Lens.lens (\ListForecastExportJobsResponse' {nextToken} -> nextToken) (\s@ListForecastExportJobsResponse' {} a -> s {nextToken = a} :: ListForecastExportJobsResponse)
-
--- | An array of objects that summarize each export job\'s properties.
-listForecastExportJobsResponse_forecastExportJobs :: Lens.Lens' ListForecastExportJobsResponse (Prelude.Maybe [ForecastExportJobSummary])
-listForecastExportJobsResponse_forecastExportJobs = Lens.lens (\ListForecastExportJobsResponse' {forecastExportJobs} -> forecastExportJobs) (\s@ListForecastExportJobsResponse' {} a -> s {forecastExportJobs = a} :: ListForecastExportJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listForecastExportJobsResponse_httpStatus :: Lens.Lens' ListForecastExportJobsResponse Prelude.Int
@@ -310,6 +309,6 @@ instance
     ListForecastExportJobsResponse
   where
   rnf ListForecastExportJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf forecastExportJobs
+    Prelude.rnf forecastExportJobs
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

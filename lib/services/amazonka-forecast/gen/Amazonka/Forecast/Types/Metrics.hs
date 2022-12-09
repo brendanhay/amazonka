@@ -33,17 +33,17 @@ import qualified Amazonka.Prelude as Prelude
 data Metrics = Metrics'
   { -- | The average value of all weighted quantile losses.
     averageWeightedQuantileLoss :: Prelude.Maybe Prelude.Double,
-    -- | An array of weighted quantile losses. Quantiles divide a probability
-    -- distribution into regions of equal probability. The distribution in this
-    -- case is the loss function.
-    weightedQuantileLosses :: Prelude.Maybe [WeightedQuantileLoss],
     -- | Provides detailed error metrics for each forecast type. Metrics include
     -- root-mean square-error (RMSE), mean absolute percentage error (MAPE),
     -- mean absolute scaled error (MASE), and weighted average percentage error
     -- (WAPE).
     errorMetrics :: Prelude.Maybe [ErrorMetric],
     -- | The root-mean-square error (RMSE).
-    rmse :: Prelude.Maybe Prelude.Double
+    rmse :: Prelude.Maybe Prelude.Double,
+    -- | An array of weighted quantile losses. Quantiles divide a probability
+    -- distribution into regions of equal probability. The distribution in this
+    -- case is the loss function.
+    weightedQuantileLosses :: Prelude.Maybe [WeightedQuantileLoss]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,36 +57,30 @@ data Metrics = Metrics'
 --
 -- 'averageWeightedQuantileLoss', 'metrics_averageWeightedQuantileLoss' - The average value of all weighted quantile losses.
 --
--- 'weightedQuantileLosses', 'metrics_weightedQuantileLosses' - An array of weighted quantile losses. Quantiles divide a probability
--- distribution into regions of equal probability. The distribution in this
--- case is the loss function.
---
 -- 'errorMetrics', 'metrics_errorMetrics' - Provides detailed error metrics for each forecast type. Metrics include
 -- root-mean square-error (RMSE), mean absolute percentage error (MAPE),
 -- mean absolute scaled error (MASE), and weighted average percentage error
 -- (WAPE).
 --
 -- 'rmse', 'metrics_rmse' - The root-mean-square error (RMSE).
+--
+-- 'weightedQuantileLosses', 'metrics_weightedQuantileLosses' - An array of weighted quantile losses. Quantiles divide a probability
+-- distribution into regions of equal probability. The distribution in this
+-- case is the loss function.
 newMetrics ::
   Metrics
 newMetrics =
   Metrics'
     { averageWeightedQuantileLoss =
         Prelude.Nothing,
-      weightedQuantileLosses = Prelude.Nothing,
       errorMetrics = Prelude.Nothing,
-      rmse = Prelude.Nothing
+      rmse = Prelude.Nothing,
+      weightedQuantileLosses = Prelude.Nothing
     }
 
 -- | The average value of all weighted quantile losses.
 metrics_averageWeightedQuantileLoss :: Lens.Lens' Metrics (Prelude.Maybe Prelude.Double)
 metrics_averageWeightedQuantileLoss = Lens.lens (\Metrics' {averageWeightedQuantileLoss} -> averageWeightedQuantileLoss) (\s@Metrics' {} a -> s {averageWeightedQuantileLoss = a} :: Metrics)
-
--- | An array of weighted quantile losses. Quantiles divide a probability
--- distribution into regions of equal probability. The distribution in this
--- case is the loss function.
-metrics_weightedQuantileLosses :: Lens.Lens' Metrics (Prelude.Maybe [WeightedQuantileLoss])
-metrics_weightedQuantileLosses = Lens.lens (\Metrics' {weightedQuantileLosses} -> weightedQuantileLosses) (\s@Metrics' {} a -> s {weightedQuantileLosses = a} :: Metrics) Prelude.. Lens.mapping Lens.coerced
 
 -- | Provides detailed error metrics for each forecast type. Metrics include
 -- root-mean square-error (RMSE), mean absolute percentage error (MAPE),
@@ -99,6 +93,12 @@ metrics_errorMetrics = Lens.lens (\Metrics' {errorMetrics} -> errorMetrics) (\s@
 metrics_rmse :: Lens.Lens' Metrics (Prelude.Maybe Prelude.Double)
 metrics_rmse = Lens.lens (\Metrics' {rmse} -> rmse) (\s@Metrics' {} a -> s {rmse = a} :: Metrics)
 
+-- | An array of weighted quantile losses. Quantiles divide a probability
+-- distribution into regions of equal probability. The distribution in this
+-- case is the loss function.
+metrics_weightedQuantileLosses :: Lens.Lens' Metrics (Prelude.Maybe [WeightedQuantileLoss])
+metrics_weightedQuantileLosses = Lens.lens (\Metrics' {weightedQuantileLosses} -> weightedQuantileLosses) (\s@Metrics' {} a -> s {weightedQuantileLosses = a} :: Metrics) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON Metrics where
   parseJSON =
     Data.withObject
@@ -106,24 +106,24 @@ instance Data.FromJSON Metrics where
       ( \x ->
           Metrics'
             Prelude.<$> (x Data..:? "AverageWeightedQuantileLoss")
+            Prelude.<*> (x Data..:? "ErrorMetrics" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "RMSE")
             Prelude.<*> ( x Data..:? "WeightedQuantileLosses"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "ErrorMetrics" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "RMSE")
       )
 
 instance Prelude.Hashable Metrics where
   hashWithSalt _salt Metrics' {..} =
     _salt
       `Prelude.hashWithSalt` averageWeightedQuantileLoss
-      `Prelude.hashWithSalt` weightedQuantileLosses
       `Prelude.hashWithSalt` errorMetrics
       `Prelude.hashWithSalt` rmse
+      `Prelude.hashWithSalt` weightedQuantileLosses
 
 instance Prelude.NFData Metrics where
   rnf Metrics' {..} =
     Prelude.rnf averageWeightedQuantileLoss
-      `Prelude.seq` Prelude.rnf weightedQuantileLosses
       `Prelude.seq` Prelude.rnf errorMetrics
       `Prelude.seq` Prelude.rnf rmse
+      `Prelude.seq` Prelude.rnf weightedQuantileLosses

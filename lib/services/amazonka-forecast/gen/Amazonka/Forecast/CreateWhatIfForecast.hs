@@ -30,8 +30,8 @@ module Amazonka.Forecast.CreateWhatIfForecast
 
     -- * Request Lenses
     createWhatIfForecast_tags,
-    createWhatIfForecast_timeSeriesTransformations,
     createWhatIfForecast_timeSeriesReplacementsDataSource,
+    createWhatIfForecast_timeSeriesTransformations,
     createWhatIfForecast_whatIfForecastName,
     createWhatIfForecast_whatIfAnalysisArn,
 
@@ -59,11 +59,6 @@ data CreateWhatIfForecast = CreateWhatIfForecast'
     -- <https://docs.aws.amazon.com/forecast/latest/dg/tagging-forecast-resources.html tags>
     -- to apply to the what if forecast.
     tags :: Prelude.Maybe [Tag],
-    -- | The transformations that are applied to the baseline time series. Each
-    -- transformation contains an action and a set of conditions. An action is
-    -- applied only when all conditions are met. If no conditions are provided,
-    -- the action is applied to all items.
-    timeSeriesTransformations :: Prelude.Maybe [TimeSeriesTransformation],
     -- | The replacement time series dataset, which contains the rows that you
     -- want to change in the related time series dataset. A replacement time
     -- series does not need to contain all rows that are in the baseline
@@ -80,6 +75,11 @@ data CreateWhatIfForecast = CreateWhatIfForecast'
     -- Timestamps and item_ids not included in this dataset are not included in
     -- the what-if analysis.
     timeSeriesReplacementsDataSource :: Prelude.Maybe TimeSeriesReplacementsDataSource,
+    -- | The transformations that are applied to the baseline time series. Each
+    -- transformation contains an action and a set of conditions. An action is
+    -- applied only when all conditions are met. If no conditions are provided,
+    -- the action is applied to all items.
+    timeSeriesTransformations :: Prelude.Maybe [TimeSeriesTransformation],
     -- | The name of the what-if forecast. Names must be unique within each
     -- what-if analysis.
     whatIfForecastName :: Prelude.Text,
@@ -100,11 +100,6 @@ data CreateWhatIfForecast = CreateWhatIfForecast'
 -- <https://docs.aws.amazon.com/forecast/latest/dg/tagging-forecast-resources.html tags>
 -- to apply to the what if forecast.
 --
--- 'timeSeriesTransformations', 'createWhatIfForecast_timeSeriesTransformations' - The transformations that are applied to the baseline time series. Each
--- transformation contains an action and a set of conditions. An action is
--- applied only when all conditions are met. If no conditions are provided,
--- the action is applied to all items.
---
 -- 'timeSeriesReplacementsDataSource', 'createWhatIfForecast_timeSeriesReplacementsDataSource' - The replacement time series dataset, which contains the rows that you
 -- want to change in the related time series dataset. A replacement time
 -- series does not need to contain all rows that are in the baseline
@@ -121,6 +116,11 @@ data CreateWhatIfForecast = CreateWhatIfForecast'
 -- Timestamps and item_ids not included in this dataset are not included in
 -- the what-if analysis.
 --
+-- 'timeSeriesTransformations', 'createWhatIfForecast_timeSeriesTransformations' - The transformations that are applied to the baseline time series. Each
+-- transformation contains an action and a set of conditions. An action is
+-- applied only when all conditions are met. If no conditions are provided,
+-- the action is applied to all items.
+--
 -- 'whatIfForecastName', 'createWhatIfForecast_whatIfForecastName' - The name of the what-if forecast. Names must be unique within each
 -- what-if analysis.
 --
@@ -136,8 +136,8 @@ newCreateWhatIfForecast
   pWhatIfAnalysisArn_ =
     CreateWhatIfForecast'
       { tags = Prelude.Nothing,
-        timeSeriesTransformations = Prelude.Nothing,
         timeSeriesReplacementsDataSource = Prelude.Nothing,
+        timeSeriesTransformations = Prelude.Nothing,
         whatIfForecastName = pWhatIfForecastName_,
         whatIfAnalysisArn = pWhatIfAnalysisArn_
       }
@@ -147,13 +147,6 @@ newCreateWhatIfForecast
 -- to apply to the what if forecast.
 createWhatIfForecast_tags :: Lens.Lens' CreateWhatIfForecast (Prelude.Maybe [Tag])
 createWhatIfForecast_tags = Lens.lens (\CreateWhatIfForecast' {tags} -> tags) (\s@CreateWhatIfForecast' {} a -> s {tags = a} :: CreateWhatIfForecast) Prelude.. Lens.mapping Lens.coerced
-
--- | The transformations that are applied to the baseline time series. Each
--- transformation contains an action and a set of conditions. An action is
--- applied only when all conditions are met. If no conditions are provided,
--- the action is applied to all items.
-createWhatIfForecast_timeSeriesTransformations :: Lens.Lens' CreateWhatIfForecast (Prelude.Maybe [TimeSeriesTransformation])
-createWhatIfForecast_timeSeriesTransformations = Lens.lens (\CreateWhatIfForecast' {timeSeriesTransformations} -> timeSeriesTransformations) (\s@CreateWhatIfForecast' {} a -> s {timeSeriesTransformations = a} :: CreateWhatIfForecast) Prelude.. Lens.mapping Lens.coerced
 
 -- | The replacement time series dataset, which contains the rows that you
 -- want to change in the related time series dataset. A replacement time
@@ -172,6 +165,13 @@ createWhatIfForecast_timeSeriesTransformations = Lens.lens (\CreateWhatIfForecas
 -- the what-if analysis.
 createWhatIfForecast_timeSeriesReplacementsDataSource :: Lens.Lens' CreateWhatIfForecast (Prelude.Maybe TimeSeriesReplacementsDataSource)
 createWhatIfForecast_timeSeriesReplacementsDataSource = Lens.lens (\CreateWhatIfForecast' {timeSeriesReplacementsDataSource} -> timeSeriesReplacementsDataSource) (\s@CreateWhatIfForecast' {} a -> s {timeSeriesReplacementsDataSource = a} :: CreateWhatIfForecast)
+
+-- | The transformations that are applied to the baseline time series. Each
+-- transformation contains an action and a set of conditions. An action is
+-- applied only when all conditions are met. If no conditions are provided,
+-- the action is applied to all items.
+createWhatIfForecast_timeSeriesTransformations :: Lens.Lens' CreateWhatIfForecast (Prelude.Maybe [TimeSeriesTransformation])
+createWhatIfForecast_timeSeriesTransformations = Lens.lens (\CreateWhatIfForecast' {timeSeriesTransformations} -> timeSeriesTransformations) (\s@CreateWhatIfForecast' {} a -> s {timeSeriesTransformations = a} :: CreateWhatIfForecast) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the what-if forecast. Names must be unique within each
 -- what-if analysis.
@@ -199,16 +199,16 @@ instance Core.AWSRequest CreateWhatIfForecast where
 instance Prelude.Hashable CreateWhatIfForecast where
   hashWithSalt _salt CreateWhatIfForecast' {..} =
     _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` timeSeriesTransformations
       `Prelude.hashWithSalt` timeSeriesReplacementsDataSource
+      `Prelude.hashWithSalt` timeSeriesTransformations
       `Prelude.hashWithSalt` whatIfForecastName
       `Prelude.hashWithSalt` whatIfAnalysisArn
 
 instance Prelude.NFData CreateWhatIfForecast where
   rnf CreateWhatIfForecast' {..} =
     Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf timeSeriesTransformations
       `Prelude.seq` Prelude.rnf timeSeriesReplacementsDataSource
+      `Prelude.seq` Prelude.rnf timeSeriesTransformations
       `Prelude.seq` Prelude.rnf whatIfForecastName
       `Prelude.seq` Prelude.rnf whatIfAnalysisArn
 
@@ -232,10 +232,10 @@ instance Data.ToJSON CreateWhatIfForecast where
     Data.object
       ( Prelude.catMaybes
           [ ("Tags" Data..=) Prelude.<$> tags,
-            ("TimeSeriesTransformations" Data..=)
-              Prelude.<$> timeSeriesTransformations,
             ("TimeSeriesReplacementsDataSource" Data..=)
               Prelude.<$> timeSeriesReplacementsDataSource,
+            ("TimeSeriesTransformations" Data..=)
+              Prelude.<$> timeSeriesTransformations,
             Prelude.Just
               ("WhatIfForecastName" Data..= whatIfForecastName),
             Prelude.Just

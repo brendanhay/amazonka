@@ -35,20 +35,20 @@ module Amazonka.Forecast.DescribeExplainability
     newDescribeExplainabilityResponse,
 
     -- * Response Lenses
+    describeExplainabilityResponse_creationTime,
+    describeExplainabilityResponse_dataSource,
+    describeExplainabilityResponse_enableVisualization,
+    describeExplainabilityResponse_endDateTime,
+    describeExplainabilityResponse_estimatedTimeRemainingInMinutes,
+    describeExplainabilityResponse_explainabilityArn,
+    describeExplainabilityResponse_explainabilityConfig,
+    describeExplainabilityResponse_explainabilityName,
     describeExplainabilityResponse_lastModificationTime,
     describeExplainabilityResponse_message,
-    describeExplainabilityResponse_explainabilityConfig,
-    describeExplainabilityResponse_enableVisualization,
+    describeExplainabilityResponse_resourceArn,
+    describeExplainabilityResponse_schema,
     describeExplainabilityResponse_startDateTime,
     describeExplainabilityResponse_status,
-    describeExplainabilityResponse_explainabilityArn,
-    describeExplainabilityResponse_explainabilityName,
-    describeExplainabilityResponse_estimatedTimeRemainingInMinutes,
-    describeExplainabilityResponse_schema,
-    describeExplainabilityResponse_dataSource,
-    describeExplainabilityResponse_creationTime,
-    describeExplainabilityResponse_resourceArn,
-    describeExplainabilityResponse_endDateTime,
     describeExplainabilityResponse_httpStatus,
   )
 where
@@ -101,20 +101,20 @@ instance Core.AWSRequest DescribeExplainability where
     Response.receiveJSON
       ( \s h x ->
           DescribeExplainabilityResponse'
-            Prelude.<$> (x Data..?> "LastModificationTime")
-            Prelude.<*> (x Data..?> "Message")
-            Prelude.<*> (x Data..?> "ExplainabilityConfig")
+            Prelude.<$> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "DataSource")
             Prelude.<*> (x Data..?> "EnableVisualization")
+            Prelude.<*> (x Data..?> "EndDateTime")
+            Prelude.<*> (x Data..?> "EstimatedTimeRemainingInMinutes")
+            Prelude.<*> (x Data..?> "ExplainabilityArn")
+            Prelude.<*> (x Data..?> "ExplainabilityConfig")
+            Prelude.<*> (x Data..?> "ExplainabilityName")
+            Prelude.<*> (x Data..?> "LastModificationTime")
+            Prelude.<*> (x Data..?> "Message")
+            Prelude.<*> (x Data..?> "ResourceArn")
+            Prelude.<*> (x Data..?> "Schema")
             Prelude.<*> (x Data..?> "StartDateTime")
             Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "ExplainabilityArn")
-            Prelude.<*> (x Data..?> "ExplainabilityName")
-            Prelude.<*> (x Data..?> "EstimatedTimeRemainingInMinutes")
-            Prelude.<*> (x Data..?> "Schema")
-            Prelude.<*> (x Data..?> "DataSource")
-            Prelude.<*> (x Data..?> "CreationTime")
-            Prelude.<*> (x Data..?> "ResourceArn")
-            Prelude.<*> (x Data..?> "EndDateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,7 +158,25 @@ instance Data.ToQuery DescribeExplainability where
 
 -- | /See:/ 'newDescribeExplainabilityResponse' smart constructor.
 data DescribeExplainabilityResponse = DescribeExplainabilityResponse'
-  { -- | The last time the resource was modified. The timestamp depends on the
+  { -- | When the Explainability resource was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    dataSource :: Prelude.Maybe DataSource,
+    -- | Whether the visualization was enabled for the Explainability resource.
+    enableVisualization :: Prelude.Maybe Prelude.Bool,
+    -- | If @TimePointGranularity@ is set to @SPECIFIC@, the last time point in
+    -- the Explainability.
+    endDateTime :: Prelude.Maybe Prelude.Text,
+    -- | The estimated time remaining in minutes for the CreateExplainability job
+    -- to complete.
+    estimatedTimeRemainingInMinutes :: Prelude.Maybe Prelude.Integer,
+    -- | The Amazon Resource Name (ARN) of the Explainability.
+    explainabilityArn :: Prelude.Maybe Prelude.Text,
+    -- | The configuration settings that define the granularity of time series
+    -- and time points for the Explainability.
+    explainabilityConfig :: Prelude.Maybe ExplainabilityConfig,
+    -- | The name of the Explainability.
+    explainabilityName :: Prelude.Maybe Prelude.Text,
+    -- | The last time the resource was modified. The timestamp depends on the
     -- status of the job:
     --
     -- -   @CREATE_PENDING@ - The @CreationTime@.
@@ -173,11 +191,10 @@ data DescribeExplainabilityResponse = DescribeExplainabilityResponse'
     lastModificationTime :: Prelude.Maybe Data.POSIX,
     -- | If an error occurred, a message about the error.
     message :: Prelude.Maybe Prelude.Text,
-    -- | The configuration settings that define the granularity of time series
-    -- and time points for the Explainability.
-    explainabilityConfig :: Prelude.Maybe ExplainabilityConfig,
-    -- | Whether the visualization was enabled for the Explainability resource.
-    enableVisualization :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Resource Name (ARN) of the Predictor or Forecast used to
+    -- create the Explainability resource.
+    resourceArn :: Prelude.Maybe Prelude.Text,
+    schema :: Prelude.Maybe Schema,
     -- | If @TimePointGranularity@ is set to @SPECIFIC@, the first time point in
     -- the Explainability.
     startDateTime :: Prelude.Maybe Prelude.Text,
@@ -191,23 +208,6 @@ data DescribeExplainabilityResponse = DescribeExplainabilityResponse'
     --
     -- -   @DELETE_PENDING@, @DELETE_IN_PROGRESS@, @DELETE_FAILED@
     status :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the Explainability.
-    explainabilityArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Explainability.
-    explainabilityName :: Prelude.Maybe Prelude.Text,
-    -- | The estimated time remaining in minutes for the CreateExplainability job
-    -- to complete.
-    estimatedTimeRemainingInMinutes :: Prelude.Maybe Prelude.Integer,
-    schema :: Prelude.Maybe Schema,
-    dataSource :: Prelude.Maybe DataSource,
-    -- | When the Explainability resource was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
-    -- | The Amazon Resource Name (ARN) of the Predictor or Forecast used to
-    -- create the Explainability resource.
-    resourceArn :: Prelude.Maybe Prelude.Text,
-    -- | If @TimePointGranularity@ is set to @SPECIFIC@, the last time point in
-    -- the Explainability.
-    endDateTime :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -220,6 +220,25 @@ data DescribeExplainabilityResponse = DescribeExplainabilityResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'creationTime', 'describeExplainabilityResponse_creationTime' - When the Explainability resource was created.
+--
+-- 'dataSource', 'describeExplainabilityResponse_dataSource' - Undocumented member.
+--
+-- 'enableVisualization', 'describeExplainabilityResponse_enableVisualization' - Whether the visualization was enabled for the Explainability resource.
+--
+-- 'endDateTime', 'describeExplainabilityResponse_endDateTime' - If @TimePointGranularity@ is set to @SPECIFIC@, the last time point in
+-- the Explainability.
+--
+-- 'estimatedTimeRemainingInMinutes', 'describeExplainabilityResponse_estimatedTimeRemainingInMinutes' - The estimated time remaining in minutes for the CreateExplainability job
+-- to complete.
+--
+-- 'explainabilityArn', 'describeExplainabilityResponse_explainabilityArn' - The Amazon Resource Name (ARN) of the Explainability.
+--
+-- 'explainabilityConfig', 'describeExplainabilityResponse_explainabilityConfig' - The configuration settings that define the granularity of time series
+-- and time points for the Explainability.
+--
+-- 'explainabilityName', 'describeExplainabilityResponse_explainabilityName' - The name of the Explainability.
 --
 -- 'lastModificationTime', 'describeExplainabilityResponse_lastModificationTime' - The last time the resource was modified. The timestamp depends on the
 -- status of the job:
@@ -236,10 +255,10 @@ data DescribeExplainabilityResponse = DescribeExplainabilityResponse'
 --
 -- 'message', 'describeExplainabilityResponse_message' - If an error occurred, a message about the error.
 --
--- 'explainabilityConfig', 'describeExplainabilityResponse_explainabilityConfig' - The configuration settings that define the granularity of time series
--- and time points for the Explainability.
+-- 'resourceArn', 'describeExplainabilityResponse_resourceArn' - The Amazon Resource Name (ARN) of the Predictor or Forecast used to
+-- create the Explainability resource.
 --
--- 'enableVisualization', 'describeExplainabilityResponse_enableVisualization' - Whether the visualization was enabled for the Explainability resource.
+-- 'schema', 'describeExplainabilityResponse_schema' - Undocumented member.
 --
 -- 'startDateTime', 'describeExplainabilityResponse_startDateTime' - If @TimePointGranularity@ is set to @SPECIFIC@, the first time point in
 -- the Explainability.
@@ -254,25 +273,6 @@ data DescribeExplainabilityResponse = DescribeExplainabilityResponse'
 --
 -- -   @DELETE_PENDING@, @DELETE_IN_PROGRESS@, @DELETE_FAILED@
 --
--- 'explainabilityArn', 'describeExplainabilityResponse_explainabilityArn' - The Amazon Resource Name (ARN) of the Explainability.
---
--- 'explainabilityName', 'describeExplainabilityResponse_explainabilityName' - The name of the Explainability.
---
--- 'estimatedTimeRemainingInMinutes', 'describeExplainabilityResponse_estimatedTimeRemainingInMinutes' - The estimated time remaining in minutes for the CreateExplainability job
--- to complete.
---
--- 'schema', 'describeExplainabilityResponse_schema' - Undocumented member.
---
--- 'dataSource', 'describeExplainabilityResponse_dataSource' - Undocumented member.
---
--- 'creationTime', 'describeExplainabilityResponse_creationTime' - When the Explainability resource was created.
---
--- 'resourceArn', 'describeExplainabilityResponse_resourceArn' - The Amazon Resource Name (ARN) of the Predictor or Forecast used to
--- create the Explainability resource.
---
--- 'endDateTime', 'describeExplainabilityResponse_endDateTime' - If @TimePointGranularity@ is set to @SPECIFIC@, the last time point in
--- the Explainability.
---
 -- 'httpStatus', 'describeExplainabilityResponse_httpStatus' - The response's http status code.
 newDescribeExplainabilityResponse ::
   -- | 'httpStatus'
@@ -280,24 +280,59 @@ newDescribeExplainabilityResponse ::
   DescribeExplainabilityResponse
 newDescribeExplainabilityResponse pHttpStatus_ =
   DescribeExplainabilityResponse'
-    { lastModificationTime =
+    { creationTime =
         Prelude.Nothing,
-      message = Prelude.Nothing,
-      explainabilityConfig = Prelude.Nothing,
+      dataSource = Prelude.Nothing,
       enableVisualization = Prelude.Nothing,
-      startDateTime = Prelude.Nothing,
-      status = Prelude.Nothing,
-      explainabilityArn = Prelude.Nothing,
-      explainabilityName = Prelude.Nothing,
+      endDateTime = Prelude.Nothing,
       estimatedTimeRemainingInMinutes =
         Prelude.Nothing,
-      schema = Prelude.Nothing,
-      dataSource = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
+      explainabilityArn = Prelude.Nothing,
+      explainabilityConfig = Prelude.Nothing,
+      explainabilityName = Prelude.Nothing,
+      lastModificationTime = Prelude.Nothing,
+      message = Prelude.Nothing,
       resourceArn = Prelude.Nothing,
-      endDateTime = Prelude.Nothing,
+      schema = Prelude.Nothing,
+      startDateTime = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | When the Explainability resource was created.
+describeExplainabilityResponse_creationTime :: Lens.Lens' DescribeExplainabilityResponse (Prelude.Maybe Prelude.UTCTime)
+describeExplainabilityResponse_creationTime = Lens.lens (\DescribeExplainabilityResponse' {creationTime} -> creationTime) (\s@DescribeExplainabilityResponse' {} a -> s {creationTime = a} :: DescribeExplainabilityResponse) Prelude.. Lens.mapping Data._Time
+
+-- | Undocumented member.
+describeExplainabilityResponse_dataSource :: Lens.Lens' DescribeExplainabilityResponse (Prelude.Maybe DataSource)
+describeExplainabilityResponse_dataSource = Lens.lens (\DescribeExplainabilityResponse' {dataSource} -> dataSource) (\s@DescribeExplainabilityResponse' {} a -> s {dataSource = a} :: DescribeExplainabilityResponse)
+
+-- | Whether the visualization was enabled for the Explainability resource.
+describeExplainabilityResponse_enableVisualization :: Lens.Lens' DescribeExplainabilityResponse (Prelude.Maybe Prelude.Bool)
+describeExplainabilityResponse_enableVisualization = Lens.lens (\DescribeExplainabilityResponse' {enableVisualization} -> enableVisualization) (\s@DescribeExplainabilityResponse' {} a -> s {enableVisualization = a} :: DescribeExplainabilityResponse)
+
+-- | If @TimePointGranularity@ is set to @SPECIFIC@, the last time point in
+-- the Explainability.
+describeExplainabilityResponse_endDateTime :: Lens.Lens' DescribeExplainabilityResponse (Prelude.Maybe Prelude.Text)
+describeExplainabilityResponse_endDateTime = Lens.lens (\DescribeExplainabilityResponse' {endDateTime} -> endDateTime) (\s@DescribeExplainabilityResponse' {} a -> s {endDateTime = a} :: DescribeExplainabilityResponse)
+
+-- | The estimated time remaining in minutes for the CreateExplainability job
+-- to complete.
+describeExplainabilityResponse_estimatedTimeRemainingInMinutes :: Lens.Lens' DescribeExplainabilityResponse (Prelude.Maybe Prelude.Integer)
+describeExplainabilityResponse_estimatedTimeRemainingInMinutes = Lens.lens (\DescribeExplainabilityResponse' {estimatedTimeRemainingInMinutes} -> estimatedTimeRemainingInMinutes) (\s@DescribeExplainabilityResponse' {} a -> s {estimatedTimeRemainingInMinutes = a} :: DescribeExplainabilityResponse)
+
+-- | The Amazon Resource Name (ARN) of the Explainability.
+describeExplainabilityResponse_explainabilityArn :: Lens.Lens' DescribeExplainabilityResponse (Prelude.Maybe Prelude.Text)
+describeExplainabilityResponse_explainabilityArn = Lens.lens (\DescribeExplainabilityResponse' {explainabilityArn} -> explainabilityArn) (\s@DescribeExplainabilityResponse' {} a -> s {explainabilityArn = a} :: DescribeExplainabilityResponse)
+
+-- | The configuration settings that define the granularity of time series
+-- and time points for the Explainability.
+describeExplainabilityResponse_explainabilityConfig :: Lens.Lens' DescribeExplainabilityResponse (Prelude.Maybe ExplainabilityConfig)
+describeExplainabilityResponse_explainabilityConfig = Lens.lens (\DescribeExplainabilityResponse' {explainabilityConfig} -> explainabilityConfig) (\s@DescribeExplainabilityResponse' {} a -> s {explainabilityConfig = a} :: DescribeExplainabilityResponse)
+
+-- | The name of the Explainability.
+describeExplainabilityResponse_explainabilityName :: Lens.Lens' DescribeExplainabilityResponse (Prelude.Maybe Prelude.Text)
+describeExplainabilityResponse_explainabilityName = Lens.lens (\DescribeExplainabilityResponse' {explainabilityName} -> explainabilityName) (\s@DescribeExplainabilityResponse' {} a -> s {explainabilityName = a} :: DescribeExplainabilityResponse)
 
 -- | The last time the resource was modified. The timestamp depends on the
 -- status of the job:
@@ -318,14 +353,14 @@ describeExplainabilityResponse_lastModificationTime = Lens.lens (\DescribeExplai
 describeExplainabilityResponse_message :: Lens.Lens' DescribeExplainabilityResponse (Prelude.Maybe Prelude.Text)
 describeExplainabilityResponse_message = Lens.lens (\DescribeExplainabilityResponse' {message} -> message) (\s@DescribeExplainabilityResponse' {} a -> s {message = a} :: DescribeExplainabilityResponse)
 
--- | The configuration settings that define the granularity of time series
--- and time points for the Explainability.
-describeExplainabilityResponse_explainabilityConfig :: Lens.Lens' DescribeExplainabilityResponse (Prelude.Maybe ExplainabilityConfig)
-describeExplainabilityResponse_explainabilityConfig = Lens.lens (\DescribeExplainabilityResponse' {explainabilityConfig} -> explainabilityConfig) (\s@DescribeExplainabilityResponse' {} a -> s {explainabilityConfig = a} :: DescribeExplainabilityResponse)
+-- | The Amazon Resource Name (ARN) of the Predictor or Forecast used to
+-- create the Explainability resource.
+describeExplainabilityResponse_resourceArn :: Lens.Lens' DescribeExplainabilityResponse (Prelude.Maybe Prelude.Text)
+describeExplainabilityResponse_resourceArn = Lens.lens (\DescribeExplainabilityResponse' {resourceArn} -> resourceArn) (\s@DescribeExplainabilityResponse' {} a -> s {resourceArn = a} :: DescribeExplainabilityResponse)
 
--- | Whether the visualization was enabled for the Explainability resource.
-describeExplainabilityResponse_enableVisualization :: Lens.Lens' DescribeExplainabilityResponse (Prelude.Maybe Prelude.Bool)
-describeExplainabilityResponse_enableVisualization = Lens.lens (\DescribeExplainabilityResponse' {enableVisualization} -> enableVisualization) (\s@DescribeExplainabilityResponse' {} a -> s {enableVisualization = a} :: DescribeExplainabilityResponse)
+-- | Undocumented member.
+describeExplainabilityResponse_schema :: Lens.Lens' DescribeExplainabilityResponse (Prelude.Maybe Schema)
+describeExplainabilityResponse_schema = Lens.lens (\DescribeExplainabilityResponse' {schema} -> schema) (\s@DescribeExplainabilityResponse' {} a -> s {schema = a} :: DescribeExplainabilityResponse)
 
 -- | If @TimePointGranularity@ is set to @SPECIFIC@, the first time point in
 -- the Explainability.
@@ -344,41 +379,6 @@ describeExplainabilityResponse_startDateTime = Lens.lens (\DescribeExplainabilit
 describeExplainabilityResponse_status :: Lens.Lens' DescribeExplainabilityResponse (Prelude.Maybe Prelude.Text)
 describeExplainabilityResponse_status = Lens.lens (\DescribeExplainabilityResponse' {status} -> status) (\s@DescribeExplainabilityResponse' {} a -> s {status = a} :: DescribeExplainabilityResponse)
 
--- | The Amazon Resource Name (ARN) of the Explainability.
-describeExplainabilityResponse_explainabilityArn :: Lens.Lens' DescribeExplainabilityResponse (Prelude.Maybe Prelude.Text)
-describeExplainabilityResponse_explainabilityArn = Lens.lens (\DescribeExplainabilityResponse' {explainabilityArn} -> explainabilityArn) (\s@DescribeExplainabilityResponse' {} a -> s {explainabilityArn = a} :: DescribeExplainabilityResponse)
-
--- | The name of the Explainability.
-describeExplainabilityResponse_explainabilityName :: Lens.Lens' DescribeExplainabilityResponse (Prelude.Maybe Prelude.Text)
-describeExplainabilityResponse_explainabilityName = Lens.lens (\DescribeExplainabilityResponse' {explainabilityName} -> explainabilityName) (\s@DescribeExplainabilityResponse' {} a -> s {explainabilityName = a} :: DescribeExplainabilityResponse)
-
--- | The estimated time remaining in minutes for the CreateExplainability job
--- to complete.
-describeExplainabilityResponse_estimatedTimeRemainingInMinutes :: Lens.Lens' DescribeExplainabilityResponse (Prelude.Maybe Prelude.Integer)
-describeExplainabilityResponse_estimatedTimeRemainingInMinutes = Lens.lens (\DescribeExplainabilityResponse' {estimatedTimeRemainingInMinutes} -> estimatedTimeRemainingInMinutes) (\s@DescribeExplainabilityResponse' {} a -> s {estimatedTimeRemainingInMinutes = a} :: DescribeExplainabilityResponse)
-
--- | Undocumented member.
-describeExplainabilityResponse_schema :: Lens.Lens' DescribeExplainabilityResponse (Prelude.Maybe Schema)
-describeExplainabilityResponse_schema = Lens.lens (\DescribeExplainabilityResponse' {schema} -> schema) (\s@DescribeExplainabilityResponse' {} a -> s {schema = a} :: DescribeExplainabilityResponse)
-
--- | Undocumented member.
-describeExplainabilityResponse_dataSource :: Lens.Lens' DescribeExplainabilityResponse (Prelude.Maybe DataSource)
-describeExplainabilityResponse_dataSource = Lens.lens (\DescribeExplainabilityResponse' {dataSource} -> dataSource) (\s@DescribeExplainabilityResponse' {} a -> s {dataSource = a} :: DescribeExplainabilityResponse)
-
--- | When the Explainability resource was created.
-describeExplainabilityResponse_creationTime :: Lens.Lens' DescribeExplainabilityResponse (Prelude.Maybe Prelude.UTCTime)
-describeExplainabilityResponse_creationTime = Lens.lens (\DescribeExplainabilityResponse' {creationTime} -> creationTime) (\s@DescribeExplainabilityResponse' {} a -> s {creationTime = a} :: DescribeExplainabilityResponse) Prelude.. Lens.mapping Data._Time
-
--- | The Amazon Resource Name (ARN) of the Predictor or Forecast used to
--- create the Explainability resource.
-describeExplainabilityResponse_resourceArn :: Lens.Lens' DescribeExplainabilityResponse (Prelude.Maybe Prelude.Text)
-describeExplainabilityResponse_resourceArn = Lens.lens (\DescribeExplainabilityResponse' {resourceArn} -> resourceArn) (\s@DescribeExplainabilityResponse' {} a -> s {resourceArn = a} :: DescribeExplainabilityResponse)
-
--- | If @TimePointGranularity@ is set to @SPECIFIC@, the last time point in
--- the Explainability.
-describeExplainabilityResponse_endDateTime :: Lens.Lens' DescribeExplainabilityResponse (Prelude.Maybe Prelude.Text)
-describeExplainabilityResponse_endDateTime = Lens.lens (\DescribeExplainabilityResponse' {endDateTime} -> endDateTime) (\s@DescribeExplainabilityResponse' {} a -> s {endDateTime = a} :: DescribeExplainabilityResponse)
-
 -- | The response's http status code.
 describeExplainabilityResponse_httpStatus :: Lens.Lens' DescribeExplainabilityResponse Prelude.Int
 describeExplainabilityResponse_httpStatus = Lens.lens (\DescribeExplainabilityResponse' {httpStatus} -> httpStatus) (\s@DescribeExplainabilityResponse' {} a -> s {httpStatus = a} :: DescribeExplainabilityResponse)
@@ -388,18 +388,18 @@ instance
     DescribeExplainabilityResponse
   where
   rnf DescribeExplainabilityResponse' {..} =
-    Prelude.rnf lastModificationTime
-      `Prelude.seq` Prelude.rnf message
-      `Prelude.seq` Prelude.rnf explainabilityConfig
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf dataSource
       `Prelude.seq` Prelude.rnf enableVisualization
+      `Prelude.seq` Prelude.rnf endDateTime
+      `Prelude.seq` Prelude.rnf estimatedTimeRemainingInMinutes
+      `Prelude.seq` Prelude.rnf explainabilityArn
+      `Prelude.seq` Prelude.rnf explainabilityConfig
+      `Prelude.seq` Prelude.rnf explainabilityName
+      `Prelude.seq` Prelude.rnf lastModificationTime
+      `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf schema
       `Prelude.seq` Prelude.rnf startDateTime
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf explainabilityArn
-      `Prelude.seq` Prelude.rnf explainabilityName
-      `Prelude.seq` Prelude.rnf estimatedTimeRemainingInMinutes
-      `Prelude.seq` Prelude.rnf schema
-      `Prelude.seq` Prelude.rnf dataSource
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf resourceArn
-      `Prelude.seq` Prelude.rnf endDateTime
       `Prelude.seq` Prelude.rnf httpStatus

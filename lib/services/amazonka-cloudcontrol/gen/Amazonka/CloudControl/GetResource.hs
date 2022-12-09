@@ -43,8 +43,8 @@ module Amazonka.CloudControl.GetResource
     newGetResourceResponse,
 
     -- * Response Lenses
-    getResourceResponse_typeName,
     getResourceResponse_resourceDescription,
+    getResourceResponse_typeName,
     getResourceResponse_httpStatus,
   )
 where
@@ -207,8 +207,8 @@ instance Core.AWSRequest GetResource where
     Response.receiveJSON
       ( \s h x ->
           GetResourceResponse'
-            Prelude.<$> (x Data..?> "TypeName")
-            Prelude.<*> (x Data..?> "ResourceDescription")
+            Prelude.<$> (x Data..?> "ResourceDescription")
+            Prelude.<*> (x Data..?> "TypeName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -260,9 +260,9 @@ instance Data.ToQuery GetResource where
 
 -- | /See:/ 'newGetResourceResponse' smart constructor.
 data GetResourceResponse = GetResourceResponse'
-  { -- | The name of the resource type.
+  { resourceDescription :: Prelude.Maybe ResourceDescription,
+    -- | The name of the resource type.
     typeName :: Prelude.Maybe Prelude.Text,
-    resourceDescription :: Prelude.Maybe ResourceDescription,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -276,9 +276,9 @@ data GetResourceResponse = GetResourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'typeName', 'getResourceResponse_typeName' - The name of the resource type.
---
 -- 'resourceDescription', 'getResourceResponse_resourceDescription' - Undocumented member.
+--
+-- 'typeName', 'getResourceResponse_typeName' - The name of the resource type.
 --
 -- 'httpStatus', 'getResourceResponse_httpStatus' - The response's http status code.
 newGetResourceResponse ::
@@ -287,18 +287,19 @@ newGetResourceResponse ::
   GetResourceResponse
 newGetResourceResponse pHttpStatus_ =
   GetResourceResponse'
-    { typeName = Prelude.Nothing,
-      resourceDescription = Prelude.Nothing,
+    { resourceDescription =
+        Prelude.Nothing,
+      typeName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name of the resource type.
-getResourceResponse_typeName :: Lens.Lens' GetResourceResponse (Prelude.Maybe Prelude.Text)
-getResourceResponse_typeName = Lens.lens (\GetResourceResponse' {typeName} -> typeName) (\s@GetResourceResponse' {} a -> s {typeName = a} :: GetResourceResponse)
 
 -- | Undocumented member.
 getResourceResponse_resourceDescription :: Lens.Lens' GetResourceResponse (Prelude.Maybe ResourceDescription)
 getResourceResponse_resourceDescription = Lens.lens (\GetResourceResponse' {resourceDescription} -> resourceDescription) (\s@GetResourceResponse' {} a -> s {resourceDescription = a} :: GetResourceResponse)
+
+-- | The name of the resource type.
+getResourceResponse_typeName :: Lens.Lens' GetResourceResponse (Prelude.Maybe Prelude.Text)
+getResourceResponse_typeName = Lens.lens (\GetResourceResponse' {typeName} -> typeName) (\s@GetResourceResponse' {} a -> s {typeName = a} :: GetResourceResponse)
 
 -- | The response's http status code.
 getResourceResponse_httpStatus :: Lens.Lens' GetResourceResponse Prelude.Int
@@ -306,6 +307,6 @@ getResourceResponse_httpStatus = Lens.lens (\GetResourceResponse' {httpStatus} -
 
 instance Prelude.NFData GetResourceResponse where
   rnf GetResourceResponse' {..} =
-    Prelude.rnf typeName
-      `Prelude.seq` Prelude.rnf resourceDescription
+    Prelude.rnf resourceDescription
+      `Prelude.seq` Prelude.rnf typeName
       `Prelude.seq` Prelude.rnf httpStatus

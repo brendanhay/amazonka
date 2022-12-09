@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResourceDescription' smart constructor.
 data ResourceDescription = ResourceDescription'
-  { -- | A list of the resource properties and their current values.
-    properties :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The primary identifier for the resource.
+  { -- | The primary identifier for the resource.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html Identifying resources>
     -- in the /Amazon Web Services Cloud Control API User Guide/.
-    identifier :: Prelude.Maybe Prelude.Text
+    identifier :: Prelude.Maybe Prelude.Text,
+    -- | A list of the resource properties and their current values.
+    properties :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -47,24 +47,20 @@ data ResourceDescription = ResourceDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'properties', 'resourceDescription_properties' - A list of the resource properties and their current values.
---
 -- 'identifier', 'resourceDescription_identifier' - The primary identifier for the resource.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html Identifying resources>
 -- in the /Amazon Web Services Cloud Control API User Guide/.
+--
+-- 'properties', 'resourceDescription_properties' - A list of the resource properties and their current values.
 newResourceDescription ::
   ResourceDescription
 newResourceDescription =
   ResourceDescription'
-    { properties = Prelude.Nothing,
-      identifier = Prelude.Nothing
+    { identifier = Prelude.Nothing,
+      properties = Prelude.Nothing
     }
-
--- | A list of the resource properties and their current values.
-resourceDescription_properties :: Lens.Lens' ResourceDescription (Prelude.Maybe Prelude.Text)
-resourceDescription_properties = Lens.lens (\ResourceDescription' {properties} -> properties) (\s@ResourceDescription' {} a -> s {properties = a} :: ResourceDescription) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The primary identifier for the resource.
 --
@@ -74,22 +70,26 @@ resourceDescription_properties = Lens.lens (\ResourceDescription' {properties} -
 resourceDescription_identifier :: Lens.Lens' ResourceDescription (Prelude.Maybe Prelude.Text)
 resourceDescription_identifier = Lens.lens (\ResourceDescription' {identifier} -> identifier) (\s@ResourceDescription' {} a -> s {identifier = a} :: ResourceDescription)
 
+-- | A list of the resource properties and their current values.
+resourceDescription_properties :: Lens.Lens' ResourceDescription (Prelude.Maybe Prelude.Text)
+resourceDescription_properties = Lens.lens (\ResourceDescription' {properties} -> properties) (\s@ResourceDescription' {} a -> s {properties = a} :: ResourceDescription) Prelude.. Lens.mapping Data._Sensitive
+
 instance Data.FromJSON ResourceDescription where
   parseJSON =
     Data.withObject
       "ResourceDescription"
       ( \x ->
           ResourceDescription'
-            Prelude.<$> (x Data..:? "Properties")
-            Prelude.<*> (x Data..:? "Identifier")
+            Prelude.<$> (x Data..:? "Identifier")
+            Prelude.<*> (x Data..:? "Properties")
       )
 
 instance Prelude.Hashable ResourceDescription where
   hashWithSalt _salt ResourceDescription' {..} =
-    _salt `Prelude.hashWithSalt` properties
-      `Prelude.hashWithSalt` identifier
+    _salt `Prelude.hashWithSalt` identifier
+      `Prelude.hashWithSalt` properties
 
 instance Prelude.NFData ResourceDescription where
   rnf ResourceDescription' {..} =
-    Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf identifier
+    Prelude.rnf identifier
+      `Prelude.seq` Prelude.rnf properties

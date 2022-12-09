@@ -36,10 +36,10 @@ module Amazonka.CloudControl.ListResources
     newListResources,
 
     -- * Request Lenses
-    listResources_resourceModel,
-    listResources_nextToken,
-    listResources_roleArn,
     listResources_maxResults,
+    listResources_nextToken,
+    listResources_resourceModel,
+    listResources_roleArn,
     listResources_typeVersionId,
     listResources_typeName,
 
@@ -65,8 +65,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListResources' smart constructor.
 data ListResources = ListResources'
-  { -- | The resource model to use to select the resources to return.
-    resourceModel :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+  { -- | Reserved.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | If the previous paginated request didn\'t return all of the remaining
     -- results, the response object\'s @NextToken@ parameter value is set to a
     -- token. To retrieve the next set of results, call this action again and
@@ -74,6 +74,8 @@ data ListResources = ListResources'
     -- there are no remaining results, the previous response object\'s
     -- @NextToken@ parameter is set to @null@.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The resource model to use to select the resources to return.
+    resourceModel :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the Identity and Access Management
     -- (IAM) role for Cloud Control API to use when performing this resource
     -- operation. The role specified must have the permissions required for
@@ -88,8 +90,6 @@ data ListResources = ListResources'
     -- <https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions Specifying credentials>
     -- in the /Amazon Web Services Cloud Control API User Guide/.
     roleArn :: Prelude.Maybe Prelude.Text,
-    -- | Reserved.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | For private resource types, the type version to use in this resource
     -- operation. If you do not specify a resource version, CloudFormation uses
     -- the default version.
@@ -107,7 +107,7 @@ data ListResources = ListResources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceModel', 'listResources_resourceModel' - The resource model to use to select the resources to return.
+-- 'maxResults', 'listResources_maxResults' - Reserved.
 --
 -- 'nextToken', 'listResources_nextToken' - If the previous paginated request didn\'t return all of the remaining
 -- results, the response object\'s @NextToken@ parameter value is set to a
@@ -115,6 +115,8 @@ data ListResources = ListResources'
 -- assign that token to the request object\'s @NextToken@ parameter. If
 -- there are no remaining results, the previous response object\'s
 -- @NextToken@ parameter is set to @null@.
+--
+-- 'resourceModel', 'listResources_resourceModel' - The resource model to use to select the resources to return.
 --
 -- 'roleArn', 'listResources_roleArn' - The Amazon Resource Name (ARN) of the Identity and Access Management
 -- (IAM) role for Cloud Control API to use when performing this resource
@@ -130,8 +132,6 @@ data ListResources = ListResources'
 -- <https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations.html#resource-operations-permissions Specifying credentials>
 -- in the /Amazon Web Services Cloud Control API User Guide/.
 --
--- 'maxResults', 'listResources_maxResults' - Reserved.
---
 -- 'typeVersionId', 'listResources_typeVersionId' - For private resource types, the type version to use in this resource
 -- operation. If you do not specify a resource version, CloudFormation uses
 -- the default version.
@@ -143,17 +143,17 @@ newListResources ::
   ListResources
 newListResources pTypeName_ =
   ListResources'
-    { resourceModel = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      resourceModel = Prelude.Nothing,
       roleArn = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       typeVersionId = Prelude.Nothing,
       typeName = pTypeName_
     }
 
--- | The resource model to use to select the resources to return.
-listResources_resourceModel :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Text)
-listResources_resourceModel = Lens.lens (\ListResources' {resourceModel} -> resourceModel) (\s@ListResources' {} a -> s {resourceModel = a} :: ListResources) Prelude.. Lens.mapping Data._Sensitive
+-- | Reserved.
+listResources_maxResults :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Natural)
+listResources_maxResults = Lens.lens (\ListResources' {maxResults} -> maxResults) (\s@ListResources' {} a -> s {maxResults = a} :: ListResources)
 
 -- | If the previous paginated request didn\'t return all of the remaining
 -- results, the response object\'s @NextToken@ parameter value is set to a
@@ -163,6 +163,10 @@ listResources_resourceModel = Lens.lens (\ListResources' {resourceModel} -> reso
 -- @NextToken@ parameter is set to @null@.
 listResources_nextToken :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Text)
 listResources_nextToken = Lens.lens (\ListResources' {nextToken} -> nextToken) (\s@ListResources' {} a -> s {nextToken = a} :: ListResources)
+
+-- | The resource model to use to select the resources to return.
+listResources_resourceModel :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Text)
+listResources_resourceModel = Lens.lens (\ListResources' {resourceModel} -> resourceModel) (\s@ListResources' {} a -> s {resourceModel = a} :: ListResources) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the Identity and Access Management
 -- (IAM) role for Cloud Control API to use when performing this resource
@@ -179,10 +183,6 @@ listResources_nextToken = Lens.lens (\ListResources' {nextToken} -> nextToken) (
 -- in the /Amazon Web Services Cloud Control API User Guide/.
 listResources_roleArn :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Text)
 listResources_roleArn = Lens.lens (\ListResources' {roleArn} -> roleArn) (\s@ListResources' {} a -> s {roleArn = a} :: ListResources)
-
--- | Reserved.
-listResources_maxResults :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Natural)
-listResources_maxResults = Lens.lens (\ListResources' {maxResults} -> maxResults) (\s@ListResources' {} a -> s {maxResults = a} :: ListResources)
 
 -- | For private resource types, the type version to use in this resource
 -- operation. If you do not specify a resource version, CloudFormation uses
@@ -234,19 +234,19 @@ instance Core.AWSRequest ListResources where
 
 instance Prelude.Hashable ListResources where
   hashWithSalt _salt ListResources' {..} =
-    _salt `Prelude.hashWithSalt` resourceModel
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` resourceModel
       `Prelude.hashWithSalt` roleArn
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` typeVersionId
       `Prelude.hashWithSalt` typeName
 
 instance Prelude.NFData ListResources where
   rnf ListResources' {..} =
-    Prelude.rnf resourceModel
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceModel
       `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf typeVersionId
       `Prelude.seq` Prelude.rnf typeName
 
@@ -269,10 +269,10 @@ instance Data.ToJSON ListResources where
   toJSON ListResources' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ResourceModel" Data..=) Prelude.<$> resourceModel,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ResourceModel" Data..=) Prelude.<$> resourceModel,
             ("RoleArn" Data..=) Prelude.<$> roleArn,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("TypeVersionId" Data..=) Prelude.<$> typeVersionId,
             Prelude.Just ("TypeName" Data..= typeName)
           ]

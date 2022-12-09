@@ -20,8 +20,8 @@ module Amazonka.APIGatewayManagementAPI.Lens
     -- ** GetConnection
     getConnection_connectionId,
     getConnectionResponse_connectedAt,
-    getConnectionResponse_lastActiveAt,
     getConnectionResponse_identity,
+    getConnectionResponse_lastActiveAt,
     getConnectionResponse_httpStatus,
 
     -- ** PostToConnection

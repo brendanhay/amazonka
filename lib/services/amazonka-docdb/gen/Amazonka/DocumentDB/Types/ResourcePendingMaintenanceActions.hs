@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResourcePendingMaintenanceActions' smart constructor.
 data ResourcePendingMaintenanceActions = ResourcePendingMaintenanceActions'
-  { -- | The Amazon Resource Name (ARN) of the resource that has pending
-    -- maintenance actions.
-    resourceIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | A list that provides details about the pending maintenance actions for
+  { -- | A list that provides details about the pending maintenance actions for
     -- the resource.
-    pendingMaintenanceActionDetails :: Prelude.Maybe [PendingMaintenanceAction]
+    pendingMaintenanceActionDetails :: Prelude.Maybe [PendingMaintenanceAction],
+    -- | The Amazon Resource Name (ARN) of the resource that has pending
+    -- maintenance actions.
+    resourceIdentifier :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,30 +46,29 @@ data ResourcePendingMaintenanceActions = ResourcePendingMaintenanceActions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceIdentifier', 'resourcePendingMaintenanceActions_resourceIdentifier' - The Amazon Resource Name (ARN) of the resource that has pending
--- maintenance actions.
---
 -- 'pendingMaintenanceActionDetails', 'resourcePendingMaintenanceActions_pendingMaintenanceActionDetails' - A list that provides details about the pending maintenance actions for
 -- the resource.
+--
+-- 'resourceIdentifier', 'resourcePendingMaintenanceActions_resourceIdentifier' - The Amazon Resource Name (ARN) of the resource that has pending
+-- maintenance actions.
 newResourcePendingMaintenanceActions ::
   ResourcePendingMaintenanceActions
 newResourcePendingMaintenanceActions =
   ResourcePendingMaintenanceActions'
-    { resourceIdentifier =
+    { pendingMaintenanceActionDetails =
         Prelude.Nothing,
-      pendingMaintenanceActionDetails =
-        Prelude.Nothing
+      resourceIdentifier = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the resource that has pending
--- maintenance actions.
-resourcePendingMaintenanceActions_resourceIdentifier :: Lens.Lens' ResourcePendingMaintenanceActions (Prelude.Maybe Prelude.Text)
-resourcePendingMaintenanceActions_resourceIdentifier = Lens.lens (\ResourcePendingMaintenanceActions' {resourceIdentifier} -> resourceIdentifier) (\s@ResourcePendingMaintenanceActions' {} a -> s {resourceIdentifier = a} :: ResourcePendingMaintenanceActions)
 
 -- | A list that provides details about the pending maintenance actions for
 -- the resource.
 resourcePendingMaintenanceActions_pendingMaintenanceActionDetails :: Lens.Lens' ResourcePendingMaintenanceActions (Prelude.Maybe [PendingMaintenanceAction])
 resourcePendingMaintenanceActions_pendingMaintenanceActionDetails = Lens.lens (\ResourcePendingMaintenanceActions' {pendingMaintenanceActionDetails} -> pendingMaintenanceActionDetails) (\s@ResourcePendingMaintenanceActions' {} a -> s {pendingMaintenanceActionDetails = a} :: ResourcePendingMaintenanceActions) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Name (ARN) of the resource that has pending
+-- maintenance actions.
+resourcePendingMaintenanceActions_resourceIdentifier :: Lens.Lens' ResourcePendingMaintenanceActions (Prelude.Maybe Prelude.Text)
+resourcePendingMaintenanceActions_resourceIdentifier = Lens.lens (\ResourcePendingMaintenanceActions' {resourceIdentifier} -> resourceIdentifier) (\s@ResourcePendingMaintenanceActions' {} a -> s {resourceIdentifier = a} :: ResourcePendingMaintenanceActions)
 
 instance
   Data.FromXML
@@ -77,12 +76,12 @@ instance
   where
   parseXML x =
     ResourcePendingMaintenanceActions'
-      Prelude.<$> (x Data..@? "ResourceIdentifier")
-      Prelude.<*> ( x Data..@? "PendingMaintenanceActionDetails"
+      Prelude.<$> ( x Data..@? "PendingMaintenanceActionDetails"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "PendingMaintenanceAction")
                   )
+      Prelude.<*> (x Data..@? "ResourceIdentifier")
 
 instance
   Prelude.Hashable
@@ -91,13 +90,14 @@ instance
   hashWithSalt
     _salt
     ResourcePendingMaintenanceActions' {..} =
-      _salt `Prelude.hashWithSalt` resourceIdentifier
+      _salt
         `Prelude.hashWithSalt` pendingMaintenanceActionDetails
+        `Prelude.hashWithSalt` resourceIdentifier
 
 instance
   Prelude.NFData
     ResourcePendingMaintenanceActions
   where
   rnf ResourcePendingMaintenanceActions' {..} =
-    Prelude.rnf resourceIdentifier
-      `Prelude.seq` Prelude.rnf pendingMaintenanceActionDetails
+    Prelude.rnf pendingMaintenanceActionDetails
+      `Prelude.seq` Prelude.rnf resourceIdentifier

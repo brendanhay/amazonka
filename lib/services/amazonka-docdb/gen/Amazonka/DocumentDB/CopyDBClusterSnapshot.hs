@@ -37,10 +37,10 @@ module Amazonka.DocumentDB.CopyDBClusterSnapshot
     newCopyDBClusterSnapshot,
 
     -- * Request Lenses
-    copyDBClusterSnapshot_tags,
     copyDBClusterSnapshot_copyTags,
     copyDBClusterSnapshot_kmsKeyId,
     copyDBClusterSnapshot_preSignedUrl,
+    copyDBClusterSnapshot_tags,
     copyDBClusterSnapshot_sourceDBClusterSnapshotIdentifier,
     copyDBClusterSnapshot_targetDBClusterSnapshotIdentifier,
 
@@ -66,9 +66,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCopyDBClusterSnapshot' smart constructor.
 data CopyDBClusterSnapshot = CopyDBClusterSnapshot'
-  { -- | The tags to be assigned to the cluster snapshot.
-    tags :: Prelude.Maybe [Tag],
-    -- | Set to @true@ to copy all tags from the source cluster snapshot to the
+  { -- | Set to @true@ to copy all tags from the source cluster snapshot to the
     -- target cluster snapshot, and otherwise @false@. The default is @false@.
     copyTags :: Prelude.Maybe Prelude.Bool,
     -- | The KMS key ID for an encrypted cluster snapshot. The KMS key ID is the
@@ -129,6 +127,8 @@ data CopyDBClusterSnapshot = CopyDBClusterSnapshot'
     --     cluster snapshot to be created. This parameter isn\'t case
     --     sensitive.
     preSignedUrl :: Prelude.Maybe Prelude.Text,
+    -- | The tags to be assigned to the cluster snapshot.
+    tags :: Prelude.Maybe [Tag],
     -- | The identifier of the cluster snapshot to copy. This parameter is not
     -- case sensitive.
     --
@@ -167,8 +167,6 @@ data CopyDBClusterSnapshot = CopyDBClusterSnapshot'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'tags', 'copyDBClusterSnapshot_tags' - The tags to be assigned to the cluster snapshot.
 --
 -- 'copyTags', 'copyDBClusterSnapshot_copyTags' - Set to @true@ to copy all tags from the source cluster snapshot to the
 -- target cluster snapshot, and otherwise @false@. The default is @false@.
@@ -231,6 +229,8 @@ data CopyDBClusterSnapshot = CopyDBClusterSnapshot'
 --     cluster snapshot to be created. This parameter isn\'t case
 --     sensitive.
 --
+-- 'tags', 'copyDBClusterSnapshot_tags' - The tags to be assigned to the cluster snapshot.
+--
 -- 'sourceDBClusterSnapshotIdentifier', 'copyDBClusterSnapshot_sourceDBClusterSnapshotIdentifier' - The identifier of the cluster snapshot to copy. This parameter is not
 -- case sensitive.
 --
@@ -268,19 +268,15 @@ newCopyDBClusterSnapshot
   pSourceDBClusterSnapshotIdentifier_
   pTargetDBClusterSnapshotIdentifier_ =
     CopyDBClusterSnapshot'
-      { tags = Prelude.Nothing,
-        copyTags = Prelude.Nothing,
+      { copyTags = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
         preSignedUrl = Prelude.Nothing,
+        tags = Prelude.Nothing,
         sourceDBClusterSnapshotIdentifier =
           pSourceDBClusterSnapshotIdentifier_,
         targetDBClusterSnapshotIdentifier =
           pTargetDBClusterSnapshotIdentifier_
       }
-
--- | The tags to be assigned to the cluster snapshot.
-copyDBClusterSnapshot_tags :: Lens.Lens' CopyDBClusterSnapshot (Prelude.Maybe [Tag])
-copyDBClusterSnapshot_tags = Lens.lens (\CopyDBClusterSnapshot' {tags} -> tags) (\s@CopyDBClusterSnapshot' {} a -> s {tags = a} :: CopyDBClusterSnapshot) Prelude.. Lens.mapping Lens.coerced
 
 -- | Set to @true@ to copy all tags from the source cluster snapshot to the
 -- target cluster snapshot, and otherwise @false@. The default is @false@.
@@ -349,6 +345,10 @@ copyDBClusterSnapshot_kmsKeyId = Lens.lens (\CopyDBClusterSnapshot' {kmsKeyId} -
 copyDBClusterSnapshot_preSignedUrl :: Lens.Lens' CopyDBClusterSnapshot (Prelude.Maybe Prelude.Text)
 copyDBClusterSnapshot_preSignedUrl = Lens.lens (\CopyDBClusterSnapshot' {preSignedUrl} -> preSignedUrl) (\s@CopyDBClusterSnapshot' {} a -> s {preSignedUrl = a} :: CopyDBClusterSnapshot)
 
+-- | The tags to be assigned to the cluster snapshot.
+copyDBClusterSnapshot_tags :: Lens.Lens' CopyDBClusterSnapshot (Prelude.Maybe [Tag])
+copyDBClusterSnapshot_tags = Lens.lens (\CopyDBClusterSnapshot' {tags} -> tags) (\s@CopyDBClusterSnapshot' {} a -> s {tags = a} :: CopyDBClusterSnapshot) Prelude.. Lens.mapping Lens.coerced
+
 -- | The identifier of the cluster snapshot to copy. This parameter is not
 -- case sensitive.
 --
@@ -398,19 +398,19 @@ instance Core.AWSRequest CopyDBClusterSnapshot where
 
 instance Prelude.Hashable CopyDBClusterSnapshot where
   hashWithSalt _salt CopyDBClusterSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` copyTags
+    _salt `Prelude.hashWithSalt` copyTags
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` preSignedUrl
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` sourceDBClusterSnapshotIdentifier
       `Prelude.hashWithSalt` targetDBClusterSnapshotIdentifier
 
 instance Prelude.NFData CopyDBClusterSnapshot where
   rnf CopyDBClusterSnapshot' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf copyTags
+    Prelude.rnf copyTags
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf preSignedUrl
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf sourceDBClusterSnapshotIdentifier
       `Prelude.seq` Prelude.rnf targetDBClusterSnapshotIdentifier
 
@@ -427,12 +427,12 @@ instance Data.ToQuery CopyDBClusterSnapshot where
           Data.=: ("CopyDBClusterSnapshot" :: Prelude.ByteString),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
-        "Tags"
-          Data.=: Data.toQuery
-            (Data.toQueryList "Tag" Prelude.<$> tags),
         "CopyTags" Data.=: copyTags,
         "KmsKeyId" Data.=: kmsKeyId,
         "PreSignedUrl" Data.=: preSignedUrl,
+        "Tags"
+          Data.=: Data.toQuery
+            (Data.toQueryList "Tag" Prelude.<$> tags),
         "SourceDBClusterSnapshotIdentifier"
           Data.=: sourceDBClusterSnapshotIdentifier,
         "TargetDBClusterSnapshotIdentifier"

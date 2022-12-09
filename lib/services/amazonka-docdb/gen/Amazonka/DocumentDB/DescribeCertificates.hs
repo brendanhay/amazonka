@@ -30,18 +30,18 @@ module Amazonka.DocumentDB.DescribeCertificates
     newDescribeCertificates,
 
     -- * Request Lenses
-    describeCertificates_marker,
-    describeCertificates_filters,
-    describeCertificates_maxRecords,
     describeCertificates_certificateIdentifier,
+    describeCertificates_filters,
+    describeCertificates_marker,
+    describeCertificates_maxRecords,
 
     -- * Destructuring the Response
     DescribeCertificatesResponse (..),
     newDescribeCertificatesResponse,
 
     -- * Response Lenses
-    describeCertificatesResponse_marker,
     describeCertificatesResponse_certificates,
+    describeCertificatesResponse_marker,
     describeCertificatesResponse_httpStatus,
   )
 where
@@ -56,13 +56,22 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeCertificates' smart constructor.
 data DescribeCertificates = DescribeCertificates'
-  { -- | An optional pagination token provided by a previous
+  { -- | The user-supplied certificate identifier. If this parameter is
+    -- specified, information for only the specified certificate is returned.
+    -- If this parameter is omitted, a list of up to @MaxRecords@ certificates
+    -- is returned. This parameter is not case sensitive.
+    --
+    -- Constraints
+    --
+    -- -   Must match an existing @CertificateIdentifier@.
+    certificateIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | This parameter is not currently supported.
+    filters :: Prelude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous
     -- @DescribeCertificates@ request. If this parameter is specified, the
     -- response includes only records beyond the marker, up to the value
     -- specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | This parameter is not currently supported.
-    filters :: Prelude.Maybe [Filter],
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
@@ -75,16 +84,7 @@ data DescribeCertificates = DescribeCertificates'
     -- -   Minimum: 20
     --
     -- -   Maximum: 100
-    maxRecords :: Prelude.Maybe Prelude.Int,
-    -- | The user-supplied certificate identifier. If this parameter is
-    -- specified, information for only the specified certificate is returned.
-    -- If this parameter is omitted, a list of up to @MaxRecords@ certificates
-    -- is returned. This parameter is not case sensitive.
-    --
-    -- Constraints
-    --
-    -- -   Must match an existing @CertificateIdentifier@.
-    certificateIdentifier :: Prelude.Maybe Prelude.Text
+    maxRecords :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -96,12 +96,21 @@ data DescribeCertificates = DescribeCertificates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'certificateIdentifier', 'describeCertificates_certificateIdentifier' - The user-supplied certificate identifier. If this parameter is
+-- specified, information for only the specified certificate is returned.
+-- If this parameter is omitted, a list of up to @MaxRecords@ certificates
+-- is returned. This parameter is not case sensitive.
+--
+-- Constraints
+--
+-- -   Must match an existing @CertificateIdentifier@.
+--
+-- 'filters', 'describeCertificates_filters' - This parameter is not currently supported.
+--
 -- 'marker', 'describeCertificates_marker' - An optional pagination token provided by a previous
 -- @DescribeCertificates@ request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
 -- specified by @MaxRecords@.
---
--- 'filters', 'describeCertificates_filters' - This parameter is not currently supported.
 --
 -- 'maxRecords', 'describeCertificates_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -115,8 +124,18 @@ data DescribeCertificates = DescribeCertificates'
 -- -   Minimum: 20
 --
 -- -   Maximum: 100
---
--- 'certificateIdentifier', 'describeCertificates_certificateIdentifier' - The user-supplied certificate identifier. If this parameter is
+newDescribeCertificates ::
+  DescribeCertificates
+newDescribeCertificates =
+  DescribeCertificates'
+    { certificateIdentifier =
+        Prelude.Nothing,
+      filters = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
+    }
+
+-- | The user-supplied certificate identifier. If this parameter is
 -- specified, information for only the specified certificate is returned.
 -- If this parameter is omitted, a list of up to @MaxRecords@ certificates
 -- is returned. This parameter is not case sensitive.
@@ -124,15 +143,12 @@ data DescribeCertificates = DescribeCertificates'
 -- Constraints
 --
 -- -   Must match an existing @CertificateIdentifier@.
-newDescribeCertificates ::
-  DescribeCertificates
-newDescribeCertificates =
-  DescribeCertificates'
-    { marker = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
-      certificateIdentifier = Prelude.Nothing
-    }
+describeCertificates_certificateIdentifier :: Lens.Lens' DescribeCertificates (Prelude.Maybe Prelude.Text)
+describeCertificates_certificateIdentifier = Lens.lens (\DescribeCertificates' {certificateIdentifier} -> certificateIdentifier) (\s@DescribeCertificates' {} a -> s {certificateIdentifier = a} :: DescribeCertificates)
+
+-- | This parameter is not currently supported.
+describeCertificates_filters :: Lens.Lens' DescribeCertificates (Prelude.Maybe [Filter])
+describeCertificates_filters = Lens.lens (\DescribeCertificates' {filters} -> filters) (\s@DescribeCertificates' {} a -> s {filters = a} :: DescribeCertificates) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional pagination token provided by a previous
 -- @DescribeCertificates@ request. If this parameter is specified, the
@@ -140,10 +156,6 @@ newDescribeCertificates =
 -- specified by @MaxRecords@.
 describeCertificates_marker :: Lens.Lens' DescribeCertificates (Prelude.Maybe Prelude.Text)
 describeCertificates_marker = Lens.lens (\DescribeCertificates' {marker} -> marker) (\s@DescribeCertificates' {} a -> s {marker = a} :: DescribeCertificates)
-
--- | This parameter is not currently supported.
-describeCertificates_filters :: Lens.Lens' DescribeCertificates (Prelude.Maybe [Filter])
-describeCertificates_filters = Lens.lens (\DescribeCertificates' {filters} -> filters) (\s@DescribeCertificates' {} a -> s {filters = a} :: DescribeCertificates) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -159,17 +171,6 @@ describeCertificates_filters = Lens.lens (\DescribeCertificates' {filters} -> fi
 -- -   Maximum: 100
 describeCertificates_maxRecords :: Lens.Lens' DescribeCertificates (Prelude.Maybe Prelude.Int)
 describeCertificates_maxRecords = Lens.lens (\DescribeCertificates' {maxRecords} -> maxRecords) (\s@DescribeCertificates' {} a -> s {maxRecords = a} :: DescribeCertificates)
-
--- | The user-supplied certificate identifier. If this parameter is
--- specified, information for only the specified certificate is returned.
--- If this parameter is omitted, a list of up to @MaxRecords@ certificates
--- is returned. This parameter is not case sensitive.
---
--- Constraints
---
--- -   Must match an existing @CertificateIdentifier@.
-describeCertificates_certificateIdentifier :: Lens.Lens' DescribeCertificates (Prelude.Maybe Prelude.Text)
-describeCertificates_certificateIdentifier = Lens.lens (\DescribeCertificates' {certificateIdentifier} -> certificateIdentifier) (\s@DescribeCertificates' {} a -> s {certificateIdentifier = a} :: DescribeCertificates)
 
 instance Core.AWSPager DescribeCertificates where
   page rq rs
@@ -204,26 +205,26 @@ instance Core.AWSRequest DescribeCertificates where
       "DescribeCertificatesResult"
       ( \s h x ->
           DescribeCertificatesResponse'
-            Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x Data..@? "Certificates" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "Certificates" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "Certificate")
                         )
+            Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeCertificates where
   hashWithSalt _salt DescribeCertificates' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt `Prelude.hashWithSalt` certificateIdentifier
       `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
-      `Prelude.hashWithSalt` certificateIdentifier
 
 instance Prelude.NFData DescribeCertificates where
   rnf DescribeCertificates' {..} =
-    Prelude.rnf marker
+    Prelude.rnf certificateIdentifier
       `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxRecords
-      `Prelude.seq` Prelude.rnf certificateIdentifier
 
 instance Data.ToHeaders DescribeCertificates where
   toHeaders = Prelude.const Prelude.mempty
@@ -238,25 +239,25 @@ instance Data.ToQuery DescribeCertificates where
           Data.=: ("DescribeCertificates" :: Prelude.ByteString),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
-        "Marker" Data.=: marker,
+        "CertificateIdentifier"
+          Data.=: certificateIdentifier,
         "Filters"
           Data.=: Data.toQuery
             (Data.toQueryList "Filter" Prelude.<$> filters),
-        "MaxRecords" Data.=: maxRecords,
-        "CertificateIdentifier"
-          Data.=: certificateIdentifier
+        "Marker" Data.=: marker,
+        "MaxRecords" Data.=: maxRecords
       ]
 
 -- | /See:/ 'newDescribeCertificatesResponse' smart constructor.
 data DescribeCertificatesResponse = DescribeCertificatesResponse'
-  { -- | An optional pagination token provided if the number of records retrieved
+  { -- | A list of certificates for this Amazon Web Services account.
+    certificates :: Prelude.Maybe [Certificate],
+    -- | An optional pagination token provided if the number of records retrieved
     -- is greater than @MaxRecords@. If this parameter is specified, the marker
     -- specifies the next record in the list. Including the value of @Marker@
     -- in the next call to @DescribeCertificates@ results in the next page of
     -- certificates.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | A list of certificates for this Amazon Web Services account.
-    certificates :: Prelude.Maybe [Certificate],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -270,13 +271,13 @@ data DescribeCertificatesResponse = DescribeCertificatesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'certificates', 'describeCertificatesResponse_certificates' - A list of certificates for this Amazon Web Services account.
+--
 -- 'marker', 'describeCertificatesResponse_marker' - An optional pagination token provided if the number of records retrieved
 -- is greater than @MaxRecords@. If this parameter is specified, the marker
 -- specifies the next record in the list. Including the value of @Marker@
 -- in the next call to @DescribeCertificates@ results in the next page of
 -- certificates.
---
--- 'certificates', 'describeCertificatesResponse_certificates' - A list of certificates for this Amazon Web Services account.
 --
 -- 'httpStatus', 'describeCertificatesResponse_httpStatus' - The response's http status code.
 newDescribeCertificatesResponse ::
@@ -285,11 +286,15 @@ newDescribeCertificatesResponse ::
   DescribeCertificatesResponse
 newDescribeCertificatesResponse pHttpStatus_ =
   DescribeCertificatesResponse'
-    { marker =
+    { certificates =
         Prelude.Nothing,
-      certificates = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of certificates for this Amazon Web Services account.
+describeCertificatesResponse_certificates :: Lens.Lens' DescribeCertificatesResponse (Prelude.Maybe [Certificate])
+describeCertificatesResponse_certificates = Lens.lens (\DescribeCertificatesResponse' {certificates} -> certificates) (\s@DescribeCertificatesResponse' {} a -> s {certificates = a} :: DescribeCertificatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional pagination token provided if the number of records retrieved
 -- is greater than @MaxRecords@. If this parameter is specified, the marker
@@ -299,16 +304,12 @@ newDescribeCertificatesResponse pHttpStatus_ =
 describeCertificatesResponse_marker :: Lens.Lens' DescribeCertificatesResponse (Prelude.Maybe Prelude.Text)
 describeCertificatesResponse_marker = Lens.lens (\DescribeCertificatesResponse' {marker} -> marker) (\s@DescribeCertificatesResponse' {} a -> s {marker = a} :: DescribeCertificatesResponse)
 
--- | A list of certificates for this Amazon Web Services account.
-describeCertificatesResponse_certificates :: Lens.Lens' DescribeCertificatesResponse (Prelude.Maybe [Certificate])
-describeCertificatesResponse_certificates = Lens.lens (\DescribeCertificatesResponse' {certificates} -> certificates) (\s@DescribeCertificatesResponse' {} a -> s {certificates = a} :: DescribeCertificatesResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 describeCertificatesResponse_httpStatus :: Lens.Lens' DescribeCertificatesResponse Prelude.Int
 describeCertificatesResponse_httpStatus = Lens.lens (\DescribeCertificatesResponse' {httpStatus} -> httpStatus) (\s@DescribeCertificatesResponse' {} a -> s {httpStatus = a} :: DescribeCertificatesResponse)
 
 instance Prelude.NFData DescribeCertificatesResponse where
   rnf DescribeCertificatesResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf certificates
+    Prelude.rnf certificates
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf httpStatus

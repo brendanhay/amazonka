@@ -29,18 +29,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOrderableDBInstanceOption' smart constructor.
 data OrderableDBInstanceOption = OrderableDBInstanceOption'
-  { -- | The instance class for an instance.
-    dbInstanceClass :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether an instance is in a virtual private cloud (VPC).
-    vpc :: Prelude.Maybe Prelude.Bool,
-    -- | A list of Availability Zones for an instance.
+  { -- | A list of Availability Zones for an instance.
     availabilityZones :: Prelude.Maybe [AvailabilityZone],
+    -- | The instance class for an instance.
+    dbInstanceClass :: Prelude.Maybe Prelude.Text,
     -- | The engine type of an instance.
     engine :: Prelude.Maybe Prelude.Text,
     -- | The engine version of an instance.
     engineVersion :: Prelude.Maybe Prelude.Text,
     -- | The license model for an instance.
-    licenseModel :: Prelude.Maybe Prelude.Text
+    licenseModel :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether an instance is in a virtual private cloud (VPC).
+    vpc :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,41 +52,37 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dbInstanceClass', 'orderableDBInstanceOption_dbInstanceClass' - The instance class for an instance.
---
--- 'vpc', 'orderableDBInstanceOption_vpc' - Indicates whether an instance is in a virtual private cloud (VPC).
---
 -- 'availabilityZones', 'orderableDBInstanceOption_availabilityZones' - A list of Availability Zones for an instance.
+--
+-- 'dbInstanceClass', 'orderableDBInstanceOption_dbInstanceClass' - The instance class for an instance.
 --
 -- 'engine', 'orderableDBInstanceOption_engine' - The engine type of an instance.
 --
 -- 'engineVersion', 'orderableDBInstanceOption_engineVersion' - The engine version of an instance.
 --
 -- 'licenseModel', 'orderableDBInstanceOption_licenseModel' - The license model for an instance.
+--
+-- 'vpc', 'orderableDBInstanceOption_vpc' - Indicates whether an instance is in a virtual private cloud (VPC).
 newOrderableDBInstanceOption ::
   OrderableDBInstanceOption
 newOrderableDBInstanceOption =
   OrderableDBInstanceOption'
-    { dbInstanceClass =
+    { availabilityZones =
         Prelude.Nothing,
-      vpc = Prelude.Nothing,
-      availabilityZones = Prelude.Nothing,
+      dbInstanceClass = Prelude.Nothing,
       engine = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
-      licenseModel = Prelude.Nothing
+      licenseModel = Prelude.Nothing,
+      vpc = Prelude.Nothing
     }
-
--- | The instance class for an instance.
-orderableDBInstanceOption_dbInstanceClass :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Text)
-orderableDBInstanceOption_dbInstanceClass = Lens.lens (\OrderableDBInstanceOption' {dbInstanceClass} -> dbInstanceClass) (\s@OrderableDBInstanceOption' {} a -> s {dbInstanceClass = a} :: OrderableDBInstanceOption)
-
--- | Indicates whether an instance is in a virtual private cloud (VPC).
-orderableDBInstanceOption_vpc :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Bool)
-orderableDBInstanceOption_vpc = Lens.lens (\OrderableDBInstanceOption' {vpc} -> vpc) (\s@OrderableDBInstanceOption' {} a -> s {vpc = a} :: OrderableDBInstanceOption)
 
 -- | A list of Availability Zones for an instance.
 orderableDBInstanceOption_availabilityZones :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe [AvailabilityZone])
 orderableDBInstanceOption_availabilityZones = Lens.lens (\OrderableDBInstanceOption' {availabilityZones} -> availabilityZones) (\s@OrderableDBInstanceOption' {} a -> s {availabilityZones = a} :: OrderableDBInstanceOption) Prelude.. Lens.mapping Lens.coerced
+
+-- | The instance class for an instance.
+orderableDBInstanceOption_dbInstanceClass :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Text)
+orderableDBInstanceOption_dbInstanceClass = Lens.lens (\OrderableDBInstanceOption' {dbInstanceClass} -> dbInstanceClass) (\s@OrderableDBInstanceOption' {} a -> s {dbInstanceClass = a} :: OrderableDBInstanceOption)
 
 -- | The engine type of an instance.
 orderableDBInstanceOption_engine :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Text)
@@ -100,33 +96,37 @@ orderableDBInstanceOption_engineVersion = Lens.lens (\OrderableDBInstanceOption'
 orderableDBInstanceOption_licenseModel :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Text)
 orderableDBInstanceOption_licenseModel = Lens.lens (\OrderableDBInstanceOption' {licenseModel} -> licenseModel) (\s@OrderableDBInstanceOption' {} a -> s {licenseModel = a} :: OrderableDBInstanceOption)
 
+-- | Indicates whether an instance is in a virtual private cloud (VPC).
+orderableDBInstanceOption_vpc :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Bool)
+orderableDBInstanceOption_vpc = Lens.lens (\OrderableDBInstanceOption' {vpc} -> vpc) (\s@OrderableDBInstanceOption' {} a -> s {vpc = a} :: OrderableDBInstanceOption)
+
 instance Data.FromXML OrderableDBInstanceOption where
   parseXML x =
     OrderableDBInstanceOption'
-      Prelude.<$> (x Data..@? "DBInstanceClass")
-      Prelude.<*> (x Data..@? "Vpc")
-      Prelude.<*> ( x Data..@? "AvailabilityZones"
+      Prelude.<$> ( x Data..@? "AvailabilityZones"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "AvailabilityZone")
                   )
+      Prelude.<*> (x Data..@? "DBInstanceClass")
       Prelude.<*> (x Data..@? "Engine")
       Prelude.<*> (x Data..@? "EngineVersion")
       Prelude.<*> (x Data..@? "LicenseModel")
+      Prelude.<*> (x Data..@? "Vpc")
 
 instance Prelude.Hashable OrderableDBInstanceOption where
   hashWithSalt _salt OrderableDBInstanceOption' {..} =
-    _salt `Prelude.hashWithSalt` dbInstanceClass
-      `Prelude.hashWithSalt` vpc
-      `Prelude.hashWithSalt` availabilityZones
+    _salt `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` dbInstanceClass
       `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` licenseModel
+      `Prelude.hashWithSalt` vpc
 
 instance Prelude.NFData OrderableDBInstanceOption where
   rnf OrderableDBInstanceOption' {..} =
-    Prelude.rnf dbInstanceClass
-      `Prelude.seq` Prelude.rnf vpc
-      `Prelude.seq` Prelude.rnf availabilityZones
+    Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf dbInstanceClass
       `Prelude.seq` Prelude.rnf engine
       `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf licenseModel
+      `Prelude.seq` Prelude.rnf vpc

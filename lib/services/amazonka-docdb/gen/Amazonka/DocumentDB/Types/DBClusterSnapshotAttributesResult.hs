@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDBClusterSnapshotAttributesResult' smart constructor.
 data DBClusterSnapshotAttributesResult = DBClusterSnapshotAttributesResult'
-  { -- | The identifier of the cluster snapshot that the attributes apply to.
-    dbClusterSnapshotIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The list of attributes and values for the cluster snapshot.
-    dbClusterSnapshotAttributes :: Prelude.Maybe [DBClusterSnapshotAttribute]
+  { -- | The list of attributes and values for the cluster snapshot.
+    dbClusterSnapshotAttributes :: Prelude.Maybe [DBClusterSnapshotAttribute],
+    -- | The identifier of the cluster snapshot that the attributes apply to.
+    dbClusterSnapshotIdentifier :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,26 +45,26 @@ data DBClusterSnapshotAttributesResult = DBClusterSnapshotAttributesResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dbClusterSnapshotIdentifier', 'dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier' - The identifier of the cluster snapshot that the attributes apply to.
---
 -- 'dbClusterSnapshotAttributes', 'dbClusterSnapshotAttributesResult_dbClusterSnapshotAttributes' - The list of attributes and values for the cluster snapshot.
+--
+-- 'dbClusterSnapshotIdentifier', 'dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier' - The identifier of the cluster snapshot that the attributes apply to.
 newDBClusterSnapshotAttributesResult ::
   DBClusterSnapshotAttributesResult
 newDBClusterSnapshotAttributesResult =
   DBClusterSnapshotAttributesResult'
-    { dbClusterSnapshotIdentifier =
+    { dbClusterSnapshotAttributes =
         Prelude.Nothing,
-      dbClusterSnapshotAttributes =
+      dbClusterSnapshotIdentifier =
         Prelude.Nothing
     }
-
--- | The identifier of the cluster snapshot that the attributes apply to.
-dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier :: Lens.Lens' DBClusterSnapshotAttributesResult (Prelude.Maybe Prelude.Text)
-dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier = Lens.lens (\DBClusterSnapshotAttributesResult' {dbClusterSnapshotIdentifier} -> dbClusterSnapshotIdentifier) (\s@DBClusterSnapshotAttributesResult' {} a -> s {dbClusterSnapshotIdentifier = a} :: DBClusterSnapshotAttributesResult)
 
 -- | The list of attributes and values for the cluster snapshot.
 dbClusterSnapshotAttributesResult_dbClusterSnapshotAttributes :: Lens.Lens' DBClusterSnapshotAttributesResult (Prelude.Maybe [DBClusterSnapshotAttribute])
 dbClusterSnapshotAttributesResult_dbClusterSnapshotAttributes = Lens.lens (\DBClusterSnapshotAttributesResult' {dbClusterSnapshotAttributes} -> dbClusterSnapshotAttributes) (\s@DBClusterSnapshotAttributesResult' {} a -> s {dbClusterSnapshotAttributes = a} :: DBClusterSnapshotAttributesResult) Prelude.. Lens.mapping Lens.coerced
+
+-- | The identifier of the cluster snapshot that the attributes apply to.
+dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier :: Lens.Lens' DBClusterSnapshotAttributesResult (Prelude.Maybe Prelude.Text)
+dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier = Lens.lens (\DBClusterSnapshotAttributesResult' {dbClusterSnapshotIdentifier} -> dbClusterSnapshotIdentifier) (\s@DBClusterSnapshotAttributesResult' {} a -> s {dbClusterSnapshotIdentifier = a} :: DBClusterSnapshotAttributesResult)
 
 instance
   Data.FromXML
@@ -72,12 +72,12 @@ instance
   where
   parseXML x =
     DBClusterSnapshotAttributesResult'
-      Prelude.<$> (x Data..@? "DBClusterSnapshotIdentifier")
-      Prelude.<*> ( x Data..@? "DBClusterSnapshotAttributes"
+      Prelude.<$> ( x Data..@? "DBClusterSnapshotAttributes"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "DBClusterSnapshotAttribute")
                   )
+      Prelude.<*> (x Data..@? "DBClusterSnapshotIdentifier")
 
 instance
   Prelude.Hashable
@@ -87,13 +87,13 @@ instance
     _salt
     DBClusterSnapshotAttributesResult' {..} =
       _salt
-        `Prelude.hashWithSalt` dbClusterSnapshotIdentifier
         `Prelude.hashWithSalt` dbClusterSnapshotAttributes
+        `Prelude.hashWithSalt` dbClusterSnapshotIdentifier
 
 instance
   Prelude.NFData
     DBClusterSnapshotAttributesResult
   where
   rnf DBClusterSnapshotAttributesResult' {..} =
-    Prelude.rnf dbClusterSnapshotIdentifier
-      `Prelude.seq` Prelude.rnf dbClusterSnapshotAttributes
+    Prelude.rnf dbClusterSnapshotAttributes
+      `Prelude.seq` Prelude.rnf dbClusterSnapshotIdentifier

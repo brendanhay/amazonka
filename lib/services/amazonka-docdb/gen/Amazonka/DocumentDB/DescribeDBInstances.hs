@@ -30,9 +30,9 @@ module Amazonka.DocumentDB.DescribeDBInstances
     newDescribeDBInstances,
 
     -- * Request Lenses
-    describeDBInstances_marker,
     describeDBInstances_dbInstanceIdentifier,
     describeDBInstances_filters,
+    describeDBInstances_marker,
     describeDBInstances_maxRecords,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Amazonka.DocumentDB.DescribeDBInstances
     newDescribeDBInstancesResponse,
 
     -- * Response Lenses
-    describeDBInstancesResponse_marker,
     describeDBInstancesResponse_dbInstances,
+    describeDBInstancesResponse_marker,
     describeDBInstancesResponse_httpStatus,
   )
 where
@@ -58,11 +58,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeDBInstances' smart constructor.
 data DescribeDBInstances = DescribeDBInstances'
-  { -- | An optional pagination token provided by a previous request. If this
-    -- parameter is specified, the response includes only records beyond the
-    -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | The user-provided instance identifier. If this parameter is specified,
+  { -- | The user-provided instance identifier. If this parameter is specified,
     -- information from only the specific instance is returned. This parameter
     -- isn\'t case sensitive.
     --
@@ -83,6 +79,10 @@ data DescribeDBInstances = DescribeDBInstances'
     --     The results list includes only the information about the instances
     --     that are identified by these ARNs.
     filters :: Prelude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- (marker) is included in the response so that the remaining results can
@@ -102,10 +102,6 @@ data DescribeDBInstances = DescribeDBInstances'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'marker', 'describeDBInstances_marker' - An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
 --
 -- 'dbInstanceIdentifier', 'describeDBInstances_dbInstanceIdentifier' - The user-provided instance identifier. If this parameter is specified,
 -- information from only the specific instance is returned. This parameter
@@ -128,6 +124,10 @@ data DescribeDBInstances = DescribeDBInstances'
 --     The results list includes only the information about the instances
 --     that are identified by these ARNs.
 --
+-- 'marker', 'describeDBInstances_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+--
 -- 'maxRecords', 'describeDBInstances_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- (marker) is included in the response so that the remaining results can
@@ -140,17 +140,12 @@ newDescribeDBInstances ::
   DescribeDBInstances
 newDescribeDBInstances =
   DescribeDBInstances'
-    { marker = Prelude.Nothing,
-      dbInstanceIdentifier = Prelude.Nothing,
+    { dbInstanceIdentifier =
+        Prelude.Nothing,
       filters = Prelude.Nothing,
+      marker = Prelude.Nothing,
       maxRecords = Prelude.Nothing
     }
-
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
-describeDBInstances_marker :: Lens.Lens' DescribeDBInstances (Prelude.Maybe Prelude.Text)
-describeDBInstances_marker = Lens.lens (\DescribeDBInstances' {marker} -> marker) (\s@DescribeDBInstances' {} a -> s {marker = a} :: DescribeDBInstances)
 
 -- | The user-provided instance identifier. If this parameter is specified,
 -- information from only the specific instance is returned. This parameter
@@ -176,6 +171,12 @@ describeDBInstances_dbInstanceIdentifier = Lens.lens (\DescribeDBInstances' {dbI
 --     that are identified by these ARNs.
 describeDBInstances_filters :: Lens.Lens' DescribeDBInstances (Prelude.Maybe [Filter])
 describeDBInstances_filters = Lens.lens (\DescribeDBInstances' {filters} -> filters) (\s@DescribeDBInstances' {} a -> s {filters = a} :: DescribeDBInstances) Prelude.. Lens.mapping Lens.coerced
+
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describeDBInstances_marker :: Lens.Lens' DescribeDBInstances (Prelude.Maybe Prelude.Text)
+describeDBInstances_marker = Lens.lens (\DescribeDBInstances' {marker} -> marker) (\s@DescribeDBInstances' {} a -> s {marker = a} :: DescribeDBInstances)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -221,25 +222,25 @@ instance Core.AWSRequest DescribeDBInstances where
       "DescribeDBInstancesResult"
       ( \s h x ->
           DescribeDBInstancesResponse'
-            Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x Data..@? "DBInstances" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Data..@? "DBInstances" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "DBInstance")
                         )
+            Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeDBInstances where
   hashWithSalt _salt DescribeDBInstances' {..} =
-    _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` dbInstanceIdentifier
+    _salt `Prelude.hashWithSalt` dbInstanceIdentifier
       `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
 
 instance Prelude.NFData DescribeDBInstances where
   rnf DescribeDBInstances' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
+    Prelude.rnf dbInstanceIdentifier
       `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxRecords
 
 instance Data.ToHeaders DescribeDBInstances where
@@ -255,11 +256,11 @@ instance Data.ToQuery DescribeDBInstances where
           Data.=: ("DescribeDBInstances" :: Prelude.ByteString),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
-        "Marker" Data.=: marker,
         "DBInstanceIdentifier" Data.=: dbInstanceIdentifier,
         "Filters"
           Data.=: Data.toQuery
             (Data.toQueryList "Filter" Prelude.<$> filters),
+        "Marker" Data.=: marker,
         "MaxRecords" Data.=: maxRecords
       ]
 
@@ -267,12 +268,12 @@ instance Data.ToQuery DescribeDBInstances where
 --
 -- /See:/ 'newDescribeDBInstancesResponse' smart constructor.
 data DescribeDBInstancesResponse = DescribeDBInstancesResponse'
-  { -- | An optional pagination token provided by a previous request. If this
+  { -- | Detailed information about one or more instances.
+    dbInstances :: Prelude.Maybe [DBInstance],
+    -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | Detailed information about one or more instances.
-    dbInstances :: Prelude.Maybe [DBInstance],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -286,11 +287,11 @@ data DescribeDBInstancesResponse = DescribeDBInstancesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dbInstances', 'describeDBInstancesResponse_dbInstances' - Detailed information about one or more instances.
+--
 -- 'marker', 'describeDBInstancesResponse_marker' - An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
---
--- 'dbInstances', 'describeDBInstancesResponse_dbInstances' - Detailed information about one or more instances.
 --
 -- 'httpStatus', 'describeDBInstancesResponse_httpStatus' - The response's http status code.
 newDescribeDBInstancesResponse ::
@@ -299,11 +300,15 @@ newDescribeDBInstancesResponse ::
   DescribeDBInstancesResponse
 newDescribeDBInstancesResponse pHttpStatus_ =
   DescribeDBInstancesResponse'
-    { marker =
+    { dbInstances =
         Prelude.Nothing,
-      dbInstances = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Detailed information about one or more instances.
+describeDBInstancesResponse_dbInstances :: Lens.Lens' DescribeDBInstancesResponse (Prelude.Maybe [DBInstance])
+describeDBInstancesResponse_dbInstances = Lens.lens (\DescribeDBInstancesResponse' {dbInstances} -> dbInstances) (\s@DescribeDBInstancesResponse' {} a -> s {dbInstances = a} :: DescribeDBInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
@@ -311,16 +316,12 @@ newDescribeDBInstancesResponse pHttpStatus_ =
 describeDBInstancesResponse_marker :: Lens.Lens' DescribeDBInstancesResponse (Prelude.Maybe Prelude.Text)
 describeDBInstancesResponse_marker = Lens.lens (\DescribeDBInstancesResponse' {marker} -> marker) (\s@DescribeDBInstancesResponse' {} a -> s {marker = a} :: DescribeDBInstancesResponse)
 
--- | Detailed information about one or more instances.
-describeDBInstancesResponse_dbInstances :: Lens.Lens' DescribeDBInstancesResponse (Prelude.Maybe [DBInstance])
-describeDBInstancesResponse_dbInstances = Lens.lens (\DescribeDBInstancesResponse' {dbInstances} -> dbInstances) (\s@DescribeDBInstancesResponse' {} a -> s {dbInstances = a} :: DescribeDBInstancesResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 describeDBInstancesResponse_httpStatus :: Lens.Lens' DescribeDBInstancesResponse Prelude.Int
 describeDBInstancesResponse_httpStatus = Lens.lens (\DescribeDBInstancesResponse' {httpStatus} -> httpStatus) (\s@DescribeDBInstancesResponse' {} a -> s {httpStatus = a} :: DescribeDBInstancesResponse)
 
 instance Prelude.NFData DescribeDBInstancesResponse where
   rnf DescribeDBInstancesResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf dbInstances
+    Prelude.rnf dbInstances
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf httpStatus

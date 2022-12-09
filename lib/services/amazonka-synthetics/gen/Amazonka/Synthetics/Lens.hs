@@ -20,12 +20,12 @@ module Amazonka.Synthetics.Lens
     associateResourceResponse_httpStatus,
 
     -- ** CreateCanary
-    createCanary_tags,
-    createCanary_vpcConfig,
     createCanary_artifactConfig,
     createCanary_failureRetentionPeriodInDays,
-    createCanary_successRetentionPeriodInDays,
     createCanary_runConfig,
+    createCanary_successRetentionPeriodInDays,
+    createCanary_tags,
+    createCanary_vpcConfig,
     createCanary_name,
     createCanary_code,
     createCanary_artifactS3Location,
@@ -51,24 +51,24 @@ module Amazonka.Synthetics.Lens
     deleteGroupResponse_httpStatus,
 
     -- ** DescribeCanaries
-    describeCanaries_nextToken,
-    describeCanaries_names,
     describeCanaries_maxResults,
-    describeCanariesResponse_nextToken,
+    describeCanaries_names,
+    describeCanaries_nextToken,
     describeCanariesResponse_canaries,
+    describeCanariesResponse_nextToken,
     describeCanariesResponse_httpStatus,
 
     -- ** DescribeCanariesLastRun
-    describeCanariesLastRun_nextToken,
-    describeCanariesLastRun_names,
     describeCanariesLastRun_maxResults,
-    describeCanariesLastRunResponse_nextToken,
+    describeCanariesLastRun_names,
+    describeCanariesLastRun_nextToken,
     describeCanariesLastRunResponse_canariesLastRun,
+    describeCanariesLastRunResponse_nextToken,
     describeCanariesLastRunResponse_httpStatus,
 
     -- ** DescribeRuntimeVersions
-    describeRuntimeVersions_nextToken,
     describeRuntimeVersions_maxResults,
+    describeRuntimeVersions_nextToken,
     describeRuntimeVersionsResponse_nextToken,
     describeRuntimeVersionsResponse_runtimeVersions,
     describeRuntimeVersionsResponse_httpStatus,
@@ -84,11 +84,11 @@ module Amazonka.Synthetics.Lens
     getCanaryResponse_httpStatus,
 
     -- ** GetCanaryRuns
-    getCanaryRuns_nextToken,
     getCanaryRuns_maxResults,
+    getCanaryRuns_nextToken,
     getCanaryRuns_name,
-    getCanaryRunsResponse_nextToken,
     getCanaryRunsResponse_canaryRuns,
+    getCanaryRunsResponse_nextToken,
     getCanaryRunsResponse_httpStatus,
 
     -- ** GetGroup
@@ -97,26 +97,26 @@ module Amazonka.Synthetics.Lens
     getGroupResponse_httpStatus,
 
     -- ** ListAssociatedGroups
-    listAssociatedGroups_nextToken,
     listAssociatedGroups_maxResults,
+    listAssociatedGroups_nextToken,
     listAssociatedGroups_resourceArn,
-    listAssociatedGroupsResponse_nextToken,
     listAssociatedGroupsResponse_groups,
+    listAssociatedGroupsResponse_nextToken,
     listAssociatedGroupsResponse_httpStatus,
 
     -- ** ListGroupResources
-    listGroupResources_nextToken,
     listGroupResources_maxResults,
+    listGroupResources_nextToken,
     listGroupResources_groupIdentifier,
     listGroupResourcesResponse_nextToken,
     listGroupResourcesResponse_resources,
     listGroupResourcesResponse_httpStatus,
 
     -- ** ListGroups
-    listGroups_nextToken,
     listGroups_maxResults,
-    listGroupsResponse_nextToken,
+    listGroups_nextToken,
     listGroupsResponse_groups,
+    listGroupsResponse_nextToken,
     listGroupsResponse_httpStatus,
 
     -- ** ListTagsForResource
@@ -143,17 +143,17 @@ module Amazonka.Synthetics.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateCanary
-    updateCanary_schedule,
-    updateCanary_code,
-    updateCanary_vpcConfig,
-    updateCanary_visualReference,
     updateCanary_artifactConfig,
-    updateCanary_failureRetentionPeriodInDays,
-    updateCanary_successRetentionPeriodInDays,
-    updateCanary_executionRoleArn,
-    updateCanary_runConfig,
     updateCanary_artifactS3Location,
+    updateCanary_code,
+    updateCanary_executionRoleArn,
+    updateCanary_failureRetentionPeriodInDays,
+    updateCanary_runConfig,
     updateCanary_runtimeVersion,
+    updateCanary_schedule,
+    updateCanary_successRetentionPeriodInDays,
+    updateCanary_visualReference,
+    updateCanary_vpcConfig,
     updateCanary_name,
     updateCanaryResponse_httpStatus,
 
@@ -170,107 +170,107 @@ module Amazonka.Synthetics.Lens
     baseScreenshot_screenshotName,
 
     -- ** Canary
-    canary_tags,
-    canary_schedule,
-    canary_name,
-    canary_code,
-    canary_vpcConfig,
-    canary_timeline,
-    canary_visualReference,
     canary_artifactConfig,
-    canary_status,
-    canary_id,
-    canary_failureRetentionPeriodInDays,
-    canary_successRetentionPeriodInDays,
+    canary_artifactS3Location,
+    canary_code,
     canary_engineArn,
     canary_executionRoleArn,
+    canary_failureRetentionPeriodInDays,
+    canary_id,
+    canary_name,
     canary_runConfig,
-    canary_artifactS3Location,
     canary_runtimeVersion,
+    canary_schedule,
+    canary_status,
+    canary_successRetentionPeriodInDays,
+    canary_tags,
+    canary_timeline,
+    canary_visualReference,
+    canary_vpcConfig,
 
     -- ** CanaryCodeInput
     canaryCodeInput_s3Bucket,
-    canaryCodeInput_s3Version,
     canaryCodeInput_s3Key,
+    canaryCodeInput_s3Version,
     canaryCodeInput_zipFile,
     canaryCodeInput_handler,
 
     -- ** CanaryCodeOutput
-    canaryCodeOutput_sourceLocationArn,
     canaryCodeOutput_handler,
+    canaryCodeOutput_sourceLocationArn,
 
     -- ** CanaryLastRun
-    canaryLastRun_lastRun,
     canaryLastRun_canaryName,
+    canaryLastRun_lastRun,
 
     -- ** CanaryRun
-    canaryRun_name,
-    canaryRun_timeline,
-    canaryRun_status,
-    canaryRun_id,
     canaryRun_artifactS3Location,
+    canaryRun_id,
+    canaryRun_name,
+    canaryRun_status,
+    canaryRun_timeline,
 
     -- ** CanaryRunConfigInput
     canaryRunConfigInput_activeTracing,
-    canaryRunConfigInput_timeoutInSeconds,
     canaryRunConfigInput_environmentVariables,
     canaryRunConfigInput_memoryInMB,
+    canaryRunConfigInput_timeoutInSeconds,
 
     -- ** CanaryRunConfigOutput
     canaryRunConfigOutput_activeTracing,
-    canaryRunConfigOutput_timeoutInSeconds,
     canaryRunConfigOutput_memoryInMB,
+    canaryRunConfigOutput_timeoutInSeconds,
 
     -- ** CanaryRunStatus
     canaryRunStatus_state,
-    canaryRunStatus_stateReasonCode,
     canaryRunStatus_stateReason,
+    canaryRunStatus_stateReasonCode,
 
     -- ** CanaryRunTimeline
-    canaryRunTimeline_started,
     canaryRunTimeline_completed,
+    canaryRunTimeline_started,
 
     -- ** CanaryScheduleInput
     canaryScheduleInput_durationInSeconds,
     canaryScheduleInput_expression,
 
     -- ** CanaryScheduleOutput
-    canaryScheduleOutput_expression,
     canaryScheduleOutput_durationInSeconds,
+    canaryScheduleOutput_expression,
 
     -- ** CanaryStatus
     canaryStatus_state,
-    canaryStatus_stateReasonCode,
     canaryStatus_stateReason,
+    canaryStatus_stateReasonCode,
 
     -- ** CanaryTimeline
-    canaryTimeline_lastStarted,
     canaryTimeline_created,
     canaryTimeline_lastModified,
+    canaryTimeline_lastStarted,
     canaryTimeline_lastStopped,
 
     -- ** Group
-    group_tags,
-    group_name,
-    group_createdTime,
     group_arn,
+    group_createdTime,
     group_id,
     group_lastModifiedTime,
+    group_name,
+    group_tags,
 
     -- ** GroupSummary
-    groupSummary_name,
     groupSummary_arn,
     groupSummary_id,
+    groupSummary_name,
 
     -- ** RuntimeVersion
-    runtimeVersion_releaseDate,
     runtimeVersion_deprecationDate,
     runtimeVersion_description,
+    runtimeVersion_releaseDate,
     runtimeVersion_versionName,
 
     -- ** S3EncryptionConfig
-    s3EncryptionConfig_kmsKeyArn,
     s3EncryptionConfig_encryptionMode,
+    s3EncryptionConfig_kmsKeyArn,
 
     -- ** VisualReferenceInput
     visualReferenceInput_baseScreenshots,
@@ -286,8 +286,8 @@ module Amazonka.Synthetics.Lens
 
     -- ** VpcConfigOutput
     vpcConfigOutput_securityGroupIds,
-    vpcConfigOutput_vpcId,
     vpcConfigOutput_subnetIds,
+    vpcConfigOutput_vpcId,
   )
 where
 

@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGroupSummary' smart constructor.
 data GroupSummary = GroupSummary'
-  { -- | The name of the group.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the group.
+  { -- | The ARN of the group.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of the group.
-    id :: Prelude.Maybe Prelude.Text
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The name of the group.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,23 +45,19 @@ data GroupSummary = GroupSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'groupSummary_name' - The name of the group.
---
 -- 'arn', 'groupSummary_arn' - The ARN of the group.
 --
 -- 'id', 'groupSummary_id' - The unique ID of the group.
+--
+-- 'name', 'groupSummary_name' - The name of the group.
 newGroupSummary ::
   GroupSummary
 newGroupSummary =
   GroupSummary'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing
+    { arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of the group.
-groupSummary_name :: Lens.Lens' GroupSummary (Prelude.Maybe Prelude.Text)
-groupSummary_name = Lens.lens (\GroupSummary' {name} -> name) (\s@GroupSummary' {} a -> s {name = a} :: GroupSummary)
 
 -- | The ARN of the group.
 groupSummary_arn :: Lens.Lens' GroupSummary (Prelude.Maybe Prelude.Text)
@@ -71,25 +67,29 @@ groupSummary_arn = Lens.lens (\GroupSummary' {arn} -> arn) (\s@GroupSummary' {} 
 groupSummary_id :: Lens.Lens' GroupSummary (Prelude.Maybe Prelude.Text)
 groupSummary_id = Lens.lens (\GroupSummary' {id} -> id) (\s@GroupSummary' {} a -> s {id = a} :: GroupSummary)
 
+-- | The name of the group.
+groupSummary_name :: Lens.Lens' GroupSummary (Prelude.Maybe Prelude.Text)
+groupSummary_name = Lens.lens (\GroupSummary' {name} -> name) (\s@GroupSummary' {} a -> s {name = a} :: GroupSummary)
+
 instance Data.FromJSON GroupSummary where
   parseJSON =
     Data.withObject
       "GroupSummary"
       ( \x ->
           GroupSummary'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable GroupSummary where
   hashWithSalt _salt GroupSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData GroupSummary where
   rnf GroupSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf name

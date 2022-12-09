@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 data CanaryRunConfigOutput = CanaryRunConfigOutput'
   { -- | Displays whether this canary run used active X-Ray tracing.
     activeTracing :: Prelude.Maybe Prelude.Bool,
-    -- | How long the canary is allowed to run before it must stop.
-    timeoutInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The maximum amount of memory available to the canary while it is
     -- running, in MB. This value must be a multiple of 64.
-    memoryInMB :: Prelude.Maybe Prelude.Natural
+    memoryInMB :: Prelude.Maybe Prelude.Natural,
+    -- | How long the canary is allowed to run before it must stop.
+    timeoutInSeconds :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,32 +48,32 @@ data CanaryRunConfigOutput = CanaryRunConfigOutput'
 --
 -- 'activeTracing', 'canaryRunConfigOutput_activeTracing' - Displays whether this canary run used active X-Ray tracing.
 --
--- 'timeoutInSeconds', 'canaryRunConfigOutput_timeoutInSeconds' - How long the canary is allowed to run before it must stop.
---
 -- 'memoryInMB', 'canaryRunConfigOutput_memoryInMB' - The maximum amount of memory available to the canary while it is
 -- running, in MB. This value must be a multiple of 64.
+--
+-- 'timeoutInSeconds', 'canaryRunConfigOutput_timeoutInSeconds' - How long the canary is allowed to run before it must stop.
 newCanaryRunConfigOutput ::
   CanaryRunConfigOutput
 newCanaryRunConfigOutput =
   CanaryRunConfigOutput'
     { activeTracing =
         Prelude.Nothing,
-      timeoutInSeconds = Prelude.Nothing,
-      memoryInMB = Prelude.Nothing
+      memoryInMB = Prelude.Nothing,
+      timeoutInSeconds = Prelude.Nothing
     }
 
 -- | Displays whether this canary run used active X-Ray tracing.
 canaryRunConfigOutput_activeTracing :: Lens.Lens' CanaryRunConfigOutput (Prelude.Maybe Prelude.Bool)
 canaryRunConfigOutput_activeTracing = Lens.lens (\CanaryRunConfigOutput' {activeTracing} -> activeTracing) (\s@CanaryRunConfigOutput' {} a -> s {activeTracing = a} :: CanaryRunConfigOutput)
 
--- | How long the canary is allowed to run before it must stop.
-canaryRunConfigOutput_timeoutInSeconds :: Lens.Lens' CanaryRunConfigOutput (Prelude.Maybe Prelude.Natural)
-canaryRunConfigOutput_timeoutInSeconds = Lens.lens (\CanaryRunConfigOutput' {timeoutInSeconds} -> timeoutInSeconds) (\s@CanaryRunConfigOutput' {} a -> s {timeoutInSeconds = a} :: CanaryRunConfigOutput)
-
 -- | The maximum amount of memory available to the canary while it is
 -- running, in MB. This value must be a multiple of 64.
 canaryRunConfigOutput_memoryInMB :: Lens.Lens' CanaryRunConfigOutput (Prelude.Maybe Prelude.Natural)
 canaryRunConfigOutput_memoryInMB = Lens.lens (\CanaryRunConfigOutput' {memoryInMB} -> memoryInMB) (\s@CanaryRunConfigOutput' {} a -> s {memoryInMB = a} :: CanaryRunConfigOutput)
+
+-- | How long the canary is allowed to run before it must stop.
+canaryRunConfigOutput_timeoutInSeconds :: Lens.Lens' CanaryRunConfigOutput (Prelude.Maybe Prelude.Natural)
+canaryRunConfigOutput_timeoutInSeconds = Lens.lens (\CanaryRunConfigOutput' {timeoutInSeconds} -> timeoutInSeconds) (\s@CanaryRunConfigOutput' {} a -> s {timeoutInSeconds = a} :: CanaryRunConfigOutput)
 
 instance Data.FromJSON CanaryRunConfigOutput where
   parseJSON =
@@ -82,18 +82,18 @@ instance Data.FromJSON CanaryRunConfigOutput where
       ( \x ->
           CanaryRunConfigOutput'
             Prelude.<$> (x Data..:? "ActiveTracing")
-            Prelude.<*> (x Data..:? "TimeoutInSeconds")
             Prelude.<*> (x Data..:? "MemoryInMB")
+            Prelude.<*> (x Data..:? "TimeoutInSeconds")
       )
 
 instance Prelude.Hashable CanaryRunConfigOutput where
   hashWithSalt _salt CanaryRunConfigOutput' {..} =
     _salt `Prelude.hashWithSalt` activeTracing
-      `Prelude.hashWithSalt` timeoutInSeconds
       `Prelude.hashWithSalt` memoryInMB
+      `Prelude.hashWithSalt` timeoutInSeconds
 
 instance Prelude.NFData CanaryRunConfigOutput where
   rnf CanaryRunConfigOutput' {..} =
     Prelude.rnf activeTracing
-      `Prelude.seq` Prelude.rnf timeoutInSeconds
       `Prelude.seq` Prelude.rnf memoryInMB
+      `Prelude.seq` Prelude.rnf timeoutInSeconds

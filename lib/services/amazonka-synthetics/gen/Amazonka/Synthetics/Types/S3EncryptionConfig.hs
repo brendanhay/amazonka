@@ -33,17 +33,17 @@ import Amazonka.Synthetics.Types.EncryptionMode
 --
 -- /See:/ 'newS3EncryptionConfig' smart constructor.
 data S3EncryptionConfig = S3EncryptionConfig'
-  { -- | The ARN of the customer-managed KMS key to use, if you specify @SSE-KMS@
-    -- for @EncryptionMode@
-    kmsKeyArn :: Prelude.Maybe Prelude.Text,
-    -- | The encryption method to use for artifacts created by this canary.
+  { -- | The encryption method to use for artifacts created by this canary.
     -- Specify @SSE_S3@ to use server-side encryption (SSE) with an Amazon
     -- S3-managed key. Specify @SSE-KMS@ to use server-side encryption with a
     -- customer-managed KMS key.
     --
     -- If you omit this parameter, an Amazon Web Services-managed KMS key is
     -- used.
-    encryptionMode :: Prelude.Maybe EncryptionMode
+    encryptionMode :: Prelude.Maybe EncryptionMode,
+    -- | The ARN of the customer-managed KMS key to use, if you specify @SSE-KMS@
+    -- for @EncryptionMode@
+    kmsKeyArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,9 +55,6 @@ data S3EncryptionConfig = S3EncryptionConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyArn', 's3EncryptionConfig_kmsKeyArn' - The ARN of the customer-managed KMS key to use, if you specify @SSE-KMS@
--- for @EncryptionMode@
---
 -- 'encryptionMode', 's3EncryptionConfig_encryptionMode' - The encryption method to use for artifacts created by this canary.
 -- Specify @SSE_S3@ to use server-side encryption (SSE) with an Amazon
 -- S3-managed key. Specify @SSE-KMS@ to use server-side encryption with a
@@ -65,18 +62,17 @@ data S3EncryptionConfig = S3EncryptionConfig'
 --
 -- If you omit this parameter, an Amazon Web Services-managed KMS key is
 -- used.
+--
+-- 'kmsKeyArn', 's3EncryptionConfig_kmsKeyArn' - The ARN of the customer-managed KMS key to use, if you specify @SSE-KMS@
+-- for @EncryptionMode@
 newS3EncryptionConfig ::
   S3EncryptionConfig
 newS3EncryptionConfig =
   S3EncryptionConfig'
-    { kmsKeyArn = Prelude.Nothing,
-      encryptionMode = Prelude.Nothing
+    { encryptionMode =
+        Prelude.Nothing,
+      kmsKeyArn = Prelude.Nothing
     }
-
--- | The ARN of the customer-managed KMS key to use, if you specify @SSE-KMS@
--- for @EncryptionMode@
-s3EncryptionConfig_kmsKeyArn :: Lens.Lens' S3EncryptionConfig (Prelude.Maybe Prelude.Text)
-s3EncryptionConfig_kmsKeyArn = Lens.lens (\S3EncryptionConfig' {kmsKeyArn} -> kmsKeyArn) (\s@S3EncryptionConfig' {} a -> s {kmsKeyArn = a} :: S3EncryptionConfig)
 
 -- | The encryption method to use for artifacts created by this canary.
 -- Specify @SSE_S3@ to use server-side encryption (SSE) with an Amazon
@@ -88,32 +84,37 @@ s3EncryptionConfig_kmsKeyArn = Lens.lens (\S3EncryptionConfig' {kmsKeyArn} -> km
 s3EncryptionConfig_encryptionMode :: Lens.Lens' S3EncryptionConfig (Prelude.Maybe EncryptionMode)
 s3EncryptionConfig_encryptionMode = Lens.lens (\S3EncryptionConfig' {encryptionMode} -> encryptionMode) (\s@S3EncryptionConfig' {} a -> s {encryptionMode = a} :: S3EncryptionConfig)
 
+-- | The ARN of the customer-managed KMS key to use, if you specify @SSE-KMS@
+-- for @EncryptionMode@
+s3EncryptionConfig_kmsKeyArn :: Lens.Lens' S3EncryptionConfig (Prelude.Maybe Prelude.Text)
+s3EncryptionConfig_kmsKeyArn = Lens.lens (\S3EncryptionConfig' {kmsKeyArn} -> kmsKeyArn) (\s@S3EncryptionConfig' {} a -> s {kmsKeyArn = a} :: S3EncryptionConfig)
+
 instance Data.FromJSON S3EncryptionConfig where
   parseJSON =
     Data.withObject
       "S3EncryptionConfig"
       ( \x ->
           S3EncryptionConfig'
-            Prelude.<$> (x Data..:? "KmsKeyArn")
-            Prelude.<*> (x Data..:? "EncryptionMode")
+            Prelude.<$> (x Data..:? "EncryptionMode")
+            Prelude.<*> (x Data..:? "KmsKeyArn")
       )
 
 instance Prelude.Hashable S3EncryptionConfig where
   hashWithSalt _salt S3EncryptionConfig' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyArn
-      `Prelude.hashWithSalt` encryptionMode
+    _salt `Prelude.hashWithSalt` encryptionMode
+      `Prelude.hashWithSalt` kmsKeyArn
 
 instance Prelude.NFData S3EncryptionConfig where
   rnf S3EncryptionConfig' {..} =
-    Prelude.rnf kmsKeyArn
-      `Prelude.seq` Prelude.rnf encryptionMode
+    Prelude.rnf encryptionMode
+      `Prelude.seq` Prelude.rnf kmsKeyArn
 
 instance Data.ToJSON S3EncryptionConfig where
   toJSON S3EncryptionConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("KmsKeyArn" Data..=) Prelude.<$> kmsKeyArn,
-            ("EncryptionMode" Data..=)
-              Prelude.<$> encryptionMode
+          [ ("EncryptionMode" Data..=)
+              Prelude.<$> encryptionMode,
+            ("KmsKeyArn" Data..=) Prelude.<$> kmsKeyArn
           ]
       )

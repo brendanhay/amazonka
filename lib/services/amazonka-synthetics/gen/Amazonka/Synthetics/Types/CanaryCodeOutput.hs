@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCanaryCodeOutput' smart constructor.
 data CanaryCodeOutput = CanaryCodeOutput'
-  { -- | The ARN of the Lambda layer where Synthetics stores the canary script
+  { -- | The entry point to use for the source code when running the canary.
+    handler :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the Lambda layer where Synthetics stores the canary script
     -- code.
-    sourceLocationArn :: Prelude.Maybe Prelude.Text,
-    -- | The entry point to use for the source code when running the canary.
-    handler :: Prelude.Maybe Prelude.Text
+    sourceLocationArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,27 +45,26 @@ data CanaryCodeOutput = CanaryCodeOutput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'handler', 'canaryCodeOutput_handler' - The entry point to use for the source code when running the canary.
+--
 -- 'sourceLocationArn', 'canaryCodeOutput_sourceLocationArn' - The ARN of the Lambda layer where Synthetics stores the canary script
 -- code.
---
--- 'handler', 'canaryCodeOutput_handler' - The entry point to use for the source code when running the canary.
 newCanaryCodeOutput ::
   CanaryCodeOutput
 newCanaryCodeOutput =
   CanaryCodeOutput'
-    { sourceLocationArn =
-        Prelude.Nothing,
-      handler = Prelude.Nothing
+    { handler = Prelude.Nothing,
+      sourceLocationArn = Prelude.Nothing
     }
+
+-- | The entry point to use for the source code when running the canary.
+canaryCodeOutput_handler :: Lens.Lens' CanaryCodeOutput (Prelude.Maybe Prelude.Text)
+canaryCodeOutput_handler = Lens.lens (\CanaryCodeOutput' {handler} -> handler) (\s@CanaryCodeOutput' {} a -> s {handler = a} :: CanaryCodeOutput)
 
 -- | The ARN of the Lambda layer where Synthetics stores the canary script
 -- code.
 canaryCodeOutput_sourceLocationArn :: Lens.Lens' CanaryCodeOutput (Prelude.Maybe Prelude.Text)
 canaryCodeOutput_sourceLocationArn = Lens.lens (\CanaryCodeOutput' {sourceLocationArn} -> sourceLocationArn) (\s@CanaryCodeOutput' {} a -> s {sourceLocationArn = a} :: CanaryCodeOutput)
-
--- | The entry point to use for the source code when running the canary.
-canaryCodeOutput_handler :: Lens.Lens' CanaryCodeOutput (Prelude.Maybe Prelude.Text)
-canaryCodeOutput_handler = Lens.lens (\CanaryCodeOutput' {handler} -> handler) (\s@CanaryCodeOutput' {} a -> s {handler = a} :: CanaryCodeOutput)
 
 instance Data.FromJSON CanaryCodeOutput where
   parseJSON =
@@ -73,16 +72,16 @@ instance Data.FromJSON CanaryCodeOutput where
       "CanaryCodeOutput"
       ( \x ->
           CanaryCodeOutput'
-            Prelude.<$> (x Data..:? "SourceLocationArn")
-            Prelude.<*> (x Data..:? "Handler")
+            Prelude.<$> (x Data..:? "Handler")
+            Prelude.<*> (x Data..:? "SourceLocationArn")
       )
 
 instance Prelude.Hashable CanaryCodeOutput where
   hashWithSalt _salt CanaryCodeOutput' {..} =
-    _salt `Prelude.hashWithSalt` sourceLocationArn
-      `Prelude.hashWithSalt` handler
+    _salt `Prelude.hashWithSalt` handler
+      `Prelude.hashWithSalt` sourceLocationArn
 
 instance Prelude.NFData CanaryCodeOutput where
   rnf CanaryCodeOutput' {..} =
-    Prelude.rnf sourceLocationArn
-      `Prelude.seq` Prelude.rnf handler
+    Prelude.rnf handler
+      `Prelude.seq` Prelude.rnf sourceLocationArn

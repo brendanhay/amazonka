@@ -29,8 +29,8 @@ module Amazonka.Synthetics.DescribeRuntimeVersions
     newDescribeRuntimeVersions,
 
     -- * Request Lenses
-    describeRuntimeVersions_nextToken,
     describeRuntimeVersions_maxResults,
+    describeRuntimeVersions_nextToken,
 
     -- * Destructuring the Response
     DescribeRuntimeVersionsResponse (..),
@@ -53,14 +53,14 @@ import Amazonka.Synthetics.Types
 
 -- | /See:/ 'newDescribeRuntimeVersions' smart constructor.
 data DescribeRuntimeVersions = DescribeRuntimeVersions'
-  { -- | A token that indicates that there is more data available. You can use
-    -- this token in a subsequent @DescribeRuntimeVersions@ operation to
-    -- retrieve the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specify this parameter to limit how many runs are returned each time you
+  { -- | Specify this parameter to limit how many runs are returned each time you
     -- use the @DescribeRuntimeVersions@ operation. If you omit this parameter,
     -- the default of 100 is used.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token that indicates that there is more data available. You can use
+    -- this token in a subsequent @DescribeRuntimeVersions@ operation to
+    -- retrieve the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,33 +72,33 @@ data DescribeRuntimeVersions = DescribeRuntimeVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeRuntimeVersions_nextToken' - A token that indicates that there is more data available. You can use
--- this token in a subsequent @DescribeRuntimeVersions@ operation to
--- retrieve the next set of results.
---
 -- 'maxResults', 'describeRuntimeVersions_maxResults' - Specify this parameter to limit how many runs are returned each time you
 -- use the @DescribeRuntimeVersions@ operation. If you omit this parameter,
 -- the default of 100 is used.
+--
+-- 'nextToken', 'describeRuntimeVersions_nextToken' - A token that indicates that there is more data available. You can use
+-- this token in a subsequent @DescribeRuntimeVersions@ operation to
+-- retrieve the next set of results.
 newDescribeRuntimeVersions ::
   DescribeRuntimeVersions
 newDescribeRuntimeVersions =
   DescribeRuntimeVersions'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | A token that indicates that there is more data available. You can use
--- this token in a subsequent @DescribeRuntimeVersions@ operation to
--- retrieve the next set of results.
-describeRuntimeVersions_nextToken :: Lens.Lens' DescribeRuntimeVersions (Prelude.Maybe Prelude.Text)
-describeRuntimeVersions_nextToken = Lens.lens (\DescribeRuntimeVersions' {nextToken} -> nextToken) (\s@DescribeRuntimeVersions' {} a -> s {nextToken = a} :: DescribeRuntimeVersions)
 
 -- | Specify this parameter to limit how many runs are returned each time you
 -- use the @DescribeRuntimeVersions@ operation. If you omit this parameter,
 -- the default of 100 is used.
 describeRuntimeVersions_maxResults :: Lens.Lens' DescribeRuntimeVersions (Prelude.Maybe Prelude.Natural)
 describeRuntimeVersions_maxResults = Lens.lens (\DescribeRuntimeVersions' {maxResults} -> maxResults) (\s@DescribeRuntimeVersions' {} a -> s {maxResults = a} :: DescribeRuntimeVersions)
+
+-- | A token that indicates that there is more data available. You can use
+-- this token in a subsequent @DescribeRuntimeVersions@ operation to
+-- retrieve the next set of results.
+describeRuntimeVersions_nextToken :: Lens.Lens' DescribeRuntimeVersions (Prelude.Maybe Prelude.Text)
+describeRuntimeVersions_nextToken = Lens.lens (\DescribeRuntimeVersions' {nextToken} -> nextToken) (\s@DescribeRuntimeVersions' {} a -> s {nextToken = a} :: DescribeRuntimeVersions)
 
 instance Core.AWSRequest DescribeRuntimeVersions where
   type
@@ -119,13 +119,13 @@ instance Core.AWSRequest DescribeRuntimeVersions where
 
 instance Prelude.Hashable DescribeRuntimeVersions where
   hashWithSalt _salt DescribeRuntimeVersions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeRuntimeVersions where
   rnf DescribeRuntimeVersions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeRuntimeVersions where
   toHeaders =
@@ -142,8 +142,8 @@ instance Data.ToJSON DescribeRuntimeVersions where
   toJSON DescribeRuntimeVersions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

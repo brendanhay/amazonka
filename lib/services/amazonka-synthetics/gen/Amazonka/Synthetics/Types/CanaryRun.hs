@@ -30,17 +30,17 @@ import Amazonka.Synthetics.Types.CanaryRunTimeline
 --
 -- /See:/ 'newCanaryRun' smart constructor.
 data CanaryRun = CanaryRun'
-  { -- | The name of the canary.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | A structure that contains the start and end times of this run.
-    timeline :: Prelude.Maybe CanaryRunTimeline,
-    -- | The status of this run.
-    status :: Prelude.Maybe CanaryRunStatus,
+  { -- | The location where the canary stored artifacts from the run. Artifacts
+    -- include the log file, screenshots, and HAR files.
+    artifactS3Location :: Prelude.Maybe Prelude.Text,
     -- | A unique ID that identifies this canary run.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The location where the canary stored artifacts from the run. Artifacts
-    -- include the log file, screenshots, and HAR files.
-    artifactS3Location :: Prelude.Maybe Prelude.Text
+    -- | The name of the canary.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The status of this run.
+    status :: Prelude.Maybe CanaryRunStatus,
+    -- | A structure that contains the start and end times of this run.
+    timeline :: Prelude.Maybe CanaryRunTimeline
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,47 +52,47 @@ data CanaryRun = CanaryRun'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'canaryRun_name' - The name of the canary.
---
--- 'timeline', 'canaryRun_timeline' - A structure that contains the start and end times of this run.
---
--- 'status', 'canaryRun_status' - The status of this run.
+-- 'artifactS3Location', 'canaryRun_artifactS3Location' - The location where the canary stored artifacts from the run. Artifacts
+-- include the log file, screenshots, and HAR files.
 --
 -- 'id', 'canaryRun_id' - A unique ID that identifies this canary run.
 --
--- 'artifactS3Location', 'canaryRun_artifactS3Location' - The location where the canary stored artifacts from the run. Artifacts
--- include the log file, screenshots, and HAR files.
+-- 'name', 'canaryRun_name' - The name of the canary.
+--
+-- 'status', 'canaryRun_status' - The status of this run.
+--
+-- 'timeline', 'canaryRun_timeline' - A structure that contains the start and end times of this run.
 newCanaryRun ::
   CanaryRun
 newCanaryRun =
   CanaryRun'
-    { name = Prelude.Nothing,
-      timeline = Prelude.Nothing,
-      status = Prelude.Nothing,
+    { artifactS3Location = Prelude.Nothing,
       id = Prelude.Nothing,
-      artifactS3Location = Prelude.Nothing
+      name = Prelude.Nothing,
+      status = Prelude.Nothing,
+      timeline = Prelude.Nothing
     }
-
--- | The name of the canary.
-canaryRun_name :: Lens.Lens' CanaryRun (Prelude.Maybe Prelude.Text)
-canaryRun_name = Lens.lens (\CanaryRun' {name} -> name) (\s@CanaryRun' {} a -> s {name = a} :: CanaryRun)
-
--- | A structure that contains the start and end times of this run.
-canaryRun_timeline :: Lens.Lens' CanaryRun (Prelude.Maybe CanaryRunTimeline)
-canaryRun_timeline = Lens.lens (\CanaryRun' {timeline} -> timeline) (\s@CanaryRun' {} a -> s {timeline = a} :: CanaryRun)
-
--- | The status of this run.
-canaryRun_status :: Lens.Lens' CanaryRun (Prelude.Maybe CanaryRunStatus)
-canaryRun_status = Lens.lens (\CanaryRun' {status} -> status) (\s@CanaryRun' {} a -> s {status = a} :: CanaryRun)
-
--- | A unique ID that identifies this canary run.
-canaryRun_id :: Lens.Lens' CanaryRun (Prelude.Maybe Prelude.Text)
-canaryRun_id = Lens.lens (\CanaryRun' {id} -> id) (\s@CanaryRun' {} a -> s {id = a} :: CanaryRun)
 
 -- | The location where the canary stored artifacts from the run. Artifacts
 -- include the log file, screenshots, and HAR files.
 canaryRun_artifactS3Location :: Lens.Lens' CanaryRun (Prelude.Maybe Prelude.Text)
 canaryRun_artifactS3Location = Lens.lens (\CanaryRun' {artifactS3Location} -> artifactS3Location) (\s@CanaryRun' {} a -> s {artifactS3Location = a} :: CanaryRun)
+
+-- | A unique ID that identifies this canary run.
+canaryRun_id :: Lens.Lens' CanaryRun (Prelude.Maybe Prelude.Text)
+canaryRun_id = Lens.lens (\CanaryRun' {id} -> id) (\s@CanaryRun' {} a -> s {id = a} :: CanaryRun)
+
+-- | The name of the canary.
+canaryRun_name :: Lens.Lens' CanaryRun (Prelude.Maybe Prelude.Text)
+canaryRun_name = Lens.lens (\CanaryRun' {name} -> name) (\s@CanaryRun' {} a -> s {name = a} :: CanaryRun)
+
+-- | The status of this run.
+canaryRun_status :: Lens.Lens' CanaryRun (Prelude.Maybe CanaryRunStatus)
+canaryRun_status = Lens.lens (\CanaryRun' {status} -> status) (\s@CanaryRun' {} a -> s {status = a} :: CanaryRun)
+
+-- | A structure that contains the start and end times of this run.
+canaryRun_timeline :: Lens.Lens' CanaryRun (Prelude.Maybe CanaryRunTimeline)
+canaryRun_timeline = Lens.lens (\CanaryRun' {timeline} -> timeline) (\s@CanaryRun' {} a -> s {timeline = a} :: CanaryRun)
 
 instance Data.FromJSON CanaryRun where
   parseJSON =
@@ -100,25 +100,25 @@ instance Data.FromJSON CanaryRun where
       "CanaryRun"
       ( \x ->
           CanaryRun'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Timeline")
-            Prelude.<*> (x Data..:? "Status")
+            Prelude.<$> (x Data..:? "ArtifactS3Location")
             Prelude.<*> (x Data..:? "Id")
-            Prelude.<*> (x Data..:? "ArtifactS3Location")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Timeline")
       )
 
 instance Prelude.Hashable CanaryRun where
   hashWithSalt _salt CanaryRun' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` timeline
-      `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` artifactS3Location
       `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` artifactS3Location
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` timeline
 
 instance Prelude.NFData CanaryRun where
   rnf CanaryRun' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf timeline
-      `Prelude.seq` Prelude.rnf status
+    Prelude.rnf artifactS3Location
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf artifactS3Location
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf timeline

@@ -39,17 +39,17 @@ module Amazonka.Synthetics.DescribeCanaries
     newDescribeCanaries,
 
     -- * Request Lenses
-    describeCanaries_nextToken,
-    describeCanaries_names,
     describeCanaries_maxResults,
+    describeCanaries_names,
+    describeCanaries_nextToken,
 
     -- * Destructuring the Response
     DescribeCanariesResponse (..),
     newDescribeCanariesResponse,
 
     -- * Response Lenses
-    describeCanariesResponse_nextToken,
     describeCanariesResponse_canaries,
+    describeCanariesResponse_nextToken,
     describeCanariesResponse_httpStatus,
   )
 where
@@ -64,10 +64,10 @@ import Amazonka.Synthetics.Types
 
 -- | /See:/ 'newDescribeCanaries' smart constructor.
 data DescribeCanaries = DescribeCanaries'
-  { -- | A token that indicates that there is more data available. You can use
-    -- this token in a subsequent operation to retrieve the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | Specify this parameter to limit how many canaries are returned each time
+    -- you use the @DescribeCanaries@ operation. If you omit this parameter,
+    -- the default of 100 is used.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Use this parameter to return only canaries that match the names that you
     -- specify here. You can specify as many as five canary names.
     --
@@ -81,10 +81,10 @@ data DescribeCanaries = DescribeCanaries'
     -- allowed to view. For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Restricted.html Limiting a user to viewing specific canaries>.
     names :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Specify this parameter to limit how many canaries are returned each time
-    -- you use the @DescribeCanaries@ operation. If you omit this parameter,
-    -- the default of 100 is used.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    -- | A token that indicates that there is more data available. You can use
+    -- this token in a subsequent operation to retrieve the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -96,9 +96,9 @@ data DescribeCanaries = DescribeCanaries'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeCanaries_nextToken' - A token that indicates that there is more data available. You can use
--- this token in a subsequent operation to retrieve the next set of
--- results.
+-- 'maxResults', 'describeCanaries_maxResults' - Specify this parameter to limit how many canaries are returned each time
+-- you use the @DescribeCanaries@ operation. If you omit this parameter,
+-- the default of 100 is used.
 --
 -- 'names', 'describeCanaries_names' - Use this parameter to return only canaries that match the names that you
 -- specify here. You can specify as many as five canary names.
@@ -113,23 +113,23 @@ data DescribeCanaries = DescribeCanaries'
 -- allowed to view. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Restricted.html Limiting a user to viewing specific canaries>.
 --
--- 'maxResults', 'describeCanaries_maxResults' - Specify this parameter to limit how many canaries are returned each time
--- you use the @DescribeCanaries@ operation. If you omit this parameter,
--- the default of 100 is used.
+-- 'nextToken', 'describeCanaries_nextToken' - A token that indicates that there is more data available. You can use
+-- this token in a subsequent operation to retrieve the next set of
+-- results.
 newDescribeCanaries ::
   DescribeCanaries
 newDescribeCanaries =
   DescribeCanaries'
-    { nextToken = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
       names = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
 
--- | A token that indicates that there is more data available. You can use
--- this token in a subsequent operation to retrieve the next set of
--- results.
-describeCanaries_nextToken :: Lens.Lens' DescribeCanaries (Prelude.Maybe Prelude.Text)
-describeCanaries_nextToken = Lens.lens (\DescribeCanaries' {nextToken} -> nextToken) (\s@DescribeCanaries' {} a -> s {nextToken = a} :: DescribeCanaries)
+-- | Specify this parameter to limit how many canaries are returned each time
+-- you use the @DescribeCanaries@ operation. If you omit this parameter,
+-- the default of 100 is used.
+describeCanaries_maxResults :: Lens.Lens' DescribeCanaries (Prelude.Maybe Prelude.Natural)
+describeCanaries_maxResults = Lens.lens (\DescribeCanaries' {maxResults} -> maxResults) (\s@DescribeCanaries' {} a -> s {maxResults = a} :: DescribeCanaries)
 
 -- | Use this parameter to return only canaries that match the names that you
 -- specify here. You can specify as many as five canary names.
@@ -146,11 +146,11 @@ describeCanaries_nextToken = Lens.lens (\DescribeCanaries' {nextToken} -> nextTo
 describeCanaries_names :: Lens.Lens' DescribeCanaries (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 describeCanaries_names = Lens.lens (\DescribeCanaries' {names} -> names) (\s@DescribeCanaries' {} a -> s {names = a} :: DescribeCanaries) Prelude.. Lens.mapping Lens.coerced
 
--- | Specify this parameter to limit how many canaries are returned each time
--- you use the @DescribeCanaries@ operation. If you omit this parameter,
--- the default of 100 is used.
-describeCanaries_maxResults :: Lens.Lens' DescribeCanaries (Prelude.Maybe Prelude.Natural)
-describeCanaries_maxResults = Lens.lens (\DescribeCanaries' {maxResults} -> maxResults) (\s@DescribeCanaries' {} a -> s {maxResults = a} :: DescribeCanaries)
+-- | A token that indicates that there is more data available. You can use
+-- this token in a subsequent operation to retrieve the next set of
+-- results.
+describeCanaries_nextToken :: Lens.Lens' DescribeCanaries (Prelude.Maybe Prelude.Text)
+describeCanaries_nextToken = Lens.lens (\DescribeCanaries' {nextToken} -> nextToken) (\s@DescribeCanaries' {} a -> s {nextToken = a} :: DescribeCanaries)
 
 instance Core.AWSRequest DescribeCanaries where
   type
@@ -162,22 +162,22 @@ instance Core.AWSRequest DescribeCanaries where
     Response.receiveJSON
       ( \s h x ->
           DescribeCanariesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Canaries" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Canaries" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeCanaries where
   hashWithSalt _salt DescribeCanaries' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` names
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeCanaries where
   rnf DescribeCanaries' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf names
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeCanaries where
   toHeaders =
@@ -194,9 +194,9 @@ instance Data.ToJSON DescribeCanaries where
   toJSON DescribeCanaries' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("Names" Data..=) Prelude.<$> names,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -208,13 +208,13 @@ instance Data.ToQuery DescribeCanaries where
 
 -- | /See:/ 'newDescribeCanariesResponse' smart constructor.
 data DescribeCanariesResponse = DescribeCanariesResponse'
-  { -- | A token that indicates that there is more data available. You can use
+  { -- | Returns an array. Each item in the array contains the full information
+    -- about one canary.
+    canaries :: Prelude.Maybe [Canary],
+    -- | A token that indicates that there is more data available. You can use
     -- this token in a subsequent @DescribeCanaries@ operation to retrieve the
     -- next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Returns an array. Each item in the array contains the full information
-    -- about one canary.
-    canaries :: Prelude.Maybe [Canary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -228,12 +228,12 @@ data DescribeCanariesResponse = DescribeCanariesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'canaries', 'describeCanariesResponse_canaries' - Returns an array. Each item in the array contains the full information
+-- about one canary.
+--
 -- 'nextToken', 'describeCanariesResponse_nextToken' - A token that indicates that there is more data available. You can use
 -- this token in a subsequent @DescribeCanaries@ operation to retrieve the
 -- next set of results.
---
--- 'canaries', 'describeCanariesResponse_canaries' - Returns an array. Each item in the array contains the full information
--- about one canary.
 --
 -- 'httpStatus', 'describeCanariesResponse_httpStatus' - The response's http status code.
 newDescribeCanariesResponse ::
@@ -242,11 +242,16 @@ newDescribeCanariesResponse ::
   DescribeCanariesResponse
 newDescribeCanariesResponse pHttpStatus_ =
   DescribeCanariesResponse'
-    { nextToken =
+    { canaries =
         Prelude.Nothing,
-      canaries = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Returns an array. Each item in the array contains the full information
+-- about one canary.
+describeCanariesResponse_canaries :: Lens.Lens' DescribeCanariesResponse (Prelude.Maybe [Canary])
+describeCanariesResponse_canaries = Lens.lens (\DescribeCanariesResponse' {canaries} -> canaries) (\s@DescribeCanariesResponse' {} a -> s {canaries = a} :: DescribeCanariesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that indicates that there is more data available. You can use
 -- this token in a subsequent @DescribeCanaries@ operation to retrieve the
@@ -254,17 +259,12 @@ newDescribeCanariesResponse pHttpStatus_ =
 describeCanariesResponse_nextToken :: Lens.Lens' DescribeCanariesResponse (Prelude.Maybe Prelude.Text)
 describeCanariesResponse_nextToken = Lens.lens (\DescribeCanariesResponse' {nextToken} -> nextToken) (\s@DescribeCanariesResponse' {} a -> s {nextToken = a} :: DescribeCanariesResponse)
 
--- | Returns an array. Each item in the array contains the full information
--- about one canary.
-describeCanariesResponse_canaries :: Lens.Lens' DescribeCanariesResponse (Prelude.Maybe [Canary])
-describeCanariesResponse_canaries = Lens.lens (\DescribeCanariesResponse' {canaries} -> canaries) (\s@DescribeCanariesResponse' {} a -> s {canaries = a} :: DescribeCanariesResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 describeCanariesResponse_httpStatus :: Lens.Lens' DescribeCanariesResponse Prelude.Int
 describeCanariesResponse_httpStatus = Lens.lens (\DescribeCanariesResponse' {httpStatus} -> httpStatus) (\s@DescribeCanariesResponse' {} a -> s {httpStatus = a} :: DescribeCanariesResponse)
 
 instance Prelude.NFData DescribeCanariesResponse where
   rnf DescribeCanariesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf canaries
+    Prelude.rnf canaries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

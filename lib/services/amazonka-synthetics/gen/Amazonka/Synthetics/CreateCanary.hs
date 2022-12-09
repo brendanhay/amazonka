@@ -47,12 +47,12 @@ module Amazonka.Synthetics.CreateCanary
     newCreateCanary,
 
     -- * Request Lenses
-    createCanary_tags,
-    createCanary_vpcConfig,
     createCanary_artifactConfig,
     createCanary_failureRetentionPeriodInDays,
-    createCanary_successRetentionPeriodInDays,
     createCanary_runConfig,
+    createCanary_successRetentionPeriodInDays,
+    createCanary_tags,
+    createCanary_vpcConfig,
     createCanary_name,
     createCanary_code,
     createCanary_artifactS3Location,
@@ -80,7 +80,25 @@ import Amazonka.Synthetics.Types
 
 -- | /See:/ 'newCreateCanary' smart constructor.
 data CreateCanary = CreateCanary'
-  { -- | A list of key-value pairs to associate with the canary. You can
+  { -- | A structure that contains the configuration for canary artifacts,
+    -- including the encryption-at-rest settings for artifacts that the canary
+    -- uploads to Amazon S3.
+    artifactConfig :: Prelude.Maybe ArtifactConfigInput,
+    -- | The number of days to retain data about failed runs of this canary. If
+    -- you omit this field, the default of 31 days is used. The valid range is
+    -- 1 to 455 days.
+    failureRetentionPeriodInDays :: Prelude.Maybe Prelude.Natural,
+    -- | A structure that contains the configuration for individual canary runs,
+    -- such as timeout value and environment variables.
+    --
+    -- The environment variables keys and values are not encrypted. Do not
+    -- store sensitive information in this field.
+    runConfig :: Prelude.Maybe CanaryRunConfigInput,
+    -- | The number of days to retain data about successful runs of this canary.
+    -- If you omit this field, the default of 31 days is used. The valid range
+    -- is 1 to 455 days.
+    successRetentionPeriodInDays :: Prelude.Maybe Prelude.Natural,
+    -- | A list of key-value pairs to associate with the canary. You can
     -- associate as many as 50 tags with a canary.
     --
     -- Tags can help you organize and categorize your resources. You can also
@@ -92,24 +110,6 @@ data CreateCanary = CreateCanary'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_VPC.html Running a Canary in a VPC>.
     vpcConfig :: Prelude.Maybe VpcConfigInput,
-    -- | A structure that contains the configuration for canary artifacts,
-    -- including the encryption-at-rest settings for artifacts that the canary
-    -- uploads to Amazon S3.
-    artifactConfig :: Prelude.Maybe ArtifactConfigInput,
-    -- | The number of days to retain data about failed runs of this canary. If
-    -- you omit this field, the default of 31 days is used. The valid range is
-    -- 1 to 455 days.
-    failureRetentionPeriodInDays :: Prelude.Maybe Prelude.Natural,
-    -- | The number of days to retain data about successful runs of this canary.
-    -- If you omit this field, the default of 31 days is used. The valid range
-    -- is 1 to 455 days.
-    successRetentionPeriodInDays :: Prelude.Maybe Prelude.Natural,
-    -- | A structure that contains the configuration for individual canary runs,
-    -- such as timeout value and environment variables.
-    --
-    -- The environment variables keys and values are not encrypted. Do not
-    -- store sensitive information in this field.
-    runConfig :: Prelude.Maybe CanaryRunConfigInput,
     -- | The name for this canary. Be sure to give it a descriptive name that
     -- distinguishes it from other canaries in your account.
     --
@@ -162,6 +162,24 @@ data CreateCanary = CreateCanary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'artifactConfig', 'createCanary_artifactConfig' - A structure that contains the configuration for canary artifacts,
+-- including the encryption-at-rest settings for artifacts that the canary
+-- uploads to Amazon S3.
+--
+-- 'failureRetentionPeriodInDays', 'createCanary_failureRetentionPeriodInDays' - The number of days to retain data about failed runs of this canary. If
+-- you omit this field, the default of 31 days is used. The valid range is
+-- 1 to 455 days.
+--
+-- 'runConfig', 'createCanary_runConfig' - A structure that contains the configuration for individual canary runs,
+-- such as timeout value and environment variables.
+--
+-- The environment variables keys and values are not encrypted. Do not
+-- store sensitive information in this field.
+--
+-- 'successRetentionPeriodInDays', 'createCanary_successRetentionPeriodInDays' - The number of days to retain data about successful runs of this canary.
+-- If you omit this field, the default of 31 days is used. The valid range
+-- is 1 to 455 days.
+--
 -- 'tags', 'createCanary_tags' - A list of key-value pairs to associate with the canary. You can
 -- associate as many as 50 tags with a canary.
 --
@@ -173,24 +191,6 @@ data CreateCanary = CreateCanary'
 -- information about the subnet and security groups of the VPC endpoint.
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_VPC.html Running a Canary in a VPC>.
---
--- 'artifactConfig', 'createCanary_artifactConfig' - A structure that contains the configuration for canary artifacts,
--- including the encryption-at-rest settings for artifacts that the canary
--- uploads to Amazon S3.
---
--- 'failureRetentionPeriodInDays', 'createCanary_failureRetentionPeriodInDays' - The number of days to retain data about failed runs of this canary. If
--- you omit this field, the default of 31 days is used. The valid range is
--- 1 to 455 days.
---
--- 'successRetentionPeriodInDays', 'createCanary_successRetentionPeriodInDays' - The number of days to retain data about successful runs of this canary.
--- If you omit this field, the default of 31 days is used. The valid range
--- is 1 to 455 days.
---
--- 'runConfig', 'createCanary_runConfig' - A structure that contains the configuration for individual canary runs,
--- such as timeout value and environment variables.
---
--- The environment variables keys and values are not encrypted. Do not
--- store sensitive information in this field.
 --
 -- 'name', 'createCanary_name' - The name for this canary. Be sure to give it a descriptive name that
 -- distinguishes it from other canaries in your account.
@@ -254,12 +254,12 @@ newCreateCanary
   pSchedule_
   pRuntimeVersion_ =
     CreateCanary'
-      { tags = Prelude.Nothing,
-        vpcConfig = Prelude.Nothing,
-        artifactConfig = Prelude.Nothing,
+      { artifactConfig = Prelude.Nothing,
         failureRetentionPeriodInDays = Prelude.Nothing,
-        successRetentionPeriodInDays = Prelude.Nothing,
         runConfig = Prelude.Nothing,
+        successRetentionPeriodInDays = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        vpcConfig = Prelude.Nothing,
         name = pName_,
         code = pCode_,
         artifactS3Location = pArtifactS3Location_,
@@ -267,6 +267,32 @@ newCreateCanary
         schedule = pSchedule_,
         runtimeVersion = pRuntimeVersion_
       }
+
+-- | A structure that contains the configuration for canary artifacts,
+-- including the encryption-at-rest settings for artifacts that the canary
+-- uploads to Amazon S3.
+createCanary_artifactConfig :: Lens.Lens' CreateCanary (Prelude.Maybe ArtifactConfigInput)
+createCanary_artifactConfig = Lens.lens (\CreateCanary' {artifactConfig} -> artifactConfig) (\s@CreateCanary' {} a -> s {artifactConfig = a} :: CreateCanary)
+
+-- | The number of days to retain data about failed runs of this canary. If
+-- you omit this field, the default of 31 days is used. The valid range is
+-- 1 to 455 days.
+createCanary_failureRetentionPeriodInDays :: Lens.Lens' CreateCanary (Prelude.Maybe Prelude.Natural)
+createCanary_failureRetentionPeriodInDays = Lens.lens (\CreateCanary' {failureRetentionPeriodInDays} -> failureRetentionPeriodInDays) (\s@CreateCanary' {} a -> s {failureRetentionPeriodInDays = a} :: CreateCanary)
+
+-- | A structure that contains the configuration for individual canary runs,
+-- such as timeout value and environment variables.
+--
+-- The environment variables keys and values are not encrypted. Do not
+-- store sensitive information in this field.
+createCanary_runConfig :: Lens.Lens' CreateCanary (Prelude.Maybe CanaryRunConfigInput)
+createCanary_runConfig = Lens.lens (\CreateCanary' {runConfig} -> runConfig) (\s@CreateCanary' {} a -> s {runConfig = a} :: CreateCanary)
+
+-- | The number of days to retain data about successful runs of this canary.
+-- If you omit this field, the default of 31 days is used. The valid range
+-- is 1 to 455 days.
+createCanary_successRetentionPeriodInDays :: Lens.Lens' CreateCanary (Prelude.Maybe Prelude.Natural)
+createCanary_successRetentionPeriodInDays = Lens.lens (\CreateCanary' {successRetentionPeriodInDays} -> successRetentionPeriodInDays) (\s@CreateCanary' {} a -> s {successRetentionPeriodInDays = a} :: CreateCanary)
 
 -- | A list of key-value pairs to associate with the canary. You can
 -- associate as many as 50 tags with a canary.
@@ -283,32 +309,6 @@ createCanary_tags = Lens.lens (\CreateCanary' {tags} -> tags) (\s@CreateCanary' 
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_VPC.html Running a Canary in a VPC>.
 createCanary_vpcConfig :: Lens.Lens' CreateCanary (Prelude.Maybe VpcConfigInput)
 createCanary_vpcConfig = Lens.lens (\CreateCanary' {vpcConfig} -> vpcConfig) (\s@CreateCanary' {} a -> s {vpcConfig = a} :: CreateCanary)
-
--- | A structure that contains the configuration for canary artifacts,
--- including the encryption-at-rest settings for artifacts that the canary
--- uploads to Amazon S3.
-createCanary_artifactConfig :: Lens.Lens' CreateCanary (Prelude.Maybe ArtifactConfigInput)
-createCanary_artifactConfig = Lens.lens (\CreateCanary' {artifactConfig} -> artifactConfig) (\s@CreateCanary' {} a -> s {artifactConfig = a} :: CreateCanary)
-
--- | The number of days to retain data about failed runs of this canary. If
--- you omit this field, the default of 31 days is used. The valid range is
--- 1 to 455 days.
-createCanary_failureRetentionPeriodInDays :: Lens.Lens' CreateCanary (Prelude.Maybe Prelude.Natural)
-createCanary_failureRetentionPeriodInDays = Lens.lens (\CreateCanary' {failureRetentionPeriodInDays} -> failureRetentionPeriodInDays) (\s@CreateCanary' {} a -> s {failureRetentionPeriodInDays = a} :: CreateCanary)
-
--- | The number of days to retain data about successful runs of this canary.
--- If you omit this field, the default of 31 days is used. The valid range
--- is 1 to 455 days.
-createCanary_successRetentionPeriodInDays :: Lens.Lens' CreateCanary (Prelude.Maybe Prelude.Natural)
-createCanary_successRetentionPeriodInDays = Lens.lens (\CreateCanary' {successRetentionPeriodInDays} -> successRetentionPeriodInDays) (\s@CreateCanary' {} a -> s {successRetentionPeriodInDays = a} :: CreateCanary)
-
--- | A structure that contains the configuration for individual canary runs,
--- such as timeout value and environment variables.
---
--- The environment variables keys and values are not encrypted. Do not
--- store sensitive information in this field.
-createCanary_runConfig :: Lens.Lens' CreateCanary (Prelude.Maybe CanaryRunConfigInput)
-createCanary_runConfig = Lens.lens (\CreateCanary' {runConfig} -> runConfig) (\s@CreateCanary' {} a -> s {runConfig = a} :: CreateCanary)
 
 -- | The name for this canary. Be sure to give it a descriptive name that
 -- distinguishes it from other canaries in your account.
@@ -377,12 +377,12 @@ instance Core.AWSRequest CreateCanary where
 
 instance Prelude.Hashable CreateCanary where
   hashWithSalt _salt CreateCanary' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` vpcConfig
-      `Prelude.hashWithSalt` artifactConfig
+    _salt `Prelude.hashWithSalt` artifactConfig
       `Prelude.hashWithSalt` failureRetentionPeriodInDays
-      `Prelude.hashWithSalt` successRetentionPeriodInDays
       `Prelude.hashWithSalt` runConfig
+      `Prelude.hashWithSalt` successRetentionPeriodInDays
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` vpcConfig
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` artifactS3Location
@@ -392,12 +392,12 @@ instance Prelude.Hashable CreateCanary where
 
 instance Prelude.NFData CreateCanary where
   rnf CreateCanary' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf artifactConfig
+    Prelude.rnf artifactConfig
       `Prelude.seq` Prelude.rnf failureRetentionPeriodInDays
-      `Prelude.seq` Prelude.rnf successRetentionPeriodInDays
       `Prelude.seq` Prelude.rnf runConfig
+      `Prelude.seq` Prelude.rnf successRetentionPeriodInDays
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vpcConfig
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf code
       `Prelude.seq` Prelude.rnf artifactS3Location
@@ -420,15 +420,15 @@ instance Data.ToJSON CreateCanary where
   toJSON CreateCanary' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("VpcConfig" Data..=) Prelude.<$> vpcConfig,
-            ("ArtifactConfig" Data..=)
+          [ ("ArtifactConfig" Data..=)
               Prelude.<$> artifactConfig,
             ("FailureRetentionPeriodInDays" Data..=)
               Prelude.<$> failureRetentionPeriodInDays,
+            ("RunConfig" Data..=) Prelude.<$> runConfig,
             ("SuccessRetentionPeriodInDays" Data..=)
               Prelude.<$> successRetentionPeriodInDays,
-            ("RunConfig" Data..=) Prelude.<$> runConfig,
+            ("Tags" Data..=) Prelude.<$> tags,
+            ("VpcConfig" Data..=) Prelude.<$> vpcConfig,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Code" Data..= code),
             Prelude.Just

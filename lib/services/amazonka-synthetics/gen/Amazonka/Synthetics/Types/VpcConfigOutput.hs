@@ -33,10 +33,10 @@ import qualified Amazonka.Prelude as Prelude
 data VpcConfigOutput = VpcConfigOutput'
   { -- | The IDs of the security groups for this canary.
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The IDs of the VPC where this canary is to run.
-    vpcId :: Prelude.Maybe Prelude.Text,
     -- | The IDs of the subnets where this canary is to run.
-    subnetIds :: Prelude.Maybe [Prelude.Text]
+    subnetIds :: Prelude.Maybe [Prelude.Text],
+    -- | The IDs of the VPC where this canary is to run.
+    vpcId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,30 +50,30 @@ data VpcConfigOutput = VpcConfigOutput'
 --
 -- 'securityGroupIds', 'vpcConfigOutput_securityGroupIds' - The IDs of the security groups for this canary.
 --
--- 'vpcId', 'vpcConfigOutput_vpcId' - The IDs of the VPC where this canary is to run.
---
 -- 'subnetIds', 'vpcConfigOutput_subnetIds' - The IDs of the subnets where this canary is to run.
+--
+-- 'vpcId', 'vpcConfigOutput_vpcId' - The IDs of the VPC where this canary is to run.
 newVpcConfigOutput ::
   VpcConfigOutput
 newVpcConfigOutput =
   VpcConfigOutput'
     { securityGroupIds =
         Prelude.Nothing,
-      vpcId = Prelude.Nothing,
-      subnetIds = Prelude.Nothing
+      subnetIds = Prelude.Nothing,
+      vpcId = Prelude.Nothing
     }
 
 -- | The IDs of the security groups for this canary.
 vpcConfigOutput_securityGroupIds :: Lens.Lens' VpcConfigOutput (Prelude.Maybe [Prelude.Text])
 vpcConfigOutput_securityGroupIds = Lens.lens (\VpcConfigOutput' {securityGroupIds} -> securityGroupIds) (\s@VpcConfigOutput' {} a -> s {securityGroupIds = a} :: VpcConfigOutput) Prelude.. Lens.mapping Lens.coerced
 
--- | The IDs of the VPC where this canary is to run.
-vpcConfigOutput_vpcId :: Lens.Lens' VpcConfigOutput (Prelude.Maybe Prelude.Text)
-vpcConfigOutput_vpcId = Lens.lens (\VpcConfigOutput' {vpcId} -> vpcId) (\s@VpcConfigOutput' {} a -> s {vpcId = a} :: VpcConfigOutput)
-
 -- | The IDs of the subnets where this canary is to run.
 vpcConfigOutput_subnetIds :: Lens.Lens' VpcConfigOutput (Prelude.Maybe [Prelude.Text])
 vpcConfigOutput_subnetIds = Lens.lens (\VpcConfigOutput' {subnetIds} -> subnetIds) (\s@VpcConfigOutput' {} a -> s {subnetIds = a} :: VpcConfigOutput) Prelude.. Lens.mapping Lens.coerced
+
+-- | The IDs of the VPC where this canary is to run.
+vpcConfigOutput_vpcId :: Lens.Lens' VpcConfigOutput (Prelude.Maybe Prelude.Text)
+vpcConfigOutput_vpcId = Lens.lens (\VpcConfigOutput' {vpcId} -> vpcId) (\s@VpcConfigOutput' {} a -> s {vpcId = a} :: VpcConfigOutput)
 
 instance Data.FromJSON VpcConfigOutput where
   parseJSON =
@@ -84,18 +84,18 @@ instance Data.FromJSON VpcConfigOutput where
             Prelude.<$> ( x Data..:? "SecurityGroupIds"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "VpcId")
             Prelude.<*> (x Data..:? "SubnetIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "VpcId")
       )
 
 instance Prelude.Hashable VpcConfigOutput where
   hashWithSalt _salt VpcConfigOutput' {..} =
     _salt `Prelude.hashWithSalt` securityGroupIds
-      `Prelude.hashWithSalt` vpcId
       `Prelude.hashWithSalt` subnetIds
+      `Prelude.hashWithSalt` vpcId
 
 instance Prelude.NFData VpcConfigOutput where
   rnf VpcConfigOutput' {..} =
     Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf vpcId
       `Prelude.seq` Prelude.rnf subnetIds
+      `Prelude.seq` Prelude.rnf vpcId

@@ -28,8 +28,8 @@ module Amazonka.Synthetics.ListAssociatedGroups
     newListAssociatedGroups,
 
     -- * Request Lenses
-    listAssociatedGroups_nextToken,
     listAssociatedGroups_maxResults,
+    listAssociatedGroups_nextToken,
     listAssociatedGroups_resourceArn,
 
     -- * Destructuring the Response
@@ -37,8 +37,8 @@ module Amazonka.Synthetics.ListAssociatedGroups
     newListAssociatedGroupsResponse,
 
     -- * Response Lenses
-    listAssociatedGroupsResponse_nextToken,
     listAssociatedGroupsResponse_groups,
+    listAssociatedGroupsResponse_nextToken,
     listAssociatedGroupsResponse_httpStatus,
   )
 where
@@ -53,14 +53,14 @@ import Amazonka.Synthetics.Types
 
 -- | /See:/ 'newListAssociatedGroups' smart constructor.
 data ListAssociatedGroups = ListAssociatedGroups'
-  { -- | A token that indicates that there is more data available. You can use
-    -- this token in a subsequent operation to retrieve the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specify this parameter to limit how many groups are returned each time
+  { -- | Specify this parameter to limit how many groups are returned each time
     -- you use the @ListAssociatedGroups@ operation. If you omit this
     -- parameter, the default of 20 is used.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token that indicates that there is more data available. You can use
+    -- this token in a subsequent operation to retrieve the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the canary that you want to view groups for.
     resourceArn :: Prelude.Text
   }
@@ -74,13 +74,13 @@ data ListAssociatedGroups = ListAssociatedGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAssociatedGroups_nextToken' - A token that indicates that there is more data available. You can use
--- this token in a subsequent operation to retrieve the next set of
--- results.
---
 -- 'maxResults', 'listAssociatedGroups_maxResults' - Specify this parameter to limit how many groups are returned each time
 -- you use the @ListAssociatedGroups@ operation. If you omit this
 -- parameter, the default of 20 is used.
+--
+-- 'nextToken', 'listAssociatedGroups_nextToken' - A token that indicates that there is more data available. You can use
+-- this token in a subsequent operation to retrieve the next set of
+-- results.
 --
 -- 'resourceArn', 'listAssociatedGroups_resourceArn' - The ARN of the canary that you want to view groups for.
 newListAssociatedGroups ::
@@ -89,22 +89,22 @@ newListAssociatedGroups ::
   ListAssociatedGroups
 newListAssociatedGroups pResourceArn_ =
   ListAssociatedGroups'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       resourceArn = pResourceArn_
     }
-
--- | A token that indicates that there is more data available. You can use
--- this token in a subsequent operation to retrieve the next set of
--- results.
-listAssociatedGroups_nextToken :: Lens.Lens' ListAssociatedGroups (Prelude.Maybe Prelude.Text)
-listAssociatedGroups_nextToken = Lens.lens (\ListAssociatedGroups' {nextToken} -> nextToken) (\s@ListAssociatedGroups' {} a -> s {nextToken = a} :: ListAssociatedGroups)
 
 -- | Specify this parameter to limit how many groups are returned each time
 -- you use the @ListAssociatedGroups@ operation. If you omit this
 -- parameter, the default of 20 is used.
 listAssociatedGroups_maxResults :: Lens.Lens' ListAssociatedGroups (Prelude.Maybe Prelude.Natural)
 listAssociatedGroups_maxResults = Lens.lens (\ListAssociatedGroups' {maxResults} -> maxResults) (\s@ListAssociatedGroups' {} a -> s {maxResults = a} :: ListAssociatedGroups)
+
+-- | A token that indicates that there is more data available. You can use
+-- this token in a subsequent operation to retrieve the next set of
+-- results.
+listAssociatedGroups_nextToken :: Lens.Lens' ListAssociatedGroups (Prelude.Maybe Prelude.Text)
+listAssociatedGroups_nextToken = Lens.lens (\ListAssociatedGroups' {nextToken} -> nextToken) (\s@ListAssociatedGroups' {} a -> s {nextToken = a} :: ListAssociatedGroups)
 
 -- | The ARN of the canary that you want to view groups for.
 listAssociatedGroups_resourceArn :: Lens.Lens' ListAssociatedGroups Prelude.Text
@@ -120,21 +120,21 @@ instance Core.AWSRequest ListAssociatedGroups where
     Response.receiveJSON
       ( \s h x ->
           ListAssociatedGroupsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Groups" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Groups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListAssociatedGroups where
   hashWithSalt _salt ListAssociatedGroups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData ListAssociatedGroups where
   rnf ListAssociatedGroups' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resourceArn
 
 instance Data.ToHeaders ListAssociatedGroups where
@@ -152,8 +152,8 @@ instance Data.ToJSON ListAssociatedGroups where
   toJSON ListAssociatedGroups' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -167,13 +167,13 @@ instance Data.ToQuery ListAssociatedGroups where
 
 -- | /See:/ 'newListAssociatedGroupsResponse' smart constructor.
 data ListAssociatedGroupsResponse = ListAssociatedGroupsResponse'
-  { -- | A token that indicates that there is more data available. You can use
+  { -- | An array of structures that contain information about the groups that
+    -- this canary is associated with.
+    groups :: Prelude.Maybe [GroupSummary],
+    -- | A token that indicates that there is more data available. You can use
     -- this token in a subsequent @ListAssociatedGroups@ operation to retrieve
     -- the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of structures that contain information about the groups that
-    -- this canary is associated with.
-    groups :: Prelude.Maybe [GroupSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -187,12 +187,12 @@ data ListAssociatedGroupsResponse = ListAssociatedGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'groups', 'listAssociatedGroupsResponse_groups' - An array of structures that contain information about the groups that
+-- this canary is associated with.
+--
 -- 'nextToken', 'listAssociatedGroupsResponse_nextToken' - A token that indicates that there is more data available. You can use
 -- this token in a subsequent @ListAssociatedGroups@ operation to retrieve
 -- the next set of results.
---
--- 'groups', 'listAssociatedGroupsResponse_groups' - An array of structures that contain information about the groups that
--- this canary is associated with.
 --
 -- 'httpStatus', 'listAssociatedGroupsResponse_httpStatus' - The response's http status code.
 newListAssociatedGroupsResponse ::
@@ -201,11 +201,16 @@ newListAssociatedGroupsResponse ::
   ListAssociatedGroupsResponse
 newListAssociatedGroupsResponse pHttpStatus_ =
   ListAssociatedGroupsResponse'
-    { nextToken =
+    { groups =
         Prelude.Nothing,
-      groups = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of structures that contain information about the groups that
+-- this canary is associated with.
+listAssociatedGroupsResponse_groups :: Lens.Lens' ListAssociatedGroupsResponse (Prelude.Maybe [GroupSummary])
+listAssociatedGroupsResponse_groups = Lens.lens (\ListAssociatedGroupsResponse' {groups} -> groups) (\s@ListAssociatedGroupsResponse' {} a -> s {groups = a} :: ListAssociatedGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that indicates that there is more data available. You can use
 -- this token in a subsequent @ListAssociatedGroups@ operation to retrieve
@@ -213,17 +218,12 @@ newListAssociatedGroupsResponse pHttpStatus_ =
 listAssociatedGroupsResponse_nextToken :: Lens.Lens' ListAssociatedGroupsResponse (Prelude.Maybe Prelude.Text)
 listAssociatedGroupsResponse_nextToken = Lens.lens (\ListAssociatedGroupsResponse' {nextToken} -> nextToken) (\s@ListAssociatedGroupsResponse' {} a -> s {nextToken = a} :: ListAssociatedGroupsResponse)
 
--- | An array of structures that contain information about the groups that
--- this canary is associated with.
-listAssociatedGroupsResponse_groups :: Lens.Lens' ListAssociatedGroupsResponse (Prelude.Maybe [GroupSummary])
-listAssociatedGroupsResponse_groups = Lens.lens (\ListAssociatedGroupsResponse' {groups} -> groups) (\s@ListAssociatedGroupsResponse' {} a -> s {groups = a} :: ListAssociatedGroupsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listAssociatedGroupsResponse_httpStatus :: Lens.Lens' ListAssociatedGroupsResponse Prelude.Int
 listAssociatedGroupsResponse_httpStatus = Lens.lens (\ListAssociatedGroupsResponse' {httpStatus} -> httpStatus) (\s@ListAssociatedGroupsResponse' {} a -> s {httpStatus = a} :: ListAssociatedGroupsResponse)
 
 instance Prelude.NFData ListAssociatedGroupsResponse where
   rnf ListAssociatedGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf groups
+    Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

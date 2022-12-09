@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDevicePosition' smart constructor.
 data DevicePosition = DevicePosition'
-  { -- | The device whose position you retrieved.
-    deviceId :: Prelude.Maybe Prelude.Text,
-    -- | The accuracy of the device position.
+  { -- | The accuracy of the device position.
     accuracy :: Prelude.Maybe PositionalAccuracy,
+    -- | The device whose position you retrieved.
+    deviceId :: Prelude.Maybe Prelude.Text,
     -- | The properties associated with the position.
     positionProperties :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The last known device position.
@@ -56,9 +56,9 @@ data DevicePosition = DevicePosition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deviceId', 'devicePosition_deviceId' - The device whose position you retrieved.
---
 -- 'accuracy', 'devicePosition_accuracy' - The accuracy of the device position.
+--
+-- 'deviceId', 'devicePosition_deviceId' - The device whose position you retrieved.
 --
 -- 'positionProperties', 'devicePosition_positionProperties' - The properties associated with the position.
 --
@@ -84,8 +84,8 @@ newDevicePosition
   pReceivedTime_
   pSampleTime_ =
     DevicePosition'
-      { deviceId = Prelude.Nothing,
-        accuracy = Prelude.Nothing,
+      { accuracy = Prelude.Nothing,
+        deviceId = Prelude.Nothing,
         positionProperties = Prelude.Nothing,
         position =
           Data._Sensitive Prelude.. Lens.coerced
@@ -94,13 +94,13 @@ newDevicePosition
         sampleTime = Data._Time Lens.# pSampleTime_
       }
 
--- | The device whose position you retrieved.
-devicePosition_deviceId :: Lens.Lens' DevicePosition (Prelude.Maybe Prelude.Text)
-devicePosition_deviceId = Lens.lens (\DevicePosition' {deviceId} -> deviceId) (\s@DevicePosition' {} a -> s {deviceId = a} :: DevicePosition)
-
 -- | The accuracy of the device position.
 devicePosition_accuracy :: Lens.Lens' DevicePosition (Prelude.Maybe PositionalAccuracy)
 devicePosition_accuracy = Lens.lens (\DevicePosition' {accuracy} -> accuracy) (\s@DevicePosition' {} a -> s {accuracy = a} :: DevicePosition)
+
+-- | The device whose position you retrieved.
+devicePosition_deviceId :: Lens.Lens' DevicePosition (Prelude.Maybe Prelude.Text)
+devicePosition_deviceId = Lens.lens (\DevicePosition' {deviceId} -> deviceId) (\s@DevicePosition' {} a -> s {deviceId = a} :: DevicePosition)
 
 -- | The properties associated with the position.
 devicePosition_positionProperties :: Lens.Lens' DevicePosition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -128,8 +128,8 @@ instance Data.FromJSON DevicePosition where
       "DevicePosition"
       ( \x ->
           DevicePosition'
-            Prelude.<$> (x Data..:? "DeviceId")
-            Prelude.<*> (x Data..:? "Accuracy")
+            Prelude.<$> (x Data..:? "Accuracy")
+            Prelude.<*> (x Data..:? "DeviceId")
             Prelude.<*> ( x Data..:? "PositionProperties"
                             Data..!= Prelude.mempty
                         )
@@ -140,8 +140,8 @@ instance Data.FromJSON DevicePosition where
 
 instance Prelude.Hashable DevicePosition where
   hashWithSalt _salt DevicePosition' {..} =
-    _salt `Prelude.hashWithSalt` deviceId
-      `Prelude.hashWithSalt` accuracy
+    _salt `Prelude.hashWithSalt` accuracy
+      `Prelude.hashWithSalt` deviceId
       `Prelude.hashWithSalt` positionProperties
       `Prelude.hashWithSalt` position
       `Prelude.hashWithSalt` receivedTime
@@ -149,8 +149,8 @@ instance Prelude.Hashable DevicePosition where
 
 instance Prelude.NFData DevicePosition where
   rnf DevicePosition' {..} =
-    Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf accuracy
+    Prelude.rnf accuracy
+      `Prelude.seq` Prelude.rnf deviceId
       `Prelude.seq` Prelude.rnf positionProperties
       `Prelude.seq` Prelude.rnf position
       `Prelude.seq` Prelude.rnf receivedTime

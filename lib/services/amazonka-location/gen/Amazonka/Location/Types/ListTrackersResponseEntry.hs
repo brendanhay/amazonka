@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newListTrackersResponseEntry' smart constructor.
 data ListTrackersResponseEntry = ListTrackersResponseEntry'
-  { -- | No longer used. Always returns an empty string.
-    pricingPlanDataSource :: Prelude.Maybe Prelude.Text,
-    -- | Always returns @RequestBasedUsage@.
+  { -- | Always returns @RequestBasedUsage@.
     pricingPlan :: Prelude.Maybe PricingPlan,
+    -- | No longer used. Always returns an empty string.
+    pricingPlanDataSource :: Prelude.Maybe Prelude.Text,
     -- | The timestamp for when the tracker resource was created in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
@@ -56,9 +56,9 @@ data ListTrackersResponseEntry = ListTrackersResponseEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pricingPlanDataSource', 'listTrackersResponseEntry_pricingPlanDataSource' - No longer used. Always returns an empty string.
---
 -- 'pricingPlan', 'listTrackersResponseEntry_pricingPlan' - Always returns @RequestBasedUsage@.
+--
+-- 'pricingPlanDataSource', 'listTrackersResponseEntry_pricingPlanDataSource' - No longer used. Always returns an empty string.
 --
 -- 'createTime', 'listTrackersResponseEntry_createTime' - The timestamp for when the tracker resource was created in
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
@@ -87,22 +87,22 @@ newListTrackersResponseEntry
   pTrackerName_
   pUpdateTime_ =
     ListTrackersResponseEntry'
-      { pricingPlanDataSource =
+      { pricingPlan =
           Prelude.Nothing,
-        pricingPlan = Prelude.Nothing,
+        pricingPlanDataSource = Prelude.Nothing,
         createTime = Data._Time Lens.# pCreateTime_,
         description = pDescription_,
         trackerName = pTrackerName_,
         updateTime = Data._Time Lens.# pUpdateTime_
       }
 
--- | No longer used. Always returns an empty string.
-listTrackersResponseEntry_pricingPlanDataSource :: Lens.Lens' ListTrackersResponseEntry (Prelude.Maybe Prelude.Text)
-listTrackersResponseEntry_pricingPlanDataSource = Lens.lens (\ListTrackersResponseEntry' {pricingPlanDataSource} -> pricingPlanDataSource) (\s@ListTrackersResponseEntry' {} a -> s {pricingPlanDataSource = a} :: ListTrackersResponseEntry)
-
 -- | Always returns @RequestBasedUsage@.
 listTrackersResponseEntry_pricingPlan :: Lens.Lens' ListTrackersResponseEntry (Prelude.Maybe PricingPlan)
 listTrackersResponseEntry_pricingPlan = Lens.lens (\ListTrackersResponseEntry' {pricingPlan} -> pricingPlan) (\s@ListTrackersResponseEntry' {} a -> s {pricingPlan = a} :: ListTrackersResponseEntry)
+
+-- | No longer used. Always returns an empty string.
+listTrackersResponseEntry_pricingPlanDataSource :: Lens.Lens' ListTrackersResponseEntry (Prelude.Maybe Prelude.Text)
+listTrackersResponseEntry_pricingPlanDataSource = Lens.lens (\ListTrackersResponseEntry' {pricingPlanDataSource} -> pricingPlanDataSource) (\s@ListTrackersResponseEntry' {} a -> s {pricingPlanDataSource = a} :: ListTrackersResponseEntry)
 
 -- | The timestamp for when the tracker resource was created in
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
@@ -130,8 +130,8 @@ instance Data.FromJSON ListTrackersResponseEntry where
       "ListTrackersResponseEntry"
       ( \x ->
           ListTrackersResponseEntry'
-            Prelude.<$> (x Data..:? "PricingPlanDataSource")
-            Prelude.<*> (x Data..:? "PricingPlan")
+            Prelude.<$> (x Data..:? "PricingPlan")
+            Prelude.<*> (x Data..:? "PricingPlanDataSource")
             Prelude.<*> (x Data..: "CreateTime")
             Prelude.<*> (x Data..: "Description")
             Prelude.<*> (x Data..: "TrackerName")
@@ -140,8 +140,8 @@ instance Data.FromJSON ListTrackersResponseEntry where
 
 instance Prelude.Hashable ListTrackersResponseEntry where
   hashWithSalt _salt ListTrackersResponseEntry' {..} =
-    _salt `Prelude.hashWithSalt` pricingPlanDataSource
-      `Prelude.hashWithSalt` pricingPlan
+    _salt `Prelude.hashWithSalt` pricingPlan
+      `Prelude.hashWithSalt` pricingPlanDataSource
       `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` trackerName
@@ -149,8 +149,8 @@ instance Prelude.Hashable ListTrackersResponseEntry where
 
 instance Prelude.NFData ListTrackersResponseEntry where
   rnf ListTrackersResponseEntry' {..} =
-    Prelude.rnf pricingPlanDataSource
-      `Prelude.seq` Prelude.rnf pricingPlan
+    Prelude.rnf pricingPlan
+      `Prelude.seq` Prelude.rnf pricingPlanDataSource
       `Prelude.seq` Prelude.rnf createTime
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf trackerName

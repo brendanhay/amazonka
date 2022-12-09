@@ -37,9 +37,9 @@ module Amazonka.Location.CreateRouteCalculator
     newCreateRouteCalculator,
 
     -- * Request Lenses
-    createRouteCalculator_tags,
     createRouteCalculator_description,
     createRouteCalculator_pricingPlan,
+    createRouteCalculator_tags,
     createRouteCalculator_calculatorName,
     createRouteCalculator_dataSource,
 
@@ -65,7 +65,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateRouteCalculator' smart constructor.
 data CreateRouteCalculator = CreateRouteCalculator'
-  { -- | Applies one or more tags to the route calculator resource. A tag is a
+  { -- | The optional description for the route calculator resource.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | No longer used. If included, the only allowed value is
+    -- @RequestBasedUsage@.
+    pricingPlan :: Prelude.Maybe PricingPlan,
+    -- | Applies one or more tags to the route calculator resource. A tag is a
     -- key-value pair helps manage, identify, search, and filter your resources
     -- by labelling them.
     --
@@ -88,11 +93,6 @@ data CreateRouteCalculator = CreateRouteCalculator'
     --
     -- -   Cannot use \"aws:\" as a prefix for a key.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The optional description for the route calculator resource.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | No longer used. If included, the only allowed value is
-    -- @RequestBasedUsage@.
-    pricingPlan :: Prelude.Maybe PricingPlan,
     -- | The name of the route calculator resource.
     --
     -- Requirements:
@@ -140,6 +140,11 @@ data CreateRouteCalculator = CreateRouteCalculator'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'createRouteCalculator_description' - The optional description for the route calculator resource.
+--
+-- 'pricingPlan', 'createRouteCalculator_pricingPlan' - No longer used. If included, the only allowed value is
+-- @RequestBasedUsage@.
+--
 -- 'tags', 'createRouteCalculator_tags' - Applies one or more tags to the route calculator resource. A tag is a
 -- key-value pair helps manage, identify, search, and filter your resources
 -- by labelling them.
@@ -162,11 +167,6 @@ data CreateRouteCalculator = CreateRouteCalculator'
 --     characters: + - = . _ : \/ \@.
 --
 -- -   Cannot use \"aws:\" as a prefix for a key.
---
--- 'description', 'createRouteCalculator_description' - The optional description for the route calculator resource.
---
--- 'pricingPlan', 'createRouteCalculator_pricingPlan' - No longer used. If included, the only allowed value is
--- @RequestBasedUsage@.
 --
 -- 'calculatorName', 'createRouteCalculator_calculatorName' - The name of the route calculator resource.
 --
@@ -213,12 +213,22 @@ newCreateRouteCalculator
   pCalculatorName_
   pDataSource_ =
     CreateRouteCalculator'
-      { tags = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { description =
+          Prelude.Nothing,
         pricingPlan = Prelude.Nothing,
+        tags = Prelude.Nothing,
         calculatorName = pCalculatorName_,
         dataSource = pDataSource_
       }
+
+-- | The optional description for the route calculator resource.
+createRouteCalculator_description :: Lens.Lens' CreateRouteCalculator (Prelude.Maybe Prelude.Text)
+createRouteCalculator_description = Lens.lens (\CreateRouteCalculator' {description} -> description) (\s@CreateRouteCalculator' {} a -> s {description = a} :: CreateRouteCalculator)
+
+-- | No longer used. If included, the only allowed value is
+-- @RequestBasedUsage@.
+createRouteCalculator_pricingPlan :: Lens.Lens' CreateRouteCalculator (Prelude.Maybe PricingPlan)
+createRouteCalculator_pricingPlan = Lens.lens (\CreateRouteCalculator' {pricingPlan} -> pricingPlan) (\s@CreateRouteCalculator' {} a -> s {pricingPlan = a} :: CreateRouteCalculator)
 
 -- | Applies one or more tags to the route calculator resource. A tag is a
 -- key-value pair helps manage, identify, search, and filter your resources
@@ -244,15 +254,6 @@ newCreateRouteCalculator
 -- -   Cannot use \"aws:\" as a prefix for a key.
 createRouteCalculator_tags :: Lens.Lens' CreateRouteCalculator (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createRouteCalculator_tags = Lens.lens (\CreateRouteCalculator' {tags} -> tags) (\s@CreateRouteCalculator' {} a -> s {tags = a} :: CreateRouteCalculator) Prelude.. Lens.mapping Lens.coerced
-
--- | The optional description for the route calculator resource.
-createRouteCalculator_description :: Lens.Lens' CreateRouteCalculator (Prelude.Maybe Prelude.Text)
-createRouteCalculator_description = Lens.lens (\CreateRouteCalculator' {description} -> description) (\s@CreateRouteCalculator' {} a -> s {description = a} :: CreateRouteCalculator)
-
--- | No longer used. If included, the only allowed value is
--- @RequestBasedUsage@.
-createRouteCalculator_pricingPlan :: Lens.Lens' CreateRouteCalculator (Prelude.Maybe PricingPlan)
-createRouteCalculator_pricingPlan = Lens.lens (\CreateRouteCalculator' {pricingPlan} -> pricingPlan) (\s@CreateRouteCalculator' {} a -> s {pricingPlan = a} :: CreateRouteCalculator)
 
 -- | The name of the route calculator resource.
 --
@@ -312,17 +313,17 @@ instance Core.AWSRequest CreateRouteCalculator where
 
 instance Prelude.Hashable CreateRouteCalculator where
   hashWithSalt _salt CreateRouteCalculator' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` pricingPlan
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` calculatorName
       `Prelude.hashWithSalt` dataSource
 
 instance Prelude.NFData CreateRouteCalculator where
   rnf CreateRouteCalculator' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf pricingPlan
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf calculatorName
       `Prelude.seq` Prelude.rnf dataSource
 
@@ -341,9 +342,9 @@ instance Data.ToJSON CreateRouteCalculator where
   toJSON CreateRouteCalculator' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
             ("PricingPlan" Data..=) Prelude.<$> pricingPlan,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("CalculatorName" Data..= calculatorName),
             Prelude.Just ("DataSource" Data..= dataSource)

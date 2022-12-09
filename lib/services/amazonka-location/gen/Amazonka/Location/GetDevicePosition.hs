@@ -37,8 +37,8 @@ module Amazonka.Location.GetDevicePosition
     newGetDevicePositionResponse,
 
     -- * Response Lenses
-    getDevicePositionResponse_deviceId,
     getDevicePositionResponse_accuracy,
+    getDevicePositionResponse_deviceId,
     getDevicePositionResponse_positionProperties,
     getDevicePositionResponse_httpStatus,
     getDevicePositionResponse_position,
@@ -105,8 +105,8 @@ instance Core.AWSRequest GetDevicePosition where
     Response.receiveJSON
       ( \s h x ->
           GetDevicePositionResponse'
-            Prelude.<$> (x Data..?> "DeviceId")
-            Prelude.<*> (x Data..?> "Accuracy")
+            Prelude.<$> (x Data..?> "Accuracy")
+            Prelude.<*> (x Data..?> "DeviceId")
             Prelude.<*> ( x Data..?> "PositionProperties"
                             Core..!@ Prelude.mempty
                         )
@@ -152,10 +152,10 @@ instance Data.ToQuery GetDevicePosition where
 
 -- | /See:/ 'newGetDevicePositionResponse' smart constructor.
 data GetDevicePositionResponse = GetDevicePositionResponse'
-  { -- | The device whose position you retrieved.
-    deviceId :: Prelude.Maybe Prelude.Text,
-    -- | The accuracy of the device position.
+  { -- | The accuracy of the device position.
     accuracy :: Prelude.Maybe PositionalAccuracy,
+    -- | The device whose position you retrieved.
+    deviceId :: Prelude.Maybe Prelude.Text,
     -- | The properties associated with the position.
     positionProperties :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The response's http status code.
@@ -181,9 +181,9 @@ data GetDevicePositionResponse = GetDevicePositionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deviceId', 'getDevicePositionResponse_deviceId' - The device whose position you retrieved.
---
 -- 'accuracy', 'getDevicePositionResponse_accuracy' - The accuracy of the device position.
+--
+-- 'deviceId', 'getDevicePositionResponse_deviceId' - The device whose position you retrieved.
 --
 -- 'positionProperties', 'getDevicePositionResponse_positionProperties' - The properties associated with the position.
 --
@@ -214,9 +214,9 @@ newGetDevicePositionResponse
   pReceivedTime_
   pSampleTime_ =
     GetDevicePositionResponse'
-      { deviceId =
+      { accuracy =
           Prelude.Nothing,
-        accuracy = Prelude.Nothing,
+        deviceId = Prelude.Nothing,
         positionProperties = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         position =
@@ -226,13 +226,13 @@ newGetDevicePositionResponse
         sampleTime = Data._Time Lens.# pSampleTime_
       }
 
--- | The device whose position you retrieved.
-getDevicePositionResponse_deviceId :: Lens.Lens' GetDevicePositionResponse (Prelude.Maybe Prelude.Text)
-getDevicePositionResponse_deviceId = Lens.lens (\GetDevicePositionResponse' {deviceId} -> deviceId) (\s@GetDevicePositionResponse' {} a -> s {deviceId = a} :: GetDevicePositionResponse)
-
 -- | The accuracy of the device position.
 getDevicePositionResponse_accuracy :: Lens.Lens' GetDevicePositionResponse (Prelude.Maybe PositionalAccuracy)
 getDevicePositionResponse_accuracy = Lens.lens (\GetDevicePositionResponse' {accuracy} -> accuracy) (\s@GetDevicePositionResponse' {} a -> s {accuracy = a} :: GetDevicePositionResponse)
+
+-- | The device whose position you retrieved.
+getDevicePositionResponse_deviceId :: Lens.Lens' GetDevicePositionResponse (Prelude.Maybe Prelude.Text)
+getDevicePositionResponse_deviceId = Lens.lens (\GetDevicePositionResponse' {deviceId} -> deviceId) (\s@GetDevicePositionResponse' {} a -> s {deviceId = a} :: GetDevicePositionResponse)
 
 -- | The properties associated with the position.
 getDevicePositionResponse_positionProperties :: Lens.Lens' GetDevicePositionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -260,8 +260,8 @@ getDevicePositionResponse_sampleTime = Lens.lens (\GetDevicePositionResponse' {s
 
 instance Prelude.NFData GetDevicePositionResponse where
   rnf GetDevicePositionResponse' {..} =
-    Prelude.rnf deviceId
-      `Prelude.seq` Prelude.rnf accuracy
+    Prelude.rnf accuracy
+      `Prelude.seq` Prelude.rnf deviceId
       `Prelude.seq` Prelude.rnf positionProperties
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf position

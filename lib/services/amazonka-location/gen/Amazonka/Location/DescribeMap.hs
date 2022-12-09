@@ -34,8 +34,8 @@ module Amazonka.Location.DescribeMap
     newDescribeMapResponse,
 
     -- * Response Lenses
-    describeMapResponse_tags,
     describeMapResponse_pricingPlan,
+    describeMapResponse_tags,
     describeMapResponse_httpStatus,
     describeMapResponse_configuration,
     describeMapResponse_createTime,
@@ -90,8 +90,8 @@ instance Core.AWSRequest DescribeMap where
     Response.receiveJSON
       ( \s h x ->
           DescribeMapResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "PricingPlan")
+            Prelude.<$> (x Data..?> "PricingPlan")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Configuration")
             Prelude.<*> (x Data..:> "CreateTime")
@@ -130,10 +130,10 @@ instance Data.ToQuery DescribeMap where
 
 -- | /See:/ 'newDescribeMapResponse' smart constructor.
 data DescribeMapResponse = DescribeMapResponse'
-  { -- | Tags associated with the map resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | No longer used. Always returns @RequestBasedUsage@.
+  { -- | No longer used. Always returns @RequestBasedUsage@.
     pricingPlan :: Prelude.Maybe PricingPlan,
+    -- | Tags associated with the map resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | Specifies the map tile style selected from a partner data provider.
@@ -168,9 +168,9 @@ data DescribeMapResponse = DescribeMapResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'describeMapResponse_tags' - Tags associated with the map resource.
---
 -- 'pricingPlan', 'describeMapResponse_pricingPlan' - No longer used. Always returns @RequestBasedUsage@.
+--
+-- 'tags', 'describeMapResponse_tags' - Tags associated with the map resource.
 --
 -- 'httpStatus', 'describeMapResponse_httpStatus' - The response's http status code.
 --
@@ -222,8 +222,8 @@ newDescribeMapResponse
   pMapName_
   pUpdateTime_ =
     DescribeMapResponse'
-      { tags = Prelude.Nothing,
-        pricingPlan = Prelude.Nothing,
+      { pricingPlan = Prelude.Nothing,
+        tags = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         configuration = pConfiguration_,
         createTime = Data._Time Lens.# pCreateTime_,
@@ -234,13 +234,13 @@ newDescribeMapResponse
         updateTime = Data._Time Lens.# pUpdateTime_
       }
 
--- | Tags associated with the map resource.
-describeMapResponse_tags :: Lens.Lens' DescribeMapResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeMapResponse_tags = Lens.lens (\DescribeMapResponse' {tags} -> tags) (\s@DescribeMapResponse' {} a -> s {tags = a} :: DescribeMapResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | No longer used. Always returns @RequestBasedUsage@.
 describeMapResponse_pricingPlan :: Lens.Lens' DescribeMapResponse (Prelude.Maybe PricingPlan)
 describeMapResponse_pricingPlan = Lens.lens (\DescribeMapResponse' {pricingPlan} -> pricingPlan) (\s@DescribeMapResponse' {} a -> s {pricingPlan = a} :: DescribeMapResponse)
+
+-- | Tags associated with the map resource.
+describeMapResponse_tags :: Lens.Lens' DescribeMapResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeMapResponse_tags = Lens.lens (\DescribeMapResponse' {tags} -> tags) (\s@DescribeMapResponse' {} a -> s {tags = a} :: DescribeMapResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeMapResponse_httpStatus :: Lens.Lens' DescribeMapResponse Prelude.Int
@@ -283,8 +283,8 @@ describeMapResponse_updateTime = Lens.lens (\DescribeMapResponse' {updateTime} -
 
 instance Prelude.NFData DescribeMapResponse where
   rnf DescribeMapResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf pricingPlan
+    Prelude.rnf pricingPlan
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf configuration
       `Prelude.seq` Prelude.rnf createTime

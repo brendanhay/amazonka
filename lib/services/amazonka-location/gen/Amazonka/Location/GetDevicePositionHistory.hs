@@ -32,10 +32,10 @@ module Amazonka.Location.GetDevicePositionHistory
     newGetDevicePositionHistory,
 
     -- * Request Lenses
-    getDevicePositionHistory_startTimeInclusive,
-    getDevicePositionHistory_nextToken,
-    getDevicePositionHistory_maxResults,
     getDevicePositionHistory_endTimeExclusive,
+    getDevicePositionHistory_maxResults,
+    getDevicePositionHistory_nextToken,
+    getDevicePositionHistory_startTimeInclusive,
     getDevicePositionHistory_deviceId,
     getDevicePositionHistory_trackerName,
 
@@ -60,27 +60,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetDevicePositionHistory' smart constructor.
 data GetDevicePositionHistory = GetDevicePositionHistory'
-  { -- | Specify the start time for the position history in
-    -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
-    -- format: @YYYY-MM-DDThh:mm:ss.sssZ@. By default, the value will be 24
-    -- hours prior to the time that the request is made.
-    --
-    -- Requirement:
-    --
-    -- -   The time specified for @StartTimeInclusive@ must be before
-    --     @EndTimeExclusive@.
-    startTimeInclusive :: Prelude.Maybe Data.POSIX,
-    -- | The pagination token specifying which page of results to return in the
-    -- response. If no token is provided, the default page is the first page.
-    --
-    -- Default value: @null@
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An optional limit for the number of device positions returned in a
-    -- single call.
-    --
-    -- Default value: @100@
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Specify the end time for the position history in
+  { -- | Specify the end time for the position history in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@. By default, the value will be the
     -- time that the request is made.
@@ -90,6 +70,26 @@ data GetDevicePositionHistory = GetDevicePositionHistory'
     -- -   The time specified for @EndTimeExclusive@ must be after the time for
     --     @StartTimeInclusive@.
     endTimeExclusive :: Prelude.Maybe Data.POSIX,
+    -- | An optional limit for the number of device positions returned in a
+    -- single call.
+    --
+    -- Default value: @100@
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token specifying which page of results to return in the
+    -- response. If no token is provided, the default page is the first page.
+    --
+    -- Default value: @null@
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Specify the start time for the position history in
+    -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
+    -- format: @YYYY-MM-DDThh:mm:ss.sssZ@. By default, the value will be 24
+    -- hours prior to the time that the request is made.
+    --
+    -- Requirement:
+    --
+    -- -   The time specified for @StartTimeInclusive@ must be before
+    --     @EndTimeExclusive@.
+    startTimeInclusive :: Prelude.Maybe Data.POSIX,
     -- | The device whose position history you want to retrieve.
     deviceId :: Prelude.Text,
     -- | The tracker resource receiving the request for the device position
@@ -106,26 +106,6 @@ data GetDevicePositionHistory = GetDevicePositionHistory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startTimeInclusive', 'getDevicePositionHistory_startTimeInclusive' - Specify the start time for the position history in
--- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
--- format: @YYYY-MM-DDThh:mm:ss.sssZ@. By default, the value will be 24
--- hours prior to the time that the request is made.
---
--- Requirement:
---
--- -   The time specified for @StartTimeInclusive@ must be before
---     @EndTimeExclusive@.
---
--- 'nextToken', 'getDevicePositionHistory_nextToken' - The pagination token specifying which page of results to return in the
--- response. If no token is provided, the default page is the first page.
---
--- Default value: @null@
---
--- 'maxResults', 'getDevicePositionHistory_maxResults' - An optional limit for the number of device positions returned in a
--- single call.
---
--- Default value: @100@
---
 -- 'endTimeExclusive', 'getDevicePositionHistory_endTimeExclusive' - Specify the end time for the position history in
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@. By default, the value will be the
@@ -135,6 +115,26 @@ data GetDevicePositionHistory = GetDevicePositionHistory'
 --
 -- -   The time specified for @EndTimeExclusive@ must be after the time for
 --     @StartTimeInclusive@.
+--
+-- 'maxResults', 'getDevicePositionHistory_maxResults' - An optional limit for the number of device positions returned in a
+-- single call.
+--
+-- Default value: @100@
+--
+-- 'nextToken', 'getDevicePositionHistory_nextToken' - The pagination token specifying which page of results to return in the
+-- response. If no token is provided, the default page is the first page.
+--
+-- Default value: @null@
+--
+-- 'startTimeInclusive', 'getDevicePositionHistory_startTimeInclusive' - Specify the start time for the position history in
+-- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
+-- format: @YYYY-MM-DDThh:mm:ss.sssZ@. By default, the value will be 24
+-- hours prior to the time that the request is made.
+--
+-- Requirement:
+--
+-- -   The time specified for @StartTimeInclusive@ must be before
+--     @EndTimeExclusive@.
 --
 -- 'deviceId', 'getDevicePositionHistory_deviceId' - The device whose position history you want to retrieve.
 --
@@ -148,40 +148,14 @@ newGetDevicePositionHistory ::
   GetDevicePositionHistory
 newGetDevicePositionHistory pDeviceId_ pTrackerName_ =
   GetDevicePositionHistory'
-    { startTimeInclusive =
+    { endTimeExclusive =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      endTimeExclusive = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      startTimeInclusive = Prelude.Nothing,
       deviceId = pDeviceId_,
       trackerName = pTrackerName_
     }
-
--- | Specify the start time for the position history in
--- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
--- format: @YYYY-MM-DDThh:mm:ss.sssZ@. By default, the value will be 24
--- hours prior to the time that the request is made.
---
--- Requirement:
---
--- -   The time specified for @StartTimeInclusive@ must be before
---     @EndTimeExclusive@.
-getDevicePositionHistory_startTimeInclusive :: Lens.Lens' GetDevicePositionHistory (Prelude.Maybe Prelude.UTCTime)
-getDevicePositionHistory_startTimeInclusive = Lens.lens (\GetDevicePositionHistory' {startTimeInclusive} -> startTimeInclusive) (\s@GetDevicePositionHistory' {} a -> s {startTimeInclusive = a} :: GetDevicePositionHistory) Prelude.. Lens.mapping Data._Time
-
--- | The pagination token specifying which page of results to return in the
--- response. If no token is provided, the default page is the first page.
---
--- Default value: @null@
-getDevicePositionHistory_nextToken :: Lens.Lens' GetDevicePositionHistory (Prelude.Maybe Prelude.Text)
-getDevicePositionHistory_nextToken = Lens.lens (\GetDevicePositionHistory' {nextToken} -> nextToken) (\s@GetDevicePositionHistory' {} a -> s {nextToken = a} :: GetDevicePositionHistory)
-
--- | An optional limit for the number of device positions returned in a
--- single call.
---
--- Default value: @100@
-getDevicePositionHistory_maxResults :: Lens.Lens' GetDevicePositionHistory (Prelude.Maybe Prelude.Natural)
-getDevicePositionHistory_maxResults = Lens.lens (\GetDevicePositionHistory' {maxResults} -> maxResults) (\s@GetDevicePositionHistory' {} a -> s {maxResults = a} :: GetDevicePositionHistory)
 
 -- | Specify the end time for the position history in
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
@@ -194,6 +168,32 @@ getDevicePositionHistory_maxResults = Lens.lens (\GetDevicePositionHistory' {max
 --     @StartTimeInclusive@.
 getDevicePositionHistory_endTimeExclusive :: Lens.Lens' GetDevicePositionHistory (Prelude.Maybe Prelude.UTCTime)
 getDevicePositionHistory_endTimeExclusive = Lens.lens (\GetDevicePositionHistory' {endTimeExclusive} -> endTimeExclusive) (\s@GetDevicePositionHistory' {} a -> s {endTimeExclusive = a} :: GetDevicePositionHistory) Prelude.. Lens.mapping Data._Time
+
+-- | An optional limit for the number of device positions returned in a
+-- single call.
+--
+-- Default value: @100@
+getDevicePositionHistory_maxResults :: Lens.Lens' GetDevicePositionHistory (Prelude.Maybe Prelude.Natural)
+getDevicePositionHistory_maxResults = Lens.lens (\GetDevicePositionHistory' {maxResults} -> maxResults) (\s@GetDevicePositionHistory' {} a -> s {maxResults = a} :: GetDevicePositionHistory)
+
+-- | The pagination token specifying which page of results to return in the
+-- response. If no token is provided, the default page is the first page.
+--
+-- Default value: @null@
+getDevicePositionHistory_nextToken :: Lens.Lens' GetDevicePositionHistory (Prelude.Maybe Prelude.Text)
+getDevicePositionHistory_nextToken = Lens.lens (\GetDevicePositionHistory' {nextToken} -> nextToken) (\s@GetDevicePositionHistory' {} a -> s {nextToken = a} :: GetDevicePositionHistory)
+
+-- | Specify the start time for the position history in
+-- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
+-- format: @YYYY-MM-DDThh:mm:ss.sssZ@. By default, the value will be 24
+-- hours prior to the time that the request is made.
+--
+-- Requirement:
+--
+-- -   The time specified for @StartTimeInclusive@ must be before
+--     @EndTimeExclusive@.
+getDevicePositionHistory_startTimeInclusive :: Lens.Lens' GetDevicePositionHistory (Prelude.Maybe Prelude.UTCTime)
+getDevicePositionHistory_startTimeInclusive = Lens.lens (\GetDevicePositionHistory' {startTimeInclusive} -> startTimeInclusive) (\s@GetDevicePositionHistory' {} a -> s {startTimeInclusive = a} :: GetDevicePositionHistory) Prelude.. Lens.mapping Data._Time
 
 -- | The device whose position history you want to retrieve.
 getDevicePositionHistory_deviceId :: Lens.Lens' GetDevicePositionHistory Prelude.Text
@@ -244,19 +244,19 @@ instance Core.AWSRequest GetDevicePositionHistory where
 
 instance Prelude.Hashable GetDevicePositionHistory where
   hashWithSalt _salt GetDevicePositionHistory' {..} =
-    _salt `Prelude.hashWithSalt` startTimeInclusive
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` endTimeExclusive
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` endTimeExclusive
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` startTimeInclusive
       `Prelude.hashWithSalt` deviceId
       `Prelude.hashWithSalt` trackerName
 
 instance Prelude.NFData GetDevicePositionHistory where
   rnf GetDevicePositionHistory' {..} =
-    Prelude.rnf startTimeInclusive
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf endTimeExclusive
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf endTimeExclusive
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf startTimeInclusive
       `Prelude.seq` Prelude.rnf deviceId
       `Prelude.seq` Prelude.rnf trackerName
 
@@ -275,12 +275,12 @@ instance Data.ToJSON GetDevicePositionHistory where
   toJSON GetDevicePositionHistory' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("StartTimeInclusive" Data..=)
-              Prelude.<$> startTimeInclusive,
-            ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("EndTimeExclusive" Data..=)
+              Prelude.<$> endTimeExclusive,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("EndTimeExclusive" Data..=)
-              Prelude.<$> endTimeExclusive
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("StartTimeInclusive" Data..=)
+              Prelude.<$> startTimeInclusive
           ]
       )
 

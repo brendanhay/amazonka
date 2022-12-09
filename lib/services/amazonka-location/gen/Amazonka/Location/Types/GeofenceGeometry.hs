@@ -37,7 +37,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGeofenceGeometry' smart constructor.
 data GeofenceGeometry = GeofenceGeometry'
-  { -- | A polygon is a list of linear rings which are each made up of a list of
+  { -- | A circle on the earth, as defined by a center point and a radius.
+    circle :: Prelude.Maybe (Data.Sensitive Circle),
+    -- | A polygon is a list of linear rings which are each made up of a list of
     -- vertices.
     --
     -- Each vertex is a 2-dimensional point of the form:
@@ -57,9 +59,7 @@ data GeofenceGeometry = GeofenceGeometry'
     --
     -- A linear ring for use in geofences can consist of between 4 and 1,000
     -- vertices.
-    polygon :: Prelude.Maybe (Prelude.NonEmpty (Prelude.NonEmpty (Data.Sensitive (Prelude.NonEmpty Prelude.Double)))),
-    -- | A circle on the earth, as defined by a center point and a radius.
-    circle :: Prelude.Maybe (Data.Sensitive Circle)
+    polygon :: Prelude.Maybe (Prelude.NonEmpty (Prelude.NonEmpty (Data.Sensitive (Prelude.NonEmpty Prelude.Double))))
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -70,6 +70,8 @@ data GeofenceGeometry = GeofenceGeometry'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'circle', 'geofenceGeometry_circle' - A circle on the earth, as defined by a center point and a radius.
 --
 -- 'polygon', 'geofenceGeometry_polygon' - A polygon is a list of linear rings which are each made up of a list of
 -- vertices.
@@ -91,15 +93,17 @@ data GeofenceGeometry = GeofenceGeometry'
 --
 -- A linear ring for use in geofences can consist of between 4 and 1,000
 -- vertices.
---
--- 'circle', 'geofenceGeometry_circle' - A circle on the earth, as defined by a center point and a radius.
 newGeofenceGeometry ::
   GeofenceGeometry
 newGeofenceGeometry =
   GeofenceGeometry'
-    { polygon = Prelude.Nothing,
-      circle = Prelude.Nothing
+    { circle = Prelude.Nothing,
+      polygon = Prelude.Nothing
     }
+
+-- | A circle on the earth, as defined by a center point and a radius.
+geofenceGeometry_circle :: Lens.Lens' GeofenceGeometry (Prelude.Maybe Circle)
+geofenceGeometry_circle = Lens.lens (\GeofenceGeometry' {circle} -> circle) (\s@GeofenceGeometry' {} a -> s {circle = a} :: GeofenceGeometry) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A polygon is a list of linear rings which are each made up of a list of
 -- vertices.
@@ -124,35 +128,31 @@ newGeofenceGeometry =
 geofenceGeometry_polygon :: Lens.Lens' GeofenceGeometry (Prelude.Maybe (Prelude.NonEmpty (Prelude.NonEmpty (Prelude.NonEmpty Prelude.Double))))
 geofenceGeometry_polygon = Lens.lens (\GeofenceGeometry' {polygon} -> polygon) (\s@GeofenceGeometry' {} a -> s {polygon = a} :: GeofenceGeometry) Prelude.. Lens.mapping Lens.coerced
 
--- | A circle on the earth, as defined by a center point and a radius.
-geofenceGeometry_circle :: Lens.Lens' GeofenceGeometry (Prelude.Maybe Circle)
-geofenceGeometry_circle = Lens.lens (\GeofenceGeometry' {circle} -> circle) (\s@GeofenceGeometry' {} a -> s {circle = a} :: GeofenceGeometry) Prelude.. Lens.mapping Data._Sensitive
-
 instance Data.FromJSON GeofenceGeometry where
   parseJSON =
     Data.withObject
       "GeofenceGeometry"
       ( \x ->
           GeofenceGeometry'
-            Prelude.<$> (x Data..:? "Polygon")
-            Prelude.<*> (x Data..:? "Circle")
+            Prelude.<$> (x Data..:? "Circle")
+            Prelude.<*> (x Data..:? "Polygon")
       )
 
 instance Prelude.Hashable GeofenceGeometry where
   hashWithSalt _salt GeofenceGeometry' {..} =
-    _salt `Prelude.hashWithSalt` polygon
-      `Prelude.hashWithSalt` circle
+    _salt `Prelude.hashWithSalt` circle
+      `Prelude.hashWithSalt` polygon
 
 instance Prelude.NFData GeofenceGeometry where
   rnf GeofenceGeometry' {..} =
-    Prelude.rnf polygon
-      `Prelude.seq` Prelude.rnf circle
+    Prelude.rnf circle
+      `Prelude.seq` Prelude.rnf polygon
 
 instance Data.ToJSON GeofenceGeometry where
   toJSON GeofenceGeometry' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Polygon" Data..=) Prelude.<$> polygon,
-            ("Circle" Data..=) Prelude.<$> circle
+          [ ("Circle" Data..=) Prelude.<$> circle,
+            ("Polygon" Data..=) Prelude.<$> polygon
           ]
       )

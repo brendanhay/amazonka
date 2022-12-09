@@ -34,8 +34,8 @@ module Amazonka.Location.DescribePlaceIndex
     newDescribePlaceIndexResponse,
 
     -- * Response Lenses
-    describePlaceIndexResponse_tags,
     describePlaceIndexResponse_pricingPlan,
+    describePlaceIndexResponse_tags,
     describePlaceIndexResponse_httpStatus,
     describePlaceIndexResponse_createTime,
     describePlaceIndexResponse_dataSource,
@@ -92,8 +92,8 @@ instance Core.AWSRequest DescribePlaceIndex where
     Response.receiveJSON
       ( \s h x ->
           DescribePlaceIndexResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "PricingPlan")
+            Prelude.<$> (x Data..?> "PricingPlan")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "CreateTime")
             Prelude.<*> (x Data..:> "DataSource")
@@ -132,10 +132,10 @@ instance Data.ToQuery DescribePlaceIndex where
 
 -- | /See:/ 'newDescribePlaceIndexResponse' smart constructor.
 data DescribePlaceIndexResponse = DescribePlaceIndexResponse'
-  { -- | Tags associated with place index resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | No longer used. Always returns @RequestBasedUsage@.
+  { -- | No longer used. Always returns @RequestBasedUsage@.
     pricingPlan :: Prelude.Maybe PricingPlan,
+    -- | Tags associated with place index resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The timestamp for when the place index resource was created in
@@ -179,9 +179,9 @@ data DescribePlaceIndexResponse = DescribePlaceIndexResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'describePlaceIndexResponse_tags' - Tags associated with place index resource.
---
 -- 'pricingPlan', 'describePlaceIndexResponse_pricingPlan' - No longer used. Always returns @RequestBasedUsage@.
+--
+-- 'tags', 'describePlaceIndexResponse_tags' - Tags associated with place index resource.
 --
 -- 'httpStatus', 'describePlaceIndexResponse_httpStatus' - The response's http status code.
 --
@@ -242,8 +242,9 @@ newDescribePlaceIndexResponse
   pIndexName_
   pUpdateTime_ =
     DescribePlaceIndexResponse'
-      { tags = Prelude.Nothing,
-        pricingPlan = Prelude.Nothing,
+      { pricingPlan =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         createTime = Data._Time Lens.# pCreateTime_,
         dataSource = pDataSource_,
@@ -255,13 +256,13 @@ newDescribePlaceIndexResponse
         updateTime = Data._Time Lens.# pUpdateTime_
       }
 
--- | Tags associated with place index resource.
-describePlaceIndexResponse_tags :: Lens.Lens' DescribePlaceIndexResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describePlaceIndexResponse_tags = Lens.lens (\DescribePlaceIndexResponse' {tags} -> tags) (\s@DescribePlaceIndexResponse' {} a -> s {tags = a} :: DescribePlaceIndexResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | No longer used. Always returns @RequestBasedUsage@.
 describePlaceIndexResponse_pricingPlan :: Lens.Lens' DescribePlaceIndexResponse (Prelude.Maybe PricingPlan)
 describePlaceIndexResponse_pricingPlan = Lens.lens (\DescribePlaceIndexResponse' {pricingPlan} -> pricingPlan) (\s@DescribePlaceIndexResponse' {} a -> s {pricingPlan = a} :: DescribePlaceIndexResponse)
+
+-- | Tags associated with place index resource.
+describePlaceIndexResponse_tags :: Lens.Lens' DescribePlaceIndexResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describePlaceIndexResponse_tags = Lens.lens (\DescribePlaceIndexResponse' {tags} -> tags) (\s@DescribePlaceIndexResponse' {} a -> s {tags = a} :: DescribePlaceIndexResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describePlaceIndexResponse_httpStatus :: Lens.Lens' DescribePlaceIndexResponse Prelude.Int
@@ -313,8 +314,8 @@ describePlaceIndexResponse_updateTime = Lens.lens (\DescribePlaceIndexResponse' 
 
 instance Prelude.NFData DescribePlaceIndexResponse where
   rnf DescribePlaceIndexResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf pricingPlan
+    Prelude.rnf pricingPlan
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf createTime
       `Prelude.seq` Prelude.rnf dataSource

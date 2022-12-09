@@ -29,8 +29,8 @@ module Amazonka.Location.ListGeofences
     newListGeofences,
 
     -- * Request Lenses
-    listGeofences_nextToken,
     listGeofences_maxResults,
+    listGeofences_nextToken,
     listGeofences_collectionName,
 
     -- * Destructuring the Response
@@ -54,15 +54,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListGeofences' smart constructor.
 data ListGeofences = ListGeofences'
-  { -- | The pagination token specifying which page of results to return in the
+  { -- | An optional limit for the number of geofences returned in a single call.
+    --
+    -- Default value: @100@
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token specifying which page of results to return in the
     -- response. If no token is provided, the default page is the first page.
     --
     -- Default value: @null@
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An optional limit for the number of geofences returned in a single call.
-    --
-    -- Default value: @100@
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the geofence collection storing the list of geofences.
     collectionName :: Prelude.Text
   }
@@ -76,14 +76,14 @@ data ListGeofences = ListGeofences'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listGeofences_maxResults' - An optional limit for the number of geofences returned in a single call.
+--
+-- Default value: @100@
+--
 -- 'nextToken', 'listGeofences_nextToken' - The pagination token specifying which page of results to return in the
 -- response. If no token is provided, the default page is the first page.
 --
 -- Default value: @null@
---
--- 'maxResults', 'listGeofences_maxResults' - An optional limit for the number of geofences returned in a single call.
---
--- Default value: @100@
 --
 -- 'collectionName', 'listGeofences_collectionName' - The name of the geofence collection storing the list of geofences.
 newListGeofences ::
@@ -92,10 +92,16 @@ newListGeofences ::
   ListGeofences
 newListGeofences pCollectionName_ =
   ListGeofences'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       collectionName = pCollectionName_
     }
+
+-- | An optional limit for the number of geofences returned in a single call.
+--
+-- Default value: @100@
+listGeofences_maxResults :: Lens.Lens' ListGeofences (Prelude.Maybe Prelude.Natural)
+listGeofences_maxResults = Lens.lens (\ListGeofences' {maxResults} -> maxResults) (\s@ListGeofences' {} a -> s {maxResults = a} :: ListGeofences)
 
 -- | The pagination token specifying which page of results to return in the
 -- response. If no token is provided, the default page is the first page.
@@ -103,12 +109,6 @@ newListGeofences pCollectionName_ =
 -- Default value: @null@
 listGeofences_nextToken :: Lens.Lens' ListGeofences (Prelude.Maybe Prelude.Text)
 listGeofences_nextToken = Lens.lens (\ListGeofences' {nextToken} -> nextToken) (\s@ListGeofences' {} a -> s {nextToken = a} :: ListGeofences)
-
--- | An optional limit for the number of geofences returned in a single call.
---
--- Default value: @100@
-listGeofences_maxResults :: Lens.Lens' ListGeofences (Prelude.Maybe Prelude.Natural)
-listGeofences_maxResults = Lens.lens (\ListGeofences' {maxResults} -> maxResults) (\s@ListGeofences' {} a -> s {maxResults = a} :: ListGeofences)
 
 -- | The name of the geofence collection storing the list of geofences.
 listGeofences_collectionName :: Lens.Lens' ListGeofences Prelude.Text
@@ -148,14 +148,14 @@ instance Core.AWSRequest ListGeofences where
 
 instance Prelude.Hashable ListGeofences where
   hashWithSalt _salt ListGeofences' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` collectionName
 
 instance Prelude.NFData ListGeofences where
   rnf ListGeofences' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf collectionName
 
 instance Data.ToHeaders ListGeofences where
@@ -173,8 +173,8 @@ instance Data.ToJSON ListGeofences where
   toJSON ListGeofences' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

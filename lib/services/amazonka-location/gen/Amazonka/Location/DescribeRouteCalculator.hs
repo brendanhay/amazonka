@@ -34,8 +34,8 @@ module Amazonka.Location.DescribeRouteCalculator
     newDescribeRouteCalculatorResponse,
 
     -- * Response Lenses
-    describeRouteCalculatorResponse_tags,
     describeRouteCalculatorResponse_pricingPlan,
+    describeRouteCalculatorResponse_tags,
     describeRouteCalculatorResponse_httpStatus,
     describeRouteCalculatorResponse_calculatorArn,
     describeRouteCalculatorResponse_calculatorName,
@@ -94,8 +94,8 @@ instance Core.AWSRequest DescribeRouteCalculator where
     Response.receiveJSON
       ( \s h x ->
           DescribeRouteCalculatorResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "PricingPlan")
+            Prelude.<$> (x Data..?> "PricingPlan")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "CalculatorArn")
             Prelude.<*> (x Data..:> "CalculatorName")
@@ -134,10 +134,10 @@ instance Data.ToQuery DescribeRouteCalculator where
 
 -- | /See:/ 'newDescribeRouteCalculatorResponse' smart constructor.
 data DescribeRouteCalculatorResponse = DescribeRouteCalculatorResponse'
-  { -- | Tags associated with route calculator resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Always returns @RequestBasedUsage@.
+  { -- | Always returns @RequestBasedUsage@.
     pricingPlan :: Prelude.Maybe PricingPlan,
+    -- | Tags associated with route calculator resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) for the Route calculator resource. Use
@@ -183,9 +183,9 @@ data DescribeRouteCalculatorResponse = DescribeRouteCalculatorResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'describeRouteCalculatorResponse_tags' - Tags associated with route calculator resource.
---
 -- 'pricingPlan', 'describeRouteCalculatorResponse_pricingPlan' - Always returns @RequestBasedUsage@.
+--
+-- 'tags', 'describeRouteCalculatorResponse_tags' - Tags associated with route calculator resource.
 --
 -- 'httpStatus', 'describeRouteCalculatorResponse_httpStatus' - The response's http status code.
 --
@@ -245,9 +245,9 @@ newDescribeRouteCalculatorResponse
   pDescription_
   pUpdateTime_ =
     DescribeRouteCalculatorResponse'
-      { tags =
+      { pricingPlan =
           Prelude.Nothing,
-        pricingPlan = Prelude.Nothing,
+        tags = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         calculatorArn = pCalculatorArn_,
         calculatorName = pCalculatorName_,
@@ -259,13 +259,13 @@ newDescribeRouteCalculatorResponse
           Data._Time Lens.# pUpdateTime_
       }
 
--- | Tags associated with route calculator resource.
-describeRouteCalculatorResponse_tags :: Lens.Lens' DescribeRouteCalculatorResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeRouteCalculatorResponse_tags = Lens.lens (\DescribeRouteCalculatorResponse' {tags} -> tags) (\s@DescribeRouteCalculatorResponse' {} a -> s {tags = a} :: DescribeRouteCalculatorResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | Always returns @RequestBasedUsage@.
 describeRouteCalculatorResponse_pricingPlan :: Lens.Lens' DescribeRouteCalculatorResponse (Prelude.Maybe PricingPlan)
 describeRouteCalculatorResponse_pricingPlan = Lens.lens (\DescribeRouteCalculatorResponse' {pricingPlan} -> pricingPlan) (\s@DescribeRouteCalculatorResponse' {} a -> s {pricingPlan = a} :: DescribeRouteCalculatorResponse)
+
+-- | Tags associated with route calculator resource.
+describeRouteCalculatorResponse_tags :: Lens.Lens' DescribeRouteCalculatorResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeRouteCalculatorResponse_tags = Lens.lens (\DescribeRouteCalculatorResponse' {tags} -> tags) (\s@DescribeRouteCalculatorResponse' {} a -> s {tags = a} :: DescribeRouteCalculatorResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeRouteCalculatorResponse_httpStatus :: Lens.Lens' DescribeRouteCalculatorResponse Prelude.Int
@@ -320,8 +320,8 @@ instance
     DescribeRouteCalculatorResponse
   where
   rnf DescribeRouteCalculatorResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf pricingPlan
+    Prelude.rnf pricingPlan
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf calculatorArn
       `Prelude.seq` Prelude.rnf calculatorName

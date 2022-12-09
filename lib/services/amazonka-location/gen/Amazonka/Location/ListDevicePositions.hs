@@ -29,8 +29,8 @@ module Amazonka.Location.ListDevicePositions
     newListDevicePositions,
 
     -- * Request Lenses
-    listDevicePositions_nextToken,
     listDevicePositions_maxResults,
+    listDevicePositions_nextToken,
     listDevicePositions_trackerName,
 
     -- * Destructuring the Response
@@ -54,15 +54,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDevicePositions' smart constructor.
 data ListDevicePositions = ListDevicePositions'
-  { -- | The pagination token specifying which page of results to return in the
+  { -- | An optional limit for the number of entries returned in a single call.
+    --
+    -- Default value: @100@
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token specifying which page of results to return in the
     -- response. If no token is provided, the default page is the first page.
     --
     -- Default value: @null@
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An optional limit for the number of entries returned in a single call.
-    --
-    -- Default value: @100@
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The tracker resource containing the requested devices.
     trackerName :: Prelude.Text
   }
@@ -76,14 +76,14 @@ data ListDevicePositions = ListDevicePositions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listDevicePositions_maxResults' - An optional limit for the number of entries returned in a single call.
+--
+-- Default value: @100@
+--
 -- 'nextToken', 'listDevicePositions_nextToken' - The pagination token specifying which page of results to return in the
 -- response. If no token is provided, the default page is the first page.
 --
 -- Default value: @null@
---
--- 'maxResults', 'listDevicePositions_maxResults' - An optional limit for the number of entries returned in a single call.
---
--- Default value: @100@
 --
 -- 'trackerName', 'listDevicePositions_trackerName' - The tracker resource containing the requested devices.
 newListDevicePositions ::
@@ -92,10 +92,16 @@ newListDevicePositions ::
   ListDevicePositions
 newListDevicePositions pTrackerName_ =
   ListDevicePositions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       trackerName = pTrackerName_
     }
+
+-- | An optional limit for the number of entries returned in a single call.
+--
+-- Default value: @100@
+listDevicePositions_maxResults :: Lens.Lens' ListDevicePositions (Prelude.Maybe Prelude.Natural)
+listDevicePositions_maxResults = Lens.lens (\ListDevicePositions' {maxResults} -> maxResults) (\s@ListDevicePositions' {} a -> s {maxResults = a} :: ListDevicePositions)
 
 -- | The pagination token specifying which page of results to return in the
 -- response. If no token is provided, the default page is the first page.
@@ -103,12 +109,6 @@ newListDevicePositions pTrackerName_ =
 -- Default value: @null@
 listDevicePositions_nextToken :: Lens.Lens' ListDevicePositions (Prelude.Maybe Prelude.Text)
 listDevicePositions_nextToken = Lens.lens (\ListDevicePositions' {nextToken} -> nextToken) (\s@ListDevicePositions' {} a -> s {nextToken = a} :: ListDevicePositions)
-
--- | An optional limit for the number of entries returned in a single call.
---
--- Default value: @100@
-listDevicePositions_maxResults :: Lens.Lens' ListDevicePositions (Prelude.Maybe Prelude.Natural)
-listDevicePositions_maxResults = Lens.lens (\ListDevicePositions' {maxResults} -> maxResults) (\s@ListDevicePositions' {} a -> s {maxResults = a} :: ListDevicePositions)
 
 -- | The tracker resource containing the requested devices.
 listDevicePositions_trackerName :: Lens.Lens' ListDevicePositions Prelude.Text
@@ -150,14 +150,14 @@ instance Core.AWSRequest ListDevicePositions where
 
 instance Prelude.Hashable ListDevicePositions where
   hashWithSalt _salt ListDevicePositions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` trackerName
 
 instance Prelude.NFData ListDevicePositions where
   rnf ListDevicePositions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf trackerName
 
 instance Data.ToHeaders ListDevicePositions where
@@ -175,8 +175,8 @@ instance Data.ToJSON ListDevicePositions where
   toJSON ListDevicePositions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

@@ -29,8 +29,8 @@ module Amazonka.Location.ListRouteCalculators
     newListRouteCalculators,
 
     -- * Request Lenses
-    listRouteCalculators_nextToken,
     listRouteCalculators_maxResults,
+    listRouteCalculators_nextToken,
 
     -- * Destructuring the Response
     ListRouteCalculatorsResponse (..),
@@ -53,15 +53,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRouteCalculators' smart constructor.
 data ListRouteCalculators = ListRouteCalculators'
-  { -- | The pagination token specifying which page of results to return in the
+  { -- | An optional maximum number of results returned in a single call.
+    --
+    -- Default Value: @100@
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token specifying which page of results to return in the
     -- response. If no token is provided, the default page is the first page.
     --
     -- Default Value: @null@
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An optional maximum number of results returned in a single call.
-    --
-    -- Default Value: @100@
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,21 +73,27 @@ data ListRouteCalculators = ListRouteCalculators'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listRouteCalculators_maxResults' - An optional maximum number of results returned in a single call.
+--
+-- Default Value: @100@
+--
 -- 'nextToken', 'listRouteCalculators_nextToken' - The pagination token specifying which page of results to return in the
 -- response. If no token is provided, the default page is the first page.
 --
 -- Default Value: @null@
---
--- 'maxResults', 'listRouteCalculators_maxResults' - An optional maximum number of results returned in a single call.
---
--- Default Value: @100@
 newListRouteCalculators ::
   ListRouteCalculators
 newListRouteCalculators =
   ListRouteCalculators'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | An optional maximum number of results returned in a single call.
+--
+-- Default Value: @100@
+listRouteCalculators_maxResults :: Lens.Lens' ListRouteCalculators (Prelude.Maybe Prelude.Natural)
+listRouteCalculators_maxResults = Lens.lens (\ListRouteCalculators' {maxResults} -> maxResults) (\s@ListRouteCalculators' {} a -> s {maxResults = a} :: ListRouteCalculators)
 
 -- | The pagination token specifying which page of results to return in the
 -- response. If no token is provided, the default page is the first page.
@@ -95,12 +101,6 @@ newListRouteCalculators =
 -- Default Value: @null@
 listRouteCalculators_nextToken :: Lens.Lens' ListRouteCalculators (Prelude.Maybe Prelude.Text)
 listRouteCalculators_nextToken = Lens.lens (\ListRouteCalculators' {nextToken} -> nextToken) (\s@ListRouteCalculators' {} a -> s {nextToken = a} :: ListRouteCalculators)
-
--- | An optional maximum number of results returned in a single call.
---
--- Default Value: @100@
-listRouteCalculators_maxResults :: Lens.Lens' ListRouteCalculators (Prelude.Maybe Prelude.Natural)
-listRouteCalculators_maxResults = Lens.lens (\ListRouteCalculators' {maxResults} -> maxResults) (\s@ListRouteCalculators' {} a -> s {maxResults = a} :: ListRouteCalculators)
 
 instance Core.AWSPager ListRouteCalculators where
   page rq rs
@@ -138,13 +138,13 @@ instance Core.AWSRequest ListRouteCalculators where
 
 instance Prelude.Hashable ListRouteCalculators where
   hashWithSalt _salt ListRouteCalculators' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListRouteCalculators where
   rnf ListRouteCalculators' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListRouteCalculators where
   toHeaders =
@@ -161,8 +161,8 @@ instance Data.ToJSON ListRouteCalculators where
   toJSON ListRouteCalculators' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

@@ -34,9 +34,9 @@ module Amazonka.Location.CreateMap
     newCreateMap,
 
     -- * Request Lenses
-    createMap_tags,
     createMap_description,
     createMap_pricingPlan,
+    createMap_tags,
     createMap_configuration,
     createMap_mapName,
 
@@ -62,7 +62,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateMap' smart constructor.
 data CreateMap = CreateMap'
-  { -- | Applies one or more tags to the map resource. A tag is a key-value pair
+  { -- | An optional description for the map resource.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | No longer used. If included, the only allowed value is
+    -- @RequestBasedUsage@.
+    pricingPlan :: Prelude.Maybe PricingPlan,
+    -- | Applies one or more tags to the map resource. A tag is a key-value pair
     -- helps manage, identify, search, and filter your resources by labelling
     -- them.
     --
@@ -83,11 +88,6 @@ data CreateMap = CreateMap'
     --
     -- -   Cannot use \"aws:\" as a prefix for a key.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | An optional description for the map resource.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | No longer used. If included, the only allowed value is
-    -- @RequestBasedUsage@.
-    pricingPlan :: Prelude.Maybe PricingPlan,
     -- | Specifies the @MapConfiguration@, including the map style, for the map
     -- resource that you create. The map style defines the look of maps and the
     -- data provider for your map resource.
@@ -114,6 +114,11 @@ data CreateMap = CreateMap'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'createMap_description' - An optional description for the map resource.
+--
+-- 'pricingPlan', 'createMap_pricingPlan' - No longer used. If included, the only allowed value is
+-- @RequestBasedUsage@.
+--
 -- 'tags', 'createMap_tags' - Applies one or more tags to the map resource. A tag is a key-value pair
 -- helps manage, identify, search, and filter your resources by labelling
 -- them.
@@ -134,11 +139,6 @@ data CreateMap = CreateMap'
 --     characters: + - = . _ : \/ \@.
 --
 -- -   Cannot use \"aws:\" as a prefix for a key.
---
--- 'description', 'createMap_description' - An optional description for the map resource.
---
--- 'pricingPlan', 'createMap_pricingPlan' - No longer used. If included, the only allowed value is
--- @RequestBasedUsage@.
 --
 -- 'configuration', 'createMap_configuration' - Specifies the @MapConfiguration@, including the map style, for the map
 -- resource that you create. The map style defines the look of maps and the
@@ -162,12 +162,21 @@ newCreateMap ::
   CreateMap
 newCreateMap pConfiguration_ pMapName_ =
   CreateMap'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
       pricingPlan = Prelude.Nothing,
+      tags = Prelude.Nothing,
       configuration = pConfiguration_,
       mapName = pMapName_
     }
+
+-- | An optional description for the map resource.
+createMap_description :: Lens.Lens' CreateMap (Prelude.Maybe Prelude.Text)
+createMap_description = Lens.lens (\CreateMap' {description} -> description) (\s@CreateMap' {} a -> s {description = a} :: CreateMap)
+
+-- | No longer used. If included, the only allowed value is
+-- @RequestBasedUsage@.
+createMap_pricingPlan :: Lens.Lens' CreateMap (Prelude.Maybe PricingPlan)
+createMap_pricingPlan = Lens.lens (\CreateMap' {pricingPlan} -> pricingPlan) (\s@CreateMap' {} a -> s {pricingPlan = a} :: CreateMap)
 
 -- | Applies one or more tags to the map resource. A tag is a key-value pair
 -- helps manage, identify, search, and filter your resources by labelling
@@ -191,15 +200,6 @@ newCreateMap pConfiguration_ pMapName_ =
 -- -   Cannot use \"aws:\" as a prefix for a key.
 createMap_tags :: Lens.Lens' CreateMap (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createMap_tags = Lens.lens (\CreateMap' {tags} -> tags) (\s@CreateMap' {} a -> s {tags = a} :: CreateMap) Prelude.. Lens.mapping Lens.coerced
-
--- | An optional description for the map resource.
-createMap_description :: Lens.Lens' CreateMap (Prelude.Maybe Prelude.Text)
-createMap_description = Lens.lens (\CreateMap' {description} -> description) (\s@CreateMap' {} a -> s {description = a} :: CreateMap)
-
--- | No longer used. If included, the only allowed value is
--- @RequestBasedUsage@.
-createMap_pricingPlan :: Lens.Lens' CreateMap (Prelude.Maybe PricingPlan)
-createMap_pricingPlan = Lens.lens (\CreateMap' {pricingPlan} -> pricingPlan) (\s@CreateMap' {} a -> s {pricingPlan = a} :: CreateMap)
 
 -- | Specifies the @MapConfiguration@, including the map style, for the map
 -- resource that you create. The map style defines the look of maps and the
@@ -236,17 +236,17 @@ instance Core.AWSRequest CreateMap where
 
 instance Prelude.Hashable CreateMap where
   hashWithSalt _salt CreateMap' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` pricingPlan
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` mapName
 
 instance Prelude.NFData CreateMap where
   rnf CreateMap' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf pricingPlan
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf configuration
       `Prelude.seq` Prelude.rnf mapName
 
@@ -265,9 +265,9 @@ instance Data.ToJSON CreateMap where
   toJSON CreateMap' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
             ("PricingPlan" Data..=) Prelude.<$> pricingPlan,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Configuration" Data..= configuration),
             Prelude.Just ("MapName" Data..= mapName)
           ]

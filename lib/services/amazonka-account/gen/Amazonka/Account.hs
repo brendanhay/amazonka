@@ -28,11 +28,11 @@ module Amazonka.Account
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** TooManyRequestsException
     _TooManyRequestsException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters

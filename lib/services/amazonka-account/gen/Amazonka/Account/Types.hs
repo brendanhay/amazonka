@@ -21,8 +21,8 @@ module Amazonka.Account.Types
     _AccessDeniedException,
     _InternalServerException,
     _ResourceNotFoundException,
-    _ValidationException,
     _TooManyRequestsException,
+    _ValidationException,
 
     -- * AlternateContactType
     AlternateContactType (..),
@@ -30,20 +30,20 @@ module Amazonka.Account.Types
     -- * AlternateContact
     AlternateContact (..),
     newAlternateContact,
-    alternateContact_name,
     alternateContact_alternateContactType,
-    alternateContact_title,
-    alternateContact_phoneNumber,
     alternateContact_emailAddress,
+    alternateContact_name,
+    alternateContact_phoneNumber,
+    alternateContact_title,
 
     -- * ContactInformation
     ContactInformation (..),
     newContactInformation,
-    contactInformation_companyName,
     contactInformation_addressLine2,
+    contactInformation_addressLine3,
+    contactInformation_companyName,
     contactInformation_districtOrCounty,
     contactInformation_stateOrRegion,
-    contactInformation_addressLine3,
     contactInformation_websiteUrl,
     contactInformation_addressLine1,
     contactInformation_city,
@@ -87,28 +87,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -116,13 +110,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -130,6 +128,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The operation failed because the calling identity doesn\'t have the
@@ -159,14 +159,6 @@ _ResourceNotFoundException =
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | The operation failed because one of the input parameters was invalid.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ValidationException"
-    Prelude.. Core.hasStatus 400
-
 -- | The operation failed because it was called too frequently and exceeded a
 -- throttle limit.
 _TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -175,3 +167,11 @@ _TooManyRequestsException =
     defaultService
     "TooManyRequestsException"
     Prelude.. Core.hasStatus 429
+
+-- | The operation failed because one of the input parameters was invalid.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"
+    Prelude.. Core.hasStatus 400

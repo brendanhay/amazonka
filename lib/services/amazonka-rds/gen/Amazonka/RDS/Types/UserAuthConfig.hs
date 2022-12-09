@@ -31,8 +31,9 @@ import Amazonka.RDS.Types.IAMAuthMode
 --
 -- /See:/ 'newUserAuthConfig' smart constructor.
 data UserAuthConfig = UserAuthConfig'
-  { -- | The name of the database user to which the proxy connects.
-    userName :: Prelude.Maybe Prelude.Text,
+  { -- | The type of authentication that the proxy uses for connections from the
+    -- proxy to the underlying database.
+    authScheme :: Prelude.Maybe AuthScheme,
     -- | A user-specified description about the authentication used by a proxy to
     -- log in as a specific database user.
     description :: Prelude.Maybe Prelude.Text,
@@ -45,9 +46,8 @@ data UserAuthConfig = UserAuthConfig'
     -- uses to authenticate to the RDS DB instance or Aurora DB cluster. These
     -- secrets are stored within Amazon Secrets Manager.
     secretArn :: Prelude.Maybe Prelude.Text,
-    -- | The type of authentication that the proxy uses for connections from the
-    -- proxy to the underlying database.
-    authScheme :: Prelude.Maybe AuthScheme
+    -- | The name of the database user to which the proxy connects.
+    userName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,7 +59,8 @@ data UserAuthConfig = UserAuthConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userName', 'userAuthConfig_userName' - The name of the database user to which the proxy connects.
+-- 'authScheme', 'userAuthConfig_authScheme' - The type of authentication that the proxy uses for connections from the
+-- proxy to the underlying database.
 --
 -- 'description', 'userAuthConfig_description' - A user-specified description about the authentication used by a proxy to
 -- log in as a specific database user.
@@ -73,22 +74,22 @@ data UserAuthConfig = UserAuthConfig'
 -- uses to authenticate to the RDS DB instance or Aurora DB cluster. These
 -- secrets are stored within Amazon Secrets Manager.
 --
--- 'authScheme', 'userAuthConfig_authScheme' - The type of authentication that the proxy uses for connections from the
--- proxy to the underlying database.
+-- 'userName', 'userAuthConfig_userName' - The name of the database user to which the proxy connects.
 newUserAuthConfig ::
   UserAuthConfig
 newUserAuthConfig =
   UserAuthConfig'
-    { userName = Prelude.Nothing,
+    { authScheme = Prelude.Nothing,
       description = Prelude.Nothing,
       iAMAuth = Prelude.Nothing,
       secretArn = Prelude.Nothing,
-      authScheme = Prelude.Nothing
+      userName = Prelude.Nothing
     }
 
--- | The name of the database user to which the proxy connects.
-userAuthConfig_userName :: Lens.Lens' UserAuthConfig (Prelude.Maybe Prelude.Text)
-userAuthConfig_userName = Lens.lens (\UserAuthConfig' {userName} -> userName) (\s@UserAuthConfig' {} a -> s {userName = a} :: UserAuthConfig)
+-- | The type of authentication that the proxy uses for connections from the
+-- proxy to the underlying database.
+userAuthConfig_authScheme :: Lens.Lens' UserAuthConfig (Prelude.Maybe AuthScheme)
+userAuthConfig_authScheme = Lens.lens (\UserAuthConfig' {authScheme} -> authScheme) (\s@UserAuthConfig' {} a -> s {authScheme = a} :: UserAuthConfig)
 
 -- | A user-specified description about the authentication used by a proxy to
 -- log in as a specific database user.
@@ -108,33 +109,32 @@ userAuthConfig_iAMAuth = Lens.lens (\UserAuthConfig' {iAMAuth} -> iAMAuth) (\s@U
 userAuthConfig_secretArn :: Lens.Lens' UserAuthConfig (Prelude.Maybe Prelude.Text)
 userAuthConfig_secretArn = Lens.lens (\UserAuthConfig' {secretArn} -> secretArn) (\s@UserAuthConfig' {} a -> s {secretArn = a} :: UserAuthConfig)
 
--- | The type of authentication that the proxy uses for connections from the
--- proxy to the underlying database.
-userAuthConfig_authScheme :: Lens.Lens' UserAuthConfig (Prelude.Maybe AuthScheme)
-userAuthConfig_authScheme = Lens.lens (\UserAuthConfig' {authScheme} -> authScheme) (\s@UserAuthConfig' {} a -> s {authScheme = a} :: UserAuthConfig)
+-- | The name of the database user to which the proxy connects.
+userAuthConfig_userName :: Lens.Lens' UserAuthConfig (Prelude.Maybe Prelude.Text)
+userAuthConfig_userName = Lens.lens (\UserAuthConfig' {userName} -> userName) (\s@UserAuthConfig' {} a -> s {userName = a} :: UserAuthConfig)
 
 instance Prelude.Hashable UserAuthConfig where
   hashWithSalt _salt UserAuthConfig' {..} =
-    _salt `Prelude.hashWithSalt` userName
+    _salt `Prelude.hashWithSalt` authScheme
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` iAMAuth
       `Prelude.hashWithSalt` secretArn
-      `Prelude.hashWithSalt` authScheme
+      `Prelude.hashWithSalt` userName
 
 instance Prelude.NFData UserAuthConfig where
   rnf UserAuthConfig' {..} =
-    Prelude.rnf userName
+    Prelude.rnf authScheme
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf iAMAuth
       `Prelude.seq` Prelude.rnf secretArn
-      `Prelude.seq` Prelude.rnf authScheme
+      `Prelude.seq` Prelude.rnf userName
 
 instance Data.ToQuery UserAuthConfig where
   toQuery UserAuthConfig' {..} =
     Prelude.mconcat
-      [ "UserName" Data.=: userName,
+      [ "AuthScheme" Data.=: authScheme,
         "Description" Data.=: description,
         "IAMAuth" Data.=: iAMAuth,
         "SecretArn" Data.=: secretArn,
-        "AuthScheme" Data.=: authScheme
+        "UserName" Data.=: userName
       ]

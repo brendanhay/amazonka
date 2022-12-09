@@ -30,18 +30,18 @@ import Amazonka.RDS.Types.TargetState
 --
 -- /See:/ 'newTargetHealth' smart constructor.
 data TargetHealth = TargetHealth'
-  { -- | The current state of the connection health lifecycle for the RDS Proxy
+  { -- | A description of the health of the RDS Proxy target. If the @State@ is
+    -- @AVAILABLE@, a description is not included.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The reason for the current health @State@ of the RDS Proxy target.
+    reason :: Prelude.Maybe TargetHealthReason,
+    -- | The current state of the connection health lifecycle for the RDS Proxy
     -- target. The following is a typical lifecycle example for the states of
     -- an RDS Proxy target:
     --
     -- @registering@ > @unavailable@ > @available@ > @unavailable@ >
     -- @available@
-    state :: Prelude.Maybe TargetState,
-    -- | A description of the health of the RDS Proxy target. If the @State@ is
-    -- @AVAILABLE@, a description is not included.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The reason for the current health @State@ of the RDS Proxy target.
-    reason :: Prelude.Maybe TargetHealthReason
+    state :: Prelude.Maybe TargetState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,34 +53,25 @@ data TargetHealth = TargetHealth'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'targetHealth_description' - A description of the health of the RDS Proxy target. If the @State@ is
+-- @AVAILABLE@, a description is not included.
+--
+-- 'reason', 'targetHealth_reason' - The reason for the current health @State@ of the RDS Proxy target.
+--
 -- 'state', 'targetHealth_state' - The current state of the connection health lifecycle for the RDS Proxy
 -- target. The following is a typical lifecycle example for the states of
 -- an RDS Proxy target:
 --
 -- @registering@ > @unavailable@ > @available@ > @unavailable@ >
 -- @available@
---
--- 'description', 'targetHealth_description' - A description of the health of the RDS Proxy target. If the @State@ is
--- @AVAILABLE@, a description is not included.
---
--- 'reason', 'targetHealth_reason' - The reason for the current health @State@ of the RDS Proxy target.
 newTargetHealth ::
   TargetHealth
 newTargetHealth =
   TargetHealth'
-    { state = Prelude.Nothing,
-      description = Prelude.Nothing,
-      reason = Prelude.Nothing
+    { description = Prelude.Nothing,
+      reason = Prelude.Nothing,
+      state = Prelude.Nothing
     }
-
--- | The current state of the connection health lifecycle for the RDS Proxy
--- target. The following is a typical lifecycle example for the states of
--- an RDS Proxy target:
---
--- @registering@ > @unavailable@ > @available@ > @unavailable@ >
--- @available@
-targetHealth_state :: Lens.Lens' TargetHealth (Prelude.Maybe TargetState)
-targetHealth_state = Lens.lens (\TargetHealth' {state} -> state) (\s@TargetHealth' {} a -> s {state = a} :: TargetHealth)
 
 -- | A description of the health of the RDS Proxy target. If the @State@ is
 -- @AVAILABLE@, a description is not included.
@@ -91,21 +82,30 @@ targetHealth_description = Lens.lens (\TargetHealth' {description} -> descriptio
 targetHealth_reason :: Lens.Lens' TargetHealth (Prelude.Maybe TargetHealthReason)
 targetHealth_reason = Lens.lens (\TargetHealth' {reason} -> reason) (\s@TargetHealth' {} a -> s {reason = a} :: TargetHealth)
 
+-- | The current state of the connection health lifecycle for the RDS Proxy
+-- target. The following is a typical lifecycle example for the states of
+-- an RDS Proxy target:
+--
+-- @registering@ > @unavailable@ > @available@ > @unavailable@ >
+-- @available@
+targetHealth_state :: Lens.Lens' TargetHealth (Prelude.Maybe TargetState)
+targetHealth_state = Lens.lens (\TargetHealth' {state} -> state) (\s@TargetHealth' {} a -> s {state = a} :: TargetHealth)
+
 instance Data.FromXML TargetHealth where
   parseXML x =
     TargetHealth'
-      Prelude.<$> (x Data..@? "State")
-      Prelude.<*> (x Data..@? "Description")
+      Prelude.<$> (x Data..@? "Description")
       Prelude.<*> (x Data..@? "Reason")
+      Prelude.<*> (x Data..@? "State")
 
 instance Prelude.Hashable TargetHealth where
   hashWithSalt _salt TargetHealth' {..} =
-    _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` state
 
 instance Prelude.NFData TargetHealth where
   rnf TargetHealth' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf state

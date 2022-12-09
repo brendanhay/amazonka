@@ -27,8 +27,8 @@ module Amazonka.RDS.ModifyDBProxyTargetGroup
     newModifyDBProxyTargetGroup,
 
     -- * Request Lenses
-    modifyDBProxyTargetGroup_newName,
     modifyDBProxyTargetGroup_connectionPoolConfig,
+    modifyDBProxyTargetGroup_newName,
     modifyDBProxyTargetGroup_targetGroupName,
     modifyDBProxyTargetGroup_dbProxyName,
 
@@ -52,13 +52,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyDBProxyTargetGroup' smart constructor.
 data ModifyDBProxyTargetGroup = ModifyDBProxyTargetGroup'
-  { -- | The new name for the modified @DBProxyTarget@. An identifier must begin
+  { -- | The settings that determine the size and behavior of the connection pool
+    -- for the target group.
+    connectionPoolConfig :: Prelude.Maybe ConnectionPoolConfiguration,
+    -- | The new name for the modified @DBProxyTarget@. An identifier must begin
     -- with a letter and must contain only ASCII letters, digits, and hyphens;
     -- it can\'t end with a hyphen or contain two consecutive hyphens.
     newName' :: Prelude.Maybe Prelude.Text,
-    -- | The settings that determine the size and behavior of the connection pool
-    -- for the target group.
-    connectionPoolConfig :: Prelude.Maybe ConnectionPoolConfiguration,
     -- | The name of the target group to modify.
     targetGroupName :: Prelude.Text,
     -- | The name of the proxy.
@@ -74,12 +74,12 @@ data ModifyDBProxyTargetGroup = ModifyDBProxyTargetGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'connectionPoolConfig', 'modifyDBProxyTargetGroup_connectionPoolConfig' - The settings that determine the size and behavior of the connection pool
+-- for the target group.
+--
 -- 'newName'', 'modifyDBProxyTargetGroup_newName' - The new name for the modified @DBProxyTarget@. An identifier must begin
 -- with a letter and must contain only ASCII letters, digits, and hyphens;
 -- it can\'t end with a hyphen or contain two consecutive hyphens.
---
--- 'connectionPoolConfig', 'modifyDBProxyTargetGroup_connectionPoolConfig' - The settings that determine the size and behavior of the connection pool
--- for the target group.
 --
 -- 'targetGroupName', 'modifyDBProxyTargetGroup_targetGroupName' - The name of the target group to modify.
 --
@@ -94,23 +94,23 @@ newModifyDBProxyTargetGroup
   pTargetGroupName_
   pDBProxyName_ =
     ModifyDBProxyTargetGroup'
-      { newName' =
+      { connectionPoolConfig =
           Prelude.Nothing,
-        connectionPoolConfig = Prelude.Nothing,
+        newName' = Prelude.Nothing,
         targetGroupName = pTargetGroupName_,
         dbProxyName = pDBProxyName_
       }
+
+-- | The settings that determine the size and behavior of the connection pool
+-- for the target group.
+modifyDBProxyTargetGroup_connectionPoolConfig :: Lens.Lens' ModifyDBProxyTargetGroup (Prelude.Maybe ConnectionPoolConfiguration)
+modifyDBProxyTargetGroup_connectionPoolConfig = Lens.lens (\ModifyDBProxyTargetGroup' {connectionPoolConfig} -> connectionPoolConfig) (\s@ModifyDBProxyTargetGroup' {} a -> s {connectionPoolConfig = a} :: ModifyDBProxyTargetGroup)
 
 -- | The new name for the modified @DBProxyTarget@. An identifier must begin
 -- with a letter and must contain only ASCII letters, digits, and hyphens;
 -- it can\'t end with a hyphen or contain two consecutive hyphens.
 modifyDBProxyTargetGroup_newName :: Lens.Lens' ModifyDBProxyTargetGroup (Prelude.Maybe Prelude.Text)
 modifyDBProxyTargetGroup_newName = Lens.lens (\ModifyDBProxyTargetGroup' {newName'} -> newName') (\s@ModifyDBProxyTargetGroup' {} a -> s {newName' = a} :: ModifyDBProxyTargetGroup)
-
--- | The settings that determine the size and behavior of the connection pool
--- for the target group.
-modifyDBProxyTargetGroup_connectionPoolConfig :: Lens.Lens' ModifyDBProxyTargetGroup (Prelude.Maybe ConnectionPoolConfiguration)
-modifyDBProxyTargetGroup_connectionPoolConfig = Lens.lens (\ModifyDBProxyTargetGroup' {connectionPoolConfig} -> connectionPoolConfig) (\s@ModifyDBProxyTargetGroup' {} a -> s {connectionPoolConfig = a} :: ModifyDBProxyTargetGroup)
 
 -- | The name of the target group to modify.
 modifyDBProxyTargetGroup_targetGroupName :: Lens.Lens' ModifyDBProxyTargetGroup Prelude.Text
@@ -137,15 +137,15 @@ instance Core.AWSRequest ModifyDBProxyTargetGroup where
 
 instance Prelude.Hashable ModifyDBProxyTargetGroup where
   hashWithSalt _salt ModifyDBProxyTargetGroup' {..} =
-    _salt `Prelude.hashWithSalt` newName'
-      `Prelude.hashWithSalt` connectionPoolConfig
+    _salt `Prelude.hashWithSalt` connectionPoolConfig
+      `Prelude.hashWithSalt` newName'
       `Prelude.hashWithSalt` targetGroupName
       `Prelude.hashWithSalt` dbProxyName
 
 instance Prelude.NFData ModifyDBProxyTargetGroup where
   rnf ModifyDBProxyTargetGroup' {..} =
-    Prelude.rnf newName'
-      `Prelude.seq` Prelude.rnf connectionPoolConfig
+    Prelude.rnf connectionPoolConfig
+      `Prelude.seq` Prelude.rnf newName'
       `Prelude.seq` Prelude.rnf targetGroupName
       `Prelude.seq` Prelude.rnf dbProxyName
 
@@ -162,8 +162,8 @@ instance Data.ToQuery ModifyDBProxyTargetGroup where
           Data.=: ("ModifyDBProxyTargetGroup" :: Prelude.ByteString),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
-        "NewName" Data.=: newName',
         "ConnectionPoolConfig" Data.=: connectionPoolConfig,
+        "NewName" Data.=: newName',
         "TargetGroupName" Data.=: targetGroupName,
         "DBProxyName" Data.=: dbProxyName
       ]

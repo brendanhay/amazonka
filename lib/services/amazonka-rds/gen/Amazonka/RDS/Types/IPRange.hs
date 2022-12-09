@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIPRange' smart constructor.
 data IPRange = IPRange'
-  { -- | Specifies the status of the IP range. Status can be \"authorizing\",
+  { -- | Specifies the IP range.
+    cidrip :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the status of the IP range. Status can be \"authorizing\",
     -- \"authorized\", \"revoking\", and \"revoked\".
-    status :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the IP range.
-    cidrip :: Prelude.Maybe Prelude.Text
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,38 +45,38 @@ data IPRange = IPRange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'cidrip', 'iPRange_cidrip' - Specifies the IP range.
+--
 -- 'status', 'iPRange_status' - Specifies the status of the IP range. Status can be \"authorizing\",
 -- \"authorized\", \"revoking\", and \"revoked\".
---
--- 'cidrip', 'iPRange_cidrip' - Specifies the IP range.
 newIPRange ::
   IPRange
 newIPRange =
   IPRange'
-    { status = Prelude.Nothing,
-      cidrip = Prelude.Nothing
+    { cidrip = Prelude.Nothing,
+      status = Prelude.Nothing
     }
+
+-- | Specifies the IP range.
+iPRange_cidrip :: Lens.Lens' IPRange (Prelude.Maybe Prelude.Text)
+iPRange_cidrip = Lens.lens (\IPRange' {cidrip} -> cidrip) (\s@IPRange' {} a -> s {cidrip = a} :: IPRange)
 
 -- | Specifies the status of the IP range. Status can be \"authorizing\",
 -- \"authorized\", \"revoking\", and \"revoked\".
 iPRange_status :: Lens.Lens' IPRange (Prelude.Maybe Prelude.Text)
 iPRange_status = Lens.lens (\IPRange' {status} -> status) (\s@IPRange' {} a -> s {status = a} :: IPRange)
 
--- | Specifies the IP range.
-iPRange_cidrip :: Lens.Lens' IPRange (Prelude.Maybe Prelude.Text)
-iPRange_cidrip = Lens.lens (\IPRange' {cidrip} -> cidrip) (\s@IPRange' {} a -> s {cidrip = a} :: IPRange)
-
 instance Data.FromXML IPRange where
   parseXML x =
     IPRange'
-      Prelude.<$> (x Data..@? "Status")
-      Prelude.<*> (x Data..@? "CIDRIP")
+      Prelude.<$> (x Data..@? "CIDRIP")
+      Prelude.<*> (x Data..@? "Status")
 
 instance Prelude.Hashable IPRange where
   hashWithSalt _salt IPRange' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` cidrip
+    _salt `Prelude.hashWithSalt` cidrip
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData IPRange where
   rnf IPRange' {..} =
-    Prelude.rnf status `Prelude.seq` Prelude.rnf cidrip
+    Prelude.rnf cidrip `Prelude.seq` Prelude.rnf status

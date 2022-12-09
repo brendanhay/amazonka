@@ -27,6 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 -- | Metadata assigned to an Amazon RDS resource consisting of a key-value
 -- pair.
 --
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html Tagging Amazon RDS Resources>
+-- in the /Amazon RDS User Guide./
+--
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
   { -- | A key is the required name of the tag. The string value can be from 1 to

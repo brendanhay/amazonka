@@ -30,19 +30,19 @@ module Amazonka.RDS.DescribeOptionGroups
 
     -- * Request Lenses
     describeOptionGroups_engineName,
-    describeOptionGroups_marker,
     describeOptionGroups_filters,
-    describeOptionGroups_optionGroupName,
-    describeOptionGroups_maxRecords,
     describeOptionGroups_majorEngineVersion,
+    describeOptionGroups_marker,
+    describeOptionGroups_maxRecords,
+    describeOptionGroups_optionGroupName,
 
     -- * Destructuring the Response
     DescribeOptionGroupsResponse (..),
     newDescribeOptionGroupsResponse,
 
     -- * Response Lenses
-    describeOptionGroupsResponse_optionGroupsList,
     describeOptionGroupsResponse_marker,
+    describeOptionGroupsResponse_optionGroupsList,
     describeOptionGroupsResponse_httpStatus,
   )
 where
@@ -86,15 +86,16 @@ data DescribeOptionGroups = DescribeOptionGroups'
     --
     -- -   @sqlserver-web@
     engineName :: Prelude.Maybe Prelude.Text,
+    -- | This parameter isn\'t currently supported.
+    filters :: Prelude.Maybe [Filter],
+    -- | Filters the list of option groups to only include groups associated with
+    -- a specific database engine version. If specified, then EngineName must
+    -- also be specified.
+    majorEngineVersion :: Prelude.Maybe Prelude.Text,
     -- | An optional pagination token provided by a previous DescribeOptionGroups
     -- request. If this parameter is specified, the response includes only
     -- records beyond the marker, up to the value specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | This parameter isn\'t currently supported.
-    filters :: Prelude.Maybe [Filter],
-    -- | The name of the option group to describe. Can\'t be supplied together
-    -- with EngineName or MajorEngineVersion.
-    optionGroupName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that you can retrieve the
@@ -104,10 +105,9 @@ data DescribeOptionGroups = DescribeOptionGroups'
     --
     -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Prelude.Maybe Prelude.Int,
-    -- | Filters the list of option groups to only include groups associated with
-    -- a specific database engine version. If specified, then EngineName must
-    -- also be specified.
-    majorEngineVersion :: Prelude.Maybe Prelude.Text
+    -- | The name of the option group to describe. Can\'t be supplied together
+    -- with EngineName or MajorEngineVersion.
+    optionGroupName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -146,14 +146,15 @@ data DescribeOptionGroups = DescribeOptionGroups'
 --
 -- -   @sqlserver-web@
 --
+-- 'filters', 'describeOptionGroups_filters' - This parameter isn\'t currently supported.
+--
+-- 'majorEngineVersion', 'describeOptionGroups_majorEngineVersion' - Filters the list of option groups to only include groups associated with
+-- a specific database engine version. If specified, then EngineName must
+-- also be specified.
+--
 -- 'marker', 'describeOptionGroups_marker' - An optional pagination token provided by a previous DescribeOptionGroups
 -- request. If this parameter is specified, the response includes only
 -- records beyond the marker, up to the value specified by @MaxRecords@.
---
--- 'filters', 'describeOptionGroups_filters' - This parameter isn\'t currently supported.
---
--- 'optionGroupName', 'describeOptionGroups_optionGroupName' - The name of the option group to describe. Can\'t be supplied together
--- with EngineName or MajorEngineVersion.
 --
 -- 'maxRecords', 'describeOptionGroups_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -164,19 +165,18 @@ data DescribeOptionGroups = DescribeOptionGroups'
 --
 -- Constraints: Minimum 20, maximum 100.
 --
--- 'majorEngineVersion', 'describeOptionGroups_majorEngineVersion' - Filters the list of option groups to only include groups associated with
--- a specific database engine version. If specified, then EngineName must
--- also be specified.
+-- 'optionGroupName', 'describeOptionGroups_optionGroupName' - The name of the option group to describe. Can\'t be supplied together
+-- with EngineName or MajorEngineVersion.
 newDescribeOptionGroups ::
   DescribeOptionGroups
 newDescribeOptionGroups =
   DescribeOptionGroups'
     { engineName = Prelude.Nothing,
-      marker = Prelude.Nothing,
       filters = Prelude.Nothing,
-      optionGroupName = Prelude.Nothing,
+      majorEngineVersion = Prelude.Nothing,
+      marker = Prelude.Nothing,
       maxRecords = Prelude.Nothing,
-      majorEngineVersion = Prelude.Nothing
+      optionGroupName = Prelude.Nothing
     }
 
 -- | Filters the list of option groups to only include groups associated with
@@ -208,20 +208,21 @@ newDescribeOptionGroups =
 describeOptionGroups_engineName :: Lens.Lens' DescribeOptionGroups (Prelude.Maybe Prelude.Text)
 describeOptionGroups_engineName = Lens.lens (\DescribeOptionGroups' {engineName} -> engineName) (\s@DescribeOptionGroups' {} a -> s {engineName = a} :: DescribeOptionGroups)
 
+-- | This parameter isn\'t currently supported.
+describeOptionGroups_filters :: Lens.Lens' DescribeOptionGroups (Prelude.Maybe [Filter])
+describeOptionGroups_filters = Lens.lens (\DescribeOptionGroups' {filters} -> filters) (\s@DescribeOptionGroups' {} a -> s {filters = a} :: DescribeOptionGroups) Prelude.. Lens.mapping Lens.coerced
+
+-- | Filters the list of option groups to only include groups associated with
+-- a specific database engine version. If specified, then EngineName must
+-- also be specified.
+describeOptionGroups_majorEngineVersion :: Lens.Lens' DescribeOptionGroups (Prelude.Maybe Prelude.Text)
+describeOptionGroups_majorEngineVersion = Lens.lens (\DescribeOptionGroups' {majorEngineVersion} -> majorEngineVersion) (\s@DescribeOptionGroups' {} a -> s {majorEngineVersion = a} :: DescribeOptionGroups)
+
 -- | An optional pagination token provided by a previous DescribeOptionGroups
 -- request. If this parameter is specified, the response includes only
 -- records beyond the marker, up to the value specified by @MaxRecords@.
 describeOptionGroups_marker :: Lens.Lens' DescribeOptionGroups (Prelude.Maybe Prelude.Text)
 describeOptionGroups_marker = Lens.lens (\DescribeOptionGroups' {marker} -> marker) (\s@DescribeOptionGroups' {} a -> s {marker = a} :: DescribeOptionGroups)
-
--- | This parameter isn\'t currently supported.
-describeOptionGroups_filters :: Lens.Lens' DescribeOptionGroups (Prelude.Maybe [Filter])
-describeOptionGroups_filters = Lens.lens (\DescribeOptionGroups' {filters} -> filters) (\s@DescribeOptionGroups' {} a -> s {filters = a} :: DescribeOptionGroups) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the option group to describe. Can\'t be supplied together
--- with EngineName or MajorEngineVersion.
-describeOptionGroups_optionGroupName :: Lens.Lens' DescribeOptionGroups (Prelude.Maybe Prelude.Text)
-describeOptionGroups_optionGroupName = Lens.lens (\DescribeOptionGroups' {optionGroupName} -> optionGroupName) (\s@DescribeOptionGroups' {} a -> s {optionGroupName = a} :: DescribeOptionGroups)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -234,11 +235,10 @@ describeOptionGroups_optionGroupName = Lens.lens (\DescribeOptionGroups' {option
 describeOptionGroups_maxRecords :: Lens.Lens' DescribeOptionGroups (Prelude.Maybe Prelude.Int)
 describeOptionGroups_maxRecords = Lens.lens (\DescribeOptionGroups' {maxRecords} -> maxRecords) (\s@DescribeOptionGroups' {} a -> s {maxRecords = a} :: DescribeOptionGroups)
 
--- | Filters the list of option groups to only include groups associated with
--- a specific database engine version. If specified, then EngineName must
--- also be specified.
-describeOptionGroups_majorEngineVersion :: Lens.Lens' DescribeOptionGroups (Prelude.Maybe Prelude.Text)
-describeOptionGroups_majorEngineVersion = Lens.lens (\DescribeOptionGroups' {majorEngineVersion} -> majorEngineVersion) (\s@DescribeOptionGroups' {} a -> s {majorEngineVersion = a} :: DescribeOptionGroups)
+-- | The name of the option group to describe. Can\'t be supplied together
+-- with EngineName or MajorEngineVersion.
+describeOptionGroups_optionGroupName :: Lens.Lens' DescribeOptionGroups (Prelude.Maybe Prelude.Text)
+describeOptionGroups_optionGroupName = Lens.lens (\DescribeOptionGroups' {optionGroupName} -> optionGroupName) (\s@DescribeOptionGroups' {} a -> s {optionGroupName = a} :: DescribeOptionGroups)
 
 instance Core.AWSPager DescribeOptionGroups where
   page rq rs
@@ -273,31 +273,31 @@ instance Core.AWSRequest DescribeOptionGroups where
       "DescribeOptionGroupsResult"
       ( \s h x ->
           DescribeOptionGroupsResponse'
-            Prelude.<$> ( x Data..@? "OptionGroupsList"
+            Prelude.<$> (x Data..@? "Marker")
+            Prelude.<*> ( x Data..@? "OptionGroupsList"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "OptionGroup")
                         )
-            Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeOptionGroups where
   hashWithSalt _salt DescribeOptionGroups' {..} =
     _salt `Prelude.hashWithSalt` engineName
-      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` optionGroupName
-      `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` majorEngineVersion
+      `Prelude.hashWithSalt` marker
+      `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` optionGroupName
 
 instance Prelude.NFData DescribeOptionGroups where
   rnf DescribeOptionGroups' {..} =
     Prelude.rnf engineName
-      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf optionGroupName
-      `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf majorEngineVersion
+      `Prelude.seq` Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf optionGroupName
 
 instance Data.ToHeaders DescribeOptionGroups where
   toHeaders = Prelude.const Prelude.mempty
@@ -313,25 +313,25 @@ instance Data.ToQuery DescribeOptionGroups where
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
         "EngineName" Data.=: engineName,
-        "Marker" Data.=: marker,
         "Filters"
           Data.=: Data.toQuery
             (Data.toQueryList "Filter" Prelude.<$> filters),
-        "OptionGroupName" Data.=: optionGroupName,
+        "MajorEngineVersion" Data.=: majorEngineVersion,
+        "Marker" Data.=: marker,
         "MaxRecords" Data.=: maxRecords,
-        "MajorEngineVersion" Data.=: majorEngineVersion
+        "OptionGroupName" Data.=: optionGroupName
       ]
 
 -- | List of option groups.
 --
 -- /See:/ 'newDescribeOptionGroupsResponse' smart constructor.
 data DescribeOptionGroupsResponse = DescribeOptionGroupsResponse'
-  { -- | List of option groups.
-    optionGroupsList :: Prelude.Maybe [OptionGroup],
-    -- | An optional pagination token provided by a previous request. If this
+  { -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | List of option groups.
+    optionGroupsList :: Prelude.Maybe [OptionGroup],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -345,11 +345,11 @@ data DescribeOptionGroupsResponse = DescribeOptionGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'optionGroupsList', 'describeOptionGroupsResponse_optionGroupsList' - List of option groups.
---
 -- 'marker', 'describeOptionGroupsResponse_marker' - An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
+--
+-- 'optionGroupsList', 'describeOptionGroupsResponse_optionGroupsList' - List of option groups.
 --
 -- 'httpStatus', 'describeOptionGroupsResponse_httpStatus' - The response's http status code.
 newDescribeOptionGroupsResponse ::
@@ -358,15 +358,11 @@ newDescribeOptionGroupsResponse ::
   DescribeOptionGroupsResponse
 newDescribeOptionGroupsResponse pHttpStatus_ =
   DescribeOptionGroupsResponse'
-    { optionGroupsList =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      optionGroupsList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | List of option groups.
-describeOptionGroupsResponse_optionGroupsList :: Lens.Lens' DescribeOptionGroupsResponse (Prelude.Maybe [OptionGroup])
-describeOptionGroupsResponse_optionGroupsList = Lens.lens (\DescribeOptionGroupsResponse' {optionGroupsList} -> optionGroupsList) (\s@DescribeOptionGroupsResponse' {} a -> s {optionGroupsList = a} :: DescribeOptionGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
@@ -374,12 +370,16 @@ describeOptionGroupsResponse_optionGroupsList = Lens.lens (\DescribeOptionGroups
 describeOptionGroupsResponse_marker :: Lens.Lens' DescribeOptionGroupsResponse (Prelude.Maybe Prelude.Text)
 describeOptionGroupsResponse_marker = Lens.lens (\DescribeOptionGroupsResponse' {marker} -> marker) (\s@DescribeOptionGroupsResponse' {} a -> s {marker = a} :: DescribeOptionGroupsResponse)
 
+-- | List of option groups.
+describeOptionGroupsResponse_optionGroupsList :: Lens.Lens' DescribeOptionGroupsResponse (Prelude.Maybe [OptionGroup])
+describeOptionGroupsResponse_optionGroupsList = Lens.lens (\DescribeOptionGroupsResponse' {optionGroupsList} -> optionGroupsList) (\s@DescribeOptionGroupsResponse' {} a -> s {optionGroupsList = a} :: DescribeOptionGroupsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 describeOptionGroupsResponse_httpStatus :: Lens.Lens' DescribeOptionGroupsResponse Prelude.Int
 describeOptionGroupsResponse_httpStatus = Lens.lens (\DescribeOptionGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribeOptionGroupsResponse' {} a -> s {httpStatus = a} :: DescribeOptionGroupsResponse)
 
 instance Prelude.NFData DescribeOptionGroupsResponse where
   rnf DescribeOptionGroupsResponse' {..} =
-    Prelude.rnf optionGroupsList
-      `Prelude.seq` Prelude.rnf marker
+    Prelude.rnf marker
+      `Prelude.seq` Prelude.rnf optionGroupsList
       `Prelude.seq` Prelude.rnf httpStatus

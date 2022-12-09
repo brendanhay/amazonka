@@ -34,8 +34,8 @@ module Amazonka.RDS.ResetDBParameterGroup
     newResetDBParameterGroup,
 
     -- * Request Lenses
-    resetDBParameterGroup_resetAllParameters,
     resetDBParameterGroup_parameters,
+    resetDBParameterGroup_resetAllParameters,
     resetDBParameterGroup_dbParameterGroupName,
 
     -- * Destructuring the Response
@@ -59,11 +59,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newResetDBParameterGroup' smart constructor.
 data ResetDBParameterGroup = ResetDBParameterGroup'
-  { -- | A value that indicates whether to reset all parameters in the DB
-    -- parameter group to default values. By default, all parameters in the DB
-    -- parameter group are reset to default values.
-    resetAllParameters :: Prelude.Maybe Prelude.Bool,
-    -- | To reset the entire DB parameter group, specify the @DBParameterGroup@
+  { -- | To reset the entire DB parameter group, specify the @DBParameterGroup@
     -- name and @ResetAllParameters@ parameters. To reset specific parameters,
     -- provide a list of the following: @ParameterName@ and @ApplyMethod@. A
     -- maximum of 20 parameters can be modified in a single request.
@@ -88,6 +84,10 @@ data ResetDBParameterGroup = ResetDBParameterGroup'
     --
     -- Valid Values (for Apply method): @pending-reboot@
     parameters :: Prelude.Maybe [Parameter],
+    -- | A value that indicates whether to reset all parameters in the DB
+    -- parameter group to default values. By default, all parameters in the DB
+    -- parameter group are reset to default values.
+    resetAllParameters :: Prelude.Maybe Prelude.Bool,
     -- | The name of the DB parameter group.
     --
     -- Constraints:
@@ -104,10 +104,6 @@ data ResetDBParameterGroup = ResetDBParameterGroup'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'resetAllParameters', 'resetDBParameterGroup_resetAllParameters' - A value that indicates whether to reset all parameters in the DB
--- parameter group to default values. By default, all parameters in the DB
--- parameter group are reset to default values.
 --
 -- 'parameters', 'resetDBParameterGroup_parameters' - To reset the entire DB parameter group, specify the @DBParameterGroup@
 -- name and @ResetAllParameters@ parameters. To reset specific parameters,
@@ -134,6 +130,10 @@ data ResetDBParameterGroup = ResetDBParameterGroup'
 --
 -- Valid Values (for Apply method): @pending-reboot@
 --
+-- 'resetAllParameters', 'resetDBParameterGroup_resetAllParameters' - A value that indicates whether to reset all parameters in the DB
+-- parameter group to default values. By default, all parameters in the DB
+-- parameter group are reset to default values.
+--
 -- 'dbParameterGroupName', 'resetDBParameterGroup_dbParameterGroupName' - The name of the DB parameter group.
 --
 -- Constraints:
@@ -145,17 +145,11 @@ newResetDBParameterGroup ::
   ResetDBParameterGroup
 newResetDBParameterGroup pDBParameterGroupName_ =
   ResetDBParameterGroup'
-    { resetAllParameters =
+    { parameters =
         Prelude.Nothing,
-      parameters = Prelude.Nothing,
+      resetAllParameters = Prelude.Nothing,
       dbParameterGroupName = pDBParameterGroupName_
     }
-
--- | A value that indicates whether to reset all parameters in the DB
--- parameter group to default values. By default, all parameters in the DB
--- parameter group are reset to default values.
-resetDBParameterGroup_resetAllParameters :: Lens.Lens' ResetDBParameterGroup (Prelude.Maybe Prelude.Bool)
-resetDBParameterGroup_resetAllParameters = Lens.lens (\ResetDBParameterGroup' {resetAllParameters} -> resetAllParameters) (\s@ResetDBParameterGroup' {} a -> s {resetAllParameters = a} :: ResetDBParameterGroup)
 
 -- | To reset the entire DB parameter group, specify the @DBParameterGroup@
 -- name and @ResetAllParameters@ parameters. To reset specific parameters,
@@ -184,6 +178,12 @@ resetDBParameterGroup_resetAllParameters = Lens.lens (\ResetDBParameterGroup' {r
 resetDBParameterGroup_parameters :: Lens.Lens' ResetDBParameterGroup (Prelude.Maybe [Parameter])
 resetDBParameterGroup_parameters = Lens.lens (\ResetDBParameterGroup' {parameters} -> parameters) (\s@ResetDBParameterGroup' {} a -> s {parameters = a} :: ResetDBParameterGroup) Prelude.. Lens.mapping Lens.coerced
 
+-- | A value that indicates whether to reset all parameters in the DB
+-- parameter group to default values. By default, all parameters in the DB
+-- parameter group are reset to default values.
+resetDBParameterGroup_resetAllParameters :: Lens.Lens' ResetDBParameterGroup (Prelude.Maybe Prelude.Bool)
+resetDBParameterGroup_resetAllParameters = Lens.lens (\ResetDBParameterGroup' {resetAllParameters} -> resetAllParameters) (\s@ResetDBParameterGroup' {} a -> s {resetAllParameters = a} :: ResetDBParameterGroup)
+
 -- | The name of the DB parameter group.
 --
 -- Constraints:
@@ -205,14 +205,14 @@ instance Core.AWSRequest ResetDBParameterGroup where
 
 instance Prelude.Hashable ResetDBParameterGroup where
   hashWithSalt _salt ResetDBParameterGroup' {..} =
-    _salt `Prelude.hashWithSalt` resetAllParameters
-      `Prelude.hashWithSalt` parameters
+    _salt `Prelude.hashWithSalt` parameters
+      `Prelude.hashWithSalt` resetAllParameters
       `Prelude.hashWithSalt` dbParameterGroupName
 
 instance Prelude.NFData ResetDBParameterGroup where
   rnf ResetDBParameterGroup' {..} =
-    Prelude.rnf resetAllParameters
-      `Prelude.seq` Prelude.rnf parameters
+    Prelude.rnf parameters
+      `Prelude.seq` Prelude.rnf resetAllParameters
       `Prelude.seq` Prelude.rnf dbParameterGroupName
 
 instance Data.ToHeaders ResetDBParameterGroup where
@@ -228,11 +228,11 @@ instance Data.ToQuery ResetDBParameterGroup where
           Data.=: ("ResetDBParameterGroup" :: Prelude.ByteString),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
-        "ResetAllParameters" Data.=: resetAllParameters,
         "Parameters"
           Data.=: Data.toQuery
             ( Data.toQueryList "Parameter"
                 Prelude.<$> parameters
             ),
+        "ResetAllParameters" Data.=: resetAllParameters,
         "DBParameterGroupName" Data.=: dbParameterGroupName
       ]

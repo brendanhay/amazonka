@@ -41,10 +41,10 @@ module Amazonka.RDS.RevokeDBSecurityGroupIngress
     newRevokeDBSecurityGroupIngress,
 
     -- * Request Lenses
-    revokeDBSecurityGroupIngress_eC2SecurityGroupId,
-    revokeDBSecurityGroupIngress_eC2SecurityGroupOwnerId,
-    revokeDBSecurityGroupIngress_eC2SecurityGroupName,
     revokeDBSecurityGroupIngress_cidrip,
+    revokeDBSecurityGroupIngress_eC2SecurityGroupId,
+    revokeDBSecurityGroupIngress_eC2SecurityGroupName,
+    revokeDBSecurityGroupIngress_eC2SecurityGroupOwnerId,
     revokeDBSecurityGroupIngress_dbSecurityGroupName,
 
     -- * Destructuring the Response
@@ -69,11 +69,20 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newRevokeDBSecurityGroupIngress' smart constructor.
 data RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngress'
-  { -- | The id of the EC2 security group to revoke access from. For VPC DB
+  { -- | The IP range to revoke access from. Must be a valid CIDR range. If
+    -- @CIDRIP@ is specified, @EC2SecurityGroupName@, @EC2SecurityGroupId@ and
+    -- @EC2SecurityGroupOwnerId@ can\'t be provided.
+    cidrip :: Prelude.Maybe Prelude.Text,
+    -- | The id of the EC2 security group to revoke access from. For VPC DB
     -- security groups, @EC2SecurityGroupId@ must be provided. Otherwise,
     -- EC2SecurityGroupOwnerId and either @EC2SecurityGroupName@ or
     -- @EC2SecurityGroupId@ must be provided.
     eC2SecurityGroupId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the EC2 security group to revoke access from. For VPC DB
+    -- security groups, @EC2SecurityGroupId@ must be provided. Otherwise,
+    -- EC2SecurityGroupOwnerId and either @EC2SecurityGroupName@ or
+    -- @EC2SecurityGroupId@ must be provided.
+    eC2SecurityGroupName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services account number of the owner of the EC2 security
     -- group specified in the @EC2SecurityGroupName@ parameter. The Amazon Web
     -- Services access key ID isn\'t an acceptable value. For VPC DB security
@@ -81,15 +90,6 @@ data RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngress'
     -- EC2SecurityGroupOwnerId and either @EC2SecurityGroupName@ or
     -- @EC2SecurityGroupId@ must be provided.
     eC2SecurityGroupOwnerId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the EC2 security group to revoke access from. For VPC DB
-    -- security groups, @EC2SecurityGroupId@ must be provided. Otherwise,
-    -- EC2SecurityGroupOwnerId and either @EC2SecurityGroupName@ or
-    -- @EC2SecurityGroupId@ must be provided.
-    eC2SecurityGroupName :: Prelude.Maybe Prelude.Text,
-    -- | The IP range to revoke access from. Must be a valid CIDR range. If
-    -- @CIDRIP@ is specified, @EC2SecurityGroupName@, @EC2SecurityGroupId@ and
-    -- @EC2SecurityGroupOwnerId@ can\'t be provided.
-    cidrip :: Prelude.Maybe Prelude.Text,
     -- | The name of the DB security group to revoke ingress from.
     dbSecurityGroupName :: Prelude.Text
   }
@@ -103,7 +103,16 @@ data RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngress'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'cidrip', 'revokeDBSecurityGroupIngress_cidrip' - The IP range to revoke access from. Must be a valid CIDR range. If
+-- @CIDRIP@ is specified, @EC2SecurityGroupName@, @EC2SecurityGroupId@ and
+-- @EC2SecurityGroupOwnerId@ can\'t be provided.
+--
 -- 'eC2SecurityGroupId', 'revokeDBSecurityGroupIngress_eC2SecurityGroupId' - The id of the EC2 security group to revoke access from. For VPC DB
+-- security groups, @EC2SecurityGroupId@ must be provided. Otherwise,
+-- EC2SecurityGroupOwnerId and either @EC2SecurityGroupName@ or
+-- @EC2SecurityGroupId@ must be provided.
+--
+-- 'eC2SecurityGroupName', 'revokeDBSecurityGroupIngress_eC2SecurityGroupName' - The name of the EC2 security group to revoke access from. For VPC DB
 -- security groups, @EC2SecurityGroupId@ must be provided. Otherwise,
 -- EC2SecurityGroupOwnerId and either @EC2SecurityGroupName@ or
 -- @EC2SecurityGroupId@ must be provided.
@@ -115,15 +124,6 @@ data RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngress'
 -- EC2SecurityGroupOwnerId and either @EC2SecurityGroupName@ or
 -- @EC2SecurityGroupId@ must be provided.
 --
--- 'eC2SecurityGroupName', 'revokeDBSecurityGroupIngress_eC2SecurityGroupName' - The name of the EC2 security group to revoke access from. For VPC DB
--- security groups, @EC2SecurityGroupId@ must be provided. Otherwise,
--- EC2SecurityGroupOwnerId and either @EC2SecurityGroupName@ or
--- @EC2SecurityGroupId@ must be provided.
---
--- 'cidrip', 'revokeDBSecurityGroupIngress_cidrip' - The IP range to revoke access from. Must be a valid CIDR range. If
--- @CIDRIP@ is specified, @EC2SecurityGroupName@, @EC2SecurityGroupId@ and
--- @EC2SecurityGroupOwnerId@ can\'t be provided.
---
 -- 'dbSecurityGroupName', 'revokeDBSecurityGroupIngress_dbSecurityGroupName' - The name of the DB security group to revoke ingress from.
 newRevokeDBSecurityGroupIngress ::
   -- | 'dbSecurityGroupName'
@@ -131,13 +131,19 @@ newRevokeDBSecurityGroupIngress ::
   RevokeDBSecurityGroupIngress
 newRevokeDBSecurityGroupIngress pDBSecurityGroupName_ =
   RevokeDBSecurityGroupIngress'
-    { eC2SecurityGroupId =
+    { cidrip =
         Prelude.Nothing,
-      eC2SecurityGroupOwnerId = Prelude.Nothing,
+      eC2SecurityGroupId = Prelude.Nothing,
       eC2SecurityGroupName = Prelude.Nothing,
-      cidrip = Prelude.Nothing,
+      eC2SecurityGroupOwnerId = Prelude.Nothing,
       dbSecurityGroupName = pDBSecurityGroupName_
     }
+
+-- | The IP range to revoke access from. Must be a valid CIDR range. If
+-- @CIDRIP@ is specified, @EC2SecurityGroupName@, @EC2SecurityGroupId@ and
+-- @EC2SecurityGroupOwnerId@ can\'t be provided.
+revokeDBSecurityGroupIngress_cidrip :: Lens.Lens' RevokeDBSecurityGroupIngress (Prelude.Maybe Prelude.Text)
+revokeDBSecurityGroupIngress_cidrip = Lens.lens (\RevokeDBSecurityGroupIngress' {cidrip} -> cidrip) (\s@RevokeDBSecurityGroupIngress' {} a -> s {cidrip = a} :: RevokeDBSecurityGroupIngress)
 
 -- | The id of the EC2 security group to revoke access from. For VPC DB
 -- security groups, @EC2SecurityGroupId@ must be provided. Otherwise,
@@ -145,6 +151,13 @@ newRevokeDBSecurityGroupIngress pDBSecurityGroupName_ =
 -- @EC2SecurityGroupId@ must be provided.
 revokeDBSecurityGroupIngress_eC2SecurityGroupId :: Lens.Lens' RevokeDBSecurityGroupIngress (Prelude.Maybe Prelude.Text)
 revokeDBSecurityGroupIngress_eC2SecurityGroupId = Lens.lens (\RevokeDBSecurityGroupIngress' {eC2SecurityGroupId} -> eC2SecurityGroupId) (\s@RevokeDBSecurityGroupIngress' {} a -> s {eC2SecurityGroupId = a} :: RevokeDBSecurityGroupIngress)
+
+-- | The name of the EC2 security group to revoke access from. For VPC DB
+-- security groups, @EC2SecurityGroupId@ must be provided. Otherwise,
+-- EC2SecurityGroupOwnerId and either @EC2SecurityGroupName@ or
+-- @EC2SecurityGroupId@ must be provided.
+revokeDBSecurityGroupIngress_eC2SecurityGroupName :: Lens.Lens' RevokeDBSecurityGroupIngress (Prelude.Maybe Prelude.Text)
+revokeDBSecurityGroupIngress_eC2SecurityGroupName = Lens.lens (\RevokeDBSecurityGroupIngress' {eC2SecurityGroupName} -> eC2SecurityGroupName) (\s@RevokeDBSecurityGroupIngress' {} a -> s {eC2SecurityGroupName = a} :: RevokeDBSecurityGroupIngress)
 
 -- | The Amazon Web Services account number of the owner of the EC2 security
 -- group specified in the @EC2SecurityGroupName@ parameter. The Amazon Web
@@ -154,19 +167,6 @@ revokeDBSecurityGroupIngress_eC2SecurityGroupId = Lens.lens (\RevokeDBSecurityGr
 -- @EC2SecurityGroupId@ must be provided.
 revokeDBSecurityGroupIngress_eC2SecurityGroupOwnerId :: Lens.Lens' RevokeDBSecurityGroupIngress (Prelude.Maybe Prelude.Text)
 revokeDBSecurityGroupIngress_eC2SecurityGroupOwnerId = Lens.lens (\RevokeDBSecurityGroupIngress' {eC2SecurityGroupOwnerId} -> eC2SecurityGroupOwnerId) (\s@RevokeDBSecurityGroupIngress' {} a -> s {eC2SecurityGroupOwnerId = a} :: RevokeDBSecurityGroupIngress)
-
--- | The name of the EC2 security group to revoke access from. For VPC DB
--- security groups, @EC2SecurityGroupId@ must be provided. Otherwise,
--- EC2SecurityGroupOwnerId and either @EC2SecurityGroupName@ or
--- @EC2SecurityGroupId@ must be provided.
-revokeDBSecurityGroupIngress_eC2SecurityGroupName :: Lens.Lens' RevokeDBSecurityGroupIngress (Prelude.Maybe Prelude.Text)
-revokeDBSecurityGroupIngress_eC2SecurityGroupName = Lens.lens (\RevokeDBSecurityGroupIngress' {eC2SecurityGroupName} -> eC2SecurityGroupName) (\s@RevokeDBSecurityGroupIngress' {} a -> s {eC2SecurityGroupName = a} :: RevokeDBSecurityGroupIngress)
-
--- | The IP range to revoke access from. Must be a valid CIDR range. If
--- @CIDRIP@ is specified, @EC2SecurityGroupName@, @EC2SecurityGroupId@ and
--- @EC2SecurityGroupOwnerId@ can\'t be provided.
-revokeDBSecurityGroupIngress_cidrip :: Lens.Lens' RevokeDBSecurityGroupIngress (Prelude.Maybe Prelude.Text)
-revokeDBSecurityGroupIngress_cidrip = Lens.lens (\RevokeDBSecurityGroupIngress' {cidrip} -> cidrip) (\s@RevokeDBSecurityGroupIngress' {} a -> s {cidrip = a} :: RevokeDBSecurityGroupIngress)
 
 -- | The name of the DB security group to revoke ingress from.
 revokeDBSecurityGroupIngress_dbSecurityGroupName :: Lens.Lens' RevokeDBSecurityGroupIngress Prelude.Text
@@ -192,18 +192,18 @@ instance
     RevokeDBSecurityGroupIngress
   where
   hashWithSalt _salt RevokeDBSecurityGroupIngress' {..} =
-    _salt `Prelude.hashWithSalt` eC2SecurityGroupId
-      `Prelude.hashWithSalt` eC2SecurityGroupOwnerId
+    _salt `Prelude.hashWithSalt` cidrip
+      `Prelude.hashWithSalt` eC2SecurityGroupId
       `Prelude.hashWithSalt` eC2SecurityGroupName
-      `Prelude.hashWithSalt` cidrip
+      `Prelude.hashWithSalt` eC2SecurityGroupOwnerId
       `Prelude.hashWithSalt` dbSecurityGroupName
 
 instance Prelude.NFData RevokeDBSecurityGroupIngress where
   rnf RevokeDBSecurityGroupIngress' {..} =
-    Prelude.rnf eC2SecurityGroupId
-      `Prelude.seq` Prelude.rnf eC2SecurityGroupOwnerId
+    Prelude.rnf cidrip
+      `Prelude.seq` Prelude.rnf eC2SecurityGroupId
       `Prelude.seq` Prelude.rnf eC2SecurityGroupName
-      `Prelude.seq` Prelude.rnf cidrip
+      `Prelude.seq` Prelude.rnf eC2SecurityGroupOwnerId
       `Prelude.seq` Prelude.rnf dbSecurityGroupName
 
 instance Data.ToHeaders RevokeDBSecurityGroupIngress where
@@ -221,11 +221,11 @@ instance Data.ToQuery RevokeDBSecurityGroupIngress where
                   ),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "CIDRIP" Data.=: cidrip,
         "EC2SecurityGroupId" Data.=: eC2SecurityGroupId,
+        "EC2SecurityGroupName" Data.=: eC2SecurityGroupName,
         "EC2SecurityGroupOwnerId"
           Data.=: eC2SecurityGroupOwnerId,
-        "EC2SecurityGroupName" Data.=: eC2SecurityGroupName,
-        "CIDRIP" Data.=: cidrip,
         "DBSecurityGroupName" Data.=: dbSecurityGroupName
       ]
 

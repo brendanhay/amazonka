@@ -66,6 +66,9 @@ import Test.Tasty
 --         , requestCopyOptionGroup $
 --             newCopyOptionGroup
 --
+--         , requestCreateBlueGreenDeployment $
+--             newCreateBlueGreenDeployment
+--
 --         , requestCreateCustomDBEngineVersion $
 --             newCreateCustomDBEngineVersion
 --
@@ -113,6 +116,9 @@ import Test.Tasty
 --
 --         , requestCreateOptionGroup $
 --             newCreateOptionGroup
+--
+--         , requestDeleteBlueGreenDeployment $
+--             newDeleteBlueGreenDeployment
 --
 --         , requestDeleteCustomDBEngineVersion $
 --             newDeleteCustomDBEngineVersion
@@ -167,6 +173,9 @@ import Test.Tasty
 --
 --         , requestDescribeAccountAttributes $
 --             newDescribeAccountAttributes
+--
+--         , requestDescribeBlueGreenDeployments $
+--             newDescribeBlueGreenDeployments
 --
 --         , requestDescribeCertificates $
 --             newDescribeCertificates
@@ -435,6 +444,9 @@ import Test.Tasty
 --         , requestStopDBInstanceAutomatedBackupsReplication $
 --             newStopDBInstanceAutomatedBackupsReplication
 --
+--         , requestSwitchoverBlueGreenDeployment $
+--             newSwitchoverBlueGreenDeployment
+--
 --         , requestSwitchoverReadReplica $
 --             newSwitchoverReadReplica
 --
@@ -479,6 +491,9 @@ import Test.Tasty
 --
 --         , responseCopyOptionGroup $
 --             newCopyOptionGroupResponse
+--
+--         , responseCreateBlueGreenDeployment $
+--             newCreateBlueGreenDeploymentResponse
 --
 --         , responseCreateCustomDBEngineVersion $
 --             newDBEngineVersion
@@ -527,6 +542,9 @@ import Test.Tasty
 --
 --         , responseCreateOptionGroup $
 --             newCreateOptionGroupResponse
+--
+--         , responseDeleteBlueGreenDeployment $
+--             newDeleteBlueGreenDeploymentResponse
 --
 --         , responseDeleteCustomDBEngineVersion $
 --             newDBEngineVersion
@@ -581,6 +599,9 @@ import Test.Tasty
 --
 --         , responseDescribeAccountAttributes $
 --             newDescribeAccountAttributesResponse
+--
+--         , responseDescribeBlueGreenDeployments $
+--             newDescribeBlueGreenDeploymentsResponse
 --
 --         , responseDescribeCertificates $
 --             newDescribeCertificatesResponse
@@ -849,6 +870,9 @@ import Test.Tasty
 --         , responseStopDBInstanceAutomatedBackupsReplication $
 --             newStopDBInstanceAutomatedBackupsReplicationResponse
 --
+--         , responseSwitchoverBlueGreenDeployment $
+--             newSwitchoverBlueGreenDeploymentResponse
+--
 --         , responseSwitchoverReadReplica $
 --             newSwitchoverReadReplicaResponse
 --
@@ -934,6 +958,12 @@ requestCopyOptionGroup =
   req
     "CopyOptionGroup"
     "fixture/CopyOptionGroup.yaml"
+
+requestCreateBlueGreenDeployment :: CreateBlueGreenDeployment -> TestTree
+requestCreateBlueGreenDeployment =
+  req
+    "CreateBlueGreenDeployment"
+    "fixture/CreateBlueGreenDeployment.yaml"
 
 requestCreateCustomDBEngineVersion :: CreateCustomDBEngineVersion -> TestTree
 requestCreateCustomDBEngineVersion =
@@ -1030,6 +1060,12 @@ requestCreateOptionGroup =
   req
     "CreateOptionGroup"
     "fixture/CreateOptionGroup.yaml"
+
+requestDeleteBlueGreenDeployment :: DeleteBlueGreenDeployment -> TestTree
+requestDeleteBlueGreenDeployment =
+  req
+    "DeleteBlueGreenDeployment"
+    "fixture/DeleteBlueGreenDeployment.yaml"
 
 requestDeleteCustomDBEngineVersion :: DeleteCustomDBEngineVersion -> TestTree
 requestDeleteCustomDBEngineVersion =
@@ -1138,6 +1174,12 @@ requestDescribeAccountAttributes =
   req
     "DescribeAccountAttributes"
     "fixture/DescribeAccountAttributes.yaml"
+
+requestDescribeBlueGreenDeployments :: DescribeBlueGreenDeployments -> TestTree
+requestDescribeBlueGreenDeployments =
+  req
+    "DescribeBlueGreenDeployments"
+    "fixture/DescribeBlueGreenDeployments.yaml"
 
 requestDescribeCertificates :: DescribeCertificates -> TestTree
 requestDescribeCertificates =
@@ -1673,6 +1715,12 @@ requestStopDBInstanceAutomatedBackupsReplication =
     "StopDBInstanceAutomatedBackupsReplication"
     "fixture/StopDBInstanceAutomatedBackupsReplication.yaml"
 
+requestSwitchoverBlueGreenDeployment :: SwitchoverBlueGreenDeployment -> TestTree
+requestSwitchoverBlueGreenDeployment =
+  req
+    "SwitchoverBlueGreenDeployment"
+    "fixture/SwitchoverBlueGreenDeployment.yaml"
+
 requestSwitchoverReadReplica :: SwitchoverReadReplica -> TestTree
 requestSwitchoverReadReplica =
   req
@@ -1784,6 +1832,14 @@ responseCopyOptionGroup =
     "fixture/CopyOptionGroupResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CopyOptionGroup)
+
+responseCreateBlueGreenDeployment :: CreateBlueGreenDeploymentResponse -> TestTree
+responseCreateBlueGreenDeployment =
+  res
+    "CreateBlueGreenDeploymentResponse"
+    "fixture/CreateBlueGreenDeploymentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateBlueGreenDeployment)
 
 responseCreateCustomDBEngineVersion :: DBEngineVersion -> TestTree
 responseCreateCustomDBEngineVersion =
@@ -1912,6 +1968,14 @@ responseCreateOptionGroup =
     "fixture/CreateOptionGroupResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateOptionGroup)
+
+responseDeleteBlueGreenDeployment :: DeleteBlueGreenDeploymentResponse -> TestTree
+responseDeleteBlueGreenDeployment =
+  res
+    "DeleteBlueGreenDeploymentResponse"
+    "fixture/DeleteBlueGreenDeploymentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteBlueGreenDeployment)
 
 responseDeleteCustomDBEngineVersion :: DBEngineVersion -> TestTree
 responseDeleteCustomDBEngineVersion =
@@ -2056,6 +2120,14 @@ responseDescribeAccountAttributes =
     "fixture/DescribeAccountAttributesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeAccountAttributes)
+
+responseDescribeBlueGreenDeployments :: DescribeBlueGreenDeploymentsResponse -> TestTree
+responseDescribeBlueGreenDeployments =
+  res
+    "DescribeBlueGreenDeploymentsResponse"
+    "fixture/DescribeBlueGreenDeploymentsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeBlueGreenDeployments)
 
 responseDescribeCertificates :: DescribeCertificatesResponse -> TestTree
 responseDescribeCertificates =
@@ -2768,6 +2840,14 @@ responseStopDBInstanceAutomatedBackupsReplication =
     "fixture/StopDBInstanceAutomatedBackupsReplicationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StopDBInstanceAutomatedBackupsReplication)
+
+responseSwitchoverBlueGreenDeployment :: SwitchoverBlueGreenDeploymentResponse -> TestTree
+responseSwitchoverBlueGreenDeployment =
+  res
+    "SwitchoverBlueGreenDeploymentResponse"
+    "fixture/SwitchoverBlueGreenDeploymentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SwitchoverBlueGreenDeployment)
 
 responseSwitchoverReadReplica :: SwitchoverReadReplicaResponse -> TestTree
 responseSwitchoverReadReplica =

@@ -30,10 +30,10 @@ module Amazonka.RDS.DescribeDBProxyTargetGroups
     newDescribeDBProxyTargetGroups,
 
     -- * Request Lenses
-    describeDBProxyTargetGroups_marker,
     describeDBProxyTargetGroups_filters,
-    describeDBProxyTargetGroups_targetGroupName,
+    describeDBProxyTargetGroups_marker,
     describeDBProxyTargetGroups_maxRecords,
+    describeDBProxyTargetGroups_targetGroupName,
     describeDBProxyTargetGroups_dbProxyName,
 
     -- * Destructuring the Response
@@ -57,14 +57,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeDBProxyTargetGroups' smart constructor.
 data DescribeDBProxyTargetGroups = DescribeDBProxyTargetGroups'
-  { -- | An optional pagination token provided by a previous request. If this
+  { -- | This parameter is not currently supported.
+    filters :: Prelude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | This parameter is not currently supported.
-    filters :: Prelude.Maybe [Filter],
-    -- | The identifier of the @DBProxyTargetGroup@ to describe.
-    targetGroupName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
@@ -74,6 +72,8 @@ data DescribeDBProxyTargetGroups = DescribeDBProxyTargetGroups'
     --
     -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Prelude.Maybe Prelude.Natural,
+    -- | The identifier of the @DBProxyTargetGroup@ to describe.
+    targetGroupName :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the @DBProxy@ associated with the target group.
     dbProxyName :: Prelude.Text
   }
@@ -87,13 +87,11 @@ data DescribeDBProxyTargetGroups = DescribeDBProxyTargetGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filters', 'describeDBProxyTargetGroups_filters' - This parameter is not currently supported.
+--
 -- 'marker', 'describeDBProxyTargetGroups_marker' - An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
---
--- 'filters', 'describeDBProxyTargetGroups_filters' - This parameter is not currently supported.
---
--- 'targetGroupName', 'describeDBProxyTargetGroups_targetGroupName' - The identifier of the @DBProxyTargetGroup@ to describe.
 --
 -- 'maxRecords', 'describeDBProxyTargetGroups_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -104,6 +102,8 @@ data DescribeDBProxyTargetGroups = DescribeDBProxyTargetGroups'
 --
 -- Constraints: Minimum 20, maximum 100.
 --
+-- 'targetGroupName', 'describeDBProxyTargetGroups_targetGroupName' - The identifier of the @DBProxyTargetGroup@ to describe.
+--
 -- 'dbProxyName', 'describeDBProxyTargetGroups_dbProxyName' - The identifier of the @DBProxy@ associated with the target group.
 newDescribeDBProxyTargetGroups ::
   -- | 'dbProxyName'
@@ -111,27 +111,23 @@ newDescribeDBProxyTargetGroups ::
   DescribeDBProxyTargetGroups
 newDescribeDBProxyTargetGroups pDBProxyName_ =
   DescribeDBProxyTargetGroups'
-    { marker =
+    { filters =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
-      targetGroupName = Prelude.Nothing,
+      marker = Prelude.Nothing,
       maxRecords = Prelude.Nothing,
+      targetGroupName = Prelude.Nothing,
       dbProxyName = pDBProxyName_
     }
+
+-- | This parameter is not currently supported.
+describeDBProxyTargetGroups_filters :: Lens.Lens' DescribeDBProxyTargetGroups (Prelude.Maybe [Filter])
+describeDBProxyTargetGroups_filters = Lens.lens (\DescribeDBProxyTargetGroups' {filters} -> filters) (\s@DescribeDBProxyTargetGroups' {} a -> s {filters = a} :: DescribeDBProxyTargetGroups) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
 describeDBProxyTargetGroups_marker :: Lens.Lens' DescribeDBProxyTargetGroups (Prelude.Maybe Prelude.Text)
 describeDBProxyTargetGroups_marker = Lens.lens (\DescribeDBProxyTargetGroups' {marker} -> marker) (\s@DescribeDBProxyTargetGroups' {} a -> s {marker = a} :: DescribeDBProxyTargetGroups)
-
--- | This parameter is not currently supported.
-describeDBProxyTargetGroups_filters :: Lens.Lens' DescribeDBProxyTargetGroups (Prelude.Maybe [Filter])
-describeDBProxyTargetGroups_filters = Lens.lens (\DescribeDBProxyTargetGroups' {filters} -> filters) (\s@DescribeDBProxyTargetGroups' {} a -> s {filters = a} :: DescribeDBProxyTargetGroups) Prelude.. Lens.mapping Lens.coerced
-
--- | The identifier of the @DBProxyTargetGroup@ to describe.
-describeDBProxyTargetGroups_targetGroupName :: Lens.Lens' DescribeDBProxyTargetGroups (Prelude.Maybe Prelude.Text)
-describeDBProxyTargetGroups_targetGroupName = Lens.lens (\DescribeDBProxyTargetGroups' {targetGroupName} -> targetGroupName) (\s@DescribeDBProxyTargetGroups' {} a -> s {targetGroupName = a} :: DescribeDBProxyTargetGroups)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -143,6 +139,10 @@ describeDBProxyTargetGroups_targetGroupName = Lens.lens (\DescribeDBProxyTargetG
 -- Constraints: Minimum 20, maximum 100.
 describeDBProxyTargetGroups_maxRecords :: Lens.Lens' DescribeDBProxyTargetGroups (Prelude.Maybe Prelude.Natural)
 describeDBProxyTargetGroups_maxRecords = Lens.lens (\DescribeDBProxyTargetGroups' {maxRecords} -> maxRecords) (\s@DescribeDBProxyTargetGroups' {} a -> s {maxRecords = a} :: DescribeDBProxyTargetGroups)
+
+-- | The identifier of the @DBProxyTargetGroup@ to describe.
+describeDBProxyTargetGroups_targetGroupName :: Lens.Lens' DescribeDBProxyTargetGroups (Prelude.Maybe Prelude.Text)
+describeDBProxyTargetGroups_targetGroupName = Lens.lens (\DescribeDBProxyTargetGroups' {targetGroupName} -> targetGroupName) (\s@DescribeDBProxyTargetGroups' {} a -> s {targetGroupName = a} :: DescribeDBProxyTargetGroups)
 
 -- | The identifier of the @DBProxy@ associated with the target group.
 describeDBProxyTargetGroups_dbProxyName :: Lens.Lens' DescribeDBProxyTargetGroups Prelude.Text
@@ -190,18 +190,18 @@ instance Core.AWSRequest DescribeDBProxyTargetGroups where
 
 instance Prelude.Hashable DescribeDBProxyTargetGroups where
   hashWithSalt _salt DescribeDBProxyTargetGroups' {..} =
-    _salt `Prelude.hashWithSalt` marker
-      `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` targetGroupName
+    _salt `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
+      `Prelude.hashWithSalt` targetGroupName
       `Prelude.hashWithSalt` dbProxyName
 
 instance Prelude.NFData DescribeDBProxyTargetGroups where
   rnf DescribeDBProxyTargetGroups' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf targetGroupName
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxRecords
+      `Prelude.seq` Prelude.rnf targetGroupName
       `Prelude.seq` Prelude.rnf dbProxyName
 
 instance Data.ToHeaders DescribeDBProxyTargetGroups where
@@ -219,12 +219,12 @@ instance Data.ToQuery DescribeDBProxyTargetGroups where
                   ),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
-        "Marker" Data.=: marker,
         "Filters"
           Data.=: Data.toQuery
             (Data.toQueryList "Filter" Prelude.<$> filters),
-        "TargetGroupName" Data.=: targetGroupName,
+        "Marker" Data.=: marker,
         "MaxRecords" Data.=: maxRecords,
+        "TargetGroupName" Data.=: targetGroupName,
         "DBProxyName" Data.=: dbProxyName
       ]
 

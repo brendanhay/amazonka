@@ -20,6 +20,7 @@
 module Amazonka.RDS.Types.SourceType
   ( SourceType
       ( ..,
+        SourceType_Blue_green_deployment,
         SourceType_Custom_engine_version,
         SourceType_Db_cluster,
         SourceType_Db_cluster_snapshot,
@@ -64,6 +65,9 @@ newtype SourceType = SourceType'
       Data.ToXML
     )
 
+pattern SourceType_Blue_green_deployment :: SourceType
+pattern SourceType_Blue_green_deployment = SourceType' "blue-green-deployment"
+
 pattern SourceType_Custom_engine_version :: SourceType
 pattern SourceType_Custom_engine_version = SourceType' "custom-engine-version"
 
@@ -89,6 +93,7 @@ pattern SourceType_Db_snapshot :: SourceType
 pattern SourceType_Db_snapshot = SourceType' "db-snapshot"
 
 {-# COMPLETE
+  SourceType_Blue_green_deployment,
   SourceType_Custom_engine_version,
   SourceType_Db_cluster,
   SourceType_Db_cluster_snapshot,

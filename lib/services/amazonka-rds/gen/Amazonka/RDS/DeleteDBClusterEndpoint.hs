@@ -37,16 +37,16 @@ module Amazonka.RDS.DeleteDBClusterEndpoint
     newDBClusterEndpoint,
 
     -- * Response Lenses
-    dbClusterEndpoint_dbClusterEndpointResourceIdentifier,
-    dbClusterEndpoint_staticMembers,
-    dbClusterEndpoint_dbClusterIdentifier,
-    dbClusterEndpoint_excludedMembers,
     dbClusterEndpoint_customEndpointType,
-    dbClusterEndpoint_status,
-    dbClusterEndpoint_endpointType,
-    dbClusterEndpoint_dbClusterEndpointIdentifier,
     dbClusterEndpoint_dbClusterEndpointArn,
+    dbClusterEndpoint_dbClusterEndpointIdentifier,
+    dbClusterEndpoint_dbClusterEndpointResourceIdentifier,
+    dbClusterEndpoint_dbClusterIdentifier,
     dbClusterEndpoint_endpoint,
+    dbClusterEndpoint_endpointType,
+    dbClusterEndpoint_excludedMembers,
+    dbClusterEndpoint_staticMembers,
+    dbClusterEndpoint_status,
   )
 where
 

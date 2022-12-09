@@ -30,8 +30,8 @@ module Amazonka.RDS.DescribePendingMaintenanceActions
     newDescribePendingMaintenanceActions,
 
     -- * Request Lenses
-    describePendingMaintenanceActions_marker,
     describePendingMaintenanceActions_filters,
+    describePendingMaintenanceActions_marker,
     describePendingMaintenanceActions_maxRecords,
     describePendingMaintenanceActions_resourceIdentifier,
 
@@ -58,12 +58,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribePendingMaintenanceActions' smart constructor.
 data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
-  { -- | An optional pagination token provided by a previous
-    -- @DescribePendingMaintenanceActions@ request. If this parameter is
-    -- specified, the response includes only records beyond the marker, up to a
-    -- number of records specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | A filter that specifies one or more resources to return pending
+  { -- | A filter that specifies one or more resources to return pending
     -- maintenance actions for.
     --
     -- Supported filters:
@@ -76,6 +71,11 @@ data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
     --     ARNs. The results list only includes pending maintenance actions for
     --     the DB instances identified by these ARNs.
     filters :: Prelude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous
+    -- @DescribePendingMaintenanceActions@ request. If this parameter is
+    -- specified, the response includes only records beyond the marker, up to a
+    -- number of records specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that you can retrieve the
@@ -98,11 +98,6 @@ data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'describePendingMaintenanceActions_marker' - An optional pagination token provided by a previous
--- @DescribePendingMaintenanceActions@ request. If this parameter is
--- specified, the response includes only records beyond the marker, up to a
--- number of records specified by @MaxRecords@.
---
 -- 'filters', 'describePendingMaintenanceActions_filters' - A filter that specifies one or more resources to return pending
 -- maintenance actions for.
 --
@@ -115,6 +110,11 @@ data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
 -- -   @db-instance-id@ - Accepts DB instance identifiers and DB instance
 --     ARNs. The results list only includes pending maintenance actions for
 --     the DB instances identified by these ARNs.
+--
+-- 'marker', 'describePendingMaintenanceActions_marker' - An optional pagination token provided by a previous
+-- @DescribePendingMaintenanceActions@ request. If this parameter is
+-- specified, the response includes only records beyond the marker, up to a
+-- number of records specified by @MaxRecords@.
 --
 -- 'maxRecords', 'describePendingMaintenanceActions_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -130,19 +130,12 @@ newDescribePendingMaintenanceActions ::
   DescribePendingMaintenanceActions
 newDescribePendingMaintenanceActions =
   DescribePendingMaintenanceActions'
-    { marker =
+    { filters =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
+      marker = Prelude.Nothing,
       maxRecords = Prelude.Nothing,
       resourceIdentifier = Prelude.Nothing
     }
-
--- | An optional pagination token provided by a previous
--- @DescribePendingMaintenanceActions@ request. If this parameter is
--- specified, the response includes only records beyond the marker, up to a
--- number of records specified by @MaxRecords@.
-describePendingMaintenanceActions_marker :: Lens.Lens' DescribePendingMaintenanceActions (Prelude.Maybe Prelude.Text)
-describePendingMaintenanceActions_marker = Lens.lens (\DescribePendingMaintenanceActions' {marker} -> marker) (\s@DescribePendingMaintenanceActions' {} a -> s {marker = a} :: DescribePendingMaintenanceActions)
 
 -- | A filter that specifies one or more resources to return pending
 -- maintenance actions for.
@@ -158,6 +151,13 @@ describePendingMaintenanceActions_marker = Lens.lens (\DescribePendingMaintenanc
 --     the DB instances identified by these ARNs.
 describePendingMaintenanceActions_filters :: Lens.Lens' DescribePendingMaintenanceActions (Prelude.Maybe [Filter])
 describePendingMaintenanceActions_filters = Lens.lens (\DescribePendingMaintenanceActions' {filters} -> filters) (\s@DescribePendingMaintenanceActions' {} a -> s {filters = a} :: DescribePendingMaintenanceActions) Prelude.. Lens.mapping Lens.coerced
+
+-- | An optional pagination token provided by a previous
+-- @DescribePendingMaintenanceActions@ request. If this parameter is
+-- specified, the response includes only records beyond the marker, up to a
+-- number of records specified by @MaxRecords@.
+describePendingMaintenanceActions_marker :: Lens.Lens' DescribePendingMaintenanceActions (Prelude.Maybe Prelude.Text)
+describePendingMaintenanceActions_marker = Lens.lens (\DescribePendingMaintenanceActions' {marker} -> marker) (\s@DescribePendingMaintenanceActions' {} a -> s {marker = a} :: DescribePendingMaintenanceActions)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -231,8 +231,8 @@ instance
   hashWithSalt
     _salt
     DescribePendingMaintenanceActions' {..} =
-      _salt `Prelude.hashWithSalt` marker
-        `Prelude.hashWithSalt` filters
+      _salt `Prelude.hashWithSalt` filters
+        `Prelude.hashWithSalt` marker
         `Prelude.hashWithSalt` maxRecords
         `Prelude.hashWithSalt` resourceIdentifier
 
@@ -241,8 +241,8 @@ instance
     DescribePendingMaintenanceActions
   where
   rnf DescribePendingMaintenanceActions' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf filters
+    Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf maxRecords
       `Prelude.seq` Prelude.rnf resourceIdentifier
 
@@ -270,10 +270,10 @@ instance
                   ),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
-        "Marker" Data.=: marker,
         "Filters"
           Data.=: Data.toQuery
             (Data.toQueryList "Filter" Prelude.<$> filters),
+        "Marker" Data.=: marker,
         "MaxRecords" Data.=: maxRecords,
         "ResourceIdentifier" Data.=: resourceIdentifier
       ]

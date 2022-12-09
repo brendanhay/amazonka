@@ -36,12 +36,14 @@ data OptionGroup = OptionGroup'
     -- | Indicates the name of the engine that this option group can be applied
     -- to.
     engineName :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the name of the option group.
-    optionGroupName :: Prelude.Maybe Prelude.Text,
-    -- | Provides a description of the option group.
-    optionGroupDescription :: Prelude.Maybe Prelude.Text,
     -- | Indicates the major engine version associated with this option group.
     majorEngineVersion :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) for the option group.
+    optionGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | Provides a description of the option group.
+    optionGroupDescription :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the name of the option group.
+    optionGroupName :: Prelude.Maybe Prelude.Text,
     -- | Indicates what options are available in the option group.
     options :: Prelude.Maybe [Option],
     -- | If __AllowsVpcAndNonVpcInstanceMemberships__ is @false@, this field is
@@ -50,9 +52,7 @@ data OptionGroup = OptionGroup'
     -- non-VPC instances. If this field contains a value, then this option
     -- group can only be applied to instances that are in the VPC indicated by
     -- this field.
-    vpcId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the option group.
-    optionGroupArn :: Prelude.Maybe Prelude.Text
+    vpcId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,11 +71,13 @@ data OptionGroup = OptionGroup'
 -- 'engineName', 'optionGroup_engineName' - Indicates the name of the engine that this option group can be applied
 -- to.
 --
--- 'optionGroupName', 'optionGroup_optionGroupName' - Specifies the name of the option group.
+-- 'majorEngineVersion', 'optionGroup_majorEngineVersion' - Indicates the major engine version associated with this option group.
+--
+-- 'optionGroupArn', 'optionGroup_optionGroupArn' - The Amazon Resource Name (ARN) for the option group.
 --
 -- 'optionGroupDescription', 'optionGroup_optionGroupDescription' - Provides a description of the option group.
 --
--- 'majorEngineVersion', 'optionGroup_majorEngineVersion' - Indicates the major engine version associated with this option group.
+-- 'optionGroupName', 'optionGroup_optionGroupName' - Specifies the name of the option group.
 --
 -- 'options', 'optionGroup_options' - Indicates what options are available in the option group.
 --
@@ -85,8 +87,6 @@ data OptionGroup = OptionGroup'
 -- non-VPC instances. If this field contains a value, then this option
 -- group can only be applied to instances that are in the VPC indicated by
 -- this field.
---
--- 'optionGroupArn', 'optionGroup_optionGroupArn' - The Amazon Resource Name (ARN) for the option group.
 newOptionGroup ::
   OptionGroup
 newOptionGroup =
@@ -94,12 +94,12 @@ newOptionGroup =
     { allowsVpcAndNonVpcInstanceMemberships =
         Prelude.Nothing,
       engineName = Prelude.Nothing,
-      optionGroupName = Prelude.Nothing,
-      optionGroupDescription = Prelude.Nothing,
       majorEngineVersion = Prelude.Nothing,
+      optionGroupArn = Prelude.Nothing,
+      optionGroupDescription = Prelude.Nothing,
+      optionGroupName = Prelude.Nothing,
       options = Prelude.Nothing,
-      vpcId = Prelude.Nothing,
-      optionGroupArn = Prelude.Nothing
+      vpcId = Prelude.Nothing
     }
 
 -- | Indicates whether this option group can be applied to both VPC and
@@ -113,17 +113,21 @@ optionGroup_allowsVpcAndNonVpcInstanceMemberships = Lens.lens (\OptionGroup' {al
 optionGroup_engineName :: Lens.Lens' OptionGroup (Prelude.Maybe Prelude.Text)
 optionGroup_engineName = Lens.lens (\OptionGroup' {engineName} -> engineName) (\s@OptionGroup' {} a -> s {engineName = a} :: OptionGroup)
 
--- | Specifies the name of the option group.
-optionGroup_optionGroupName :: Lens.Lens' OptionGroup (Prelude.Maybe Prelude.Text)
-optionGroup_optionGroupName = Lens.lens (\OptionGroup' {optionGroupName} -> optionGroupName) (\s@OptionGroup' {} a -> s {optionGroupName = a} :: OptionGroup)
+-- | Indicates the major engine version associated with this option group.
+optionGroup_majorEngineVersion :: Lens.Lens' OptionGroup (Prelude.Maybe Prelude.Text)
+optionGroup_majorEngineVersion = Lens.lens (\OptionGroup' {majorEngineVersion} -> majorEngineVersion) (\s@OptionGroup' {} a -> s {majorEngineVersion = a} :: OptionGroup)
+
+-- | The Amazon Resource Name (ARN) for the option group.
+optionGroup_optionGroupArn :: Lens.Lens' OptionGroup (Prelude.Maybe Prelude.Text)
+optionGroup_optionGroupArn = Lens.lens (\OptionGroup' {optionGroupArn} -> optionGroupArn) (\s@OptionGroup' {} a -> s {optionGroupArn = a} :: OptionGroup)
 
 -- | Provides a description of the option group.
 optionGroup_optionGroupDescription :: Lens.Lens' OptionGroup (Prelude.Maybe Prelude.Text)
 optionGroup_optionGroupDescription = Lens.lens (\OptionGroup' {optionGroupDescription} -> optionGroupDescription) (\s@OptionGroup' {} a -> s {optionGroupDescription = a} :: OptionGroup)
 
--- | Indicates the major engine version associated with this option group.
-optionGroup_majorEngineVersion :: Lens.Lens' OptionGroup (Prelude.Maybe Prelude.Text)
-optionGroup_majorEngineVersion = Lens.lens (\OptionGroup' {majorEngineVersion} -> majorEngineVersion) (\s@OptionGroup' {} a -> s {majorEngineVersion = a} :: OptionGroup)
+-- | Specifies the name of the option group.
+optionGroup_optionGroupName :: Lens.Lens' OptionGroup (Prelude.Maybe Prelude.Text)
+optionGroup_optionGroupName = Lens.lens (\OptionGroup' {optionGroupName} -> optionGroupName) (\s@OptionGroup' {} a -> s {optionGroupName = a} :: OptionGroup)
 
 -- | Indicates what options are available in the option group.
 optionGroup_options :: Lens.Lens' OptionGroup (Prelude.Maybe [Option])
@@ -138,43 +142,39 @@ optionGroup_options = Lens.lens (\OptionGroup' {options} -> options) (\s@OptionG
 optionGroup_vpcId :: Lens.Lens' OptionGroup (Prelude.Maybe Prelude.Text)
 optionGroup_vpcId = Lens.lens (\OptionGroup' {vpcId} -> vpcId) (\s@OptionGroup' {} a -> s {vpcId = a} :: OptionGroup)
 
--- | The Amazon Resource Name (ARN) for the option group.
-optionGroup_optionGroupArn :: Lens.Lens' OptionGroup (Prelude.Maybe Prelude.Text)
-optionGroup_optionGroupArn = Lens.lens (\OptionGroup' {optionGroupArn} -> optionGroupArn) (\s@OptionGroup' {} a -> s {optionGroupArn = a} :: OptionGroup)
-
 instance Data.FromXML OptionGroup where
   parseXML x =
     OptionGroup'
       Prelude.<$> (x Data..@? "AllowsVpcAndNonVpcInstanceMemberships")
       Prelude.<*> (x Data..@? "EngineName")
-      Prelude.<*> (x Data..@? "OptionGroupName")
-      Prelude.<*> (x Data..@? "OptionGroupDescription")
       Prelude.<*> (x Data..@? "MajorEngineVersion")
+      Prelude.<*> (x Data..@? "OptionGroupArn")
+      Prelude.<*> (x Data..@? "OptionGroupDescription")
+      Prelude.<*> (x Data..@? "OptionGroupName")
       Prelude.<*> ( x Data..@? "Options" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Option")
                   )
       Prelude.<*> (x Data..@? "VpcId")
-      Prelude.<*> (x Data..@? "OptionGroupArn")
 
 instance Prelude.Hashable OptionGroup where
   hashWithSalt _salt OptionGroup' {..} =
     _salt
       `Prelude.hashWithSalt` allowsVpcAndNonVpcInstanceMemberships
       `Prelude.hashWithSalt` engineName
-      `Prelude.hashWithSalt` optionGroupName
-      `Prelude.hashWithSalt` optionGroupDescription
       `Prelude.hashWithSalt` majorEngineVersion
+      `Prelude.hashWithSalt` optionGroupArn
+      `Prelude.hashWithSalt` optionGroupDescription
+      `Prelude.hashWithSalt` optionGroupName
       `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` vpcId
-      `Prelude.hashWithSalt` optionGroupArn
 
 instance Prelude.NFData OptionGroup where
   rnf OptionGroup' {..} =
     Prelude.rnf allowsVpcAndNonVpcInstanceMemberships
       `Prelude.seq` Prelude.rnf engineName
-      `Prelude.seq` Prelude.rnf optionGroupName
-      `Prelude.seq` Prelude.rnf optionGroupDescription
       `Prelude.seq` Prelude.rnf majorEngineVersion
+      `Prelude.seq` Prelude.rnf optionGroupArn
+      `Prelude.seq` Prelude.rnf optionGroupDescription
+      `Prelude.seq` Prelude.rnf optionGroupName
       `Prelude.seq` Prelude.rnf options
       `Prelude.seq` Prelude.rnf vpcId
-      `Prelude.seq` Prelude.rnf optionGroupArn

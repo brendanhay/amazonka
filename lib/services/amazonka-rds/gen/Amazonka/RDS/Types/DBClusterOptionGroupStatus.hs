@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDBClusterOptionGroupStatus' smart constructor.
 data DBClusterOptionGroupStatus = DBClusterOptionGroupStatus'
-  { -- | Specifies the status of the DB cluster option group.
-    status :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the name of the DB cluster option group.
-    dbClusterOptionGroupName :: Prelude.Maybe Prelude.Text
+  { -- | Specifies the name of the DB cluster option group.
+    dbClusterOptionGroupName :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the status of the DB cluster option group.
+    status :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,38 +43,39 @@ data DBClusterOptionGroupStatus = DBClusterOptionGroupStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'dbClusterOptionGroupStatus_status' - Specifies the status of the DB cluster option group.
---
 -- 'dbClusterOptionGroupName', 'dbClusterOptionGroupStatus_dbClusterOptionGroupName' - Specifies the name of the DB cluster option group.
+--
+-- 'status', 'dbClusterOptionGroupStatus_status' - Specifies the status of the DB cluster option group.
 newDBClusterOptionGroupStatus ::
   DBClusterOptionGroupStatus
 newDBClusterOptionGroupStatus =
   DBClusterOptionGroupStatus'
-    { status =
+    { dbClusterOptionGroupName =
         Prelude.Nothing,
-      dbClusterOptionGroupName = Prelude.Nothing
+      status = Prelude.Nothing
     }
-
--- | Specifies the status of the DB cluster option group.
-dbClusterOptionGroupStatus_status :: Lens.Lens' DBClusterOptionGroupStatus (Prelude.Maybe Prelude.Text)
-dbClusterOptionGroupStatus_status = Lens.lens (\DBClusterOptionGroupStatus' {status} -> status) (\s@DBClusterOptionGroupStatus' {} a -> s {status = a} :: DBClusterOptionGroupStatus)
 
 -- | Specifies the name of the DB cluster option group.
 dbClusterOptionGroupStatus_dbClusterOptionGroupName :: Lens.Lens' DBClusterOptionGroupStatus (Prelude.Maybe Prelude.Text)
 dbClusterOptionGroupStatus_dbClusterOptionGroupName = Lens.lens (\DBClusterOptionGroupStatus' {dbClusterOptionGroupName} -> dbClusterOptionGroupName) (\s@DBClusterOptionGroupStatus' {} a -> s {dbClusterOptionGroupName = a} :: DBClusterOptionGroupStatus)
 
+-- | Specifies the status of the DB cluster option group.
+dbClusterOptionGroupStatus_status :: Lens.Lens' DBClusterOptionGroupStatus (Prelude.Maybe Prelude.Text)
+dbClusterOptionGroupStatus_status = Lens.lens (\DBClusterOptionGroupStatus' {status} -> status) (\s@DBClusterOptionGroupStatus' {} a -> s {status = a} :: DBClusterOptionGroupStatus)
+
 instance Data.FromXML DBClusterOptionGroupStatus where
   parseXML x =
     DBClusterOptionGroupStatus'
-      Prelude.<$> (x Data..@? "Status")
-      Prelude.<*> (x Data..@? "DBClusterOptionGroupName")
+      Prelude.<$> (x Data..@? "DBClusterOptionGroupName")
+      Prelude.<*> (x Data..@? "Status")
 
 instance Prelude.Hashable DBClusterOptionGroupStatus where
   hashWithSalt _salt DBClusterOptionGroupStatus' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt
       `Prelude.hashWithSalt` dbClusterOptionGroupName
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData DBClusterOptionGroupStatus where
   rnf DBClusterOptionGroupStatus' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf dbClusterOptionGroupName
+    Prelude.rnf dbClusterOptionGroupName
+      `Prelude.seq` Prelude.rnf status

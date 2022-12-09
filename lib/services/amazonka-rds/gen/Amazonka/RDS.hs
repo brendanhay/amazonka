@@ -69,197 +69,23 @@ module Amazonka.RDS
     -- * Errors
     -- $errors
 
-    -- ** OptionGroupNotFoundFault
-    _OptionGroupNotFoundFault,
-
-    -- ** InsufficientDBInstanceCapacityFault
-    _InsufficientDBInstanceCapacityFault,
-
-    -- ** InvalidDBClusterSnapshotStateFault
-    _InvalidDBClusterSnapshotStateFault,
-
-    -- ** DBSecurityGroupNotSupportedFault
-    _DBSecurityGroupNotSupportedFault,
-
-    -- ** SubnetAlreadyInUse
-    _SubnetAlreadyInUse,
-
-    -- ** PointInTimeRestoreNotEnabledFault
-    _PointInTimeRestoreNotEnabledFault,
-
-    -- ** InvalidDBSecurityGroupStateFault
-    _InvalidDBSecurityGroupStateFault,
-
-    -- ** InvalidDBParameterGroupStateFault
-    _InvalidDBParameterGroupStateFault,
-
-    -- ** DBClusterBacktrackNotFoundFault
-    _DBClusterBacktrackNotFoundFault,
-
-    -- ** DBSecurityGroupAlreadyExistsFault
-    _DBSecurityGroupAlreadyExistsFault,
-
-    -- ** SnapshotQuotaExceededFault
-    _SnapshotQuotaExceededFault,
-
-    -- ** InvalidSubnet
-    _InvalidSubnet,
-
-    -- ** DBClusterAlreadyExistsFault
-    _DBClusterAlreadyExistsFault,
-
-    -- ** DBParameterGroupNotFoundFault
-    _DBParameterGroupNotFoundFault,
-
     -- ** AuthorizationAlreadyExistsFault
     _AuthorizationAlreadyExistsFault,
-
-    -- ** DBClusterEndpointAlreadyExistsFault
-    _DBClusterEndpointAlreadyExistsFault,
-
-    -- ** ReservedDBInstanceNotFoundFault
-    _ReservedDBInstanceNotFoundFault,
-
-    -- ** DBProxyNotFoundFault
-    _DBProxyNotFoundFault,
-
-    -- ** SubscriptionAlreadyExistFault
-    _SubscriptionAlreadyExistFault,
-
-    -- ** DBInstanceAlreadyExistsFault
-    _DBInstanceAlreadyExistsFault,
-
-    -- ** InvalidDBSubnetGroupStateFault
-    _InvalidDBSubnetGroupStateFault,
-
-    -- ** SNSInvalidTopicFault
-    _SNSInvalidTopicFault,
-
-    -- ** DBClusterEndpointNotFoundFault
-    _DBClusterEndpointNotFoundFault,
-
-    -- ** DBProxyTargetNotFoundFault
-    _DBProxyTargetNotFoundFault,
-
-    -- ** InvalidDBClusterCapacityFault
-    _InvalidDBClusterCapacityFault,
-
-    -- ** InvalidDBProxyEndpointStateFault
-    _InvalidDBProxyEndpointStateFault,
-
-    -- ** DBParameterGroupQuotaExceededFault
-    _DBParameterGroupQuotaExceededFault,
-
-    -- ** SubscriptionNotFoundFault
-    _SubscriptionNotFoundFault,
-
-    -- ** ExportTaskNotFoundFault
-    _ExportTaskNotFoundFault,
-
-    -- ** DBSnapshotNotFoundFault
-    _DBSnapshotNotFoundFault,
-
-    -- ** InvalidDBSubnetStateFault
-    _InvalidDBSubnetStateFault,
-
-    -- ** DBUpgradeDependencyFailureFault
-    _DBUpgradeDependencyFailureFault,
-
-    -- ** DBInstanceRoleNotFoundFault
-    _DBInstanceRoleNotFoundFault,
-
-    -- ** DBLogFileNotFoundFault
-    _DBLogFileNotFoundFault,
-
-    -- ** DBSubnetGroupAlreadyExistsFault
-    _DBSubnetGroupAlreadyExistsFault,
-
-    -- ** DBInstanceNotFoundFault
-    _DBInstanceNotFoundFault,
-
-    -- ** InstanceQuotaExceededFault
-    _InstanceQuotaExceededFault,
-
-    -- ** InvalidOptionGroupStateFault
-    _InvalidOptionGroupStateFault,
-
-    -- ** InvalidExportTaskStateFault
-    _InvalidExportTaskStateFault,
-
-    -- ** DBSubnetGroupNotAllowedFault
-    _DBSubnetGroupNotAllowedFault,
-
-    -- ** DBInstanceAutomatedBackupQuotaExceededFault
-    _DBInstanceAutomatedBackupQuotaExceededFault,
-
-    -- ** IamRoleMissingPermissionsFault
-    _IamRoleMissingPermissionsFault,
-
-    -- ** DBClusterRoleAlreadyExistsFault
-    _DBClusterRoleAlreadyExistsFault,
-
-    -- ** DBProxyAlreadyExistsFault
-    _DBProxyAlreadyExistsFault,
-
-    -- ** InvalidDBClusterStateFault
-    _InvalidDBClusterStateFault,
-
-    -- ** InvalidDBInstanceStateFault
-    _InvalidDBInstanceStateFault,
-
-    -- ** DBProxyEndpointAlreadyExistsFault
-    _DBProxyEndpointAlreadyExistsFault,
-
-    -- ** GlobalClusterNotFoundFault
-    _GlobalClusterNotFoundFault,
-
-    -- ** CustomDBEngineVersionNotFoundFault
-    _CustomDBEngineVersionNotFoundFault,
-
-    -- ** BackupPolicyNotFoundFault
-    _BackupPolicyNotFoundFault,
 
     -- ** AuthorizationNotFoundFault
     _AuthorizationNotFoundFault,
 
-    -- ** NetworkTypeNotSupported
-    _NetworkTypeNotSupported,
+    -- ** AuthorizationQuotaExceededFault
+    _AuthorizationQuotaExceededFault,
 
-    -- ** DBSubnetGroupQuotaExceededFault
-    _DBSubnetGroupQuotaExceededFault,
+    -- ** BackupPolicyNotFoundFault
+    _BackupPolicyNotFoundFault,
 
-    -- ** DBInstanceAutomatedBackupNotFoundFault
-    _DBInstanceAutomatedBackupNotFoundFault,
+    -- ** BlueGreenDeploymentAlreadyExistsFault
+    _BlueGreenDeploymentAlreadyExistsFault,
 
-    -- ** InsufficientStorageClusterCapacityFault
-    _InsufficientStorageClusterCapacityFault,
-
-    -- ** SubscriptionCategoryNotFoundFault
-    _SubscriptionCategoryNotFoundFault,
-
-    -- ** CustomDBEngineVersionQuotaExceededFault
-    _CustomDBEngineVersionQuotaExceededFault,
-
-    -- ** SNSNoAuthorizationFault
-    _SNSNoAuthorizationFault,
-
-    -- ** KMSKeyNotAccessibleFault
-    _KMSKeyNotAccessibleFault,
-
-    -- ** SNSTopicArnNotFoundFault
-    _SNSTopicArnNotFoundFault,
-
-    -- ** OptionGroupAlreadyExistsFault
-    _OptionGroupAlreadyExistsFault,
-
-    -- ** DBSubnetGroupDoesNotCoverEnoughAZs
-    _DBSubnetGroupDoesNotCoverEnoughAZs,
-
-    -- ** GlobalClusterQuotaExceededFault
-    _GlobalClusterQuotaExceededFault,
-
-    -- ** StorageTypeNotSupportedFault
-    _StorageTypeNotSupportedFault,
+    -- ** BlueGreenDeploymentNotFoundFault
+    _BlueGreenDeploymentNotFoundFault,
 
     -- ** CertificateNotFoundFault
     _CertificateNotFoundFault,
@@ -267,98 +93,290 @@ module Amazonka.RDS
     -- ** CustomAvailabilityZoneNotFoundFault
     _CustomAvailabilityZoneNotFoundFault,
 
-    -- ** DBProxyEndpointNotFoundFault
-    _DBProxyEndpointNotFoundFault,
+    -- ** CustomDBEngineVersionAlreadyExistsFault
+    _CustomDBEngineVersionAlreadyExistsFault,
 
-    -- ** InvalidDBInstanceAutomatedBackupStateFault
-    _InvalidDBInstanceAutomatedBackupStateFault,
+    -- ** CustomDBEngineVersionNotFoundFault
+    _CustomDBEngineVersionNotFoundFault,
+
+    -- ** CustomDBEngineVersionQuotaExceededFault
+    _CustomDBEngineVersionQuotaExceededFault,
+
+    -- ** DBClusterAlreadyExistsFault
+    _DBClusterAlreadyExistsFault,
+
+    -- ** DBClusterBacktrackNotFoundFault
+    _DBClusterBacktrackNotFoundFault,
+
+    -- ** DBClusterEndpointAlreadyExistsFault
+    _DBClusterEndpointAlreadyExistsFault,
+
+    -- ** DBClusterEndpointNotFoundFault
+    _DBClusterEndpointNotFoundFault,
 
     -- ** DBClusterEndpointQuotaExceededFault
     _DBClusterEndpointQuotaExceededFault,
 
-    -- ** AuthorizationQuotaExceededFault
-    _AuthorizationQuotaExceededFault,
-
-    -- ** EventSubscriptionQuotaExceededFault
-    _EventSubscriptionQuotaExceededFault,
-
-    -- ** ReservedDBInstancesOfferingNotFoundFault
-    _ReservedDBInstancesOfferingNotFoundFault,
-
-    -- ** DBSnapshotAlreadyExistsFault
-    _DBSnapshotAlreadyExistsFault,
-
-    -- ** InvalidRestoreFault
-    _InvalidRestoreFault,
-
-    -- ** DBClusterQuotaExceededFault
-    _DBClusterQuotaExceededFault,
+    -- ** DBClusterNotFoundFault
+    _DBClusterNotFoundFault,
 
     -- ** DBClusterParameterGroupNotFoundFault
     _DBClusterParameterGroupNotFoundFault,
 
-    -- ** DBInstanceRoleAlreadyExistsFault
-    _DBInstanceRoleAlreadyExistsFault,
+    -- ** DBClusterQuotaExceededFault
+    _DBClusterQuotaExceededFault,
 
-    -- ** DBSubnetQuotaExceededFault
-    _DBSubnetQuotaExceededFault,
-
-    -- ** DBProxyTargetGroupNotFoundFault
-    _DBProxyTargetGroupNotFoundFault,
-
-    -- ** OptionGroupQuotaExceededFault
-    _OptionGroupQuotaExceededFault,
-
-    -- ** GlobalClusterAlreadyExistsFault
-    _GlobalClusterAlreadyExistsFault,
-
-    -- ** ResourceNotFoundFault
-    _ResourceNotFoundFault,
-
-    -- ** CustomDBEngineVersionAlreadyExistsFault
-    _CustomDBEngineVersionAlreadyExistsFault,
-
-    -- ** InsufficientDBClusterCapacityFault
-    _InsufficientDBClusterCapacityFault,
-
-    -- ** SourceNotFoundFault
-    _SourceNotFoundFault,
-
-    -- ** DBClusterSnapshotAlreadyExistsFault
-    _DBClusterSnapshotAlreadyExistsFault,
-
-    -- ** InvalidExportOnlyFault
-    _InvalidExportOnlyFault,
-
-    -- ** InvalidDBSubnetGroupFault
-    _InvalidDBSubnetGroupFault,
-
-    -- ** DBProxyTargetAlreadyRegisteredFault
-    _DBProxyTargetAlreadyRegisteredFault,
-
-    -- ** DBParameterGroupAlreadyExistsFault
-    _DBParameterGroupAlreadyExistsFault,
-
-    -- ** InvalidExportSourceStateFault
-    _InvalidExportSourceStateFault,
-
-    -- ** InvalidVPCNetworkStateFault
-    _InvalidVPCNetworkStateFault,
-
-    -- ** InvalidDBProxyStateFault
-    _InvalidDBProxyStateFault,
-
-    -- ** DBClusterNotFoundFault
-    _DBClusterNotFoundFault,
-
-    -- ** InsufficientAvailableIPsInSubnetFault
-    _InsufficientAvailableIPsInSubnetFault,
+    -- ** DBClusterRoleAlreadyExistsFault
+    _DBClusterRoleAlreadyExistsFault,
 
     -- ** DBClusterRoleNotFoundFault
     _DBClusterRoleNotFoundFault,
 
+    -- ** DBClusterRoleQuotaExceededFault
+    _DBClusterRoleQuotaExceededFault,
+
+    -- ** DBClusterSnapshotAlreadyExistsFault
+    _DBClusterSnapshotAlreadyExistsFault,
+
+    -- ** DBClusterSnapshotNotFoundFault
+    _DBClusterSnapshotNotFoundFault,
+
+    -- ** DBInstanceAlreadyExistsFault
+    _DBInstanceAlreadyExistsFault,
+
+    -- ** DBInstanceAutomatedBackupNotFoundFault
+    _DBInstanceAutomatedBackupNotFoundFault,
+
+    -- ** DBInstanceAutomatedBackupQuotaExceededFault
+    _DBInstanceAutomatedBackupQuotaExceededFault,
+
+    -- ** DBInstanceNotFoundFault
+    _DBInstanceNotFoundFault,
+
+    -- ** DBInstanceRoleAlreadyExistsFault
+    _DBInstanceRoleAlreadyExistsFault,
+
+    -- ** DBInstanceRoleNotFoundFault
+    _DBInstanceRoleNotFoundFault,
+
+    -- ** DBInstanceRoleQuotaExceededFault
+    _DBInstanceRoleQuotaExceededFault,
+
+    -- ** DBLogFileNotFoundFault
+    _DBLogFileNotFoundFault,
+
+    -- ** DBParameterGroupAlreadyExistsFault
+    _DBParameterGroupAlreadyExistsFault,
+
+    -- ** DBParameterGroupNotFoundFault
+    _DBParameterGroupNotFoundFault,
+
+    -- ** DBParameterGroupQuotaExceededFault
+    _DBParameterGroupQuotaExceededFault,
+
+    -- ** DBProxyAlreadyExistsFault
+    _DBProxyAlreadyExistsFault,
+
+    -- ** DBProxyEndpointAlreadyExistsFault
+    _DBProxyEndpointAlreadyExistsFault,
+
+    -- ** DBProxyEndpointNotFoundFault
+    _DBProxyEndpointNotFoundFault,
+
+    -- ** DBProxyEndpointQuotaExceededFault
+    _DBProxyEndpointQuotaExceededFault,
+
+    -- ** DBProxyNotFoundFault
+    _DBProxyNotFoundFault,
+
+    -- ** DBProxyQuotaExceededFault
+    _DBProxyQuotaExceededFault,
+
+    -- ** DBProxyTargetAlreadyRegisteredFault
+    _DBProxyTargetAlreadyRegisteredFault,
+
+    -- ** DBProxyTargetGroupNotFoundFault
+    _DBProxyTargetGroupNotFoundFault,
+
+    -- ** DBProxyTargetNotFoundFault
+    _DBProxyTargetNotFoundFault,
+
+    -- ** DBSecurityGroupAlreadyExistsFault
+    _DBSecurityGroupAlreadyExistsFault,
+
+    -- ** DBSecurityGroupNotFoundFault
+    _DBSecurityGroupNotFoundFault,
+
+    -- ** DBSecurityGroupNotSupportedFault
+    _DBSecurityGroupNotSupportedFault,
+
+    -- ** DBSecurityGroupQuotaExceededFault
+    _DBSecurityGroupQuotaExceededFault,
+
+    -- ** DBSnapshotAlreadyExistsFault
+    _DBSnapshotAlreadyExistsFault,
+
+    -- ** DBSnapshotNotFoundFault
+    _DBSnapshotNotFoundFault,
+
+    -- ** DBSubnetGroupAlreadyExistsFault
+    _DBSubnetGroupAlreadyExistsFault,
+
+    -- ** DBSubnetGroupDoesNotCoverEnoughAZs
+    _DBSubnetGroupDoesNotCoverEnoughAZs,
+
+    -- ** DBSubnetGroupNotAllowedFault
+    _DBSubnetGroupNotAllowedFault,
+
+    -- ** DBSubnetGroupNotFoundFault
+    _DBSubnetGroupNotFoundFault,
+
+    -- ** DBSubnetGroupQuotaExceededFault
+    _DBSubnetGroupQuotaExceededFault,
+
+    -- ** DBSubnetQuotaExceededFault
+    _DBSubnetQuotaExceededFault,
+
+    -- ** DBUpgradeDependencyFailureFault
+    _DBUpgradeDependencyFailureFault,
+
+    -- ** DomainNotFoundFault
+    _DomainNotFoundFault,
+
+    -- ** EventSubscriptionQuotaExceededFault
+    _EventSubscriptionQuotaExceededFault,
+
+    -- ** ExportTaskAlreadyExistsFault
+    _ExportTaskAlreadyExistsFault,
+
+    -- ** ExportTaskNotFoundFault
+    _ExportTaskNotFoundFault,
+
+    -- ** GlobalClusterAlreadyExistsFault
+    _GlobalClusterAlreadyExistsFault,
+
+    -- ** GlobalClusterNotFoundFault
+    _GlobalClusterNotFoundFault,
+
+    -- ** GlobalClusterQuotaExceededFault
+    _GlobalClusterQuotaExceededFault,
+
+    -- ** IamRoleMissingPermissionsFault
+    _IamRoleMissingPermissionsFault,
+
+    -- ** IamRoleNotFoundFault
+    _IamRoleNotFoundFault,
+
+    -- ** InstanceQuotaExceededFault
+    _InstanceQuotaExceededFault,
+
+    -- ** InsufficientAvailableIPsInSubnetFault
+    _InsufficientAvailableIPsInSubnetFault,
+
+    -- ** InsufficientDBClusterCapacityFault
+    _InsufficientDBClusterCapacityFault,
+
+    -- ** InsufficientDBInstanceCapacityFault
+    _InsufficientDBInstanceCapacityFault,
+
+    -- ** InsufficientStorageClusterCapacityFault
+    _InsufficientStorageClusterCapacityFault,
+
+    -- ** InvalidBlueGreenDeploymentStateFault
+    _InvalidBlueGreenDeploymentStateFault,
+
     -- ** InvalidCustomDBEngineVersionStateFault
     _InvalidCustomDBEngineVersionStateFault,
+
+    -- ** InvalidDBClusterCapacityFault
+    _InvalidDBClusterCapacityFault,
+
+    -- ** InvalidDBClusterEndpointStateFault
+    _InvalidDBClusterEndpointStateFault,
+
+    -- ** InvalidDBClusterSnapshotStateFault
+    _InvalidDBClusterSnapshotStateFault,
+
+    -- ** InvalidDBClusterStateFault
+    _InvalidDBClusterStateFault,
+
+    -- ** InvalidDBInstanceAutomatedBackupStateFault
+    _InvalidDBInstanceAutomatedBackupStateFault,
+
+    -- ** InvalidDBInstanceStateFault
+    _InvalidDBInstanceStateFault,
+
+    -- ** InvalidDBParameterGroupStateFault
+    _InvalidDBParameterGroupStateFault,
+
+    -- ** InvalidDBProxyEndpointStateFault
+    _InvalidDBProxyEndpointStateFault,
+
+    -- ** InvalidDBProxyStateFault
+    _InvalidDBProxyStateFault,
+
+    -- ** InvalidDBSecurityGroupStateFault
+    _InvalidDBSecurityGroupStateFault,
+
+    -- ** InvalidDBSnapshotStateFault
+    _InvalidDBSnapshotStateFault,
+
+    -- ** InvalidDBSubnetGroupFault
+    _InvalidDBSubnetGroupFault,
+
+    -- ** InvalidDBSubnetGroupStateFault
+    _InvalidDBSubnetGroupStateFault,
+
+    -- ** InvalidDBSubnetStateFault
+    _InvalidDBSubnetStateFault,
+
+    -- ** InvalidEventSubscriptionStateFault
+    _InvalidEventSubscriptionStateFault,
+
+    -- ** InvalidExportOnlyFault
+    _InvalidExportOnlyFault,
+
+    -- ** InvalidExportSourceStateFault
+    _InvalidExportSourceStateFault,
+
+    -- ** InvalidExportTaskStateFault
+    _InvalidExportTaskStateFault,
+
+    -- ** InvalidGlobalClusterStateFault
+    _InvalidGlobalClusterStateFault,
+
+    -- ** InvalidOptionGroupStateFault
+    _InvalidOptionGroupStateFault,
+
+    -- ** InvalidRestoreFault
+    _InvalidRestoreFault,
+
+    -- ** InvalidS3BucketFault
+    _InvalidS3BucketFault,
+
+    -- ** InvalidSubnet
+    _InvalidSubnet,
+
+    -- ** InvalidVPCNetworkStateFault
+    _InvalidVPCNetworkStateFault,
+
+    -- ** KMSKeyNotAccessibleFault
+    _KMSKeyNotAccessibleFault,
+
+    -- ** NetworkTypeNotSupported
+    _NetworkTypeNotSupported,
+
+    -- ** OptionGroupAlreadyExistsFault
+    _OptionGroupAlreadyExistsFault,
+
+    -- ** OptionGroupNotFoundFault
+    _OptionGroupNotFoundFault,
+
+    -- ** OptionGroupQuotaExceededFault
+    _OptionGroupQuotaExceededFault,
+
+    -- ** PointInTimeRestoreNotEnabledFault
+    _PointInTimeRestoreNotEnabledFault,
 
     -- ** ProvisionedIopsNotAvailableInAZFault
     _ProvisionedIopsNotAvailableInAZFault,
@@ -366,89 +384,86 @@ module Amazonka.RDS
     -- ** ReservedDBInstanceAlreadyExistsFault
     _ReservedDBInstanceAlreadyExistsFault,
 
-    -- ** InvalidGlobalClusterStateFault
-    _InvalidGlobalClusterStateFault,
-
-    -- ** DBInstanceRoleQuotaExceededFault
-    _DBInstanceRoleQuotaExceededFault,
-
-    -- ** IamRoleNotFoundFault
-    _IamRoleNotFoundFault,
-
-    -- ** InvalidDBClusterEndpointStateFault
-    _InvalidDBClusterEndpointStateFault,
-
-    -- ** DBProxyEndpointQuotaExceededFault
-    _DBProxyEndpointQuotaExceededFault,
-
-    -- ** InvalidEventSubscriptionStateFault
-    _InvalidEventSubscriptionStateFault,
-
-    -- ** StorageQuotaExceededFault
-    _StorageQuotaExceededFault,
-
-    -- ** ExportTaskAlreadyExistsFault
-    _ExportTaskAlreadyExistsFault,
-
-    -- ** DBSubnetGroupNotFoundFault
-    _DBSubnetGroupNotFoundFault,
-
-    -- ** InvalidS3BucketFault
-    _InvalidS3BucketFault,
-
-    -- ** DBClusterRoleQuotaExceededFault
-    _DBClusterRoleQuotaExceededFault,
-
-    -- ** DBSecurityGroupNotFoundFault
-    _DBSecurityGroupNotFoundFault,
-
-    -- ** SharedSnapshotQuotaExceededFault
-    _SharedSnapshotQuotaExceededFault,
-
-    -- ** DBProxyQuotaExceededFault
-    _DBProxyQuotaExceededFault,
-
-    -- ** DBSecurityGroupQuotaExceededFault
-    _DBSecurityGroupQuotaExceededFault,
-
-    -- ** DBClusterSnapshotNotFoundFault
-    _DBClusterSnapshotNotFoundFault,
-
-    -- ** InvalidDBSnapshotStateFault
-    _InvalidDBSnapshotStateFault,
+    -- ** ReservedDBInstanceNotFoundFault
+    _ReservedDBInstanceNotFoundFault,
 
     -- ** ReservedDBInstanceQuotaExceededFault
     _ReservedDBInstanceQuotaExceededFault,
 
-    -- ** DomainNotFoundFault
-    _DomainNotFoundFault,
+    -- ** ReservedDBInstancesOfferingNotFoundFault
+    _ReservedDBInstancesOfferingNotFoundFault,
+
+    -- ** ResourceNotFoundFault
+    _ResourceNotFoundFault,
+
+    -- ** SNSInvalidTopicFault
+    _SNSInvalidTopicFault,
+
+    -- ** SNSNoAuthorizationFault
+    _SNSNoAuthorizationFault,
+
+    -- ** SNSTopicArnNotFoundFault
+    _SNSTopicArnNotFoundFault,
+
+    -- ** SharedSnapshotQuotaExceededFault
+    _SharedSnapshotQuotaExceededFault,
+
+    -- ** SnapshotQuotaExceededFault
+    _SnapshotQuotaExceededFault,
+
+    -- ** SourceClusterNotSupportedFault
+    _SourceClusterNotSupportedFault,
+
+    -- ** SourceDatabaseNotSupportedFault
+    _SourceDatabaseNotSupportedFault,
+
+    -- ** SourceNotFoundFault
+    _SourceNotFoundFault,
+
+    -- ** StorageQuotaExceededFault
+    _StorageQuotaExceededFault,
+
+    -- ** StorageTypeNotSupportedFault
+    _StorageTypeNotSupportedFault,
+
+    -- ** SubnetAlreadyInUse
+    _SubnetAlreadyInUse,
+
+    -- ** SubscriptionAlreadyExistFault
+    _SubscriptionAlreadyExistFault,
+
+    -- ** SubscriptionCategoryNotFoundFault
+    _SubscriptionCategoryNotFoundFault,
+
+    -- ** SubscriptionNotFoundFault
+    _SubscriptionNotFoundFault,
 
     -- * Waiters
     -- $waiters
 
+    -- ** DBClusterAvailable
+    newDBClusterAvailable,
+
     -- ** DBClusterDeleted
     newDBClusterDeleted,
-
-    -- ** DBClusterSnapshotDeleted
-    newDBClusterSnapshotDeleted,
 
     -- ** DBClusterSnapshotAvailable
     newDBClusterSnapshotAvailable,
 
+    -- ** DBClusterSnapshotDeleted
+    newDBClusterSnapshotDeleted,
+
     -- ** DBInstanceAvailable
     newDBInstanceAvailable,
-
-    -- ** DBSnapshotCompleted
-    newDBSnapshotCompleted,
-
-    -- ** DBSnapshotAvailable
-    newDBSnapshotAvailable,
 
     -- ** DBInstanceDeleted
     newDBInstanceDeleted,
 
-    -- ** DBClusterAvailable
-    newDBClusterAvailable,
+    -- ** DBSnapshotAvailable
+    newDBSnapshotAvailable,
+
+    -- ** DBSnapshotCompleted
+    newDBSnapshotCompleted,
 
     -- ** DBSnapshotDeleted
     newDBSnapshotDeleted,
@@ -533,6 +548,12 @@ module Amazonka.RDS
     newCopyOptionGroup,
     CopyOptionGroupResponse (CopyOptionGroupResponse'),
     newCopyOptionGroupResponse,
+
+    -- ** CreateBlueGreenDeployment
+    CreateBlueGreenDeployment (CreateBlueGreenDeployment'),
+    newCreateBlueGreenDeployment,
+    CreateBlueGreenDeploymentResponse (CreateBlueGreenDeploymentResponse'),
+    newCreateBlueGreenDeploymentResponse,
 
     -- ** CreateCustomDBEngineVersion
     CreateCustomDBEngineVersion (CreateCustomDBEngineVersion'),
@@ -629,6 +650,12 @@ module Amazonka.RDS
     newCreateOptionGroup,
     CreateOptionGroupResponse (CreateOptionGroupResponse'),
     newCreateOptionGroupResponse,
+
+    -- ** DeleteBlueGreenDeployment
+    DeleteBlueGreenDeployment (DeleteBlueGreenDeployment'),
+    newDeleteBlueGreenDeployment,
+    DeleteBlueGreenDeploymentResponse (DeleteBlueGreenDeploymentResponse'),
+    newDeleteBlueGreenDeploymentResponse,
 
     -- ** DeleteCustomDBEngineVersion
     DeleteCustomDBEngineVersion (DeleteCustomDBEngineVersion'),
@@ -737,6 +764,12 @@ module Amazonka.RDS
     newDescribeAccountAttributes,
     DescribeAccountAttributesResponse (DescribeAccountAttributesResponse'),
     newDescribeAccountAttributesResponse,
+
+    -- ** DescribeBlueGreenDeployments (Paginated)
+    DescribeBlueGreenDeployments (DescribeBlueGreenDeployments'),
+    newDescribeBlueGreenDeployments,
+    DescribeBlueGreenDeploymentsResponse (DescribeBlueGreenDeploymentsResponse'),
+    newDescribeBlueGreenDeploymentsResponse,
 
     -- ** DescribeCertificates (Paginated)
     DescribeCertificates (DescribeCertificates'),
@@ -1272,6 +1305,12 @@ module Amazonka.RDS
     StopDBInstanceAutomatedBackupsReplicationResponse (StopDBInstanceAutomatedBackupsReplicationResponse'),
     newStopDBInstanceAutomatedBackupsReplicationResponse,
 
+    -- ** SwitchoverBlueGreenDeployment
+    SwitchoverBlueGreenDeployment (SwitchoverBlueGreenDeployment'),
+    newSwitchoverBlueGreenDeployment,
+    SwitchoverBlueGreenDeploymentResponse (SwitchoverBlueGreenDeploymentResponse'),
+    newSwitchoverBlueGreenDeploymentResponse,
+
     -- ** SwitchoverReadReplica
     SwitchoverReadReplica (SwitchoverReadReplica'),
     newSwitchoverReadReplica,
@@ -1357,6 +1396,14 @@ module Amazonka.RDS
     -- ** AvailableProcessorFeature
     AvailableProcessorFeature (AvailableProcessorFeature'),
     newAvailableProcessorFeature,
+
+    -- ** BlueGreenDeployment
+    BlueGreenDeployment (BlueGreenDeployment'),
+    newBlueGreenDeployment,
+
+    -- ** BlueGreenDeploymentTask
+    BlueGreenDeploymentTask (BlueGreenDeploymentTask'),
+    newBlueGreenDeploymentTask,
 
     -- ** Certificate
     Certificate (Certificate'),
@@ -1674,6 +1721,10 @@ module Amazonka.RDS
     Subnet (Subnet'),
     newSubnet,
 
+    -- ** SwitchoverDetail
+    SwitchoverDetail (SwitchoverDetail'),
+    newSwitchoverDetail,
+
     -- ** Tag
     Tag (Tag'),
     newTag,
@@ -1725,6 +1776,7 @@ import Amazonka.RDS.CopyDBClusterSnapshot
 import Amazonka.RDS.CopyDBParameterGroup
 import Amazonka.RDS.CopyDBSnapshot
 import Amazonka.RDS.CopyOptionGroup
+import Amazonka.RDS.CreateBlueGreenDeployment
 import Amazonka.RDS.CreateCustomDBEngineVersion
 import Amazonka.RDS.CreateDBCluster
 import Amazonka.RDS.CreateDBClusterEndpoint
@@ -1741,6 +1793,7 @@ import Amazonka.RDS.CreateDBSubnetGroup
 import Amazonka.RDS.CreateEventSubscription
 import Amazonka.RDS.CreateGlobalCluster
 import Amazonka.RDS.CreateOptionGroup
+import Amazonka.RDS.DeleteBlueGreenDeployment
 import Amazonka.RDS.DeleteCustomDBEngineVersion
 import Amazonka.RDS.DeleteDBCluster
 import Amazonka.RDS.DeleteDBClusterEndpoint
@@ -1759,6 +1812,7 @@ import Amazonka.RDS.DeleteGlobalCluster
 import Amazonka.RDS.DeleteOptionGroup
 import Amazonka.RDS.DeregisterDBProxyTargets
 import Amazonka.RDS.DescribeAccountAttributes
+import Amazonka.RDS.DescribeBlueGreenDeployments
 import Amazonka.RDS.DescribeCertificates
 import Amazonka.RDS.DescribeDBClusterBacktracks
 import Amazonka.RDS.DescribeDBClusterEndpoints
@@ -1849,6 +1903,7 @@ import Amazonka.RDS.StopActivityStream
 import Amazonka.RDS.StopDBCluster
 import Amazonka.RDS.StopDBInstance
 import Amazonka.RDS.StopDBInstanceAutomatedBackupsReplication
+import Amazonka.RDS.SwitchoverBlueGreenDeployment
 import Amazonka.RDS.SwitchoverReadReplica
 import Amazonka.RDS.Types
 import Amazonka.RDS.Waiters

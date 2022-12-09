@@ -27,9 +27,9 @@ module Amazonka.RDS.PurchaseReservedDBInstancesOffering
     newPurchaseReservedDBInstancesOffering,
 
     -- * Request Lenses
-    purchaseReservedDBInstancesOffering_tags,
     purchaseReservedDBInstancesOffering_dbInstanceCount,
     purchaseReservedDBInstancesOffering_reservedDBInstanceId,
+    purchaseReservedDBInstancesOffering_tags,
     purchaseReservedDBInstancesOffering_reservedDBInstancesOfferingId,
 
     -- * Destructuring the Response
@@ -54,8 +54,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newPurchaseReservedDBInstancesOffering' smart constructor.
 data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering'
-  { tags :: Prelude.Maybe [Tag],
-    -- | The number of instances to reserve.
+  { -- | The number of instances to reserve.
     --
     -- Default: @1@
     dbInstanceCount :: Prelude.Maybe Prelude.Int,
@@ -63,6 +62,7 @@ data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering'
     --
     -- Example: myreservationID
     reservedDBInstanceId :: Prelude.Maybe Prelude.Text,
+    tags :: Prelude.Maybe [Tag],
     -- | The ID of the Reserved DB instance offering to purchase.
     --
     -- Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706
@@ -78,8 +78,6 @@ data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'purchaseReservedDBInstancesOffering_tags' - Undocumented member.
---
 -- 'dbInstanceCount', 'purchaseReservedDBInstancesOffering_dbInstanceCount' - The number of instances to reserve.
 --
 -- Default: @1@
@@ -87,6 +85,8 @@ data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering'
 -- 'reservedDBInstanceId', 'purchaseReservedDBInstancesOffering_reservedDBInstanceId' - Customer-specified identifier to track this reservation.
 --
 -- Example: myreservationID
+--
+-- 'tags', 'purchaseReservedDBInstancesOffering_tags' - Undocumented member.
 --
 -- 'reservedDBInstancesOfferingId', 'purchaseReservedDBInstancesOffering_reservedDBInstancesOfferingId' - The ID of the Reserved DB instance offering to purchase.
 --
@@ -98,17 +98,13 @@ newPurchaseReservedDBInstancesOffering ::
 newPurchaseReservedDBInstancesOffering
   pReservedDBInstancesOfferingId_ =
     PurchaseReservedDBInstancesOffering'
-      { tags =
+      { dbInstanceCount =
           Prelude.Nothing,
-        dbInstanceCount = Prelude.Nothing,
         reservedDBInstanceId = Prelude.Nothing,
+        tags = Prelude.Nothing,
         reservedDBInstancesOfferingId =
           pReservedDBInstancesOfferingId_
       }
-
--- | Undocumented member.
-purchaseReservedDBInstancesOffering_tags :: Lens.Lens' PurchaseReservedDBInstancesOffering (Prelude.Maybe [Tag])
-purchaseReservedDBInstancesOffering_tags = Lens.lens (\PurchaseReservedDBInstancesOffering' {tags} -> tags) (\s@PurchaseReservedDBInstancesOffering' {} a -> s {tags = a} :: PurchaseReservedDBInstancesOffering) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of instances to reserve.
 --
@@ -121,6 +117,10 @@ purchaseReservedDBInstancesOffering_dbInstanceCount = Lens.lens (\PurchaseReserv
 -- Example: myreservationID
 purchaseReservedDBInstancesOffering_reservedDBInstanceId :: Lens.Lens' PurchaseReservedDBInstancesOffering (Prelude.Maybe Prelude.Text)
 purchaseReservedDBInstancesOffering_reservedDBInstanceId = Lens.lens (\PurchaseReservedDBInstancesOffering' {reservedDBInstanceId} -> reservedDBInstanceId) (\s@PurchaseReservedDBInstancesOffering' {} a -> s {reservedDBInstanceId = a} :: PurchaseReservedDBInstancesOffering)
+
+-- | Undocumented member.
+purchaseReservedDBInstancesOffering_tags :: Lens.Lens' PurchaseReservedDBInstancesOffering (Prelude.Maybe [Tag])
+purchaseReservedDBInstancesOffering_tags = Lens.lens (\PurchaseReservedDBInstancesOffering' {tags} -> tags) (\s@PurchaseReservedDBInstancesOffering' {} a -> s {tags = a} :: PurchaseReservedDBInstancesOffering) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the Reserved DB instance offering to purchase.
 --
@@ -153,9 +153,9 @@ instance
   hashWithSalt
     _salt
     PurchaseReservedDBInstancesOffering' {..} =
-      _salt `Prelude.hashWithSalt` tags
-        `Prelude.hashWithSalt` dbInstanceCount
+      _salt `Prelude.hashWithSalt` dbInstanceCount
         `Prelude.hashWithSalt` reservedDBInstanceId
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` reservedDBInstancesOfferingId
 
 instance
@@ -163,9 +163,9 @@ instance
     PurchaseReservedDBInstancesOffering
   where
   rnf PurchaseReservedDBInstancesOffering' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf dbInstanceCount
+    Prelude.rnf dbInstanceCount
       `Prelude.seq` Prelude.rnf reservedDBInstanceId
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf reservedDBInstancesOfferingId
 
 instance
@@ -192,11 +192,11 @@ instance
                   ),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "DBInstanceCount" Data.=: dbInstanceCount,
+        "ReservedDBInstanceId" Data.=: reservedDBInstanceId,
         "Tags"
           Data.=: Data.toQuery
             (Data.toQueryList "Tag" Prelude.<$> tags),
-        "DBInstanceCount" Data.=: dbInstanceCount,
-        "ReservedDBInstanceId" Data.=: reservedDBInstanceId,
         "ReservedDBInstancesOfferingId"
           Data.=: reservedDBInstancesOfferingId
       ]

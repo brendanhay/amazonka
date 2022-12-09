@@ -39,13 +39,13 @@ module Amazonka.RDS.CopyDBSnapshot
     newCopyDBSnapshot,
 
     -- * Request Lenses
+    copyDBSnapshot_copyTags,
+    copyDBSnapshot_destinationRegion,
+    copyDBSnapshot_kmsKeyId,
+    copyDBSnapshot_optionGroupName,
+    copyDBSnapshot_preSignedUrl,
     copyDBSnapshot_tags,
     copyDBSnapshot_targetCustomAvailabilityZone,
-    copyDBSnapshot_optionGroupName,
-    copyDBSnapshot_copyTags,
-    copyDBSnapshot_kmsKeyId,
-    copyDBSnapshot_destinationRegion,
-    copyDBSnapshot_preSignedUrl,
     copyDBSnapshot_sourceDBSnapshotIdentifier,
     copyDBSnapshot_targetDBSnapshotIdentifier,
 
@@ -71,26 +71,15 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCopyDBSnapshot' smart constructor.
 data CopyDBSnapshot = CopyDBSnapshot'
-  { tags :: Prelude.Maybe [Tag],
-    -- | The external custom Availability Zone (CAZ) identifier for the target
-    -- CAZ.
-    --
-    -- Example: @rds-caz-aiqhTgQv@.
-    targetCustomAvailabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | The name of an option group to associate with the copy of the snapshot.
-    --
-    -- Specify this option if you are copying a snapshot from one Amazon Web
-    -- Services Region to another, and your DB instance uses a nondefault
-    -- option group. If your source DB instance uses Transparent Data
-    -- Encryption for Oracle or Microsoft SQL Server, you must specify this
-    -- option when copying across Amazon Web Services Regions. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options Option group considerations>
-    -- in the /Amazon RDS User Guide/.
-    optionGroupName :: Prelude.Maybe Prelude.Text,
-    -- | A value that indicates whether to copy all tags from the source DB
+  { -- | A value that indicates whether to copy all tags from the source DB
     -- snapshot to the target DB snapshot. By default, tags are not copied.
     copyTags :: Prelude.Maybe Prelude.Bool,
+    -- | Pseudo-parameter used when populating the @PreSignedUrl@ of a
+    -- cross-region @CopyDBSnapshot@ request. To replicate from region @SRC@ to
+    -- region @DST@, send a request to region @DST@. In that request, pass a
+    -- @PreSignedUrl@ for region @SRC@ with @DestinationRegion@ set to region
+    -- @DST@.
+    destinationRegion :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services KMS key identifier for an encrypted DB snapshot.
     -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
     -- ARN, or alias name for the KMS key.
@@ -114,12 +103,17 @@ data CopyDBSnapshot = CopyDBSnapshot'
     -- use KMS keys from one Amazon Web Services Region in another Amazon Web
     -- Services Region.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | Pseudo-parameter used when populating the @PreSignedUrl@ of a
-    -- cross-region @CopyDBSnapshot@ request. To replicate from region @SRC@ to
-    -- region @DST@, send a request to region @DST@. In that request, pass a
-    -- @PreSignedUrl@ for region @SRC@ with @DestinationRegion@ set to region
-    -- @DST@.
-    destinationRegion :: Prelude.Maybe Prelude.Text,
+    -- | The name of an option group to associate with the copy of the snapshot.
+    --
+    -- Specify this option if you are copying a snapshot from one Amazon Web
+    -- Services Region to another, and your DB instance uses a nondefault
+    -- option group. If your source DB instance uses Transparent Data
+    -- Encryption for Oracle or Microsoft SQL Server, you must specify this
+    -- option when copying across Amazon Web Services Regions. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options Option group considerations>
+    -- in the /Amazon RDS User Guide/.
+    optionGroupName :: Prelude.Maybe Prelude.Text,
     -- | When you are copying a snapshot from one Amazon Web Services GovCloud
     -- (US) Region to another, the URL that contains a Signature Version 4
     -- signed request for the @CopyDBSnapshot@ API operation in the source
@@ -179,6 +173,12 @@ data CopyDBSnapshot = CopyDBSnapshot'
     -- autogenerates a presigned URL that is a valid request for the operation
     -- that can run in the source Amazon Web Services Region.
     preSignedUrl :: Prelude.Maybe Prelude.Text,
+    tags :: Prelude.Maybe [Tag],
+    -- | The external custom Availability Zone (CAZ) identifier for the target
+    -- CAZ.
+    --
+    -- Example: @rds-caz-aiqhTgQv@.
+    targetCustomAvailabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the source DB snapshot.
     --
     -- If the source snapshot is in the same Amazon Web Services Region as the
@@ -230,26 +230,14 @@ data CopyDBSnapshot = CopyDBSnapshot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'copyDBSnapshot_tags' - Undocumented member.
---
--- 'targetCustomAvailabilityZone', 'copyDBSnapshot_targetCustomAvailabilityZone' - The external custom Availability Zone (CAZ) identifier for the target
--- CAZ.
---
--- Example: @rds-caz-aiqhTgQv@.
---
--- 'optionGroupName', 'copyDBSnapshot_optionGroupName' - The name of an option group to associate with the copy of the snapshot.
---
--- Specify this option if you are copying a snapshot from one Amazon Web
--- Services Region to another, and your DB instance uses a nondefault
--- option group. If your source DB instance uses Transparent Data
--- Encryption for Oracle or Microsoft SQL Server, you must specify this
--- option when copying across Amazon Web Services Regions. For more
--- information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options Option group considerations>
--- in the /Amazon RDS User Guide/.
---
 -- 'copyTags', 'copyDBSnapshot_copyTags' - A value that indicates whether to copy all tags from the source DB
 -- snapshot to the target DB snapshot. By default, tags are not copied.
+--
+-- 'destinationRegion', 'copyDBSnapshot_destinationRegion' - Pseudo-parameter used when populating the @PreSignedUrl@ of a
+-- cross-region @CopyDBSnapshot@ request. To replicate from region @SRC@ to
+-- region @DST@, send a request to region @DST@. In that request, pass a
+-- @PreSignedUrl@ for region @SRC@ with @DestinationRegion@ set to region
+-- @DST@.
 --
 -- 'kmsKeyId', 'copyDBSnapshot_kmsKeyId' - The Amazon Web Services KMS key identifier for an encrypted DB snapshot.
 -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
@@ -274,11 +262,16 @@ data CopyDBSnapshot = CopyDBSnapshot'
 -- use KMS keys from one Amazon Web Services Region in another Amazon Web
 -- Services Region.
 --
--- 'destinationRegion', 'copyDBSnapshot_destinationRegion' - Pseudo-parameter used when populating the @PreSignedUrl@ of a
--- cross-region @CopyDBSnapshot@ request. To replicate from region @SRC@ to
--- region @DST@, send a request to region @DST@. In that request, pass a
--- @PreSignedUrl@ for region @SRC@ with @DestinationRegion@ set to region
--- @DST@.
+-- 'optionGroupName', 'copyDBSnapshot_optionGroupName' - The name of an option group to associate with the copy of the snapshot.
+--
+-- Specify this option if you are copying a snapshot from one Amazon Web
+-- Services Region to another, and your DB instance uses a nondefault
+-- option group. If your source DB instance uses Transparent Data
+-- Encryption for Oracle or Microsoft SQL Server, you must specify this
+-- option when copying across Amazon Web Services Regions. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options Option group considerations>
+-- in the /Amazon RDS User Guide/.
 --
 -- 'preSignedUrl', 'copyDBSnapshot_preSignedUrl' - When you are copying a snapshot from one Amazon Web Services GovCloud
 -- (US) Region to another, the URL that contains a Signature Version 4
@@ -339,6 +332,13 @@ data CopyDBSnapshot = CopyDBSnapshot'
 -- autogenerates a presigned URL that is a valid request for the operation
 -- that can run in the source Amazon Web Services Region.
 --
+-- 'tags', 'copyDBSnapshot_tags' - Undocumented member.
+--
+-- 'targetCustomAvailabilityZone', 'copyDBSnapshot_targetCustomAvailabilityZone' - The external custom Availability Zone (CAZ) identifier for the target
+-- CAZ.
+--
+-- Example: @rds-caz-aiqhTgQv@.
+--
 -- 'sourceDBSnapshotIdentifier', 'copyDBSnapshot_sourceDBSnapshotIdentifier' - The identifier for the source DB snapshot.
 --
 -- If the source snapshot is in the same Amazon Web Services Region as the
@@ -388,47 +388,31 @@ newCopyDBSnapshot
   pSourceDBSnapshotIdentifier_
   pTargetDBSnapshotIdentifier_ =
     CopyDBSnapshot'
-      { tags = Prelude.Nothing,
-        targetCustomAvailabilityZone = Prelude.Nothing,
-        optionGroupName = Prelude.Nothing,
-        copyTags = Prelude.Nothing,
-        kmsKeyId = Prelude.Nothing,
+      { copyTags = Prelude.Nothing,
         destinationRegion = Prelude.Nothing,
+        kmsKeyId = Prelude.Nothing,
+        optionGroupName = Prelude.Nothing,
         preSignedUrl = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        targetCustomAvailabilityZone = Prelude.Nothing,
         sourceDBSnapshotIdentifier =
           pSourceDBSnapshotIdentifier_,
         targetDBSnapshotIdentifier =
           pTargetDBSnapshotIdentifier_
       }
 
--- | Undocumented member.
-copyDBSnapshot_tags :: Lens.Lens' CopyDBSnapshot (Prelude.Maybe [Tag])
-copyDBSnapshot_tags = Lens.lens (\CopyDBSnapshot' {tags} -> tags) (\s@CopyDBSnapshot' {} a -> s {tags = a} :: CopyDBSnapshot) Prelude.. Lens.mapping Lens.coerced
-
--- | The external custom Availability Zone (CAZ) identifier for the target
--- CAZ.
---
--- Example: @rds-caz-aiqhTgQv@.
-copyDBSnapshot_targetCustomAvailabilityZone :: Lens.Lens' CopyDBSnapshot (Prelude.Maybe Prelude.Text)
-copyDBSnapshot_targetCustomAvailabilityZone = Lens.lens (\CopyDBSnapshot' {targetCustomAvailabilityZone} -> targetCustomAvailabilityZone) (\s@CopyDBSnapshot' {} a -> s {targetCustomAvailabilityZone = a} :: CopyDBSnapshot)
-
--- | The name of an option group to associate with the copy of the snapshot.
---
--- Specify this option if you are copying a snapshot from one Amazon Web
--- Services Region to another, and your DB instance uses a nondefault
--- option group. If your source DB instance uses Transparent Data
--- Encryption for Oracle or Microsoft SQL Server, you must specify this
--- option when copying across Amazon Web Services Regions. For more
--- information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options Option group considerations>
--- in the /Amazon RDS User Guide/.
-copyDBSnapshot_optionGroupName :: Lens.Lens' CopyDBSnapshot (Prelude.Maybe Prelude.Text)
-copyDBSnapshot_optionGroupName = Lens.lens (\CopyDBSnapshot' {optionGroupName} -> optionGroupName) (\s@CopyDBSnapshot' {} a -> s {optionGroupName = a} :: CopyDBSnapshot)
-
 -- | A value that indicates whether to copy all tags from the source DB
 -- snapshot to the target DB snapshot. By default, tags are not copied.
 copyDBSnapshot_copyTags :: Lens.Lens' CopyDBSnapshot (Prelude.Maybe Prelude.Bool)
 copyDBSnapshot_copyTags = Lens.lens (\CopyDBSnapshot' {copyTags} -> copyTags) (\s@CopyDBSnapshot' {} a -> s {copyTags = a} :: CopyDBSnapshot)
+
+-- | Pseudo-parameter used when populating the @PreSignedUrl@ of a
+-- cross-region @CopyDBSnapshot@ request. To replicate from region @SRC@ to
+-- region @DST@, send a request to region @DST@. In that request, pass a
+-- @PreSignedUrl@ for region @SRC@ with @DestinationRegion@ set to region
+-- @DST@.
+copyDBSnapshot_destinationRegion :: Lens.Lens' CopyDBSnapshot (Prelude.Maybe Prelude.Text)
+copyDBSnapshot_destinationRegion = Lens.lens (\CopyDBSnapshot' {destinationRegion} -> destinationRegion) (\s@CopyDBSnapshot' {} a -> s {destinationRegion = a} :: CopyDBSnapshot)
 
 -- | The Amazon Web Services KMS key identifier for an encrypted DB snapshot.
 -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
@@ -455,13 +439,18 @@ copyDBSnapshot_copyTags = Lens.lens (\CopyDBSnapshot' {copyTags} -> copyTags) (\
 copyDBSnapshot_kmsKeyId :: Lens.Lens' CopyDBSnapshot (Prelude.Maybe Prelude.Text)
 copyDBSnapshot_kmsKeyId = Lens.lens (\CopyDBSnapshot' {kmsKeyId} -> kmsKeyId) (\s@CopyDBSnapshot' {} a -> s {kmsKeyId = a} :: CopyDBSnapshot)
 
--- | Pseudo-parameter used when populating the @PreSignedUrl@ of a
--- cross-region @CopyDBSnapshot@ request. To replicate from region @SRC@ to
--- region @DST@, send a request to region @DST@. In that request, pass a
--- @PreSignedUrl@ for region @SRC@ with @DestinationRegion@ set to region
--- @DST@.
-copyDBSnapshot_destinationRegion :: Lens.Lens' CopyDBSnapshot (Prelude.Maybe Prelude.Text)
-copyDBSnapshot_destinationRegion = Lens.lens (\CopyDBSnapshot' {destinationRegion} -> destinationRegion) (\s@CopyDBSnapshot' {} a -> s {destinationRegion = a} :: CopyDBSnapshot)
+-- | The name of an option group to associate with the copy of the snapshot.
+--
+-- Specify this option if you are copying a snapshot from one Amazon Web
+-- Services Region to another, and your DB instance uses a nondefault
+-- option group. If your source DB instance uses Transparent Data
+-- Encryption for Oracle or Microsoft SQL Server, you must specify this
+-- option when copying across Amazon Web Services Regions. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options Option group considerations>
+-- in the /Amazon RDS User Guide/.
+copyDBSnapshot_optionGroupName :: Lens.Lens' CopyDBSnapshot (Prelude.Maybe Prelude.Text)
+copyDBSnapshot_optionGroupName = Lens.lens (\CopyDBSnapshot' {optionGroupName} -> optionGroupName) (\s@CopyDBSnapshot' {} a -> s {optionGroupName = a} :: CopyDBSnapshot)
 
 -- | When you are copying a snapshot from one Amazon Web Services GovCloud
 -- (US) Region to another, the URL that contains a Signature Version 4
@@ -524,6 +513,17 @@ copyDBSnapshot_destinationRegion = Lens.lens (\CopyDBSnapshot' {destinationRegio
 copyDBSnapshot_preSignedUrl :: Lens.Lens' CopyDBSnapshot (Prelude.Maybe Prelude.Text)
 copyDBSnapshot_preSignedUrl = Lens.lens (\CopyDBSnapshot' {preSignedUrl} -> preSignedUrl) (\s@CopyDBSnapshot' {} a -> s {preSignedUrl = a} :: CopyDBSnapshot)
 
+-- | Undocumented member.
+copyDBSnapshot_tags :: Lens.Lens' CopyDBSnapshot (Prelude.Maybe [Tag])
+copyDBSnapshot_tags = Lens.lens (\CopyDBSnapshot' {tags} -> tags) (\s@CopyDBSnapshot' {} a -> s {tags = a} :: CopyDBSnapshot) Prelude.. Lens.mapping Lens.coerced
+
+-- | The external custom Availability Zone (CAZ) identifier for the target
+-- CAZ.
+--
+-- Example: @rds-caz-aiqhTgQv@.
+copyDBSnapshot_targetCustomAvailabilityZone :: Lens.Lens' CopyDBSnapshot (Prelude.Maybe Prelude.Text)
+copyDBSnapshot_targetCustomAvailabilityZone = Lens.lens (\CopyDBSnapshot' {targetCustomAvailabilityZone} -> targetCustomAvailabilityZone) (\s@CopyDBSnapshot' {} a -> s {targetCustomAvailabilityZone = a} :: CopyDBSnapshot)
+
 -- | The identifier for the source DB snapshot.
 --
 -- If the source snapshot is in the same Amazon Web Services Region as the
@@ -585,25 +585,25 @@ instance Core.AWSRequest CopyDBSnapshot where
 
 instance Prelude.Hashable CopyDBSnapshot where
   hashWithSalt _salt CopyDBSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` targetCustomAvailabilityZone
-      `Prelude.hashWithSalt` optionGroupName
-      `Prelude.hashWithSalt` copyTags
-      `Prelude.hashWithSalt` kmsKeyId
+    _salt `Prelude.hashWithSalt` copyTags
       `Prelude.hashWithSalt` destinationRegion
+      `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` optionGroupName
       `Prelude.hashWithSalt` preSignedUrl
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` targetCustomAvailabilityZone
       `Prelude.hashWithSalt` sourceDBSnapshotIdentifier
       `Prelude.hashWithSalt` targetDBSnapshotIdentifier
 
 instance Prelude.NFData CopyDBSnapshot where
   rnf CopyDBSnapshot' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf targetCustomAvailabilityZone
-      `Prelude.seq` Prelude.rnf optionGroupName
-      `Prelude.seq` Prelude.rnf copyTags
-      `Prelude.seq` Prelude.rnf kmsKeyId
+    Prelude.rnf copyTags
       `Prelude.seq` Prelude.rnf destinationRegion
+      `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf optionGroupName
       `Prelude.seq` Prelude.rnf preSignedUrl
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf targetCustomAvailabilityZone
       `Prelude.seq` Prelude.rnf sourceDBSnapshotIdentifier
       `Prelude.seq` Prelude.rnf targetDBSnapshotIdentifier
 
@@ -620,16 +620,16 @@ instance Data.ToQuery CopyDBSnapshot where
           Data.=: ("CopyDBSnapshot" :: Prelude.ByteString),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "CopyTags" Data.=: copyTags,
+        "DestinationRegion" Data.=: destinationRegion,
+        "KmsKeyId" Data.=: kmsKeyId,
+        "OptionGroupName" Data.=: optionGroupName,
+        "PreSignedUrl" Data.=: preSignedUrl,
         "Tags"
           Data.=: Data.toQuery
             (Data.toQueryList "Tag" Prelude.<$> tags),
         "TargetCustomAvailabilityZone"
           Data.=: targetCustomAvailabilityZone,
-        "OptionGroupName" Data.=: optionGroupName,
-        "CopyTags" Data.=: copyTags,
-        "KmsKeyId" Data.=: kmsKeyId,
-        "DestinationRegion" Data.=: destinationRegion,
-        "PreSignedUrl" Data.=: preSignedUrl,
         "SourceDBSnapshotIdentifier"
           Data.=: sourceDBSnapshotIdentifier,
         "TargetDBSnapshotIdentifier"

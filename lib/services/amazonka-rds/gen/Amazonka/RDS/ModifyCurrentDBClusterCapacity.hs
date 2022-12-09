@@ -50,9 +50,9 @@ module Amazonka.RDS.ModifyCurrentDBClusterCapacity
     newModifyCurrentDBClusterCapacity,
 
     -- * Request Lenses
-    modifyCurrentDBClusterCapacity_timeoutAction,
-    modifyCurrentDBClusterCapacity_secondsBeforeTimeout,
     modifyCurrentDBClusterCapacity_capacity,
+    modifyCurrentDBClusterCapacity_secondsBeforeTimeout,
+    modifyCurrentDBClusterCapacity_timeoutAction,
     modifyCurrentDBClusterCapacity_dbClusterIdentifier,
 
     -- * Destructuring the Response
@@ -60,11 +60,11 @@ module Amazonka.RDS.ModifyCurrentDBClusterCapacity
     newModifyCurrentDBClusterCapacityResponse,
 
     -- * Response Lenses
-    modifyCurrentDBClusterCapacityResponse_timeoutAction,
+    modifyCurrentDBClusterCapacityResponse_currentCapacity,
     modifyCurrentDBClusterCapacityResponse_dbClusterIdentifier,
     modifyCurrentDBClusterCapacityResponse_pendingCapacity,
     modifyCurrentDBClusterCapacityResponse_secondsBeforeTimeout,
-    modifyCurrentDBClusterCapacityResponse_currentCapacity,
+    modifyCurrentDBClusterCapacityResponse_timeoutAction,
     modifyCurrentDBClusterCapacityResponse_httpStatus,
   )
 where
@@ -79,22 +79,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyCurrentDBClusterCapacity' smart constructor.
 data ModifyCurrentDBClusterCapacity = ModifyCurrentDBClusterCapacity'
-  { -- | The action to take when the timeout is reached, either
-    -- @ForceApplyCapacityChange@ or @RollbackCapacityChange@.
-    --
-    -- @ForceApplyCapacityChange@, the default, sets the capacity to the
-    -- specified value as soon as possible.
-    --
-    -- @RollbackCapacityChange@ ignores the capacity change if a scaling point
-    -- isn\'t found in the timeout period.
-    timeoutAction :: Prelude.Maybe Prelude.Text,
-    -- | The amount of time, in seconds, that Aurora Serverless v1 tries to find
-    -- a scaling point to perform seamless scaling before enforcing the timeout
-    -- action. The default is 300.
-    --
-    -- Specify a value between 10 and 600 seconds.
-    secondsBeforeTimeout :: Prelude.Maybe Prelude.Int,
-    -- | The DB cluster capacity.
+  { -- | The DB cluster capacity.
     --
     -- When you change the capacity of a paused Aurora Serverless v1 DB
     -- cluster, it automatically resumes.
@@ -107,6 +92,21 @@ data ModifyCurrentDBClusterCapacity = ModifyCurrentDBClusterCapacity'
     -- -   For Aurora PostgreSQL, valid capacity values are @2@, @4@, @8@,
     --     @16@, @32@, @64@, @192@, and @384@.
     capacity :: Prelude.Maybe Prelude.Int,
+    -- | The amount of time, in seconds, that Aurora Serverless v1 tries to find
+    -- a scaling point to perform seamless scaling before enforcing the timeout
+    -- action. The default is 300.
+    --
+    -- Specify a value between 10 and 600 seconds.
+    secondsBeforeTimeout :: Prelude.Maybe Prelude.Int,
+    -- | The action to take when the timeout is reached, either
+    -- @ForceApplyCapacityChange@ or @RollbackCapacityChange@.
+    --
+    -- @ForceApplyCapacityChange@, the default, sets the capacity to the
+    -- specified value as soon as possible.
+    --
+    -- @RollbackCapacityChange@ ignores the capacity change if a scaling point
+    -- isn\'t found in the timeout period.
+    timeoutAction :: Prelude.Maybe Prelude.Text,
     -- | The DB cluster identifier for the cluster being modified. This parameter
     -- isn\'t case-sensitive.
     --
@@ -125,21 +125,6 @@ data ModifyCurrentDBClusterCapacity = ModifyCurrentDBClusterCapacity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timeoutAction', 'modifyCurrentDBClusterCapacity_timeoutAction' - The action to take when the timeout is reached, either
--- @ForceApplyCapacityChange@ or @RollbackCapacityChange@.
---
--- @ForceApplyCapacityChange@, the default, sets the capacity to the
--- specified value as soon as possible.
---
--- @RollbackCapacityChange@ ignores the capacity change if a scaling point
--- isn\'t found in the timeout period.
---
--- 'secondsBeforeTimeout', 'modifyCurrentDBClusterCapacity_secondsBeforeTimeout' - The amount of time, in seconds, that Aurora Serverless v1 tries to find
--- a scaling point to perform seamless scaling before enforcing the timeout
--- action. The default is 300.
---
--- Specify a value between 10 and 600 seconds.
---
 -- 'capacity', 'modifyCurrentDBClusterCapacity_capacity' - The DB cluster capacity.
 --
 -- When you change the capacity of a paused Aurora Serverless v1 DB
@@ -152,6 +137,21 @@ data ModifyCurrentDBClusterCapacity = ModifyCurrentDBClusterCapacity'
 --
 -- -   For Aurora PostgreSQL, valid capacity values are @2@, @4@, @8@,
 --     @16@, @32@, @64@, @192@, and @384@.
+--
+-- 'secondsBeforeTimeout', 'modifyCurrentDBClusterCapacity_secondsBeforeTimeout' - The amount of time, in seconds, that Aurora Serverless v1 tries to find
+-- a scaling point to perform seamless scaling before enforcing the timeout
+-- action. The default is 300.
+--
+-- Specify a value between 10 and 600 seconds.
+--
+-- 'timeoutAction', 'modifyCurrentDBClusterCapacity_timeoutAction' - The action to take when the timeout is reached, either
+-- @ForceApplyCapacityChange@ or @RollbackCapacityChange@.
+--
+-- @ForceApplyCapacityChange@, the default, sets the capacity to the
+-- specified value as soon as possible.
+--
+-- @RollbackCapacityChange@ ignores the capacity change if a scaling point
+-- isn\'t found in the timeout period.
 --
 -- 'dbClusterIdentifier', 'modifyCurrentDBClusterCapacity_dbClusterIdentifier' - The DB cluster identifier for the cluster being modified. This parameter
 -- isn\'t case-sensitive.
@@ -166,31 +166,12 @@ newModifyCurrentDBClusterCapacity ::
 newModifyCurrentDBClusterCapacity
   pDBClusterIdentifier_ =
     ModifyCurrentDBClusterCapacity'
-      { timeoutAction =
+      { capacity =
           Prelude.Nothing,
         secondsBeforeTimeout = Prelude.Nothing,
-        capacity = Prelude.Nothing,
+        timeoutAction = Prelude.Nothing,
         dbClusterIdentifier = pDBClusterIdentifier_
       }
-
--- | The action to take when the timeout is reached, either
--- @ForceApplyCapacityChange@ or @RollbackCapacityChange@.
---
--- @ForceApplyCapacityChange@, the default, sets the capacity to the
--- specified value as soon as possible.
---
--- @RollbackCapacityChange@ ignores the capacity change if a scaling point
--- isn\'t found in the timeout period.
-modifyCurrentDBClusterCapacity_timeoutAction :: Lens.Lens' ModifyCurrentDBClusterCapacity (Prelude.Maybe Prelude.Text)
-modifyCurrentDBClusterCapacity_timeoutAction = Lens.lens (\ModifyCurrentDBClusterCapacity' {timeoutAction} -> timeoutAction) (\s@ModifyCurrentDBClusterCapacity' {} a -> s {timeoutAction = a} :: ModifyCurrentDBClusterCapacity)
-
--- | The amount of time, in seconds, that Aurora Serverless v1 tries to find
--- a scaling point to perform seamless scaling before enforcing the timeout
--- action. The default is 300.
---
--- Specify a value between 10 and 600 seconds.
-modifyCurrentDBClusterCapacity_secondsBeforeTimeout :: Lens.Lens' ModifyCurrentDBClusterCapacity (Prelude.Maybe Prelude.Int)
-modifyCurrentDBClusterCapacity_secondsBeforeTimeout = Lens.lens (\ModifyCurrentDBClusterCapacity' {secondsBeforeTimeout} -> secondsBeforeTimeout) (\s@ModifyCurrentDBClusterCapacity' {} a -> s {secondsBeforeTimeout = a} :: ModifyCurrentDBClusterCapacity)
 
 -- | The DB cluster capacity.
 --
@@ -206,6 +187,25 @@ modifyCurrentDBClusterCapacity_secondsBeforeTimeout = Lens.lens (\ModifyCurrentD
 --     @16@, @32@, @64@, @192@, and @384@.
 modifyCurrentDBClusterCapacity_capacity :: Lens.Lens' ModifyCurrentDBClusterCapacity (Prelude.Maybe Prelude.Int)
 modifyCurrentDBClusterCapacity_capacity = Lens.lens (\ModifyCurrentDBClusterCapacity' {capacity} -> capacity) (\s@ModifyCurrentDBClusterCapacity' {} a -> s {capacity = a} :: ModifyCurrentDBClusterCapacity)
+
+-- | The amount of time, in seconds, that Aurora Serverless v1 tries to find
+-- a scaling point to perform seamless scaling before enforcing the timeout
+-- action. The default is 300.
+--
+-- Specify a value between 10 and 600 seconds.
+modifyCurrentDBClusterCapacity_secondsBeforeTimeout :: Lens.Lens' ModifyCurrentDBClusterCapacity (Prelude.Maybe Prelude.Int)
+modifyCurrentDBClusterCapacity_secondsBeforeTimeout = Lens.lens (\ModifyCurrentDBClusterCapacity' {secondsBeforeTimeout} -> secondsBeforeTimeout) (\s@ModifyCurrentDBClusterCapacity' {} a -> s {secondsBeforeTimeout = a} :: ModifyCurrentDBClusterCapacity)
+
+-- | The action to take when the timeout is reached, either
+-- @ForceApplyCapacityChange@ or @RollbackCapacityChange@.
+--
+-- @ForceApplyCapacityChange@, the default, sets the capacity to the
+-- specified value as soon as possible.
+--
+-- @RollbackCapacityChange@ ignores the capacity change if a scaling point
+-- isn\'t found in the timeout period.
+modifyCurrentDBClusterCapacity_timeoutAction :: Lens.Lens' ModifyCurrentDBClusterCapacity (Prelude.Maybe Prelude.Text)
+modifyCurrentDBClusterCapacity_timeoutAction = Lens.lens (\ModifyCurrentDBClusterCapacity' {timeoutAction} -> timeoutAction) (\s@ModifyCurrentDBClusterCapacity' {} a -> s {timeoutAction = a} :: ModifyCurrentDBClusterCapacity)
 
 -- | The DB cluster identifier for the cluster being modified. This parameter
 -- isn\'t case-sensitive.
@@ -230,11 +230,11 @@ instance
       "ModifyCurrentDBClusterCapacityResult"
       ( \s h x ->
           ModifyCurrentDBClusterCapacityResponse'
-            Prelude.<$> (x Data..@? "TimeoutAction")
+            Prelude.<$> (x Data..@? "CurrentCapacity")
             Prelude.<*> (x Data..@? "DBClusterIdentifier")
             Prelude.<*> (x Data..@? "PendingCapacity")
             Prelude.<*> (x Data..@? "SecondsBeforeTimeout")
-            Prelude.<*> (x Data..@? "CurrentCapacity")
+            Prelude.<*> (x Data..@? "TimeoutAction")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -245,9 +245,9 @@ instance
   hashWithSalt
     _salt
     ModifyCurrentDBClusterCapacity' {..} =
-      _salt `Prelude.hashWithSalt` timeoutAction
+      _salt `Prelude.hashWithSalt` capacity
         `Prelude.hashWithSalt` secondsBeforeTimeout
-        `Prelude.hashWithSalt` capacity
+        `Prelude.hashWithSalt` timeoutAction
         `Prelude.hashWithSalt` dbClusterIdentifier
 
 instance
@@ -255,9 +255,9 @@ instance
     ModifyCurrentDBClusterCapacity
   where
   rnf ModifyCurrentDBClusterCapacity' {..} =
-    Prelude.rnf timeoutAction
+    Prelude.rnf capacity
       `Prelude.seq` Prelude.rnf secondsBeforeTimeout
-      `Prelude.seq` Prelude.rnf capacity
+      `Prelude.seq` Prelude.rnf timeoutAction
       `Prelude.seq` Prelude.rnf dbClusterIdentifier
 
 instance
@@ -278,17 +278,16 @@ instance Data.ToQuery ModifyCurrentDBClusterCapacity where
                   ),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
-        "TimeoutAction" Data.=: timeoutAction,
-        "SecondsBeforeTimeout" Data.=: secondsBeforeTimeout,
         "Capacity" Data.=: capacity,
+        "SecondsBeforeTimeout" Data.=: secondsBeforeTimeout,
+        "TimeoutAction" Data.=: timeoutAction,
         "DBClusterIdentifier" Data.=: dbClusterIdentifier
       ]
 
 -- | /See:/ 'newModifyCurrentDBClusterCapacityResponse' smart constructor.
 data ModifyCurrentDBClusterCapacityResponse = ModifyCurrentDBClusterCapacityResponse'
-  { -- | The timeout action of a call to @ModifyCurrentDBClusterCapacity@, either
-    -- @ForceApplyCapacityChange@ or @RollbackCapacityChange@.
-    timeoutAction :: Prelude.Maybe Prelude.Text,
+  { -- | The current capacity of the DB cluster.
+    currentCapacity :: Prelude.Maybe Prelude.Int,
     -- | A user-supplied DB cluster identifier. This identifier is the unique key
     -- that identifies a DB cluster.
     dbClusterIdentifier :: Prelude.Maybe Prelude.Text,
@@ -297,8 +296,9 @@ data ModifyCurrentDBClusterCapacityResponse = ModifyCurrentDBClusterCapacityResp
     -- | The number of seconds before a call to @ModifyCurrentDBClusterCapacity@
     -- times out.
     secondsBeforeTimeout :: Prelude.Maybe Prelude.Int,
-    -- | The current capacity of the DB cluster.
-    currentCapacity :: Prelude.Maybe Prelude.Int,
+    -- | The timeout action of a call to @ModifyCurrentDBClusterCapacity@, either
+    -- @ForceApplyCapacityChange@ or @RollbackCapacityChange@.
+    timeoutAction :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -312,8 +312,7 @@ data ModifyCurrentDBClusterCapacityResponse = ModifyCurrentDBClusterCapacityResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timeoutAction', 'modifyCurrentDBClusterCapacityResponse_timeoutAction' - The timeout action of a call to @ModifyCurrentDBClusterCapacity@, either
--- @ForceApplyCapacityChange@ or @RollbackCapacityChange@.
+-- 'currentCapacity', 'modifyCurrentDBClusterCapacityResponse_currentCapacity' - The current capacity of the DB cluster.
 --
 -- 'dbClusterIdentifier', 'modifyCurrentDBClusterCapacityResponse_dbClusterIdentifier' - A user-supplied DB cluster identifier. This identifier is the unique key
 -- that identifies a DB cluster.
@@ -323,7 +322,8 @@ data ModifyCurrentDBClusterCapacityResponse = ModifyCurrentDBClusterCapacityResp
 -- 'secondsBeforeTimeout', 'modifyCurrentDBClusterCapacityResponse_secondsBeforeTimeout' - The number of seconds before a call to @ModifyCurrentDBClusterCapacity@
 -- times out.
 --
--- 'currentCapacity', 'modifyCurrentDBClusterCapacityResponse_currentCapacity' - The current capacity of the DB cluster.
+-- 'timeoutAction', 'modifyCurrentDBClusterCapacityResponse_timeoutAction' - The timeout action of a call to @ModifyCurrentDBClusterCapacity@, either
+-- @ForceApplyCapacityChange@ or @RollbackCapacityChange@.
 --
 -- 'httpStatus', 'modifyCurrentDBClusterCapacityResponse_httpStatus' - The response's http status code.
 newModifyCurrentDBClusterCapacityResponse ::
@@ -333,21 +333,20 @@ newModifyCurrentDBClusterCapacityResponse ::
 newModifyCurrentDBClusterCapacityResponse
   pHttpStatus_ =
     ModifyCurrentDBClusterCapacityResponse'
-      { timeoutAction =
+      { currentCapacity =
           Prelude.Nothing,
         dbClusterIdentifier =
           Prelude.Nothing,
         pendingCapacity = Prelude.Nothing,
         secondsBeforeTimeout =
           Prelude.Nothing,
-        currentCapacity = Prelude.Nothing,
+        timeoutAction = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
--- | The timeout action of a call to @ModifyCurrentDBClusterCapacity@, either
--- @ForceApplyCapacityChange@ or @RollbackCapacityChange@.
-modifyCurrentDBClusterCapacityResponse_timeoutAction :: Lens.Lens' ModifyCurrentDBClusterCapacityResponse (Prelude.Maybe Prelude.Text)
-modifyCurrentDBClusterCapacityResponse_timeoutAction = Lens.lens (\ModifyCurrentDBClusterCapacityResponse' {timeoutAction} -> timeoutAction) (\s@ModifyCurrentDBClusterCapacityResponse' {} a -> s {timeoutAction = a} :: ModifyCurrentDBClusterCapacityResponse)
+-- | The current capacity of the DB cluster.
+modifyCurrentDBClusterCapacityResponse_currentCapacity :: Lens.Lens' ModifyCurrentDBClusterCapacityResponse (Prelude.Maybe Prelude.Int)
+modifyCurrentDBClusterCapacityResponse_currentCapacity = Lens.lens (\ModifyCurrentDBClusterCapacityResponse' {currentCapacity} -> currentCapacity) (\s@ModifyCurrentDBClusterCapacityResponse' {} a -> s {currentCapacity = a} :: ModifyCurrentDBClusterCapacityResponse)
 
 -- | A user-supplied DB cluster identifier. This identifier is the unique key
 -- that identifies a DB cluster.
@@ -363,9 +362,10 @@ modifyCurrentDBClusterCapacityResponse_pendingCapacity = Lens.lens (\ModifyCurre
 modifyCurrentDBClusterCapacityResponse_secondsBeforeTimeout :: Lens.Lens' ModifyCurrentDBClusterCapacityResponse (Prelude.Maybe Prelude.Int)
 modifyCurrentDBClusterCapacityResponse_secondsBeforeTimeout = Lens.lens (\ModifyCurrentDBClusterCapacityResponse' {secondsBeforeTimeout} -> secondsBeforeTimeout) (\s@ModifyCurrentDBClusterCapacityResponse' {} a -> s {secondsBeforeTimeout = a} :: ModifyCurrentDBClusterCapacityResponse)
 
--- | The current capacity of the DB cluster.
-modifyCurrentDBClusterCapacityResponse_currentCapacity :: Lens.Lens' ModifyCurrentDBClusterCapacityResponse (Prelude.Maybe Prelude.Int)
-modifyCurrentDBClusterCapacityResponse_currentCapacity = Lens.lens (\ModifyCurrentDBClusterCapacityResponse' {currentCapacity} -> currentCapacity) (\s@ModifyCurrentDBClusterCapacityResponse' {} a -> s {currentCapacity = a} :: ModifyCurrentDBClusterCapacityResponse)
+-- | The timeout action of a call to @ModifyCurrentDBClusterCapacity@, either
+-- @ForceApplyCapacityChange@ or @RollbackCapacityChange@.
+modifyCurrentDBClusterCapacityResponse_timeoutAction :: Lens.Lens' ModifyCurrentDBClusterCapacityResponse (Prelude.Maybe Prelude.Text)
+modifyCurrentDBClusterCapacityResponse_timeoutAction = Lens.lens (\ModifyCurrentDBClusterCapacityResponse' {timeoutAction} -> timeoutAction) (\s@ModifyCurrentDBClusterCapacityResponse' {} a -> s {timeoutAction = a} :: ModifyCurrentDBClusterCapacityResponse)
 
 -- | The response's http status code.
 modifyCurrentDBClusterCapacityResponse_httpStatus :: Lens.Lens' ModifyCurrentDBClusterCapacityResponse Prelude.Int
@@ -376,9 +376,9 @@ instance
     ModifyCurrentDBClusterCapacityResponse
   where
   rnf ModifyCurrentDBClusterCapacityResponse' {..} =
-    Prelude.rnf timeoutAction
+    Prelude.rnf currentCapacity
       `Prelude.seq` Prelude.rnf dbClusterIdentifier
       `Prelude.seq` Prelude.rnf pendingCapacity
       `Prelude.seq` Prelude.rnf secondsBeforeTimeout
-      `Prelude.seq` Prelude.rnf currentCapacity
+      `Prelude.seq` Prelude.rnf timeoutAction
       `Prelude.seq` Prelude.rnf httpStatus

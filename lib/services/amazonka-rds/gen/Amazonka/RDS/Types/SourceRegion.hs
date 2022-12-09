@@ -29,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSourceRegion' smart constructor.
 data SourceRegion = SourceRegion'
-  { -- | The status of the source Amazon Web Services Region.
+  { -- | The endpoint for the source Amazon Web Services Region endpoint.
+    endpoint :: Prelude.Maybe Prelude.Text,
+    -- | The name of the source Amazon Web Services Region.
+    regionName :: Prelude.Maybe Prelude.Text,
+    -- | The status of the source Amazon Web Services Region.
     status :: Prelude.Maybe Prelude.Text,
     -- | Whether the source Amazon Web Services Region supports replicating
     -- automated backups to the current Amazon Web Services Region.
-    supportsDBInstanceAutomatedBackupsReplication :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the source Amazon Web Services Region.
-    regionName :: Prelude.Maybe Prelude.Text,
-    -- | The endpoint for the source Amazon Web Services Region endpoint.
-    endpoint :: Prelude.Maybe Prelude.Text
+    supportsDBInstanceAutomatedBackupsReplication :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,24 +49,32 @@ data SourceRegion = SourceRegion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'endpoint', 'sourceRegion_endpoint' - The endpoint for the source Amazon Web Services Region endpoint.
+--
+-- 'regionName', 'sourceRegion_regionName' - The name of the source Amazon Web Services Region.
+--
 -- 'status', 'sourceRegion_status' - The status of the source Amazon Web Services Region.
 --
 -- 'supportsDBInstanceAutomatedBackupsReplication', 'sourceRegion_supportsDBInstanceAutomatedBackupsReplication' - Whether the source Amazon Web Services Region supports replicating
 -- automated backups to the current Amazon Web Services Region.
---
--- 'regionName', 'sourceRegion_regionName' - The name of the source Amazon Web Services Region.
---
--- 'endpoint', 'sourceRegion_endpoint' - The endpoint for the source Amazon Web Services Region endpoint.
 newSourceRegion ::
   SourceRegion
 newSourceRegion =
   SourceRegion'
-    { status = Prelude.Nothing,
-      supportsDBInstanceAutomatedBackupsReplication =
-        Prelude.Nothing,
+    { endpoint = Prelude.Nothing,
       regionName = Prelude.Nothing,
-      endpoint = Prelude.Nothing
+      status = Prelude.Nothing,
+      supportsDBInstanceAutomatedBackupsReplication =
+        Prelude.Nothing
     }
+
+-- | The endpoint for the source Amazon Web Services Region endpoint.
+sourceRegion_endpoint :: Lens.Lens' SourceRegion (Prelude.Maybe Prelude.Text)
+sourceRegion_endpoint = Lens.lens (\SourceRegion' {endpoint} -> endpoint) (\s@SourceRegion' {} a -> s {endpoint = a} :: SourceRegion)
+
+-- | The name of the source Amazon Web Services Region.
+sourceRegion_regionName :: Lens.Lens' SourceRegion (Prelude.Maybe Prelude.Text)
+sourceRegion_regionName = Lens.lens (\SourceRegion' {regionName} -> regionName) (\s@SourceRegion' {} a -> s {regionName = a} :: SourceRegion)
 
 -- | The status of the source Amazon Web Services Region.
 sourceRegion_status :: Lens.Lens' SourceRegion (Prelude.Maybe Prelude.Text)
@@ -77,35 +85,27 @@ sourceRegion_status = Lens.lens (\SourceRegion' {status} -> status) (\s@SourceRe
 sourceRegion_supportsDBInstanceAutomatedBackupsReplication :: Lens.Lens' SourceRegion (Prelude.Maybe Prelude.Bool)
 sourceRegion_supportsDBInstanceAutomatedBackupsReplication = Lens.lens (\SourceRegion' {supportsDBInstanceAutomatedBackupsReplication} -> supportsDBInstanceAutomatedBackupsReplication) (\s@SourceRegion' {} a -> s {supportsDBInstanceAutomatedBackupsReplication = a} :: SourceRegion)
 
--- | The name of the source Amazon Web Services Region.
-sourceRegion_regionName :: Lens.Lens' SourceRegion (Prelude.Maybe Prelude.Text)
-sourceRegion_regionName = Lens.lens (\SourceRegion' {regionName} -> regionName) (\s@SourceRegion' {} a -> s {regionName = a} :: SourceRegion)
-
--- | The endpoint for the source Amazon Web Services Region endpoint.
-sourceRegion_endpoint :: Lens.Lens' SourceRegion (Prelude.Maybe Prelude.Text)
-sourceRegion_endpoint = Lens.lens (\SourceRegion' {endpoint} -> endpoint) (\s@SourceRegion' {} a -> s {endpoint = a} :: SourceRegion)
-
 instance Data.FromXML SourceRegion where
   parseXML x =
     SourceRegion'
-      Prelude.<$> (x Data..@? "Status")
+      Prelude.<$> (x Data..@? "Endpoint")
+      Prelude.<*> (x Data..@? "RegionName")
+      Prelude.<*> (x Data..@? "Status")
       Prelude.<*> ( x
                       Data..@? "SupportsDBInstanceAutomatedBackupsReplication"
                   )
-      Prelude.<*> (x Data..@? "RegionName")
-      Prelude.<*> (x Data..@? "Endpoint")
 
 instance Prelude.Hashable SourceRegion where
   hashWithSalt _salt SourceRegion' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` supportsDBInstanceAutomatedBackupsReplication
+    _salt `Prelude.hashWithSalt` endpoint
       `Prelude.hashWithSalt` regionName
-      `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` supportsDBInstanceAutomatedBackupsReplication
 
 instance Prelude.NFData SourceRegion where
   rnf SourceRegion' {..} =
-    Prelude.rnf status
+    Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf regionName
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf
         supportsDBInstanceAutomatedBackupsReplication
-      `Prelude.seq` Prelude.rnf regionName
-      `Prelude.seq` Prelude.rnf endpoint

@@ -39,13 +39,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEndpoint' smart constructor.
 data Endpoint = Endpoint'
-  { -- | Specifies the port that the database engine is listening on.
-    port :: Prelude.Maybe Prelude.Int,
+  { -- | Specifies the DNS address of the DB instance.
+    address :: Prelude.Maybe Prelude.Text,
     -- | Specifies the ID that Amazon Route 53 assigns when you create a hosted
     -- zone.
     hostedZoneId :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the DNS address of the DB instance.
-    address :: Prelude.Maybe Prelude.Text
+    -- | Specifies the port that the database engine is listening on.
+    port :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,49 +57,49 @@ data Endpoint = Endpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'port', 'endpoint_port' - Specifies the port that the database engine is listening on.
+-- 'address', 'endpoint_address' - Specifies the DNS address of the DB instance.
 --
 -- 'hostedZoneId', 'endpoint_hostedZoneId' - Specifies the ID that Amazon Route 53 assigns when you create a hosted
 -- zone.
 --
--- 'address', 'endpoint_address' - Specifies the DNS address of the DB instance.
+-- 'port', 'endpoint_port' - Specifies the port that the database engine is listening on.
 newEndpoint ::
   Endpoint
 newEndpoint =
   Endpoint'
-    { port = Prelude.Nothing,
+    { address = Prelude.Nothing,
       hostedZoneId = Prelude.Nothing,
-      address = Prelude.Nothing
+      port = Prelude.Nothing
     }
 
--- | Specifies the port that the database engine is listening on.
-endpoint_port :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Int)
-endpoint_port = Lens.lens (\Endpoint' {port} -> port) (\s@Endpoint' {} a -> s {port = a} :: Endpoint)
+-- | Specifies the DNS address of the DB instance.
+endpoint_address :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
+endpoint_address = Lens.lens (\Endpoint' {address} -> address) (\s@Endpoint' {} a -> s {address = a} :: Endpoint)
 
 -- | Specifies the ID that Amazon Route 53 assigns when you create a hosted
 -- zone.
 endpoint_hostedZoneId :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
 endpoint_hostedZoneId = Lens.lens (\Endpoint' {hostedZoneId} -> hostedZoneId) (\s@Endpoint' {} a -> s {hostedZoneId = a} :: Endpoint)
 
--- | Specifies the DNS address of the DB instance.
-endpoint_address :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
-endpoint_address = Lens.lens (\Endpoint' {address} -> address) (\s@Endpoint' {} a -> s {address = a} :: Endpoint)
+-- | Specifies the port that the database engine is listening on.
+endpoint_port :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Int)
+endpoint_port = Lens.lens (\Endpoint' {port} -> port) (\s@Endpoint' {} a -> s {port = a} :: Endpoint)
 
 instance Data.FromXML Endpoint where
   parseXML x =
     Endpoint'
-      Prelude.<$> (x Data..@? "Port")
+      Prelude.<$> (x Data..@? "Address")
       Prelude.<*> (x Data..@? "HostedZoneId")
-      Prelude.<*> (x Data..@? "Address")
+      Prelude.<*> (x Data..@? "Port")
 
 instance Prelude.Hashable Endpoint where
   hashWithSalt _salt Endpoint' {..} =
-    _salt `Prelude.hashWithSalt` port
+    _salt `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` hostedZoneId
-      `Prelude.hashWithSalt` address
+      `Prelude.hashWithSalt` port
 
 instance Prelude.NFData Endpoint where
   rnf Endpoint' {..} =
-    Prelude.rnf port
+    Prelude.rnf address
       `Prelude.seq` Prelude.rnf hostedZoneId
-      `Prelude.seq` Prelude.rnf address
+      `Prelude.seq` Prelude.rnf port

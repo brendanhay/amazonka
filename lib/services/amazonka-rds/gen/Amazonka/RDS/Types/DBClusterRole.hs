@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDBClusterRole' smart constructor.
 data DBClusterRole = DBClusterRole'
-  { -- | The Amazon Resource Name (ARN) of the IAM role that is associated with
-    -- the DB cluster.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the feature associated with the Amazon Web Services Identity
+  { -- | The name of the feature associated with the Amazon Web Services Identity
     -- and Access Management (IAM) role. For information about supported
     -- feature names, see DBEngineVersion.
     featureName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM role that is associated with
+    -- the DB cluster.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | Describes the state of association between the IAM role and the DB
     -- cluster. The Status property returns one of the following values:
     --
@@ -60,12 +60,12 @@ data DBClusterRole = DBClusterRole'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'dbClusterRole_roleArn' - The Amazon Resource Name (ARN) of the IAM role that is associated with
--- the DB cluster.
---
 -- 'featureName', 'dbClusterRole_featureName' - The name of the feature associated with the Amazon Web Services Identity
 -- and Access Management (IAM) role. For information about supported
 -- feature names, see DBEngineVersion.
+--
+-- 'roleArn', 'dbClusterRole_roleArn' - The Amazon Resource Name (ARN) of the IAM role that is associated with
+-- the DB cluster.
 --
 -- 'status', 'dbClusterRole_status' - Describes the state of association between the IAM role and the DB
 -- cluster. The Status property returns one of the following values:
@@ -83,21 +83,21 @@ newDBClusterRole ::
   DBClusterRole
 newDBClusterRole =
   DBClusterRole'
-    { roleArn = Prelude.Nothing,
-      featureName = Prelude.Nothing,
+    { featureName = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       status = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the IAM role that is associated with
--- the DB cluster.
-dbClusterRole_roleArn :: Lens.Lens' DBClusterRole (Prelude.Maybe Prelude.Text)
-dbClusterRole_roleArn = Lens.lens (\DBClusterRole' {roleArn} -> roleArn) (\s@DBClusterRole' {} a -> s {roleArn = a} :: DBClusterRole)
 
 -- | The name of the feature associated with the Amazon Web Services Identity
 -- and Access Management (IAM) role. For information about supported
 -- feature names, see DBEngineVersion.
 dbClusterRole_featureName :: Lens.Lens' DBClusterRole (Prelude.Maybe Prelude.Text)
 dbClusterRole_featureName = Lens.lens (\DBClusterRole' {featureName} -> featureName) (\s@DBClusterRole' {} a -> s {featureName = a} :: DBClusterRole)
+
+-- | The Amazon Resource Name (ARN) of the IAM role that is associated with
+-- the DB cluster.
+dbClusterRole_roleArn :: Lens.Lens' DBClusterRole (Prelude.Maybe Prelude.Text)
+dbClusterRole_roleArn = Lens.lens (\DBClusterRole' {roleArn} -> roleArn) (\s@DBClusterRole' {} a -> s {roleArn = a} :: DBClusterRole)
 
 -- | Describes the state of association between the IAM role and the DB
 -- cluster. The Status property returns one of the following values:
@@ -117,18 +117,18 @@ dbClusterRole_status = Lens.lens (\DBClusterRole' {status} -> status) (\s@DBClus
 instance Data.FromXML DBClusterRole where
   parseXML x =
     DBClusterRole'
-      Prelude.<$> (x Data..@? "RoleArn")
-      Prelude.<*> (x Data..@? "FeatureName")
+      Prelude.<$> (x Data..@? "FeatureName")
+      Prelude.<*> (x Data..@? "RoleArn")
       Prelude.<*> (x Data..@? "Status")
 
 instance Prelude.Hashable DBClusterRole where
   hashWithSalt _salt DBClusterRole' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
-      `Prelude.hashWithSalt` featureName
+    _salt `Prelude.hashWithSalt` featureName
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData DBClusterRole where
   rnf DBClusterRole' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf featureName
+    Prelude.rnf featureName
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf status

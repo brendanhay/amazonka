@@ -28,20 +28,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDBClusterMember' smart constructor.
 data DBClusterMember = DBClusterMember'
-  { -- | A value that specifies the order in which an Aurora Replica is promoted
+  { -- | Specifies the status of the DB cluster parameter group for this member
+    -- of the DB cluster.
+    dbClusterParameterGroupStatus :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the instance identifier for this member of the DB cluster.
+    dbInstanceIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | Value that is @true@ if the cluster member is the primary instance for
+    -- the DB cluster and @false@ otherwise.
+    isClusterWriter :: Prelude.Maybe Prelude.Bool,
+    -- | A value that specifies the order in which an Aurora Replica is promoted
     -- to the primary instance after a failure of the existing primary
     -- instance. For more information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster>
     -- in the /Amazon Aurora User Guide/.
-    promotionTier :: Prelude.Maybe Prelude.Int,
-    -- | Specifies the instance identifier for this member of the DB cluster.
-    dbInstanceIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the status of the DB cluster parameter group for this member
-    -- of the DB cluster.
-    dbClusterParameterGroupStatus :: Prelude.Maybe Prelude.Text,
-    -- | Value that is @true@ if the cluster member is the primary instance for
-    -- the DB cluster and @false@ otherwise.
-    isClusterWriter :: Prelude.Maybe Prelude.Bool
+    promotionTier :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,28 +53,43 @@ data DBClusterMember = DBClusterMember'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dbClusterParameterGroupStatus', 'dbClusterMember_dbClusterParameterGroupStatus' - Specifies the status of the DB cluster parameter group for this member
+-- of the DB cluster.
+--
+-- 'dbInstanceIdentifier', 'dbClusterMember_dbInstanceIdentifier' - Specifies the instance identifier for this member of the DB cluster.
+--
+-- 'isClusterWriter', 'dbClusterMember_isClusterWriter' - Value that is @true@ if the cluster member is the primary instance for
+-- the DB cluster and @false@ otherwise.
+--
 -- 'promotionTier', 'dbClusterMember_promotionTier' - A value that specifies the order in which an Aurora Replica is promoted
 -- to the primary instance after a failure of the existing primary
 -- instance. For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster>
 -- in the /Amazon Aurora User Guide/.
---
--- 'dbInstanceIdentifier', 'dbClusterMember_dbInstanceIdentifier' - Specifies the instance identifier for this member of the DB cluster.
---
--- 'dbClusterParameterGroupStatus', 'dbClusterMember_dbClusterParameterGroupStatus' - Specifies the status of the DB cluster parameter group for this member
--- of the DB cluster.
---
--- 'isClusterWriter', 'dbClusterMember_isClusterWriter' - Value that is @true@ if the cluster member is the primary instance for
--- the DB cluster and @false@ otherwise.
 newDBClusterMember ::
   DBClusterMember
 newDBClusterMember =
   DBClusterMember'
-    { promotionTier = Prelude.Nothing,
+    { dbClusterParameterGroupStatus =
+        Prelude.Nothing,
       dbInstanceIdentifier = Prelude.Nothing,
-      dbClusterParameterGroupStatus = Prelude.Nothing,
-      isClusterWriter = Prelude.Nothing
+      isClusterWriter = Prelude.Nothing,
+      promotionTier = Prelude.Nothing
     }
+
+-- | Specifies the status of the DB cluster parameter group for this member
+-- of the DB cluster.
+dbClusterMember_dbClusterParameterGroupStatus :: Lens.Lens' DBClusterMember (Prelude.Maybe Prelude.Text)
+dbClusterMember_dbClusterParameterGroupStatus = Lens.lens (\DBClusterMember' {dbClusterParameterGroupStatus} -> dbClusterParameterGroupStatus) (\s@DBClusterMember' {} a -> s {dbClusterParameterGroupStatus = a} :: DBClusterMember)
+
+-- | Specifies the instance identifier for this member of the DB cluster.
+dbClusterMember_dbInstanceIdentifier :: Lens.Lens' DBClusterMember (Prelude.Maybe Prelude.Text)
+dbClusterMember_dbInstanceIdentifier = Lens.lens (\DBClusterMember' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@DBClusterMember' {} a -> s {dbInstanceIdentifier = a} :: DBClusterMember)
+
+-- | Value that is @true@ if the cluster member is the primary instance for
+-- the DB cluster and @false@ otherwise.
+dbClusterMember_isClusterWriter :: Lens.Lens' DBClusterMember (Prelude.Maybe Prelude.Bool)
+dbClusterMember_isClusterWriter = Lens.lens (\DBClusterMember' {isClusterWriter} -> isClusterWriter) (\s@DBClusterMember' {} a -> s {isClusterWriter = a} :: DBClusterMember)
 
 -- | A value that specifies the order in which an Aurora Replica is promoted
 -- to the primary instance after a failure of the existing primary
@@ -84,38 +99,25 @@ newDBClusterMember =
 dbClusterMember_promotionTier :: Lens.Lens' DBClusterMember (Prelude.Maybe Prelude.Int)
 dbClusterMember_promotionTier = Lens.lens (\DBClusterMember' {promotionTier} -> promotionTier) (\s@DBClusterMember' {} a -> s {promotionTier = a} :: DBClusterMember)
 
--- | Specifies the instance identifier for this member of the DB cluster.
-dbClusterMember_dbInstanceIdentifier :: Lens.Lens' DBClusterMember (Prelude.Maybe Prelude.Text)
-dbClusterMember_dbInstanceIdentifier = Lens.lens (\DBClusterMember' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@DBClusterMember' {} a -> s {dbInstanceIdentifier = a} :: DBClusterMember)
-
--- | Specifies the status of the DB cluster parameter group for this member
--- of the DB cluster.
-dbClusterMember_dbClusterParameterGroupStatus :: Lens.Lens' DBClusterMember (Prelude.Maybe Prelude.Text)
-dbClusterMember_dbClusterParameterGroupStatus = Lens.lens (\DBClusterMember' {dbClusterParameterGroupStatus} -> dbClusterParameterGroupStatus) (\s@DBClusterMember' {} a -> s {dbClusterParameterGroupStatus = a} :: DBClusterMember)
-
--- | Value that is @true@ if the cluster member is the primary instance for
--- the DB cluster and @false@ otherwise.
-dbClusterMember_isClusterWriter :: Lens.Lens' DBClusterMember (Prelude.Maybe Prelude.Bool)
-dbClusterMember_isClusterWriter = Lens.lens (\DBClusterMember' {isClusterWriter} -> isClusterWriter) (\s@DBClusterMember' {} a -> s {isClusterWriter = a} :: DBClusterMember)
-
 instance Data.FromXML DBClusterMember where
   parseXML x =
     DBClusterMember'
-      Prelude.<$> (x Data..@? "PromotionTier")
+      Prelude.<$> (x Data..@? "DBClusterParameterGroupStatus")
       Prelude.<*> (x Data..@? "DBInstanceIdentifier")
-      Prelude.<*> (x Data..@? "DBClusterParameterGroupStatus")
       Prelude.<*> (x Data..@? "IsClusterWriter")
+      Prelude.<*> (x Data..@? "PromotionTier")
 
 instance Prelude.Hashable DBClusterMember where
   hashWithSalt _salt DBClusterMember' {..} =
-    _salt `Prelude.hashWithSalt` promotionTier
-      `Prelude.hashWithSalt` dbInstanceIdentifier
+    _salt
       `Prelude.hashWithSalt` dbClusterParameterGroupStatus
+      `Prelude.hashWithSalt` dbInstanceIdentifier
       `Prelude.hashWithSalt` isClusterWriter
+      `Prelude.hashWithSalt` promotionTier
 
 instance Prelude.NFData DBClusterMember where
   rnf DBClusterMember' {..} =
-    Prelude.rnf promotionTier
+    Prelude.rnf dbClusterParameterGroupStatus
       `Prelude.seq` Prelude.rnf dbInstanceIdentifier
-      `Prelude.seq` Prelude.rnf dbClusterParameterGroupStatus
       `Prelude.seq` Prelude.rnf isClusterWriter
+      `Prelude.seq` Prelude.rnf promotionTier

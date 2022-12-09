@@ -42,11 +42,11 @@ module Amazonka.RDS.StartActivityStream
 
     -- * Response Lenses
     startActivityStreamResponse_applyImmediately,
-    startActivityStreamResponse_status,
     startActivityStreamResponse_engineNativeAuditFieldsIncluded,
     startActivityStreamResponse_kinesisStreamName,
-    startActivityStreamResponse_mode,
     startActivityStreamResponse_kmsKeyId,
+    startActivityStreamResponse_mode,
+    startActivityStreamResponse_status,
     startActivityStreamResponse_httpStatus,
   )
 where
@@ -168,11 +168,11 @@ instance Core.AWSRequest StartActivityStream where
       ( \s h x ->
           StartActivityStreamResponse'
             Prelude.<$> (x Data..@? "ApplyImmediately")
-            Prelude.<*> (x Data..@? "Status")
             Prelude.<*> (x Data..@? "EngineNativeAuditFieldsIncluded")
             Prelude.<*> (x Data..@? "KinesisStreamName")
-            Prelude.<*> (x Data..@? "Mode")
             Prelude.<*> (x Data..@? "KmsKeyId")
+            Prelude.<*> (x Data..@? "Mode")
+            Prelude.<*> (x Data..@? "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -218,19 +218,19 @@ data StartActivityStreamResponse = StartActivityStreamResponse'
   { -- | Indicates whether or not the database activity stream will start as soon
     -- as possible, regardless of the maintenance window for the database.
     applyImmediately :: Prelude.Maybe Prelude.Bool,
-    -- | The status of the database activity stream.
-    status :: Prelude.Maybe ActivityStreamStatus,
     -- | Indicates whether engine-native audit fields are included in the
     -- database activity stream.
     engineNativeAuditFieldsIncluded :: Prelude.Maybe Prelude.Bool,
     -- | The name of the Amazon Kinesis data stream to be used for the database
     -- activity stream.
     kinesisStreamName :: Prelude.Maybe Prelude.Text,
-    -- | The mode of the database activity stream.
-    mode :: Prelude.Maybe ActivityStreamMode,
     -- | The Amazon Web Services KMS key identifier for encryption of messages in
     -- the database activity stream.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The mode of the database activity stream.
+    mode :: Prelude.Maybe ActivityStreamMode,
+    -- | The status of the database activity stream.
+    status :: Prelude.Maybe ActivityStreamStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -247,18 +247,18 @@ data StartActivityStreamResponse = StartActivityStreamResponse'
 -- 'applyImmediately', 'startActivityStreamResponse_applyImmediately' - Indicates whether or not the database activity stream will start as soon
 -- as possible, regardless of the maintenance window for the database.
 --
--- 'status', 'startActivityStreamResponse_status' - The status of the database activity stream.
---
 -- 'engineNativeAuditFieldsIncluded', 'startActivityStreamResponse_engineNativeAuditFieldsIncluded' - Indicates whether engine-native audit fields are included in the
 -- database activity stream.
 --
 -- 'kinesisStreamName', 'startActivityStreamResponse_kinesisStreamName' - The name of the Amazon Kinesis data stream to be used for the database
 -- activity stream.
 --
--- 'mode', 'startActivityStreamResponse_mode' - The mode of the database activity stream.
---
 -- 'kmsKeyId', 'startActivityStreamResponse_kmsKeyId' - The Amazon Web Services KMS key identifier for encryption of messages in
 -- the database activity stream.
+--
+-- 'mode', 'startActivityStreamResponse_mode' - The mode of the database activity stream.
+--
+-- 'status', 'startActivityStreamResponse_status' - The status of the database activity stream.
 --
 -- 'httpStatus', 'startActivityStreamResponse_httpStatus' - The response's http status code.
 newStartActivityStreamResponse ::
@@ -269,12 +269,12 @@ newStartActivityStreamResponse pHttpStatus_ =
   StartActivityStreamResponse'
     { applyImmediately =
         Prelude.Nothing,
-      status = Prelude.Nothing,
       engineNativeAuditFieldsIncluded =
         Prelude.Nothing,
       kinesisStreamName = Prelude.Nothing,
-      mode = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
+      mode = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -282,10 +282,6 @@ newStartActivityStreamResponse pHttpStatus_ =
 -- as possible, regardless of the maintenance window for the database.
 startActivityStreamResponse_applyImmediately :: Lens.Lens' StartActivityStreamResponse (Prelude.Maybe Prelude.Bool)
 startActivityStreamResponse_applyImmediately = Lens.lens (\StartActivityStreamResponse' {applyImmediately} -> applyImmediately) (\s@StartActivityStreamResponse' {} a -> s {applyImmediately = a} :: StartActivityStreamResponse)
-
--- | The status of the database activity stream.
-startActivityStreamResponse_status :: Lens.Lens' StartActivityStreamResponse (Prelude.Maybe ActivityStreamStatus)
-startActivityStreamResponse_status = Lens.lens (\StartActivityStreamResponse' {status} -> status) (\s@StartActivityStreamResponse' {} a -> s {status = a} :: StartActivityStreamResponse)
 
 -- | Indicates whether engine-native audit fields are included in the
 -- database activity stream.
@@ -297,14 +293,18 @@ startActivityStreamResponse_engineNativeAuditFieldsIncluded = Lens.lens (\StartA
 startActivityStreamResponse_kinesisStreamName :: Lens.Lens' StartActivityStreamResponse (Prelude.Maybe Prelude.Text)
 startActivityStreamResponse_kinesisStreamName = Lens.lens (\StartActivityStreamResponse' {kinesisStreamName} -> kinesisStreamName) (\s@StartActivityStreamResponse' {} a -> s {kinesisStreamName = a} :: StartActivityStreamResponse)
 
--- | The mode of the database activity stream.
-startActivityStreamResponse_mode :: Lens.Lens' StartActivityStreamResponse (Prelude.Maybe ActivityStreamMode)
-startActivityStreamResponse_mode = Lens.lens (\StartActivityStreamResponse' {mode} -> mode) (\s@StartActivityStreamResponse' {} a -> s {mode = a} :: StartActivityStreamResponse)
-
 -- | The Amazon Web Services KMS key identifier for encryption of messages in
 -- the database activity stream.
 startActivityStreamResponse_kmsKeyId :: Lens.Lens' StartActivityStreamResponse (Prelude.Maybe Prelude.Text)
 startActivityStreamResponse_kmsKeyId = Lens.lens (\StartActivityStreamResponse' {kmsKeyId} -> kmsKeyId) (\s@StartActivityStreamResponse' {} a -> s {kmsKeyId = a} :: StartActivityStreamResponse)
+
+-- | The mode of the database activity stream.
+startActivityStreamResponse_mode :: Lens.Lens' StartActivityStreamResponse (Prelude.Maybe ActivityStreamMode)
+startActivityStreamResponse_mode = Lens.lens (\StartActivityStreamResponse' {mode} -> mode) (\s@StartActivityStreamResponse' {} a -> s {mode = a} :: StartActivityStreamResponse)
+
+-- | The status of the database activity stream.
+startActivityStreamResponse_status :: Lens.Lens' StartActivityStreamResponse (Prelude.Maybe ActivityStreamStatus)
+startActivityStreamResponse_status = Lens.lens (\StartActivityStreamResponse' {status} -> status) (\s@StartActivityStreamResponse' {} a -> s {status = a} :: StartActivityStreamResponse)
 
 -- | The response's http status code.
 startActivityStreamResponse_httpStatus :: Lens.Lens' StartActivityStreamResponse Prelude.Int
@@ -313,9 +313,9 @@ startActivityStreamResponse_httpStatus = Lens.lens (\StartActivityStreamResponse
 instance Prelude.NFData StartActivityStreamResponse where
   rnf StartActivityStreamResponse' {..} =
     Prelude.rnf applyImmediately
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf engineNativeAuditFieldsIncluded
       `Prelude.seq` Prelude.rnf kinesisStreamName
-      `Prelude.seq` Prelude.rnf mode
       `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

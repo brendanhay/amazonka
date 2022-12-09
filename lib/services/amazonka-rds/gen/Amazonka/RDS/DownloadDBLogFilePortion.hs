@@ -42,9 +42,9 @@ module Amazonka.RDS.DownloadDBLogFilePortion
     newDownloadDBLogFilePortionResponse,
 
     -- * Response Lenses
-    downloadDBLogFilePortionResponse_marker,
     downloadDBLogFilePortionResponse_additionalDataPending,
     downloadDBLogFilePortionResponse_logFileData,
+    downloadDBLogFilePortionResponse_marker,
     downloadDBLogFilePortionResponse_httpStatus,
   )
 where
@@ -242,9 +242,9 @@ instance Core.AWSRequest DownloadDBLogFilePortion where
       "DownloadDBLogFilePortionResult"
       ( \s h x ->
           DownloadDBLogFilePortionResponse'
-            Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> (x Data..@? "AdditionalDataPending")
+            Prelude.<$> (x Data..@? "AdditionalDataPending")
             Prelude.<*> (x Data..@? "LogFileData")
+            Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -286,14 +286,14 @@ instance Data.ToQuery DownloadDBLogFilePortion where
 --
 -- /See:/ 'newDownloadDBLogFilePortionResponse' smart constructor.
 data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse'
-  { -- | A pagination token that can be used in a later
-    -- @DownloadDBLogFilePortion@ request.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | Boolean value that if true, indicates there is more data to be
+  { -- | Boolean value that if true, indicates there is more data to be
     -- downloaded.
     additionalDataPending :: Prelude.Maybe Prelude.Bool,
     -- | Entries from the specified log file.
     logFileData :: Prelude.Maybe Prelude.Text,
+    -- | A pagination token that can be used in a later
+    -- @DownloadDBLogFilePortion@ request.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -307,13 +307,13 @@ data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'downloadDBLogFilePortionResponse_marker' - A pagination token that can be used in a later
--- @DownloadDBLogFilePortion@ request.
---
 -- 'additionalDataPending', 'downloadDBLogFilePortionResponse_additionalDataPending' - Boolean value that if true, indicates there is more data to be
 -- downloaded.
 --
 -- 'logFileData', 'downloadDBLogFilePortionResponse_logFileData' - Entries from the specified log file.
+--
+-- 'marker', 'downloadDBLogFilePortionResponse_marker' - A pagination token that can be used in a later
+-- @DownloadDBLogFilePortion@ request.
 --
 -- 'httpStatus', 'downloadDBLogFilePortionResponse_httpStatus' - The response's http status code.
 newDownloadDBLogFilePortionResponse ::
@@ -322,17 +322,12 @@ newDownloadDBLogFilePortionResponse ::
   DownloadDBLogFilePortionResponse
 newDownloadDBLogFilePortionResponse pHttpStatus_ =
   DownloadDBLogFilePortionResponse'
-    { marker =
+    { additionalDataPending =
         Prelude.Nothing,
-      additionalDataPending = Prelude.Nothing,
       logFileData = Prelude.Nothing,
+      marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A pagination token that can be used in a later
--- @DownloadDBLogFilePortion@ request.
-downloadDBLogFilePortionResponse_marker :: Lens.Lens' DownloadDBLogFilePortionResponse (Prelude.Maybe Prelude.Text)
-downloadDBLogFilePortionResponse_marker = Lens.lens (\DownloadDBLogFilePortionResponse' {marker} -> marker) (\s@DownloadDBLogFilePortionResponse' {} a -> s {marker = a} :: DownloadDBLogFilePortionResponse)
 
 -- | Boolean value that if true, indicates there is more data to be
 -- downloaded.
@@ -343,6 +338,11 @@ downloadDBLogFilePortionResponse_additionalDataPending = Lens.lens (\DownloadDBL
 downloadDBLogFilePortionResponse_logFileData :: Lens.Lens' DownloadDBLogFilePortionResponse (Prelude.Maybe Prelude.Text)
 downloadDBLogFilePortionResponse_logFileData = Lens.lens (\DownloadDBLogFilePortionResponse' {logFileData} -> logFileData) (\s@DownloadDBLogFilePortionResponse' {} a -> s {logFileData = a} :: DownloadDBLogFilePortionResponse)
 
+-- | A pagination token that can be used in a later
+-- @DownloadDBLogFilePortion@ request.
+downloadDBLogFilePortionResponse_marker :: Lens.Lens' DownloadDBLogFilePortionResponse (Prelude.Maybe Prelude.Text)
+downloadDBLogFilePortionResponse_marker = Lens.lens (\DownloadDBLogFilePortionResponse' {marker} -> marker) (\s@DownloadDBLogFilePortionResponse' {} a -> s {marker = a} :: DownloadDBLogFilePortionResponse)
+
 -- | The response's http status code.
 downloadDBLogFilePortionResponse_httpStatus :: Lens.Lens' DownloadDBLogFilePortionResponse Prelude.Int
 downloadDBLogFilePortionResponse_httpStatus = Lens.lens (\DownloadDBLogFilePortionResponse' {httpStatus} -> httpStatus) (\s@DownloadDBLogFilePortionResponse' {} a -> s {httpStatus = a} :: DownloadDBLogFilePortionResponse)
@@ -352,7 +352,7 @@ instance
     DownloadDBLogFilePortionResponse
   where
   rnf DownloadDBLogFilePortionResponse' {..} =
-    Prelude.rnf marker
-      `Prelude.seq` Prelude.rnf additionalDataPending
+    Prelude.rnf additionalDataPending
       `Prelude.seq` Prelude.rnf logFileData
+      `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf httpStatus

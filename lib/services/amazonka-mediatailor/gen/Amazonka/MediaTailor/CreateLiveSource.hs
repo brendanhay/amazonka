@@ -37,13 +37,13 @@ module Amazonka.MediaTailor.CreateLiveSource
     newCreateLiveSourceResponse,
 
     -- * Response Lenses
-    createLiveSourceResponse_tags,
-    createLiveSourceResponse_liveSourceName,
     createLiveSourceResponse_arn,
-    createLiveSourceResponse_lastModifiedTime,
     createLiveSourceResponse_creationTime,
-    createLiveSourceResponse_sourceLocationName,
     createLiveSourceResponse_httpPackageConfigurations,
+    createLiveSourceResponse_lastModifiedTime,
+    createLiveSourceResponse_liveSourceName,
+    createLiveSourceResponse_sourceLocationName,
+    createLiveSourceResponse_tags,
     createLiveSourceResponse_httpStatus,
   )
 where
@@ -135,15 +135,15 @@ instance Core.AWSRequest CreateLiveSource where
     Response.receiveJSON
       ( \s h x ->
           CreateLiveSourceResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "LiveSourceName")
-            Prelude.<*> (x Data..?> "Arn")
-            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "CreationTime")
-            Prelude.<*> (x Data..?> "SourceLocationName")
             Prelude.<*> ( x Data..?> "HttpPackageConfigurations"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "LiveSourceName")
+            Prelude.<*> (x Data..?> "SourceLocationName")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -198,23 +198,23 @@ instance Data.ToQuery CreateLiveSource where
 
 -- | /See:/ 'newCreateLiveSourceResponse' smart constructor.
 data CreateLiveSourceResponse = CreateLiveSourceResponse'
-  { -- | The tags to assign to the live source. Tags are key-value pairs that you
+  { -- | The ARN to assign to the live source.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The time the live source was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | A list of HTTP package configuration parameters for this live source.
+    httpPackageConfigurations :: Prelude.Maybe [HttpPackageConfiguration],
+    -- | The time the live source was last modified.
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
+    -- | The name to assign to the live source.
+    liveSourceName :: Prelude.Maybe Prelude.Text,
+    -- | The name to assign to the source location of the live source.
+    sourceLocationName :: Prelude.Maybe Prelude.Text,
+    -- | The tags to assign to the live source. Tags are key-value pairs that you
     -- can associate with Amazon resources to help with organization, access
     -- control, and cost tracking. For more information, see
     -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The name to assign to the live source.
-    liveSourceName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN to assign to the live source.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The time the live source was last modified.
-    lastModifiedTime :: Prelude.Maybe Data.POSIX,
-    -- | The time the live source was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
-    -- | The name to assign to the source location of the live source.
-    sourceLocationName :: Prelude.Maybe Prelude.Text,
-    -- | A list of HTTP package configuration parameters for this live source.
-    httpPackageConfigurations :: Prelude.Maybe [HttpPackageConfiguration],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -228,22 +228,22 @@ data CreateLiveSourceResponse = CreateLiveSourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'arn', 'createLiveSourceResponse_arn' - The ARN to assign to the live source.
+--
+-- 'creationTime', 'createLiveSourceResponse_creationTime' - The time the live source was created.
+--
+-- 'httpPackageConfigurations', 'createLiveSourceResponse_httpPackageConfigurations' - A list of HTTP package configuration parameters for this live source.
+--
+-- 'lastModifiedTime', 'createLiveSourceResponse_lastModifiedTime' - The time the live source was last modified.
+--
+-- 'liveSourceName', 'createLiveSourceResponse_liveSourceName' - The name to assign to the live source.
+--
+-- 'sourceLocationName', 'createLiveSourceResponse_sourceLocationName' - The name to assign to the source location of the live source.
+--
 -- 'tags', 'createLiveSourceResponse_tags' - The tags to assign to the live source. Tags are key-value pairs that you
 -- can associate with Amazon resources to help with organization, access
 -- control, and cost tracking. For more information, see
 -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
---
--- 'liveSourceName', 'createLiveSourceResponse_liveSourceName' - The name to assign to the live source.
---
--- 'arn', 'createLiveSourceResponse_arn' - The ARN to assign to the live source.
---
--- 'lastModifiedTime', 'createLiveSourceResponse_lastModifiedTime' - The time the live source was last modified.
---
--- 'creationTime', 'createLiveSourceResponse_creationTime' - The time the live source was created.
---
--- 'sourceLocationName', 'createLiveSourceResponse_sourceLocationName' - The name to assign to the source location of the live source.
---
--- 'httpPackageConfigurations', 'createLiveSourceResponse_httpPackageConfigurations' - A list of HTTP package configuration parameters for this live source.
 --
 -- 'httpStatus', 'createLiveSourceResponse_httpStatus' - The response's http status code.
 newCreateLiveSourceResponse ::
@@ -252,15 +252,39 @@ newCreateLiveSourceResponse ::
   CreateLiveSourceResponse
 newCreateLiveSourceResponse pHttpStatus_ =
   CreateLiveSourceResponse'
-    { tags = Prelude.Nothing,
-      liveSourceName = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       creationTime = Prelude.Nothing,
-      sourceLocationName = Prelude.Nothing,
       httpPackageConfigurations = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      liveSourceName = Prelude.Nothing,
+      sourceLocationName = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The ARN to assign to the live source.
+createLiveSourceResponse_arn :: Lens.Lens' CreateLiveSourceResponse (Prelude.Maybe Prelude.Text)
+createLiveSourceResponse_arn = Lens.lens (\CreateLiveSourceResponse' {arn} -> arn) (\s@CreateLiveSourceResponse' {} a -> s {arn = a} :: CreateLiveSourceResponse)
+
+-- | The time the live source was created.
+createLiveSourceResponse_creationTime :: Lens.Lens' CreateLiveSourceResponse (Prelude.Maybe Prelude.UTCTime)
+createLiveSourceResponse_creationTime = Lens.lens (\CreateLiveSourceResponse' {creationTime} -> creationTime) (\s@CreateLiveSourceResponse' {} a -> s {creationTime = a} :: CreateLiveSourceResponse) Prelude.. Lens.mapping Data._Time
+
+-- | A list of HTTP package configuration parameters for this live source.
+createLiveSourceResponse_httpPackageConfigurations :: Lens.Lens' CreateLiveSourceResponse (Prelude.Maybe [HttpPackageConfiguration])
+createLiveSourceResponse_httpPackageConfigurations = Lens.lens (\CreateLiveSourceResponse' {httpPackageConfigurations} -> httpPackageConfigurations) (\s@CreateLiveSourceResponse' {} a -> s {httpPackageConfigurations = a} :: CreateLiveSourceResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The time the live source was last modified.
+createLiveSourceResponse_lastModifiedTime :: Lens.Lens' CreateLiveSourceResponse (Prelude.Maybe Prelude.UTCTime)
+createLiveSourceResponse_lastModifiedTime = Lens.lens (\CreateLiveSourceResponse' {lastModifiedTime} -> lastModifiedTime) (\s@CreateLiveSourceResponse' {} a -> s {lastModifiedTime = a} :: CreateLiveSourceResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The name to assign to the live source.
+createLiveSourceResponse_liveSourceName :: Lens.Lens' CreateLiveSourceResponse (Prelude.Maybe Prelude.Text)
+createLiveSourceResponse_liveSourceName = Lens.lens (\CreateLiveSourceResponse' {liveSourceName} -> liveSourceName) (\s@CreateLiveSourceResponse' {} a -> s {liveSourceName = a} :: CreateLiveSourceResponse)
+
+-- | The name to assign to the source location of the live source.
+createLiveSourceResponse_sourceLocationName :: Lens.Lens' CreateLiveSourceResponse (Prelude.Maybe Prelude.Text)
+createLiveSourceResponse_sourceLocationName = Lens.lens (\CreateLiveSourceResponse' {sourceLocationName} -> sourceLocationName) (\s@CreateLiveSourceResponse' {} a -> s {sourceLocationName = a} :: CreateLiveSourceResponse)
 
 -- | The tags to assign to the live source. Tags are key-value pairs that you
 -- can associate with Amazon resources to help with organization, access
@@ -269,41 +293,17 @@ newCreateLiveSourceResponse pHttpStatus_ =
 createLiveSourceResponse_tags :: Lens.Lens' CreateLiveSourceResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createLiveSourceResponse_tags = Lens.lens (\CreateLiveSourceResponse' {tags} -> tags) (\s@CreateLiveSourceResponse' {} a -> s {tags = a} :: CreateLiveSourceResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The name to assign to the live source.
-createLiveSourceResponse_liveSourceName :: Lens.Lens' CreateLiveSourceResponse (Prelude.Maybe Prelude.Text)
-createLiveSourceResponse_liveSourceName = Lens.lens (\CreateLiveSourceResponse' {liveSourceName} -> liveSourceName) (\s@CreateLiveSourceResponse' {} a -> s {liveSourceName = a} :: CreateLiveSourceResponse)
-
--- | The ARN to assign to the live source.
-createLiveSourceResponse_arn :: Lens.Lens' CreateLiveSourceResponse (Prelude.Maybe Prelude.Text)
-createLiveSourceResponse_arn = Lens.lens (\CreateLiveSourceResponse' {arn} -> arn) (\s@CreateLiveSourceResponse' {} a -> s {arn = a} :: CreateLiveSourceResponse)
-
--- | The time the live source was last modified.
-createLiveSourceResponse_lastModifiedTime :: Lens.Lens' CreateLiveSourceResponse (Prelude.Maybe Prelude.UTCTime)
-createLiveSourceResponse_lastModifiedTime = Lens.lens (\CreateLiveSourceResponse' {lastModifiedTime} -> lastModifiedTime) (\s@CreateLiveSourceResponse' {} a -> s {lastModifiedTime = a} :: CreateLiveSourceResponse) Prelude.. Lens.mapping Data._Time
-
--- | The time the live source was created.
-createLiveSourceResponse_creationTime :: Lens.Lens' CreateLiveSourceResponse (Prelude.Maybe Prelude.UTCTime)
-createLiveSourceResponse_creationTime = Lens.lens (\CreateLiveSourceResponse' {creationTime} -> creationTime) (\s@CreateLiveSourceResponse' {} a -> s {creationTime = a} :: CreateLiveSourceResponse) Prelude.. Lens.mapping Data._Time
-
--- | The name to assign to the source location of the live source.
-createLiveSourceResponse_sourceLocationName :: Lens.Lens' CreateLiveSourceResponse (Prelude.Maybe Prelude.Text)
-createLiveSourceResponse_sourceLocationName = Lens.lens (\CreateLiveSourceResponse' {sourceLocationName} -> sourceLocationName) (\s@CreateLiveSourceResponse' {} a -> s {sourceLocationName = a} :: CreateLiveSourceResponse)
-
--- | A list of HTTP package configuration parameters for this live source.
-createLiveSourceResponse_httpPackageConfigurations :: Lens.Lens' CreateLiveSourceResponse (Prelude.Maybe [HttpPackageConfiguration])
-createLiveSourceResponse_httpPackageConfigurations = Lens.lens (\CreateLiveSourceResponse' {httpPackageConfigurations} -> httpPackageConfigurations) (\s@CreateLiveSourceResponse' {} a -> s {httpPackageConfigurations = a} :: CreateLiveSourceResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 createLiveSourceResponse_httpStatus :: Lens.Lens' CreateLiveSourceResponse Prelude.Int
 createLiveSourceResponse_httpStatus = Lens.lens (\CreateLiveSourceResponse' {httpStatus} -> httpStatus) (\s@CreateLiveSourceResponse' {} a -> s {httpStatus = a} :: CreateLiveSourceResponse)
 
 instance Prelude.NFData CreateLiveSourceResponse where
   rnf CreateLiveSourceResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf liveSourceName
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf lastModifiedTime
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf sourceLocationName
       `Prelude.seq` Prelude.rnf httpPackageConfigurations
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf liveSourceName
+      `Prelude.seq` Prelude.rnf sourceLocationName
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

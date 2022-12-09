@@ -35,13 +35,13 @@ module Amazonka.MediaTailor.DescribeLiveSource
     newDescribeLiveSourceResponse,
 
     -- * Response Lenses
-    describeLiveSourceResponse_tags,
-    describeLiveSourceResponse_liveSourceName,
     describeLiveSourceResponse_arn,
-    describeLiveSourceResponse_lastModifiedTime,
     describeLiveSourceResponse_creationTime,
-    describeLiveSourceResponse_sourceLocationName,
     describeLiveSourceResponse_httpPackageConfigurations,
+    describeLiveSourceResponse_lastModifiedTime,
+    describeLiveSourceResponse_liveSourceName,
+    describeLiveSourceResponse_sourceLocationName,
+    describeLiveSourceResponse_tags,
     describeLiveSourceResponse_httpStatus,
   )
 where
@@ -107,15 +107,15 @@ instance Core.AWSRequest DescribeLiveSource where
     Response.receiveJSON
       ( \s h x ->
           DescribeLiveSourceResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "LiveSourceName")
-            Prelude.<*> (x Data..?> "Arn")
-            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "CreationTime")
-            Prelude.<*> (x Data..?> "SourceLocationName")
             Prelude.<*> ( x Data..?> "HttpPackageConfigurations"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "LiveSourceName")
+            Prelude.<*> (x Data..?> "SourceLocationName")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,23 +154,23 @@ instance Data.ToQuery DescribeLiveSource where
 
 -- | /See:/ 'newDescribeLiveSourceResponse' smart constructor.
 data DescribeLiveSourceResponse = DescribeLiveSourceResponse'
-  { -- | The tags assigned to the live source. Tags are key-value pairs that you
+  { -- | The ARN of the live source.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp that indicates when the live source was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The HTTP package configurations.
+    httpPackageConfigurations :: Prelude.Maybe [HttpPackageConfiguration],
+    -- | The timestamp that indicates when the live source was modified.
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
+    -- | The name of the live source.
+    liveSourceName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the source location associated with the live source.
+    sourceLocationName :: Prelude.Maybe Prelude.Text,
+    -- | The tags assigned to the live source. Tags are key-value pairs that you
     -- can associate with Amazon resources to help with organization, access
     -- control, and cost tracking. For more information, see
     -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The name of the live source.
-    liveSourceName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the live source.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp that indicates when the live source was modified.
-    lastModifiedTime :: Prelude.Maybe Data.POSIX,
-    -- | The timestamp that indicates when the live source was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
-    -- | The name of the source location associated with the live source.
-    sourceLocationName :: Prelude.Maybe Prelude.Text,
-    -- | The HTTP package configurations.
-    httpPackageConfigurations :: Prelude.Maybe [HttpPackageConfiguration],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -184,22 +184,22 @@ data DescribeLiveSourceResponse = DescribeLiveSourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'arn', 'describeLiveSourceResponse_arn' - The ARN of the live source.
+--
+-- 'creationTime', 'describeLiveSourceResponse_creationTime' - The timestamp that indicates when the live source was created.
+--
+-- 'httpPackageConfigurations', 'describeLiveSourceResponse_httpPackageConfigurations' - The HTTP package configurations.
+--
+-- 'lastModifiedTime', 'describeLiveSourceResponse_lastModifiedTime' - The timestamp that indicates when the live source was modified.
+--
+-- 'liveSourceName', 'describeLiveSourceResponse_liveSourceName' - The name of the live source.
+--
+-- 'sourceLocationName', 'describeLiveSourceResponse_sourceLocationName' - The name of the source location associated with the live source.
+--
 -- 'tags', 'describeLiveSourceResponse_tags' - The tags assigned to the live source. Tags are key-value pairs that you
 -- can associate with Amazon resources to help with organization, access
 -- control, and cost tracking. For more information, see
 -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
---
--- 'liveSourceName', 'describeLiveSourceResponse_liveSourceName' - The name of the live source.
---
--- 'arn', 'describeLiveSourceResponse_arn' - The ARN of the live source.
---
--- 'lastModifiedTime', 'describeLiveSourceResponse_lastModifiedTime' - The timestamp that indicates when the live source was modified.
---
--- 'creationTime', 'describeLiveSourceResponse_creationTime' - The timestamp that indicates when the live source was created.
---
--- 'sourceLocationName', 'describeLiveSourceResponse_sourceLocationName' - The name of the source location associated with the live source.
---
--- 'httpPackageConfigurations', 'describeLiveSourceResponse_httpPackageConfigurations' - The HTTP package configurations.
 --
 -- 'httpStatus', 'describeLiveSourceResponse_httpStatus' - The response's http status code.
 newDescribeLiveSourceResponse ::
@@ -208,15 +208,39 @@ newDescribeLiveSourceResponse ::
   DescribeLiveSourceResponse
 newDescribeLiveSourceResponse pHttpStatus_ =
   DescribeLiveSourceResponse'
-    { tags = Prelude.Nothing,
-      liveSourceName = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       creationTime = Prelude.Nothing,
-      sourceLocationName = Prelude.Nothing,
       httpPackageConfigurations = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      liveSourceName = Prelude.Nothing,
+      sourceLocationName = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The ARN of the live source.
+describeLiveSourceResponse_arn :: Lens.Lens' DescribeLiveSourceResponse (Prelude.Maybe Prelude.Text)
+describeLiveSourceResponse_arn = Lens.lens (\DescribeLiveSourceResponse' {arn} -> arn) (\s@DescribeLiveSourceResponse' {} a -> s {arn = a} :: DescribeLiveSourceResponse)
+
+-- | The timestamp that indicates when the live source was created.
+describeLiveSourceResponse_creationTime :: Lens.Lens' DescribeLiveSourceResponse (Prelude.Maybe Prelude.UTCTime)
+describeLiveSourceResponse_creationTime = Lens.lens (\DescribeLiveSourceResponse' {creationTime} -> creationTime) (\s@DescribeLiveSourceResponse' {} a -> s {creationTime = a} :: DescribeLiveSourceResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The HTTP package configurations.
+describeLiveSourceResponse_httpPackageConfigurations :: Lens.Lens' DescribeLiveSourceResponse (Prelude.Maybe [HttpPackageConfiguration])
+describeLiveSourceResponse_httpPackageConfigurations = Lens.lens (\DescribeLiveSourceResponse' {httpPackageConfigurations} -> httpPackageConfigurations) (\s@DescribeLiveSourceResponse' {} a -> s {httpPackageConfigurations = a} :: DescribeLiveSourceResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The timestamp that indicates when the live source was modified.
+describeLiveSourceResponse_lastModifiedTime :: Lens.Lens' DescribeLiveSourceResponse (Prelude.Maybe Prelude.UTCTime)
+describeLiveSourceResponse_lastModifiedTime = Lens.lens (\DescribeLiveSourceResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeLiveSourceResponse' {} a -> s {lastModifiedTime = a} :: DescribeLiveSourceResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The name of the live source.
+describeLiveSourceResponse_liveSourceName :: Lens.Lens' DescribeLiveSourceResponse (Prelude.Maybe Prelude.Text)
+describeLiveSourceResponse_liveSourceName = Lens.lens (\DescribeLiveSourceResponse' {liveSourceName} -> liveSourceName) (\s@DescribeLiveSourceResponse' {} a -> s {liveSourceName = a} :: DescribeLiveSourceResponse)
+
+-- | The name of the source location associated with the live source.
+describeLiveSourceResponse_sourceLocationName :: Lens.Lens' DescribeLiveSourceResponse (Prelude.Maybe Prelude.Text)
+describeLiveSourceResponse_sourceLocationName = Lens.lens (\DescribeLiveSourceResponse' {sourceLocationName} -> sourceLocationName) (\s@DescribeLiveSourceResponse' {} a -> s {sourceLocationName = a} :: DescribeLiveSourceResponse)
 
 -- | The tags assigned to the live source. Tags are key-value pairs that you
 -- can associate with Amazon resources to help with organization, access
@@ -225,41 +249,17 @@ newDescribeLiveSourceResponse pHttpStatus_ =
 describeLiveSourceResponse_tags :: Lens.Lens' DescribeLiveSourceResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 describeLiveSourceResponse_tags = Lens.lens (\DescribeLiveSourceResponse' {tags} -> tags) (\s@DescribeLiveSourceResponse' {} a -> s {tags = a} :: DescribeLiveSourceResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the live source.
-describeLiveSourceResponse_liveSourceName :: Lens.Lens' DescribeLiveSourceResponse (Prelude.Maybe Prelude.Text)
-describeLiveSourceResponse_liveSourceName = Lens.lens (\DescribeLiveSourceResponse' {liveSourceName} -> liveSourceName) (\s@DescribeLiveSourceResponse' {} a -> s {liveSourceName = a} :: DescribeLiveSourceResponse)
-
--- | The ARN of the live source.
-describeLiveSourceResponse_arn :: Lens.Lens' DescribeLiveSourceResponse (Prelude.Maybe Prelude.Text)
-describeLiveSourceResponse_arn = Lens.lens (\DescribeLiveSourceResponse' {arn} -> arn) (\s@DescribeLiveSourceResponse' {} a -> s {arn = a} :: DescribeLiveSourceResponse)
-
--- | The timestamp that indicates when the live source was modified.
-describeLiveSourceResponse_lastModifiedTime :: Lens.Lens' DescribeLiveSourceResponse (Prelude.Maybe Prelude.UTCTime)
-describeLiveSourceResponse_lastModifiedTime = Lens.lens (\DescribeLiveSourceResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeLiveSourceResponse' {} a -> s {lastModifiedTime = a} :: DescribeLiveSourceResponse) Prelude.. Lens.mapping Data._Time
-
--- | The timestamp that indicates when the live source was created.
-describeLiveSourceResponse_creationTime :: Lens.Lens' DescribeLiveSourceResponse (Prelude.Maybe Prelude.UTCTime)
-describeLiveSourceResponse_creationTime = Lens.lens (\DescribeLiveSourceResponse' {creationTime} -> creationTime) (\s@DescribeLiveSourceResponse' {} a -> s {creationTime = a} :: DescribeLiveSourceResponse) Prelude.. Lens.mapping Data._Time
-
--- | The name of the source location associated with the live source.
-describeLiveSourceResponse_sourceLocationName :: Lens.Lens' DescribeLiveSourceResponse (Prelude.Maybe Prelude.Text)
-describeLiveSourceResponse_sourceLocationName = Lens.lens (\DescribeLiveSourceResponse' {sourceLocationName} -> sourceLocationName) (\s@DescribeLiveSourceResponse' {} a -> s {sourceLocationName = a} :: DescribeLiveSourceResponse)
-
--- | The HTTP package configurations.
-describeLiveSourceResponse_httpPackageConfigurations :: Lens.Lens' DescribeLiveSourceResponse (Prelude.Maybe [HttpPackageConfiguration])
-describeLiveSourceResponse_httpPackageConfigurations = Lens.lens (\DescribeLiveSourceResponse' {httpPackageConfigurations} -> httpPackageConfigurations) (\s@DescribeLiveSourceResponse' {} a -> s {httpPackageConfigurations = a} :: DescribeLiveSourceResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 describeLiveSourceResponse_httpStatus :: Lens.Lens' DescribeLiveSourceResponse Prelude.Int
 describeLiveSourceResponse_httpStatus = Lens.lens (\DescribeLiveSourceResponse' {httpStatus} -> httpStatus) (\s@DescribeLiveSourceResponse' {} a -> s {httpStatus = a} :: DescribeLiveSourceResponse)
 
 instance Prelude.NFData DescribeLiveSourceResponse where
   rnf DescribeLiveSourceResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf liveSourceName
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf lastModifiedTime
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf sourceLocationName
       `Prelude.seq` Prelude.rnf httpPackageConfigurations
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf liveSourceName
+      `Prelude.seq` Prelude.rnf sourceLocationName
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

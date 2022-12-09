@@ -40,12 +40,12 @@ module Amazonka.MediaTailor.GetPrefetchSchedule
     newGetPrefetchScheduleResponse,
 
     -- * Response Lenses
-    getPrefetchScheduleResponse_name,
     getPrefetchScheduleResponse_arn,
-    getPrefetchScheduleResponse_streamId,
-    getPrefetchScheduleResponse_retrieval,
-    getPrefetchScheduleResponse_playbackConfigurationName,
     getPrefetchScheduleResponse_consumption,
+    getPrefetchScheduleResponse_name,
+    getPrefetchScheduleResponse_playbackConfigurationName,
+    getPrefetchScheduleResponse_retrieval,
+    getPrefetchScheduleResponse_streamId,
     getPrefetchScheduleResponse_httpStatus,
   )
 where
@@ -123,12 +123,12 @@ instance Core.AWSRequest GetPrefetchSchedule where
     Response.receiveJSON
       ( \s h x ->
           GetPrefetchScheduleResponse'
-            Prelude.<$> (x Data..?> "Name")
-            Prelude.<*> (x Data..?> "Arn")
-            Prelude.<*> (x Data..?> "StreamId")
-            Prelude.<*> (x Data..?> "Retrieval")
-            Prelude.<*> (x Data..?> "PlaybackConfigurationName")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "Consumption")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "PlaybackConfigurationName")
+            Prelude.<*> (x Data..?> "Retrieval")
+            Prelude.<*> (x Data..?> "StreamId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,27 +167,27 @@ instance Data.ToQuery GetPrefetchSchedule where
 
 -- | /See:/ 'newGetPrefetchScheduleResponse' smart constructor.
 data GetPrefetchScheduleResponse = GetPrefetchScheduleResponse'
-  { -- | The name of the prefetch schedule. The name must be unique among all
-    -- prefetch schedules that are associated with the specified playback
-    -- configuration.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the prefetch schedule.
+  { -- | The Amazon Resource Name (ARN) of the prefetch schedule.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | An optional stream identifier that you can specify in order to prefetch
-    -- for multiple streams that use the same playback configuration.
-    streamId :: Prelude.Maybe Prelude.Text,
-    -- | A complex type that contains settings for prefetch retrieval from the ad
-    -- decision server (ADS).
-    retrieval :: Prelude.Maybe PrefetchRetrieval,
-    -- | The name of the playback configuration to create the prefetch schedule
-    -- for.
-    playbackConfigurationName :: Prelude.Maybe Prelude.Text,
     -- | Consumption settings determine how, and when, MediaTailor places the
     -- prefetched ads into ad breaks. Ad consumption occurs within a span of
     -- time that you define, called a /consumption window/. You can designate
     -- which ad breaks that MediaTailor fills with prefetch ads by setting
     -- avail matching criteria.
     consumption :: Prelude.Maybe PrefetchConsumption,
+    -- | The name of the prefetch schedule. The name must be unique among all
+    -- prefetch schedules that are associated with the specified playback
+    -- configuration.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The name of the playback configuration to create the prefetch schedule
+    -- for.
+    playbackConfigurationName :: Prelude.Maybe Prelude.Text,
+    -- | A complex type that contains settings for prefetch retrieval from the ad
+    -- decision server (ADS).
+    retrieval :: Prelude.Maybe PrefetchRetrieval,
+    -- | An optional stream identifier that you can specify in order to prefetch
+    -- for multiple streams that use the same playback configuration.
+    streamId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -201,26 +201,26 @@ data GetPrefetchScheduleResponse = GetPrefetchScheduleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'getPrefetchScheduleResponse_name' - The name of the prefetch schedule. The name must be unique among all
--- prefetch schedules that are associated with the specified playback
--- configuration.
---
 -- 'arn', 'getPrefetchScheduleResponse_arn' - The Amazon Resource Name (ARN) of the prefetch schedule.
---
--- 'streamId', 'getPrefetchScheduleResponse_streamId' - An optional stream identifier that you can specify in order to prefetch
--- for multiple streams that use the same playback configuration.
---
--- 'retrieval', 'getPrefetchScheduleResponse_retrieval' - A complex type that contains settings for prefetch retrieval from the ad
--- decision server (ADS).
---
--- 'playbackConfigurationName', 'getPrefetchScheduleResponse_playbackConfigurationName' - The name of the playback configuration to create the prefetch schedule
--- for.
 --
 -- 'consumption', 'getPrefetchScheduleResponse_consumption' - Consumption settings determine how, and when, MediaTailor places the
 -- prefetched ads into ad breaks. Ad consumption occurs within a span of
 -- time that you define, called a /consumption window/. You can designate
 -- which ad breaks that MediaTailor fills with prefetch ads by setting
 -- avail matching criteria.
+--
+-- 'name', 'getPrefetchScheduleResponse_name' - The name of the prefetch schedule. The name must be unique among all
+-- prefetch schedules that are associated with the specified playback
+-- configuration.
+--
+-- 'playbackConfigurationName', 'getPrefetchScheduleResponse_playbackConfigurationName' - The name of the playback configuration to create the prefetch schedule
+-- for.
+--
+-- 'retrieval', 'getPrefetchScheduleResponse_retrieval' - A complex type that contains settings for prefetch retrieval from the ad
+-- decision server (ADS).
+--
+-- 'streamId', 'getPrefetchScheduleResponse_streamId' - An optional stream identifier that you can specify in order to prefetch
+-- for multiple streams that use the same playback configuration.
 --
 -- 'httpStatus', 'getPrefetchScheduleResponse_httpStatus' - The response's http status code.
 newGetPrefetchScheduleResponse ::
@@ -229,40 +229,18 @@ newGetPrefetchScheduleResponse ::
   GetPrefetchScheduleResponse
 newGetPrefetchScheduleResponse pHttpStatus_ =
   GetPrefetchScheduleResponse'
-    { name =
-        Prelude.Nothing,
-      arn = Prelude.Nothing,
-      streamId = Prelude.Nothing,
-      retrieval = Prelude.Nothing,
-      playbackConfigurationName = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       consumption = Prelude.Nothing,
+      name = Prelude.Nothing,
+      playbackConfigurationName = Prelude.Nothing,
+      retrieval = Prelude.Nothing,
+      streamId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name of the prefetch schedule. The name must be unique among all
--- prefetch schedules that are associated with the specified playback
--- configuration.
-getPrefetchScheduleResponse_name :: Lens.Lens' GetPrefetchScheduleResponse (Prelude.Maybe Prelude.Text)
-getPrefetchScheduleResponse_name = Lens.lens (\GetPrefetchScheduleResponse' {name} -> name) (\s@GetPrefetchScheduleResponse' {} a -> s {name = a} :: GetPrefetchScheduleResponse)
 
 -- | The Amazon Resource Name (ARN) of the prefetch schedule.
 getPrefetchScheduleResponse_arn :: Lens.Lens' GetPrefetchScheduleResponse (Prelude.Maybe Prelude.Text)
 getPrefetchScheduleResponse_arn = Lens.lens (\GetPrefetchScheduleResponse' {arn} -> arn) (\s@GetPrefetchScheduleResponse' {} a -> s {arn = a} :: GetPrefetchScheduleResponse)
-
--- | An optional stream identifier that you can specify in order to prefetch
--- for multiple streams that use the same playback configuration.
-getPrefetchScheduleResponse_streamId :: Lens.Lens' GetPrefetchScheduleResponse (Prelude.Maybe Prelude.Text)
-getPrefetchScheduleResponse_streamId = Lens.lens (\GetPrefetchScheduleResponse' {streamId} -> streamId) (\s@GetPrefetchScheduleResponse' {} a -> s {streamId = a} :: GetPrefetchScheduleResponse)
-
--- | A complex type that contains settings for prefetch retrieval from the ad
--- decision server (ADS).
-getPrefetchScheduleResponse_retrieval :: Lens.Lens' GetPrefetchScheduleResponse (Prelude.Maybe PrefetchRetrieval)
-getPrefetchScheduleResponse_retrieval = Lens.lens (\GetPrefetchScheduleResponse' {retrieval} -> retrieval) (\s@GetPrefetchScheduleResponse' {} a -> s {retrieval = a} :: GetPrefetchScheduleResponse)
-
--- | The name of the playback configuration to create the prefetch schedule
--- for.
-getPrefetchScheduleResponse_playbackConfigurationName :: Lens.Lens' GetPrefetchScheduleResponse (Prelude.Maybe Prelude.Text)
-getPrefetchScheduleResponse_playbackConfigurationName = Lens.lens (\GetPrefetchScheduleResponse' {playbackConfigurationName} -> playbackConfigurationName) (\s@GetPrefetchScheduleResponse' {} a -> s {playbackConfigurationName = a} :: GetPrefetchScheduleResponse)
 
 -- | Consumption settings determine how, and when, MediaTailor places the
 -- prefetched ads into ad breaks. Ad consumption occurs within a span of
@@ -272,16 +250,37 @@ getPrefetchScheduleResponse_playbackConfigurationName = Lens.lens (\GetPrefetchS
 getPrefetchScheduleResponse_consumption :: Lens.Lens' GetPrefetchScheduleResponse (Prelude.Maybe PrefetchConsumption)
 getPrefetchScheduleResponse_consumption = Lens.lens (\GetPrefetchScheduleResponse' {consumption} -> consumption) (\s@GetPrefetchScheduleResponse' {} a -> s {consumption = a} :: GetPrefetchScheduleResponse)
 
+-- | The name of the prefetch schedule. The name must be unique among all
+-- prefetch schedules that are associated with the specified playback
+-- configuration.
+getPrefetchScheduleResponse_name :: Lens.Lens' GetPrefetchScheduleResponse (Prelude.Maybe Prelude.Text)
+getPrefetchScheduleResponse_name = Lens.lens (\GetPrefetchScheduleResponse' {name} -> name) (\s@GetPrefetchScheduleResponse' {} a -> s {name = a} :: GetPrefetchScheduleResponse)
+
+-- | The name of the playback configuration to create the prefetch schedule
+-- for.
+getPrefetchScheduleResponse_playbackConfigurationName :: Lens.Lens' GetPrefetchScheduleResponse (Prelude.Maybe Prelude.Text)
+getPrefetchScheduleResponse_playbackConfigurationName = Lens.lens (\GetPrefetchScheduleResponse' {playbackConfigurationName} -> playbackConfigurationName) (\s@GetPrefetchScheduleResponse' {} a -> s {playbackConfigurationName = a} :: GetPrefetchScheduleResponse)
+
+-- | A complex type that contains settings for prefetch retrieval from the ad
+-- decision server (ADS).
+getPrefetchScheduleResponse_retrieval :: Lens.Lens' GetPrefetchScheduleResponse (Prelude.Maybe PrefetchRetrieval)
+getPrefetchScheduleResponse_retrieval = Lens.lens (\GetPrefetchScheduleResponse' {retrieval} -> retrieval) (\s@GetPrefetchScheduleResponse' {} a -> s {retrieval = a} :: GetPrefetchScheduleResponse)
+
+-- | An optional stream identifier that you can specify in order to prefetch
+-- for multiple streams that use the same playback configuration.
+getPrefetchScheduleResponse_streamId :: Lens.Lens' GetPrefetchScheduleResponse (Prelude.Maybe Prelude.Text)
+getPrefetchScheduleResponse_streamId = Lens.lens (\GetPrefetchScheduleResponse' {streamId} -> streamId) (\s@GetPrefetchScheduleResponse' {} a -> s {streamId = a} :: GetPrefetchScheduleResponse)
+
 -- | The response's http status code.
 getPrefetchScheduleResponse_httpStatus :: Lens.Lens' GetPrefetchScheduleResponse Prelude.Int
 getPrefetchScheduleResponse_httpStatus = Lens.lens (\GetPrefetchScheduleResponse' {httpStatus} -> httpStatus) (\s@GetPrefetchScheduleResponse' {} a -> s {httpStatus = a} :: GetPrefetchScheduleResponse)
 
 instance Prelude.NFData GetPrefetchScheduleResponse where
   rnf GetPrefetchScheduleResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf streamId
-      `Prelude.seq` Prelude.rnf retrieval
-      `Prelude.seq` Prelude.rnf playbackConfigurationName
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf consumption
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf playbackConfigurationName
+      `Prelude.seq` Prelude.rnf retrieval
+      `Prelude.seq` Prelude.rnf streamId
       `Prelude.seq` Prelude.rnf httpStatus

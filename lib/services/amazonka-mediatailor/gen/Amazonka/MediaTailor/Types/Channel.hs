@@ -33,11 +33,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChannel' smart constructor.
 data Channel = Channel'
-  { -- | The tags to assign to the channel. Tags are key-value pairs that you can
-    -- associate with Amazon resources to help with organization, access
-    -- control, and cost tracking. For more information, see
-    -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | The timestamp of when the channel was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The slate used to fill gaps between programs in the schedule. You must
     -- configure filler slate if your channel uses the @LINEAR@ @PlaybackMode@.
     -- MediaTailor doesn\'t support filler slate for channels using the @LOOP@
@@ -45,8 +42,11 @@ data Channel = Channel'
     fillerSlate :: Prelude.Maybe SlateSource,
     -- | The timestamp of when the channel was last modified.
     lastModifiedTime :: Prelude.Maybe Data.POSIX,
-    -- | The timestamp of when the channel was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The tags to assign to the channel. Tags are key-value pairs that you can
+    -- associate with Amazon resources to help with organization, access
+    -- control, and cost tracking. For more information, see
+    -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ARN of the channel.
     arn :: Prelude.Text,
     -- | The name of the channel.
@@ -77,10 +77,7 @@ data Channel = Channel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'channel_tags' - The tags to assign to the channel. Tags are key-value pairs that you can
--- associate with Amazon resources to help with organization, access
--- control, and cost tracking. For more information, see
--- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
+-- 'creationTime', 'channel_creationTime' - The timestamp of when the channel was created.
 --
 -- 'fillerSlate', 'channel_fillerSlate' - The slate used to fill gaps between programs in the schedule. You must
 -- configure filler slate if your channel uses the @LINEAR@ @PlaybackMode@.
@@ -89,7 +86,10 @@ data Channel = Channel'
 --
 -- 'lastModifiedTime', 'channel_lastModifiedTime' - The timestamp of when the channel was last modified.
 --
--- 'creationTime', 'channel_creationTime' - The timestamp of when the channel was created.
+-- 'tags', 'channel_tags' - The tags to assign to the channel. Tags are key-value pairs that you can
+-- associate with Amazon resources to help with organization, access
+-- control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 --
 -- 'arn', 'channel_arn' - The ARN of the channel.
 --
@@ -128,10 +128,10 @@ newChannel
   pPlaybackMode_
   pTier_ =
     Channel'
-      { tags = Prelude.Nothing,
+      { creationTime = Prelude.Nothing,
         fillerSlate = Prelude.Nothing,
         lastModifiedTime = Prelude.Nothing,
-        creationTime = Prelude.Nothing,
+        tags = Prelude.Nothing,
         arn = pArn_,
         channelName = pChannelName_,
         channelState = pChannelState_,
@@ -140,12 +140,9 @@ newChannel
         tier = pTier_
       }
 
--- | The tags to assign to the channel. Tags are key-value pairs that you can
--- associate with Amazon resources to help with organization, access
--- control, and cost tracking. For more information, see
--- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
-channel_tags :: Lens.Lens' Channel (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-channel_tags = Lens.lens (\Channel' {tags} -> tags) (\s@Channel' {} a -> s {tags = a} :: Channel) Prelude.. Lens.mapping Lens.coerced
+-- | The timestamp of when the channel was created.
+channel_creationTime :: Lens.Lens' Channel (Prelude.Maybe Prelude.UTCTime)
+channel_creationTime = Lens.lens (\Channel' {creationTime} -> creationTime) (\s@Channel' {} a -> s {creationTime = a} :: Channel) Prelude.. Lens.mapping Data._Time
 
 -- | The slate used to fill gaps between programs in the schedule. You must
 -- configure filler slate if your channel uses the @LINEAR@ @PlaybackMode@.
@@ -158,9 +155,12 @@ channel_fillerSlate = Lens.lens (\Channel' {fillerSlate} -> fillerSlate) (\s@Cha
 channel_lastModifiedTime :: Lens.Lens' Channel (Prelude.Maybe Prelude.UTCTime)
 channel_lastModifiedTime = Lens.lens (\Channel' {lastModifiedTime} -> lastModifiedTime) (\s@Channel' {} a -> s {lastModifiedTime = a} :: Channel) Prelude.. Lens.mapping Data._Time
 
--- | The timestamp of when the channel was created.
-channel_creationTime :: Lens.Lens' Channel (Prelude.Maybe Prelude.UTCTime)
-channel_creationTime = Lens.lens (\Channel' {creationTime} -> creationTime) (\s@Channel' {} a -> s {creationTime = a} :: Channel) Prelude.. Lens.mapping Data._Time
+-- | The tags to assign to the channel. Tags are key-value pairs that you can
+-- associate with Amazon resources to help with organization, access
+-- control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
+channel_tags :: Lens.Lens' Channel (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+channel_tags = Lens.lens (\Channel' {tags} -> tags) (\s@Channel' {} a -> s {tags = a} :: Channel) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the channel.
 channel_arn :: Lens.Lens' Channel Prelude.Text
@@ -199,10 +199,10 @@ instance Data.FromJSON Channel where
       "Channel"
       ( \x ->
           Channel'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "CreationTime")
             Prelude.<*> (x Data..:? "FillerSlate")
             Prelude.<*> (x Data..:? "LastModifiedTime")
-            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "Arn")
             Prelude.<*> (x Data..: "ChannelName")
             Prelude.<*> (x Data..: "ChannelState")
@@ -213,10 +213,10 @@ instance Data.FromJSON Channel where
 
 instance Prelude.Hashable Channel where
   hashWithSalt _salt Channel' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` fillerSlate
       `Prelude.hashWithSalt` lastModifiedTime
-      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` channelName
       `Prelude.hashWithSalt` channelState
@@ -226,10 +226,10 @@ instance Prelude.Hashable Channel where
 
 instance Prelude.NFData Channel where
   rnf Channel' {..} =
-    Prelude.rnf tags
+    Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf fillerSlate
       `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf channelName
       `Prelude.seq` Prelude.rnf channelState

@@ -31,8 +31,8 @@ module Amazonka.MediaTailor.ListPlaybackConfigurations
     newListPlaybackConfigurations,
 
     -- * Request Lenses
-    listPlaybackConfigurations_nextToken,
     listPlaybackConfigurations_maxResults,
+    listPlaybackConfigurations_nextToken,
 
     -- * Destructuring the Response
     ListPlaybackConfigurationsResponse (..),
@@ -55,14 +55,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPlaybackConfigurations' smart constructor.
 data ListPlaybackConfigurations = ListPlaybackConfigurations'
-  { -- | Pagination token returned by the list request when results exceed the
-    -- maximum allowed. Use the token to fetch the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of playback configurations that you want MediaTailor
+  { -- | The maximum number of playback configurations that you want MediaTailor
     -- to return in response to the current request. If there are more than
     -- @MaxResults@ playback configurations, use the value of @NextToken@ in
     -- the response to get the next page of results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Pagination token returned by the list request when results exceed the
+    -- maximum allowed. Use the token to fetch the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,26 +74,21 @@ data ListPlaybackConfigurations = ListPlaybackConfigurations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPlaybackConfigurations_nextToken' - Pagination token returned by the list request when results exceed the
--- maximum allowed. Use the token to fetch the next page of results.
---
 -- 'maxResults', 'listPlaybackConfigurations_maxResults' - The maximum number of playback configurations that you want MediaTailor
 -- to return in response to the current request. If there are more than
 -- @MaxResults@ playback configurations, use the value of @NextToken@ in
 -- the response to get the next page of results.
+--
+-- 'nextToken', 'listPlaybackConfigurations_nextToken' - Pagination token returned by the list request when results exceed the
+-- maximum allowed. Use the token to fetch the next page of results.
 newListPlaybackConfigurations ::
   ListPlaybackConfigurations
 newListPlaybackConfigurations =
   ListPlaybackConfigurations'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | Pagination token returned by the list request when results exceed the
--- maximum allowed. Use the token to fetch the next page of results.
-listPlaybackConfigurations_nextToken :: Lens.Lens' ListPlaybackConfigurations (Prelude.Maybe Prelude.Text)
-listPlaybackConfigurations_nextToken = Lens.lens (\ListPlaybackConfigurations' {nextToken} -> nextToken) (\s@ListPlaybackConfigurations' {} a -> s {nextToken = a} :: ListPlaybackConfigurations)
 
 -- | The maximum number of playback configurations that you want MediaTailor
 -- to return in response to the current request. If there are more than
@@ -101,6 +96,11 @@ listPlaybackConfigurations_nextToken = Lens.lens (\ListPlaybackConfigurations' {
 -- the response to get the next page of results.
 listPlaybackConfigurations_maxResults :: Lens.Lens' ListPlaybackConfigurations (Prelude.Maybe Prelude.Natural)
 listPlaybackConfigurations_maxResults = Lens.lens (\ListPlaybackConfigurations' {maxResults} -> maxResults) (\s@ListPlaybackConfigurations' {} a -> s {maxResults = a} :: ListPlaybackConfigurations)
+
+-- | Pagination token returned by the list request when results exceed the
+-- maximum allowed. Use the token to fetch the next page of results.
+listPlaybackConfigurations_nextToken :: Lens.Lens' ListPlaybackConfigurations (Prelude.Maybe Prelude.Text)
+listPlaybackConfigurations_nextToken = Lens.lens (\ListPlaybackConfigurations' {nextToken} -> nextToken) (\s@ListPlaybackConfigurations' {} a -> s {nextToken = a} :: ListPlaybackConfigurations)
 
 instance Core.AWSPager ListPlaybackConfigurations where
   page rq rs
@@ -141,13 +141,13 @@ instance Core.AWSRequest ListPlaybackConfigurations where
 
 instance Prelude.Hashable ListPlaybackConfigurations where
   hashWithSalt _salt ListPlaybackConfigurations' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListPlaybackConfigurations where
   rnf ListPlaybackConfigurations' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListPlaybackConfigurations where
   toHeaders =
@@ -166,8 +166,8 @@ instance Data.ToPath ListPlaybackConfigurations where
 instance Data.ToQuery ListPlaybackConfigurations where
   toQuery ListPlaybackConfigurations' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults
+      [ "MaxResults" Data.=: maxResults,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListPlaybackConfigurationsResponse' smart constructor.

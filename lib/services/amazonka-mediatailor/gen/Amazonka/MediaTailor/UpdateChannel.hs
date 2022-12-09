@@ -38,16 +38,16 @@ module Amazonka.MediaTailor.UpdateChannel
     newUpdateChannelResponse,
 
     -- * Response Lenses
-    updateChannelResponse_tags,
-    updateChannelResponse_channelName,
-    updateChannelResponse_fillerSlate,
     updateChannelResponse_arn,
-    updateChannelResponse_lastModifiedTime,
-    updateChannelResponse_tier,
-    updateChannelResponse_outputs,
-    updateChannelResponse_creationTime,
-    updateChannelResponse_playbackMode,
+    updateChannelResponse_channelName,
     updateChannelResponse_channelState,
+    updateChannelResponse_creationTime,
+    updateChannelResponse_fillerSlate,
+    updateChannelResponse_lastModifiedTime,
+    updateChannelResponse_outputs,
+    updateChannelResponse_playbackMode,
+    updateChannelResponse_tags,
+    updateChannelResponse_tier,
     updateChannelResponse_httpStatus,
   )
 where
@@ -126,16 +126,16 @@ instance Core.AWSRequest UpdateChannel where
     Response.receiveJSON
       ( \s h x ->
           UpdateChannelResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "ChannelName")
-            Prelude.<*> (x Data..?> "FillerSlate")
-            Prelude.<*> (x Data..?> "Arn")
-            Prelude.<*> (x Data..?> "LastModifiedTime")
-            Prelude.<*> (x Data..?> "Tier")
-            Prelude.<*> (x Data..?> "Outputs" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "CreationTime")
-            Prelude.<*> (x Data..?> "PlaybackMode")
             Prelude.<*> (x Data..?> "ChannelState")
+            Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "FillerSlate")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "Outputs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "PlaybackMode")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Tier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,28 +181,23 @@ instance Data.ToQuery UpdateChannel where
 
 -- | /See:/ 'newUpdateChannelResponse' smart constructor.
 data UpdateChannelResponse = UpdateChannelResponse'
-  { -- | The tags to assign to the channel. Tags are key-value pairs that you can
-    -- associate with Amazon resources to help with organization, access
-    -- control, and cost tracking. For more information, see
-    -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | The Amazon Resource Name (ARN) associated with the channel.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The name of the channel.
     channelName :: Prelude.Maybe Prelude.Text,
+    -- | Returns the state whether the channel is running or not.
+    channelState :: Prelude.Maybe ChannelState,
+    -- | The timestamp of when the channel was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The slate used to fill gaps between programs in the schedule. You must
     -- configure filler slate if your channel uses the @LINEAR@ @PlaybackMode@.
     -- MediaTailor doesn\'t support filler slate for channels using the @LOOP@
     -- @PlaybackMode@.
     fillerSlate :: Prelude.Maybe SlateSource,
-    -- | The Amazon Resource Name (ARN) associated with the channel.
-    arn :: Prelude.Maybe Prelude.Text,
     -- | The timestamp that indicates when the channel was last modified.
     lastModifiedTime :: Prelude.Maybe Data.POSIX,
-    -- | The tier associated with this Channel.
-    tier :: Prelude.Maybe Prelude.Text,
     -- | The channel\'s output properties.
     outputs :: Prelude.Maybe [ResponseOutputItem],
-    -- | The timestamp of when the channel was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The type of playback mode for this channel.
     --
     -- @LINEAR@ - Programs play back-to-back only once.
@@ -211,8 +206,13 @@ data UpdateChannelResponse = UpdateChannelResponse'
     -- program in the schedule plays, playback loops back to the first program
     -- in the schedule.
     playbackMode :: Prelude.Maybe Prelude.Text,
-    -- | Returns the state whether the channel is running or not.
-    channelState :: Prelude.Maybe ChannelState,
+    -- | The tags to assign to the channel. Tags are key-value pairs that you can
+    -- associate with Amazon resources to help with organization, access
+    -- control, and cost tracking. For more information, see
+    -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The tier associated with this Channel.
+    tier :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -226,27 +226,22 @@ data UpdateChannelResponse = UpdateChannelResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'updateChannelResponse_tags' - The tags to assign to the channel. Tags are key-value pairs that you can
--- associate with Amazon resources to help with organization, access
--- control, and cost tracking. For more information, see
--- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
+-- 'arn', 'updateChannelResponse_arn' - The Amazon Resource Name (ARN) associated with the channel.
 --
 -- 'channelName', 'updateChannelResponse_channelName' - The name of the channel.
+--
+-- 'channelState', 'updateChannelResponse_channelState' - Returns the state whether the channel is running or not.
+--
+-- 'creationTime', 'updateChannelResponse_creationTime' - The timestamp of when the channel was created.
 --
 -- 'fillerSlate', 'updateChannelResponse_fillerSlate' - The slate used to fill gaps between programs in the schedule. You must
 -- configure filler slate if your channel uses the @LINEAR@ @PlaybackMode@.
 -- MediaTailor doesn\'t support filler slate for channels using the @LOOP@
 -- @PlaybackMode@.
 --
--- 'arn', 'updateChannelResponse_arn' - The Amazon Resource Name (ARN) associated with the channel.
---
 -- 'lastModifiedTime', 'updateChannelResponse_lastModifiedTime' - The timestamp that indicates when the channel was last modified.
 --
--- 'tier', 'updateChannelResponse_tier' - The tier associated with this Channel.
---
 -- 'outputs', 'updateChannelResponse_outputs' - The channel\'s output properties.
---
--- 'creationTime', 'updateChannelResponse_creationTime' - The timestamp of when the channel was created.
 --
 -- 'playbackMode', 'updateChannelResponse_playbackMode' - The type of playback mode for this channel.
 --
@@ -256,7 +251,12 @@ data UpdateChannelResponse = UpdateChannelResponse'
 -- program in the schedule plays, playback loops back to the first program
 -- in the schedule.
 --
--- 'channelState', 'updateChannelResponse_channelState' - Returns the state whether the channel is running or not.
+-- 'tags', 'updateChannelResponse_tags' - The tags to assign to the channel. Tags are key-value pairs that you can
+-- associate with Amazon resources to help with organization, access
+-- control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
+--
+-- 'tier', 'updateChannelResponse_tier' - The tier associated with this Channel.
 --
 -- 'httpStatus', 'updateChannelResponse_httpStatus' - The response's http status code.
 newUpdateChannelResponse ::
@@ -265,29 +265,34 @@ newUpdateChannelResponse ::
   UpdateChannelResponse
 newUpdateChannelResponse pHttpStatus_ =
   UpdateChannelResponse'
-    { tags = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       channelName = Prelude.Nothing,
-      fillerSlate = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
-      tier = Prelude.Nothing,
-      outputs = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      playbackMode = Prelude.Nothing,
       channelState = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
+      fillerSlate = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      outputs = Prelude.Nothing,
+      playbackMode = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      tier = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The tags to assign to the channel. Tags are key-value pairs that you can
--- associate with Amazon resources to help with organization, access
--- control, and cost tracking. For more information, see
--- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
-updateChannelResponse_tags :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateChannelResponse_tags = Lens.lens (\UpdateChannelResponse' {tags} -> tags) (\s@UpdateChannelResponse' {} a -> s {tags = a} :: UpdateChannelResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The Amazon Resource Name (ARN) associated with the channel.
+updateChannelResponse_arn :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe Prelude.Text)
+updateChannelResponse_arn = Lens.lens (\UpdateChannelResponse' {arn} -> arn) (\s@UpdateChannelResponse' {} a -> s {arn = a} :: UpdateChannelResponse)
 
 -- | The name of the channel.
 updateChannelResponse_channelName :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe Prelude.Text)
 updateChannelResponse_channelName = Lens.lens (\UpdateChannelResponse' {channelName} -> channelName) (\s@UpdateChannelResponse' {} a -> s {channelName = a} :: UpdateChannelResponse)
+
+-- | Returns the state whether the channel is running or not.
+updateChannelResponse_channelState :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe ChannelState)
+updateChannelResponse_channelState = Lens.lens (\UpdateChannelResponse' {channelState} -> channelState) (\s@UpdateChannelResponse' {} a -> s {channelState = a} :: UpdateChannelResponse)
+
+-- | The timestamp of when the channel was created.
+updateChannelResponse_creationTime :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe Prelude.UTCTime)
+updateChannelResponse_creationTime = Lens.lens (\UpdateChannelResponse' {creationTime} -> creationTime) (\s@UpdateChannelResponse' {} a -> s {creationTime = a} :: UpdateChannelResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The slate used to fill gaps between programs in the schedule. You must
 -- configure filler slate if your channel uses the @LINEAR@ @PlaybackMode@.
@@ -296,25 +301,13 @@ updateChannelResponse_channelName = Lens.lens (\UpdateChannelResponse' {channelN
 updateChannelResponse_fillerSlate :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe SlateSource)
 updateChannelResponse_fillerSlate = Lens.lens (\UpdateChannelResponse' {fillerSlate} -> fillerSlate) (\s@UpdateChannelResponse' {} a -> s {fillerSlate = a} :: UpdateChannelResponse)
 
--- | The Amazon Resource Name (ARN) associated with the channel.
-updateChannelResponse_arn :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe Prelude.Text)
-updateChannelResponse_arn = Lens.lens (\UpdateChannelResponse' {arn} -> arn) (\s@UpdateChannelResponse' {} a -> s {arn = a} :: UpdateChannelResponse)
-
 -- | The timestamp that indicates when the channel was last modified.
 updateChannelResponse_lastModifiedTime :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe Prelude.UTCTime)
 updateChannelResponse_lastModifiedTime = Lens.lens (\UpdateChannelResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateChannelResponse' {} a -> s {lastModifiedTime = a} :: UpdateChannelResponse) Prelude.. Lens.mapping Data._Time
 
--- | The tier associated with this Channel.
-updateChannelResponse_tier :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe Prelude.Text)
-updateChannelResponse_tier = Lens.lens (\UpdateChannelResponse' {tier} -> tier) (\s@UpdateChannelResponse' {} a -> s {tier = a} :: UpdateChannelResponse)
-
 -- | The channel\'s output properties.
 updateChannelResponse_outputs :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe [ResponseOutputItem])
 updateChannelResponse_outputs = Lens.lens (\UpdateChannelResponse' {outputs} -> outputs) (\s@UpdateChannelResponse' {} a -> s {outputs = a} :: UpdateChannelResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The timestamp of when the channel was created.
-updateChannelResponse_creationTime :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe Prelude.UTCTime)
-updateChannelResponse_creationTime = Lens.lens (\UpdateChannelResponse' {creationTime} -> creationTime) (\s@UpdateChannelResponse' {} a -> s {creationTime = a} :: UpdateChannelResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The type of playback mode for this channel.
 --
@@ -326,9 +319,16 @@ updateChannelResponse_creationTime = Lens.lens (\UpdateChannelResponse' {creatio
 updateChannelResponse_playbackMode :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe Prelude.Text)
 updateChannelResponse_playbackMode = Lens.lens (\UpdateChannelResponse' {playbackMode} -> playbackMode) (\s@UpdateChannelResponse' {} a -> s {playbackMode = a} :: UpdateChannelResponse)
 
--- | Returns the state whether the channel is running or not.
-updateChannelResponse_channelState :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe ChannelState)
-updateChannelResponse_channelState = Lens.lens (\UpdateChannelResponse' {channelState} -> channelState) (\s@UpdateChannelResponse' {} a -> s {channelState = a} :: UpdateChannelResponse)
+-- | The tags to assign to the channel. Tags are key-value pairs that you can
+-- associate with Amazon resources to help with organization, access
+-- control, and cost tracking. For more information, see
+-- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
+updateChannelResponse_tags :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updateChannelResponse_tags = Lens.lens (\UpdateChannelResponse' {tags} -> tags) (\s@UpdateChannelResponse' {} a -> s {tags = a} :: UpdateChannelResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The tier associated with this Channel.
+updateChannelResponse_tier :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe Prelude.Text)
+updateChannelResponse_tier = Lens.lens (\UpdateChannelResponse' {tier} -> tier) (\s@UpdateChannelResponse' {} a -> s {tier = a} :: UpdateChannelResponse)
 
 -- | The response's http status code.
 updateChannelResponse_httpStatus :: Lens.Lens' UpdateChannelResponse Prelude.Int
@@ -336,14 +336,14 @@ updateChannelResponse_httpStatus = Lens.lens (\UpdateChannelResponse' {httpStatu
 
 instance Prelude.NFData UpdateChannelResponse where
   rnf UpdateChannelResponse' {..} =
-    Prelude.rnf tags
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf channelName
-      `Prelude.seq` Prelude.rnf fillerSlate
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf tier
-      `Prelude.seq` Prelude.rnf outputs
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf playbackMode
       `Prelude.seq` Prelude.rnf channelState
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf fillerSlate
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf outputs
+      `Prelude.seq` Prelude.rnf playbackMode
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf tier
       `Prelude.seq` Prelude.rnf httpStatus

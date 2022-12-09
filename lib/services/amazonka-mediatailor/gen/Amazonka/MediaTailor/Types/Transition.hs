@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTransition' smart constructor.
 data Transition = Transition'
-  { -- | The name of the program that this program will be inserted next to, as
+  { -- | The duration of the live program in seconds.
+    durationMillis :: Prelude.Maybe Prelude.Integer,
+    -- | The name of the program that this program will be inserted next to, as
     -- defined by @RelativePosition@.
     relativeProgram :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the program is scheduled to start, in epoch
     -- milliseconds.
     scheduledStartTimeMillis :: Prelude.Maybe Prelude.Integer,
-    -- | The duration of the live program in seconds.
-    durationMillis :: Prelude.Maybe Prelude.Integer,
     -- | The position where this program will be inserted relative to the
     -- @RelativePosition@.
     relativePosition :: RelativePosition,
@@ -69,13 +69,13 @@ data Transition = Transition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'durationMillis', 'transition_durationMillis' - The duration of the live program in seconds.
+--
 -- 'relativeProgram', 'transition_relativeProgram' - The name of the program that this program will be inserted next to, as
 -- defined by @RelativePosition@.
 --
 -- 'scheduledStartTimeMillis', 'transition_scheduledStartTimeMillis' - The date and time that the program is scheduled to start, in epoch
 -- milliseconds.
---
--- 'durationMillis', 'transition_durationMillis' - The duration of the live program in seconds.
 --
 -- 'relativePosition', 'transition_relativePosition' - The position where this program will be inserted relative to the
 -- @RelativePosition@.
@@ -105,12 +105,16 @@ newTransition ::
   Transition
 newTransition pRelativePosition_ pType_ =
   Transition'
-    { relativeProgram = Prelude.Nothing,
+    { durationMillis = Prelude.Nothing,
+      relativeProgram = Prelude.Nothing,
       scheduledStartTimeMillis = Prelude.Nothing,
-      durationMillis = Prelude.Nothing,
       relativePosition = pRelativePosition_,
       type' = pType_
     }
+
+-- | The duration of the live program in seconds.
+transition_durationMillis :: Lens.Lens' Transition (Prelude.Maybe Prelude.Integer)
+transition_durationMillis = Lens.lens (\Transition' {durationMillis} -> durationMillis) (\s@Transition' {} a -> s {durationMillis = a} :: Transition)
 
 -- | The name of the program that this program will be inserted next to, as
 -- defined by @RelativePosition@.
@@ -121,10 +125,6 @@ transition_relativeProgram = Lens.lens (\Transition' {relativeProgram} -> relati
 -- milliseconds.
 transition_scheduledStartTimeMillis :: Lens.Lens' Transition (Prelude.Maybe Prelude.Integer)
 transition_scheduledStartTimeMillis = Lens.lens (\Transition' {scheduledStartTimeMillis} -> scheduledStartTimeMillis) (\s@Transition' {} a -> s {scheduledStartTimeMillis = a} :: Transition)
-
--- | The duration of the live program in seconds.
-transition_durationMillis :: Lens.Lens' Transition (Prelude.Maybe Prelude.Integer)
-transition_durationMillis = Lens.lens (\Transition' {durationMillis} -> durationMillis) (\s@Transition' {} a -> s {durationMillis = a} :: Transition)
 
 -- | The position where this program will be inserted relative to the
 -- @RelativePosition@.
@@ -153,17 +153,17 @@ transition_type = Lens.lens (\Transition' {type'} -> type') (\s@Transition' {} a
 
 instance Prelude.Hashable Transition where
   hashWithSalt _salt Transition' {..} =
-    _salt `Prelude.hashWithSalt` relativeProgram
+    _salt `Prelude.hashWithSalt` durationMillis
+      `Prelude.hashWithSalt` relativeProgram
       `Prelude.hashWithSalt` scheduledStartTimeMillis
-      `Prelude.hashWithSalt` durationMillis
       `Prelude.hashWithSalt` relativePosition
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Transition where
   rnf Transition' {..} =
-    Prelude.rnf relativeProgram
+    Prelude.rnf durationMillis
+      `Prelude.seq` Prelude.rnf relativeProgram
       `Prelude.seq` Prelude.rnf scheduledStartTimeMillis
-      `Prelude.seq` Prelude.rnf durationMillis
       `Prelude.seq` Prelude.rnf relativePosition
       `Prelude.seq` Prelude.rnf type'
 
@@ -171,12 +171,12 @@ instance Data.ToJSON Transition where
   toJSON Transition' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RelativeProgram" Data..=)
+          [ ("DurationMillis" Data..=)
+              Prelude.<$> durationMillis,
+            ("RelativeProgram" Data..=)
               Prelude.<$> relativeProgram,
             ("ScheduledStartTimeMillis" Data..=)
               Prelude.<$> scheduledStartTimeMillis,
-            ("DurationMillis" Data..=)
-              Prelude.<$> durationMillis,
             Prelude.Just
               ("RelativePosition" Data..= relativePosition),
             Prelude.Just ("Type" Data..= type')

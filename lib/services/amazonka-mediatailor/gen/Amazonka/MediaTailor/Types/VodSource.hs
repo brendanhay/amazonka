@@ -29,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVodSource' smart constructor.
 data VodSource = VodSource'
-  { -- | The tags assigned to the VOD source. Tags are key-value pairs that you
+  { -- | The timestamp that indicates when the VOD source was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The timestamp that indicates when the VOD source was last modified.
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
+    -- | The tags assigned to the VOD source. Tags are key-value pairs that you
     -- can associate with Amazon resources to help with organization, access
     -- control, and cost tracking. For more information, see
     -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The timestamp that indicates when the VOD source was last modified.
-    lastModifiedTime :: Prelude.Maybe Data.POSIX,
-    -- | The timestamp that indicates when the VOD source was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN for the VOD source.
     arn :: Prelude.Text,
     -- | The HTTP package configurations for the VOD source.
@@ -57,14 +57,14 @@ data VodSource = VodSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'creationTime', 'vodSource_creationTime' - The timestamp that indicates when the VOD source was created.
+--
+-- 'lastModifiedTime', 'vodSource_lastModifiedTime' - The timestamp that indicates when the VOD source was last modified.
+--
 -- 'tags', 'vodSource_tags' - The tags assigned to the VOD source. Tags are key-value pairs that you
 -- can associate with Amazon resources to help with organization, access
 -- control, and cost tracking. For more information, see
 -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
---
--- 'lastModifiedTime', 'vodSource_lastModifiedTime' - The timestamp that indicates when the VOD source was last modified.
---
--- 'creationTime', 'vodSource_creationTime' - The timestamp that indicates when the VOD source was created.
 --
 -- 'arn', 'vodSource_arn' - The ARN for the VOD source.
 --
@@ -86,14 +86,22 @@ newVodSource
   pSourceLocationName_
   pVodSourceName_ =
     VodSource'
-      { tags = Prelude.Nothing,
+      { creationTime = Prelude.Nothing,
         lastModifiedTime = Prelude.Nothing,
-        creationTime = Prelude.Nothing,
+        tags = Prelude.Nothing,
         arn = pArn_,
         httpPackageConfigurations = Prelude.mempty,
         sourceLocationName = pSourceLocationName_,
         vodSourceName = pVodSourceName_
       }
+
+-- | The timestamp that indicates when the VOD source was created.
+vodSource_creationTime :: Lens.Lens' VodSource (Prelude.Maybe Prelude.UTCTime)
+vodSource_creationTime = Lens.lens (\VodSource' {creationTime} -> creationTime) (\s@VodSource' {} a -> s {creationTime = a} :: VodSource) Prelude.. Lens.mapping Data._Time
+
+-- | The timestamp that indicates when the VOD source was last modified.
+vodSource_lastModifiedTime :: Lens.Lens' VodSource (Prelude.Maybe Prelude.UTCTime)
+vodSource_lastModifiedTime = Lens.lens (\VodSource' {lastModifiedTime} -> lastModifiedTime) (\s@VodSource' {} a -> s {lastModifiedTime = a} :: VodSource) Prelude.. Lens.mapping Data._Time
 
 -- | The tags assigned to the VOD source. Tags are key-value pairs that you
 -- can associate with Amazon resources to help with organization, access
@@ -101,14 +109,6 @@ newVodSource
 -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 vodSource_tags :: Lens.Lens' VodSource (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 vodSource_tags = Lens.lens (\VodSource' {tags} -> tags) (\s@VodSource' {} a -> s {tags = a} :: VodSource) Prelude.. Lens.mapping Lens.coerced
-
--- | The timestamp that indicates when the VOD source was last modified.
-vodSource_lastModifiedTime :: Lens.Lens' VodSource (Prelude.Maybe Prelude.UTCTime)
-vodSource_lastModifiedTime = Lens.lens (\VodSource' {lastModifiedTime} -> lastModifiedTime) (\s@VodSource' {} a -> s {lastModifiedTime = a} :: VodSource) Prelude.. Lens.mapping Data._Time
-
--- | The timestamp that indicates when the VOD source was created.
-vodSource_creationTime :: Lens.Lens' VodSource (Prelude.Maybe Prelude.UTCTime)
-vodSource_creationTime = Lens.lens (\VodSource' {creationTime} -> creationTime) (\s@VodSource' {} a -> s {creationTime = a} :: VodSource) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN for the VOD source.
 vodSource_arn :: Lens.Lens' VodSource Prelude.Text
@@ -132,9 +132,9 @@ instance Data.FromJSON VodSource where
       "VodSource"
       ( \x ->
           VodSource'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "CreationTime")
             Prelude.<*> (x Data..:? "LastModifiedTime")
-            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "Arn")
             Prelude.<*> ( x Data..:? "HttpPackageConfigurations"
                             Data..!= Prelude.mempty
@@ -145,9 +145,9 @@ instance Data.FromJSON VodSource where
 
 instance Prelude.Hashable VodSource where
   hashWithSalt _salt VodSource' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastModifiedTime
-      `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` httpPackageConfigurations
       `Prelude.hashWithSalt` sourceLocationName
@@ -155,9 +155,9 @@ instance Prelude.Hashable VodSource where
 
 instance Prelude.NFData VodSource where
   rnf VodSource' {..} =
-    Prelude.rnf tags
+    Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf httpPackageConfigurations
       `Prelude.seq` Prelude.rnf sourceLocationName

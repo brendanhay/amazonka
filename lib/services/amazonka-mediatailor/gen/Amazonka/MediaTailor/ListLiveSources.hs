@@ -30,8 +30,8 @@ module Amazonka.MediaTailor.ListLiveSources
     newListLiveSources,
 
     -- * Request Lenses
-    listLiveSources_nextToken,
     listLiveSources_maxResults,
+    listLiveSources_nextToken,
     listLiveSources_sourceLocationName,
 
     -- * Destructuring the Response
@@ -55,14 +55,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListLiveSources' smart constructor.
 data ListLiveSources = ListLiveSources'
-  { -- | Pagination token returned by the list request when results exceed the
-    -- maximum allowed. Use the token to fetch the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of live sources that you want MediaTailor to return
+  { -- | The maximum number of live sources that you want MediaTailor to return
     -- in response to the current request. If there are more than @MaxResults@
     -- live sources, use the value of @NextToken@ in the response to get the
     -- next page of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Pagination token returned by the list request when results exceed the
+    -- maximum allowed. Use the token to fetch the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the source location associated with this Live Sources list.
     sourceLocationName :: Prelude.Text
   }
@@ -76,13 +76,13 @@ data ListLiveSources = ListLiveSources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listLiveSources_nextToken' - Pagination token returned by the list request when results exceed the
--- maximum allowed. Use the token to fetch the next page of results.
---
 -- 'maxResults', 'listLiveSources_maxResults' - The maximum number of live sources that you want MediaTailor to return
 -- in response to the current request. If there are more than @MaxResults@
 -- live sources, use the value of @NextToken@ in the response to get the
 -- next page of results.
+--
+-- 'nextToken', 'listLiveSources_nextToken' - Pagination token returned by the list request when results exceed the
+-- maximum allowed. Use the token to fetch the next page of results.
 --
 -- 'sourceLocationName', 'listLiveSources_sourceLocationName' - The name of the source location associated with this Live Sources list.
 newListLiveSources ::
@@ -91,15 +91,10 @@ newListLiveSources ::
   ListLiveSources
 newListLiveSources pSourceLocationName_ =
   ListLiveSources'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       sourceLocationName = pSourceLocationName_
     }
-
--- | Pagination token returned by the list request when results exceed the
--- maximum allowed. Use the token to fetch the next page of results.
-listLiveSources_nextToken :: Lens.Lens' ListLiveSources (Prelude.Maybe Prelude.Text)
-listLiveSources_nextToken = Lens.lens (\ListLiveSources' {nextToken} -> nextToken) (\s@ListLiveSources' {} a -> s {nextToken = a} :: ListLiveSources)
 
 -- | The maximum number of live sources that you want MediaTailor to return
 -- in response to the current request. If there are more than @MaxResults@
@@ -107,6 +102,11 @@ listLiveSources_nextToken = Lens.lens (\ListLiveSources' {nextToken} -> nextToke
 -- next page of results.
 listLiveSources_maxResults :: Lens.Lens' ListLiveSources (Prelude.Maybe Prelude.Natural)
 listLiveSources_maxResults = Lens.lens (\ListLiveSources' {maxResults} -> maxResults) (\s@ListLiveSources' {} a -> s {maxResults = a} :: ListLiveSources)
+
+-- | Pagination token returned by the list request when results exceed the
+-- maximum allowed. Use the token to fetch the next page of results.
+listLiveSources_nextToken :: Lens.Lens' ListLiveSources (Prelude.Maybe Prelude.Text)
+listLiveSources_nextToken = Lens.lens (\ListLiveSources' {nextToken} -> nextToken) (\s@ListLiveSources' {} a -> s {nextToken = a} :: ListLiveSources)
 
 -- | The name of the source location associated with this Live Sources list.
 listLiveSources_sourceLocationName :: Lens.Lens' ListLiveSources Prelude.Text
@@ -150,14 +150,14 @@ instance Core.AWSRequest ListLiveSources where
 
 instance Prelude.Hashable ListLiveSources where
   hashWithSalt _salt ListLiveSources' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sourceLocationName
 
 instance Prelude.NFData ListLiveSources where
   rnf ListLiveSources' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf sourceLocationName
 
 instance Data.ToHeaders ListLiveSources where
@@ -182,8 +182,8 @@ instance Data.ToPath ListLiveSources where
 instance Data.ToQuery ListLiveSources where
   toQuery ListLiveSources' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListLiveSourcesResponse' smart constructor.

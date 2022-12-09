@@ -36,13 +36,13 @@ module Amazonka.MediaTailor.DescribeVodSource
     newDescribeVodSourceResponse,
 
     -- * Response Lenses
+    describeVodSourceResponse_arn,
+    describeVodSourceResponse_creationTime,
+    describeVodSourceResponse_httpPackageConfigurations,
+    describeVodSourceResponse_lastModifiedTime,
+    describeVodSourceResponse_sourceLocationName,
     describeVodSourceResponse_tags,
     describeVodSourceResponse_vodSourceName,
-    describeVodSourceResponse_arn,
-    describeVodSourceResponse_lastModifiedTime,
-    describeVodSourceResponse_creationTime,
-    describeVodSourceResponse_sourceLocationName,
-    describeVodSourceResponse_httpPackageConfigurations,
     describeVodSourceResponse_httpStatus,
   )
 where
@@ -108,15 +108,15 @@ instance Core.AWSRequest DescribeVodSource where
     Response.receiveJSON
       ( \s h x ->
           DescribeVodSourceResponse'
-            Prelude.<$> (x Data..?> "tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "VodSourceName")
-            Prelude.<*> (x Data..?> "Arn")
-            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "CreationTime")
-            Prelude.<*> (x Data..?> "SourceLocationName")
             Prelude.<*> ( x Data..?> "HttpPackageConfigurations"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "SourceLocationName")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "VodSourceName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,23 +155,23 @@ instance Data.ToQuery DescribeVodSource where
 
 -- | /See:/ 'newDescribeVodSourceResponse' smart constructor.
 data DescribeVodSourceResponse = DescribeVodSourceResponse'
-  { -- | The tags assigned to the VOD source. Tags are key-value pairs that you
+  { -- | The ARN of the VOD source.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp that indicates when the VOD source was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The HTTP package configurations.
+    httpPackageConfigurations :: Prelude.Maybe [HttpPackageConfiguration],
+    -- | The last modified time of the VOD source.
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
+    -- | The name of the source location associated with the VOD source.
+    sourceLocationName :: Prelude.Maybe Prelude.Text,
+    -- | The tags assigned to the VOD source. Tags are key-value pairs that you
     -- can associate with Amazon resources to help with organization, access
     -- control, and cost tracking. For more information, see
     -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the VOD source.
     vodSourceName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the VOD source.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The last modified time of the VOD source.
-    lastModifiedTime :: Prelude.Maybe Data.POSIX,
-    -- | The timestamp that indicates when the VOD source was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
-    -- | The name of the source location associated with the VOD source.
-    sourceLocationName :: Prelude.Maybe Prelude.Text,
-    -- | The HTTP package configurations.
-    httpPackageConfigurations :: Prelude.Maybe [HttpPackageConfiguration],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -185,22 +185,22 @@ data DescribeVodSourceResponse = DescribeVodSourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'arn', 'describeVodSourceResponse_arn' - The ARN of the VOD source.
+--
+-- 'creationTime', 'describeVodSourceResponse_creationTime' - The timestamp that indicates when the VOD source was created.
+--
+-- 'httpPackageConfigurations', 'describeVodSourceResponse_httpPackageConfigurations' - The HTTP package configurations.
+--
+-- 'lastModifiedTime', 'describeVodSourceResponse_lastModifiedTime' - The last modified time of the VOD source.
+--
+-- 'sourceLocationName', 'describeVodSourceResponse_sourceLocationName' - The name of the source location associated with the VOD source.
+--
 -- 'tags', 'describeVodSourceResponse_tags' - The tags assigned to the VOD source. Tags are key-value pairs that you
 -- can associate with Amazon resources to help with organization, access
 -- control, and cost tracking. For more information, see
 -- <https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html Tagging AWS Elemental MediaTailor Resources>.
 --
 -- 'vodSourceName', 'describeVodSourceResponse_vodSourceName' - The name of the VOD source.
---
--- 'arn', 'describeVodSourceResponse_arn' - The ARN of the VOD source.
---
--- 'lastModifiedTime', 'describeVodSourceResponse_lastModifiedTime' - The last modified time of the VOD source.
---
--- 'creationTime', 'describeVodSourceResponse_creationTime' - The timestamp that indicates when the VOD source was created.
---
--- 'sourceLocationName', 'describeVodSourceResponse_sourceLocationName' - The name of the source location associated with the VOD source.
---
--- 'httpPackageConfigurations', 'describeVodSourceResponse_httpPackageConfigurations' - The HTTP package configurations.
 --
 -- 'httpStatus', 'describeVodSourceResponse_httpStatus' - The response's http status code.
 newDescribeVodSourceResponse ::
@@ -209,15 +209,35 @@ newDescribeVodSourceResponse ::
   DescribeVodSourceResponse
 newDescribeVodSourceResponse pHttpStatus_ =
   DescribeVodSourceResponse'
-    { tags = Prelude.Nothing,
-      vodSourceName = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       creationTime = Prelude.Nothing,
-      sourceLocationName = Prelude.Nothing,
       httpPackageConfigurations = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      sourceLocationName = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      vodSourceName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The ARN of the VOD source.
+describeVodSourceResponse_arn :: Lens.Lens' DescribeVodSourceResponse (Prelude.Maybe Prelude.Text)
+describeVodSourceResponse_arn = Lens.lens (\DescribeVodSourceResponse' {arn} -> arn) (\s@DescribeVodSourceResponse' {} a -> s {arn = a} :: DescribeVodSourceResponse)
+
+-- | The timestamp that indicates when the VOD source was created.
+describeVodSourceResponse_creationTime :: Lens.Lens' DescribeVodSourceResponse (Prelude.Maybe Prelude.UTCTime)
+describeVodSourceResponse_creationTime = Lens.lens (\DescribeVodSourceResponse' {creationTime} -> creationTime) (\s@DescribeVodSourceResponse' {} a -> s {creationTime = a} :: DescribeVodSourceResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The HTTP package configurations.
+describeVodSourceResponse_httpPackageConfigurations :: Lens.Lens' DescribeVodSourceResponse (Prelude.Maybe [HttpPackageConfiguration])
+describeVodSourceResponse_httpPackageConfigurations = Lens.lens (\DescribeVodSourceResponse' {httpPackageConfigurations} -> httpPackageConfigurations) (\s@DescribeVodSourceResponse' {} a -> s {httpPackageConfigurations = a} :: DescribeVodSourceResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The last modified time of the VOD source.
+describeVodSourceResponse_lastModifiedTime :: Lens.Lens' DescribeVodSourceResponse (Prelude.Maybe Prelude.UTCTime)
+describeVodSourceResponse_lastModifiedTime = Lens.lens (\DescribeVodSourceResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeVodSourceResponse' {} a -> s {lastModifiedTime = a} :: DescribeVodSourceResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The name of the source location associated with the VOD source.
+describeVodSourceResponse_sourceLocationName :: Lens.Lens' DescribeVodSourceResponse (Prelude.Maybe Prelude.Text)
+describeVodSourceResponse_sourceLocationName = Lens.lens (\DescribeVodSourceResponse' {sourceLocationName} -> sourceLocationName) (\s@DescribeVodSourceResponse' {} a -> s {sourceLocationName = a} :: DescribeVodSourceResponse)
 
 -- | The tags assigned to the VOD source. Tags are key-value pairs that you
 -- can associate with Amazon resources to help with organization, access
@@ -230,37 +250,17 @@ describeVodSourceResponse_tags = Lens.lens (\DescribeVodSourceResponse' {tags} -
 describeVodSourceResponse_vodSourceName :: Lens.Lens' DescribeVodSourceResponse (Prelude.Maybe Prelude.Text)
 describeVodSourceResponse_vodSourceName = Lens.lens (\DescribeVodSourceResponse' {vodSourceName} -> vodSourceName) (\s@DescribeVodSourceResponse' {} a -> s {vodSourceName = a} :: DescribeVodSourceResponse)
 
--- | The ARN of the VOD source.
-describeVodSourceResponse_arn :: Lens.Lens' DescribeVodSourceResponse (Prelude.Maybe Prelude.Text)
-describeVodSourceResponse_arn = Lens.lens (\DescribeVodSourceResponse' {arn} -> arn) (\s@DescribeVodSourceResponse' {} a -> s {arn = a} :: DescribeVodSourceResponse)
-
--- | The last modified time of the VOD source.
-describeVodSourceResponse_lastModifiedTime :: Lens.Lens' DescribeVodSourceResponse (Prelude.Maybe Prelude.UTCTime)
-describeVodSourceResponse_lastModifiedTime = Lens.lens (\DescribeVodSourceResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeVodSourceResponse' {} a -> s {lastModifiedTime = a} :: DescribeVodSourceResponse) Prelude.. Lens.mapping Data._Time
-
--- | The timestamp that indicates when the VOD source was created.
-describeVodSourceResponse_creationTime :: Lens.Lens' DescribeVodSourceResponse (Prelude.Maybe Prelude.UTCTime)
-describeVodSourceResponse_creationTime = Lens.lens (\DescribeVodSourceResponse' {creationTime} -> creationTime) (\s@DescribeVodSourceResponse' {} a -> s {creationTime = a} :: DescribeVodSourceResponse) Prelude.. Lens.mapping Data._Time
-
--- | The name of the source location associated with the VOD source.
-describeVodSourceResponse_sourceLocationName :: Lens.Lens' DescribeVodSourceResponse (Prelude.Maybe Prelude.Text)
-describeVodSourceResponse_sourceLocationName = Lens.lens (\DescribeVodSourceResponse' {sourceLocationName} -> sourceLocationName) (\s@DescribeVodSourceResponse' {} a -> s {sourceLocationName = a} :: DescribeVodSourceResponse)
-
--- | The HTTP package configurations.
-describeVodSourceResponse_httpPackageConfigurations :: Lens.Lens' DescribeVodSourceResponse (Prelude.Maybe [HttpPackageConfiguration])
-describeVodSourceResponse_httpPackageConfigurations = Lens.lens (\DescribeVodSourceResponse' {httpPackageConfigurations} -> httpPackageConfigurations) (\s@DescribeVodSourceResponse' {} a -> s {httpPackageConfigurations = a} :: DescribeVodSourceResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 describeVodSourceResponse_httpStatus :: Lens.Lens' DescribeVodSourceResponse Prelude.Int
 describeVodSourceResponse_httpStatus = Lens.lens (\DescribeVodSourceResponse' {httpStatus} -> httpStatus) (\s@DescribeVodSourceResponse' {} a -> s {httpStatus = a} :: DescribeVodSourceResponse)
 
 instance Prelude.NFData DescribeVodSourceResponse where
   rnf DescribeVodSourceResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf vodSourceName
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf lastModifiedTime
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf sourceLocationName
       `Prelude.seq` Prelude.rnf httpPackageConfigurations
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf sourceLocationName
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vodSourceName
       `Prelude.seq` Prelude.rnf httpStatus

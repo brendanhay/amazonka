@@ -28,17 +28,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSpliceInsertMessage' smart constructor.
 data SpliceInsertMessage = SpliceInsertMessage'
-  { -- | This is written to @splice_insert.avails_expected@, as defined in
+  { -- | This is written to @splice_insert.avail_num@, as defined in section
+    -- 9.7.3.1 of the SCTE-35 specification. The default value is @0@. Values
+    -- must be between @0@ and @256@, inclusive.
+    availNum :: Prelude.Maybe Prelude.Int,
+    -- | This is written to @splice_insert.avails_expected@, as defined in
     -- section 9.7.3.1 of the SCTE-35 specification. The default value is @0@.
     -- Values must be between @0@ and @256@, inclusive.
     availsExpected :: Prelude.Maybe Prelude.Int,
     -- | This is written to @splice_insert.splice_event_id@, as defined in
     -- section 9.7.3.1 of the SCTE-35 specification. The default value is @1@.
     spliceEventId :: Prelude.Maybe Prelude.Int,
-    -- | This is written to @splice_insert.avail_num@, as defined in section
-    -- 9.7.3.1 of the SCTE-35 specification. The default value is @0@. Values
-    -- must be between @0@ and @256@, inclusive.
-    availNum :: Prelude.Maybe Prelude.Int,
     -- | This is written to @splice_insert.unique_program_id@, as defined in
     -- section 9.7.3.1 of the SCTE-35 specification. The default value is @0@.
     -- Values must be between @0@ and @256@, inclusive.
@@ -54,16 +54,16 @@ data SpliceInsertMessage = SpliceInsertMessage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'availNum', 'spliceInsertMessage_availNum' - This is written to @splice_insert.avail_num@, as defined in section
+-- 9.7.3.1 of the SCTE-35 specification. The default value is @0@. Values
+-- must be between @0@ and @256@, inclusive.
+--
 -- 'availsExpected', 'spliceInsertMessage_availsExpected' - This is written to @splice_insert.avails_expected@, as defined in
 -- section 9.7.3.1 of the SCTE-35 specification. The default value is @0@.
 -- Values must be between @0@ and @256@, inclusive.
 --
 -- 'spliceEventId', 'spliceInsertMessage_spliceEventId' - This is written to @splice_insert.splice_event_id@, as defined in
 -- section 9.7.3.1 of the SCTE-35 specification. The default value is @1@.
---
--- 'availNum', 'spliceInsertMessage_availNum' - This is written to @splice_insert.avail_num@, as defined in section
--- 9.7.3.1 of the SCTE-35 specification. The default value is @0@. Values
--- must be between @0@ and @256@, inclusive.
 --
 -- 'uniqueProgramId', 'spliceInsertMessage_uniqueProgramId' - This is written to @splice_insert.unique_program_id@, as defined in
 -- section 9.7.3.1 of the SCTE-35 specification. The default value is @0@.
@@ -72,12 +72,17 @@ newSpliceInsertMessage ::
   SpliceInsertMessage
 newSpliceInsertMessage =
   SpliceInsertMessage'
-    { availsExpected =
-        Prelude.Nothing,
+    { availNum = Prelude.Nothing,
+      availsExpected = Prelude.Nothing,
       spliceEventId = Prelude.Nothing,
-      availNum = Prelude.Nothing,
       uniqueProgramId = Prelude.Nothing
     }
+
+-- | This is written to @splice_insert.avail_num@, as defined in section
+-- 9.7.3.1 of the SCTE-35 specification. The default value is @0@. Values
+-- must be between @0@ and @256@, inclusive.
+spliceInsertMessage_availNum :: Lens.Lens' SpliceInsertMessage (Prelude.Maybe Prelude.Int)
+spliceInsertMessage_availNum = Lens.lens (\SpliceInsertMessage' {availNum} -> availNum) (\s@SpliceInsertMessage' {} a -> s {availNum = a} :: SpliceInsertMessage)
 
 -- | This is written to @splice_insert.avails_expected@, as defined in
 -- section 9.7.3.1 of the SCTE-35 specification. The default value is @0@.
@@ -89,12 +94,6 @@ spliceInsertMessage_availsExpected = Lens.lens (\SpliceInsertMessage' {availsExp
 -- section 9.7.3.1 of the SCTE-35 specification. The default value is @1@.
 spliceInsertMessage_spliceEventId :: Lens.Lens' SpliceInsertMessage (Prelude.Maybe Prelude.Int)
 spliceInsertMessage_spliceEventId = Lens.lens (\SpliceInsertMessage' {spliceEventId} -> spliceEventId) (\s@SpliceInsertMessage' {} a -> s {spliceEventId = a} :: SpliceInsertMessage)
-
--- | This is written to @splice_insert.avail_num@, as defined in section
--- 9.7.3.1 of the SCTE-35 specification. The default value is @0@. Values
--- must be between @0@ and @256@, inclusive.
-spliceInsertMessage_availNum :: Lens.Lens' SpliceInsertMessage (Prelude.Maybe Prelude.Int)
-spliceInsertMessage_availNum = Lens.lens (\SpliceInsertMessage' {availNum} -> availNum) (\s@SpliceInsertMessage' {} a -> s {availNum = a} :: SpliceInsertMessage)
 
 -- | This is written to @splice_insert.unique_program_id@, as defined in
 -- section 9.7.3.1 of the SCTE-35 specification. The default value is @0@.
@@ -108,34 +107,34 @@ instance Data.FromJSON SpliceInsertMessage where
       "SpliceInsertMessage"
       ( \x ->
           SpliceInsertMessage'
-            Prelude.<$> (x Data..:? "AvailsExpected")
+            Prelude.<$> (x Data..:? "AvailNum")
+            Prelude.<*> (x Data..:? "AvailsExpected")
             Prelude.<*> (x Data..:? "SpliceEventId")
-            Prelude.<*> (x Data..:? "AvailNum")
             Prelude.<*> (x Data..:? "UniqueProgramId")
       )
 
 instance Prelude.Hashable SpliceInsertMessage where
   hashWithSalt _salt SpliceInsertMessage' {..} =
-    _salt `Prelude.hashWithSalt` availsExpected
+    _salt `Prelude.hashWithSalt` availNum
+      `Prelude.hashWithSalt` availsExpected
       `Prelude.hashWithSalt` spliceEventId
-      `Prelude.hashWithSalt` availNum
       `Prelude.hashWithSalt` uniqueProgramId
 
 instance Prelude.NFData SpliceInsertMessage where
   rnf SpliceInsertMessage' {..} =
-    Prelude.rnf availsExpected
+    Prelude.rnf availNum
+      `Prelude.seq` Prelude.rnf availsExpected
       `Prelude.seq` Prelude.rnf spliceEventId
-      `Prelude.seq` Prelude.rnf availNum
       `Prelude.seq` Prelude.rnf uniqueProgramId
 
 instance Data.ToJSON SpliceInsertMessage where
   toJSON SpliceInsertMessage' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("AvailsExpected" Data..=)
+          [ ("AvailNum" Data..=) Prelude.<$> availNum,
+            ("AvailsExpected" Data..=)
               Prelude.<$> availsExpected,
             ("SpliceEventId" Data..=) Prelude.<$> spliceEventId,
-            ("AvailNum" Data..=) Prelude.<$> availNum,
             ("UniqueProgramId" Data..=)
               Prelude.<$> uniqueProgramId
           ]

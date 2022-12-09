@@ -27,29 +27,29 @@ module Amazonka.Braket
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** DeviceRetiredException
-    _DeviceRetiredException,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
     -- ** ConflictException
     _ConflictException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
 
     -- ** DeviceOfflineException
     _DeviceOfflineException,
 
-    -- ** ValidationException
-    _ValidationException,
+    -- ** DeviceRetiredException
+    _DeviceRetiredException,
 
     -- ** InternalServiceException
     _InternalServiceException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- * Waiters
     -- $waiters

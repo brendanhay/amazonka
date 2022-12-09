@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJobEventDetails' smart constructor.
 data JobEventDetails = JobEventDetails'
-  { -- | A message describing the event that occurred related to the Amazon
+  { -- | The type of event that occurred related to the Amazon Braket job.
+    eventType :: Prelude.Maybe JobEventType,
+    -- | A message describing the event that occurred related to the Amazon
     -- Braket job.
     message :: Prelude.Maybe Prelude.Text,
-    -- | The type of event that occurred related to the Amazon Braket job.
-    eventType :: Prelude.Maybe JobEventType,
     -- | TThe type of event that occurred related to the Amazon Braket job.
     timeOfEvent :: Prelude.Maybe Data.POSIX
   }
@@ -48,29 +48,29 @@ data JobEventDetails = JobEventDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'eventType', 'jobEventDetails_eventType' - The type of event that occurred related to the Amazon Braket job.
+--
 -- 'message', 'jobEventDetails_message' - A message describing the event that occurred related to the Amazon
 -- Braket job.
---
--- 'eventType', 'jobEventDetails_eventType' - The type of event that occurred related to the Amazon Braket job.
 --
 -- 'timeOfEvent', 'jobEventDetails_timeOfEvent' - TThe type of event that occurred related to the Amazon Braket job.
 newJobEventDetails ::
   JobEventDetails
 newJobEventDetails =
   JobEventDetails'
-    { message = Prelude.Nothing,
-      eventType = Prelude.Nothing,
+    { eventType = Prelude.Nothing,
+      message = Prelude.Nothing,
       timeOfEvent = Prelude.Nothing
     }
+
+-- | The type of event that occurred related to the Amazon Braket job.
+jobEventDetails_eventType :: Lens.Lens' JobEventDetails (Prelude.Maybe JobEventType)
+jobEventDetails_eventType = Lens.lens (\JobEventDetails' {eventType} -> eventType) (\s@JobEventDetails' {} a -> s {eventType = a} :: JobEventDetails)
 
 -- | A message describing the event that occurred related to the Amazon
 -- Braket job.
 jobEventDetails_message :: Lens.Lens' JobEventDetails (Prelude.Maybe Prelude.Text)
 jobEventDetails_message = Lens.lens (\JobEventDetails' {message} -> message) (\s@JobEventDetails' {} a -> s {message = a} :: JobEventDetails)
-
--- | The type of event that occurred related to the Amazon Braket job.
-jobEventDetails_eventType :: Lens.Lens' JobEventDetails (Prelude.Maybe JobEventType)
-jobEventDetails_eventType = Lens.lens (\JobEventDetails' {eventType} -> eventType) (\s@JobEventDetails' {} a -> s {eventType = a} :: JobEventDetails)
 
 -- | TThe type of event that occurred related to the Amazon Braket job.
 jobEventDetails_timeOfEvent :: Lens.Lens' JobEventDetails (Prelude.Maybe Prelude.UTCTime)
@@ -82,19 +82,19 @@ instance Data.FromJSON JobEventDetails where
       "JobEventDetails"
       ( \x ->
           JobEventDetails'
-            Prelude.<$> (x Data..:? "message")
-            Prelude.<*> (x Data..:? "eventType")
+            Prelude.<$> (x Data..:? "eventType")
+            Prelude.<*> (x Data..:? "message")
             Prelude.<*> (x Data..:? "timeOfEvent")
       )
 
 instance Prelude.Hashable JobEventDetails where
   hashWithSalt _salt JobEventDetails' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` eventType
+    _salt `Prelude.hashWithSalt` eventType
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` timeOfEvent
 
 instance Prelude.NFData JobEventDetails where
   rnf JobEventDetails' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf eventType
+    Prelude.rnf eventType
+      `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf timeOfEvent

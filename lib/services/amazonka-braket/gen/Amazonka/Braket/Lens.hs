@@ -28,11 +28,11 @@ module Amazonka.Braket.Lens
     cancelQuantumTaskResponse_quantumTaskArn,
 
     -- ** CreateJob
-    createJob_tags,
     createJob_checkpointConfig,
-    createJob_stoppingCondition,
-    createJob_inputDataConfig,
     createJob_hyperParameters,
+    createJob_inputDataConfig,
+    createJob_stoppingCondition,
+    createJob_tags,
     createJob_algorithmSpecification,
     createJob_clientToken,
     createJob_deviceConfig,
@@ -44,9 +44,9 @@ module Amazonka.Braket.Lens
     createJobResponse_jobArn,
 
     -- ** CreateQuantumTask
-    createQuantumTask_tags,
-    createQuantumTask_jobToken,
     createQuantumTask_deviceParameters,
+    createQuantumTask_jobToken,
+    createQuantumTask_tags,
     createQuantumTask_action,
     createQuantumTask_clientToken,
     createQuantumTask_deviceArn,
@@ -68,17 +68,17 @@ module Amazonka.Braket.Lens
 
     -- ** GetJob
     getJob_jobArn,
-    getJobResponse_tags,
-    getJobResponse_endedAt,
+    getJobResponse_billableDuration,
     getJobResponse_checkpointConfig,
     getJobResponse_deviceConfig,
+    getJobResponse_endedAt,
+    getJobResponse_events,
+    getJobResponse_failureReason,
+    getJobResponse_hyperParameters,
+    getJobResponse_inputDataConfig,
     getJobResponse_startedAt,
     getJobResponse_stoppingCondition,
-    getJobResponse_events,
-    getJobResponse_inputDataConfig,
-    getJobResponse_hyperParameters,
-    getJobResponse_billableDuration,
-    getJobResponse_failureReason,
+    getJobResponse_tags,
     getJobResponse_httpStatus,
     getJobResponse_algorithmSpecification,
     getJobResponse_createdAt,
@@ -91,10 +91,10 @@ module Amazonka.Braket.Lens
 
     -- ** GetQuantumTask
     getQuantumTask_quantumTaskArn,
-    getQuantumTaskResponse_tags,
     getQuantumTaskResponse_endedAt,
-    getQuantumTaskResponse_jobArn,
     getQuantumTaskResponse_failureReason,
+    getQuantumTaskResponse_jobArn,
+    getQuantumTaskResponse_tags,
     getQuantumTaskResponse_httpStatus,
     getQuantumTaskResponse_createdAt,
     getQuantumTaskResponse_deviceArn,
@@ -111,24 +111,24 @@ module Amazonka.Braket.Lens
     listTagsForResourceResponse_httpStatus,
 
     -- ** SearchDevices
-    searchDevices_nextToken,
     searchDevices_maxResults,
+    searchDevices_nextToken,
     searchDevices_filters,
     searchDevicesResponse_nextToken,
     searchDevicesResponse_httpStatus,
     searchDevicesResponse_devices,
 
     -- ** SearchJobs
-    searchJobs_nextToken,
     searchJobs_maxResults,
+    searchJobs_nextToken,
     searchJobs_filters,
     searchJobsResponse_nextToken,
     searchJobsResponse_httpStatus,
     searchJobsResponse_jobs,
 
     -- ** SearchQuantumTasks
-    searchQuantumTasks_nextToken,
     searchQuantumTasks_maxResults,
+    searchQuantumTasks_nextToken,
     searchQuantumTasks_filters,
     searchQuantumTasksResponse_nextToken,
     searchQuantumTasksResponse_httpStatus,
@@ -181,8 +181,8 @@ module Amazonka.Braket.Lens
     jobCheckpointConfig_s3Uri,
 
     -- ** JobEventDetails
-    jobEventDetails_message,
     jobEventDetails_eventType,
+    jobEventDetails_message,
     jobEventDetails_timeOfEvent,
 
     -- ** JobOutputDataConfig
@@ -193,9 +193,9 @@ module Amazonka.Braket.Lens
     jobStoppingCondition_maxRuntimeInSeconds,
 
     -- ** JobSummary
-    jobSummary_tags,
     jobSummary_endedAt,
     jobSummary_startedAt,
+    jobSummary_tags,
     jobSummary_createdAt,
     jobSummary_device,
     jobSummary_jobArn,
@@ -203,8 +203,8 @@ module Amazonka.Braket.Lens
     jobSummary_status,
 
     -- ** QuantumTaskSummary
-    quantumTaskSummary_tags,
     quantumTaskSummary_endedAt,
+    quantumTaskSummary_tags,
     quantumTaskSummary_createdAt,
     quantumTaskSummary_deviceArn,
     quantumTaskSummary_outputS3Bucket,

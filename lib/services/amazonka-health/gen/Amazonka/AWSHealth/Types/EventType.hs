@@ -43,17 +43,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEventType' smart constructor.
 data EventType = EventType'
-  { -- | The unique identifier for the event type. The format is
+  { -- | A list of event type category codes. Possible values are @issue@,
+    -- @accountNotification@, or @scheduledChange@. Currently, the
+    -- @investigation@ value isn\'t supported at this time.
+    category :: Prelude.Maybe EventTypeCategory,
+    -- | The unique identifier for the event type. The format is
     -- @AWS_SERVICE_DESCRIPTION @; for example,
     -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.
     code :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services service that is affected by the event. For
     -- example, @EC2@, @RDS@.
-    service :: Prelude.Maybe Prelude.Text,
-    -- | A list of event type category codes. Possible values are @issue@,
-    -- @accountNotification@, or @scheduledChange@. Currently, the
-    -- @investigation@ value isn\'t supported at this time.
-    category :: Prelude.Maybe EventTypeCategory
+    service :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,24 +65,30 @@ data EventType = EventType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'category', 'eventType_category' - A list of event type category codes. Possible values are @issue@,
+-- @accountNotification@, or @scheduledChange@. Currently, the
+-- @investigation@ value isn\'t supported at this time.
+--
 -- 'code', 'eventType_code' - The unique identifier for the event type. The format is
 -- @AWS_SERVICE_DESCRIPTION @; for example,
 -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.
 --
 -- 'service', 'eventType_service' - The Amazon Web Services service that is affected by the event. For
 -- example, @EC2@, @RDS@.
---
--- 'category', 'eventType_category' - A list of event type category codes. Possible values are @issue@,
--- @accountNotification@, or @scheduledChange@. Currently, the
--- @investigation@ value isn\'t supported at this time.
 newEventType ::
   EventType
 newEventType =
   EventType'
-    { code = Prelude.Nothing,
-      service = Prelude.Nothing,
-      category = Prelude.Nothing
+    { category = Prelude.Nothing,
+      code = Prelude.Nothing,
+      service = Prelude.Nothing
     }
+
+-- | A list of event type category codes. Possible values are @issue@,
+-- @accountNotification@, or @scheduledChange@. Currently, the
+-- @investigation@ value isn\'t supported at this time.
+eventType_category :: Lens.Lens' EventType (Prelude.Maybe EventTypeCategory)
+eventType_category = Lens.lens (\EventType' {category} -> category) (\s@EventType' {} a -> s {category = a} :: EventType)
 
 -- | The unique identifier for the event type. The format is
 -- @AWS_SERVICE_DESCRIPTION @; for example,
@@ -95,31 +101,25 @@ eventType_code = Lens.lens (\EventType' {code} -> code) (\s@EventType' {} a -> s
 eventType_service :: Lens.Lens' EventType (Prelude.Maybe Prelude.Text)
 eventType_service = Lens.lens (\EventType' {service} -> service) (\s@EventType' {} a -> s {service = a} :: EventType)
 
--- | A list of event type category codes. Possible values are @issue@,
--- @accountNotification@, or @scheduledChange@. Currently, the
--- @investigation@ value isn\'t supported at this time.
-eventType_category :: Lens.Lens' EventType (Prelude.Maybe EventTypeCategory)
-eventType_category = Lens.lens (\EventType' {category} -> category) (\s@EventType' {} a -> s {category = a} :: EventType)
-
 instance Data.FromJSON EventType where
   parseJSON =
     Data.withObject
       "EventType"
       ( \x ->
           EventType'
-            Prelude.<$> (x Data..:? "code")
+            Prelude.<$> (x Data..:? "category")
+            Prelude.<*> (x Data..:? "code")
             Prelude.<*> (x Data..:? "service")
-            Prelude.<*> (x Data..:? "category")
       )
 
 instance Prelude.Hashable EventType where
   hashWithSalt _salt EventType' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` service
-      `Prelude.hashWithSalt` category
 
 instance Prelude.NFData EventType where
   rnf EventType' {..} =
-    Prelude.rnf code
+    Prelude.rnf category
+      `Prelude.seq` Prelude.rnf code
       `Prelude.seq` Prelude.rnf service
-      `Prelude.seq` Prelude.rnf category

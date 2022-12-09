@@ -34,9 +34,9 @@ module Amazonka.AWSHealth.DescribeEventAggregates
     newDescribeEventAggregates,
 
     -- * Request Lenses
-    describeEventAggregates_nextToken,
     describeEventAggregates_filter,
     describeEventAggregates_maxResults,
+    describeEventAggregates_nextToken,
     describeEventAggregates_aggregateField,
 
     -- * Destructuring the Response
@@ -60,17 +60,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeEventAggregates' smart constructor.
 data DescribeEventAggregates = DescribeEventAggregates'
-  { -- | If the results of a search are large, only a portion of the results are
+  { -- | Values to narrow the results returned.
+    filter' :: Prelude.Maybe EventFilter,
+    -- | The maximum number of items to return in one batch, between 10 and 100,
+    -- inclusive.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the results of a search are large, only a portion of the results are
     -- returned, and a @nextToken@ pagination token is returned in the
     -- response. To retrieve the next batch of results, reissue the search
     -- request and include the returned token. When all results have been
     -- returned, the response does not contain a pagination token value.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Values to narrow the results returned.
-    filter' :: Prelude.Maybe EventFilter,
-    -- | The maximum number of items to return in one batch, between 10 and 100,
-    -- inclusive.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The only currently supported value is @eventTypeCategory@.
     aggregateField :: EventAggregateField
   }
@@ -84,16 +84,16 @@ data DescribeEventAggregates = DescribeEventAggregates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filter'', 'describeEventAggregates_filter' - Values to narrow the results returned.
+--
+-- 'maxResults', 'describeEventAggregates_maxResults' - The maximum number of items to return in one batch, between 10 and 100,
+-- inclusive.
+--
 -- 'nextToken', 'describeEventAggregates_nextToken' - If the results of a search are large, only a portion of the results are
 -- returned, and a @nextToken@ pagination token is returned in the
 -- response. To retrieve the next batch of results, reissue the search
 -- request and include the returned token. When all results have been
 -- returned, the response does not contain a pagination token value.
---
--- 'filter'', 'describeEventAggregates_filter' - Values to narrow the results returned.
---
--- 'maxResults', 'describeEventAggregates_maxResults' - The maximum number of items to return in one batch, between 10 and 100,
--- inclusive.
 --
 -- 'aggregateField', 'describeEventAggregates_aggregateField' - The only currently supported value is @eventTypeCategory@.
 newDescribeEventAggregates ::
@@ -102,20 +102,11 @@ newDescribeEventAggregates ::
   DescribeEventAggregates
 newDescribeEventAggregates pAggregateField_ =
   DescribeEventAggregates'
-    { nextToken =
-        Prelude.Nothing,
-      filter' = Prelude.Nothing,
+    { filter' = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       aggregateField = pAggregateField_
     }
-
--- | If the results of a search are large, only a portion of the results are
--- returned, and a @nextToken@ pagination token is returned in the
--- response. To retrieve the next batch of results, reissue the search
--- request and include the returned token. When all results have been
--- returned, the response does not contain a pagination token value.
-describeEventAggregates_nextToken :: Lens.Lens' DescribeEventAggregates (Prelude.Maybe Prelude.Text)
-describeEventAggregates_nextToken = Lens.lens (\DescribeEventAggregates' {nextToken} -> nextToken) (\s@DescribeEventAggregates' {} a -> s {nextToken = a} :: DescribeEventAggregates)
 
 -- | Values to narrow the results returned.
 describeEventAggregates_filter :: Lens.Lens' DescribeEventAggregates (Prelude.Maybe EventFilter)
@@ -125,6 +116,14 @@ describeEventAggregates_filter = Lens.lens (\DescribeEventAggregates' {filter'} 
 -- inclusive.
 describeEventAggregates_maxResults :: Lens.Lens' DescribeEventAggregates (Prelude.Maybe Prelude.Natural)
 describeEventAggregates_maxResults = Lens.lens (\DescribeEventAggregates' {maxResults} -> maxResults) (\s@DescribeEventAggregates' {} a -> s {maxResults = a} :: DescribeEventAggregates)
+
+-- | If the results of a search are large, only a portion of the results are
+-- returned, and a @nextToken@ pagination token is returned in the
+-- response. To retrieve the next batch of results, reissue the search
+-- request and include the returned token. When all results have been
+-- returned, the response does not contain a pagination token value.
+describeEventAggregates_nextToken :: Lens.Lens' DescribeEventAggregates (Prelude.Maybe Prelude.Text)
+describeEventAggregates_nextToken = Lens.lens (\DescribeEventAggregates' {nextToken} -> nextToken) (\s@DescribeEventAggregates' {} a -> s {nextToken = a} :: DescribeEventAggregates)
 
 -- | The only currently supported value is @eventTypeCategory@.
 describeEventAggregates_aggregateField :: Lens.Lens' DescribeEventAggregates EventAggregateField
@@ -171,16 +170,16 @@ instance Core.AWSRequest DescribeEventAggregates where
 
 instance Prelude.Hashable DescribeEventAggregates where
   hashWithSalt _salt DescribeEventAggregates' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filter'
+    _salt `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` aggregateField
 
 instance Prelude.NFData DescribeEventAggregates where
   rnf DescribeEventAggregates' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf aggregateField
 
 instance Data.ToHeaders DescribeEventAggregates where
@@ -202,9 +201,9 @@ instance Data.ToJSON DescribeEventAggregates where
   toJSON DescribeEventAggregates' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("filter" Data..=) Prelude.<$> filter',
+          [ ("filter" Data..=) Prelude.<$> filter',
             ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("aggregateField" Data..= aggregateField)
           ]

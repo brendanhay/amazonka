@@ -41,13 +41,13 @@ module Amazonka.AWSHealth.Types
     AffectedEntity (..),
     newAffectedEntity,
     affectedEntity_awsAccountId,
-    affectedEntity_tags,
+    affectedEntity_entityArn,
+    affectedEntity_entityUrl,
     affectedEntity_entityValue,
     affectedEntity_eventArn,
-    affectedEntity_entityUrl,
     affectedEntity_lastUpdatedTime,
     affectedEntity_statusCode,
-    affectedEntity_entityArn,
+    affectedEntity_tags,
 
     -- * DateTimeRange
     DateTimeRange (..),
@@ -58,33 +58,33 @@ module Amazonka.AWSHealth.Types
     -- * EntityAggregate
     EntityAggregate (..),
     newEntityAggregate,
-    entityAggregate_eventArn,
     entityAggregate_count,
+    entityAggregate_eventArn,
 
     -- * EntityFilter
     EntityFilter (..),
     newEntityFilter,
-    entityFilter_tags,
     entityFilter_entityArns,
-    entityFilter_lastUpdatedTimes,
     entityFilter_entityValues,
+    entityFilter_lastUpdatedTimes,
     entityFilter_statusCodes,
+    entityFilter_tags,
     entityFilter_eventArns,
 
     -- * Event
     Event (..),
     newEvent,
     event_arn,
-    event_lastUpdatedTime,
-    event_endTime,
     event_availabilityZone,
-    event_service,
+    event_endTime,
     event_eventScopeCode,
-    event_region,
-    event_eventTypeCode,
     event_eventTypeCategory,
-    event_statusCode,
+    event_eventTypeCode,
+    event_lastUpdatedTime,
+    event_region,
+    event_service,
     event_startTime,
+    event_statusCode,
 
     -- * EventAccountFilter
     EventAccountFilter (..),
@@ -106,99 +106,99 @@ module Amazonka.AWSHealth.Types
     -- * EventDetails
     EventDetails (..),
     newEventDetails,
-    eventDetails_eventMetadata,
     eventDetails_event,
     eventDetails_eventDescription,
+    eventDetails_eventMetadata,
 
     -- * EventDetailsErrorItem
     EventDetailsErrorItem (..),
     newEventDetailsErrorItem,
-    eventDetailsErrorItem_eventArn,
     eventDetailsErrorItem_errorMessage,
     eventDetailsErrorItem_errorName,
+    eventDetailsErrorItem_eventArn,
 
     -- * EventFilter
     EventFilter (..),
     newEventFilter,
-    eventFilter_tags,
-    eventFilter_startTimes,
-    eventFilter_entityArns,
-    eventFilter_eventArns,
-    eventFilter_regions,
     eventFilter_availabilityZones,
-    eventFilter_services,
-    eventFilter_eventStatusCodes,
-    eventFilter_eventTypeCodes,
     eventFilter_endTimes,
-    eventFilter_lastUpdatedTimes,
+    eventFilter_entityArns,
     eventFilter_entityValues,
+    eventFilter_eventArns,
+    eventFilter_eventStatusCodes,
     eventFilter_eventTypeCategories,
+    eventFilter_eventTypeCodes,
+    eventFilter_lastUpdatedTimes,
+    eventFilter_regions,
+    eventFilter_services,
+    eventFilter_startTimes,
+    eventFilter_tags,
 
     -- * EventType
     EventType (..),
     newEventType,
+    eventType_category,
     eventType_code,
     eventType_service,
-    eventType_category,
 
     -- * EventTypeFilter
     EventTypeFilter (..),
     newEventTypeFilter,
-    eventTypeFilter_services,
-    eventTypeFilter_eventTypeCodes,
     eventTypeFilter_eventTypeCategories,
+    eventTypeFilter_eventTypeCodes,
+    eventTypeFilter_services,
 
     -- * OrganizationAffectedEntitiesErrorItem
     OrganizationAffectedEntitiesErrorItem (..),
     newOrganizationAffectedEntitiesErrorItem,
     organizationAffectedEntitiesErrorItem_awsAccountId,
-    organizationAffectedEntitiesErrorItem_eventArn,
     organizationAffectedEntitiesErrorItem_errorMessage,
     organizationAffectedEntitiesErrorItem_errorName,
+    organizationAffectedEntitiesErrorItem_eventArn,
 
     -- * OrganizationEvent
     OrganizationEvent (..),
     newOrganizationEvent,
     organizationEvent_arn,
-    organizationEvent_lastUpdatedTime,
     organizationEvent_endTime,
-    organizationEvent_service,
     organizationEvent_eventScopeCode,
-    organizationEvent_region,
-    organizationEvent_eventTypeCode,
     organizationEvent_eventTypeCategory,
-    organizationEvent_statusCode,
+    organizationEvent_eventTypeCode,
+    organizationEvent_lastUpdatedTime,
+    organizationEvent_region,
+    organizationEvent_service,
     organizationEvent_startTime,
+    organizationEvent_statusCode,
 
     -- * OrganizationEventDetails
     OrganizationEventDetails (..),
     newOrganizationEventDetails,
     organizationEventDetails_awsAccountId,
-    organizationEventDetails_eventMetadata,
     organizationEventDetails_event,
     organizationEventDetails_eventDescription,
+    organizationEventDetails_eventMetadata,
 
     -- * OrganizationEventDetailsErrorItem
     OrganizationEventDetailsErrorItem (..),
     newOrganizationEventDetailsErrorItem,
     organizationEventDetailsErrorItem_awsAccountId,
-    organizationEventDetailsErrorItem_eventArn,
     organizationEventDetailsErrorItem_errorMessage,
     organizationEventDetailsErrorItem_errorName,
+    organizationEventDetailsErrorItem_eventArn,
 
     -- * OrganizationEventFilter
     OrganizationEventFilter (..),
     newOrganizationEventFilter,
     organizationEventFilter_awsAccountIds,
-    organizationEventFilter_entityArns,
-    organizationEventFilter_regions,
-    organizationEventFilter_lastUpdatedTime,
     organizationEventFilter_endTime,
-    organizationEventFilter_services,
-    organizationEventFilter_eventStatusCodes,
-    organizationEventFilter_eventTypeCodes,
+    organizationEventFilter_entityArns,
     organizationEventFilter_entityValues,
+    organizationEventFilter_eventStatusCodes,
     organizationEventFilter_eventTypeCategories,
+    organizationEventFilter_eventTypeCodes,
+    organizationEventFilter_lastUpdatedTime,
+    organizationEventFilter_regions,
+    organizationEventFilter_services,
     organizationEventFilter_startTime,
   )
 where
@@ -256,28 +256,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -285,13 +279,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -299,6 +297,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | <https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html EnableHealthServiceAccessForOrganization>

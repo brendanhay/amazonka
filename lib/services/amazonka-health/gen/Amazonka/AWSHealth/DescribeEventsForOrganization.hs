@@ -55,18 +55,18 @@ module Amazonka.AWSHealth.DescribeEventsForOrganization
     newDescribeEventsForOrganization,
 
     -- * Request Lenses
-    describeEventsForOrganization_nextToken,
-    describeEventsForOrganization_locale,
     describeEventsForOrganization_filter,
+    describeEventsForOrganization_locale,
     describeEventsForOrganization_maxResults,
+    describeEventsForOrganization_nextToken,
 
     -- * Destructuring the Response
     DescribeEventsForOrganizationResponse (..),
     newDescribeEventsForOrganizationResponse,
 
     -- * Response Lenses
-    describeEventsForOrganizationResponse_nextToken,
     describeEventsForOrganizationResponse_events,
+    describeEventsForOrganizationResponse_nextToken,
     describeEventsForOrganizationResponse_httpStatus,
   )
 where
@@ -81,20 +81,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeEventsForOrganization' smart constructor.
 data DescribeEventsForOrganization = DescribeEventsForOrganization'
-  { -- | If the results of a search are large, only a portion of the results are
+  { -- | Values to narrow the results returned.
+    filter' :: Prelude.Maybe OrganizationEventFilter,
+    -- | The locale (language) to return information in. English (en) is the
+    -- default and the only supported value at this time.
+    locale :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return in one batch, between 10 and 100,
+    -- inclusive.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the results of a search are large, only a portion of the results are
     -- returned, and a @nextToken@ pagination token is returned in the
     -- response. To retrieve the next batch of results, reissue the search
     -- request and include the returned token. When all results have been
     -- returned, the response does not contain a pagination token value.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The locale (language) to return information in. English (en) is the
-    -- default and the only supported value at this time.
-    locale :: Prelude.Maybe Prelude.Text,
-    -- | Values to narrow the results returned.
-    filter' :: Prelude.Maybe OrganizationEventFilter,
-    -- | The maximum number of items to return in one batch, between 10 and 100,
-    -- inclusive.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -106,29 +106,43 @@ data DescribeEventsForOrganization = DescribeEventsForOrganization'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filter'', 'describeEventsForOrganization_filter' - Values to narrow the results returned.
+--
+-- 'locale', 'describeEventsForOrganization_locale' - The locale (language) to return information in. English (en) is the
+-- default and the only supported value at this time.
+--
+-- 'maxResults', 'describeEventsForOrganization_maxResults' - The maximum number of items to return in one batch, between 10 and 100,
+-- inclusive.
+--
 -- 'nextToken', 'describeEventsForOrganization_nextToken' - If the results of a search are large, only a portion of the results are
 -- returned, and a @nextToken@ pagination token is returned in the
 -- response. To retrieve the next batch of results, reissue the search
 -- request and include the returned token. When all results have been
 -- returned, the response does not contain a pagination token value.
---
--- 'locale', 'describeEventsForOrganization_locale' - The locale (language) to return information in. English (en) is the
--- default and the only supported value at this time.
---
--- 'filter'', 'describeEventsForOrganization_filter' - Values to narrow the results returned.
---
--- 'maxResults', 'describeEventsForOrganization_maxResults' - The maximum number of items to return in one batch, between 10 and 100,
--- inclusive.
 newDescribeEventsForOrganization ::
   DescribeEventsForOrganization
 newDescribeEventsForOrganization =
   DescribeEventsForOrganization'
-    { nextToken =
+    { filter' =
         Prelude.Nothing,
       locale = Prelude.Nothing,
-      filter' = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | Values to narrow the results returned.
+describeEventsForOrganization_filter :: Lens.Lens' DescribeEventsForOrganization (Prelude.Maybe OrganizationEventFilter)
+describeEventsForOrganization_filter = Lens.lens (\DescribeEventsForOrganization' {filter'} -> filter') (\s@DescribeEventsForOrganization' {} a -> s {filter' = a} :: DescribeEventsForOrganization)
+
+-- | The locale (language) to return information in. English (en) is the
+-- default and the only supported value at this time.
+describeEventsForOrganization_locale :: Lens.Lens' DescribeEventsForOrganization (Prelude.Maybe Prelude.Text)
+describeEventsForOrganization_locale = Lens.lens (\DescribeEventsForOrganization' {locale} -> locale) (\s@DescribeEventsForOrganization' {} a -> s {locale = a} :: DescribeEventsForOrganization)
+
+-- | The maximum number of items to return in one batch, between 10 and 100,
+-- inclusive.
+describeEventsForOrganization_maxResults :: Lens.Lens' DescribeEventsForOrganization (Prelude.Maybe Prelude.Natural)
+describeEventsForOrganization_maxResults = Lens.lens (\DescribeEventsForOrganization' {maxResults} -> maxResults) (\s@DescribeEventsForOrganization' {} a -> s {maxResults = a} :: DescribeEventsForOrganization)
 
 -- | If the results of a search are large, only a portion of the results are
 -- returned, and a @nextToken@ pagination token is returned in the
@@ -137,20 +151,6 @@ newDescribeEventsForOrganization =
 -- returned, the response does not contain a pagination token value.
 describeEventsForOrganization_nextToken :: Lens.Lens' DescribeEventsForOrganization (Prelude.Maybe Prelude.Text)
 describeEventsForOrganization_nextToken = Lens.lens (\DescribeEventsForOrganization' {nextToken} -> nextToken) (\s@DescribeEventsForOrganization' {} a -> s {nextToken = a} :: DescribeEventsForOrganization)
-
--- | The locale (language) to return information in. English (en) is the
--- default and the only supported value at this time.
-describeEventsForOrganization_locale :: Lens.Lens' DescribeEventsForOrganization (Prelude.Maybe Prelude.Text)
-describeEventsForOrganization_locale = Lens.lens (\DescribeEventsForOrganization' {locale} -> locale) (\s@DescribeEventsForOrganization' {} a -> s {locale = a} :: DescribeEventsForOrganization)
-
--- | Values to narrow the results returned.
-describeEventsForOrganization_filter :: Lens.Lens' DescribeEventsForOrganization (Prelude.Maybe OrganizationEventFilter)
-describeEventsForOrganization_filter = Lens.lens (\DescribeEventsForOrganization' {filter'} -> filter') (\s@DescribeEventsForOrganization' {} a -> s {filter' = a} :: DescribeEventsForOrganization)
-
--- | The maximum number of items to return in one batch, between 10 and 100,
--- inclusive.
-describeEventsForOrganization_maxResults :: Lens.Lens' DescribeEventsForOrganization (Prelude.Maybe Prelude.Natural)
-describeEventsForOrganization_maxResults = Lens.lens (\DescribeEventsForOrganization' {maxResults} -> maxResults) (\s@DescribeEventsForOrganization' {} a -> s {maxResults = a} :: DescribeEventsForOrganization)
 
 instance Core.AWSPager DescribeEventsForOrganization where
   page rq rs
@@ -187,8 +187,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeEventsForOrganizationResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "events" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "events" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -197,17 +197,17 @@ instance
     DescribeEventsForOrganization
   where
   hashWithSalt _salt DescribeEventsForOrganization' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` locale
-      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeEventsForOrganization where
   rnf DescribeEventsForOrganization' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf locale
-      `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeEventsForOrganization where
   toHeaders =
@@ -228,10 +228,10 @@ instance Data.ToJSON DescribeEventsForOrganization where
   toJSON DescribeEventsForOrganization' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+          [ ("filter" Data..=) Prelude.<$> filter',
             ("locale" Data..=) Prelude.<$> locale,
-            ("filter" Data..=) Prelude.<$> filter',
-            ("maxResults" Data..=) Prelude.<$> maxResults
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -243,14 +243,14 @@ instance Data.ToQuery DescribeEventsForOrganization where
 
 -- | /See:/ 'newDescribeEventsForOrganizationResponse' smart constructor.
 data DescribeEventsForOrganizationResponse = DescribeEventsForOrganizationResponse'
-  { -- | If the results of a search are large, only a portion of the results are
+  { -- | The events that match the specified filter criteria.
+    events :: Prelude.Maybe [OrganizationEvent],
+    -- | If the results of a search are large, only a portion of the results are
     -- returned, and a @nextToken@ pagination token is returned in the
     -- response. To retrieve the next batch of results, reissue the search
     -- request and include the returned token. When all results have been
     -- returned, the response does not contain a pagination token value.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The events that match the specified filter criteria.
-    events :: Prelude.Maybe [OrganizationEvent],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -264,13 +264,13 @@ data DescribeEventsForOrganizationResponse = DescribeEventsForOrganizationRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'events', 'describeEventsForOrganizationResponse_events' - The events that match the specified filter criteria.
+--
 -- 'nextToken', 'describeEventsForOrganizationResponse_nextToken' - If the results of a search are large, only a portion of the results are
 -- returned, and a @nextToken@ pagination token is returned in the
 -- response. To retrieve the next batch of results, reissue the search
 -- request and include the returned token. When all results have been
 -- returned, the response does not contain a pagination token value.
---
--- 'events', 'describeEventsForOrganizationResponse_events' - The events that match the specified filter criteria.
 --
 -- 'httpStatus', 'describeEventsForOrganizationResponse_httpStatus' - The response's http status code.
 newDescribeEventsForOrganizationResponse ::
@@ -279,11 +279,15 @@ newDescribeEventsForOrganizationResponse ::
   DescribeEventsForOrganizationResponse
 newDescribeEventsForOrganizationResponse pHttpStatus_ =
   DescribeEventsForOrganizationResponse'
-    { nextToken =
+    { events =
         Prelude.Nothing,
-      events = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The events that match the specified filter criteria.
+describeEventsForOrganizationResponse_events :: Lens.Lens' DescribeEventsForOrganizationResponse (Prelude.Maybe [OrganizationEvent])
+describeEventsForOrganizationResponse_events = Lens.lens (\DescribeEventsForOrganizationResponse' {events} -> events) (\s@DescribeEventsForOrganizationResponse' {} a -> s {events = a} :: DescribeEventsForOrganizationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the results of a search are large, only a portion of the results are
 -- returned, and a @nextToken@ pagination token is returned in the
@@ -292,10 +296,6 @@ newDescribeEventsForOrganizationResponse pHttpStatus_ =
 -- returned, the response does not contain a pagination token value.
 describeEventsForOrganizationResponse_nextToken :: Lens.Lens' DescribeEventsForOrganizationResponse (Prelude.Maybe Prelude.Text)
 describeEventsForOrganizationResponse_nextToken = Lens.lens (\DescribeEventsForOrganizationResponse' {nextToken} -> nextToken) (\s@DescribeEventsForOrganizationResponse' {} a -> s {nextToken = a} :: DescribeEventsForOrganizationResponse)
-
--- | The events that match the specified filter criteria.
-describeEventsForOrganizationResponse_events :: Lens.Lens' DescribeEventsForOrganizationResponse (Prelude.Maybe [OrganizationEvent])
-describeEventsForOrganizationResponse_events = Lens.lens (\DescribeEventsForOrganizationResponse' {events} -> events) (\s@DescribeEventsForOrganizationResponse' {} a -> s {events = a} :: DescribeEventsForOrganizationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeEventsForOrganizationResponse_httpStatus :: Lens.Lens' DescribeEventsForOrganizationResponse Prelude.Int
@@ -306,6 +306,6 @@ instance
     DescribeEventsForOrganizationResponse
   where
   rnf DescribeEventsForOrganizationResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf events
+    Prelude.rnf events
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -72,8 +72,8 @@ module Amazonka.AWSHealth.DescribeEventDetailsForOrganization
     newDescribeEventDetailsForOrganizationResponse,
 
     -- * Response Lenses
-    describeEventDetailsForOrganizationResponse_successfulSet,
     describeEventDetailsForOrganizationResponse_failedSet,
+    describeEventDetailsForOrganizationResponse_successfulSet,
     describeEventDetailsForOrganizationResponse_httpStatus,
   )
 where
@@ -147,8 +147,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeEventDetailsForOrganizationResponse'
-            Prelude.<$> (x Data..?> "successfulSet" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Data..?> "failedSet" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "failedSet" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Data..?> "successfulSet" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -217,10 +217,10 @@ instance
 
 -- | /See:/ 'newDescribeEventDetailsForOrganizationResponse' smart constructor.
 data DescribeEventDetailsForOrganizationResponse = DescribeEventDetailsForOrganizationResponse'
-  { -- | Information about the events that could be retrieved.
-    successfulSet :: Prelude.Maybe [OrganizationEventDetails],
-    -- | Error messages for any events that could not be retrieved.
+  { -- | Error messages for any events that could not be retrieved.
     failedSet :: Prelude.Maybe [OrganizationEventDetailsErrorItem],
+    -- | Information about the events that could be retrieved.
+    successfulSet :: Prelude.Maybe [OrganizationEventDetails],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -234,9 +234,9 @@ data DescribeEventDetailsForOrganizationResponse = DescribeEventDetailsForOrgani
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'successfulSet', 'describeEventDetailsForOrganizationResponse_successfulSet' - Information about the events that could be retrieved.
---
 -- 'failedSet', 'describeEventDetailsForOrganizationResponse_failedSet' - Error messages for any events that could not be retrieved.
+--
+-- 'successfulSet', 'describeEventDetailsForOrganizationResponse_successfulSet' - Information about the events that could be retrieved.
 --
 -- 'httpStatus', 'describeEventDetailsForOrganizationResponse_httpStatus' - The response's http status code.
 newDescribeEventDetailsForOrganizationResponse ::
@@ -246,19 +246,20 @@ newDescribeEventDetailsForOrganizationResponse ::
 newDescribeEventDetailsForOrganizationResponse
   pHttpStatus_ =
     DescribeEventDetailsForOrganizationResponse'
-      { successfulSet =
+      { failedSet =
           Prelude.Nothing,
-        failedSet = Prelude.Nothing,
+        successfulSet =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Information about the events that could be retrieved.
-describeEventDetailsForOrganizationResponse_successfulSet :: Lens.Lens' DescribeEventDetailsForOrganizationResponse (Prelude.Maybe [OrganizationEventDetails])
-describeEventDetailsForOrganizationResponse_successfulSet = Lens.lens (\DescribeEventDetailsForOrganizationResponse' {successfulSet} -> successfulSet) (\s@DescribeEventDetailsForOrganizationResponse' {} a -> s {successfulSet = a} :: DescribeEventDetailsForOrganizationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Error messages for any events that could not be retrieved.
 describeEventDetailsForOrganizationResponse_failedSet :: Lens.Lens' DescribeEventDetailsForOrganizationResponse (Prelude.Maybe [OrganizationEventDetailsErrorItem])
 describeEventDetailsForOrganizationResponse_failedSet = Lens.lens (\DescribeEventDetailsForOrganizationResponse' {failedSet} -> failedSet) (\s@DescribeEventDetailsForOrganizationResponse' {} a -> s {failedSet = a} :: DescribeEventDetailsForOrganizationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Information about the events that could be retrieved.
+describeEventDetailsForOrganizationResponse_successfulSet :: Lens.Lens' DescribeEventDetailsForOrganizationResponse (Prelude.Maybe [OrganizationEventDetails])
+describeEventDetailsForOrganizationResponse_successfulSet = Lens.lens (\DescribeEventDetailsForOrganizationResponse' {successfulSet} -> successfulSet) (\s@DescribeEventDetailsForOrganizationResponse' {} a -> s {successfulSet = a} :: DescribeEventDetailsForOrganizationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeEventDetailsForOrganizationResponse_httpStatus :: Lens.Lens' DescribeEventDetailsForOrganizationResponse Prelude.Int
@@ -269,6 +270,6 @@ instance
     DescribeEventDetailsForOrganizationResponse
   where
   rnf DescribeEventDetailsForOrganizationResponse' {..} =
-    Prelude.rnf successfulSet
-      `Prelude.seq` Prelude.rnf failedSet
+    Prelude.rnf failedSet
+      `Prelude.seq` Prelude.rnf successfulSet
       `Prelude.seq` Prelude.rnf httpStatus

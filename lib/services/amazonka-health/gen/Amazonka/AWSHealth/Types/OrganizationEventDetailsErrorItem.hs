@@ -34,14 +34,6 @@ data OrganizationEventDetailsErrorItem = OrganizationEventDetailsErrorItem'
     -- <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html DescribeEventDetailsForOrganization>
     -- operation can\'t find a specified event.
     awsAccountId :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the event. The event ARN has the
-    -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
-    -- format.
-    --
-    -- For example, an event ARN might look like the following:
-    --
-    -- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
-    eventArn :: Prelude.Maybe Prelude.Text,
     -- | A message that describes the error.
     --
     -- If you call the @DescribeEventDetailsForOrganization@ operation and
@@ -62,7 +54,15 @@ data OrganizationEventDetailsErrorItem = OrganizationEventDetailsErrorItem'
     --     either a Business, Enterprise On-Ramp, or Enterprise Support plan.
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The name of the error.
-    errorName :: Prelude.Maybe Prelude.Text
+    errorName :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the event. The event ARN has the
+    -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+    -- format.
+    --
+    -- For example, an event ARN might look like the following:
+    --
+    -- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
+    eventArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,14 +77,6 @@ data OrganizationEventDetailsErrorItem = OrganizationEventDetailsErrorItem'
 -- 'awsAccountId', 'organizationEventDetailsErrorItem_awsAccountId' - Error information returned when a
 -- <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html DescribeEventDetailsForOrganization>
 -- operation can\'t find a specified event.
---
--- 'eventArn', 'organizationEventDetailsErrorItem_eventArn' - The unique identifier for the event. The event ARN has the
--- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
--- format.
---
--- For example, an event ARN might look like the following:
---
--- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
 --
 -- 'errorMessage', 'organizationEventDetailsErrorItem_errorMessage' - A message that describes the error.
 --
@@ -106,15 +98,23 @@ data OrganizationEventDetailsErrorItem = OrganizationEventDetailsErrorItem'
 --     either a Business, Enterprise On-Ramp, or Enterprise Support plan.
 --
 -- 'errorName', 'organizationEventDetailsErrorItem_errorName' - The name of the error.
+--
+-- 'eventArn', 'organizationEventDetailsErrorItem_eventArn' - The unique identifier for the event. The event ARN has the
+-- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+-- format.
+--
+-- For example, an event ARN might look like the following:
+--
+-- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
 newOrganizationEventDetailsErrorItem ::
   OrganizationEventDetailsErrorItem
 newOrganizationEventDetailsErrorItem =
   OrganizationEventDetailsErrorItem'
     { awsAccountId =
         Prelude.Nothing,
-      eventArn = Prelude.Nothing,
       errorMessage = Prelude.Nothing,
-      errorName = Prelude.Nothing
+      errorName = Prelude.Nothing,
+      eventArn = Prelude.Nothing
     }
 
 -- | Error information returned when a
@@ -122,16 +122,6 @@ newOrganizationEventDetailsErrorItem =
 -- operation can\'t find a specified event.
 organizationEventDetailsErrorItem_awsAccountId :: Lens.Lens' OrganizationEventDetailsErrorItem (Prelude.Maybe Prelude.Text)
 organizationEventDetailsErrorItem_awsAccountId = Lens.lens (\OrganizationEventDetailsErrorItem' {awsAccountId} -> awsAccountId) (\s@OrganizationEventDetailsErrorItem' {} a -> s {awsAccountId = a} :: OrganizationEventDetailsErrorItem)
-
--- | The unique identifier for the event. The event ARN has the
--- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
--- format.
---
--- For example, an event ARN might look like the following:
---
--- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
-organizationEventDetailsErrorItem_eventArn :: Lens.Lens' OrganizationEventDetailsErrorItem (Prelude.Maybe Prelude.Text)
-organizationEventDetailsErrorItem_eventArn = Lens.lens (\OrganizationEventDetailsErrorItem' {eventArn} -> eventArn) (\s@OrganizationEventDetailsErrorItem' {} a -> s {eventArn = a} :: OrganizationEventDetailsErrorItem)
 
 -- | A message that describes the error.
 --
@@ -158,6 +148,16 @@ organizationEventDetailsErrorItem_errorMessage = Lens.lens (\OrganizationEventDe
 organizationEventDetailsErrorItem_errorName :: Lens.Lens' OrganizationEventDetailsErrorItem (Prelude.Maybe Prelude.Text)
 organizationEventDetailsErrorItem_errorName = Lens.lens (\OrganizationEventDetailsErrorItem' {errorName} -> errorName) (\s@OrganizationEventDetailsErrorItem' {} a -> s {errorName = a} :: OrganizationEventDetailsErrorItem)
 
+-- | The unique identifier for the event. The event ARN has the
+-- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+-- format.
+--
+-- For example, an event ARN might look like the following:
+--
+-- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
+organizationEventDetailsErrorItem_eventArn :: Lens.Lens' OrganizationEventDetailsErrorItem (Prelude.Maybe Prelude.Text)
+organizationEventDetailsErrorItem_eventArn = Lens.lens (\OrganizationEventDetailsErrorItem' {eventArn} -> eventArn) (\s@OrganizationEventDetailsErrorItem' {} a -> s {eventArn = a} :: OrganizationEventDetailsErrorItem)
+
 instance
   Data.FromJSON
     OrganizationEventDetailsErrorItem
@@ -168,9 +168,9 @@ instance
       ( \x ->
           OrganizationEventDetailsErrorItem'
             Prelude.<$> (x Data..:? "awsAccountId")
-            Prelude.<*> (x Data..:? "eventArn")
             Prelude.<*> (x Data..:? "errorMessage")
             Prelude.<*> (x Data..:? "errorName")
+            Prelude.<*> (x Data..:? "eventArn")
       )
 
 instance
@@ -181,9 +181,9 @@ instance
     _salt
     OrganizationEventDetailsErrorItem' {..} =
       _salt `Prelude.hashWithSalt` awsAccountId
-        `Prelude.hashWithSalt` eventArn
         `Prelude.hashWithSalt` errorMessage
         `Prelude.hashWithSalt` errorName
+        `Prelude.hashWithSalt` eventArn
 
 instance
   Prelude.NFData
@@ -191,6 +191,6 @@ instance
   where
   rnf OrganizationEventDetailsErrorItem' {..} =
     Prelude.rnf awsAccountId
-      `Prelude.seq` Prelude.rnf eventArn
       `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf errorName
+      `Prelude.seq` Prelude.rnf eventArn

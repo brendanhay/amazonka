@@ -40,8 +40,8 @@ module Amazonka.AWSHealth.DescribeAffectedAccountsForOrganization
     newDescribeAffectedAccountsForOrganization,
 
     -- * Request Lenses
-    describeAffectedAccountsForOrganization_nextToken,
     describeAffectedAccountsForOrganization_maxResults,
+    describeAffectedAccountsForOrganization_nextToken,
     describeAffectedAccountsForOrganization_eventArn,
 
     -- * Destructuring the Response
@@ -49,9 +49,9 @@ module Amazonka.AWSHealth.DescribeAffectedAccountsForOrganization
     newDescribeAffectedAccountsForOrganizationResponse,
 
     -- * Response Lenses
-    describeAffectedAccountsForOrganizationResponse_nextToken,
-    describeAffectedAccountsForOrganizationResponse_eventScopeCode,
     describeAffectedAccountsForOrganizationResponse_affectedAccounts,
+    describeAffectedAccountsForOrganizationResponse_eventScopeCode,
+    describeAffectedAccountsForOrganizationResponse_nextToken,
     describeAffectedAccountsForOrganizationResponse_httpStatus,
   )
 where
@@ -66,15 +66,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeAffectedAccountsForOrganization' smart constructor.
 data DescribeAffectedAccountsForOrganization = DescribeAffectedAccountsForOrganization'
-  { -- | If the results of a search are large, only a portion of the results are
+  { -- | The maximum number of items to return in one batch, between 10 and 100,
+    -- inclusive.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the results of a search are large, only a portion of the results are
     -- returned, and a @nextToken@ pagination token is returned in the
     -- response. To retrieve the next batch of results, reissue the search
     -- request and include the returned token. When all results have been
     -- returned, the response does not contain a pagination token value.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return in one batch, between 10 and 100,
-    -- inclusive.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The unique identifier for the event. The event ARN has the
     -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
     -- format.
@@ -94,14 +94,14 @@ data DescribeAffectedAccountsForOrganization = DescribeAffectedAccountsForOrgani
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'describeAffectedAccountsForOrganization_maxResults' - The maximum number of items to return in one batch, between 10 and 100,
+-- inclusive.
+--
 -- 'nextToken', 'describeAffectedAccountsForOrganization_nextToken' - If the results of a search are large, only a portion of the results are
 -- returned, and a @nextToken@ pagination token is returned in the
 -- response. To retrieve the next batch of results, reissue the search
 -- request and include the returned token. When all results have been
 -- returned, the response does not contain a pagination token value.
---
--- 'maxResults', 'describeAffectedAccountsForOrganization_maxResults' - The maximum number of items to return in one batch, between 10 and 100,
--- inclusive.
 --
 -- 'eventArn', 'describeAffectedAccountsForOrganization_eventArn' - The unique identifier for the event. The event ARN has the
 -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
@@ -116,11 +116,16 @@ newDescribeAffectedAccountsForOrganization ::
   DescribeAffectedAccountsForOrganization
 newDescribeAffectedAccountsForOrganization pEventArn_ =
   DescribeAffectedAccountsForOrganization'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       eventArn = pEventArn_
     }
+
+-- | The maximum number of items to return in one batch, between 10 and 100,
+-- inclusive.
+describeAffectedAccountsForOrganization_maxResults :: Lens.Lens' DescribeAffectedAccountsForOrganization (Prelude.Maybe Prelude.Natural)
+describeAffectedAccountsForOrganization_maxResults = Lens.lens (\DescribeAffectedAccountsForOrganization' {maxResults} -> maxResults) (\s@DescribeAffectedAccountsForOrganization' {} a -> s {maxResults = a} :: DescribeAffectedAccountsForOrganization)
 
 -- | If the results of a search are large, only a portion of the results are
 -- returned, and a @nextToken@ pagination token is returned in the
@@ -129,11 +134,6 @@ newDescribeAffectedAccountsForOrganization pEventArn_ =
 -- returned, the response does not contain a pagination token value.
 describeAffectedAccountsForOrganization_nextToken :: Lens.Lens' DescribeAffectedAccountsForOrganization (Prelude.Maybe Prelude.Text)
 describeAffectedAccountsForOrganization_nextToken = Lens.lens (\DescribeAffectedAccountsForOrganization' {nextToken} -> nextToken) (\s@DescribeAffectedAccountsForOrganization' {} a -> s {nextToken = a} :: DescribeAffectedAccountsForOrganization)
-
--- | The maximum number of items to return in one batch, between 10 and 100,
--- inclusive.
-describeAffectedAccountsForOrganization_maxResults :: Lens.Lens' DescribeAffectedAccountsForOrganization (Prelude.Maybe Prelude.Natural)
-describeAffectedAccountsForOrganization_maxResults = Lens.lens (\DescribeAffectedAccountsForOrganization' {maxResults} -> maxResults) (\s@DescribeAffectedAccountsForOrganization' {} a -> s {maxResults = a} :: DescribeAffectedAccountsForOrganization)
 
 -- | The unique identifier for the event. The event ARN has the
 -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
@@ -184,11 +184,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeAffectedAccountsForOrganizationResponse'
-            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<$> ( x Data..?> "affectedAccounts"
+                            Core..!@ Prelude.mempty
+                        )
               Prelude.<*> (x Data..?> "eventScopeCode")
-              Prelude.<*> ( x Data..?> "affectedAccounts"
-                              Core..!@ Prelude.mempty
-                          )
+              Prelude.<*> (x Data..?> "nextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -199,8 +199,8 @@ instance
   hashWithSalt
     _salt
     DescribeAffectedAccountsForOrganization' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` eventArn
 
 instance
@@ -208,8 +208,8 @@ instance
     DescribeAffectedAccountsForOrganization
   where
   rnf DescribeAffectedAccountsForOrganization' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf eventArn
 
 instance
@@ -237,8 +237,8 @@ instance
   toJSON DescribeAffectedAccountsForOrganization' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("eventArn" Data..= eventArn)
           ]
       )
@@ -257,12 +257,8 @@ instance
 
 -- | /See:/ 'newDescribeAffectedAccountsForOrganizationResponse' smart constructor.
 data DescribeAffectedAccountsForOrganizationResponse = DescribeAffectedAccountsForOrganizationResponse'
-  { -- | If the results of a search are large, only a portion of the results are
-    -- returned, and a @nextToken@ pagination token is returned in the
-    -- response. To retrieve the next batch of results, reissue the search
-    -- request and include the returned token. When all results have been
-    -- returned, the response does not contain a pagination token value.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | A JSON set of elements of the affected accounts.
+    affectedAccounts :: Prelude.Maybe [Prelude.Text],
     -- | This parameter specifies if the Health event is a public Amazon Web
     -- Services service event or an account-specific event.
     --
@@ -279,8 +275,12 @@ data DescribeAffectedAccountsForOrganizationResponse = DescribeAffectedAccountsF
     -- -   If the @eventScopeCode@ value is @NONE@, then the @eventArn@ that
     --     you specified in the request is invalid or doesn\'t exist.
     eventScopeCode :: Prelude.Maybe EventScopeCode,
-    -- | A JSON set of elements of the affected accounts.
-    affectedAccounts :: Prelude.Maybe [Prelude.Text],
+    -- | If the results of a search are large, only a portion of the results are
+    -- returned, and a @nextToken@ pagination token is returned in the
+    -- response. To retrieve the next batch of results, reissue the search
+    -- request and include the returned token. When all results have been
+    -- returned, the response does not contain a pagination token value.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -294,11 +294,7 @@ data DescribeAffectedAccountsForOrganizationResponse = DescribeAffectedAccountsF
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeAffectedAccountsForOrganizationResponse_nextToken' - If the results of a search are large, only a portion of the results are
--- returned, and a @nextToken@ pagination token is returned in the
--- response. To retrieve the next batch of results, reissue the search
--- request and include the returned token. When all results have been
--- returned, the response does not contain a pagination token value.
+-- 'affectedAccounts', 'describeAffectedAccountsForOrganizationResponse_affectedAccounts' - A JSON set of elements of the affected accounts.
 --
 -- 'eventScopeCode', 'describeAffectedAccountsForOrganizationResponse_eventScopeCode' - This parameter specifies if the Health event is a public Amazon Web
 -- Services service event or an account-specific event.
@@ -316,7 +312,11 @@ data DescribeAffectedAccountsForOrganizationResponse = DescribeAffectedAccountsF
 -- -   If the @eventScopeCode@ value is @NONE@, then the @eventArn@ that
 --     you specified in the request is invalid or doesn\'t exist.
 --
--- 'affectedAccounts', 'describeAffectedAccountsForOrganizationResponse_affectedAccounts' - A JSON set of elements of the affected accounts.
+-- 'nextToken', 'describeAffectedAccountsForOrganizationResponse_nextToken' - If the results of a search are large, only a portion of the results are
+-- returned, and a @nextToken@ pagination token is returned in the
+-- response. To retrieve the next batch of results, reissue the search
+-- request and include the returned token. When all results have been
+-- returned, the response does not contain a pagination token value.
 --
 -- 'httpStatus', 'describeAffectedAccountsForOrganizationResponse_httpStatus' - The response's http status code.
 newDescribeAffectedAccountsForOrganizationResponse ::
@@ -326,22 +326,18 @@ newDescribeAffectedAccountsForOrganizationResponse ::
 newDescribeAffectedAccountsForOrganizationResponse
   pHttpStatus_ =
     DescribeAffectedAccountsForOrganizationResponse'
-      { nextToken =
+      { affectedAccounts =
           Prelude.Nothing,
         eventScopeCode =
           Prelude.Nothing,
-        affectedAccounts =
+        nextToken =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
--- | If the results of a search are large, only a portion of the results are
--- returned, and a @nextToken@ pagination token is returned in the
--- response. To retrieve the next batch of results, reissue the search
--- request and include the returned token. When all results have been
--- returned, the response does not contain a pagination token value.
-describeAffectedAccountsForOrganizationResponse_nextToken :: Lens.Lens' DescribeAffectedAccountsForOrganizationResponse (Prelude.Maybe Prelude.Text)
-describeAffectedAccountsForOrganizationResponse_nextToken = Lens.lens (\DescribeAffectedAccountsForOrganizationResponse' {nextToken} -> nextToken) (\s@DescribeAffectedAccountsForOrganizationResponse' {} a -> s {nextToken = a} :: DescribeAffectedAccountsForOrganizationResponse)
+-- | A JSON set of elements of the affected accounts.
+describeAffectedAccountsForOrganizationResponse_affectedAccounts :: Lens.Lens' DescribeAffectedAccountsForOrganizationResponse (Prelude.Maybe [Prelude.Text])
+describeAffectedAccountsForOrganizationResponse_affectedAccounts = Lens.lens (\DescribeAffectedAccountsForOrganizationResponse' {affectedAccounts} -> affectedAccounts) (\s@DescribeAffectedAccountsForOrganizationResponse' {} a -> s {affectedAccounts = a} :: DescribeAffectedAccountsForOrganizationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | This parameter specifies if the Health event is a public Amazon Web
 -- Services service event or an account-specific event.
@@ -361,9 +357,13 @@ describeAffectedAccountsForOrganizationResponse_nextToken = Lens.lens (\Describe
 describeAffectedAccountsForOrganizationResponse_eventScopeCode :: Lens.Lens' DescribeAffectedAccountsForOrganizationResponse (Prelude.Maybe EventScopeCode)
 describeAffectedAccountsForOrganizationResponse_eventScopeCode = Lens.lens (\DescribeAffectedAccountsForOrganizationResponse' {eventScopeCode} -> eventScopeCode) (\s@DescribeAffectedAccountsForOrganizationResponse' {} a -> s {eventScopeCode = a} :: DescribeAffectedAccountsForOrganizationResponse)
 
--- | A JSON set of elements of the affected accounts.
-describeAffectedAccountsForOrganizationResponse_affectedAccounts :: Lens.Lens' DescribeAffectedAccountsForOrganizationResponse (Prelude.Maybe [Prelude.Text])
-describeAffectedAccountsForOrganizationResponse_affectedAccounts = Lens.lens (\DescribeAffectedAccountsForOrganizationResponse' {affectedAccounts} -> affectedAccounts) (\s@DescribeAffectedAccountsForOrganizationResponse' {} a -> s {affectedAccounts = a} :: DescribeAffectedAccountsForOrganizationResponse) Prelude.. Lens.mapping Lens.coerced
+-- | If the results of a search are large, only a portion of the results are
+-- returned, and a @nextToken@ pagination token is returned in the
+-- response. To retrieve the next batch of results, reissue the search
+-- request and include the returned token. When all results have been
+-- returned, the response does not contain a pagination token value.
+describeAffectedAccountsForOrganizationResponse_nextToken :: Lens.Lens' DescribeAffectedAccountsForOrganizationResponse (Prelude.Maybe Prelude.Text)
+describeAffectedAccountsForOrganizationResponse_nextToken = Lens.lens (\DescribeAffectedAccountsForOrganizationResponse' {nextToken} -> nextToken) (\s@DescribeAffectedAccountsForOrganizationResponse' {} a -> s {nextToken = a} :: DescribeAffectedAccountsForOrganizationResponse)
 
 -- | The response's http status code.
 describeAffectedAccountsForOrganizationResponse_httpStatus :: Lens.Lens' DescribeAffectedAccountsForOrganizationResponse Prelude.Int
@@ -375,7 +375,7 @@ instance
   where
   rnf
     DescribeAffectedAccountsForOrganizationResponse' {..} =
-      Prelude.rnf nextToken
+      Prelude.rnf affectedAccounts
         `Prelude.seq` Prelude.rnf eventScopeCode
-        `Prelude.seq` Prelude.rnf affectedAccounts
+        `Prelude.seq` Prelude.rnf nextToken
         `Prelude.seq` Prelude.rnf httpStatus

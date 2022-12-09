@@ -38,10 +38,10 @@ module Amazonka.SSOOIDC.RegisterClient
     newRegisterClientResponse,
 
     -- * Response Lenses
-    registerClientResponse_clientSecret,
     registerClientResponse_authorizationEndpoint,
     registerClientResponse_clientId,
     registerClientResponse_clientIdIssuedAt,
+    registerClientResponse_clientSecret,
     registerClientResponse_clientSecretExpiresAt,
     registerClientResponse_tokenEndpoint,
     registerClientResponse_httpStatus,
@@ -121,10 +121,10 @@ instance Core.AWSRequest RegisterClient where
     Response.receiveJSON
       ( \s h x ->
           RegisterClientResponse'
-            Prelude.<$> (x Data..?> "clientSecret")
-            Prelude.<*> (x Data..?> "authorizationEndpoint")
+            Prelude.<$> (x Data..?> "authorizationEndpoint")
             Prelude.<*> (x Data..?> "clientId")
             Prelude.<*> (x Data..?> "clientIdIssuedAt")
+            Prelude.<*> (x Data..?> "clientSecret")
             Prelude.<*> (x Data..?> "clientSecretExpiresAt")
             Prelude.<*> (x Data..?> "tokenEndpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -171,10 +171,7 @@ instance Data.ToQuery RegisterClient where
 
 -- | /See:/ 'newRegisterClientResponse' smart constructor.
 data RegisterClientResponse = RegisterClientResponse'
-  { -- | A secret string generated for the client. The client will use this
-    -- string to get authenticated by the service in subsequent calls.
-    clientSecret :: Prelude.Maybe Prelude.Text,
-    -- | The endpoint where the client can request authorization.
+  { -- | The endpoint where the client can request authorization.
     authorizationEndpoint :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier string for each client. This client uses this
     -- identifier to get authenticated by the service in subsequent calls.
@@ -182,6 +179,9 @@ data RegisterClientResponse = RegisterClientResponse'
     -- | Indicates the time at which the @clientId@ and @clientSecret@ were
     -- issued.
     clientIdIssuedAt :: Prelude.Maybe Prelude.Integer,
+    -- | A secret string generated for the client. The client will use this
+    -- string to get authenticated by the service in subsequent calls.
+    clientSecret :: Prelude.Maybe Prelude.Text,
     -- | Indicates the time at which the @clientId@ and @clientSecret@ will
     -- become invalid.
     clientSecretExpiresAt :: Prelude.Maybe Prelude.Integer,
@@ -200,9 +200,6 @@ data RegisterClientResponse = RegisterClientResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientSecret', 'registerClientResponse_clientSecret' - A secret string generated for the client. The client will use this
--- string to get authenticated by the service in subsequent calls.
---
 -- 'authorizationEndpoint', 'registerClientResponse_authorizationEndpoint' - The endpoint where the client can request authorization.
 --
 -- 'clientId', 'registerClientResponse_clientId' - The unique identifier string for each client. This client uses this
@@ -210,6 +207,9 @@ data RegisterClientResponse = RegisterClientResponse'
 --
 -- 'clientIdIssuedAt', 'registerClientResponse_clientIdIssuedAt' - Indicates the time at which the @clientId@ and @clientSecret@ were
 -- issued.
+--
+-- 'clientSecret', 'registerClientResponse_clientSecret' - A secret string generated for the client. The client will use this
+-- string to get authenticated by the service in subsequent calls.
 --
 -- 'clientSecretExpiresAt', 'registerClientResponse_clientSecretExpiresAt' - Indicates the time at which the @clientId@ and @clientSecret@ will
 -- become invalid.
@@ -223,20 +223,15 @@ newRegisterClientResponse ::
   RegisterClientResponse
 newRegisterClientResponse pHttpStatus_ =
   RegisterClientResponse'
-    { clientSecret =
+    { authorizationEndpoint =
         Prelude.Nothing,
-      authorizationEndpoint = Prelude.Nothing,
       clientId = Prelude.Nothing,
       clientIdIssuedAt = Prelude.Nothing,
+      clientSecret = Prelude.Nothing,
       clientSecretExpiresAt = Prelude.Nothing,
       tokenEndpoint = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A secret string generated for the client. The client will use this
--- string to get authenticated by the service in subsequent calls.
-registerClientResponse_clientSecret :: Lens.Lens' RegisterClientResponse (Prelude.Maybe Prelude.Text)
-registerClientResponse_clientSecret = Lens.lens (\RegisterClientResponse' {clientSecret} -> clientSecret) (\s@RegisterClientResponse' {} a -> s {clientSecret = a} :: RegisterClientResponse)
 
 -- | The endpoint where the client can request authorization.
 registerClientResponse_authorizationEndpoint :: Lens.Lens' RegisterClientResponse (Prelude.Maybe Prelude.Text)
@@ -251,6 +246,11 @@ registerClientResponse_clientId = Lens.lens (\RegisterClientResponse' {clientId}
 -- issued.
 registerClientResponse_clientIdIssuedAt :: Lens.Lens' RegisterClientResponse (Prelude.Maybe Prelude.Integer)
 registerClientResponse_clientIdIssuedAt = Lens.lens (\RegisterClientResponse' {clientIdIssuedAt} -> clientIdIssuedAt) (\s@RegisterClientResponse' {} a -> s {clientIdIssuedAt = a} :: RegisterClientResponse)
+
+-- | A secret string generated for the client. The client will use this
+-- string to get authenticated by the service in subsequent calls.
+registerClientResponse_clientSecret :: Lens.Lens' RegisterClientResponse (Prelude.Maybe Prelude.Text)
+registerClientResponse_clientSecret = Lens.lens (\RegisterClientResponse' {clientSecret} -> clientSecret) (\s@RegisterClientResponse' {} a -> s {clientSecret = a} :: RegisterClientResponse)
 
 -- | Indicates the time at which the @clientId@ and @clientSecret@ will
 -- become invalid.
@@ -267,10 +267,10 @@ registerClientResponse_httpStatus = Lens.lens (\RegisterClientResponse' {httpSta
 
 instance Prelude.NFData RegisterClientResponse where
   rnf RegisterClientResponse' {..} =
-    Prelude.rnf clientSecret
-      `Prelude.seq` Prelude.rnf authorizationEndpoint
+    Prelude.rnf authorizationEndpoint
       `Prelude.seq` Prelude.rnf clientId
       `Prelude.seq` Prelude.rnf clientIdIssuedAt
+      `Prelude.seq` Prelude.rnf clientSecret
       `Prelude.seq` Prelude.rnf clientSecretExpiresAt
       `Prelude.seq` Prelude.rnf tokenEndpoint
       `Prelude.seq` Prelude.rnf httpStatus

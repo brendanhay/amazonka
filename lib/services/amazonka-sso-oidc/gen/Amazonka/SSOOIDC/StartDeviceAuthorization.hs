@@ -38,11 +38,11 @@ module Amazonka.SSOOIDC.StartDeviceAuthorization
 
     -- * Response Lenses
     startDeviceAuthorizationResponse_deviceCode,
-    startDeviceAuthorizationResponse_interval,
     startDeviceAuthorizationResponse_expiresIn,
+    startDeviceAuthorizationResponse_interval,
     startDeviceAuthorizationResponse_userCode,
-    startDeviceAuthorizationResponse_verificationUriComplete,
     startDeviceAuthorizationResponse_verificationUri,
+    startDeviceAuthorizationResponse_verificationUriComplete,
     startDeviceAuthorizationResponse_httpStatus,
   )
 where
@@ -135,11 +135,11 @@ instance Core.AWSRequest StartDeviceAuthorization where
       ( \s h x ->
           StartDeviceAuthorizationResponse'
             Prelude.<$> (x Data..?> "deviceCode")
-            Prelude.<*> (x Data..?> "interval")
             Prelude.<*> (x Data..?> "expiresIn")
+            Prelude.<*> (x Data..?> "interval")
             Prelude.<*> (x Data..?> "userCode")
-            Prelude.<*> (x Data..?> "verificationUriComplete")
             Prelude.<*> (x Data..?> "verificationUri")
+            Prelude.<*> (x Data..?> "verificationUriComplete")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,22 +187,22 @@ data StartDeviceAuthorizationResponse = StartDeviceAuthorizationResponse'
   { -- | The short-lived code that is used by the device when polling for a
     -- session token.
     deviceCode :: Prelude.Maybe Prelude.Text,
-    -- | Indicates the number of seconds the client must wait between attempts
-    -- when polling for a session.
-    interval :: Prelude.Maybe Prelude.Int,
     -- | Indicates the number of seconds in which the verification code will
     -- become invalid.
     expiresIn :: Prelude.Maybe Prelude.Int,
+    -- | Indicates the number of seconds the client must wait between attempts
+    -- when polling for a session.
+    interval :: Prelude.Maybe Prelude.Int,
     -- | A one-time user verification code. This is needed to authorize an in-use
     -- device.
     userCode :: Prelude.Maybe Prelude.Text,
+    -- | The URI of the verification page that takes the @userCode@ to authorize
+    -- the device.
+    verificationUri :: Prelude.Maybe Prelude.Text,
     -- | An alternate URL that the client can use to automatically launch a
     -- browser. This process skips the manual step in which the user visits the
     -- verification page and enters their code.
     verificationUriComplete :: Prelude.Maybe Prelude.Text,
-    -- | The URI of the verification page that takes the @userCode@ to authorize
-    -- the device.
-    verificationUri :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -219,21 +219,21 @@ data StartDeviceAuthorizationResponse = StartDeviceAuthorizationResponse'
 -- 'deviceCode', 'startDeviceAuthorizationResponse_deviceCode' - The short-lived code that is used by the device when polling for a
 -- session token.
 --
--- 'interval', 'startDeviceAuthorizationResponse_interval' - Indicates the number of seconds the client must wait between attempts
--- when polling for a session.
---
 -- 'expiresIn', 'startDeviceAuthorizationResponse_expiresIn' - Indicates the number of seconds in which the verification code will
 -- become invalid.
+--
+-- 'interval', 'startDeviceAuthorizationResponse_interval' - Indicates the number of seconds the client must wait between attempts
+-- when polling for a session.
 --
 -- 'userCode', 'startDeviceAuthorizationResponse_userCode' - A one-time user verification code. This is needed to authorize an in-use
 -- device.
 --
+-- 'verificationUri', 'startDeviceAuthorizationResponse_verificationUri' - The URI of the verification page that takes the @userCode@ to authorize
+-- the device.
+--
 -- 'verificationUriComplete', 'startDeviceAuthorizationResponse_verificationUriComplete' - An alternate URL that the client can use to automatically launch a
 -- browser. This process skips the manual step in which the user visits the
 -- verification page and enters their code.
---
--- 'verificationUri', 'startDeviceAuthorizationResponse_verificationUri' - The URI of the verification page that takes the @userCode@ to authorize
--- the device.
 --
 -- 'httpStatus', 'startDeviceAuthorizationResponse_httpStatus' - The response's http status code.
 newStartDeviceAuthorizationResponse ::
@@ -244,11 +244,11 @@ newStartDeviceAuthorizationResponse pHttpStatus_ =
   StartDeviceAuthorizationResponse'
     { deviceCode =
         Prelude.Nothing,
-      interval = Prelude.Nothing,
       expiresIn = Prelude.Nothing,
+      interval = Prelude.Nothing,
       userCode = Prelude.Nothing,
-      verificationUriComplete = Prelude.Nothing,
       verificationUri = Prelude.Nothing,
+      verificationUriComplete = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -257,31 +257,31 @@ newStartDeviceAuthorizationResponse pHttpStatus_ =
 startDeviceAuthorizationResponse_deviceCode :: Lens.Lens' StartDeviceAuthorizationResponse (Prelude.Maybe Prelude.Text)
 startDeviceAuthorizationResponse_deviceCode = Lens.lens (\StartDeviceAuthorizationResponse' {deviceCode} -> deviceCode) (\s@StartDeviceAuthorizationResponse' {} a -> s {deviceCode = a} :: StartDeviceAuthorizationResponse)
 
--- | Indicates the number of seconds the client must wait between attempts
--- when polling for a session.
-startDeviceAuthorizationResponse_interval :: Lens.Lens' StartDeviceAuthorizationResponse (Prelude.Maybe Prelude.Int)
-startDeviceAuthorizationResponse_interval = Lens.lens (\StartDeviceAuthorizationResponse' {interval} -> interval) (\s@StartDeviceAuthorizationResponse' {} a -> s {interval = a} :: StartDeviceAuthorizationResponse)
-
 -- | Indicates the number of seconds in which the verification code will
 -- become invalid.
 startDeviceAuthorizationResponse_expiresIn :: Lens.Lens' StartDeviceAuthorizationResponse (Prelude.Maybe Prelude.Int)
 startDeviceAuthorizationResponse_expiresIn = Lens.lens (\StartDeviceAuthorizationResponse' {expiresIn} -> expiresIn) (\s@StartDeviceAuthorizationResponse' {} a -> s {expiresIn = a} :: StartDeviceAuthorizationResponse)
+
+-- | Indicates the number of seconds the client must wait between attempts
+-- when polling for a session.
+startDeviceAuthorizationResponse_interval :: Lens.Lens' StartDeviceAuthorizationResponse (Prelude.Maybe Prelude.Int)
+startDeviceAuthorizationResponse_interval = Lens.lens (\StartDeviceAuthorizationResponse' {interval} -> interval) (\s@StartDeviceAuthorizationResponse' {} a -> s {interval = a} :: StartDeviceAuthorizationResponse)
 
 -- | A one-time user verification code. This is needed to authorize an in-use
 -- device.
 startDeviceAuthorizationResponse_userCode :: Lens.Lens' StartDeviceAuthorizationResponse (Prelude.Maybe Prelude.Text)
 startDeviceAuthorizationResponse_userCode = Lens.lens (\StartDeviceAuthorizationResponse' {userCode} -> userCode) (\s@StartDeviceAuthorizationResponse' {} a -> s {userCode = a} :: StartDeviceAuthorizationResponse)
 
+-- | The URI of the verification page that takes the @userCode@ to authorize
+-- the device.
+startDeviceAuthorizationResponse_verificationUri :: Lens.Lens' StartDeviceAuthorizationResponse (Prelude.Maybe Prelude.Text)
+startDeviceAuthorizationResponse_verificationUri = Lens.lens (\StartDeviceAuthorizationResponse' {verificationUri} -> verificationUri) (\s@StartDeviceAuthorizationResponse' {} a -> s {verificationUri = a} :: StartDeviceAuthorizationResponse)
+
 -- | An alternate URL that the client can use to automatically launch a
 -- browser. This process skips the manual step in which the user visits the
 -- verification page and enters their code.
 startDeviceAuthorizationResponse_verificationUriComplete :: Lens.Lens' StartDeviceAuthorizationResponse (Prelude.Maybe Prelude.Text)
 startDeviceAuthorizationResponse_verificationUriComplete = Lens.lens (\StartDeviceAuthorizationResponse' {verificationUriComplete} -> verificationUriComplete) (\s@StartDeviceAuthorizationResponse' {} a -> s {verificationUriComplete = a} :: StartDeviceAuthorizationResponse)
-
--- | The URI of the verification page that takes the @userCode@ to authorize
--- the device.
-startDeviceAuthorizationResponse_verificationUri :: Lens.Lens' StartDeviceAuthorizationResponse (Prelude.Maybe Prelude.Text)
-startDeviceAuthorizationResponse_verificationUri = Lens.lens (\StartDeviceAuthorizationResponse' {verificationUri} -> verificationUri) (\s@StartDeviceAuthorizationResponse' {} a -> s {verificationUri = a} :: StartDeviceAuthorizationResponse)
 
 -- | The response's http status code.
 startDeviceAuthorizationResponse_httpStatus :: Lens.Lens' StartDeviceAuthorizationResponse Prelude.Int
@@ -293,9 +293,9 @@ instance
   where
   rnf StartDeviceAuthorizationResponse' {..} =
     Prelude.rnf deviceCode
-      `Prelude.seq` Prelude.rnf interval
       `Prelude.seq` Prelude.rnf expiresIn
+      `Prelude.seq` Prelude.rnf interval
       `Prelude.seq` Prelude.rnf userCode
-      `Prelude.seq` Prelude.rnf verificationUriComplete
       `Prelude.seq` Prelude.rnf verificationUri
+      `Prelude.seq` Prelude.rnf verificationUriComplete
       `Prelude.seq` Prelude.rnf httpStatus

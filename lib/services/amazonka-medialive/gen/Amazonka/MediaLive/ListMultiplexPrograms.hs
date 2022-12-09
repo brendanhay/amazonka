@@ -29,8 +29,8 @@ module Amazonka.MediaLive.ListMultiplexPrograms
     newListMultiplexPrograms,
 
     -- * Request Lenses
-    listMultiplexPrograms_nextToken,
     listMultiplexPrograms_maxResults,
+    listMultiplexPrograms_nextToken,
     listMultiplexPrograms_multiplexId,
 
     -- * Destructuring the Response
@@ -38,8 +38,8 @@ module Amazonka.MediaLive.ListMultiplexPrograms
     newListMultiplexProgramsResponse,
 
     -- * Response Lenses
-    listMultiplexProgramsResponse_nextToken,
     listMultiplexProgramsResponse_multiplexPrograms,
+    listMultiplexProgramsResponse_nextToken,
     listMultiplexProgramsResponse_httpStatus,
   )
 where
@@ -56,10 +56,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListMultiplexPrograms' smart constructor.
 data ListMultiplexPrograms = ListMultiplexPrograms'
-  { -- | The token to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return.
+  { -- | The maximum number of items to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the multiplex that the programs belong to.
     multiplexId :: Prelude.Text
   }
@@ -73,9 +73,9 @@ data ListMultiplexPrograms = ListMultiplexPrograms'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listMultiplexPrograms_nextToken' - The token to retrieve the next page of results.
---
 -- 'maxResults', 'listMultiplexPrograms_maxResults' - The maximum number of items to return.
+--
+-- 'nextToken', 'listMultiplexPrograms_nextToken' - The token to retrieve the next page of results.
 --
 -- 'multiplexId', 'listMultiplexPrograms_multiplexId' - The ID of the multiplex that the programs belong to.
 newListMultiplexPrograms ::
@@ -84,18 +84,19 @@ newListMultiplexPrograms ::
   ListMultiplexPrograms
 newListMultiplexPrograms pMultiplexId_ =
   ListMultiplexPrograms'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       multiplexId = pMultiplexId_
     }
-
--- | The token to retrieve the next page of results.
-listMultiplexPrograms_nextToken :: Lens.Lens' ListMultiplexPrograms (Prelude.Maybe Prelude.Text)
-listMultiplexPrograms_nextToken = Lens.lens (\ListMultiplexPrograms' {nextToken} -> nextToken) (\s@ListMultiplexPrograms' {} a -> s {nextToken = a} :: ListMultiplexPrograms)
 
 -- | The maximum number of items to return.
 listMultiplexPrograms_maxResults :: Lens.Lens' ListMultiplexPrograms (Prelude.Maybe Prelude.Natural)
 listMultiplexPrograms_maxResults = Lens.lens (\ListMultiplexPrograms' {maxResults} -> maxResults) (\s@ListMultiplexPrograms' {} a -> s {maxResults = a} :: ListMultiplexPrograms)
+
+-- | The token to retrieve the next page of results.
+listMultiplexPrograms_nextToken :: Lens.Lens' ListMultiplexPrograms (Prelude.Maybe Prelude.Text)
+listMultiplexPrograms_nextToken = Lens.lens (\ListMultiplexPrograms' {nextToken} -> nextToken) (\s@ListMultiplexPrograms' {} a -> s {nextToken = a} :: ListMultiplexPrograms)
 
 -- | The ID of the multiplex that the programs belong to.
 listMultiplexPrograms_multiplexId :: Lens.Lens' ListMultiplexPrograms Prelude.Text
@@ -133,23 +134,23 @@ instance Core.AWSRequest ListMultiplexPrograms where
     Response.receiveJSON
       ( \s h x ->
           ListMultiplexProgramsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "multiplexPrograms"
+            Prelude.<$> ( x Data..?> "multiplexPrograms"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListMultiplexPrograms where
   hashWithSalt _salt ListMultiplexPrograms' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` multiplexId
 
 instance Prelude.NFData ListMultiplexPrograms where
   rnf ListMultiplexPrograms' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf multiplexId
 
 instance Data.ToHeaders ListMultiplexPrograms where
@@ -174,18 +175,18 @@ instance Data.ToPath ListMultiplexPrograms where
 instance Data.ToQuery ListMultiplexPrograms where
   toQuery ListMultiplexPrograms' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | Placeholder documentation for ListMultiplexProgramsResponse
 --
 -- /See:/ 'newListMultiplexProgramsResponse' smart constructor.
 data ListMultiplexProgramsResponse = ListMultiplexProgramsResponse'
-  { -- | Token for the next ListMultiplexProgram request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | List of multiplex programs.
+  { -- | List of multiplex programs.
     multiplexPrograms :: Prelude.Maybe [MultiplexProgramSummary],
+    -- | Token for the next ListMultiplexProgram request.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -199,9 +200,9 @@ data ListMultiplexProgramsResponse = ListMultiplexProgramsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listMultiplexProgramsResponse_nextToken' - Token for the next ListMultiplexProgram request.
---
 -- 'multiplexPrograms', 'listMultiplexProgramsResponse_multiplexPrograms' - List of multiplex programs.
+--
+-- 'nextToken', 'listMultiplexProgramsResponse_nextToken' - Token for the next ListMultiplexProgram request.
 --
 -- 'httpStatus', 'listMultiplexProgramsResponse_httpStatus' - The response's http status code.
 newListMultiplexProgramsResponse ::
@@ -210,19 +211,19 @@ newListMultiplexProgramsResponse ::
   ListMultiplexProgramsResponse
 newListMultiplexProgramsResponse pHttpStatus_ =
   ListMultiplexProgramsResponse'
-    { nextToken =
+    { multiplexPrograms =
         Prelude.Nothing,
-      multiplexPrograms = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Token for the next ListMultiplexProgram request.
-listMultiplexProgramsResponse_nextToken :: Lens.Lens' ListMultiplexProgramsResponse (Prelude.Maybe Prelude.Text)
-listMultiplexProgramsResponse_nextToken = Lens.lens (\ListMultiplexProgramsResponse' {nextToken} -> nextToken) (\s@ListMultiplexProgramsResponse' {} a -> s {nextToken = a} :: ListMultiplexProgramsResponse)
 
 -- | List of multiplex programs.
 listMultiplexProgramsResponse_multiplexPrograms :: Lens.Lens' ListMultiplexProgramsResponse (Prelude.Maybe [MultiplexProgramSummary])
 listMultiplexProgramsResponse_multiplexPrograms = Lens.lens (\ListMultiplexProgramsResponse' {multiplexPrograms} -> multiplexPrograms) (\s@ListMultiplexProgramsResponse' {} a -> s {multiplexPrograms = a} :: ListMultiplexProgramsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Token for the next ListMultiplexProgram request.
+listMultiplexProgramsResponse_nextToken :: Lens.Lens' ListMultiplexProgramsResponse (Prelude.Maybe Prelude.Text)
+listMultiplexProgramsResponse_nextToken = Lens.lens (\ListMultiplexProgramsResponse' {nextToken} -> nextToken) (\s@ListMultiplexProgramsResponse' {} a -> s {nextToken = a} :: ListMultiplexProgramsResponse)
 
 -- | The response's http status code.
 listMultiplexProgramsResponse_httpStatus :: Lens.Lens' ListMultiplexProgramsResponse Prelude.Int
@@ -230,6 +231,6 @@ listMultiplexProgramsResponse_httpStatus = Lens.lens (\ListMultiplexProgramsResp
 
 instance Prelude.NFData ListMultiplexProgramsResponse where
   rnf ListMultiplexProgramsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf multiplexPrograms
+    Prelude.rnf multiplexPrograms
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

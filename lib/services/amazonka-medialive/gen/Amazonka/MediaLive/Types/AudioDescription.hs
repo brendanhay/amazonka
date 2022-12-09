@@ -35,20 +35,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAudioDescription' smart constructor.
 data AudioDescription = AudioDescription'
-  { -- | Settings to configure one or more solutions that insert audio watermarks
-    -- in the audio encode
-    audioWatermarkingSettings :: Prelude.Maybe AudioWatermarkSettings,
-    -- | Advanced audio normalization settings.
+  { -- | Advanced audio normalization settings.
     audioNormalizationSettings :: Prelude.Maybe AudioNormalizationSettings,
-    -- | Audio codec settings.
-    codecSettings :: Prelude.Maybe AudioCodecSettings,
-    -- | Settings that control how input audio channels are remixed into the
-    -- output audio channels.
-    remixSettings :: Prelude.Maybe RemixSettings,
-    -- | RFC 5646 language code representing the language of the audio output
-    -- track. Only used if languageControlMode is useConfigured, or there is no
-    -- ISO 639 language code specified in the input.
-    languageCode :: Prelude.Maybe Prelude.Text,
+    -- | Applies only if audioTypeControl is useConfigured. The values for
+    -- audioType are defined in ISO-IEC 13818-1.
+    audioType :: Prelude.Maybe AudioType,
     -- | Determines how audio type is determined. followInput: If the input
     -- contains an ISO 639 audioType, then that value is passed through to the
     -- output. If the input contains no ISO 639 audioType, the value in Audio
@@ -56,14 +47,23 @@ data AudioDescription = AudioDescription'
     -- is included in the output. Note that this field and audioType are both
     -- ignored if inputType is broadcasterMixedAd.
     audioTypeControl :: Prelude.Maybe AudioDescriptionAudioTypeControl,
-    -- | Applies only if audioTypeControl is useConfigured. The values for
-    -- audioType are defined in ISO-IEC 13818-1.
-    audioType :: Prelude.Maybe AudioType,
+    -- | Settings to configure one or more solutions that insert audio watermarks
+    -- in the audio encode
+    audioWatermarkingSettings :: Prelude.Maybe AudioWatermarkSettings,
+    -- | Audio codec settings.
+    codecSettings :: Prelude.Maybe AudioCodecSettings,
+    -- | RFC 5646 language code representing the language of the audio output
+    -- track. Only used if languageControlMode is useConfigured, or there is no
+    -- ISO 639 language code specified in the input.
+    languageCode :: Prelude.Maybe Prelude.Text,
     -- | Choosing followInput will cause the ISO 639 language code of the output
     -- to follow the ISO 639 language code of the input. The languageCode will
     -- be used when useConfigured is set, or when followInput is selected but
     -- there is no ISO 639 language code specified by the input.
     languageCodeControl :: Prelude.Maybe AudioDescriptionLanguageCodeControl,
+    -- | Settings that control how input audio channels are remixed into the
+    -- output audio channels.
+    remixSettings :: Prelude.Maybe RemixSettings,
     -- | Used for MS Smooth and Apple HLS outputs. Indicates the name displayed
     -- by the player (eg. English, or Director Commentary).
     streamName :: Prelude.Maybe Prelude.Text,
@@ -85,19 +85,10 @@ data AudioDescription = AudioDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'audioWatermarkingSettings', 'audioDescription_audioWatermarkingSettings' - Settings to configure one or more solutions that insert audio watermarks
--- in the audio encode
---
 -- 'audioNormalizationSettings', 'audioDescription_audioNormalizationSettings' - Advanced audio normalization settings.
 --
--- 'codecSettings', 'audioDescription_codecSettings' - Audio codec settings.
---
--- 'remixSettings', 'audioDescription_remixSettings' - Settings that control how input audio channels are remixed into the
--- output audio channels.
---
--- 'languageCode', 'audioDescription_languageCode' - RFC 5646 language code representing the language of the audio output
--- track. Only used if languageControlMode is useConfigured, or there is no
--- ISO 639 language code specified in the input.
+-- 'audioType', 'audioDescription_audioType' - Applies only if audioTypeControl is useConfigured. The values for
+-- audioType are defined in ISO-IEC 13818-1.
 --
 -- 'audioTypeControl', 'audioDescription_audioTypeControl' - Determines how audio type is determined. followInput: If the input
 -- contains an ISO 639 audioType, then that value is passed through to the
@@ -106,13 +97,22 @@ data AudioDescription = AudioDescription'
 -- is included in the output. Note that this field and audioType are both
 -- ignored if inputType is broadcasterMixedAd.
 --
--- 'audioType', 'audioDescription_audioType' - Applies only if audioTypeControl is useConfigured. The values for
--- audioType are defined in ISO-IEC 13818-1.
+-- 'audioWatermarkingSettings', 'audioDescription_audioWatermarkingSettings' - Settings to configure one or more solutions that insert audio watermarks
+-- in the audio encode
+--
+-- 'codecSettings', 'audioDescription_codecSettings' - Audio codec settings.
+--
+-- 'languageCode', 'audioDescription_languageCode' - RFC 5646 language code representing the language of the audio output
+-- track. Only used if languageControlMode is useConfigured, or there is no
+-- ISO 639 language code specified in the input.
 --
 -- 'languageCodeControl', 'audioDescription_languageCodeControl' - Choosing followInput will cause the ISO 639 language code of the output
 -- to follow the ISO 639 language code of the input. The languageCode will
 -- be used when useConfigured is set, or when followInput is selected but
 -- there is no ISO 639 language code specified by the input.
+--
+-- 'remixSettings', 'audioDescription_remixSettings' - Settings that control how input audio channels are remixed into the
+-- output audio channels.
 --
 -- 'streamName', 'audioDescription_streamName' - Used for MS Smooth and Apple HLS outputs. Indicates the name displayed
 -- by the player (eg. English, or Director Commentary).
@@ -131,43 +131,28 @@ newAudioDescription ::
   AudioDescription
 newAudioDescription pAudioSelectorName_ pName_ =
   AudioDescription'
-    { audioWatermarkingSettings =
+    { audioNormalizationSettings =
         Prelude.Nothing,
-      audioNormalizationSettings = Prelude.Nothing,
-      codecSettings = Prelude.Nothing,
-      remixSettings = Prelude.Nothing,
-      languageCode = Prelude.Nothing,
-      audioTypeControl = Prelude.Nothing,
       audioType = Prelude.Nothing,
+      audioTypeControl = Prelude.Nothing,
+      audioWatermarkingSettings = Prelude.Nothing,
+      codecSettings = Prelude.Nothing,
+      languageCode = Prelude.Nothing,
       languageCodeControl = Prelude.Nothing,
+      remixSettings = Prelude.Nothing,
       streamName = Prelude.Nothing,
       audioSelectorName = pAudioSelectorName_,
       name = pName_
     }
 
--- | Settings to configure one or more solutions that insert audio watermarks
--- in the audio encode
-audioDescription_audioWatermarkingSettings :: Lens.Lens' AudioDescription (Prelude.Maybe AudioWatermarkSettings)
-audioDescription_audioWatermarkingSettings = Lens.lens (\AudioDescription' {audioWatermarkingSettings} -> audioWatermarkingSettings) (\s@AudioDescription' {} a -> s {audioWatermarkingSettings = a} :: AudioDescription)
-
 -- | Advanced audio normalization settings.
 audioDescription_audioNormalizationSettings :: Lens.Lens' AudioDescription (Prelude.Maybe AudioNormalizationSettings)
 audioDescription_audioNormalizationSettings = Lens.lens (\AudioDescription' {audioNormalizationSettings} -> audioNormalizationSettings) (\s@AudioDescription' {} a -> s {audioNormalizationSettings = a} :: AudioDescription)
 
--- | Audio codec settings.
-audioDescription_codecSettings :: Lens.Lens' AudioDescription (Prelude.Maybe AudioCodecSettings)
-audioDescription_codecSettings = Lens.lens (\AudioDescription' {codecSettings} -> codecSettings) (\s@AudioDescription' {} a -> s {codecSettings = a} :: AudioDescription)
-
--- | Settings that control how input audio channels are remixed into the
--- output audio channels.
-audioDescription_remixSettings :: Lens.Lens' AudioDescription (Prelude.Maybe RemixSettings)
-audioDescription_remixSettings = Lens.lens (\AudioDescription' {remixSettings} -> remixSettings) (\s@AudioDescription' {} a -> s {remixSettings = a} :: AudioDescription)
-
--- | RFC 5646 language code representing the language of the audio output
--- track. Only used if languageControlMode is useConfigured, or there is no
--- ISO 639 language code specified in the input.
-audioDescription_languageCode :: Lens.Lens' AudioDescription (Prelude.Maybe Prelude.Text)
-audioDescription_languageCode = Lens.lens (\AudioDescription' {languageCode} -> languageCode) (\s@AudioDescription' {} a -> s {languageCode = a} :: AudioDescription)
+-- | Applies only if audioTypeControl is useConfigured. The values for
+-- audioType are defined in ISO-IEC 13818-1.
+audioDescription_audioType :: Lens.Lens' AudioDescription (Prelude.Maybe AudioType)
+audioDescription_audioType = Lens.lens (\AudioDescription' {audioType} -> audioType) (\s@AudioDescription' {} a -> s {audioType = a} :: AudioDescription)
 
 -- | Determines how audio type is determined. followInput: If the input
 -- contains an ISO 639 audioType, then that value is passed through to the
@@ -178,10 +163,20 @@ audioDescription_languageCode = Lens.lens (\AudioDescription' {languageCode} -> 
 audioDescription_audioTypeControl :: Lens.Lens' AudioDescription (Prelude.Maybe AudioDescriptionAudioTypeControl)
 audioDescription_audioTypeControl = Lens.lens (\AudioDescription' {audioTypeControl} -> audioTypeControl) (\s@AudioDescription' {} a -> s {audioTypeControl = a} :: AudioDescription)
 
--- | Applies only if audioTypeControl is useConfigured. The values for
--- audioType are defined in ISO-IEC 13818-1.
-audioDescription_audioType :: Lens.Lens' AudioDescription (Prelude.Maybe AudioType)
-audioDescription_audioType = Lens.lens (\AudioDescription' {audioType} -> audioType) (\s@AudioDescription' {} a -> s {audioType = a} :: AudioDescription)
+-- | Settings to configure one or more solutions that insert audio watermarks
+-- in the audio encode
+audioDescription_audioWatermarkingSettings :: Lens.Lens' AudioDescription (Prelude.Maybe AudioWatermarkSettings)
+audioDescription_audioWatermarkingSettings = Lens.lens (\AudioDescription' {audioWatermarkingSettings} -> audioWatermarkingSettings) (\s@AudioDescription' {} a -> s {audioWatermarkingSettings = a} :: AudioDescription)
+
+-- | Audio codec settings.
+audioDescription_codecSettings :: Lens.Lens' AudioDescription (Prelude.Maybe AudioCodecSettings)
+audioDescription_codecSettings = Lens.lens (\AudioDescription' {codecSettings} -> codecSettings) (\s@AudioDescription' {} a -> s {codecSettings = a} :: AudioDescription)
+
+-- | RFC 5646 language code representing the language of the audio output
+-- track. Only used if languageControlMode is useConfigured, or there is no
+-- ISO 639 language code specified in the input.
+audioDescription_languageCode :: Lens.Lens' AudioDescription (Prelude.Maybe Prelude.Text)
+audioDescription_languageCode = Lens.lens (\AudioDescription' {languageCode} -> languageCode) (\s@AudioDescription' {} a -> s {languageCode = a} :: AudioDescription)
 
 -- | Choosing followInput will cause the ISO 639 language code of the output
 -- to follow the ISO 639 language code of the input. The languageCode will
@@ -189,6 +184,11 @@ audioDescription_audioType = Lens.lens (\AudioDescription' {audioType} -> audioT
 -- there is no ISO 639 language code specified by the input.
 audioDescription_languageCodeControl :: Lens.Lens' AudioDescription (Prelude.Maybe AudioDescriptionLanguageCodeControl)
 audioDescription_languageCodeControl = Lens.lens (\AudioDescription' {languageCodeControl} -> languageCodeControl) (\s@AudioDescription' {} a -> s {languageCodeControl = a} :: AudioDescription)
+
+-- | Settings that control how input audio channels are remixed into the
+-- output audio channels.
+audioDescription_remixSettings :: Lens.Lens' AudioDescription (Prelude.Maybe RemixSettings)
+audioDescription_remixSettings = Lens.lens (\AudioDescription' {remixSettings} -> remixSettings) (\s@AudioDescription' {} a -> s {remixSettings = a} :: AudioDescription)
 
 -- | Used for MS Smooth and Apple HLS outputs. Indicates the name displayed
 -- by the player (eg. English, or Director Commentary).
@@ -212,14 +212,14 @@ instance Data.FromJSON AudioDescription where
       "AudioDescription"
       ( \x ->
           AudioDescription'
-            Prelude.<$> (x Data..:? "audioWatermarkingSettings")
-            Prelude.<*> (x Data..:? "audioNormalizationSettings")
-            Prelude.<*> (x Data..:? "codecSettings")
-            Prelude.<*> (x Data..:? "remixSettings")
-            Prelude.<*> (x Data..:? "languageCode")
-            Prelude.<*> (x Data..:? "audioTypeControl")
+            Prelude.<$> (x Data..:? "audioNormalizationSettings")
             Prelude.<*> (x Data..:? "audioType")
+            Prelude.<*> (x Data..:? "audioTypeControl")
+            Prelude.<*> (x Data..:? "audioWatermarkingSettings")
+            Prelude.<*> (x Data..:? "codecSettings")
+            Prelude.<*> (x Data..:? "languageCode")
             Prelude.<*> (x Data..:? "languageCodeControl")
+            Prelude.<*> (x Data..:? "remixSettings")
             Prelude.<*> (x Data..:? "streamName")
             Prelude.<*> (x Data..: "audioSelectorName")
             Prelude.<*> (x Data..: "name")
@@ -228,28 +228,28 @@ instance Data.FromJSON AudioDescription where
 instance Prelude.Hashable AudioDescription where
   hashWithSalt _salt AudioDescription' {..} =
     _salt
-      `Prelude.hashWithSalt` audioWatermarkingSettings
       `Prelude.hashWithSalt` audioNormalizationSettings
-      `Prelude.hashWithSalt` codecSettings
-      `Prelude.hashWithSalt` remixSettings
-      `Prelude.hashWithSalt` languageCode
-      `Prelude.hashWithSalt` audioTypeControl
       `Prelude.hashWithSalt` audioType
+      `Prelude.hashWithSalt` audioTypeControl
+      `Prelude.hashWithSalt` audioWatermarkingSettings
+      `Prelude.hashWithSalt` codecSettings
+      `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` languageCodeControl
+      `Prelude.hashWithSalt` remixSettings
       `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` audioSelectorName
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData AudioDescription where
   rnf AudioDescription' {..} =
-    Prelude.rnf audioWatermarkingSettings
-      `Prelude.seq` Prelude.rnf audioNormalizationSettings
-      `Prelude.seq` Prelude.rnf codecSettings
-      `Prelude.seq` Prelude.rnf remixSettings
-      `Prelude.seq` Prelude.rnf languageCode
-      `Prelude.seq` Prelude.rnf audioTypeControl
+    Prelude.rnf audioNormalizationSettings
       `Prelude.seq` Prelude.rnf audioType
+      `Prelude.seq` Prelude.rnf audioTypeControl
+      `Prelude.seq` Prelude.rnf audioWatermarkingSettings
+      `Prelude.seq` Prelude.rnf codecSettings
+      `Prelude.seq` Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf languageCodeControl
+      `Prelude.seq` Prelude.rnf remixSettings
       `Prelude.seq` Prelude.rnf streamName
       `Prelude.seq` Prelude.rnf audioSelectorName
       `Prelude.seq` Prelude.rnf name
@@ -258,18 +258,18 @@ instance Data.ToJSON AudioDescription where
   toJSON AudioDescription' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("audioWatermarkingSettings" Data..=)
-              Prelude.<$> audioWatermarkingSettings,
-            ("audioNormalizationSettings" Data..=)
+          [ ("audioNormalizationSettings" Data..=)
               Prelude.<$> audioNormalizationSettings,
-            ("codecSettings" Data..=) Prelude.<$> codecSettings,
-            ("remixSettings" Data..=) Prelude.<$> remixSettings,
-            ("languageCode" Data..=) Prelude.<$> languageCode,
+            ("audioType" Data..=) Prelude.<$> audioType,
             ("audioTypeControl" Data..=)
               Prelude.<$> audioTypeControl,
-            ("audioType" Data..=) Prelude.<$> audioType,
+            ("audioWatermarkingSettings" Data..=)
+              Prelude.<$> audioWatermarkingSettings,
+            ("codecSettings" Data..=) Prelude.<$> codecSettings,
+            ("languageCode" Data..=) Prelude.<$> languageCode,
             ("languageCodeControl" Data..=)
               Prelude.<$> languageCodeControl,
+            ("remixSettings" Data..=) Prelude.<$> remixSettings,
             ("streamName" Data..=) Prelude.<$> streamName,
             Prelude.Just
               ("audioSelectorName" Data..= audioSelectorName),

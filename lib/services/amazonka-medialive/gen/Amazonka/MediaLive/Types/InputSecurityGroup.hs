@@ -30,18 +30,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInputSecurityGroup' smart constructor.
 data InputSecurityGroup = InputSecurityGroup'
-  { -- | A collection of key-value pairs.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Unique ARN of Input Security Group
+  { -- | Unique ARN of Input Security Group
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The current state of the Input Security Group.
-    state :: Prelude.Maybe InputSecurityGroupState,
     -- | The Id of the Input Security Group
     id :: Prelude.Maybe Prelude.Text,
-    -- | Whitelist rules and their sync status
-    whitelistRules :: Prelude.Maybe [InputWhitelistRule],
     -- | The list of inputs currently using this Input Security Group.
-    inputs :: Prelude.Maybe [Prelude.Text]
+    inputs :: Prelude.Maybe [Prelude.Text],
+    -- | The current state of the Input Security Group.
+    state :: Prelude.Maybe InputSecurityGroupState,
+    -- | A collection of key-value pairs.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Whitelist rules and their sync status
+    whitelistRules :: Prelude.Maybe [InputWhitelistRule]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,52 +53,52 @@ data InputSecurityGroup = InputSecurityGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'inputSecurityGroup_tags' - A collection of key-value pairs.
---
 -- 'arn', 'inputSecurityGroup_arn' - Unique ARN of Input Security Group
---
--- 'state', 'inputSecurityGroup_state' - The current state of the Input Security Group.
 --
 -- 'id', 'inputSecurityGroup_id' - The Id of the Input Security Group
 --
--- 'whitelistRules', 'inputSecurityGroup_whitelistRules' - Whitelist rules and their sync status
---
 -- 'inputs', 'inputSecurityGroup_inputs' - The list of inputs currently using this Input Security Group.
+--
+-- 'state', 'inputSecurityGroup_state' - The current state of the Input Security Group.
+--
+-- 'tags', 'inputSecurityGroup_tags' - A collection of key-value pairs.
+--
+-- 'whitelistRules', 'inputSecurityGroup_whitelistRules' - Whitelist rules and their sync status
 newInputSecurityGroup ::
   InputSecurityGroup
 newInputSecurityGroup =
   InputSecurityGroup'
-    { tags = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      state = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       id = Prelude.Nothing,
-      whitelistRules = Prelude.Nothing,
-      inputs = Prelude.Nothing
+      inputs = Prelude.Nothing,
+      state = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      whitelistRules = Prelude.Nothing
     }
-
--- | A collection of key-value pairs.
-inputSecurityGroup_tags :: Lens.Lens' InputSecurityGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-inputSecurityGroup_tags = Lens.lens (\InputSecurityGroup' {tags} -> tags) (\s@InputSecurityGroup' {} a -> s {tags = a} :: InputSecurityGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | Unique ARN of Input Security Group
 inputSecurityGroup_arn :: Lens.Lens' InputSecurityGroup (Prelude.Maybe Prelude.Text)
 inputSecurityGroup_arn = Lens.lens (\InputSecurityGroup' {arn} -> arn) (\s@InputSecurityGroup' {} a -> s {arn = a} :: InputSecurityGroup)
 
--- | The current state of the Input Security Group.
-inputSecurityGroup_state :: Lens.Lens' InputSecurityGroup (Prelude.Maybe InputSecurityGroupState)
-inputSecurityGroup_state = Lens.lens (\InputSecurityGroup' {state} -> state) (\s@InputSecurityGroup' {} a -> s {state = a} :: InputSecurityGroup)
-
 -- | The Id of the Input Security Group
 inputSecurityGroup_id :: Lens.Lens' InputSecurityGroup (Prelude.Maybe Prelude.Text)
 inputSecurityGroup_id = Lens.lens (\InputSecurityGroup' {id} -> id) (\s@InputSecurityGroup' {} a -> s {id = a} :: InputSecurityGroup)
 
--- | Whitelist rules and their sync status
-inputSecurityGroup_whitelistRules :: Lens.Lens' InputSecurityGroup (Prelude.Maybe [InputWhitelistRule])
-inputSecurityGroup_whitelistRules = Lens.lens (\InputSecurityGroup' {whitelistRules} -> whitelistRules) (\s@InputSecurityGroup' {} a -> s {whitelistRules = a} :: InputSecurityGroup) Prelude.. Lens.mapping Lens.coerced
-
 -- | The list of inputs currently using this Input Security Group.
 inputSecurityGroup_inputs :: Lens.Lens' InputSecurityGroup (Prelude.Maybe [Prelude.Text])
 inputSecurityGroup_inputs = Lens.lens (\InputSecurityGroup' {inputs} -> inputs) (\s@InputSecurityGroup' {} a -> s {inputs = a} :: InputSecurityGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | The current state of the Input Security Group.
+inputSecurityGroup_state :: Lens.Lens' InputSecurityGroup (Prelude.Maybe InputSecurityGroupState)
+inputSecurityGroup_state = Lens.lens (\InputSecurityGroup' {state} -> state) (\s@InputSecurityGroup' {} a -> s {state = a} :: InputSecurityGroup)
+
+-- | A collection of key-value pairs.
+inputSecurityGroup_tags :: Lens.Lens' InputSecurityGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+inputSecurityGroup_tags = Lens.lens (\InputSecurityGroup' {tags} -> tags) (\s@InputSecurityGroup' {} a -> s {tags = a} :: InputSecurityGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | Whitelist rules and their sync status
+inputSecurityGroup_whitelistRules :: Lens.Lens' InputSecurityGroup (Prelude.Maybe [InputWhitelistRule])
+inputSecurityGroup_whitelistRules = Lens.lens (\InputSecurityGroup' {whitelistRules} -> whitelistRules) (\s@InputSecurityGroup' {} a -> s {whitelistRules = a} :: InputSecurityGroup) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON InputSecurityGroup where
   parseJSON =
@@ -106,28 +106,30 @@ instance Data.FromJSON InputSecurityGroup where
       "InputSecurityGroup"
       ( \x ->
           InputSecurityGroup'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "arn")
-            Prelude.<*> (x Data..:? "state")
+            Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "id")
-            Prelude.<*> (x Data..:? "whitelistRules" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "inputs" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "state")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "whitelistRules"
+                            Data..!= Prelude.mempty
+                        )
       )
 
 instance Prelude.Hashable InputSecurityGroup where
   hashWithSalt _salt InputSecurityGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` state
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` whitelistRules
       `Prelude.hashWithSalt` inputs
+      `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` whitelistRules
 
 instance Prelude.NFData InputSecurityGroup where
   rnf InputSecurityGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf whitelistRules
       `Prelude.seq` Prelude.rnf inputs
+      `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf whitelistRules

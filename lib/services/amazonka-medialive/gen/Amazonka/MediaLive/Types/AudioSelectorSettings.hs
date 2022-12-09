@@ -33,8 +33,8 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAudioSelectorSettings' smart constructor.
 data AudioSelectorSettings = AudioSelectorSettings'
   { audioHlsRenditionSelection :: Prelude.Maybe AudioHlsRenditionSelection,
-    audioPidSelection :: Prelude.Maybe AudioPidSelection,
     audioLanguageSelection :: Prelude.Maybe AudioLanguageSelection,
+    audioPidSelection :: Prelude.Maybe AudioPidSelection,
     audioTrackSelection :: Prelude.Maybe AudioTrackSelection
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,9 +49,9 @@ data AudioSelectorSettings = AudioSelectorSettings'
 --
 -- 'audioHlsRenditionSelection', 'audioSelectorSettings_audioHlsRenditionSelection' - Undocumented member.
 --
--- 'audioPidSelection', 'audioSelectorSettings_audioPidSelection' - Undocumented member.
---
 -- 'audioLanguageSelection', 'audioSelectorSettings_audioLanguageSelection' - Undocumented member.
+--
+-- 'audioPidSelection', 'audioSelectorSettings_audioPidSelection' - Undocumented member.
 --
 -- 'audioTrackSelection', 'audioSelectorSettings_audioTrackSelection' - Undocumented member.
 newAudioSelectorSettings ::
@@ -60,8 +60,8 @@ newAudioSelectorSettings =
   AudioSelectorSettings'
     { audioHlsRenditionSelection =
         Prelude.Nothing,
-      audioPidSelection = Prelude.Nothing,
       audioLanguageSelection = Prelude.Nothing,
+      audioPidSelection = Prelude.Nothing,
       audioTrackSelection = Prelude.Nothing
     }
 
@@ -70,12 +70,12 @@ audioSelectorSettings_audioHlsRenditionSelection :: Lens.Lens' AudioSelectorSett
 audioSelectorSettings_audioHlsRenditionSelection = Lens.lens (\AudioSelectorSettings' {audioHlsRenditionSelection} -> audioHlsRenditionSelection) (\s@AudioSelectorSettings' {} a -> s {audioHlsRenditionSelection = a} :: AudioSelectorSettings)
 
 -- | Undocumented member.
-audioSelectorSettings_audioPidSelection :: Lens.Lens' AudioSelectorSettings (Prelude.Maybe AudioPidSelection)
-audioSelectorSettings_audioPidSelection = Lens.lens (\AudioSelectorSettings' {audioPidSelection} -> audioPidSelection) (\s@AudioSelectorSettings' {} a -> s {audioPidSelection = a} :: AudioSelectorSettings)
-
--- | Undocumented member.
 audioSelectorSettings_audioLanguageSelection :: Lens.Lens' AudioSelectorSettings (Prelude.Maybe AudioLanguageSelection)
 audioSelectorSettings_audioLanguageSelection = Lens.lens (\AudioSelectorSettings' {audioLanguageSelection} -> audioLanguageSelection) (\s@AudioSelectorSettings' {} a -> s {audioLanguageSelection = a} :: AudioSelectorSettings)
+
+-- | Undocumented member.
+audioSelectorSettings_audioPidSelection :: Lens.Lens' AudioSelectorSettings (Prelude.Maybe AudioPidSelection)
+audioSelectorSettings_audioPidSelection = Lens.lens (\AudioSelectorSettings' {audioPidSelection} -> audioPidSelection) (\s@AudioSelectorSettings' {} a -> s {audioPidSelection = a} :: AudioSelectorSettings)
 
 -- | Undocumented member.
 audioSelectorSettings_audioTrackSelection :: Lens.Lens' AudioSelectorSettings (Prelude.Maybe AudioTrackSelection)
@@ -88,8 +88,8 @@ instance Data.FromJSON AudioSelectorSettings where
       ( \x ->
           AudioSelectorSettings'
             Prelude.<$> (x Data..:? "audioHlsRenditionSelection")
-            Prelude.<*> (x Data..:? "audioPidSelection")
             Prelude.<*> (x Data..:? "audioLanguageSelection")
+            Prelude.<*> (x Data..:? "audioPidSelection")
             Prelude.<*> (x Data..:? "audioTrackSelection")
       )
 
@@ -97,15 +97,15 @@ instance Prelude.Hashable AudioSelectorSettings where
   hashWithSalt _salt AudioSelectorSettings' {..} =
     _salt
       `Prelude.hashWithSalt` audioHlsRenditionSelection
-      `Prelude.hashWithSalt` audioPidSelection
       `Prelude.hashWithSalt` audioLanguageSelection
+      `Prelude.hashWithSalt` audioPidSelection
       `Prelude.hashWithSalt` audioTrackSelection
 
 instance Prelude.NFData AudioSelectorSettings where
   rnf AudioSelectorSettings' {..} =
     Prelude.rnf audioHlsRenditionSelection
-      `Prelude.seq` Prelude.rnf audioPidSelection
       `Prelude.seq` Prelude.rnf audioLanguageSelection
+      `Prelude.seq` Prelude.rnf audioPidSelection
       `Prelude.seq` Prelude.rnf audioTrackSelection
 
 instance Data.ToJSON AudioSelectorSettings where
@@ -114,10 +114,10 @@ instance Data.ToJSON AudioSelectorSettings where
       ( Prelude.catMaybes
           [ ("audioHlsRenditionSelection" Data..=)
               Prelude.<$> audioHlsRenditionSelection,
-            ("audioPidSelection" Data..=)
-              Prelude.<$> audioPidSelection,
             ("audioLanguageSelection" Data..=)
               Prelude.<$> audioLanguageSelection,
+            ("audioPidSelection" Data..=)
+              Prelude.<$> audioPidSelection,
             ("audioTrackSelection" Data..=)
               Prelude.<$> audioTrackSelection
           ]

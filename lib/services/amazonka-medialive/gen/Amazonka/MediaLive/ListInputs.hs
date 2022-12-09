@@ -29,16 +29,16 @@ module Amazonka.MediaLive.ListInputs
     newListInputs,
 
     -- * Request Lenses
-    listInputs_nextToken,
     listInputs_maxResults,
+    listInputs_nextToken,
 
     -- * Destructuring the Response
     ListInputsResponse (..),
     newListInputsResponse,
 
     -- * Response Lenses
-    listInputsResponse_nextToken,
     listInputsResponse_inputs,
+    listInputsResponse_nextToken,
     listInputsResponse_httpStatus,
   )
 where
@@ -55,8 +55,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListInputs' smart constructor.
 data ListInputs = ListInputs'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,24 +68,24 @@ data ListInputs = ListInputs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listInputs_nextToken' - Undocumented member.
---
 -- 'maxResults', 'listInputs_maxResults' - Undocumented member.
+--
+-- 'nextToken', 'listInputs_nextToken' - Undocumented member.
 newListInputs ::
   ListInputs
 newListInputs =
   ListInputs'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Undocumented member.
-listInputs_nextToken :: Lens.Lens' ListInputs (Prelude.Maybe Prelude.Text)
-listInputs_nextToken = Lens.lens (\ListInputs' {nextToken} -> nextToken) (\s@ListInputs' {} a -> s {nextToken = a} :: ListInputs)
 
 -- | Undocumented member.
 listInputs_maxResults :: Lens.Lens' ListInputs (Prelude.Maybe Prelude.Natural)
 listInputs_maxResults = Lens.lens (\ListInputs' {maxResults} -> maxResults) (\s@ListInputs' {} a -> s {maxResults = a} :: ListInputs)
+
+-- | Undocumented member.
+listInputs_nextToken :: Lens.Lens' ListInputs (Prelude.Maybe Prelude.Text)
+listInputs_nextToken = Lens.lens (\ListInputs' {nextToken} -> nextToken) (\s@ListInputs' {} a -> s {nextToken = a} :: ListInputs)
 
 instance Core.AWSPager ListInputs where
   page rq rs
@@ -114,20 +114,20 @@ instance Core.AWSRequest ListInputs where
     Response.receiveJSON
       ( \s h x ->
           ListInputsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "inputs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "inputs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListInputs where
   hashWithSalt _salt ListInputs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListInputs where
   rnf ListInputs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListInputs where
   toHeaders =
@@ -146,16 +146,16 @@ instance Data.ToPath ListInputs where
 instance Data.ToQuery ListInputs where
   toQuery ListInputs' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | Placeholder documentation for ListInputsResponse
 --
 -- /See:/ 'newListInputsResponse' smart constructor.
 data ListInputsResponse = ListInputsResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    inputs :: Prelude.Maybe [Input],
+  { inputs :: Prelude.Maybe [Input],
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -169,9 +169,9 @@ data ListInputsResponse = ListInputsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listInputsResponse_nextToken' - Undocumented member.
---
 -- 'inputs', 'listInputsResponse_inputs' - Undocumented member.
+--
+-- 'nextToken', 'listInputsResponse_nextToken' - Undocumented member.
 --
 -- 'httpStatus', 'listInputsResponse_httpStatus' - The response's http status code.
 newListInputsResponse ::
@@ -180,18 +180,18 @@ newListInputsResponse ::
   ListInputsResponse
 newListInputsResponse pHttpStatus_ =
   ListInputsResponse'
-    { nextToken = Prelude.Nothing,
-      inputs = Prelude.Nothing,
+    { inputs = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-listInputsResponse_nextToken :: Lens.Lens' ListInputsResponse (Prelude.Maybe Prelude.Text)
-listInputsResponse_nextToken = Lens.lens (\ListInputsResponse' {nextToken} -> nextToken) (\s@ListInputsResponse' {} a -> s {nextToken = a} :: ListInputsResponse)
-
--- | Undocumented member.
 listInputsResponse_inputs :: Lens.Lens' ListInputsResponse (Prelude.Maybe [Input])
 listInputsResponse_inputs = Lens.lens (\ListInputsResponse' {inputs} -> inputs) (\s@ListInputsResponse' {} a -> s {inputs = a} :: ListInputsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+listInputsResponse_nextToken :: Lens.Lens' ListInputsResponse (Prelude.Maybe Prelude.Text)
+listInputsResponse_nextToken = Lens.lens (\ListInputsResponse' {nextToken} -> nextToken) (\s@ListInputsResponse' {} a -> s {nextToken = a} :: ListInputsResponse)
 
 -- | The response's http status code.
 listInputsResponse_httpStatus :: Lens.Lens' ListInputsResponse Prelude.Int
@@ -199,6 +199,6 @@ listInputsResponse_httpStatus = Lens.lens (\ListInputsResponse' {httpStatus} -> 
 
 instance Prelude.NFData ListInputsResponse where
   rnf ListInputsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf inputs
+    Prelude.rnf inputs
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

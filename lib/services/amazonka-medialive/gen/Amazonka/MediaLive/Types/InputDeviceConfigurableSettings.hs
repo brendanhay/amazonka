@@ -29,15 +29,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInputDeviceConfigurableSettings' smart constructor.
 data InputDeviceConfigurableSettings = InputDeviceConfigurableSettings'
-  { -- | The maximum bitrate in bits per second. Set a value here to throttle the
-    -- bitrate of the source video.
-    maxBitrate :: Prelude.Maybe Prelude.Int,
-    -- | The input source that you want to use. If the device has a source
+  { -- | The input source that you want to use. If the device has a source
     -- connected to only one of its input ports, or if you don\'t care which
     -- source the device sends, specify Auto. If the device has sources
     -- connected to both its input ports, and you want to use a specific
     -- source, specify the source.
-    configuredInput :: Prelude.Maybe InputDeviceConfiguredInput
+    configuredInput :: Prelude.Maybe InputDeviceConfiguredInput,
+    -- | The maximum bitrate in bits per second. Set a value here to throttle the
+    -- bitrate of the source video.
+    maxBitrate :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,27 +49,22 @@ data InputDeviceConfigurableSettings = InputDeviceConfigurableSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxBitrate', 'inputDeviceConfigurableSettings_maxBitrate' - The maximum bitrate in bits per second. Set a value here to throttle the
--- bitrate of the source video.
---
 -- 'configuredInput', 'inputDeviceConfigurableSettings_configuredInput' - The input source that you want to use. If the device has a source
 -- connected to only one of its input ports, or if you don\'t care which
 -- source the device sends, specify Auto. If the device has sources
 -- connected to both its input ports, and you want to use a specific
 -- source, specify the source.
+--
+-- 'maxBitrate', 'inputDeviceConfigurableSettings_maxBitrate' - The maximum bitrate in bits per second. Set a value here to throttle the
+-- bitrate of the source video.
 newInputDeviceConfigurableSettings ::
   InputDeviceConfigurableSettings
 newInputDeviceConfigurableSettings =
   InputDeviceConfigurableSettings'
-    { maxBitrate =
+    { configuredInput =
         Prelude.Nothing,
-      configuredInput = Prelude.Nothing
+      maxBitrate = Prelude.Nothing
     }
-
--- | The maximum bitrate in bits per second. Set a value here to throttle the
--- bitrate of the source video.
-inputDeviceConfigurableSettings_maxBitrate :: Lens.Lens' InputDeviceConfigurableSettings (Prelude.Maybe Prelude.Int)
-inputDeviceConfigurableSettings_maxBitrate = Lens.lens (\InputDeviceConfigurableSettings' {maxBitrate} -> maxBitrate) (\s@InputDeviceConfigurableSettings' {} a -> s {maxBitrate = a} :: InputDeviceConfigurableSettings)
 
 -- | The input source that you want to use. If the device has a source
 -- connected to only one of its input ports, or if you don\'t care which
@@ -79,6 +74,11 @@ inputDeviceConfigurableSettings_maxBitrate = Lens.lens (\InputDeviceConfigurable
 inputDeviceConfigurableSettings_configuredInput :: Lens.Lens' InputDeviceConfigurableSettings (Prelude.Maybe InputDeviceConfiguredInput)
 inputDeviceConfigurableSettings_configuredInput = Lens.lens (\InputDeviceConfigurableSettings' {configuredInput} -> configuredInput) (\s@InputDeviceConfigurableSettings' {} a -> s {configuredInput = a} :: InputDeviceConfigurableSettings)
 
+-- | The maximum bitrate in bits per second. Set a value here to throttle the
+-- bitrate of the source video.
+inputDeviceConfigurableSettings_maxBitrate :: Lens.Lens' InputDeviceConfigurableSettings (Prelude.Maybe Prelude.Int)
+inputDeviceConfigurableSettings_maxBitrate = Lens.lens (\InputDeviceConfigurableSettings' {maxBitrate} -> maxBitrate) (\s@InputDeviceConfigurableSettings' {} a -> s {maxBitrate = a} :: InputDeviceConfigurableSettings)
+
 instance
   Prelude.Hashable
     InputDeviceConfigurableSettings
@@ -86,23 +86,23 @@ instance
   hashWithSalt
     _salt
     InputDeviceConfigurableSettings' {..} =
-      _salt `Prelude.hashWithSalt` maxBitrate
-        `Prelude.hashWithSalt` configuredInput
+      _salt `Prelude.hashWithSalt` configuredInput
+        `Prelude.hashWithSalt` maxBitrate
 
 instance
   Prelude.NFData
     InputDeviceConfigurableSettings
   where
   rnf InputDeviceConfigurableSettings' {..} =
-    Prelude.rnf maxBitrate
-      `Prelude.seq` Prelude.rnf configuredInput
+    Prelude.rnf configuredInput
+      `Prelude.seq` Prelude.rnf maxBitrate
 
 instance Data.ToJSON InputDeviceConfigurableSettings where
   toJSON InputDeviceConfigurableSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("maxBitrate" Data..=) Prelude.<$> maxBitrate,
-            ("configuredInput" Data..=)
-              Prelude.<$> configuredInput
+          [ ("configuredInput" Data..=)
+              Prelude.<$> configuredInput,
+            ("maxBitrate" Data..=) Prelude.<$> maxBitrate
           ]
       )

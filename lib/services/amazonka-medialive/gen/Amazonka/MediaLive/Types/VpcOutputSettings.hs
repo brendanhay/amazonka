@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVpcOutputSettings' smart constructor.
 data VpcOutputSettings = VpcOutputSettings'
-  { -- | A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC
-    -- network interfaces. If none are specified then the VPC default security
-    -- group will be used
-    securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | List of public address allocation ids to associate with ENIs that will
+  { -- | List of public address allocation ids to associate with ENIs that will
     -- be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for
     -- STANDARD channels
     publicAddressAllocationIds :: Prelude.Maybe [Prelude.Text],
+    -- | A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC
+    -- network interfaces. If none are specified then the VPC default security
+    -- group will be used
+    securityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet
     -- IDs must be mapped to two unique availability zones (AZ).
     subnetIds :: [Prelude.Text]
@@ -51,13 +51,13 @@ data VpcOutputSettings = VpcOutputSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'securityGroupIds', 'vpcOutputSettings_securityGroupIds' - A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC
--- network interfaces. If none are specified then the VPC default security
--- group will be used
---
 -- 'publicAddressAllocationIds', 'vpcOutputSettings_publicAddressAllocationIds' - List of public address allocation ids to associate with ENIs that will
 -- be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for
 -- STANDARD channels
+--
+-- 'securityGroupIds', 'vpcOutputSettings_securityGroupIds' - A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC
+-- network interfaces. If none are specified then the VPC default security
+-- group will be used
 --
 -- 'subnetIds', 'vpcOutputSettings_subnetIds' - A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet
 -- IDs must be mapped to two unique availability zones (AZ).
@@ -65,23 +65,23 @@ newVpcOutputSettings ::
   VpcOutputSettings
 newVpcOutputSettings =
   VpcOutputSettings'
-    { securityGroupIds =
+    { publicAddressAllocationIds =
         Prelude.Nothing,
-      publicAddressAllocationIds = Prelude.Nothing,
+      securityGroupIds = Prelude.Nothing,
       subnetIds = Prelude.mempty
     }
-
--- | A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC
--- network interfaces. If none are specified then the VPC default security
--- group will be used
-vpcOutputSettings_securityGroupIds :: Lens.Lens' VpcOutputSettings (Prelude.Maybe [Prelude.Text])
-vpcOutputSettings_securityGroupIds = Lens.lens (\VpcOutputSettings' {securityGroupIds} -> securityGroupIds) (\s@VpcOutputSettings' {} a -> s {securityGroupIds = a} :: VpcOutputSettings) Prelude.. Lens.mapping Lens.coerced
 
 -- | List of public address allocation ids to associate with ENIs that will
 -- be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for
 -- STANDARD channels
 vpcOutputSettings_publicAddressAllocationIds :: Lens.Lens' VpcOutputSettings (Prelude.Maybe [Prelude.Text])
 vpcOutputSettings_publicAddressAllocationIds = Lens.lens (\VpcOutputSettings' {publicAddressAllocationIds} -> publicAddressAllocationIds) (\s@VpcOutputSettings' {} a -> s {publicAddressAllocationIds = a} :: VpcOutputSettings) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC
+-- network interfaces. If none are specified then the VPC default security
+-- group will be used
+vpcOutputSettings_securityGroupIds :: Lens.Lens' VpcOutputSettings (Prelude.Maybe [Prelude.Text])
+vpcOutputSettings_securityGroupIds = Lens.lens (\VpcOutputSettings' {securityGroupIds} -> securityGroupIds) (\s@VpcOutputSettings' {} a -> s {securityGroupIds = a} :: VpcOutputSettings) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet
 -- IDs must be mapped to two unique availability zones (AZ).
@@ -90,24 +90,25 @@ vpcOutputSettings_subnetIds = Lens.lens (\VpcOutputSettings' {subnetIds} -> subn
 
 instance Prelude.Hashable VpcOutputSettings where
   hashWithSalt _salt VpcOutputSettings' {..} =
-    _salt `Prelude.hashWithSalt` securityGroupIds
+    _salt
       `Prelude.hashWithSalt` publicAddressAllocationIds
+      `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` subnetIds
 
 instance Prelude.NFData VpcOutputSettings where
   rnf VpcOutputSettings' {..} =
-    Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf publicAddressAllocationIds
+    Prelude.rnf publicAddressAllocationIds
+      `Prelude.seq` Prelude.rnf securityGroupIds
       `Prelude.seq` Prelude.rnf subnetIds
 
 instance Data.ToJSON VpcOutputSettings where
   toJSON VpcOutputSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("securityGroupIds" Data..=)
-              Prelude.<$> securityGroupIds,
-            ("publicAddressAllocationIds" Data..=)
+          [ ("publicAddressAllocationIds" Data..=)
               Prelude.<$> publicAddressAllocationIds,
+            ("securityGroupIds" Data..=)
+              Prelude.<$> securityGroupIds,
             Prelude.Just ("subnetIds" Data..= subnetIds)
           ]
       )

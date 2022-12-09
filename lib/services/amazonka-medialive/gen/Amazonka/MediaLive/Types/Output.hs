@@ -29,16 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOutput' smart constructor.
 data Output = Output'
-  { -- | The name of the VideoDescription used as the source for this output.
-    videoDescriptionName :: Prelude.Maybe Prelude.Text,
+  { -- | The names of the AudioDescriptions used as audio sources for this
+    -- output.
+    audioDescriptionNames :: Prelude.Maybe [Prelude.Text],
     -- | The names of the CaptionDescriptions used as caption sources for this
     -- output.
     captionDescriptionNames :: Prelude.Maybe [Prelude.Text],
     -- | The name used to identify an output.
     outputName :: Prelude.Maybe Prelude.Text,
-    -- | The names of the AudioDescriptions used as audio sources for this
-    -- output.
-    audioDescriptionNames :: Prelude.Maybe [Prelude.Text],
+    -- | The name of the VideoDescription used as the source for this output.
+    videoDescriptionName :: Prelude.Maybe Prelude.Text,
     -- | Output type-specific settings.
     outputSettings :: OutputSettings
   }
@@ -52,15 +52,15 @@ data Output = Output'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'videoDescriptionName', 'output_videoDescriptionName' - The name of the VideoDescription used as the source for this output.
+-- 'audioDescriptionNames', 'output_audioDescriptionNames' - The names of the AudioDescriptions used as audio sources for this
+-- output.
 --
 -- 'captionDescriptionNames', 'output_captionDescriptionNames' - The names of the CaptionDescriptions used as caption sources for this
 -- output.
 --
 -- 'outputName', 'output_outputName' - The name used to identify an output.
 --
--- 'audioDescriptionNames', 'output_audioDescriptionNames' - The names of the AudioDescriptions used as audio sources for this
--- output.
+-- 'videoDescriptionName', 'output_videoDescriptionName' - The name of the VideoDescription used as the source for this output.
 --
 -- 'outputSettings', 'output_outputSettings' - Output type-specific settings.
 newOutput ::
@@ -69,16 +69,17 @@ newOutput ::
   Output
 newOutput pOutputSettings_ =
   Output'
-    { videoDescriptionName = Prelude.Nothing,
+    { audioDescriptionNames = Prelude.Nothing,
       captionDescriptionNames = Prelude.Nothing,
       outputName = Prelude.Nothing,
-      audioDescriptionNames = Prelude.Nothing,
+      videoDescriptionName = Prelude.Nothing,
       outputSettings = pOutputSettings_
     }
 
--- | The name of the VideoDescription used as the source for this output.
-output_videoDescriptionName :: Lens.Lens' Output (Prelude.Maybe Prelude.Text)
-output_videoDescriptionName = Lens.lens (\Output' {videoDescriptionName} -> videoDescriptionName) (\s@Output' {} a -> s {videoDescriptionName = a} :: Output)
+-- | The names of the AudioDescriptions used as audio sources for this
+-- output.
+output_audioDescriptionNames :: Lens.Lens' Output (Prelude.Maybe [Prelude.Text])
+output_audioDescriptionNames = Lens.lens (\Output' {audioDescriptionNames} -> audioDescriptionNames) (\s@Output' {} a -> s {audioDescriptionNames = a} :: Output) Prelude.. Lens.mapping Lens.coerced
 
 -- | The names of the CaptionDescriptions used as caption sources for this
 -- output.
@@ -89,10 +90,9 @@ output_captionDescriptionNames = Lens.lens (\Output' {captionDescriptionNames} -
 output_outputName :: Lens.Lens' Output (Prelude.Maybe Prelude.Text)
 output_outputName = Lens.lens (\Output' {outputName} -> outputName) (\s@Output' {} a -> s {outputName = a} :: Output)
 
--- | The names of the AudioDescriptions used as audio sources for this
--- output.
-output_audioDescriptionNames :: Lens.Lens' Output (Prelude.Maybe [Prelude.Text])
-output_audioDescriptionNames = Lens.lens (\Output' {audioDescriptionNames} -> audioDescriptionNames) (\s@Output' {} a -> s {audioDescriptionNames = a} :: Output) Prelude.. Lens.mapping Lens.coerced
+-- | The name of the VideoDescription used as the source for this output.
+output_videoDescriptionName :: Lens.Lens' Output (Prelude.Maybe Prelude.Text)
+output_videoDescriptionName = Lens.lens (\Output' {videoDescriptionName} -> videoDescriptionName) (\s@Output' {} a -> s {videoDescriptionName = a} :: Output)
 
 -- | Output type-specific settings.
 output_outputSettings :: Lens.Lens' Output OutputSettings
@@ -104,44 +104,44 @@ instance Data.FromJSON Output where
       "Output"
       ( \x ->
           Output'
-            Prelude.<$> (x Data..:? "videoDescriptionName")
+            Prelude.<$> ( x Data..:? "audioDescriptionNames"
+                            Data..!= Prelude.mempty
+                        )
             Prelude.<*> ( x Data..:? "captionDescriptionNames"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "outputName")
-            Prelude.<*> ( x Data..:? "audioDescriptionNames"
-                            Data..!= Prelude.mempty
-                        )
+            Prelude.<*> (x Data..:? "videoDescriptionName")
             Prelude.<*> (x Data..: "outputSettings")
       )
 
 instance Prelude.Hashable Output where
   hashWithSalt _salt Output' {..} =
-    _salt `Prelude.hashWithSalt` videoDescriptionName
+    _salt `Prelude.hashWithSalt` audioDescriptionNames
       `Prelude.hashWithSalt` captionDescriptionNames
       `Prelude.hashWithSalt` outputName
-      `Prelude.hashWithSalt` audioDescriptionNames
+      `Prelude.hashWithSalt` videoDescriptionName
       `Prelude.hashWithSalt` outputSettings
 
 instance Prelude.NFData Output where
   rnf Output' {..} =
-    Prelude.rnf videoDescriptionName
+    Prelude.rnf audioDescriptionNames
       `Prelude.seq` Prelude.rnf captionDescriptionNames
       `Prelude.seq` Prelude.rnf outputName
-      `Prelude.seq` Prelude.rnf audioDescriptionNames
+      `Prelude.seq` Prelude.rnf videoDescriptionName
       `Prelude.seq` Prelude.rnf outputSettings
 
 instance Data.ToJSON Output where
   toJSON Output' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("videoDescriptionName" Data..=)
-              Prelude.<$> videoDescriptionName,
+          [ ("audioDescriptionNames" Data..=)
+              Prelude.<$> audioDescriptionNames,
             ("captionDescriptionNames" Data..=)
               Prelude.<$> captionDescriptionNames,
             ("outputName" Data..=) Prelude.<$> outputName,
-            ("audioDescriptionNames" Data..=)
-              Prelude.<$> audioDescriptionNames,
+            ("videoDescriptionName" Data..=)
+              Prelude.<$> videoDescriptionName,
             Prelude.Just
               ("outputSettings" Data..= outputSettings)
           ]

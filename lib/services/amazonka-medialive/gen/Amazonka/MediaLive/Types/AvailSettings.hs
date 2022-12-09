@@ -31,9 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAvailSettings' smart constructor.
 data AvailSettings = AvailSettings'
-  { scte35TimeSignalApos :: Prelude.Maybe Scte35TimeSignalApos,
-    esam :: Prelude.Maybe Esam,
-    scte35SpliceInsert :: Prelude.Maybe Scte35SpliceInsert
+  { esam :: Prelude.Maybe Esam,
+    scte35SpliceInsert :: Prelude.Maybe Scte35SpliceInsert,
+    scte35TimeSignalApos :: Prelude.Maybe Scte35TimeSignalApos
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,19 @@ data AvailSettings = AvailSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'scte35TimeSignalApos', 'availSettings_scte35TimeSignalApos' - Undocumented member.
---
 -- 'esam', 'availSettings_esam' - Undocumented member.
 --
 -- 'scte35SpliceInsert', 'availSettings_scte35SpliceInsert' - Undocumented member.
+--
+-- 'scte35TimeSignalApos', 'availSettings_scte35TimeSignalApos' - Undocumented member.
 newAvailSettings ::
   AvailSettings
 newAvailSettings =
   AvailSettings'
-    { scte35TimeSignalApos =
-        Prelude.Nothing,
-      esam = Prelude.Nothing,
-      scte35SpliceInsert = Prelude.Nothing
+    { esam = Prelude.Nothing,
+      scte35SpliceInsert = Prelude.Nothing,
+      scte35TimeSignalApos = Prelude.Nothing
     }
-
--- | Undocumented member.
-availSettings_scte35TimeSignalApos :: Lens.Lens' AvailSettings (Prelude.Maybe Scte35TimeSignalApos)
-availSettings_scte35TimeSignalApos = Lens.lens (\AvailSettings' {scte35TimeSignalApos} -> scte35TimeSignalApos) (\s@AvailSettings' {} a -> s {scte35TimeSignalApos = a} :: AvailSettings)
 
 -- | Undocumented member.
 availSettings_esam :: Lens.Lens' AvailSettings (Prelude.Maybe Esam)
@@ -72,37 +67,41 @@ availSettings_esam = Lens.lens (\AvailSettings' {esam} -> esam) (\s@AvailSetting
 availSettings_scte35SpliceInsert :: Lens.Lens' AvailSettings (Prelude.Maybe Scte35SpliceInsert)
 availSettings_scte35SpliceInsert = Lens.lens (\AvailSettings' {scte35SpliceInsert} -> scte35SpliceInsert) (\s@AvailSettings' {} a -> s {scte35SpliceInsert = a} :: AvailSettings)
 
+-- | Undocumented member.
+availSettings_scte35TimeSignalApos :: Lens.Lens' AvailSettings (Prelude.Maybe Scte35TimeSignalApos)
+availSettings_scte35TimeSignalApos = Lens.lens (\AvailSettings' {scte35TimeSignalApos} -> scte35TimeSignalApos) (\s@AvailSettings' {} a -> s {scte35TimeSignalApos = a} :: AvailSettings)
+
 instance Data.FromJSON AvailSettings where
   parseJSON =
     Data.withObject
       "AvailSettings"
       ( \x ->
           AvailSettings'
-            Prelude.<$> (x Data..:? "scte35TimeSignalApos")
-            Prelude.<*> (x Data..:? "esam")
+            Prelude.<$> (x Data..:? "esam")
             Prelude.<*> (x Data..:? "scte35SpliceInsert")
+            Prelude.<*> (x Data..:? "scte35TimeSignalApos")
       )
 
 instance Prelude.Hashable AvailSettings where
   hashWithSalt _salt AvailSettings' {..} =
-    _salt `Prelude.hashWithSalt` scte35TimeSignalApos
-      `Prelude.hashWithSalt` esam
+    _salt `Prelude.hashWithSalt` esam
       `Prelude.hashWithSalt` scte35SpliceInsert
+      `Prelude.hashWithSalt` scte35TimeSignalApos
 
 instance Prelude.NFData AvailSettings where
   rnf AvailSettings' {..} =
-    Prelude.rnf scte35TimeSignalApos
-      `Prelude.seq` Prelude.rnf esam
+    Prelude.rnf esam
       `Prelude.seq` Prelude.rnf scte35SpliceInsert
+      `Prelude.seq` Prelude.rnf scte35TimeSignalApos
 
 instance Data.ToJSON AvailSettings where
   toJSON AvailSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("scte35TimeSignalApos" Data..=)
-              Prelude.<$> scte35TimeSignalApos,
-            ("esam" Data..=) Prelude.<$> esam,
+          [ ("esam" Data..=) Prelude.<$> esam,
             ("scte35SpliceInsert" Data..=)
-              Prelude.<$> scte35SpliceInsert
+              Prelude.<$> scte35SpliceInsert,
+            ("scte35TimeSignalApos" Data..=)
+              Prelude.<$> scte35TimeSignalApos
           ]
       )

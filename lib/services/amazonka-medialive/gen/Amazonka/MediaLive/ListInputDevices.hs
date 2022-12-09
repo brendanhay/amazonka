@@ -29,16 +29,16 @@ module Amazonka.MediaLive.ListInputDevices
     newListInputDevices,
 
     -- * Request Lenses
-    listInputDevices_nextToken,
     listInputDevices_maxResults,
+    listInputDevices_nextToken,
 
     -- * Destructuring the Response
     ListInputDevicesResponse (..),
     newListInputDevicesResponse,
 
     -- * Response Lenses
-    listInputDevicesResponse_nextToken,
     listInputDevicesResponse_inputDevices,
+    listInputDevicesResponse_nextToken,
     listInputDevicesResponse_httpStatus,
   )
 where
@@ -55,8 +55,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListInputDevices' smart constructor.
 data ListInputDevices = ListInputDevices'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,24 +68,24 @@ data ListInputDevices = ListInputDevices'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listInputDevices_nextToken' - Undocumented member.
---
 -- 'maxResults', 'listInputDevices_maxResults' - Undocumented member.
+--
+-- 'nextToken', 'listInputDevices_nextToken' - Undocumented member.
 newListInputDevices ::
   ListInputDevices
 newListInputDevices =
   ListInputDevices'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | Undocumented member.
-listInputDevices_nextToken :: Lens.Lens' ListInputDevices (Prelude.Maybe Prelude.Text)
-listInputDevices_nextToken = Lens.lens (\ListInputDevices' {nextToken} -> nextToken) (\s@ListInputDevices' {} a -> s {nextToken = a} :: ListInputDevices)
 
 -- | Undocumented member.
 listInputDevices_maxResults :: Lens.Lens' ListInputDevices (Prelude.Maybe Prelude.Natural)
 listInputDevices_maxResults = Lens.lens (\ListInputDevices' {maxResults} -> maxResults) (\s@ListInputDevices' {} a -> s {maxResults = a} :: ListInputDevices)
+
+-- | Undocumented member.
+listInputDevices_nextToken :: Lens.Lens' ListInputDevices (Prelude.Maybe Prelude.Text)
+listInputDevices_nextToken = Lens.lens (\ListInputDevices' {nextToken} -> nextToken) (\s@ListInputDevices' {} a -> s {nextToken = a} :: ListInputDevices)
 
 instance Core.AWSPager ListInputDevices where
   page rq rs
@@ -119,20 +119,20 @@ instance Core.AWSRequest ListInputDevices where
     Response.receiveJSON
       ( \s h x ->
           ListInputDevicesResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "inputDevices" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "inputDevices" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListInputDevices where
   hashWithSalt _salt ListInputDevices' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListInputDevices where
   rnf ListInputDevices' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListInputDevices where
   toHeaders =
@@ -151,18 +151,18 @@ instance Data.ToPath ListInputDevices where
 instance Data.ToQuery ListInputDevices where
   toQuery ListInputDevices' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | Placeholder documentation for ListInputDevicesResponse
 --
 -- /See:/ 'newListInputDevicesResponse' smart constructor.
 data ListInputDevicesResponse = ListInputDevicesResponse'
-  { -- | A token to get additional list results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of input devices.
+  { -- | The list of input devices.
     inputDevices :: Prelude.Maybe [InputDeviceSummary],
+    -- | A token to get additional list results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -176,9 +176,9 @@ data ListInputDevicesResponse = ListInputDevicesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listInputDevicesResponse_nextToken' - A token to get additional list results.
---
 -- 'inputDevices', 'listInputDevicesResponse_inputDevices' - The list of input devices.
+--
+-- 'nextToken', 'listInputDevicesResponse_nextToken' - A token to get additional list results.
 --
 -- 'httpStatus', 'listInputDevicesResponse_httpStatus' - The response's http status code.
 newListInputDevicesResponse ::
@@ -187,19 +187,19 @@ newListInputDevicesResponse ::
   ListInputDevicesResponse
 newListInputDevicesResponse pHttpStatus_ =
   ListInputDevicesResponse'
-    { nextToken =
+    { inputDevices =
         Prelude.Nothing,
-      inputDevices = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A token to get additional list results.
-listInputDevicesResponse_nextToken :: Lens.Lens' ListInputDevicesResponse (Prelude.Maybe Prelude.Text)
-listInputDevicesResponse_nextToken = Lens.lens (\ListInputDevicesResponse' {nextToken} -> nextToken) (\s@ListInputDevicesResponse' {} a -> s {nextToken = a} :: ListInputDevicesResponse)
 
 -- | The list of input devices.
 listInputDevicesResponse_inputDevices :: Lens.Lens' ListInputDevicesResponse (Prelude.Maybe [InputDeviceSummary])
 listInputDevicesResponse_inputDevices = Lens.lens (\ListInputDevicesResponse' {inputDevices} -> inputDevices) (\s@ListInputDevicesResponse' {} a -> s {inputDevices = a} :: ListInputDevicesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A token to get additional list results.
+listInputDevicesResponse_nextToken :: Lens.Lens' ListInputDevicesResponse (Prelude.Maybe Prelude.Text)
+listInputDevicesResponse_nextToken = Lens.lens (\ListInputDevicesResponse' {nextToken} -> nextToken) (\s@ListInputDevicesResponse' {} a -> s {nextToken = a} :: ListInputDevicesResponse)
 
 -- | The response's http status code.
 listInputDevicesResponse_httpStatus :: Lens.Lens' ListInputDevicesResponse Prelude.Int
@@ -207,6 +207,6 @@ listInputDevicesResponse_httpStatus = Lens.lens (\ListInputDevicesResponse' {htt
 
 instance Prelude.NFData ListInputDevicesResponse where
   rnf ListInputDevicesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf inputDevices
+    Prelude.rnf inputDevices
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

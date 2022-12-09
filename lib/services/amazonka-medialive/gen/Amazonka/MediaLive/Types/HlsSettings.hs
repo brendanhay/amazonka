@@ -32,9 +32,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHlsSettings' smart constructor.
 data HlsSettings = HlsSettings'
-  { frameCaptureHlsSettings :: Prelude.Maybe FrameCaptureHlsSettings,
-    audioOnlyHlsSettings :: Prelude.Maybe AudioOnlyHlsSettings,
+  { audioOnlyHlsSettings :: Prelude.Maybe AudioOnlyHlsSettings,
     fmp4HlsSettings :: Prelude.Maybe Fmp4HlsSettings,
+    frameCaptureHlsSettings :: Prelude.Maybe FrameCaptureHlsSettings,
     standardHlsSettings :: Prelude.Maybe StandardHlsSettings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,27 +47,23 @@ data HlsSettings = HlsSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'frameCaptureHlsSettings', 'hlsSettings_frameCaptureHlsSettings' - Undocumented member.
---
 -- 'audioOnlyHlsSettings', 'hlsSettings_audioOnlyHlsSettings' - Undocumented member.
 --
 -- 'fmp4HlsSettings', 'hlsSettings_fmp4HlsSettings' - Undocumented member.
+--
+-- 'frameCaptureHlsSettings', 'hlsSettings_frameCaptureHlsSettings' - Undocumented member.
 --
 -- 'standardHlsSettings', 'hlsSettings_standardHlsSettings' - Undocumented member.
 newHlsSettings ::
   HlsSettings
 newHlsSettings =
   HlsSettings'
-    { frameCaptureHlsSettings =
+    { audioOnlyHlsSettings =
         Prelude.Nothing,
-      audioOnlyHlsSettings = Prelude.Nothing,
       fmp4HlsSettings = Prelude.Nothing,
+      frameCaptureHlsSettings = Prelude.Nothing,
       standardHlsSettings = Prelude.Nothing
     }
-
--- | Undocumented member.
-hlsSettings_frameCaptureHlsSettings :: Lens.Lens' HlsSettings (Prelude.Maybe FrameCaptureHlsSettings)
-hlsSettings_frameCaptureHlsSettings = Lens.lens (\HlsSettings' {frameCaptureHlsSettings} -> frameCaptureHlsSettings) (\s@HlsSettings' {} a -> s {frameCaptureHlsSettings = a} :: HlsSettings)
 
 -- | Undocumented member.
 hlsSettings_audioOnlyHlsSettings :: Lens.Lens' HlsSettings (Prelude.Maybe AudioOnlyHlsSettings)
@@ -76,6 +72,10 @@ hlsSettings_audioOnlyHlsSettings = Lens.lens (\HlsSettings' {audioOnlyHlsSetting
 -- | Undocumented member.
 hlsSettings_fmp4HlsSettings :: Lens.Lens' HlsSettings (Prelude.Maybe Fmp4HlsSettings)
 hlsSettings_fmp4HlsSettings = Lens.lens (\HlsSettings' {fmp4HlsSettings} -> fmp4HlsSettings) (\s@HlsSettings' {} a -> s {fmp4HlsSettings = a} :: HlsSettings)
+
+-- | Undocumented member.
+hlsSettings_frameCaptureHlsSettings :: Lens.Lens' HlsSettings (Prelude.Maybe FrameCaptureHlsSettings)
+hlsSettings_frameCaptureHlsSettings = Lens.lens (\HlsSettings' {frameCaptureHlsSettings} -> frameCaptureHlsSettings) (\s@HlsSettings' {} a -> s {frameCaptureHlsSettings = a} :: HlsSettings)
 
 -- | Undocumented member.
 hlsSettings_standardHlsSettings :: Lens.Lens' HlsSettings (Prelude.Maybe StandardHlsSettings)
@@ -87,37 +87,36 @@ instance Data.FromJSON HlsSettings where
       "HlsSettings"
       ( \x ->
           HlsSettings'
-            Prelude.<$> (x Data..:? "frameCaptureHlsSettings")
-            Prelude.<*> (x Data..:? "audioOnlyHlsSettings")
+            Prelude.<$> (x Data..:? "audioOnlyHlsSettings")
             Prelude.<*> (x Data..:? "fmp4HlsSettings")
+            Prelude.<*> (x Data..:? "frameCaptureHlsSettings")
             Prelude.<*> (x Data..:? "standardHlsSettings")
       )
 
 instance Prelude.Hashable HlsSettings where
   hashWithSalt _salt HlsSettings' {..} =
-    _salt
-      `Prelude.hashWithSalt` frameCaptureHlsSettings
-      `Prelude.hashWithSalt` audioOnlyHlsSettings
+    _salt `Prelude.hashWithSalt` audioOnlyHlsSettings
       `Prelude.hashWithSalt` fmp4HlsSettings
+      `Prelude.hashWithSalt` frameCaptureHlsSettings
       `Prelude.hashWithSalt` standardHlsSettings
 
 instance Prelude.NFData HlsSettings where
   rnf HlsSettings' {..} =
-    Prelude.rnf frameCaptureHlsSettings
-      `Prelude.seq` Prelude.rnf audioOnlyHlsSettings
+    Prelude.rnf audioOnlyHlsSettings
       `Prelude.seq` Prelude.rnf fmp4HlsSettings
+      `Prelude.seq` Prelude.rnf frameCaptureHlsSettings
       `Prelude.seq` Prelude.rnf standardHlsSettings
 
 instance Data.ToJSON HlsSettings where
   toJSON HlsSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("frameCaptureHlsSettings" Data..=)
-              Prelude.<$> frameCaptureHlsSettings,
-            ("audioOnlyHlsSettings" Data..=)
+          [ ("audioOnlyHlsSettings" Data..=)
               Prelude.<$> audioOnlyHlsSettings,
             ("fmp4HlsSettings" Data..=)
               Prelude.<$> fmp4HlsSettings,
+            ("frameCaptureHlsSettings" Data..=)
+              Prelude.<$> frameCaptureHlsSettings,
             ("standardHlsSettings" Data..=)
               Prelude.<$> standardHlsSettings
           ]

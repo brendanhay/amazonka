@@ -28,17 +28,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHlsBasicPutSettings' smart constructor.
 data HlsBasicPutSettings = HlsBasicPutSettings'
-  { -- | Number of retry attempts that will be made before the Live Event is put
-    -- into an error state.
-    numRetries :: Prelude.Maybe Prelude.Natural,
-    -- | Number of seconds to wait before retrying connection to the CDN if the
+  { -- | Number of seconds to wait before retrying connection to the CDN if the
     -- connection is lost.
     connectionRetryInterval :: Prelude.Maybe Prelude.Natural,
+    -- | Size in seconds of file cache for streaming outputs.
+    filecacheDuration :: Prelude.Maybe Prelude.Natural,
+    -- | Number of retry attempts that will be made before the Live Event is put
+    -- into an error state.
+    numRetries :: Prelude.Maybe Prelude.Natural,
     -- | If a streaming output fails, number of seconds to wait until a restart
     -- is initiated. A value of 0 means never restart.
-    restartDelay :: Prelude.Maybe Prelude.Natural,
-    -- | Size in seconds of file cache for streaming outputs.
-    filecacheDuration :: Prelude.Maybe Prelude.Natural
+    restartDelay :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,44 +50,45 @@ data HlsBasicPutSettings = HlsBasicPutSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'numRetries', 'hlsBasicPutSettings_numRetries' - Number of retry attempts that will be made before the Live Event is put
--- into an error state.
---
 -- 'connectionRetryInterval', 'hlsBasicPutSettings_connectionRetryInterval' - Number of seconds to wait before retrying connection to the CDN if the
 -- connection is lost.
 --
+-- 'filecacheDuration', 'hlsBasicPutSettings_filecacheDuration' - Size in seconds of file cache for streaming outputs.
+--
+-- 'numRetries', 'hlsBasicPutSettings_numRetries' - Number of retry attempts that will be made before the Live Event is put
+-- into an error state.
+--
 -- 'restartDelay', 'hlsBasicPutSettings_restartDelay' - If a streaming output fails, number of seconds to wait until a restart
 -- is initiated. A value of 0 means never restart.
---
--- 'filecacheDuration', 'hlsBasicPutSettings_filecacheDuration' - Size in seconds of file cache for streaming outputs.
 newHlsBasicPutSettings ::
   HlsBasicPutSettings
 newHlsBasicPutSettings =
   HlsBasicPutSettings'
-    { numRetries = Prelude.Nothing,
-      connectionRetryInterval = Prelude.Nothing,
-      restartDelay = Prelude.Nothing,
-      filecacheDuration = Prelude.Nothing
+    { connectionRetryInterval =
+        Prelude.Nothing,
+      filecacheDuration = Prelude.Nothing,
+      numRetries = Prelude.Nothing,
+      restartDelay = Prelude.Nothing
     }
-
--- | Number of retry attempts that will be made before the Live Event is put
--- into an error state.
-hlsBasicPutSettings_numRetries :: Lens.Lens' HlsBasicPutSettings (Prelude.Maybe Prelude.Natural)
-hlsBasicPutSettings_numRetries = Lens.lens (\HlsBasicPutSettings' {numRetries} -> numRetries) (\s@HlsBasicPutSettings' {} a -> s {numRetries = a} :: HlsBasicPutSettings)
 
 -- | Number of seconds to wait before retrying connection to the CDN if the
 -- connection is lost.
 hlsBasicPutSettings_connectionRetryInterval :: Lens.Lens' HlsBasicPutSettings (Prelude.Maybe Prelude.Natural)
 hlsBasicPutSettings_connectionRetryInterval = Lens.lens (\HlsBasicPutSettings' {connectionRetryInterval} -> connectionRetryInterval) (\s@HlsBasicPutSettings' {} a -> s {connectionRetryInterval = a} :: HlsBasicPutSettings)
 
+-- | Size in seconds of file cache for streaming outputs.
+hlsBasicPutSettings_filecacheDuration :: Lens.Lens' HlsBasicPutSettings (Prelude.Maybe Prelude.Natural)
+hlsBasicPutSettings_filecacheDuration = Lens.lens (\HlsBasicPutSettings' {filecacheDuration} -> filecacheDuration) (\s@HlsBasicPutSettings' {} a -> s {filecacheDuration = a} :: HlsBasicPutSettings)
+
+-- | Number of retry attempts that will be made before the Live Event is put
+-- into an error state.
+hlsBasicPutSettings_numRetries :: Lens.Lens' HlsBasicPutSettings (Prelude.Maybe Prelude.Natural)
+hlsBasicPutSettings_numRetries = Lens.lens (\HlsBasicPutSettings' {numRetries} -> numRetries) (\s@HlsBasicPutSettings' {} a -> s {numRetries = a} :: HlsBasicPutSettings)
+
 -- | If a streaming output fails, number of seconds to wait until a restart
 -- is initiated. A value of 0 means never restart.
 hlsBasicPutSettings_restartDelay :: Lens.Lens' HlsBasicPutSettings (Prelude.Maybe Prelude.Natural)
 hlsBasicPutSettings_restartDelay = Lens.lens (\HlsBasicPutSettings' {restartDelay} -> restartDelay) (\s@HlsBasicPutSettings' {} a -> s {restartDelay = a} :: HlsBasicPutSettings)
-
--- | Size in seconds of file cache for streaming outputs.
-hlsBasicPutSettings_filecacheDuration :: Lens.Lens' HlsBasicPutSettings (Prelude.Maybe Prelude.Natural)
-hlsBasicPutSettings_filecacheDuration = Lens.lens (\HlsBasicPutSettings' {filecacheDuration} -> filecacheDuration) (\s@HlsBasicPutSettings' {} a -> s {filecacheDuration = a} :: HlsBasicPutSettings)
 
 instance Data.FromJSON HlsBasicPutSettings where
   parseJSON =
@@ -95,35 +96,36 @@ instance Data.FromJSON HlsBasicPutSettings where
       "HlsBasicPutSettings"
       ( \x ->
           HlsBasicPutSettings'
-            Prelude.<$> (x Data..:? "numRetries")
-            Prelude.<*> (x Data..:? "connectionRetryInterval")
-            Prelude.<*> (x Data..:? "restartDelay")
+            Prelude.<$> (x Data..:? "connectionRetryInterval")
             Prelude.<*> (x Data..:? "filecacheDuration")
+            Prelude.<*> (x Data..:? "numRetries")
+            Prelude.<*> (x Data..:? "restartDelay")
       )
 
 instance Prelude.Hashable HlsBasicPutSettings where
   hashWithSalt _salt HlsBasicPutSettings' {..} =
-    _salt `Prelude.hashWithSalt` numRetries
+    _salt
       `Prelude.hashWithSalt` connectionRetryInterval
-      `Prelude.hashWithSalt` restartDelay
       `Prelude.hashWithSalt` filecacheDuration
+      `Prelude.hashWithSalt` numRetries
+      `Prelude.hashWithSalt` restartDelay
 
 instance Prelude.NFData HlsBasicPutSettings where
   rnf HlsBasicPutSettings' {..} =
-    Prelude.rnf numRetries
-      `Prelude.seq` Prelude.rnf connectionRetryInterval
-      `Prelude.seq` Prelude.rnf restartDelay
+    Prelude.rnf connectionRetryInterval
       `Prelude.seq` Prelude.rnf filecacheDuration
+      `Prelude.seq` Prelude.rnf numRetries
+      `Prelude.seq` Prelude.rnf restartDelay
 
 instance Data.ToJSON HlsBasicPutSettings where
   toJSON HlsBasicPutSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("numRetries" Data..=) Prelude.<$> numRetries,
-            ("connectionRetryInterval" Data..=)
+          [ ("connectionRetryInterval" Data..=)
               Prelude.<$> connectionRetryInterval,
-            ("restartDelay" Data..=) Prelude.<$> restartDelay,
             ("filecacheDuration" Data..=)
-              Prelude.<$> filecacheDuration
+              Prelude.<$> filecacheDuration,
+            ("numRetries" Data..=) Prelude.<$> numRetries,
+            ("restartDelay" Data..=) Prelude.<$> restartDelay
           ]
       )

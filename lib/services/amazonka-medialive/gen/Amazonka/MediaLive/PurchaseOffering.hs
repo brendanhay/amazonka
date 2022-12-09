@@ -27,11 +27,11 @@ module Amazonka.MediaLive.PurchaseOffering
     newPurchaseOffering',
 
     -- * Request Lenses
-    purchaseOffering'_tags,
     purchaseOffering'_name,
     purchaseOffering'_renewalSettings,
-    purchaseOffering'_start,
     purchaseOffering'_requestId,
+    purchaseOffering'_start,
+    purchaseOffering'_tags,
     purchaseOffering'_offeringId,
     purchaseOffering'_count,
 
@@ -57,19 +57,19 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newPurchaseOffering'' smart constructor.
 data PurchaseOffering' = PurchaseOffering''
-  { -- | A collection of key-value pairs
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Name for the new reservation
+  { -- | Name for the new reservation
     name :: Prelude.Maybe Prelude.Text,
     -- | Renewal settings for the reservation
     renewalSettings :: Prelude.Maybe RenewalSettings,
+    -- | Unique request ID to be specified. This is needed to prevent retries
+    -- from creating multiple resources.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | Requested reservation start time (UTC) in ISO-8601 format. The specified
     -- time must be between the first day of the current month and one year
     -- from now. If no value is given, the default is now.
     start :: Prelude.Maybe Prelude.Text,
-    -- | Unique request ID to be specified. This is needed to prevent retries
-    -- from creating multiple resources.
-    requestId :: Prelude.Maybe Prelude.Text,
+    -- | A collection of key-value pairs
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Offering to purchase, e.g. \'87654321\'
     offeringId :: Prelude.Text,
     -- | Number of resources
@@ -85,18 +85,18 @@ data PurchaseOffering' = PurchaseOffering''
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'purchaseOffering'_tags' - A collection of key-value pairs
---
 -- 'name', 'purchaseOffering'_name' - Name for the new reservation
 --
 -- 'renewalSettings', 'purchaseOffering'_renewalSettings' - Renewal settings for the reservation
+--
+-- 'requestId', 'purchaseOffering'_requestId' - Unique request ID to be specified. This is needed to prevent retries
+-- from creating multiple resources.
 --
 -- 'start', 'purchaseOffering'_start' - Requested reservation start time (UTC) in ISO-8601 format. The specified
 -- time must be between the first day of the current month and one year
 -- from now. If no value is given, the default is now.
 --
--- 'requestId', 'purchaseOffering'_requestId' - Unique request ID to be specified. This is needed to prevent retries
--- from creating multiple resources.
+-- 'tags', 'purchaseOffering'_tags' - A collection of key-value pairs
 --
 -- 'offeringId', 'purchaseOffering'_offeringId' - Offering to purchase, e.g. \'87654321\'
 --
@@ -109,18 +109,14 @@ newPurchaseOffering' ::
   PurchaseOffering'
 newPurchaseOffering' pOfferingId_ pCount_ =
   PurchaseOffering''
-    { tags = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
       renewalSettings = Prelude.Nothing,
-      start = Prelude.Nothing,
       requestId = Prelude.Nothing,
+      start = Prelude.Nothing,
+      tags = Prelude.Nothing,
       offeringId = pOfferingId_,
       count = pCount_
     }
-
--- | A collection of key-value pairs
-purchaseOffering'_tags :: Lens.Lens' PurchaseOffering' (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-purchaseOffering'_tags = Lens.lens (\PurchaseOffering'' {tags} -> tags) (\s@PurchaseOffering'' {} a -> s {tags = a} :: PurchaseOffering') Prelude.. Lens.mapping Lens.coerced
 
 -- | Name for the new reservation
 purchaseOffering'_name :: Lens.Lens' PurchaseOffering' (Prelude.Maybe Prelude.Text)
@@ -130,16 +126,20 @@ purchaseOffering'_name = Lens.lens (\PurchaseOffering'' {name} -> name) (\s@Purc
 purchaseOffering'_renewalSettings :: Lens.Lens' PurchaseOffering' (Prelude.Maybe RenewalSettings)
 purchaseOffering'_renewalSettings = Lens.lens (\PurchaseOffering'' {renewalSettings} -> renewalSettings) (\s@PurchaseOffering'' {} a -> s {renewalSettings = a} :: PurchaseOffering')
 
+-- | Unique request ID to be specified. This is needed to prevent retries
+-- from creating multiple resources.
+purchaseOffering'_requestId :: Lens.Lens' PurchaseOffering' (Prelude.Maybe Prelude.Text)
+purchaseOffering'_requestId = Lens.lens (\PurchaseOffering'' {requestId} -> requestId) (\s@PurchaseOffering'' {} a -> s {requestId = a} :: PurchaseOffering')
+
 -- | Requested reservation start time (UTC) in ISO-8601 format. The specified
 -- time must be between the first day of the current month and one year
 -- from now. If no value is given, the default is now.
 purchaseOffering'_start :: Lens.Lens' PurchaseOffering' (Prelude.Maybe Prelude.Text)
 purchaseOffering'_start = Lens.lens (\PurchaseOffering'' {start} -> start) (\s@PurchaseOffering'' {} a -> s {start = a} :: PurchaseOffering')
 
--- | Unique request ID to be specified. This is needed to prevent retries
--- from creating multiple resources.
-purchaseOffering'_requestId :: Lens.Lens' PurchaseOffering' (Prelude.Maybe Prelude.Text)
-purchaseOffering'_requestId = Lens.lens (\PurchaseOffering'' {requestId} -> requestId) (\s@PurchaseOffering'' {} a -> s {requestId = a} :: PurchaseOffering')
+-- | A collection of key-value pairs
+purchaseOffering'_tags :: Lens.Lens' PurchaseOffering' (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+purchaseOffering'_tags = Lens.lens (\PurchaseOffering'' {tags} -> tags) (\s@PurchaseOffering'' {} a -> s {tags = a} :: PurchaseOffering') Prelude.. Lens.mapping Lens.coerced
 
 -- | Offering to purchase, e.g. \'87654321\'
 purchaseOffering'_offeringId :: Lens.Lens' PurchaseOffering' Prelude.Text
@@ -165,21 +165,21 @@ instance Core.AWSRequest PurchaseOffering' where
 
 instance Prelude.Hashable PurchaseOffering' where
   hashWithSalt _salt PurchaseOffering'' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` renewalSettings
-      `Prelude.hashWithSalt` start
       `Prelude.hashWithSalt` requestId
+      `Prelude.hashWithSalt` start
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` offeringId
       `Prelude.hashWithSalt` count
 
 instance Prelude.NFData PurchaseOffering' where
   rnf PurchaseOffering'' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf renewalSettings
-      `Prelude.seq` Prelude.rnf start
       `Prelude.seq` Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf start
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf offeringId
       `Prelude.seq` Prelude.rnf count
 
@@ -198,12 +198,12 @@ instance Data.ToJSON PurchaseOffering' where
   toJSON PurchaseOffering'' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("name" Data..=) Prelude.<$> name,
+          [ ("name" Data..=) Prelude.<$> name,
             ("renewalSettings" Data..=)
               Prelude.<$> renewalSettings,
-            ("start" Data..=) Prelude.<$> start,
             ("requestId" Data..=) Prelude.<$> requestId,
+            ("start" Data..=) Prelude.<$> start,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("count" Data..= count)
           ]
       )

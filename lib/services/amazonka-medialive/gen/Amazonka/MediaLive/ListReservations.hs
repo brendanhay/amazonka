@@ -29,16 +29,16 @@ module Amazonka.MediaLive.ListReservations
     newListReservations,
 
     -- * Request Lenses
-    listReservations_resourceType,
-    listReservations_nextToken,
     listReservations_channelClass,
     listReservations_codec,
     listReservations_maxResults,
-    listReservations_maximumFramerate,
-    listReservations_videoQuality,
     listReservations_maximumBitrate,
-    listReservations_specialFeature,
+    listReservations_maximumFramerate,
+    listReservations_nextToken,
     listReservations_resolution,
+    listReservations_resourceType,
+    listReservations_specialFeature,
+    listReservations_videoQuality,
 
     -- * Destructuring the Response
     ListReservationsResponse (..),
@@ -63,25 +63,25 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListReservations' smart constructor.
 data ListReservations = ListReservations'
-  { -- | Filter by resource type, \'INPUT\', \'OUTPUT\', \'MULTIPLEX\', or
-    -- \'CHANNEL\'
-    resourceType :: Prelude.Maybe Prelude.Text,
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filter by channel class, \'STANDARD\' or \'SINGLE_PIPELINE\'
+  { -- | Filter by channel class, \'STANDARD\' or \'SINGLE_PIPELINE\'
     channelClass :: Prelude.Maybe Prelude.Text,
     -- | Filter by codec, \'AVC\', \'HEVC\', \'MPEG2\', \'AUDIO\', or \'LINK\'
     codec :: Prelude.Maybe Prelude.Text,
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Filter by framerate, \'MAX_30_FPS\' or \'MAX_60_FPS\'
-    maximumFramerate :: Prelude.Maybe Prelude.Text,
-    -- | Filter by video quality, \'STANDARD\', \'ENHANCED\', or \'PREMIUM\'
-    videoQuality :: Prelude.Maybe Prelude.Text,
     -- | Filter by bitrate, \'MAX_10_MBPS\', \'MAX_20_MBPS\', or \'MAX_50_MBPS\'
     maximumBitrate :: Prelude.Maybe Prelude.Text,
+    -- | Filter by framerate, \'MAX_30_FPS\' or \'MAX_60_FPS\'
+    maximumFramerate :: Prelude.Maybe Prelude.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Filter by resolution, \'SD\', \'HD\', \'FHD\', or \'UHD\'
+    resolution :: Prelude.Maybe Prelude.Text,
+    -- | Filter by resource type, \'INPUT\', \'OUTPUT\', \'MULTIPLEX\', or
+    -- \'CHANNEL\'
+    resourceType :: Prelude.Maybe Prelude.Text,
     -- | Filter by special feature, \'ADVANCED_AUDIO\' or \'AUDIO_NORMALIZATION\'
     specialFeature :: Prelude.Maybe Prelude.Text,
-    -- | Filter by resolution, \'SD\', \'HD\', \'FHD\', or \'UHD\'
-    resolution :: Prelude.Maybe Prelude.Text
+    -- | Filter by video quality, \'STANDARD\', \'ENHANCED\', or \'PREMIUM\'
+    videoQuality :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,50 +93,41 @@ data ListReservations = ListReservations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'listReservations_resourceType' - Filter by resource type, \'INPUT\', \'OUTPUT\', \'MULTIPLEX\', or
--- \'CHANNEL\'
---
--- 'nextToken', 'listReservations_nextToken' - Undocumented member.
---
 -- 'channelClass', 'listReservations_channelClass' - Filter by channel class, \'STANDARD\' or \'SINGLE_PIPELINE\'
 --
 -- 'codec', 'listReservations_codec' - Filter by codec, \'AVC\', \'HEVC\', \'MPEG2\', \'AUDIO\', or \'LINK\'
 --
 -- 'maxResults', 'listReservations_maxResults' - Undocumented member.
 --
+-- 'maximumBitrate', 'listReservations_maximumBitrate' - Filter by bitrate, \'MAX_10_MBPS\', \'MAX_20_MBPS\', or \'MAX_50_MBPS\'
+--
 -- 'maximumFramerate', 'listReservations_maximumFramerate' - Filter by framerate, \'MAX_30_FPS\' or \'MAX_60_FPS\'
 --
--- 'videoQuality', 'listReservations_videoQuality' - Filter by video quality, \'STANDARD\', \'ENHANCED\', or \'PREMIUM\'
+-- 'nextToken', 'listReservations_nextToken' - Undocumented member.
 --
--- 'maximumBitrate', 'listReservations_maximumBitrate' - Filter by bitrate, \'MAX_10_MBPS\', \'MAX_20_MBPS\', or \'MAX_50_MBPS\'
+-- 'resolution', 'listReservations_resolution' - Filter by resolution, \'SD\', \'HD\', \'FHD\', or \'UHD\'
+--
+-- 'resourceType', 'listReservations_resourceType' - Filter by resource type, \'INPUT\', \'OUTPUT\', \'MULTIPLEX\', or
+-- \'CHANNEL\'
 --
 -- 'specialFeature', 'listReservations_specialFeature' - Filter by special feature, \'ADVANCED_AUDIO\' or \'AUDIO_NORMALIZATION\'
 --
--- 'resolution', 'listReservations_resolution' - Filter by resolution, \'SD\', \'HD\', \'FHD\', or \'UHD\'
+-- 'videoQuality', 'listReservations_videoQuality' - Filter by video quality, \'STANDARD\', \'ENHANCED\', or \'PREMIUM\'
 newListReservations ::
   ListReservations
 newListReservations =
   ListReservations'
-    { resourceType = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      channelClass = Prelude.Nothing,
+    { channelClass = Prelude.Nothing,
       codec = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      maximumFramerate = Prelude.Nothing,
-      videoQuality = Prelude.Nothing,
       maximumBitrate = Prelude.Nothing,
+      maximumFramerate = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      resolution = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
       specialFeature = Prelude.Nothing,
-      resolution = Prelude.Nothing
+      videoQuality = Prelude.Nothing
     }
-
--- | Filter by resource type, \'INPUT\', \'OUTPUT\', \'MULTIPLEX\', or
--- \'CHANNEL\'
-listReservations_resourceType :: Lens.Lens' ListReservations (Prelude.Maybe Prelude.Text)
-listReservations_resourceType = Lens.lens (\ListReservations' {resourceType} -> resourceType) (\s@ListReservations' {} a -> s {resourceType = a} :: ListReservations)
-
--- | Undocumented member.
-listReservations_nextToken :: Lens.Lens' ListReservations (Prelude.Maybe Prelude.Text)
-listReservations_nextToken = Lens.lens (\ListReservations' {nextToken} -> nextToken) (\s@ListReservations' {} a -> s {nextToken = a} :: ListReservations)
 
 -- | Filter by channel class, \'STANDARD\' or \'SINGLE_PIPELINE\'
 listReservations_channelClass :: Lens.Lens' ListReservations (Prelude.Maybe Prelude.Text)
@@ -150,25 +141,34 @@ listReservations_codec = Lens.lens (\ListReservations' {codec} -> codec) (\s@Lis
 listReservations_maxResults :: Lens.Lens' ListReservations (Prelude.Maybe Prelude.Natural)
 listReservations_maxResults = Lens.lens (\ListReservations' {maxResults} -> maxResults) (\s@ListReservations' {} a -> s {maxResults = a} :: ListReservations)
 
+-- | Filter by bitrate, \'MAX_10_MBPS\', \'MAX_20_MBPS\', or \'MAX_50_MBPS\'
+listReservations_maximumBitrate :: Lens.Lens' ListReservations (Prelude.Maybe Prelude.Text)
+listReservations_maximumBitrate = Lens.lens (\ListReservations' {maximumBitrate} -> maximumBitrate) (\s@ListReservations' {} a -> s {maximumBitrate = a} :: ListReservations)
+
 -- | Filter by framerate, \'MAX_30_FPS\' or \'MAX_60_FPS\'
 listReservations_maximumFramerate :: Lens.Lens' ListReservations (Prelude.Maybe Prelude.Text)
 listReservations_maximumFramerate = Lens.lens (\ListReservations' {maximumFramerate} -> maximumFramerate) (\s@ListReservations' {} a -> s {maximumFramerate = a} :: ListReservations)
 
--- | Filter by video quality, \'STANDARD\', \'ENHANCED\', or \'PREMIUM\'
-listReservations_videoQuality :: Lens.Lens' ListReservations (Prelude.Maybe Prelude.Text)
-listReservations_videoQuality = Lens.lens (\ListReservations' {videoQuality} -> videoQuality) (\s@ListReservations' {} a -> s {videoQuality = a} :: ListReservations)
+-- | Undocumented member.
+listReservations_nextToken :: Lens.Lens' ListReservations (Prelude.Maybe Prelude.Text)
+listReservations_nextToken = Lens.lens (\ListReservations' {nextToken} -> nextToken) (\s@ListReservations' {} a -> s {nextToken = a} :: ListReservations)
 
--- | Filter by bitrate, \'MAX_10_MBPS\', \'MAX_20_MBPS\', or \'MAX_50_MBPS\'
-listReservations_maximumBitrate :: Lens.Lens' ListReservations (Prelude.Maybe Prelude.Text)
-listReservations_maximumBitrate = Lens.lens (\ListReservations' {maximumBitrate} -> maximumBitrate) (\s@ListReservations' {} a -> s {maximumBitrate = a} :: ListReservations)
+-- | Filter by resolution, \'SD\', \'HD\', \'FHD\', or \'UHD\'
+listReservations_resolution :: Lens.Lens' ListReservations (Prelude.Maybe Prelude.Text)
+listReservations_resolution = Lens.lens (\ListReservations' {resolution} -> resolution) (\s@ListReservations' {} a -> s {resolution = a} :: ListReservations)
+
+-- | Filter by resource type, \'INPUT\', \'OUTPUT\', \'MULTIPLEX\', or
+-- \'CHANNEL\'
+listReservations_resourceType :: Lens.Lens' ListReservations (Prelude.Maybe Prelude.Text)
+listReservations_resourceType = Lens.lens (\ListReservations' {resourceType} -> resourceType) (\s@ListReservations' {} a -> s {resourceType = a} :: ListReservations)
 
 -- | Filter by special feature, \'ADVANCED_AUDIO\' or \'AUDIO_NORMALIZATION\'
 listReservations_specialFeature :: Lens.Lens' ListReservations (Prelude.Maybe Prelude.Text)
 listReservations_specialFeature = Lens.lens (\ListReservations' {specialFeature} -> specialFeature) (\s@ListReservations' {} a -> s {specialFeature = a} :: ListReservations)
 
--- | Filter by resolution, \'SD\', \'HD\', \'FHD\', or \'UHD\'
-listReservations_resolution :: Lens.Lens' ListReservations (Prelude.Maybe Prelude.Text)
-listReservations_resolution = Lens.lens (\ListReservations' {resolution} -> resolution) (\s@ListReservations' {} a -> s {resolution = a} :: ListReservations)
+-- | Filter by video quality, \'STANDARD\', \'ENHANCED\', or \'PREMIUM\'
+listReservations_videoQuality :: Lens.Lens' ListReservations (Prelude.Maybe Prelude.Text)
+listReservations_videoQuality = Lens.lens (\ListReservations' {videoQuality} -> videoQuality) (\s@ListReservations' {} a -> s {videoQuality = a} :: ListReservations)
 
 instance Core.AWSPager ListReservations where
   page rq rs
@@ -209,29 +209,29 @@ instance Core.AWSRequest ListReservations where
 
 instance Prelude.Hashable ListReservations where
   hashWithSalt _salt ListReservations' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` channelClass
+    _salt `Prelude.hashWithSalt` channelClass
       `Prelude.hashWithSalt` codec
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` maximumFramerate
-      `Prelude.hashWithSalt` videoQuality
       `Prelude.hashWithSalt` maximumBitrate
-      `Prelude.hashWithSalt` specialFeature
+      `Prelude.hashWithSalt` maximumFramerate
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resolution
+      `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` specialFeature
+      `Prelude.hashWithSalt` videoQuality
 
 instance Prelude.NFData ListReservations where
   rnf ListReservations' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf channelClass
+    Prelude.rnf channelClass
       `Prelude.seq` Prelude.rnf codec
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf maximumFramerate
-      `Prelude.seq` Prelude.rnf videoQuality
       `Prelude.seq` Prelude.rnf maximumBitrate
-      `Prelude.seq` Prelude.rnf specialFeature
+      `Prelude.seq` Prelude.rnf maximumFramerate
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf resolution
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf specialFeature
+      `Prelude.seq` Prelude.rnf videoQuality
 
 instance Data.ToHeaders ListReservations where
   toHeaders =
@@ -250,16 +250,16 @@ instance Data.ToPath ListReservations where
 instance Data.ToQuery ListReservations where
   toQuery ListReservations' {..} =
     Prelude.mconcat
-      [ "resourceType" Data.=: resourceType,
-        "nextToken" Data.=: nextToken,
-        "channelClass" Data.=: channelClass,
+      [ "channelClass" Data.=: channelClass,
         "codec" Data.=: codec,
         "maxResults" Data.=: maxResults,
-        "maximumFramerate" Data.=: maximumFramerate,
-        "videoQuality" Data.=: videoQuality,
         "maximumBitrate" Data.=: maximumBitrate,
+        "maximumFramerate" Data.=: maximumFramerate,
+        "nextToken" Data.=: nextToken,
+        "resolution" Data.=: resolution,
+        "resourceType" Data.=: resourceType,
         "specialFeature" Data.=: specialFeature,
-        "resolution" Data.=: resolution
+        "videoQuality" Data.=: videoQuality
       ]
 
 -- | Placeholder documentation for ListReservationsResponse

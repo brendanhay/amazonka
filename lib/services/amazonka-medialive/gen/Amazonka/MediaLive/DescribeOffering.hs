@@ -35,15 +35,15 @@ module Amazonka.MediaLive.DescribeOffering
 
     -- * Response Lenses
     describeOfferingResponse_arn,
-    describeOfferingResponse_resourceSpecification,
-    describeOfferingResponse_offeringType,
-    describeOfferingResponse_durationUnits,
-    describeOfferingResponse_duration,
     describeOfferingResponse_currencyCode,
-    describeOfferingResponse_region,
-    describeOfferingResponse_offeringId,
-    describeOfferingResponse_offeringDescription,
+    describeOfferingResponse_duration,
+    describeOfferingResponse_durationUnits,
     describeOfferingResponse_fixedPrice,
+    describeOfferingResponse_offeringDescription,
+    describeOfferingResponse_offeringId,
+    describeOfferingResponse_offeringType,
+    describeOfferingResponse_region,
+    describeOfferingResponse_resourceSpecification,
     describeOfferingResponse_usagePrice,
     describeOfferingResponse_httpStatus,
   )
@@ -97,15 +97,15 @@ instance Core.AWSRequest DescribeOffering where
       ( \s h x ->
           DescribeOfferingResponse'
             Prelude.<$> (x Data..?> "arn")
-            Prelude.<*> (x Data..?> "resourceSpecification")
-            Prelude.<*> (x Data..?> "offeringType")
-            Prelude.<*> (x Data..?> "durationUnits")
-            Prelude.<*> (x Data..?> "duration")
             Prelude.<*> (x Data..?> "currencyCode")
-            Prelude.<*> (x Data..?> "region")
-            Prelude.<*> (x Data..?> "offeringId")
-            Prelude.<*> (x Data..?> "offeringDescription")
+            Prelude.<*> (x Data..?> "duration")
+            Prelude.<*> (x Data..?> "durationUnits")
             Prelude.<*> (x Data..?> "fixedPrice")
+            Prelude.<*> (x Data..?> "offeringDescription")
+            Prelude.<*> (x Data..?> "offeringId")
+            Prelude.<*> (x Data..?> "offeringType")
+            Prelude.<*> (x Data..?> "region")
+            Prelude.<*> (x Data..?> "resourceSpecification")
             Prelude.<*> (x Data..?> "usagePrice")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -143,27 +143,27 @@ data DescribeOfferingResponse = DescribeOfferingResponse'
   { -- | Unique offering ARN, e.g.
     -- \'arn:aws:medialive:us-west-2:123456789012:offering:87654321\'
     arn :: Prelude.Maybe Prelude.Text,
-    -- | Resource configuration details
-    resourceSpecification :: Prelude.Maybe ReservationResourceSpecification,
-    -- | Offering type, e.g. \'NO_UPFRONT\'
-    offeringType :: Prelude.Maybe OfferingType,
-    -- | Units for duration, e.g. \'MONTHS\'
-    durationUnits :: Prelude.Maybe OfferingDurationUnits,
-    -- | Lease duration, e.g. \'12\'
-    duration :: Prelude.Maybe Prelude.Int,
     -- | Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g.
     -- \'USD\'
     currencyCode :: Prelude.Maybe Prelude.Text,
-    -- | AWS region, e.g. \'us-west-2\'
-    region :: Prelude.Maybe Prelude.Text,
-    -- | Unique offering ID, e.g. \'87654321\'
-    offeringId :: Prelude.Maybe Prelude.Text,
-    -- | Offering description, e.g. \'HD AVC output at 10-20 Mbps, 30 fps, and
-    -- standard VQ in US West (Oregon)\'
-    offeringDescription :: Prelude.Maybe Prelude.Text,
+    -- | Lease duration, e.g. \'12\'
+    duration :: Prelude.Maybe Prelude.Int,
+    -- | Units for duration, e.g. \'MONTHS\'
+    durationUnits :: Prelude.Maybe OfferingDurationUnits,
     -- | One-time charge for each reserved resource, e.g. \'0.0\' for a
     -- NO_UPFRONT offering
     fixedPrice :: Prelude.Maybe Prelude.Double,
+    -- | Offering description, e.g. \'HD AVC output at 10-20 Mbps, 30 fps, and
+    -- standard VQ in US West (Oregon)\'
+    offeringDescription :: Prelude.Maybe Prelude.Text,
+    -- | Unique offering ID, e.g. \'87654321\'
+    offeringId :: Prelude.Maybe Prelude.Text,
+    -- | Offering type, e.g. \'NO_UPFRONT\'
+    offeringType :: Prelude.Maybe OfferingType,
+    -- | AWS region, e.g. \'us-west-2\'
+    region :: Prelude.Maybe Prelude.Text,
+    -- | Resource configuration details
+    resourceSpecification :: Prelude.Maybe ReservationResourceSpecification,
     -- | Recurring usage charge for each reserved resource, e.g. \'157.0\'
     usagePrice :: Prelude.Maybe Prelude.Double,
     -- | The response's http status code.
@@ -182,26 +182,26 @@ data DescribeOfferingResponse = DescribeOfferingResponse'
 -- 'arn', 'describeOfferingResponse_arn' - Unique offering ARN, e.g.
 -- \'arn:aws:medialive:us-west-2:123456789012:offering:87654321\'
 --
--- 'resourceSpecification', 'describeOfferingResponse_resourceSpecification' - Resource configuration details
---
--- 'offeringType', 'describeOfferingResponse_offeringType' - Offering type, e.g. \'NO_UPFRONT\'
---
--- 'durationUnits', 'describeOfferingResponse_durationUnits' - Units for duration, e.g. \'MONTHS\'
---
--- 'duration', 'describeOfferingResponse_duration' - Lease duration, e.g. \'12\'
---
 -- 'currencyCode', 'describeOfferingResponse_currencyCode' - Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g.
 -- \'USD\'
 --
--- 'region', 'describeOfferingResponse_region' - AWS region, e.g. \'us-west-2\'
+-- 'duration', 'describeOfferingResponse_duration' - Lease duration, e.g. \'12\'
 --
--- 'offeringId', 'describeOfferingResponse_offeringId' - Unique offering ID, e.g. \'87654321\'
+-- 'durationUnits', 'describeOfferingResponse_durationUnits' - Units for duration, e.g. \'MONTHS\'
+--
+-- 'fixedPrice', 'describeOfferingResponse_fixedPrice' - One-time charge for each reserved resource, e.g. \'0.0\' for a
+-- NO_UPFRONT offering
 --
 -- 'offeringDescription', 'describeOfferingResponse_offeringDescription' - Offering description, e.g. \'HD AVC output at 10-20 Mbps, 30 fps, and
 -- standard VQ in US West (Oregon)\'
 --
--- 'fixedPrice', 'describeOfferingResponse_fixedPrice' - One-time charge for each reserved resource, e.g. \'0.0\' for a
--- NO_UPFRONT offering
+-- 'offeringId', 'describeOfferingResponse_offeringId' - Unique offering ID, e.g. \'87654321\'
+--
+-- 'offeringType', 'describeOfferingResponse_offeringType' - Offering type, e.g. \'NO_UPFRONT\'
+--
+-- 'region', 'describeOfferingResponse_region' - AWS region, e.g. \'us-west-2\'
+--
+-- 'resourceSpecification', 'describeOfferingResponse_resourceSpecification' - Resource configuration details
 --
 -- 'usagePrice', 'describeOfferingResponse_usagePrice' - Recurring usage charge for each reserved resource, e.g. \'157.0\'
 --
@@ -213,15 +213,15 @@ newDescribeOfferingResponse ::
 newDescribeOfferingResponse pHttpStatus_ =
   DescribeOfferingResponse'
     { arn = Prelude.Nothing,
-      resourceSpecification = Prelude.Nothing,
-      offeringType = Prelude.Nothing,
-      durationUnits = Prelude.Nothing,
-      duration = Prelude.Nothing,
       currencyCode = Prelude.Nothing,
-      region = Prelude.Nothing,
-      offeringId = Prelude.Nothing,
-      offeringDescription = Prelude.Nothing,
+      duration = Prelude.Nothing,
+      durationUnits = Prelude.Nothing,
       fixedPrice = Prelude.Nothing,
+      offeringDescription = Prelude.Nothing,
+      offeringId = Prelude.Nothing,
+      offeringType = Prelude.Nothing,
+      region = Prelude.Nothing,
+      resourceSpecification = Prelude.Nothing,
       usagePrice = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -231,44 +231,44 @@ newDescribeOfferingResponse pHttpStatus_ =
 describeOfferingResponse_arn :: Lens.Lens' DescribeOfferingResponse (Prelude.Maybe Prelude.Text)
 describeOfferingResponse_arn = Lens.lens (\DescribeOfferingResponse' {arn} -> arn) (\s@DescribeOfferingResponse' {} a -> s {arn = a} :: DescribeOfferingResponse)
 
--- | Resource configuration details
-describeOfferingResponse_resourceSpecification :: Lens.Lens' DescribeOfferingResponse (Prelude.Maybe ReservationResourceSpecification)
-describeOfferingResponse_resourceSpecification = Lens.lens (\DescribeOfferingResponse' {resourceSpecification} -> resourceSpecification) (\s@DescribeOfferingResponse' {} a -> s {resourceSpecification = a} :: DescribeOfferingResponse)
-
--- | Offering type, e.g. \'NO_UPFRONT\'
-describeOfferingResponse_offeringType :: Lens.Lens' DescribeOfferingResponse (Prelude.Maybe OfferingType)
-describeOfferingResponse_offeringType = Lens.lens (\DescribeOfferingResponse' {offeringType} -> offeringType) (\s@DescribeOfferingResponse' {} a -> s {offeringType = a} :: DescribeOfferingResponse)
-
--- | Units for duration, e.g. \'MONTHS\'
-describeOfferingResponse_durationUnits :: Lens.Lens' DescribeOfferingResponse (Prelude.Maybe OfferingDurationUnits)
-describeOfferingResponse_durationUnits = Lens.lens (\DescribeOfferingResponse' {durationUnits} -> durationUnits) (\s@DescribeOfferingResponse' {} a -> s {durationUnits = a} :: DescribeOfferingResponse)
-
--- | Lease duration, e.g. \'12\'
-describeOfferingResponse_duration :: Lens.Lens' DescribeOfferingResponse (Prelude.Maybe Prelude.Int)
-describeOfferingResponse_duration = Lens.lens (\DescribeOfferingResponse' {duration} -> duration) (\s@DescribeOfferingResponse' {} a -> s {duration = a} :: DescribeOfferingResponse)
-
 -- | Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g.
 -- \'USD\'
 describeOfferingResponse_currencyCode :: Lens.Lens' DescribeOfferingResponse (Prelude.Maybe Prelude.Text)
 describeOfferingResponse_currencyCode = Lens.lens (\DescribeOfferingResponse' {currencyCode} -> currencyCode) (\s@DescribeOfferingResponse' {} a -> s {currencyCode = a} :: DescribeOfferingResponse)
 
--- | AWS region, e.g. \'us-west-2\'
-describeOfferingResponse_region :: Lens.Lens' DescribeOfferingResponse (Prelude.Maybe Prelude.Text)
-describeOfferingResponse_region = Lens.lens (\DescribeOfferingResponse' {region} -> region) (\s@DescribeOfferingResponse' {} a -> s {region = a} :: DescribeOfferingResponse)
+-- | Lease duration, e.g. \'12\'
+describeOfferingResponse_duration :: Lens.Lens' DescribeOfferingResponse (Prelude.Maybe Prelude.Int)
+describeOfferingResponse_duration = Lens.lens (\DescribeOfferingResponse' {duration} -> duration) (\s@DescribeOfferingResponse' {} a -> s {duration = a} :: DescribeOfferingResponse)
 
--- | Unique offering ID, e.g. \'87654321\'
-describeOfferingResponse_offeringId :: Lens.Lens' DescribeOfferingResponse (Prelude.Maybe Prelude.Text)
-describeOfferingResponse_offeringId = Lens.lens (\DescribeOfferingResponse' {offeringId} -> offeringId) (\s@DescribeOfferingResponse' {} a -> s {offeringId = a} :: DescribeOfferingResponse)
+-- | Units for duration, e.g. \'MONTHS\'
+describeOfferingResponse_durationUnits :: Lens.Lens' DescribeOfferingResponse (Prelude.Maybe OfferingDurationUnits)
+describeOfferingResponse_durationUnits = Lens.lens (\DescribeOfferingResponse' {durationUnits} -> durationUnits) (\s@DescribeOfferingResponse' {} a -> s {durationUnits = a} :: DescribeOfferingResponse)
+
+-- | One-time charge for each reserved resource, e.g. \'0.0\' for a
+-- NO_UPFRONT offering
+describeOfferingResponse_fixedPrice :: Lens.Lens' DescribeOfferingResponse (Prelude.Maybe Prelude.Double)
+describeOfferingResponse_fixedPrice = Lens.lens (\DescribeOfferingResponse' {fixedPrice} -> fixedPrice) (\s@DescribeOfferingResponse' {} a -> s {fixedPrice = a} :: DescribeOfferingResponse)
 
 -- | Offering description, e.g. \'HD AVC output at 10-20 Mbps, 30 fps, and
 -- standard VQ in US West (Oregon)\'
 describeOfferingResponse_offeringDescription :: Lens.Lens' DescribeOfferingResponse (Prelude.Maybe Prelude.Text)
 describeOfferingResponse_offeringDescription = Lens.lens (\DescribeOfferingResponse' {offeringDescription} -> offeringDescription) (\s@DescribeOfferingResponse' {} a -> s {offeringDescription = a} :: DescribeOfferingResponse)
 
--- | One-time charge for each reserved resource, e.g. \'0.0\' for a
--- NO_UPFRONT offering
-describeOfferingResponse_fixedPrice :: Lens.Lens' DescribeOfferingResponse (Prelude.Maybe Prelude.Double)
-describeOfferingResponse_fixedPrice = Lens.lens (\DescribeOfferingResponse' {fixedPrice} -> fixedPrice) (\s@DescribeOfferingResponse' {} a -> s {fixedPrice = a} :: DescribeOfferingResponse)
+-- | Unique offering ID, e.g. \'87654321\'
+describeOfferingResponse_offeringId :: Lens.Lens' DescribeOfferingResponse (Prelude.Maybe Prelude.Text)
+describeOfferingResponse_offeringId = Lens.lens (\DescribeOfferingResponse' {offeringId} -> offeringId) (\s@DescribeOfferingResponse' {} a -> s {offeringId = a} :: DescribeOfferingResponse)
+
+-- | Offering type, e.g. \'NO_UPFRONT\'
+describeOfferingResponse_offeringType :: Lens.Lens' DescribeOfferingResponse (Prelude.Maybe OfferingType)
+describeOfferingResponse_offeringType = Lens.lens (\DescribeOfferingResponse' {offeringType} -> offeringType) (\s@DescribeOfferingResponse' {} a -> s {offeringType = a} :: DescribeOfferingResponse)
+
+-- | AWS region, e.g. \'us-west-2\'
+describeOfferingResponse_region :: Lens.Lens' DescribeOfferingResponse (Prelude.Maybe Prelude.Text)
+describeOfferingResponse_region = Lens.lens (\DescribeOfferingResponse' {region} -> region) (\s@DescribeOfferingResponse' {} a -> s {region = a} :: DescribeOfferingResponse)
+
+-- | Resource configuration details
+describeOfferingResponse_resourceSpecification :: Lens.Lens' DescribeOfferingResponse (Prelude.Maybe ReservationResourceSpecification)
+describeOfferingResponse_resourceSpecification = Lens.lens (\DescribeOfferingResponse' {resourceSpecification} -> resourceSpecification) (\s@DescribeOfferingResponse' {} a -> s {resourceSpecification = a} :: DescribeOfferingResponse)
 
 -- | Recurring usage charge for each reserved resource, e.g. \'157.0\'
 describeOfferingResponse_usagePrice :: Lens.Lens' DescribeOfferingResponse (Prelude.Maybe Prelude.Double)
@@ -281,14 +281,14 @@ describeOfferingResponse_httpStatus = Lens.lens (\DescribeOfferingResponse' {htt
 instance Prelude.NFData DescribeOfferingResponse where
   rnf DescribeOfferingResponse' {..} =
     Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf resourceSpecification
-      `Prelude.seq` Prelude.rnf offeringType
-      `Prelude.seq` Prelude.rnf durationUnits
-      `Prelude.seq` Prelude.rnf duration
       `Prelude.seq` Prelude.rnf currencyCode
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf offeringId
-      `Prelude.seq` Prelude.rnf offeringDescription
+      `Prelude.seq` Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf durationUnits
       `Prelude.seq` Prelude.rnf fixedPrice
+      `Prelude.seq` Prelude.rnf offeringDescription
+      `Prelude.seq` Prelude.rnf offeringId
+      `Prelude.seq` Prelude.rnf offeringType
+      `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf resourceSpecification
       `Prelude.seq` Prelude.rnf usagePrice
       `Prelude.seq` Prelude.rnf httpStatus

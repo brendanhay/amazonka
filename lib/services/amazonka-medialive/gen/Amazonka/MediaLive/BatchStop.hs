@@ -27,8 +27,8 @@ module Amazonka.MediaLive.BatchStop
     newBatchStop',
 
     -- * Request Lenses
-    batchStop'_multiplexIds,
     batchStop'_channelIds,
+    batchStop'_multiplexIds,
 
     -- * Destructuring the Response
     BatchStopResponse (..),
@@ -53,10 +53,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newBatchStop'' smart constructor.
 data BatchStop' = BatchStop''
-  { -- | List of multiplex IDs
-    multiplexIds :: Prelude.Maybe [Prelude.Text],
-    -- | List of channel IDs
-    channelIds :: Prelude.Maybe [Prelude.Text]
+  { -- | List of channel IDs
+    channelIds :: Prelude.Maybe [Prelude.Text],
+    -- | List of multiplex IDs
+    multiplexIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,24 +68,24 @@ data BatchStop' = BatchStop''
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'multiplexIds', 'batchStop'_multiplexIds' - List of multiplex IDs
---
 -- 'channelIds', 'batchStop'_channelIds' - List of channel IDs
+--
+-- 'multiplexIds', 'batchStop'_multiplexIds' - List of multiplex IDs
 newBatchStop' ::
   BatchStop'
 newBatchStop' =
   BatchStop''
-    { multiplexIds = Prelude.Nothing,
-      channelIds = Prelude.Nothing
+    { channelIds = Prelude.Nothing,
+      multiplexIds = Prelude.Nothing
     }
-
--- | List of multiplex IDs
-batchStop'_multiplexIds :: Lens.Lens' BatchStop' (Prelude.Maybe [Prelude.Text])
-batchStop'_multiplexIds = Lens.lens (\BatchStop'' {multiplexIds} -> multiplexIds) (\s@BatchStop'' {} a -> s {multiplexIds = a} :: BatchStop') Prelude.. Lens.mapping Lens.coerced
 
 -- | List of channel IDs
 batchStop'_channelIds :: Lens.Lens' BatchStop' (Prelude.Maybe [Prelude.Text])
 batchStop'_channelIds = Lens.lens (\BatchStop'' {channelIds} -> channelIds) (\s@BatchStop'' {} a -> s {channelIds = a} :: BatchStop') Prelude.. Lens.mapping Lens.coerced
+
+-- | List of multiplex IDs
+batchStop'_multiplexIds :: Lens.Lens' BatchStop' (Prelude.Maybe [Prelude.Text])
+batchStop'_multiplexIds = Lens.lens (\BatchStop'' {multiplexIds} -> multiplexIds) (\s@BatchStop'' {} a -> s {multiplexIds = a} :: BatchStop') Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest BatchStop' where
   type AWSResponse BatchStop' = BatchStopResponse
@@ -102,13 +102,13 @@ instance Core.AWSRequest BatchStop' where
 
 instance Prelude.Hashable BatchStop' where
   hashWithSalt _salt BatchStop'' {..} =
-    _salt `Prelude.hashWithSalt` multiplexIds
-      `Prelude.hashWithSalt` channelIds
+    _salt `Prelude.hashWithSalt` channelIds
+      `Prelude.hashWithSalt` multiplexIds
 
 instance Prelude.NFData BatchStop' where
   rnf BatchStop'' {..} =
-    Prelude.rnf multiplexIds
-      `Prelude.seq` Prelude.rnf channelIds
+    Prelude.rnf channelIds
+      `Prelude.seq` Prelude.rnf multiplexIds
 
 instance Data.ToHeaders BatchStop' where
   toHeaders =
@@ -125,8 +125,8 @@ instance Data.ToJSON BatchStop' where
   toJSON BatchStop'' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("multiplexIds" Data..=) Prelude.<$> multiplexIds,
-            ("channelIds" Data..=) Prelude.<$> channelIds
+          [ ("channelIds" Data..=) Prelude.<$> channelIds,
+            ("multiplexIds" Data..=) Prelude.<$> multiplexIds
           ]
       )
 

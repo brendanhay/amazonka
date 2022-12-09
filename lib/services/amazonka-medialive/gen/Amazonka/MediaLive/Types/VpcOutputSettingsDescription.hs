@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVpcOutputSettingsDescription' smart constructor.
 data VpcOutputSettingsDescription = VpcOutputSettingsDescription'
-  { -- | A list of up EC2 VPC security group IDs attached to the Output VPC
-    -- network interfaces.
-    securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The Availability Zones where the vpc subnets are located. The first
+  { -- | The Availability Zones where the vpc subnets are located. The first
     -- Availability Zone applies to the first subnet in the list of subnets.
     -- The second Availability Zone applies to the second subnet.
     availabilityZones :: Prelude.Maybe [Prelude.Text],
     -- | A list of Elastic Network Interfaces created by MediaLive in the
     -- customer\'s VPC
     networkInterfaceIds :: Prelude.Maybe [Prelude.Text],
+    -- | A list of up EC2 VPC security group IDs attached to the Output VPC
+    -- network interfaces.
+    securityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet
     -- IDs must be mapped to two unique availability zones (AZ).
     subnetIds :: Prelude.Maybe [Prelude.Text]
@@ -52,9 +52,6 @@ data VpcOutputSettingsDescription = VpcOutputSettingsDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'securityGroupIds', 'vpcOutputSettingsDescription_securityGroupIds' - A list of up EC2 VPC security group IDs attached to the Output VPC
--- network interfaces.
---
 -- 'availabilityZones', 'vpcOutputSettingsDescription_availabilityZones' - The Availability Zones where the vpc subnets are located. The first
 -- Availability Zone applies to the first subnet in the list of subnets.
 -- The second Availability Zone applies to the second subnet.
@@ -62,23 +59,21 @@ data VpcOutputSettingsDescription = VpcOutputSettingsDescription'
 -- 'networkInterfaceIds', 'vpcOutputSettingsDescription_networkInterfaceIds' - A list of Elastic Network Interfaces created by MediaLive in the
 -- customer\'s VPC
 --
+-- 'securityGroupIds', 'vpcOutputSettingsDescription_securityGroupIds' - A list of up EC2 VPC security group IDs attached to the Output VPC
+-- network interfaces.
+--
 -- 'subnetIds', 'vpcOutputSettingsDescription_subnetIds' - A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet
 -- IDs must be mapped to two unique availability zones (AZ).
 newVpcOutputSettingsDescription ::
   VpcOutputSettingsDescription
 newVpcOutputSettingsDescription =
   VpcOutputSettingsDescription'
-    { securityGroupIds =
+    { availabilityZones =
         Prelude.Nothing,
-      availabilityZones = Prelude.Nothing,
       networkInterfaceIds = Prelude.Nothing,
+      securityGroupIds = Prelude.Nothing,
       subnetIds = Prelude.Nothing
     }
-
--- | A list of up EC2 VPC security group IDs attached to the Output VPC
--- network interfaces.
-vpcOutputSettingsDescription_securityGroupIds :: Lens.Lens' VpcOutputSettingsDescription (Prelude.Maybe [Prelude.Text])
-vpcOutputSettingsDescription_securityGroupIds = Lens.lens (\VpcOutputSettingsDescription' {securityGroupIds} -> securityGroupIds) (\s@VpcOutputSettingsDescription' {} a -> s {securityGroupIds = a} :: VpcOutputSettingsDescription) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Availability Zones where the vpc subnets are located. The first
 -- Availability Zone applies to the first subnet in the list of subnets.
@@ -91,6 +86,11 @@ vpcOutputSettingsDescription_availabilityZones = Lens.lens (\VpcOutputSettingsDe
 vpcOutputSettingsDescription_networkInterfaceIds :: Lens.Lens' VpcOutputSettingsDescription (Prelude.Maybe [Prelude.Text])
 vpcOutputSettingsDescription_networkInterfaceIds = Lens.lens (\VpcOutputSettingsDescription' {networkInterfaceIds} -> networkInterfaceIds) (\s@VpcOutputSettingsDescription' {} a -> s {networkInterfaceIds = a} :: VpcOutputSettingsDescription) Prelude.. Lens.mapping Lens.coerced
 
+-- | A list of up EC2 VPC security group IDs attached to the Output VPC
+-- network interfaces.
+vpcOutputSettingsDescription_securityGroupIds :: Lens.Lens' VpcOutputSettingsDescription (Prelude.Maybe [Prelude.Text])
+vpcOutputSettingsDescription_securityGroupIds = Lens.lens (\VpcOutputSettingsDescription' {securityGroupIds} -> securityGroupIds) (\s@VpcOutputSettingsDescription' {} a -> s {securityGroupIds = a} :: VpcOutputSettingsDescription) Prelude.. Lens.mapping Lens.coerced
+
 -- | A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet
 -- IDs must be mapped to two unique availability zones (AZ).
 vpcOutputSettingsDescription_subnetIds :: Lens.Lens' VpcOutputSettingsDescription (Prelude.Maybe [Prelude.Text])
@@ -102,13 +102,13 @@ instance Data.FromJSON VpcOutputSettingsDescription where
       "VpcOutputSettingsDescription"
       ( \x ->
           VpcOutputSettingsDescription'
-            Prelude.<$> ( x Data..:? "securityGroupIds"
-                            Data..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Data..:? "availabilityZones"
+            Prelude.<$> ( x Data..:? "availabilityZones"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> ( x Data..:? "networkInterfaceIds"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x Data..:? "securityGroupIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "subnetIds" Data..!= Prelude.mempty)
@@ -119,14 +119,14 @@ instance
     VpcOutputSettingsDescription
   where
   hashWithSalt _salt VpcOutputSettingsDescription' {..} =
-    _salt `Prelude.hashWithSalt` securityGroupIds
-      `Prelude.hashWithSalt` availabilityZones
+    _salt `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` networkInterfaceIds
+      `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` subnetIds
 
 instance Prelude.NFData VpcOutputSettingsDescription where
   rnf VpcOutputSettingsDescription' {..} =
-    Prelude.rnf securityGroupIds
-      `Prelude.seq` Prelude.rnf availabilityZones
+    Prelude.rnf availabilityZones
       `Prelude.seq` Prelude.rnf networkInterfaceIds
+      `Prelude.seq` Prelude.rnf securityGroupIds
       `Prelude.seq` Prelude.rnf subnetIds

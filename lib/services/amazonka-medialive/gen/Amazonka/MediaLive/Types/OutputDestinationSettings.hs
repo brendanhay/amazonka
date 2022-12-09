@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOutputDestinationSettings' smart constructor.
 data OutputDestinationSettings = OutputDestinationSettings'
-  { -- | username for destination
-    username :: Prelude.Maybe Prelude.Text,
-    -- | key used to extract the password from EC2 Parameter store
+  { -- | key used to extract the password from EC2 Parameter store
     passwordParam :: Prelude.Maybe Prelude.Text,
+    -- | Stream name for RTMP destinations (URLs of type rtmp:\/\/)
+    streamName :: Prelude.Maybe Prelude.Text,
     -- | A URL specifying a destination
     url :: Prelude.Maybe Prelude.Text,
-    -- | Stream name for RTMP destinations (URLs of type rtmp:\/\/)
-    streamName :: Prelude.Maybe Prelude.Text
+    -- | username for destination
+    username :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,39 +47,39 @@ data OutputDestinationSettings = OutputDestinationSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'username', 'outputDestinationSettings_username' - username for destination
---
 -- 'passwordParam', 'outputDestinationSettings_passwordParam' - key used to extract the password from EC2 Parameter store
+--
+-- 'streamName', 'outputDestinationSettings_streamName' - Stream name for RTMP destinations (URLs of type rtmp:\/\/)
 --
 -- 'url', 'outputDestinationSettings_url' - A URL specifying a destination
 --
--- 'streamName', 'outputDestinationSettings_streamName' - Stream name for RTMP destinations (URLs of type rtmp:\/\/)
+-- 'username', 'outputDestinationSettings_username' - username for destination
 newOutputDestinationSettings ::
   OutputDestinationSettings
 newOutputDestinationSettings =
   OutputDestinationSettings'
-    { username =
+    { passwordParam =
         Prelude.Nothing,
-      passwordParam = Prelude.Nothing,
+      streamName = Prelude.Nothing,
       url = Prelude.Nothing,
-      streamName = Prelude.Nothing
+      username = Prelude.Nothing
     }
-
--- | username for destination
-outputDestinationSettings_username :: Lens.Lens' OutputDestinationSettings (Prelude.Maybe Prelude.Text)
-outputDestinationSettings_username = Lens.lens (\OutputDestinationSettings' {username} -> username) (\s@OutputDestinationSettings' {} a -> s {username = a} :: OutputDestinationSettings)
 
 -- | key used to extract the password from EC2 Parameter store
 outputDestinationSettings_passwordParam :: Lens.Lens' OutputDestinationSettings (Prelude.Maybe Prelude.Text)
 outputDestinationSettings_passwordParam = Lens.lens (\OutputDestinationSettings' {passwordParam} -> passwordParam) (\s@OutputDestinationSettings' {} a -> s {passwordParam = a} :: OutputDestinationSettings)
 
+-- | Stream name for RTMP destinations (URLs of type rtmp:\/\/)
+outputDestinationSettings_streamName :: Lens.Lens' OutputDestinationSettings (Prelude.Maybe Prelude.Text)
+outputDestinationSettings_streamName = Lens.lens (\OutputDestinationSettings' {streamName} -> streamName) (\s@OutputDestinationSettings' {} a -> s {streamName = a} :: OutputDestinationSettings)
+
 -- | A URL specifying a destination
 outputDestinationSettings_url :: Lens.Lens' OutputDestinationSettings (Prelude.Maybe Prelude.Text)
 outputDestinationSettings_url = Lens.lens (\OutputDestinationSettings' {url} -> url) (\s@OutputDestinationSettings' {} a -> s {url = a} :: OutputDestinationSettings)
 
--- | Stream name for RTMP destinations (URLs of type rtmp:\/\/)
-outputDestinationSettings_streamName :: Lens.Lens' OutputDestinationSettings (Prelude.Maybe Prelude.Text)
-outputDestinationSettings_streamName = Lens.lens (\OutputDestinationSettings' {streamName} -> streamName) (\s@OutputDestinationSettings' {} a -> s {streamName = a} :: OutputDestinationSettings)
+-- | username for destination
+outputDestinationSettings_username :: Lens.Lens' OutputDestinationSettings (Prelude.Maybe Prelude.Text)
+outputDestinationSettings_username = Lens.lens (\OutputDestinationSettings' {username} -> username) (\s@OutputDestinationSettings' {} a -> s {username = a} :: OutputDestinationSettings)
 
 instance Data.FromJSON OutputDestinationSettings where
   parseJSON =
@@ -87,33 +87,33 @@ instance Data.FromJSON OutputDestinationSettings where
       "OutputDestinationSettings"
       ( \x ->
           OutputDestinationSettings'
-            Prelude.<$> (x Data..:? "username")
-            Prelude.<*> (x Data..:? "passwordParam")
-            Prelude.<*> (x Data..:? "url")
+            Prelude.<$> (x Data..:? "passwordParam")
             Prelude.<*> (x Data..:? "streamName")
+            Prelude.<*> (x Data..:? "url")
+            Prelude.<*> (x Data..:? "username")
       )
 
 instance Prelude.Hashable OutputDestinationSettings where
   hashWithSalt _salt OutputDestinationSettings' {..} =
-    _salt `Prelude.hashWithSalt` username
-      `Prelude.hashWithSalt` passwordParam
-      `Prelude.hashWithSalt` url
+    _salt `Prelude.hashWithSalt` passwordParam
       `Prelude.hashWithSalt` streamName
+      `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` username
 
 instance Prelude.NFData OutputDestinationSettings where
   rnf OutputDestinationSettings' {..} =
-    Prelude.rnf username
-      `Prelude.seq` Prelude.rnf passwordParam
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf passwordParam
       `Prelude.seq` Prelude.rnf streamName
+      `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf username
 
 instance Data.ToJSON OutputDestinationSettings where
   toJSON OutputDestinationSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("username" Data..=) Prelude.<$> username,
-            ("passwordParam" Data..=) Prelude.<$> passwordParam,
+          [ ("passwordParam" Data..=) Prelude.<$> passwordParam,
+            ("streamName" Data..=) Prelude.<$> streamName,
             ("url" Data..=) Prelude.<$> url,
-            ("streamName" Data..=) Prelude.<$> streamName
+            ("username" Data..=) Prelude.<$> username
           ]
       )

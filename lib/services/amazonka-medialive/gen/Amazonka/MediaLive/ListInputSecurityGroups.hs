@@ -29,8 +29,8 @@ module Amazonka.MediaLive.ListInputSecurityGroups
     newListInputSecurityGroups,
 
     -- * Request Lenses
-    listInputSecurityGroups_nextToken,
     listInputSecurityGroups_maxResults,
+    listInputSecurityGroups_nextToken,
 
     -- * Destructuring the Response
     ListInputSecurityGroupsResponse (..),
@@ -55,8 +55,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListInputSecurityGroups' smart constructor.
 data ListInputSecurityGroups = ListInputSecurityGroups'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { maxResults :: Prelude.Maybe Prelude.Natural,
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,25 +68,25 @@ data ListInputSecurityGroups = ListInputSecurityGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listInputSecurityGroups_nextToken' - Undocumented member.
---
 -- 'maxResults', 'listInputSecurityGroups_maxResults' - Undocumented member.
+--
+-- 'nextToken', 'listInputSecurityGroups_nextToken' - Undocumented member.
 newListInputSecurityGroups ::
   ListInputSecurityGroups
 newListInputSecurityGroups =
   ListInputSecurityGroups'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | Undocumented member.
-listInputSecurityGroups_nextToken :: Lens.Lens' ListInputSecurityGroups (Prelude.Maybe Prelude.Text)
-listInputSecurityGroups_nextToken = Lens.lens (\ListInputSecurityGroups' {nextToken} -> nextToken) (\s@ListInputSecurityGroups' {} a -> s {nextToken = a} :: ListInputSecurityGroups)
 
 -- | Undocumented member.
 listInputSecurityGroups_maxResults :: Lens.Lens' ListInputSecurityGroups (Prelude.Maybe Prelude.Natural)
 listInputSecurityGroups_maxResults = Lens.lens (\ListInputSecurityGroups' {maxResults} -> maxResults) (\s@ListInputSecurityGroups' {} a -> s {maxResults = a} :: ListInputSecurityGroups)
+
+-- | Undocumented member.
+listInputSecurityGroups_nextToken :: Lens.Lens' ListInputSecurityGroups (Prelude.Maybe Prelude.Text)
+listInputSecurityGroups_nextToken = Lens.lens (\ListInputSecurityGroups' {nextToken} -> nextToken) (\s@ListInputSecurityGroups' {} a -> s {nextToken = a} :: ListInputSecurityGroups)
 
 instance Core.AWSPager ListInputSecurityGroups where
   page rq rs
@@ -129,13 +129,13 @@ instance Core.AWSRequest ListInputSecurityGroups where
 
 instance Prelude.Hashable ListInputSecurityGroups where
   hashWithSalt _salt ListInputSecurityGroups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListInputSecurityGroups where
   rnf ListInputSecurityGroups' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListInputSecurityGroups where
   toHeaders =
@@ -154,8 +154,8 @@ instance Data.ToPath ListInputSecurityGroups where
 instance Data.ToQuery ListInputSecurityGroups where
   toQuery ListInputSecurityGroups' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | Placeholder documentation for ListInputSecurityGroupsResponse

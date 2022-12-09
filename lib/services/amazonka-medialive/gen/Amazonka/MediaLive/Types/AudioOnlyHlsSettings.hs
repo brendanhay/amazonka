@@ -31,7 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAudioOnlyHlsSettings' smart constructor.
 data AudioOnlyHlsSettings = AudioOnlyHlsSettings'
-  { -- | Optional. Specifies the .jpg or .png image to use as the cover art for
+  { -- | Specifies the group to which the audio Rendition belongs.
+    audioGroupId :: Prelude.Maybe Prelude.Text,
+    -- | Optional. Specifies the .jpg or .png image to use as the cover art for
     -- an audio-only output. We recommend a low bit-size file because the image
     -- increases the output audio bandwidth. The image is attached to the audio
     -- as an ID3 tag, frame type APIC, picture type 0x10, as per the \"ID3 tag
@@ -51,9 +53,7 @@ data AudioOnlyHlsSettings = AudioOnlyHlsSettings'
     -- DEFAULT=NO, AUTOSELECT=NO
     audioTrackType :: Prelude.Maybe AudioOnlyHlsTrackType,
     -- | Specifies the segment type.
-    segmentType :: Prelude.Maybe AudioOnlyHlsSegmentType,
-    -- | Specifies the group to which the audio Rendition belongs.
-    audioGroupId :: Prelude.Maybe Prelude.Text
+    segmentType :: Prelude.Maybe AudioOnlyHlsSegmentType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,6 +64,8 @@ data AudioOnlyHlsSettings = AudioOnlyHlsSettings'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'audioGroupId', 'audioOnlyHlsSettings_audioGroupId' - Specifies the group to which the audio Rendition belongs.
 --
 -- 'audioOnlyImage', 'audioOnlyHlsSettings_audioOnlyImage' - Optional. Specifies the .jpg or .png image to use as the cover art for
 -- an audio-only output. We recommend a low bit-size file because the image
@@ -85,18 +87,20 @@ data AudioOnlyHlsSettings = AudioOnlyHlsSettings'
 -- DEFAULT=NO, AUTOSELECT=NO
 --
 -- 'segmentType', 'audioOnlyHlsSettings_segmentType' - Specifies the segment type.
---
--- 'audioGroupId', 'audioOnlyHlsSettings_audioGroupId' - Specifies the group to which the audio Rendition belongs.
 newAudioOnlyHlsSettings ::
   AudioOnlyHlsSettings
 newAudioOnlyHlsSettings =
   AudioOnlyHlsSettings'
-    { audioOnlyImage =
+    { audioGroupId =
         Prelude.Nothing,
+      audioOnlyImage = Prelude.Nothing,
       audioTrackType = Prelude.Nothing,
-      segmentType = Prelude.Nothing,
-      audioGroupId = Prelude.Nothing
+      segmentType = Prelude.Nothing
     }
+
+-- | Specifies the group to which the audio Rendition belongs.
+audioOnlyHlsSettings_audioGroupId :: Lens.Lens' AudioOnlyHlsSettings (Prelude.Maybe Prelude.Text)
+audioOnlyHlsSettings_audioGroupId = Lens.lens (\AudioOnlyHlsSettings' {audioGroupId} -> audioGroupId) (\s@AudioOnlyHlsSettings' {} a -> s {audioGroupId = a} :: AudioOnlyHlsSettings)
 
 -- | Optional. Specifies the .jpg or .png image to use as the cover art for
 -- an audio-only output. We recommend a low bit-size file because the image
@@ -125,45 +129,41 @@ audioOnlyHlsSettings_audioTrackType = Lens.lens (\AudioOnlyHlsSettings' {audioTr
 audioOnlyHlsSettings_segmentType :: Lens.Lens' AudioOnlyHlsSettings (Prelude.Maybe AudioOnlyHlsSegmentType)
 audioOnlyHlsSettings_segmentType = Lens.lens (\AudioOnlyHlsSettings' {segmentType} -> segmentType) (\s@AudioOnlyHlsSettings' {} a -> s {segmentType = a} :: AudioOnlyHlsSettings)
 
--- | Specifies the group to which the audio Rendition belongs.
-audioOnlyHlsSettings_audioGroupId :: Lens.Lens' AudioOnlyHlsSettings (Prelude.Maybe Prelude.Text)
-audioOnlyHlsSettings_audioGroupId = Lens.lens (\AudioOnlyHlsSettings' {audioGroupId} -> audioGroupId) (\s@AudioOnlyHlsSettings' {} a -> s {audioGroupId = a} :: AudioOnlyHlsSettings)
-
 instance Data.FromJSON AudioOnlyHlsSettings where
   parseJSON =
     Data.withObject
       "AudioOnlyHlsSettings"
       ( \x ->
           AudioOnlyHlsSettings'
-            Prelude.<$> (x Data..:? "audioOnlyImage")
+            Prelude.<$> (x Data..:? "audioGroupId")
+            Prelude.<*> (x Data..:? "audioOnlyImage")
             Prelude.<*> (x Data..:? "audioTrackType")
             Prelude.<*> (x Data..:? "segmentType")
-            Prelude.<*> (x Data..:? "audioGroupId")
       )
 
 instance Prelude.Hashable AudioOnlyHlsSettings where
   hashWithSalt _salt AudioOnlyHlsSettings' {..} =
-    _salt `Prelude.hashWithSalt` audioOnlyImage
+    _salt `Prelude.hashWithSalt` audioGroupId
+      `Prelude.hashWithSalt` audioOnlyImage
       `Prelude.hashWithSalt` audioTrackType
       `Prelude.hashWithSalt` segmentType
-      `Prelude.hashWithSalt` audioGroupId
 
 instance Prelude.NFData AudioOnlyHlsSettings where
   rnf AudioOnlyHlsSettings' {..} =
-    Prelude.rnf audioOnlyImage
+    Prelude.rnf audioGroupId
+      `Prelude.seq` Prelude.rnf audioOnlyImage
       `Prelude.seq` Prelude.rnf audioTrackType
       `Prelude.seq` Prelude.rnf segmentType
-      `Prelude.seq` Prelude.rnf audioGroupId
 
 instance Data.ToJSON AudioOnlyHlsSettings where
   toJSON AudioOnlyHlsSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("audioOnlyImage" Data..=)
+          [ ("audioGroupId" Data..=) Prelude.<$> audioGroupId,
+            ("audioOnlyImage" Data..=)
               Prelude.<$> audioOnlyImage,
             ("audioTrackType" Data..=)
               Prelude.<$> audioTrackType,
-            ("segmentType" Data..=) Prelude.<$> segmentType,
-            ("audioGroupId" Data..=) Prelude.<$> audioGroupId
+            ("segmentType" Data..=) Prelude.<$> segmentType
           ]
       )

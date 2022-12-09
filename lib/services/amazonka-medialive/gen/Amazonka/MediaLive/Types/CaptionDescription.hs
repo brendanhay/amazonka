@@ -33,14 +33,14 @@ data CaptionDescription = CaptionDescription'
   { -- | Indicates whether the caption track implements accessibility features
     -- such as written descriptions of spoken dialog, music, and sounds.
     accessibility :: Prelude.Maybe AccessibilityType,
-    -- | Human readable information to indicate captions available for players
-    -- (eg. English, or Spanish).
-    languageDescription :: Prelude.Maybe Prelude.Text,
-    -- | ISO 639-2 three-digit code: http:\/\/www.loc.gov\/standards\/iso639-2\/
-    languageCode :: Prelude.Maybe Prelude.Text,
     -- | Additional settings for captions destination that depend on the
     -- destination type.
     destinationSettings :: Prelude.Maybe CaptionDestinationSettings,
+    -- | ISO 639-2 three-digit code: http:\/\/www.loc.gov\/standards\/iso639-2\/
+    languageCode :: Prelude.Maybe Prelude.Text,
+    -- | Human readable information to indicate captions available for players
+    -- (eg. English, or Spanish).
+    languageDescription :: Prelude.Maybe Prelude.Text,
     -- | Specifies which input caption selector to use as a caption source when
     -- generating output captions. This field should match a captionSelector
     -- name.
@@ -62,13 +62,13 @@ data CaptionDescription = CaptionDescription'
 -- 'accessibility', 'captionDescription_accessibility' - Indicates whether the caption track implements accessibility features
 -- such as written descriptions of spoken dialog, music, and sounds.
 --
--- 'languageDescription', 'captionDescription_languageDescription' - Human readable information to indicate captions available for players
--- (eg. English, or Spanish).
+-- 'destinationSettings', 'captionDescription_destinationSettings' - Additional settings for captions destination that depend on the
+-- destination type.
 --
 -- 'languageCode', 'captionDescription_languageCode' - ISO 639-2 three-digit code: http:\/\/www.loc.gov\/standards\/iso639-2\/
 --
--- 'destinationSettings', 'captionDescription_destinationSettings' - Additional settings for captions destination that depend on the
--- destination type.
+-- 'languageDescription', 'captionDescription_languageDescription' - Human readable information to indicate captions available for players
+-- (eg. English, or Spanish).
 --
 -- 'captionSelectorName', 'captionDescription_captionSelectorName' - Specifies which input caption selector to use as a caption source when
 -- generating output captions. This field should match a captionSelector
@@ -86,9 +86,9 @@ newCaptionDescription pCaptionSelectorName_ pName_ =
   CaptionDescription'
     { accessibility =
         Prelude.Nothing,
-      languageDescription = Prelude.Nothing,
-      languageCode = Prelude.Nothing,
       destinationSettings = Prelude.Nothing,
+      languageCode = Prelude.Nothing,
+      languageDescription = Prelude.Nothing,
       captionSelectorName = pCaptionSelectorName_,
       name = pName_
     }
@@ -98,19 +98,19 @@ newCaptionDescription pCaptionSelectorName_ pName_ =
 captionDescription_accessibility :: Lens.Lens' CaptionDescription (Prelude.Maybe AccessibilityType)
 captionDescription_accessibility = Lens.lens (\CaptionDescription' {accessibility} -> accessibility) (\s@CaptionDescription' {} a -> s {accessibility = a} :: CaptionDescription)
 
--- | Human readable information to indicate captions available for players
--- (eg. English, or Spanish).
-captionDescription_languageDescription :: Lens.Lens' CaptionDescription (Prelude.Maybe Prelude.Text)
-captionDescription_languageDescription = Lens.lens (\CaptionDescription' {languageDescription} -> languageDescription) (\s@CaptionDescription' {} a -> s {languageDescription = a} :: CaptionDescription)
+-- | Additional settings for captions destination that depend on the
+-- destination type.
+captionDescription_destinationSettings :: Lens.Lens' CaptionDescription (Prelude.Maybe CaptionDestinationSettings)
+captionDescription_destinationSettings = Lens.lens (\CaptionDescription' {destinationSettings} -> destinationSettings) (\s@CaptionDescription' {} a -> s {destinationSettings = a} :: CaptionDescription)
 
 -- | ISO 639-2 three-digit code: http:\/\/www.loc.gov\/standards\/iso639-2\/
 captionDescription_languageCode :: Lens.Lens' CaptionDescription (Prelude.Maybe Prelude.Text)
 captionDescription_languageCode = Lens.lens (\CaptionDescription' {languageCode} -> languageCode) (\s@CaptionDescription' {} a -> s {languageCode = a} :: CaptionDescription)
 
--- | Additional settings for captions destination that depend on the
--- destination type.
-captionDescription_destinationSettings :: Lens.Lens' CaptionDescription (Prelude.Maybe CaptionDestinationSettings)
-captionDescription_destinationSettings = Lens.lens (\CaptionDescription' {destinationSettings} -> destinationSettings) (\s@CaptionDescription' {} a -> s {destinationSettings = a} :: CaptionDescription)
+-- | Human readable information to indicate captions available for players
+-- (eg. English, or Spanish).
+captionDescription_languageDescription :: Lens.Lens' CaptionDescription (Prelude.Maybe Prelude.Text)
+captionDescription_languageDescription = Lens.lens (\CaptionDescription' {languageDescription} -> languageDescription) (\s@CaptionDescription' {} a -> s {languageDescription = a} :: CaptionDescription)
 
 -- | Specifies which input caption selector to use as a caption source when
 -- generating output captions. This field should match a captionSelector
@@ -130,9 +130,9 @@ instance Data.FromJSON CaptionDescription where
       ( \x ->
           CaptionDescription'
             Prelude.<$> (x Data..:? "accessibility")
-            Prelude.<*> (x Data..:? "languageDescription")
-            Prelude.<*> (x Data..:? "languageCode")
             Prelude.<*> (x Data..:? "destinationSettings")
+            Prelude.<*> (x Data..:? "languageCode")
+            Prelude.<*> (x Data..:? "languageDescription")
             Prelude.<*> (x Data..: "captionSelectorName")
             Prelude.<*> (x Data..: "name")
       )
@@ -140,18 +140,18 @@ instance Data.FromJSON CaptionDescription where
 instance Prelude.Hashable CaptionDescription where
   hashWithSalt _salt CaptionDescription' {..} =
     _salt `Prelude.hashWithSalt` accessibility
-      `Prelude.hashWithSalt` languageDescription
-      `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` destinationSettings
+      `Prelude.hashWithSalt` languageCode
+      `Prelude.hashWithSalt` languageDescription
       `Prelude.hashWithSalt` captionSelectorName
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CaptionDescription where
   rnf CaptionDescription' {..} =
     Prelude.rnf accessibility
-      `Prelude.seq` Prelude.rnf languageDescription
-      `Prelude.seq` Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf destinationSettings
+      `Prelude.seq` Prelude.rnf languageCode
+      `Prelude.seq` Prelude.rnf languageDescription
       `Prelude.seq` Prelude.rnf captionSelectorName
       `Prelude.seq` Prelude.rnf name
 
@@ -160,11 +160,11 @@ instance Data.ToJSON CaptionDescription where
     Data.object
       ( Prelude.catMaybes
           [ ("accessibility" Data..=) Prelude.<$> accessibility,
-            ("languageDescription" Data..=)
-              Prelude.<$> languageDescription,
-            ("languageCode" Data..=) Prelude.<$> languageCode,
             ("destinationSettings" Data..=)
               Prelude.<$> destinationSettings,
+            ("languageCode" Data..=) Prelude.<$> languageCode,
+            ("languageDescription" Data..=)
+              Prelude.<$> languageDescription,
             Prelude.Just
               ("captionSelectorName" Data..= captionSelectorName),
             Prelude.Just ("name" Data..= name)

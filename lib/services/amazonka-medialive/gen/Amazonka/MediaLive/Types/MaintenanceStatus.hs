@@ -29,14 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMaintenanceStatus' smart constructor.
 data MaintenanceStatus = MaintenanceStatus'
-  { -- | Maintenance is required by the displayed date and time. Date and time is
+  { -- | The currently selected maintenance day.
+    maintenanceDay :: Prelude.Maybe MaintenanceDay,
+    -- | Maintenance is required by the displayed date and time. Date and time is
     -- in ISO.
     maintenanceDeadline :: Prelude.Maybe Prelude.Text,
     -- | The currently scheduled maintenance date and time. Date and time is in
     -- ISO.
     maintenanceScheduledDate :: Prelude.Maybe Prelude.Text,
-    -- | The currently selected maintenance day.
-    maintenanceDay :: Prelude.Maybe MaintenanceDay,
     -- | The currently selected maintenance start time. Time is in UTC.
     maintenanceStartTime :: Prelude.Maybe Prelude.Text
   }
@@ -50,25 +50,29 @@ data MaintenanceStatus = MaintenanceStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maintenanceDay', 'maintenanceStatus_maintenanceDay' - The currently selected maintenance day.
+--
 -- 'maintenanceDeadline', 'maintenanceStatus_maintenanceDeadline' - Maintenance is required by the displayed date and time. Date and time is
 -- in ISO.
 --
 -- 'maintenanceScheduledDate', 'maintenanceStatus_maintenanceScheduledDate' - The currently scheduled maintenance date and time. Date and time is in
 -- ISO.
 --
--- 'maintenanceDay', 'maintenanceStatus_maintenanceDay' - The currently selected maintenance day.
---
 -- 'maintenanceStartTime', 'maintenanceStatus_maintenanceStartTime' - The currently selected maintenance start time. Time is in UTC.
 newMaintenanceStatus ::
   MaintenanceStatus
 newMaintenanceStatus =
   MaintenanceStatus'
-    { maintenanceDeadline =
+    { maintenanceDay =
         Prelude.Nothing,
+      maintenanceDeadline = Prelude.Nothing,
       maintenanceScheduledDate = Prelude.Nothing,
-      maintenanceDay = Prelude.Nothing,
       maintenanceStartTime = Prelude.Nothing
     }
+
+-- | The currently selected maintenance day.
+maintenanceStatus_maintenanceDay :: Lens.Lens' MaintenanceStatus (Prelude.Maybe MaintenanceDay)
+maintenanceStatus_maintenanceDay = Lens.lens (\MaintenanceStatus' {maintenanceDay} -> maintenanceDay) (\s@MaintenanceStatus' {} a -> s {maintenanceDay = a} :: MaintenanceStatus)
 
 -- | Maintenance is required by the displayed date and time. Date and time is
 -- in ISO.
@@ -80,10 +84,6 @@ maintenanceStatus_maintenanceDeadline = Lens.lens (\MaintenanceStatus' {maintena
 maintenanceStatus_maintenanceScheduledDate :: Lens.Lens' MaintenanceStatus (Prelude.Maybe Prelude.Text)
 maintenanceStatus_maintenanceScheduledDate = Lens.lens (\MaintenanceStatus' {maintenanceScheduledDate} -> maintenanceScheduledDate) (\s@MaintenanceStatus' {} a -> s {maintenanceScheduledDate = a} :: MaintenanceStatus)
 
--- | The currently selected maintenance day.
-maintenanceStatus_maintenanceDay :: Lens.Lens' MaintenanceStatus (Prelude.Maybe MaintenanceDay)
-maintenanceStatus_maintenanceDay = Lens.lens (\MaintenanceStatus' {maintenanceDay} -> maintenanceDay) (\s@MaintenanceStatus' {} a -> s {maintenanceDay = a} :: MaintenanceStatus)
-
 -- | The currently selected maintenance start time. Time is in UTC.
 maintenanceStatus_maintenanceStartTime :: Lens.Lens' MaintenanceStatus (Prelude.Maybe Prelude.Text)
 maintenanceStatus_maintenanceStartTime = Lens.lens (\MaintenanceStatus' {maintenanceStartTime} -> maintenanceStartTime) (\s@MaintenanceStatus' {} a -> s {maintenanceStartTime = a} :: MaintenanceStatus)
@@ -94,22 +94,22 @@ instance Data.FromJSON MaintenanceStatus where
       "MaintenanceStatus"
       ( \x ->
           MaintenanceStatus'
-            Prelude.<$> (x Data..:? "maintenanceDeadline")
+            Prelude.<$> (x Data..:? "maintenanceDay")
+            Prelude.<*> (x Data..:? "maintenanceDeadline")
             Prelude.<*> (x Data..:? "maintenanceScheduledDate")
-            Prelude.<*> (x Data..:? "maintenanceDay")
             Prelude.<*> (x Data..:? "maintenanceStartTime")
       )
 
 instance Prelude.Hashable MaintenanceStatus where
   hashWithSalt _salt MaintenanceStatus' {..} =
-    _salt `Prelude.hashWithSalt` maintenanceDeadline
+    _salt `Prelude.hashWithSalt` maintenanceDay
+      `Prelude.hashWithSalt` maintenanceDeadline
       `Prelude.hashWithSalt` maintenanceScheduledDate
-      `Prelude.hashWithSalt` maintenanceDay
       `Prelude.hashWithSalt` maintenanceStartTime
 
 instance Prelude.NFData MaintenanceStatus where
   rnf MaintenanceStatus' {..} =
-    Prelude.rnf maintenanceDeadline
+    Prelude.rnf maintenanceDay
+      `Prelude.seq` Prelude.rnf maintenanceDeadline
       `Prelude.seq` Prelude.rnf maintenanceScheduledDate
-      `Prelude.seq` Prelude.rnf maintenanceDay
       `Prelude.seq` Prelude.rnf maintenanceStartTime

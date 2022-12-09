@@ -27,20 +27,20 @@ module Amazonka.MediaLive.CreateChannel
     newCreateChannel',
 
     -- * Request Lenses
-    createChannel'_tags,
-    createChannel'_name,
-    createChannel'_maintenance,
-    createChannel'_roleArn,
-    createChannel'_vpc,
-    createChannel'_logLevel,
-    createChannel'_requestId,
-    createChannel'_inputSpecification,
-    createChannel'_channelClass,
     createChannel'_cdiInputSpecification,
-    createChannel'_inputAttachments,
+    createChannel'_channelClass,
     createChannel'_destinations,
-    createChannel'_reserved,
     createChannel'_encoderSettings,
+    createChannel'_inputAttachments,
+    createChannel'_inputSpecification,
+    createChannel'_logLevel,
+    createChannel'_maintenance,
+    createChannel'_name,
+    createChannel'_requestId,
+    createChannel'_reserved,
+    createChannel'_roleArn,
+    createChannel'_tags,
+    createChannel'_vpc,
 
     -- * Destructuring the Response
     CreateChannelResponse (..),
@@ -64,35 +64,35 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateChannel'' smart constructor.
 data CreateChannel' = CreateChannel''
-  { -- | A collection of key-value pairs.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Name of channel.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Maintenance settings for this channel.
-    maintenance :: Prelude.Maybe MaintenanceCreateSettings,
-    -- | An optional Amazon Resource Name (ARN) of the role to assume when
-    -- running the Channel.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | Settings for the VPC outputs
-    vpc :: Prelude.Maybe VpcOutputSettings,
-    -- | The log level to write to CloudWatch Logs.
-    logLevel :: Prelude.Maybe LogLevel,
-    -- | Unique request ID to be specified. This is needed to prevent retries
-    -- from creating multiple resources.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | Specification of network and file inputs for this channel
-    inputSpecification :: Prelude.Maybe InputSpecification,
+  { -- | Specification of CDI inputs for this channel
+    cdiInputSpecification :: Prelude.Maybe CdiInputSpecification,
     -- | The class for this channel. STANDARD for a channel with two pipelines or
     -- SINGLE_PIPELINE for a channel with one pipeline.
     channelClass :: Prelude.Maybe ChannelClass,
-    -- | Specification of CDI inputs for this channel
-    cdiInputSpecification :: Prelude.Maybe CdiInputSpecification,
+    destinations :: Prelude.Maybe [OutputDestination],
+    encoderSettings :: Prelude.Maybe EncoderSettings,
     -- | List of input attachments for channel.
     inputAttachments :: Prelude.Maybe [InputAttachment],
-    destinations :: Prelude.Maybe [OutputDestination],
+    -- | Specification of network and file inputs for this channel
+    inputSpecification :: Prelude.Maybe InputSpecification,
+    -- | The log level to write to CloudWatch Logs.
+    logLevel :: Prelude.Maybe LogLevel,
+    -- | Maintenance settings for this channel.
+    maintenance :: Prelude.Maybe MaintenanceCreateSettings,
+    -- | Name of channel.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Unique request ID to be specified. This is needed to prevent retries
+    -- from creating multiple resources.
+    requestId :: Prelude.Maybe Prelude.Text,
     -- | Deprecated field that\'s only usable by whitelisted customers.
     reserved :: Prelude.Maybe Prelude.Text,
-    encoderSettings :: Prelude.Maybe EncoderSettings
+    -- | An optional Amazon Resource Name (ARN) of the role to assume when
+    -- running the Channel.
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | A collection of key-value pairs.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Settings for the VPC outputs
+    vpc :: Prelude.Maybe VpcOutputSettings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -104,114 +104,115 @@ data CreateChannel' = CreateChannel''
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createChannel'_tags' - A collection of key-value pairs.
---
--- 'name', 'createChannel'_name' - Name of channel.
---
--- 'maintenance', 'createChannel'_maintenance' - Maintenance settings for this channel.
---
--- 'roleArn', 'createChannel'_roleArn' - An optional Amazon Resource Name (ARN) of the role to assume when
--- running the Channel.
---
--- 'vpc', 'createChannel'_vpc' - Settings for the VPC outputs
---
--- 'logLevel', 'createChannel'_logLevel' - The log level to write to CloudWatch Logs.
---
--- 'requestId', 'createChannel'_requestId' - Unique request ID to be specified. This is needed to prevent retries
--- from creating multiple resources.
---
--- 'inputSpecification', 'createChannel'_inputSpecification' - Specification of network and file inputs for this channel
+-- 'cdiInputSpecification', 'createChannel'_cdiInputSpecification' - Specification of CDI inputs for this channel
 --
 -- 'channelClass', 'createChannel'_channelClass' - The class for this channel. STANDARD for a channel with two pipelines or
 -- SINGLE_PIPELINE for a channel with one pipeline.
 --
--- 'cdiInputSpecification', 'createChannel'_cdiInputSpecification' - Specification of CDI inputs for this channel
+-- 'destinations', 'createChannel'_destinations' - Undocumented member.
+--
+-- 'encoderSettings', 'createChannel'_encoderSettings' - Undocumented member.
 --
 -- 'inputAttachments', 'createChannel'_inputAttachments' - List of input attachments for channel.
 --
--- 'destinations', 'createChannel'_destinations' - Undocumented member.
+-- 'inputSpecification', 'createChannel'_inputSpecification' - Specification of network and file inputs for this channel
+--
+-- 'logLevel', 'createChannel'_logLevel' - The log level to write to CloudWatch Logs.
+--
+-- 'maintenance', 'createChannel'_maintenance' - Maintenance settings for this channel.
+--
+-- 'name', 'createChannel'_name' - Name of channel.
+--
+-- 'requestId', 'createChannel'_requestId' - Unique request ID to be specified. This is needed to prevent retries
+-- from creating multiple resources.
 --
 -- 'reserved', 'createChannel'_reserved' - Deprecated field that\'s only usable by whitelisted customers.
 --
--- 'encoderSettings', 'createChannel'_encoderSettings' - Undocumented member.
+-- 'roleArn', 'createChannel'_roleArn' - An optional Amazon Resource Name (ARN) of the role to assume when
+-- running the Channel.
+--
+-- 'tags', 'createChannel'_tags' - A collection of key-value pairs.
+--
+-- 'vpc', 'createChannel'_vpc' - Settings for the VPC outputs
 newCreateChannel' ::
   CreateChannel'
 newCreateChannel' =
   CreateChannel''
-    { tags = Prelude.Nothing,
-      name = Prelude.Nothing,
-      maintenance = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
-      vpc = Prelude.Nothing,
-      logLevel = Prelude.Nothing,
-      requestId = Prelude.Nothing,
-      inputSpecification = Prelude.Nothing,
+    { cdiInputSpecification =
+        Prelude.Nothing,
       channelClass = Prelude.Nothing,
-      cdiInputSpecification = Prelude.Nothing,
-      inputAttachments = Prelude.Nothing,
       destinations = Prelude.Nothing,
+      encoderSettings = Prelude.Nothing,
+      inputAttachments = Prelude.Nothing,
+      inputSpecification = Prelude.Nothing,
+      logLevel = Prelude.Nothing,
+      maintenance = Prelude.Nothing,
+      name = Prelude.Nothing,
+      requestId = Prelude.Nothing,
       reserved = Prelude.Nothing,
-      encoderSettings = Prelude.Nothing
+      roleArn = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      vpc = Prelude.Nothing
     }
 
--- | A collection of key-value pairs.
-createChannel'_tags :: Lens.Lens' CreateChannel' (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createChannel'_tags = Lens.lens (\CreateChannel'' {tags} -> tags) (\s@CreateChannel'' {} a -> s {tags = a} :: CreateChannel') Prelude.. Lens.mapping Lens.coerced
-
--- | Name of channel.
-createChannel'_name :: Lens.Lens' CreateChannel' (Prelude.Maybe Prelude.Text)
-createChannel'_name = Lens.lens (\CreateChannel'' {name} -> name) (\s@CreateChannel'' {} a -> s {name = a} :: CreateChannel')
-
--- | Maintenance settings for this channel.
-createChannel'_maintenance :: Lens.Lens' CreateChannel' (Prelude.Maybe MaintenanceCreateSettings)
-createChannel'_maintenance = Lens.lens (\CreateChannel'' {maintenance} -> maintenance) (\s@CreateChannel'' {} a -> s {maintenance = a} :: CreateChannel')
-
--- | An optional Amazon Resource Name (ARN) of the role to assume when
--- running the Channel.
-createChannel'_roleArn :: Lens.Lens' CreateChannel' (Prelude.Maybe Prelude.Text)
-createChannel'_roleArn = Lens.lens (\CreateChannel'' {roleArn} -> roleArn) (\s@CreateChannel'' {} a -> s {roleArn = a} :: CreateChannel')
-
--- | Settings for the VPC outputs
-createChannel'_vpc :: Lens.Lens' CreateChannel' (Prelude.Maybe VpcOutputSettings)
-createChannel'_vpc = Lens.lens (\CreateChannel'' {vpc} -> vpc) (\s@CreateChannel'' {} a -> s {vpc = a} :: CreateChannel')
-
--- | The log level to write to CloudWatch Logs.
-createChannel'_logLevel :: Lens.Lens' CreateChannel' (Prelude.Maybe LogLevel)
-createChannel'_logLevel = Lens.lens (\CreateChannel'' {logLevel} -> logLevel) (\s@CreateChannel'' {} a -> s {logLevel = a} :: CreateChannel')
-
--- | Unique request ID to be specified. This is needed to prevent retries
--- from creating multiple resources.
-createChannel'_requestId :: Lens.Lens' CreateChannel' (Prelude.Maybe Prelude.Text)
-createChannel'_requestId = Lens.lens (\CreateChannel'' {requestId} -> requestId) (\s@CreateChannel'' {} a -> s {requestId = a} :: CreateChannel')
-
--- | Specification of network and file inputs for this channel
-createChannel'_inputSpecification :: Lens.Lens' CreateChannel' (Prelude.Maybe InputSpecification)
-createChannel'_inputSpecification = Lens.lens (\CreateChannel'' {inputSpecification} -> inputSpecification) (\s@CreateChannel'' {} a -> s {inputSpecification = a} :: CreateChannel')
+-- | Specification of CDI inputs for this channel
+createChannel'_cdiInputSpecification :: Lens.Lens' CreateChannel' (Prelude.Maybe CdiInputSpecification)
+createChannel'_cdiInputSpecification = Lens.lens (\CreateChannel'' {cdiInputSpecification} -> cdiInputSpecification) (\s@CreateChannel'' {} a -> s {cdiInputSpecification = a} :: CreateChannel')
 
 -- | The class for this channel. STANDARD for a channel with two pipelines or
 -- SINGLE_PIPELINE for a channel with one pipeline.
 createChannel'_channelClass :: Lens.Lens' CreateChannel' (Prelude.Maybe ChannelClass)
 createChannel'_channelClass = Lens.lens (\CreateChannel'' {channelClass} -> channelClass) (\s@CreateChannel'' {} a -> s {channelClass = a} :: CreateChannel')
 
--- | Specification of CDI inputs for this channel
-createChannel'_cdiInputSpecification :: Lens.Lens' CreateChannel' (Prelude.Maybe CdiInputSpecification)
-createChannel'_cdiInputSpecification = Lens.lens (\CreateChannel'' {cdiInputSpecification} -> cdiInputSpecification) (\s@CreateChannel'' {} a -> s {cdiInputSpecification = a} :: CreateChannel')
+-- | Undocumented member.
+createChannel'_destinations :: Lens.Lens' CreateChannel' (Prelude.Maybe [OutputDestination])
+createChannel'_destinations = Lens.lens (\CreateChannel'' {destinations} -> destinations) (\s@CreateChannel'' {} a -> s {destinations = a} :: CreateChannel') Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+createChannel'_encoderSettings :: Lens.Lens' CreateChannel' (Prelude.Maybe EncoderSettings)
+createChannel'_encoderSettings = Lens.lens (\CreateChannel'' {encoderSettings} -> encoderSettings) (\s@CreateChannel'' {} a -> s {encoderSettings = a} :: CreateChannel')
 
 -- | List of input attachments for channel.
 createChannel'_inputAttachments :: Lens.Lens' CreateChannel' (Prelude.Maybe [InputAttachment])
 createChannel'_inputAttachments = Lens.lens (\CreateChannel'' {inputAttachments} -> inputAttachments) (\s@CreateChannel'' {} a -> s {inputAttachments = a} :: CreateChannel') Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
-createChannel'_destinations :: Lens.Lens' CreateChannel' (Prelude.Maybe [OutputDestination])
-createChannel'_destinations = Lens.lens (\CreateChannel'' {destinations} -> destinations) (\s@CreateChannel'' {} a -> s {destinations = a} :: CreateChannel') Prelude.. Lens.mapping Lens.coerced
+-- | Specification of network and file inputs for this channel
+createChannel'_inputSpecification :: Lens.Lens' CreateChannel' (Prelude.Maybe InputSpecification)
+createChannel'_inputSpecification = Lens.lens (\CreateChannel'' {inputSpecification} -> inputSpecification) (\s@CreateChannel'' {} a -> s {inputSpecification = a} :: CreateChannel')
+
+-- | The log level to write to CloudWatch Logs.
+createChannel'_logLevel :: Lens.Lens' CreateChannel' (Prelude.Maybe LogLevel)
+createChannel'_logLevel = Lens.lens (\CreateChannel'' {logLevel} -> logLevel) (\s@CreateChannel'' {} a -> s {logLevel = a} :: CreateChannel')
+
+-- | Maintenance settings for this channel.
+createChannel'_maintenance :: Lens.Lens' CreateChannel' (Prelude.Maybe MaintenanceCreateSettings)
+createChannel'_maintenance = Lens.lens (\CreateChannel'' {maintenance} -> maintenance) (\s@CreateChannel'' {} a -> s {maintenance = a} :: CreateChannel')
+
+-- | Name of channel.
+createChannel'_name :: Lens.Lens' CreateChannel' (Prelude.Maybe Prelude.Text)
+createChannel'_name = Lens.lens (\CreateChannel'' {name} -> name) (\s@CreateChannel'' {} a -> s {name = a} :: CreateChannel')
+
+-- | Unique request ID to be specified. This is needed to prevent retries
+-- from creating multiple resources.
+createChannel'_requestId :: Lens.Lens' CreateChannel' (Prelude.Maybe Prelude.Text)
+createChannel'_requestId = Lens.lens (\CreateChannel'' {requestId} -> requestId) (\s@CreateChannel'' {} a -> s {requestId = a} :: CreateChannel')
 
 -- | Deprecated field that\'s only usable by whitelisted customers.
 createChannel'_reserved :: Lens.Lens' CreateChannel' (Prelude.Maybe Prelude.Text)
 createChannel'_reserved = Lens.lens (\CreateChannel'' {reserved} -> reserved) (\s@CreateChannel'' {} a -> s {reserved = a} :: CreateChannel')
 
--- | Undocumented member.
-createChannel'_encoderSettings :: Lens.Lens' CreateChannel' (Prelude.Maybe EncoderSettings)
-createChannel'_encoderSettings = Lens.lens (\CreateChannel'' {encoderSettings} -> encoderSettings) (\s@CreateChannel'' {} a -> s {encoderSettings = a} :: CreateChannel')
+-- | An optional Amazon Resource Name (ARN) of the role to assume when
+-- running the Channel.
+createChannel'_roleArn :: Lens.Lens' CreateChannel' (Prelude.Maybe Prelude.Text)
+createChannel'_roleArn = Lens.lens (\CreateChannel'' {roleArn} -> roleArn) (\s@CreateChannel'' {} a -> s {roleArn = a} :: CreateChannel')
+
+-- | A collection of key-value pairs.
+createChannel'_tags :: Lens.Lens' CreateChannel' (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createChannel'_tags = Lens.lens (\CreateChannel'' {tags} -> tags) (\s@CreateChannel'' {} a -> s {tags = a} :: CreateChannel') Prelude.. Lens.mapping Lens.coerced
+
+-- | Settings for the VPC outputs
+createChannel'_vpc :: Lens.Lens' CreateChannel' (Prelude.Maybe VpcOutputSettings)
+createChannel'_vpc = Lens.lens (\CreateChannel'' {vpc} -> vpc) (\s@CreateChannel'' {} a -> s {vpc = a} :: CreateChannel')
 
 instance Core.AWSRequest CreateChannel' where
   type
@@ -229,37 +230,37 @@ instance Core.AWSRequest CreateChannel' where
 
 instance Prelude.Hashable CreateChannel' where
   hashWithSalt _salt CreateChannel'' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` maintenance
-      `Prelude.hashWithSalt` roleArn
-      `Prelude.hashWithSalt` vpc
-      `Prelude.hashWithSalt` logLevel
-      `Prelude.hashWithSalt` requestId
-      `Prelude.hashWithSalt` inputSpecification
+    _salt `Prelude.hashWithSalt` cdiInputSpecification
       `Prelude.hashWithSalt` channelClass
-      `Prelude.hashWithSalt` cdiInputSpecification
-      `Prelude.hashWithSalt` inputAttachments
       `Prelude.hashWithSalt` destinations
-      `Prelude.hashWithSalt` reserved
       `Prelude.hashWithSalt` encoderSettings
+      `Prelude.hashWithSalt` inputAttachments
+      `Prelude.hashWithSalt` inputSpecification
+      `Prelude.hashWithSalt` logLevel
+      `Prelude.hashWithSalt` maintenance
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` requestId
+      `Prelude.hashWithSalt` reserved
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` vpc
 
 instance Prelude.NFData CreateChannel' where
   rnf CreateChannel'' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf maintenance
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf vpc
-      `Prelude.seq` Prelude.rnf logLevel
-      `Prelude.seq` Prelude.rnf requestId
-      `Prelude.seq` Prelude.rnf inputSpecification
+    Prelude.rnf cdiInputSpecification
       `Prelude.seq` Prelude.rnf channelClass
-      `Prelude.seq` Prelude.rnf cdiInputSpecification
-      `Prelude.seq` Prelude.rnf inputAttachments
       `Prelude.seq` Prelude.rnf destinations
-      `Prelude.seq` Prelude.rnf reserved
       `Prelude.seq` Prelude.rnf encoderSettings
+      `Prelude.seq` Prelude.rnf inputAttachments
+      `Prelude.seq` Prelude.rnf inputSpecification
+      `Prelude.seq` Prelude.rnf logLevel
+      `Prelude.seq` Prelude.rnf maintenance
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf requestId
+      `Prelude.seq` Prelude.rnf reserved
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vpc
 
 instance Data.ToHeaders CreateChannel' where
   toHeaders =
@@ -276,24 +277,24 @@ instance Data.ToJSON CreateChannel' where
   toJSON CreateChannel'' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("name" Data..=) Prelude.<$> name,
-            ("maintenance" Data..=) Prelude.<$> maintenance,
-            ("roleArn" Data..=) Prelude.<$> roleArn,
-            ("vpc" Data..=) Prelude.<$> vpc,
-            ("logLevel" Data..=) Prelude.<$> logLevel,
-            ("requestId" Data..=) Prelude.<$> requestId,
-            ("inputSpecification" Data..=)
-              Prelude.<$> inputSpecification,
-            ("channelClass" Data..=) Prelude.<$> channelClass,
-            ("cdiInputSpecification" Data..=)
+          [ ("cdiInputSpecification" Data..=)
               Prelude.<$> cdiInputSpecification,
+            ("channelClass" Data..=) Prelude.<$> channelClass,
+            ("destinations" Data..=) Prelude.<$> destinations,
+            ("encoderSettings" Data..=)
+              Prelude.<$> encoderSettings,
             ("inputAttachments" Data..=)
               Prelude.<$> inputAttachments,
-            ("destinations" Data..=) Prelude.<$> destinations,
+            ("inputSpecification" Data..=)
+              Prelude.<$> inputSpecification,
+            ("logLevel" Data..=) Prelude.<$> logLevel,
+            ("maintenance" Data..=) Prelude.<$> maintenance,
+            ("name" Data..=) Prelude.<$> name,
+            ("requestId" Data..=) Prelude.<$> requestId,
             ("reserved" Data..=) Prelude.<$> reserved,
-            ("encoderSettings" Data..=)
-              Prelude.<$> encoderSettings
+            ("roleArn" Data..=) Prelude.<$> roleArn,
+            ("tags" Data..=) Prelude.<$> tags,
+            ("vpc" Data..=) Prelude.<$> vpc
           ]
       )
 

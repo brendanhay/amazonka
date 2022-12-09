@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInputSource' smart constructor.
 data InputSource = InputSource'
-  { -- | The username for the input source.
-    username :: Prelude.Maybe Prelude.Text,
-    -- | The key used to extract the password from EC2 Parameter store.
+  { -- | The key used to extract the password from EC2 Parameter store.
     passwordParam :: Prelude.Maybe Prelude.Text,
     -- | This represents the customer\'s source URL where stream is pulled from.
-    url :: Prelude.Maybe Prelude.Text
+    url :: Prelude.Maybe Prelude.Text,
+    -- | The username for the input source.
+    username :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,23 +45,19 @@ data InputSource = InputSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'username', 'inputSource_username' - The username for the input source.
---
 -- 'passwordParam', 'inputSource_passwordParam' - The key used to extract the password from EC2 Parameter store.
 --
 -- 'url', 'inputSource_url' - This represents the customer\'s source URL where stream is pulled from.
+--
+-- 'username', 'inputSource_username' - The username for the input source.
 newInputSource ::
   InputSource
 newInputSource =
   InputSource'
-    { username = Prelude.Nothing,
-      passwordParam = Prelude.Nothing,
-      url = Prelude.Nothing
+    { passwordParam = Prelude.Nothing,
+      url = Prelude.Nothing,
+      username = Prelude.Nothing
     }
-
--- | The username for the input source.
-inputSource_username :: Lens.Lens' InputSource (Prelude.Maybe Prelude.Text)
-inputSource_username = Lens.lens (\InputSource' {username} -> username) (\s@InputSource' {} a -> s {username = a} :: InputSource)
 
 -- | The key used to extract the password from EC2 Parameter store.
 inputSource_passwordParam :: Lens.Lens' InputSource (Prelude.Maybe Prelude.Text)
@@ -71,25 +67,29 @@ inputSource_passwordParam = Lens.lens (\InputSource' {passwordParam} -> password
 inputSource_url :: Lens.Lens' InputSource (Prelude.Maybe Prelude.Text)
 inputSource_url = Lens.lens (\InputSource' {url} -> url) (\s@InputSource' {} a -> s {url = a} :: InputSource)
 
+-- | The username for the input source.
+inputSource_username :: Lens.Lens' InputSource (Prelude.Maybe Prelude.Text)
+inputSource_username = Lens.lens (\InputSource' {username} -> username) (\s@InputSource' {} a -> s {username = a} :: InputSource)
+
 instance Data.FromJSON InputSource where
   parseJSON =
     Data.withObject
       "InputSource"
       ( \x ->
           InputSource'
-            Prelude.<$> (x Data..:? "username")
-            Prelude.<*> (x Data..:? "passwordParam")
+            Prelude.<$> (x Data..:? "passwordParam")
             Prelude.<*> (x Data..:? "url")
+            Prelude.<*> (x Data..:? "username")
       )
 
 instance Prelude.Hashable InputSource where
   hashWithSalt _salt InputSource' {..} =
-    _salt `Prelude.hashWithSalt` username
-      `Prelude.hashWithSalt` passwordParam
+    _salt `Prelude.hashWithSalt` passwordParam
       `Prelude.hashWithSalt` url
+      `Prelude.hashWithSalt` username
 
 instance Prelude.NFData InputSource where
   rnf InputSource' {..} =
-    Prelude.rnf username
-      `Prelude.seq` Prelude.rnf passwordParam
+    Prelude.rnf passwordParam
       `Prelude.seq` Prelude.rnf url
+      `Prelude.seq` Prelude.rnf username

@@ -36,14 +36,14 @@ module Amazonka.RBin.LockRule
     newLockRuleResponse,
 
     -- * Response Lenses
-    lockRuleResponse_resourceType,
-    lockRuleResponse_lockState,
-    lockRuleResponse_lockConfiguration,
-    lockRuleResponse_status,
-    lockRuleResponse_resourceTags,
     lockRuleResponse_description,
-    lockRuleResponse_retentionPeriod,
     lockRuleResponse_identifier,
+    lockRuleResponse_lockConfiguration,
+    lockRuleResponse_lockState,
+    lockRuleResponse_resourceTags,
+    lockRuleResponse_resourceType,
+    lockRuleResponse_retentionPeriod,
+    lockRuleResponse_status,
     lockRuleResponse_httpStatus,
   )
 where
@@ -104,14 +104,14 @@ instance Core.AWSRequest LockRule where
     Response.receiveJSON
       ( \s h x ->
           LockRuleResponse'
-            Prelude.<$> (x Data..?> "ResourceType")
-            Prelude.<*> (x Data..?> "LockState")
-            Prelude.<*> (x Data..?> "LockConfiguration")
-            Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "ResourceTags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "Description")
-            Prelude.<*> (x Data..?> "RetentionPeriod")
+            Prelude.<$> (x Data..?> "Description")
             Prelude.<*> (x Data..?> "Identifier")
+            Prelude.<*> (x Data..?> "LockConfiguration")
+            Prelude.<*> (x Data..?> "LockState")
+            Prelude.<*> (x Data..?> "ResourceTags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ResourceType")
+            Prelude.<*> (x Data..?> "RetentionPeriod")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,8 +155,12 @@ instance Data.ToQuery LockRule where
 
 -- | /See:/ 'newLockRuleResponse' smart constructor.
 data LockRuleResponse = LockRuleResponse'
-  { -- | The resource type retained by the retention rule.
-    resourceType :: Prelude.Maybe ResourceType,
+  { -- | The retention rule description.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The unique ID of the retention rule.
+    identifier :: Prelude.Maybe Prelude.Text,
+    -- | Information about the retention rule lock configuration.
+    lockConfiguration :: Prelude.Maybe LockConfiguration,
     -- | The lock state for the retention rule.
     --
     -- -   @locked@ - The retention rule is locked and can\'t be modified or
@@ -173,19 +177,15 @@ data LockRuleResponse = LockRuleResponse'
     --     rule has been locked, it can transition between the @locked@ and
     --     @unlocked@ states only; it can never transition back to @null@.
     lockState :: Prelude.Maybe LockState,
-    -- | Information about the retention rule lock configuration.
-    lockConfiguration :: Prelude.Maybe LockConfiguration,
-    -- | The state of the retention rule. Only retention rules that are in the
-    -- @available@ state retain resources.
-    status :: Prelude.Maybe RuleStatus,
     -- | Information about the resource tags used to identify resources that are
     -- retained by the retention rule.
     resourceTags :: Prelude.Maybe [ResourceTag],
-    -- | The retention rule description.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | The resource type retained by the retention rule.
+    resourceType :: Prelude.Maybe ResourceType,
     retentionPeriod :: Prelude.Maybe RetentionPeriod,
-    -- | The unique ID of the retention rule.
-    identifier :: Prelude.Maybe Prelude.Text,
+    -- | The state of the retention rule. Only retention rules that are in the
+    -- @available@ state retain resources.
+    status :: Prelude.Maybe RuleStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -199,7 +199,11 @@ data LockRuleResponse = LockRuleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'lockRuleResponse_resourceType' - The resource type retained by the retention rule.
+-- 'description', 'lockRuleResponse_description' - The retention rule description.
+--
+-- 'identifier', 'lockRuleResponse_identifier' - The unique ID of the retention rule.
+--
+-- 'lockConfiguration', 'lockRuleResponse_lockConfiguration' - Information about the retention rule lock configuration.
 --
 -- 'lockState', 'lockRuleResponse_lockState' - The lock state for the retention rule.
 --
@@ -217,19 +221,15 @@ data LockRuleResponse = LockRuleResponse'
 --     rule has been locked, it can transition between the @locked@ and
 --     @unlocked@ states only; it can never transition back to @null@.
 --
--- 'lockConfiguration', 'lockRuleResponse_lockConfiguration' - Information about the retention rule lock configuration.
---
--- 'status', 'lockRuleResponse_status' - The state of the retention rule. Only retention rules that are in the
--- @available@ state retain resources.
---
 -- 'resourceTags', 'lockRuleResponse_resourceTags' - Information about the resource tags used to identify resources that are
 -- retained by the retention rule.
 --
--- 'description', 'lockRuleResponse_description' - The retention rule description.
+-- 'resourceType', 'lockRuleResponse_resourceType' - The resource type retained by the retention rule.
 --
 -- 'retentionPeriod', 'lockRuleResponse_retentionPeriod' - Undocumented member.
 --
--- 'identifier', 'lockRuleResponse_identifier' - The unique ID of the retention rule.
+-- 'status', 'lockRuleResponse_status' - The state of the retention rule. Only retention rules that are in the
+-- @available@ state retain resources.
 --
 -- 'httpStatus', 'lockRuleResponse_httpStatus' - The response's http status code.
 newLockRuleResponse ::
@@ -238,20 +238,28 @@ newLockRuleResponse ::
   LockRuleResponse
 newLockRuleResponse pHttpStatus_ =
   LockRuleResponse'
-    { resourceType = Prelude.Nothing,
-      lockState = Prelude.Nothing,
-      lockConfiguration = Prelude.Nothing,
-      status = Prelude.Nothing,
-      resourceTags = Prelude.Nothing,
-      description = Prelude.Nothing,
-      retentionPeriod = Prelude.Nothing,
+    { description = Prelude.Nothing,
       identifier = Prelude.Nothing,
+      lockConfiguration = Prelude.Nothing,
+      lockState = Prelude.Nothing,
+      resourceTags = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
+      retentionPeriod = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The resource type retained by the retention rule.
-lockRuleResponse_resourceType :: Lens.Lens' LockRuleResponse (Prelude.Maybe ResourceType)
-lockRuleResponse_resourceType = Lens.lens (\LockRuleResponse' {resourceType} -> resourceType) (\s@LockRuleResponse' {} a -> s {resourceType = a} :: LockRuleResponse)
+-- | The retention rule description.
+lockRuleResponse_description :: Lens.Lens' LockRuleResponse (Prelude.Maybe Prelude.Text)
+lockRuleResponse_description = Lens.lens (\LockRuleResponse' {description} -> description) (\s@LockRuleResponse' {} a -> s {description = a} :: LockRuleResponse)
+
+-- | The unique ID of the retention rule.
+lockRuleResponse_identifier :: Lens.Lens' LockRuleResponse (Prelude.Maybe Prelude.Text)
+lockRuleResponse_identifier = Lens.lens (\LockRuleResponse' {identifier} -> identifier) (\s@LockRuleResponse' {} a -> s {identifier = a} :: LockRuleResponse)
+
+-- | Information about the retention rule lock configuration.
+lockRuleResponse_lockConfiguration :: Lens.Lens' LockRuleResponse (Prelude.Maybe LockConfiguration)
+lockRuleResponse_lockConfiguration = Lens.lens (\LockRuleResponse' {lockConfiguration} -> lockConfiguration) (\s@LockRuleResponse' {} a -> s {lockConfiguration = a} :: LockRuleResponse)
 
 -- | The lock state for the retention rule.
 --
@@ -271,31 +279,23 @@ lockRuleResponse_resourceType = Lens.lens (\LockRuleResponse' {resourceType} -> 
 lockRuleResponse_lockState :: Lens.Lens' LockRuleResponse (Prelude.Maybe LockState)
 lockRuleResponse_lockState = Lens.lens (\LockRuleResponse' {lockState} -> lockState) (\s@LockRuleResponse' {} a -> s {lockState = a} :: LockRuleResponse)
 
--- | Information about the retention rule lock configuration.
-lockRuleResponse_lockConfiguration :: Lens.Lens' LockRuleResponse (Prelude.Maybe LockConfiguration)
-lockRuleResponse_lockConfiguration = Lens.lens (\LockRuleResponse' {lockConfiguration} -> lockConfiguration) (\s@LockRuleResponse' {} a -> s {lockConfiguration = a} :: LockRuleResponse)
-
--- | The state of the retention rule. Only retention rules that are in the
--- @available@ state retain resources.
-lockRuleResponse_status :: Lens.Lens' LockRuleResponse (Prelude.Maybe RuleStatus)
-lockRuleResponse_status = Lens.lens (\LockRuleResponse' {status} -> status) (\s@LockRuleResponse' {} a -> s {status = a} :: LockRuleResponse)
-
 -- | Information about the resource tags used to identify resources that are
 -- retained by the retention rule.
 lockRuleResponse_resourceTags :: Lens.Lens' LockRuleResponse (Prelude.Maybe [ResourceTag])
 lockRuleResponse_resourceTags = Lens.lens (\LockRuleResponse' {resourceTags} -> resourceTags) (\s@LockRuleResponse' {} a -> s {resourceTags = a} :: LockRuleResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The retention rule description.
-lockRuleResponse_description :: Lens.Lens' LockRuleResponse (Prelude.Maybe Prelude.Text)
-lockRuleResponse_description = Lens.lens (\LockRuleResponse' {description} -> description) (\s@LockRuleResponse' {} a -> s {description = a} :: LockRuleResponse)
+-- | The resource type retained by the retention rule.
+lockRuleResponse_resourceType :: Lens.Lens' LockRuleResponse (Prelude.Maybe ResourceType)
+lockRuleResponse_resourceType = Lens.lens (\LockRuleResponse' {resourceType} -> resourceType) (\s@LockRuleResponse' {} a -> s {resourceType = a} :: LockRuleResponse)
 
 -- | Undocumented member.
 lockRuleResponse_retentionPeriod :: Lens.Lens' LockRuleResponse (Prelude.Maybe RetentionPeriod)
 lockRuleResponse_retentionPeriod = Lens.lens (\LockRuleResponse' {retentionPeriod} -> retentionPeriod) (\s@LockRuleResponse' {} a -> s {retentionPeriod = a} :: LockRuleResponse)
 
--- | The unique ID of the retention rule.
-lockRuleResponse_identifier :: Lens.Lens' LockRuleResponse (Prelude.Maybe Prelude.Text)
-lockRuleResponse_identifier = Lens.lens (\LockRuleResponse' {identifier} -> identifier) (\s@LockRuleResponse' {} a -> s {identifier = a} :: LockRuleResponse)
+-- | The state of the retention rule. Only retention rules that are in the
+-- @available@ state retain resources.
+lockRuleResponse_status :: Lens.Lens' LockRuleResponse (Prelude.Maybe RuleStatus)
+lockRuleResponse_status = Lens.lens (\LockRuleResponse' {status} -> status) (\s@LockRuleResponse' {} a -> s {status = a} :: LockRuleResponse)
 
 -- | The response's http status code.
 lockRuleResponse_httpStatus :: Lens.Lens' LockRuleResponse Prelude.Int
@@ -303,12 +303,12 @@ lockRuleResponse_httpStatus = Lens.lens (\LockRuleResponse' {httpStatus} -> http
 
 instance Prelude.NFData LockRuleResponse where
   rnf LockRuleResponse' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf lockState
-      `Prelude.seq` Prelude.rnf lockConfiguration
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf resourceTags
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf retentionPeriod
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf identifier
+      `Prelude.seq` Prelude.rnf lockConfiguration
+      `Prelude.seq` Prelude.rnf lockState
+      `Prelude.seq` Prelude.rnf resourceTags
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf retentionPeriod
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

@@ -29,10 +29,10 @@ module Amazonka.RBin.ListRules
     newListRules,
 
     -- * Request Lenses
-    listRules_nextToken,
     listRules_lockState,
-    listRules_resourceTags,
     listRules_maxResults,
+    listRules_nextToken,
+    listRules_resourceTags,
     listRules_resourceType,
 
     -- * Destructuring the Response
@@ -56,18 +56,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListRules' smart constructor.
 data ListRules = ListRules'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The lock state of the retention rules to list. Only retention rules with
+  { -- | The lock state of the retention rules to list. Only retention rules with
     -- the specified lock state are returned.
     lockState :: Prelude.Maybe LockState,
-    -- | Information about the resource tags used to identify resources that are
-    -- retained by the retention rule.
-    resourceTags :: Prelude.Maybe [ResourceTag],
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @NextToken@
     -- value.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the resource tags used to identify resources that are
+    -- retained by the retention rule.
+    resourceTags :: Prelude.Maybe [ResourceTag],
     -- | The resource type retained by the retention rule. Only retention rules
     -- that retain the specified resource type are listed. Currently, only
     -- Amazon EBS snapshots and EBS-backed AMIs are supported. To list
@@ -85,17 +85,17 @@ data ListRules = ListRules'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listRules_nextToken' - The token for the next page of results.
---
 -- 'lockState', 'listRules_lockState' - The lock state of the retention rules to list. Only retention rules with
 -- the specified lock state are returned.
---
--- 'resourceTags', 'listRules_resourceTags' - Information about the resource tags used to identify resources that are
--- retained by the retention rule.
 --
 -- 'maxResults', 'listRules_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @NextToken@
 -- value.
+--
+-- 'nextToken', 'listRules_nextToken' - The token for the next page of results.
+--
+-- 'resourceTags', 'listRules_resourceTags' - Information about the resource tags used to identify resources that are
+-- retained by the retention rule.
 --
 -- 'resourceType', 'listRules_resourceType' - The resource type retained by the retention rule. Only retention rules
 -- that retain the specified resource type are listed. Currently, only
@@ -108,32 +108,32 @@ newListRules ::
   ListRules
 newListRules pResourceType_ =
   ListRules'
-    { nextToken = Prelude.Nothing,
-      lockState = Prelude.Nothing,
-      resourceTags = Prelude.Nothing,
+    { lockState = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      resourceTags = Prelude.Nothing,
       resourceType = pResourceType_
     }
-
--- | The token for the next page of results.
-listRules_nextToken :: Lens.Lens' ListRules (Prelude.Maybe Prelude.Text)
-listRules_nextToken = Lens.lens (\ListRules' {nextToken} -> nextToken) (\s@ListRules' {} a -> s {nextToken = a} :: ListRules)
 
 -- | The lock state of the retention rules to list. Only retention rules with
 -- the specified lock state are returned.
 listRules_lockState :: Lens.Lens' ListRules (Prelude.Maybe LockState)
 listRules_lockState = Lens.lens (\ListRules' {lockState} -> lockState) (\s@ListRules' {} a -> s {lockState = a} :: ListRules)
 
--- | Information about the resource tags used to identify resources that are
--- retained by the retention rule.
-listRules_resourceTags :: Lens.Lens' ListRules (Prelude.Maybe [ResourceTag])
-listRules_resourceTags = Lens.lens (\ListRules' {resourceTags} -> resourceTags) (\s@ListRules' {} a -> s {resourceTags = a} :: ListRules) Prelude.. Lens.mapping Lens.coerced
-
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @NextToken@
 -- value.
 listRules_maxResults :: Lens.Lens' ListRules (Prelude.Maybe Prelude.Natural)
 listRules_maxResults = Lens.lens (\ListRules' {maxResults} -> maxResults) (\s@ListRules' {} a -> s {maxResults = a} :: ListRules)
+
+-- | The token for the next page of results.
+listRules_nextToken :: Lens.Lens' ListRules (Prelude.Maybe Prelude.Text)
+listRules_nextToken = Lens.lens (\ListRules' {nextToken} -> nextToken) (\s@ListRules' {} a -> s {nextToken = a} :: ListRules)
+
+-- | Information about the resource tags used to identify resources that are
+-- retained by the retention rule.
+listRules_resourceTags :: Lens.Lens' ListRules (Prelude.Maybe [ResourceTag])
+listRules_resourceTags = Lens.lens (\ListRules' {resourceTags} -> resourceTags) (\s@ListRules' {} a -> s {resourceTags = a} :: ListRules) Prelude.. Lens.mapping Lens.coerced
 
 -- | The resource type retained by the retention rule. Only retention rules
 -- that retain the specified resource type are listed. Currently, only
@@ -177,18 +177,18 @@ instance Core.AWSRequest ListRules where
 
 instance Prelude.Hashable ListRules where
   hashWithSalt _salt ListRules' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` lockState
-      `Prelude.hashWithSalt` resourceTags
+    _salt `Prelude.hashWithSalt` lockState
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` resourceTags
       `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData ListRules where
   rnf ListRules' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf lockState
-      `Prelude.seq` Prelude.rnf resourceTags
+    Prelude.rnf lockState
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceTags
       `Prelude.seq` Prelude.rnf resourceType
 
 instance Data.ToHeaders ListRules where
@@ -206,10 +206,10 @@ instance Data.ToJSON ListRules where
   toJSON ListRules' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("LockState" Data..=) Prelude.<$> lockState,
-            ("ResourceTags" Data..=) Prelude.<$> resourceTags,
+          [ ("LockState" Data..=) Prelude.<$> lockState,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ResourceTags" Data..=) Prelude.<$> resourceTags,
             Prelude.Just ("ResourceType" Data..= resourceType)
           ]
       )

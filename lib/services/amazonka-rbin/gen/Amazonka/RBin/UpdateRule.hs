@@ -32,9 +32,9 @@ module Amazonka.RBin.UpdateRule
     newUpdateRule,
 
     -- * Request Lenses
-    updateRule_resourceType,
-    updateRule_resourceTags,
     updateRule_description,
+    updateRule_resourceTags,
+    updateRule_resourceType,
     updateRule_retentionPeriod,
     updateRule_identifier,
 
@@ -43,14 +43,14 @@ module Amazonka.RBin.UpdateRule
     newUpdateRuleResponse,
 
     -- * Response Lenses
-    updateRuleResponse_resourceType,
-    updateRuleResponse_lockState,
-    updateRuleResponse_status,
-    updateRuleResponse_resourceTags,
     updateRuleResponse_description,
-    updateRuleResponse_lockEndTime,
-    updateRuleResponse_retentionPeriod,
     updateRuleResponse_identifier,
+    updateRuleResponse_lockEndTime,
+    updateRuleResponse_lockState,
+    updateRuleResponse_resourceTags,
+    updateRuleResponse_resourceType,
+    updateRuleResponse_retentionPeriod,
+    updateRuleResponse_status,
     updateRuleResponse_httpStatus,
   )
 where
@@ -65,9 +65,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateRule' smart constructor.
 data UpdateRule = UpdateRule'
-  { -- | This parameter is currently not supported. You can\'t update a retention
-    -- rule\'s resource type after creation.
-    resourceType :: Prelude.Maybe ResourceType,
+  { -- | The retention rule description.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Specifies the resource tags to use to identify resources that are to be
     -- retained by a tag-level retention rule. For tag-level retention rules,
     -- only deleted resources, of the specified resource type, that have one or
@@ -85,8 +84,9 @@ data UpdateRule = UpdateRule'
     -- Region in which the rule is created, even if the resources are not
     -- tagged.
     resourceTags :: Prelude.Maybe [ResourceTag],
-    -- | The retention rule description.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | This parameter is currently not supported. You can\'t update a retention
+    -- rule\'s resource type after creation.
+    resourceType :: Prelude.Maybe ResourceType,
     -- | Information about the retention period for which the retention rule is
     -- to retain resources.
     retentionPeriod :: Prelude.Maybe RetentionPeriod,
@@ -103,8 +103,7 @@ data UpdateRule = UpdateRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'updateRule_resourceType' - This parameter is currently not supported. You can\'t update a retention
--- rule\'s resource type after creation.
+-- 'description', 'updateRule_description' - The retention rule description.
 --
 -- 'resourceTags', 'updateRule_resourceTags' - Specifies the resource tags to use to identify resources that are to be
 -- retained by a tag-level retention rule. For tag-level retention rules,
@@ -123,7 +122,8 @@ data UpdateRule = UpdateRule'
 -- Region in which the rule is created, even if the resources are not
 -- tagged.
 --
--- 'description', 'updateRule_description' - The retention rule description.
+-- 'resourceType', 'updateRule_resourceType' - This parameter is currently not supported. You can\'t update a retention
+-- rule\'s resource type after creation.
 --
 -- 'retentionPeriod', 'updateRule_retentionPeriod' - Information about the retention period for which the retention rule is
 -- to retain resources.
@@ -135,17 +135,16 @@ newUpdateRule ::
   UpdateRule
 newUpdateRule pIdentifier_ =
   UpdateRule'
-    { resourceType = Prelude.Nothing,
+    { description = Prelude.Nothing,
       resourceTags = Prelude.Nothing,
-      description = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
       retentionPeriod = Prelude.Nothing,
       identifier = pIdentifier_
     }
 
--- | This parameter is currently not supported. You can\'t update a retention
--- rule\'s resource type after creation.
-updateRule_resourceType :: Lens.Lens' UpdateRule (Prelude.Maybe ResourceType)
-updateRule_resourceType = Lens.lens (\UpdateRule' {resourceType} -> resourceType) (\s@UpdateRule' {} a -> s {resourceType = a} :: UpdateRule)
+-- | The retention rule description.
+updateRule_description :: Lens.Lens' UpdateRule (Prelude.Maybe Prelude.Text)
+updateRule_description = Lens.lens (\UpdateRule' {description} -> description) (\s@UpdateRule' {} a -> s {description = a} :: UpdateRule)
 
 -- | Specifies the resource tags to use to identify resources that are to be
 -- retained by a tag-level retention rule. For tag-level retention rules,
@@ -166,9 +165,10 @@ updateRule_resourceType = Lens.lens (\UpdateRule' {resourceType} -> resourceType
 updateRule_resourceTags :: Lens.Lens' UpdateRule (Prelude.Maybe [ResourceTag])
 updateRule_resourceTags = Lens.lens (\UpdateRule' {resourceTags} -> resourceTags) (\s@UpdateRule' {} a -> s {resourceTags = a} :: UpdateRule) Prelude.. Lens.mapping Lens.coerced
 
--- | The retention rule description.
-updateRule_description :: Lens.Lens' UpdateRule (Prelude.Maybe Prelude.Text)
-updateRule_description = Lens.lens (\UpdateRule' {description} -> description) (\s@UpdateRule' {} a -> s {description = a} :: UpdateRule)
+-- | This parameter is currently not supported. You can\'t update a retention
+-- rule\'s resource type after creation.
+updateRule_resourceType :: Lens.Lens' UpdateRule (Prelude.Maybe ResourceType)
+updateRule_resourceType = Lens.lens (\UpdateRule' {resourceType} -> resourceType) (\s@UpdateRule' {} a -> s {resourceType = a} :: UpdateRule)
 
 -- | Information about the retention period for which the retention rule is
 -- to retain resources.
@@ -187,30 +187,30 @@ instance Core.AWSRequest UpdateRule where
     Response.receiveJSON
       ( \s h x ->
           UpdateRuleResponse'
-            Prelude.<$> (x Data..?> "ResourceType")
-            Prelude.<*> (x Data..?> "LockState")
-            Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> (x Data..?> "ResourceTags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "Description")
-            Prelude.<*> (x Data..?> "LockEndTime")
-            Prelude.<*> (x Data..?> "RetentionPeriod")
+            Prelude.<$> (x Data..?> "Description")
             Prelude.<*> (x Data..?> "Identifier")
+            Prelude.<*> (x Data..?> "LockEndTime")
+            Prelude.<*> (x Data..?> "LockState")
+            Prelude.<*> (x Data..?> "ResourceTags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "ResourceType")
+            Prelude.<*> (x Data..?> "RetentionPeriod")
+            Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateRule where
   hashWithSalt _salt UpdateRule' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` resourceTags
-      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` retentionPeriod
       `Prelude.hashWithSalt` identifier
 
 instance Prelude.NFData UpdateRule where
   rnf UpdateRule' {..} =
-    Prelude.rnf resourceType
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf resourceTags
-      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf retentionPeriod
       `Prelude.seq` Prelude.rnf identifier
 
@@ -229,9 +229,9 @@ instance Data.ToJSON UpdateRule where
   toJSON UpdateRule' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ResourceType" Data..=) Prelude.<$> resourceType,
+          [ ("Description" Data..=) Prelude.<$> description,
             ("ResourceTags" Data..=) Prelude.<$> resourceTags,
-            ("Description" Data..=) Prelude.<$> description,
+            ("ResourceType" Data..=) Prelude.<$> resourceType,
             ("RetentionPeriod" Data..=)
               Prelude.<$> retentionPeriod
           ]
@@ -246,8 +246,14 @@ instance Data.ToQuery UpdateRule where
 
 -- | /See:/ 'newUpdateRuleResponse' smart constructor.
 data UpdateRuleResponse = UpdateRuleResponse'
-  { -- | The resource type retained by the retention rule.
-    resourceType :: Prelude.Maybe ResourceType,
+  { -- | The retention rule description.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The unique ID of the retention rule.
+    identifier :: Prelude.Maybe Prelude.Text,
+    -- | The date and time at which the unlock delay is set to expire. Only
+    -- returned for retention rules that have been unlocked and that are still
+    -- within the unlock delay period.
+    lockEndTime :: Prelude.Maybe Data.POSIX,
     -- | The lock state for the retention rule.
     --
     -- -   @locked@ - The retention rule is locked and can\'t be modified or
@@ -264,21 +270,15 @@ data UpdateRuleResponse = UpdateRuleResponse'
     --     rule has been locked, it can transition between the @locked@ and
     --     @unlocked@ states only; it can never transition back to @null@.
     lockState :: Prelude.Maybe LockState,
-    -- | The state of the retention rule. Only retention rules that are in the
-    -- @available@ state retain resources.
-    status :: Prelude.Maybe RuleStatus,
     -- | Information about the resource tags used to identify resources that are
     -- retained by the retention rule.
     resourceTags :: Prelude.Maybe [ResourceTag],
-    -- | The retention rule description.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The date and time at which the unlock delay is set to expire. Only
-    -- returned for retention rules that have been unlocked and that are still
-    -- within the unlock delay period.
-    lockEndTime :: Prelude.Maybe Data.POSIX,
+    -- | The resource type retained by the retention rule.
+    resourceType :: Prelude.Maybe ResourceType,
     retentionPeriod :: Prelude.Maybe RetentionPeriod,
-    -- | The unique ID of the retention rule.
-    identifier :: Prelude.Maybe Prelude.Text,
+    -- | The state of the retention rule. Only retention rules that are in the
+    -- @available@ state retain resources.
+    status :: Prelude.Maybe RuleStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -292,7 +292,13 @@ data UpdateRuleResponse = UpdateRuleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'updateRuleResponse_resourceType' - The resource type retained by the retention rule.
+-- 'description', 'updateRuleResponse_description' - The retention rule description.
+--
+-- 'identifier', 'updateRuleResponse_identifier' - The unique ID of the retention rule.
+--
+-- 'lockEndTime', 'updateRuleResponse_lockEndTime' - The date and time at which the unlock delay is set to expire. Only
+-- returned for retention rules that have been unlocked and that are still
+-- within the unlock delay period.
 --
 -- 'lockState', 'updateRuleResponse_lockState' - The lock state for the retention rule.
 --
@@ -310,21 +316,15 @@ data UpdateRuleResponse = UpdateRuleResponse'
 --     rule has been locked, it can transition between the @locked@ and
 --     @unlocked@ states only; it can never transition back to @null@.
 --
--- 'status', 'updateRuleResponse_status' - The state of the retention rule. Only retention rules that are in the
--- @available@ state retain resources.
---
 -- 'resourceTags', 'updateRuleResponse_resourceTags' - Information about the resource tags used to identify resources that are
 -- retained by the retention rule.
 --
--- 'description', 'updateRuleResponse_description' - The retention rule description.
---
--- 'lockEndTime', 'updateRuleResponse_lockEndTime' - The date and time at which the unlock delay is set to expire. Only
--- returned for retention rules that have been unlocked and that are still
--- within the unlock delay period.
+-- 'resourceType', 'updateRuleResponse_resourceType' - The resource type retained by the retention rule.
 --
 -- 'retentionPeriod', 'updateRuleResponse_retentionPeriod' - Undocumented member.
 --
--- 'identifier', 'updateRuleResponse_identifier' - The unique ID of the retention rule.
+-- 'status', 'updateRuleResponse_status' - The state of the retention rule. Only retention rules that are in the
+-- @available@ state retain resources.
 --
 -- 'httpStatus', 'updateRuleResponse_httpStatus' - The response's http status code.
 newUpdateRuleResponse ::
@@ -333,20 +333,30 @@ newUpdateRuleResponse ::
   UpdateRuleResponse
 newUpdateRuleResponse pHttpStatus_ =
   UpdateRuleResponse'
-    { resourceType = Prelude.Nothing,
-      lockState = Prelude.Nothing,
-      status = Prelude.Nothing,
-      resourceTags = Prelude.Nothing,
-      description = Prelude.Nothing,
-      lockEndTime = Prelude.Nothing,
-      retentionPeriod = Prelude.Nothing,
+    { description = Prelude.Nothing,
       identifier = Prelude.Nothing,
+      lockEndTime = Prelude.Nothing,
+      lockState = Prelude.Nothing,
+      resourceTags = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
+      retentionPeriod = Prelude.Nothing,
+      status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The resource type retained by the retention rule.
-updateRuleResponse_resourceType :: Lens.Lens' UpdateRuleResponse (Prelude.Maybe ResourceType)
-updateRuleResponse_resourceType = Lens.lens (\UpdateRuleResponse' {resourceType} -> resourceType) (\s@UpdateRuleResponse' {} a -> s {resourceType = a} :: UpdateRuleResponse)
+-- | The retention rule description.
+updateRuleResponse_description :: Lens.Lens' UpdateRuleResponse (Prelude.Maybe Prelude.Text)
+updateRuleResponse_description = Lens.lens (\UpdateRuleResponse' {description} -> description) (\s@UpdateRuleResponse' {} a -> s {description = a} :: UpdateRuleResponse)
+
+-- | The unique ID of the retention rule.
+updateRuleResponse_identifier :: Lens.Lens' UpdateRuleResponse (Prelude.Maybe Prelude.Text)
+updateRuleResponse_identifier = Lens.lens (\UpdateRuleResponse' {identifier} -> identifier) (\s@UpdateRuleResponse' {} a -> s {identifier = a} :: UpdateRuleResponse)
+
+-- | The date and time at which the unlock delay is set to expire. Only
+-- returned for retention rules that have been unlocked and that are still
+-- within the unlock delay period.
+updateRuleResponse_lockEndTime :: Lens.Lens' UpdateRuleResponse (Prelude.Maybe Prelude.UTCTime)
+updateRuleResponse_lockEndTime = Lens.lens (\UpdateRuleResponse' {lockEndTime} -> lockEndTime) (\s@UpdateRuleResponse' {} a -> s {lockEndTime = a} :: UpdateRuleResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The lock state for the retention rule.
 --
@@ -366,33 +376,23 @@ updateRuleResponse_resourceType = Lens.lens (\UpdateRuleResponse' {resourceType}
 updateRuleResponse_lockState :: Lens.Lens' UpdateRuleResponse (Prelude.Maybe LockState)
 updateRuleResponse_lockState = Lens.lens (\UpdateRuleResponse' {lockState} -> lockState) (\s@UpdateRuleResponse' {} a -> s {lockState = a} :: UpdateRuleResponse)
 
--- | The state of the retention rule. Only retention rules that are in the
--- @available@ state retain resources.
-updateRuleResponse_status :: Lens.Lens' UpdateRuleResponse (Prelude.Maybe RuleStatus)
-updateRuleResponse_status = Lens.lens (\UpdateRuleResponse' {status} -> status) (\s@UpdateRuleResponse' {} a -> s {status = a} :: UpdateRuleResponse)
-
 -- | Information about the resource tags used to identify resources that are
 -- retained by the retention rule.
 updateRuleResponse_resourceTags :: Lens.Lens' UpdateRuleResponse (Prelude.Maybe [ResourceTag])
 updateRuleResponse_resourceTags = Lens.lens (\UpdateRuleResponse' {resourceTags} -> resourceTags) (\s@UpdateRuleResponse' {} a -> s {resourceTags = a} :: UpdateRuleResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The retention rule description.
-updateRuleResponse_description :: Lens.Lens' UpdateRuleResponse (Prelude.Maybe Prelude.Text)
-updateRuleResponse_description = Lens.lens (\UpdateRuleResponse' {description} -> description) (\s@UpdateRuleResponse' {} a -> s {description = a} :: UpdateRuleResponse)
-
--- | The date and time at which the unlock delay is set to expire. Only
--- returned for retention rules that have been unlocked and that are still
--- within the unlock delay period.
-updateRuleResponse_lockEndTime :: Lens.Lens' UpdateRuleResponse (Prelude.Maybe Prelude.UTCTime)
-updateRuleResponse_lockEndTime = Lens.lens (\UpdateRuleResponse' {lockEndTime} -> lockEndTime) (\s@UpdateRuleResponse' {} a -> s {lockEndTime = a} :: UpdateRuleResponse) Prelude.. Lens.mapping Data._Time
+-- | The resource type retained by the retention rule.
+updateRuleResponse_resourceType :: Lens.Lens' UpdateRuleResponse (Prelude.Maybe ResourceType)
+updateRuleResponse_resourceType = Lens.lens (\UpdateRuleResponse' {resourceType} -> resourceType) (\s@UpdateRuleResponse' {} a -> s {resourceType = a} :: UpdateRuleResponse)
 
 -- | Undocumented member.
 updateRuleResponse_retentionPeriod :: Lens.Lens' UpdateRuleResponse (Prelude.Maybe RetentionPeriod)
 updateRuleResponse_retentionPeriod = Lens.lens (\UpdateRuleResponse' {retentionPeriod} -> retentionPeriod) (\s@UpdateRuleResponse' {} a -> s {retentionPeriod = a} :: UpdateRuleResponse)
 
--- | The unique ID of the retention rule.
-updateRuleResponse_identifier :: Lens.Lens' UpdateRuleResponse (Prelude.Maybe Prelude.Text)
-updateRuleResponse_identifier = Lens.lens (\UpdateRuleResponse' {identifier} -> identifier) (\s@UpdateRuleResponse' {} a -> s {identifier = a} :: UpdateRuleResponse)
+-- | The state of the retention rule. Only retention rules that are in the
+-- @available@ state retain resources.
+updateRuleResponse_status :: Lens.Lens' UpdateRuleResponse (Prelude.Maybe RuleStatus)
+updateRuleResponse_status = Lens.lens (\UpdateRuleResponse' {status} -> status) (\s@UpdateRuleResponse' {} a -> s {status = a} :: UpdateRuleResponse)
 
 -- | The response's http status code.
 updateRuleResponse_httpStatus :: Lens.Lens' UpdateRuleResponse Prelude.Int
@@ -400,12 +400,12 @@ updateRuleResponse_httpStatus = Lens.lens (\UpdateRuleResponse' {httpStatus} -> 
 
 instance Prelude.NFData UpdateRuleResponse where
   rnf UpdateRuleResponse' {..} =
-    Prelude.rnf resourceType
-      `Prelude.seq` Prelude.rnf lockState
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf resourceTags
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf lockEndTime
-      `Prelude.seq` Prelude.rnf retentionPeriod
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf identifier
+      `Prelude.seq` Prelude.rnf lockEndTime
+      `Prelude.seq` Prelude.rnf lockState
+      `Prelude.seq` Prelude.rnf resourceTags
+      `Prelude.seq` Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf retentionPeriod
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

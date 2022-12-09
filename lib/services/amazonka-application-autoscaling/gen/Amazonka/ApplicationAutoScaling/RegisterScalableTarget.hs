@@ -58,10 +58,10 @@ module Amazonka.ApplicationAutoScaling.RegisterScalableTarget
     newRegisterScalableTarget,
 
     -- * Request Lenses
-    registerScalableTarget_roleARN,
-    registerScalableTarget_suspendedState,
     registerScalableTarget_maxCapacity,
     registerScalableTarget_minCapacity,
+    registerScalableTarget_roleARN,
+    registerScalableTarget_suspendedState,
     registerScalableTarget_serviceNamespace,
     registerScalableTarget_resourceId,
     registerScalableTarget_scalableDimension,
@@ -85,7 +85,31 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRegisterScalableTarget' smart constructor.
 data RegisterScalableTarget = RegisterScalableTarget'
-  { -- | This parameter is required for services that do not support
+  { -- | The maximum value that you plan to scale out to. When a scaling policy
+    -- is in effect, Application Auto Scaling can scale out (expand) as needed
+    -- to the maximum capacity limit in response to changing demand. This
+    -- property is required when registering a new scalable target.
+    --
+    -- Although you can specify a large maximum capacity, note that service
+    -- quotas may impose lower limits. Each service has its own default quotas
+    -- for the maximum capacity of the resource. If you want to specify a
+    -- higher limit, you can request an increase. For more information, consult
+    -- the documentation for that service. For information about the default
+    -- quotas for each service, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html Service Endpoints and Quotas>
+    -- in the /Amazon Web Services General Reference/.
+    maxCapacity :: Prelude.Maybe Prelude.Int,
+    -- | The minimum value that you plan to scale in to. When a scaling policy is
+    -- in effect, Application Auto Scaling can scale in (contract) as needed to
+    -- the minimum capacity limit in response to changing demand. This property
+    -- is required when registering a new scalable target.
+    --
+    -- For certain resources, the minimum value allowed is 0. This includes
+    -- Lambda provisioned concurrency, Spot Fleet, ECS services, Aurora DB
+    -- clusters, EMR clusters, and custom resources. For all other resources,
+    -- the minimum value allowed is 1.
+    minCapacity :: Prelude.Maybe Prelude.Int,
+    -- | This parameter is required for services that do not support
     -- service-linked roles (such as Amazon EMR), and it must specify the ARN
     -- of an IAM role that allows Application Auto Scaling to modify the
     -- scalable target on your behalf.
@@ -118,30 +142,6 @@ data RegisterScalableTarget = RegisterScalableTarget'
     -- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-suspend-resume-scaling.html Suspending and resuming scaling>
     -- in the /Application Auto Scaling User Guide/.
     suspendedState :: Prelude.Maybe SuspendedState,
-    -- | The maximum value that you plan to scale out to. When a scaling policy
-    -- is in effect, Application Auto Scaling can scale out (expand) as needed
-    -- to the maximum capacity limit in response to changing demand. This
-    -- property is required when registering a new scalable target.
-    --
-    -- Although you can specify a large maximum capacity, note that service
-    -- quotas may impose lower limits. Each service has its own default quotas
-    -- for the maximum capacity of the resource. If you want to specify a
-    -- higher limit, you can request an increase. For more information, consult
-    -- the documentation for that service. For information about the default
-    -- quotas for each service, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html Service Endpoints and Quotas>
-    -- in the /Amazon Web Services General Reference/.
-    maxCapacity :: Prelude.Maybe Prelude.Int,
-    -- | The minimum value that you plan to scale in to. When a scaling policy is
-    -- in effect, Application Auto Scaling can scale in (contract) as needed to
-    -- the minimum capacity limit in response to changing demand. This property
-    -- is required when registering a new scalable target.
-    --
-    -- For certain resources, the minimum value allowed is 0. This includes
-    -- Lambda provisioned concurrency, Spot Fleet, ECS services, Aurora DB
-    -- clusters, EMR clusters, and custom resources. For all other resources,
-    -- the minimum value allowed is 1.
-    minCapacity :: Prelude.Maybe Prelude.Int,
     -- | The namespace of the Amazon Web Services service that provides the
     -- resource. For a resource provided by your own application or service,
     -- use @custom-resource@ instead.
@@ -291,6 +291,30 @@ data RegisterScalableTarget = RegisterScalableTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxCapacity', 'registerScalableTarget_maxCapacity' - The maximum value that you plan to scale out to. When a scaling policy
+-- is in effect, Application Auto Scaling can scale out (expand) as needed
+-- to the maximum capacity limit in response to changing demand. This
+-- property is required when registering a new scalable target.
+--
+-- Although you can specify a large maximum capacity, note that service
+-- quotas may impose lower limits. Each service has its own default quotas
+-- for the maximum capacity of the resource. If you want to specify a
+-- higher limit, you can request an increase. For more information, consult
+-- the documentation for that service. For information about the default
+-- quotas for each service, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html Service Endpoints and Quotas>
+-- in the /Amazon Web Services General Reference/.
+--
+-- 'minCapacity', 'registerScalableTarget_minCapacity' - The minimum value that you plan to scale in to. When a scaling policy is
+-- in effect, Application Auto Scaling can scale in (contract) as needed to
+-- the minimum capacity limit in response to changing demand. This property
+-- is required when registering a new scalable target.
+--
+-- For certain resources, the minimum value allowed is 0. This includes
+-- Lambda provisioned concurrency, Spot Fleet, ECS services, Aurora DB
+-- clusters, EMR clusters, and custom resources. For all other resources,
+-- the minimum value allowed is 1.
+--
 -- 'roleARN', 'registerScalableTarget_roleARN' - This parameter is required for services that do not support
 -- service-linked roles (such as Amazon EMR), and it must specify the ARN
 -- of an IAM role that allows Application Auto Scaling to modify the
@@ -323,30 +347,6 @@ data RegisterScalableTarget = RegisterScalableTarget'
 -- For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-suspend-resume-scaling.html Suspending and resuming scaling>
 -- in the /Application Auto Scaling User Guide/.
---
--- 'maxCapacity', 'registerScalableTarget_maxCapacity' - The maximum value that you plan to scale out to. When a scaling policy
--- is in effect, Application Auto Scaling can scale out (expand) as needed
--- to the maximum capacity limit in response to changing demand. This
--- property is required when registering a new scalable target.
---
--- Although you can specify a large maximum capacity, note that service
--- quotas may impose lower limits. Each service has its own default quotas
--- for the maximum capacity of the resource. If you want to specify a
--- higher limit, you can request an increase. For more information, consult
--- the documentation for that service. For information about the default
--- quotas for each service, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html Service Endpoints and Quotas>
--- in the /Amazon Web Services General Reference/.
---
--- 'minCapacity', 'registerScalableTarget_minCapacity' - The minimum value that you plan to scale in to. When a scaling policy is
--- in effect, Application Auto Scaling can scale in (contract) as needed to
--- the minimum capacity limit in response to changing demand. This property
--- is required when registering a new scalable target.
---
--- For certain resources, the minimum value allowed is 0. This includes
--- Lambda provisioned concurrency, Spot Fleet, ECS services, Aurora DB
--- clusters, EMR clusters, and custom resources. For all other resources,
--- the minimum value allowed is 1.
 --
 -- 'serviceNamespace', 'registerScalableTarget_serviceNamespace' - The namespace of the Amazon Web Services service that provides the
 -- resource. For a resource provided by your own application or service,
@@ -498,14 +498,43 @@ newRegisterScalableTarget
   pResourceId_
   pScalableDimension_ =
     RegisterScalableTarget'
-      { roleARN = Prelude.Nothing,
-        suspendedState = Prelude.Nothing,
-        maxCapacity = Prelude.Nothing,
+      { maxCapacity =
+          Prelude.Nothing,
         minCapacity = Prelude.Nothing,
+        roleARN = Prelude.Nothing,
+        suspendedState = Prelude.Nothing,
         serviceNamespace = pServiceNamespace_,
         resourceId = pResourceId_,
         scalableDimension = pScalableDimension_
       }
+
+-- | The maximum value that you plan to scale out to. When a scaling policy
+-- is in effect, Application Auto Scaling can scale out (expand) as needed
+-- to the maximum capacity limit in response to changing demand. This
+-- property is required when registering a new scalable target.
+--
+-- Although you can specify a large maximum capacity, note that service
+-- quotas may impose lower limits. Each service has its own default quotas
+-- for the maximum capacity of the resource. If you want to specify a
+-- higher limit, you can request an increase. For more information, consult
+-- the documentation for that service. For information about the default
+-- quotas for each service, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html Service Endpoints and Quotas>
+-- in the /Amazon Web Services General Reference/.
+registerScalableTarget_maxCapacity :: Lens.Lens' RegisterScalableTarget (Prelude.Maybe Prelude.Int)
+registerScalableTarget_maxCapacity = Lens.lens (\RegisterScalableTarget' {maxCapacity} -> maxCapacity) (\s@RegisterScalableTarget' {} a -> s {maxCapacity = a} :: RegisterScalableTarget)
+
+-- | The minimum value that you plan to scale in to. When a scaling policy is
+-- in effect, Application Auto Scaling can scale in (contract) as needed to
+-- the minimum capacity limit in response to changing demand. This property
+-- is required when registering a new scalable target.
+--
+-- For certain resources, the minimum value allowed is 0. This includes
+-- Lambda provisioned concurrency, Spot Fleet, ECS services, Aurora DB
+-- clusters, EMR clusters, and custom resources. For all other resources,
+-- the minimum value allowed is 1.
+registerScalableTarget_minCapacity :: Lens.Lens' RegisterScalableTarget (Prelude.Maybe Prelude.Int)
+registerScalableTarget_minCapacity = Lens.lens (\RegisterScalableTarget' {minCapacity} -> minCapacity) (\s@RegisterScalableTarget' {} a -> s {minCapacity = a} :: RegisterScalableTarget)
 
 -- | This parameter is required for services that do not support
 -- service-linked roles (such as Amazon EMR), and it must specify the ARN
@@ -543,34 +572,6 @@ registerScalableTarget_roleARN = Lens.lens (\RegisterScalableTarget' {roleARN} -
 -- in the /Application Auto Scaling User Guide/.
 registerScalableTarget_suspendedState :: Lens.Lens' RegisterScalableTarget (Prelude.Maybe SuspendedState)
 registerScalableTarget_suspendedState = Lens.lens (\RegisterScalableTarget' {suspendedState} -> suspendedState) (\s@RegisterScalableTarget' {} a -> s {suspendedState = a} :: RegisterScalableTarget)
-
--- | The maximum value that you plan to scale out to. When a scaling policy
--- is in effect, Application Auto Scaling can scale out (expand) as needed
--- to the maximum capacity limit in response to changing demand. This
--- property is required when registering a new scalable target.
---
--- Although you can specify a large maximum capacity, note that service
--- quotas may impose lower limits. Each service has its own default quotas
--- for the maximum capacity of the resource. If you want to specify a
--- higher limit, you can request an increase. For more information, consult
--- the documentation for that service. For information about the default
--- quotas for each service, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html Service Endpoints and Quotas>
--- in the /Amazon Web Services General Reference/.
-registerScalableTarget_maxCapacity :: Lens.Lens' RegisterScalableTarget (Prelude.Maybe Prelude.Int)
-registerScalableTarget_maxCapacity = Lens.lens (\RegisterScalableTarget' {maxCapacity} -> maxCapacity) (\s@RegisterScalableTarget' {} a -> s {maxCapacity = a} :: RegisterScalableTarget)
-
--- | The minimum value that you plan to scale in to. When a scaling policy is
--- in effect, Application Auto Scaling can scale in (contract) as needed to
--- the minimum capacity limit in response to changing demand. This property
--- is required when registering a new scalable target.
---
--- For certain resources, the minimum value allowed is 0. This includes
--- Lambda provisioned concurrency, Spot Fleet, ECS services, Aurora DB
--- clusters, EMR clusters, and custom resources. For all other resources,
--- the minimum value allowed is 1.
-registerScalableTarget_minCapacity :: Lens.Lens' RegisterScalableTarget (Prelude.Maybe Prelude.Int)
-registerScalableTarget_minCapacity = Lens.lens (\RegisterScalableTarget' {minCapacity} -> minCapacity) (\s@RegisterScalableTarget' {} a -> s {minCapacity = a} :: RegisterScalableTarget)
 
 -- | The namespace of the Amazon Web Services service that provides the
 -- resource. For a resource provided by your own application or service,
@@ -731,20 +732,20 @@ instance Core.AWSRequest RegisterScalableTarget where
 
 instance Prelude.Hashable RegisterScalableTarget where
   hashWithSalt _salt RegisterScalableTarget' {..} =
-    _salt `Prelude.hashWithSalt` roleARN
-      `Prelude.hashWithSalt` suspendedState
-      `Prelude.hashWithSalt` maxCapacity
+    _salt `Prelude.hashWithSalt` maxCapacity
       `Prelude.hashWithSalt` minCapacity
+      `Prelude.hashWithSalt` roleARN
+      `Prelude.hashWithSalt` suspendedState
       `Prelude.hashWithSalt` serviceNamespace
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` scalableDimension
 
 instance Prelude.NFData RegisterScalableTarget where
   rnf RegisterScalableTarget' {..} =
-    Prelude.rnf roleARN
-      `Prelude.seq` Prelude.rnf suspendedState
-      `Prelude.seq` Prelude.rnf maxCapacity
+    Prelude.rnf maxCapacity
       `Prelude.seq` Prelude.rnf minCapacity
+      `Prelude.seq` Prelude.rnf roleARN
+      `Prelude.seq` Prelude.rnf suspendedState
       `Prelude.seq` Prelude.rnf serviceNamespace
       `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf scalableDimension
@@ -768,11 +769,11 @@ instance Data.ToJSON RegisterScalableTarget where
   toJSON RegisterScalableTarget' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RoleARN" Data..=) Prelude.<$> roleARN,
+          [ ("MaxCapacity" Data..=) Prelude.<$> maxCapacity,
+            ("MinCapacity" Data..=) Prelude.<$> minCapacity,
+            ("RoleARN" Data..=) Prelude.<$> roleARN,
             ("SuspendedState" Data..=)
               Prelude.<$> suspendedState,
-            ("MaxCapacity" Data..=) Prelude.<$> maxCapacity,
-            ("MinCapacity" Data..=) Prelude.<$> minCapacity,
             Prelude.Just
               ("ServiceNamespace" Data..= serviceNamespace),
             Prelude.Just ("ResourceId" Data..= resourceId),

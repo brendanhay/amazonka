@@ -32,10 +32,10 @@ module Amazonka.ApplicationAutoScaling.DescribeScalingActivities
     newDescribeScalingActivities,
 
     -- * Request Lenses
-    describeScalingActivities_resourceId,
-    describeScalingActivities_nextToken,
-    describeScalingActivities_scalableDimension,
     describeScalingActivities_maxResults,
+    describeScalingActivities_nextToken,
+    describeScalingActivities_resourceId,
+    describeScalingActivities_scalableDimension,
     describeScalingActivities_serviceNamespace,
 
     -- * Destructuring the Response
@@ -59,7 +59,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeScalingActivities' smart constructor.
 data DescribeScalingActivities = DescribeScalingActivities'
-  { -- | The identifier of the resource associated with the scaling activity.
+  { -- | The maximum number of scalable targets. This value can be between 1 and
+    -- 50. The default value is 50.
+    --
+    -- If this parameter is used, the operation returns up to @MaxResults@
+    -- results at a time, along with a @NextToken@ value. To get the next set
+    -- of results, include the @NextToken@ value in a subsequent call. If this
+    -- parameter is not used, the operation returns up to 50 results and a
+    -- @NextToken@ value, if applicable.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the resource associated with the scaling activity.
     -- This string consists of the resource type and unique identifier.
     --
     -- -   ECS service - The resource type is @service@ and the unique
@@ -127,8 +138,6 @@ data DescribeScalingActivities = DescribeScalingActivities'
     -- -   Neptune cluster - The resource type is @cluster@ and the unique
     --     identifier is the cluster name. Example: @cluster:mycluster@.
     resourceId :: Prelude.Maybe Prelude.Text,
-    -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The scalable dimension. This string consists of the service namespace,
     -- resource type, and scaling property. If you specify a scalable
     -- dimension, you must also specify a resource ID.
@@ -196,15 +205,6 @@ data DescribeScalingActivities = DescribeScalingActivities'
     -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
     --     an Amazon Neptune DB cluster.
     scalableDimension :: Prelude.Maybe ScalableDimension,
-    -- | The maximum number of scalable targets. This value can be between 1 and
-    -- 50. The default value is 50.
-    --
-    -- If this parameter is used, the operation returns up to @MaxResults@
-    -- results at a time, along with a @NextToken@ value. To get the next set
-    -- of results, include the @NextToken@ value in a subsequent call. If this
-    -- parameter is not used, the operation returns up to 50 results and a
-    -- @NextToken@ value, if applicable.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The namespace of the Amazon Web Services service that provides the
     -- resource. For a resource provided by your own application or service,
     -- use @custom-resource@ instead.
@@ -219,6 +219,17 @@ data DescribeScalingActivities = DescribeScalingActivities'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'maxResults', 'describeScalingActivities_maxResults' - The maximum number of scalable targets. This value can be between 1 and
+-- 50. The default value is 50.
+--
+-- If this parameter is used, the operation returns up to @MaxResults@
+-- results at a time, along with a @NextToken@ value. To get the next set
+-- of results, include the @NextToken@ value in a subsequent call. If this
+-- parameter is not used, the operation returns up to 50 results and a
+-- @NextToken@ value, if applicable.
+--
+-- 'nextToken', 'describeScalingActivities_nextToken' - The token for the next set of results.
 --
 -- 'resourceId', 'describeScalingActivities_resourceId' - The identifier of the resource associated with the scaling activity.
 -- This string consists of the resource type and unique identifier.
@@ -288,8 +299,6 @@ data DescribeScalingActivities = DescribeScalingActivities'
 -- -   Neptune cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:mycluster@.
 --
--- 'nextToken', 'describeScalingActivities_nextToken' - The token for the next set of results.
---
 -- 'scalableDimension', 'describeScalingActivities_scalableDimension' - The scalable dimension. This string consists of the service namespace,
 -- resource type, and scaling property. If you specify a scalable
 -- dimension, you must also specify a resource ID.
@@ -357,15 +366,6 @@ data DescribeScalingActivities = DescribeScalingActivities'
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
 --
--- 'maxResults', 'describeScalingActivities_maxResults' - The maximum number of scalable targets. This value can be between 1 and
--- 50. The default value is 50.
---
--- If this parameter is used, the operation returns up to @MaxResults@
--- results at a time, along with a @NextToken@ value. To get the next set
--- of results, include the @NextToken@ value in a subsequent call. If this
--- parameter is not used, the operation returns up to 50 results and a
--- @NextToken@ value, if applicable.
---
 -- 'serviceNamespace', 'describeScalingActivities_serviceNamespace' - The namespace of the Amazon Web Services service that provides the
 -- resource. For a resource provided by your own application or service,
 -- use @custom-resource@ instead.
@@ -375,13 +375,28 @@ newDescribeScalingActivities ::
   DescribeScalingActivities
 newDescribeScalingActivities pServiceNamespace_ =
   DescribeScalingActivities'
-    { resourceId =
+    { maxResults =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      resourceId = Prelude.Nothing,
       scalableDimension = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       serviceNamespace = pServiceNamespace_
     }
+
+-- | The maximum number of scalable targets. This value can be between 1 and
+-- 50. The default value is 50.
+--
+-- If this parameter is used, the operation returns up to @MaxResults@
+-- results at a time, along with a @NextToken@ value. To get the next set
+-- of results, include the @NextToken@ value in a subsequent call. If this
+-- parameter is not used, the operation returns up to 50 results and a
+-- @NextToken@ value, if applicable.
+describeScalingActivities_maxResults :: Lens.Lens' DescribeScalingActivities (Prelude.Maybe Prelude.Int)
+describeScalingActivities_maxResults = Lens.lens (\DescribeScalingActivities' {maxResults} -> maxResults) (\s@DescribeScalingActivities' {} a -> s {maxResults = a} :: DescribeScalingActivities)
+
+-- | The token for the next set of results.
+describeScalingActivities_nextToken :: Lens.Lens' DescribeScalingActivities (Prelude.Maybe Prelude.Text)
+describeScalingActivities_nextToken = Lens.lens (\DescribeScalingActivities' {nextToken} -> nextToken) (\s@DescribeScalingActivities' {} a -> s {nextToken = a} :: DescribeScalingActivities)
 
 -- | The identifier of the resource associated with the scaling activity.
 -- This string consists of the resource type and unique identifier.
@@ -453,10 +468,6 @@ newDescribeScalingActivities pServiceNamespace_ =
 describeScalingActivities_resourceId :: Lens.Lens' DescribeScalingActivities (Prelude.Maybe Prelude.Text)
 describeScalingActivities_resourceId = Lens.lens (\DescribeScalingActivities' {resourceId} -> resourceId) (\s@DescribeScalingActivities' {} a -> s {resourceId = a} :: DescribeScalingActivities)
 
--- | The token for the next set of results.
-describeScalingActivities_nextToken :: Lens.Lens' DescribeScalingActivities (Prelude.Maybe Prelude.Text)
-describeScalingActivities_nextToken = Lens.lens (\DescribeScalingActivities' {nextToken} -> nextToken) (\s@DescribeScalingActivities' {} a -> s {nextToken = a} :: DescribeScalingActivities)
-
 -- | The scalable dimension. This string consists of the service namespace,
 -- resource type, and scaling property. If you specify a scalable
 -- dimension, you must also specify a resource ID.
@@ -526,17 +537,6 @@ describeScalingActivities_nextToken = Lens.lens (\DescribeScalingActivities' {ne
 describeScalingActivities_scalableDimension :: Lens.Lens' DescribeScalingActivities (Prelude.Maybe ScalableDimension)
 describeScalingActivities_scalableDimension = Lens.lens (\DescribeScalingActivities' {scalableDimension} -> scalableDimension) (\s@DescribeScalingActivities' {} a -> s {scalableDimension = a} :: DescribeScalingActivities)
 
--- | The maximum number of scalable targets. This value can be between 1 and
--- 50. The default value is 50.
---
--- If this parameter is used, the operation returns up to @MaxResults@
--- results at a time, along with a @NextToken@ value. To get the next set
--- of results, include the @NextToken@ value in a subsequent call. If this
--- parameter is not used, the operation returns up to 50 results and a
--- @NextToken@ value, if applicable.
-describeScalingActivities_maxResults :: Lens.Lens' DescribeScalingActivities (Prelude.Maybe Prelude.Int)
-describeScalingActivities_maxResults = Lens.lens (\DescribeScalingActivities' {maxResults} -> maxResults) (\s@DescribeScalingActivities' {} a -> s {maxResults = a} :: DescribeScalingActivities)
-
 -- | The namespace of the Amazon Web Services service that provides the
 -- resource. For a resource provided by your own application or service,
 -- use @custom-resource@ instead.
@@ -584,18 +584,18 @@ instance Core.AWSRequest DescribeScalingActivities where
 
 instance Prelude.Hashable DescribeScalingActivities where
   hashWithSalt _salt DescribeScalingActivities' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` scalableDimension
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` serviceNamespace
 
 instance Prelude.NFData DescribeScalingActivities where
   rnf DescribeScalingActivities' {..} =
-    Prelude.rnf resourceId
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf scalableDimension
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf serviceNamespace
 
 instance Data.ToHeaders DescribeScalingActivities where
@@ -617,11 +617,11 @@ instance Data.ToJSON DescribeScalingActivities where
   toJSON DescribeScalingActivities' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ResourceId" Data..=) Prelude.<$> resourceId,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ResourceId" Data..=) Prelude.<$> resourceId,
             ("ScalableDimension" Data..=)
               Prelude.<$> scalableDimension,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
             Prelude.Just
               ("ServiceNamespace" Data..= serviceNamespace)
           ]

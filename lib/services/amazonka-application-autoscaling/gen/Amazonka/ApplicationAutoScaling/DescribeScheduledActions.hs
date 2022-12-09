@@ -39,10 +39,10 @@ module Amazonka.ApplicationAutoScaling.DescribeScheduledActions
     newDescribeScheduledActions,
 
     -- * Request Lenses
-    describeScheduledActions_resourceId,
-    describeScheduledActions_nextToken,
-    describeScheduledActions_scalableDimension,
     describeScheduledActions_maxResults,
+    describeScheduledActions_nextToken,
+    describeScheduledActions_resourceId,
+    describeScheduledActions_scalableDimension,
     describeScheduledActions_scheduledActionNames,
     describeScheduledActions_serviceNamespace,
 
@@ -67,7 +67,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeScheduledActions' smart constructor.
 data DescribeScheduledActions = DescribeScheduledActions'
-  { -- | The identifier of the resource associated with the scheduled action.
+  { -- | The maximum number of scheduled action results. This value can be
+    -- between 1 and 50. The default value is 50.
+    --
+    -- If this parameter is used, the operation returns up to @MaxResults@
+    -- results at a time, along with a @NextToken@ value. To get the next set
+    -- of results, include the @NextToken@ value in a subsequent call. If this
+    -- parameter is not used, the operation returns up to 50 results and a
+    -- @NextToken@ value, if applicable.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the resource associated with the scheduled action.
     -- This string consists of the resource type and unique identifier.
     --
     -- -   ECS service - The resource type is @service@ and the unique
@@ -135,8 +146,6 @@ data DescribeScheduledActions = DescribeScheduledActions'
     -- -   Neptune cluster - The resource type is @cluster@ and the unique
     --     identifier is the cluster name. Example: @cluster:mycluster@.
     resourceId :: Prelude.Maybe Prelude.Text,
-    -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The scalable dimension. This string consists of the service namespace,
     -- resource type, and scaling property. If you specify a scalable
     -- dimension, you must also specify a resource ID.
@@ -204,15 +213,6 @@ data DescribeScheduledActions = DescribeScheduledActions'
     -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
     --     an Amazon Neptune DB cluster.
     scalableDimension :: Prelude.Maybe ScalableDimension,
-    -- | The maximum number of scheduled action results. This value can be
-    -- between 1 and 50. The default value is 50.
-    --
-    -- If this parameter is used, the operation returns up to @MaxResults@
-    -- results at a time, along with a @NextToken@ value. To get the next set
-    -- of results, include the @NextToken@ value in a subsequent call. If this
-    -- parameter is not used, the operation returns up to 50 results and a
-    -- @NextToken@ value, if applicable.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The names of the scheduled actions to describe.
     scheduledActionNames :: Prelude.Maybe [Prelude.Text],
     -- | The namespace of the Amazon Web Services service that provides the
@@ -229,6 +229,17 @@ data DescribeScheduledActions = DescribeScheduledActions'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'maxResults', 'describeScheduledActions_maxResults' - The maximum number of scheduled action results. This value can be
+-- between 1 and 50. The default value is 50.
+--
+-- If this parameter is used, the operation returns up to @MaxResults@
+-- results at a time, along with a @NextToken@ value. To get the next set
+-- of results, include the @NextToken@ value in a subsequent call. If this
+-- parameter is not used, the operation returns up to 50 results and a
+-- @NextToken@ value, if applicable.
+--
+-- 'nextToken', 'describeScheduledActions_nextToken' - The token for the next set of results.
 --
 -- 'resourceId', 'describeScheduledActions_resourceId' - The identifier of the resource associated with the scheduled action.
 -- This string consists of the resource type and unique identifier.
@@ -298,8 +309,6 @@ data DescribeScheduledActions = DescribeScheduledActions'
 -- -   Neptune cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:mycluster@.
 --
--- 'nextToken', 'describeScheduledActions_nextToken' - The token for the next set of results.
---
 -- 'scalableDimension', 'describeScheduledActions_scalableDimension' - The scalable dimension. This string consists of the service namespace,
 -- resource type, and scaling property. If you specify a scalable
 -- dimension, you must also specify a resource ID.
@@ -367,15 +376,6 @@ data DescribeScheduledActions = DescribeScheduledActions'
 -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
 --     an Amazon Neptune DB cluster.
 --
--- 'maxResults', 'describeScheduledActions_maxResults' - The maximum number of scheduled action results. This value can be
--- between 1 and 50. The default value is 50.
---
--- If this parameter is used, the operation returns up to @MaxResults@
--- results at a time, along with a @NextToken@ value. To get the next set
--- of results, include the @NextToken@ value in a subsequent call. If this
--- parameter is not used, the operation returns up to 50 results and a
--- @NextToken@ value, if applicable.
---
 -- 'scheduledActionNames', 'describeScheduledActions_scheduledActionNames' - The names of the scheduled actions to describe.
 --
 -- 'serviceNamespace', 'describeScheduledActions_serviceNamespace' - The namespace of the Amazon Web Services service that provides the
@@ -387,14 +387,29 @@ newDescribeScheduledActions ::
   DescribeScheduledActions
 newDescribeScheduledActions pServiceNamespace_ =
   DescribeScheduledActions'
-    { resourceId =
+    { maxResults =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      resourceId = Prelude.Nothing,
       scalableDimension = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       scheduledActionNames = Prelude.Nothing,
       serviceNamespace = pServiceNamespace_
     }
+
+-- | The maximum number of scheduled action results. This value can be
+-- between 1 and 50. The default value is 50.
+--
+-- If this parameter is used, the operation returns up to @MaxResults@
+-- results at a time, along with a @NextToken@ value. To get the next set
+-- of results, include the @NextToken@ value in a subsequent call. If this
+-- parameter is not used, the operation returns up to 50 results and a
+-- @NextToken@ value, if applicable.
+describeScheduledActions_maxResults :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.Int)
+describeScheduledActions_maxResults = Lens.lens (\DescribeScheduledActions' {maxResults} -> maxResults) (\s@DescribeScheduledActions' {} a -> s {maxResults = a} :: DescribeScheduledActions)
+
+-- | The token for the next set of results.
+describeScheduledActions_nextToken :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.Text)
+describeScheduledActions_nextToken = Lens.lens (\DescribeScheduledActions' {nextToken} -> nextToken) (\s@DescribeScheduledActions' {} a -> s {nextToken = a} :: DescribeScheduledActions)
 
 -- | The identifier of the resource associated with the scheduled action.
 -- This string consists of the resource type and unique identifier.
@@ -466,10 +481,6 @@ newDescribeScheduledActions pServiceNamespace_ =
 describeScheduledActions_resourceId :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.Text)
 describeScheduledActions_resourceId = Lens.lens (\DescribeScheduledActions' {resourceId} -> resourceId) (\s@DescribeScheduledActions' {} a -> s {resourceId = a} :: DescribeScheduledActions)
 
--- | The token for the next set of results.
-describeScheduledActions_nextToken :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.Text)
-describeScheduledActions_nextToken = Lens.lens (\DescribeScheduledActions' {nextToken} -> nextToken) (\s@DescribeScheduledActions' {} a -> s {nextToken = a} :: DescribeScheduledActions)
-
 -- | The scalable dimension. This string consists of the service namespace,
 -- resource type, and scaling property. If you specify a scalable
 -- dimension, you must also specify a resource ID.
@@ -539,17 +550,6 @@ describeScheduledActions_nextToken = Lens.lens (\DescribeScheduledActions' {next
 describeScheduledActions_scalableDimension :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe ScalableDimension)
 describeScheduledActions_scalableDimension = Lens.lens (\DescribeScheduledActions' {scalableDimension} -> scalableDimension) (\s@DescribeScheduledActions' {} a -> s {scalableDimension = a} :: DescribeScheduledActions)
 
--- | The maximum number of scheduled action results. This value can be
--- between 1 and 50. The default value is 50.
---
--- If this parameter is used, the operation returns up to @MaxResults@
--- results at a time, along with a @NextToken@ value. To get the next set
--- of results, include the @NextToken@ value in a subsequent call. If this
--- parameter is not used, the operation returns up to 50 results and a
--- @NextToken@ value, if applicable.
-describeScheduledActions_maxResults :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.Int)
-describeScheduledActions_maxResults = Lens.lens (\DescribeScheduledActions' {maxResults} -> maxResults) (\s@DescribeScheduledActions' {} a -> s {maxResults = a} :: DescribeScheduledActions)
-
 -- | The names of the scheduled actions to describe.
 describeScheduledActions_scheduledActionNames :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe [Prelude.Text])
 describeScheduledActions_scheduledActionNames = Lens.lens (\DescribeScheduledActions' {scheduledActionNames} -> scheduledActionNames) (\s@DescribeScheduledActions' {} a -> s {scheduledActionNames = a} :: DescribeScheduledActions) Prelude.. Lens.mapping Lens.coerced
@@ -601,19 +601,19 @@ instance Core.AWSRequest DescribeScheduledActions where
 
 instance Prelude.Hashable DescribeScheduledActions where
   hashWithSalt _salt DescribeScheduledActions' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` scalableDimension
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` scheduledActionNames
       `Prelude.hashWithSalt` serviceNamespace
 
 instance Prelude.NFData DescribeScheduledActions where
   rnf DescribeScheduledActions' {..} =
-    Prelude.rnf resourceId
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf scalableDimension
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf scheduledActionNames
       `Prelude.seq` Prelude.rnf serviceNamespace
 
@@ -636,11 +636,11 @@ instance Data.ToJSON DescribeScheduledActions where
   toJSON DescribeScheduledActions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ResourceId" Data..=) Prelude.<$> resourceId,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("ResourceId" Data..=) Prelude.<$> resourceId,
             ("ScalableDimension" Data..=)
               Prelude.<$> scalableDimension,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("ScheduledActionNames" Data..=)
               Prelude.<$> scheduledActionNames,
             Prelude.Just

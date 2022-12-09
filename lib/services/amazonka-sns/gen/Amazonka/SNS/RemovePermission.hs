@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes a statement from a topic\'s access control policy.
+--
+-- To remove the ability to change topic permissions, you must deny
+-- permissions to the @AddPermission@, @RemovePermission@, and
+-- @SetTopicAttributes@ actions in your IAM policy.
 module Amazonka.SNS.RemovePermission
   ( -- * Creating a Request
     RemovePermission (..),

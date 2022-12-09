@@ -40,10 +40,10 @@ import Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus
 --
 -- /See:/ 'newSMSSandboxPhoneNumber' smart constructor.
 data SMSSandboxPhoneNumber = SMSSandboxPhoneNumber'
-  { -- | The destination phone number\'s verification status.
-    status :: Prelude.Maybe SMSSandboxPhoneNumberVerificationStatus,
-    -- | The destination phone number.
-    phoneNumber :: Prelude.Maybe Prelude.Text
+  { -- | The destination phone number.
+    phoneNumber :: Prelude.Maybe Prelude.Text,
+    -- | The destination phone number\'s verification status.
+    status :: Prelude.Maybe SMSSandboxPhoneNumberVerificationStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,37 +55,38 @@ data SMSSandboxPhoneNumber = SMSSandboxPhoneNumber'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'sMSSandboxPhoneNumber_status' - The destination phone number\'s verification status.
---
 -- 'phoneNumber', 'sMSSandboxPhoneNumber_phoneNumber' - The destination phone number.
+--
+-- 'status', 'sMSSandboxPhoneNumber_status' - The destination phone number\'s verification status.
 newSMSSandboxPhoneNumber ::
   SMSSandboxPhoneNumber
 newSMSSandboxPhoneNumber =
   SMSSandboxPhoneNumber'
-    { status = Prelude.Nothing,
-      phoneNumber = Prelude.Nothing
+    { phoneNumber =
+        Prelude.Nothing,
+      status = Prelude.Nothing
     }
-
--- | The destination phone number\'s verification status.
-sMSSandboxPhoneNumber_status :: Lens.Lens' SMSSandboxPhoneNumber (Prelude.Maybe SMSSandboxPhoneNumberVerificationStatus)
-sMSSandboxPhoneNumber_status = Lens.lens (\SMSSandboxPhoneNumber' {status} -> status) (\s@SMSSandboxPhoneNumber' {} a -> s {status = a} :: SMSSandboxPhoneNumber)
 
 -- | The destination phone number.
 sMSSandboxPhoneNumber_phoneNumber :: Lens.Lens' SMSSandboxPhoneNumber (Prelude.Maybe Prelude.Text)
 sMSSandboxPhoneNumber_phoneNumber = Lens.lens (\SMSSandboxPhoneNumber' {phoneNumber} -> phoneNumber) (\s@SMSSandboxPhoneNumber' {} a -> s {phoneNumber = a} :: SMSSandboxPhoneNumber)
 
+-- | The destination phone number\'s verification status.
+sMSSandboxPhoneNumber_status :: Lens.Lens' SMSSandboxPhoneNumber (Prelude.Maybe SMSSandboxPhoneNumberVerificationStatus)
+sMSSandboxPhoneNumber_status = Lens.lens (\SMSSandboxPhoneNumber' {status} -> status) (\s@SMSSandboxPhoneNumber' {} a -> s {status = a} :: SMSSandboxPhoneNumber)
+
 instance Data.FromXML SMSSandboxPhoneNumber where
   parseXML x =
     SMSSandboxPhoneNumber'
-      Prelude.<$> (x Data..@? "Status")
-      Prelude.<*> (x Data..@? "PhoneNumber")
+      Prelude.<$> (x Data..@? "PhoneNumber")
+      Prelude.<*> (x Data..@? "Status")
 
 instance Prelude.Hashable SMSSandboxPhoneNumber where
   hashWithSalt _salt SMSSandboxPhoneNumber' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` phoneNumber
+    _salt `Prelude.hashWithSalt` phoneNumber
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData SMSSandboxPhoneNumber where
   rnf SMSSandboxPhoneNumber' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf phoneNumber
+    Prelude.rnf phoneNumber
+      `Prelude.seq` Prelude.rnf status

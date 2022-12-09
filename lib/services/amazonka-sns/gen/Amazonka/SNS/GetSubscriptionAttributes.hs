@@ -142,6 +142,14 @@ data GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'
     --     <https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html Amazon SNS Message Filtering>
     --     in the /Amazon SNS Developer Guide/.
     --
+    -- -   @FilterPolicyScope@ – This attribute lets you choose the filtering
+    --     scope by using one of the following string value types:
+    --
+    --     -   @MessageAttributes@ (default) – The filter is applied on the
+    --         message attributes.
+    --
+    --     -   @MessageBody@ – The filter is applied on the message body.
+    --
     -- -   @Owner@ – The Amazon Web Services account ID of the subscription\'s
     --     owner.
     --
@@ -211,6 +219,14 @@ data GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'
 --     <https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html Amazon SNS Message Filtering>
 --     in the /Amazon SNS Developer Guide/.
 --
+-- -   @FilterPolicyScope@ – This attribute lets you choose the filtering
+--     scope by using one of the following string value types:
+--
+--     -   @MessageAttributes@ (default) – The filter is applied on the
+--         message attributes.
+--
+--     -   @MessageBody@ – The filter is applied on the message body.
+--
 -- -   @Owner@ – The Amazon Web Services account ID of the subscription\'s
 --     owner.
 --
@@ -278,6 +294,14 @@ newGetSubscriptionAttributesResponse pHttpStatus_ =
 --     subscription. For more information, see
 --     <https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html Amazon SNS Message Filtering>
 --     in the /Amazon SNS Developer Guide/.
+--
+-- -   @FilterPolicyScope@ – This attribute lets you choose the filtering
+--     scope by using one of the following string value types:
+--
+--     -   @MessageAttributes@ (default) – The filter is applied on the
+--         message attributes.
+--
+--     -   @MessageBody@ – The filter is applied on the message body.
 --
 -- -   @Owner@ – The Amazon Web Services account ID of the subscription\'s
 --     owner.

@@ -30,7 +30,12 @@ import Amazonka.SNS.Types.MessageAttributeValue
 --
 -- /See:/ 'newPublishBatchRequestEntry' smart constructor.
 data PublishBatchRequestEntry = PublishBatchRequestEntry'
-  { -- | This parameter applies only to FIFO (first-in-first-out) topics.
+  { -- | Each message attribute consists of a @Name@, @Type@, and @Value@. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html Amazon SNS message attributes>
+    -- in the Amazon SNS Developer Guide.
+    messageAttributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue),
+    -- | This parameter applies only to FIFO (first-in-first-out) topics.
     --
     -- The token used for deduplication of messages within a 5-minute minimum
     -- deduplication interval. If a message with a particular
@@ -102,11 +107,6 @@ data PublishBatchRequestEntry = PublishBatchRequestEntry'
     -- @MessageGroupId@ is required for FIFO topics. You can\'t use it for
     -- standard topics.
     messageGroupId :: Prelude.Maybe Prelude.Text,
-    -- | Each message attribute consists of a @Name@, @Type@, and @Value@. For
-    -- more information, see
-    -- <https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html Amazon SNS message attributes>
-    -- in the Amazon SNS Developer Guide.
-    messageAttributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue),
     -- | Set @MessageStructure@ to @json@ if you want to send a different message
     -- for each protocol. For example, using one publish action, you can send a
     -- short message to your SMS subscribers and a longer message to your email
@@ -142,6 +142,11 @@ data PublishBatchRequestEntry = PublishBatchRequestEntry'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'messageAttributes', 'publishBatchRequestEntry_messageAttributes' - Each message attribute consists of a @Name@, @Type@, and @Value@. For
+-- more information, see
+-- <https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html Amazon SNS message attributes>
+-- in the Amazon SNS Developer Guide.
 --
 -- 'messageDeduplicationId', 'publishBatchRequestEntry_messageDeduplicationId' - This parameter applies only to FIFO (first-in-first-out) topics.
 --
@@ -215,11 +220,6 @@ data PublishBatchRequestEntry = PublishBatchRequestEntry'
 -- @MessageGroupId@ is required for FIFO topics. You can\'t use it for
 -- standard topics.
 --
--- 'messageAttributes', 'publishBatchRequestEntry_messageAttributes' - Each message attribute consists of a @Name@, @Type@, and @Value@. For
--- more information, see
--- <https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html Amazon SNS message attributes>
--- in the Amazon SNS Developer Guide.
---
 -- 'messageStructure', 'publishBatchRequestEntry_messageStructure' - Set @MessageStructure@ to @json@ if you want to send a different message
 -- for each protocol. For example, using one publish action, you can send a
 -- short message to your SMS subscribers and a longer message to your email
@@ -252,15 +252,22 @@ newPublishBatchRequestEntry ::
   PublishBatchRequestEntry
 newPublishBatchRequestEntry pId_ pMessage_ =
   PublishBatchRequestEntry'
-    { messageDeduplicationId =
+    { messageAttributes =
         Prelude.Nothing,
+      messageDeduplicationId = Prelude.Nothing,
       messageGroupId = Prelude.Nothing,
-      messageAttributes = Prelude.Nothing,
       messageStructure = Prelude.Nothing,
       subject = Prelude.Nothing,
       id = pId_,
       message = pMessage_
     }
+
+-- | Each message attribute consists of a @Name@, @Type@, and @Value@. For
+-- more information, see
+-- <https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html Amazon SNS message attributes>
+-- in the Amazon SNS Developer Guide.
+publishBatchRequestEntry_messageAttributes :: Lens.Lens' PublishBatchRequestEntry (Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue))
+publishBatchRequestEntry_messageAttributes = Lens.lens (\PublishBatchRequestEntry' {messageAttributes} -> messageAttributes) (\s@PublishBatchRequestEntry' {} a -> s {messageAttributes = a} :: PublishBatchRequestEntry) Prelude.. Lens.mapping Lens.coerced
 
 -- | This parameter applies only to FIFO (first-in-first-out) topics.
 --
@@ -338,13 +345,6 @@ publishBatchRequestEntry_messageDeduplicationId = Lens.lens (\PublishBatchReques
 publishBatchRequestEntry_messageGroupId :: Lens.Lens' PublishBatchRequestEntry (Prelude.Maybe Prelude.Text)
 publishBatchRequestEntry_messageGroupId = Lens.lens (\PublishBatchRequestEntry' {messageGroupId} -> messageGroupId) (\s@PublishBatchRequestEntry' {} a -> s {messageGroupId = a} :: PublishBatchRequestEntry)
 
--- | Each message attribute consists of a @Name@, @Type@, and @Value@. For
--- more information, see
--- <https://docs.aws.amazon.com/sns/latest/dg/sns-message-attributes.html Amazon SNS message attributes>
--- in the Amazon SNS Developer Guide.
-publishBatchRequestEntry_messageAttributes :: Lens.Lens' PublishBatchRequestEntry (Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue))
-publishBatchRequestEntry_messageAttributes = Lens.lens (\PublishBatchRequestEntry' {messageAttributes} -> messageAttributes) (\s@PublishBatchRequestEntry' {} a -> s {messageAttributes = a} :: PublishBatchRequestEntry) Prelude.. Lens.mapping Lens.coerced
-
 -- | Set @MessageStructure@ to @json@ if you want to send a different message
 -- for each protocol. For example, using one publish action, you can send a
 -- short message to your SMS subscribers and a longer message to your email
@@ -380,9 +380,9 @@ publishBatchRequestEntry_message = Lens.lens (\PublishBatchRequestEntry' {messag
 
 instance Prelude.Hashable PublishBatchRequestEntry where
   hashWithSalt _salt PublishBatchRequestEntry' {..} =
-    _salt `Prelude.hashWithSalt` messageDeduplicationId
+    _salt `Prelude.hashWithSalt` messageAttributes
+      `Prelude.hashWithSalt` messageDeduplicationId
       `Prelude.hashWithSalt` messageGroupId
-      `Prelude.hashWithSalt` messageAttributes
       `Prelude.hashWithSalt` messageStructure
       `Prelude.hashWithSalt` subject
       `Prelude.hashWithSalt` id
@@ -390,9 +390,9 @@ instance Prelude.Hashable PublishBatchRequestEntry where
 
 instance Prelude.NFData PublishBatchRequestEntry where
   rnf PublishBatchRequestEntry' {..} =
-    Prelude.rnf messageDeduplicationId
+    Prelude.rnf messageAttributes
+      `Prelude.seq` Prelude.rnf messageDeduplicationId
       `Prelude.seq` Prelude.rnf messageGroupId
-      `Prelude.seq` Prelude.rnf messageAttributes
       `Prelude.seq` Prelude.rnf messageStructure
       `Prelude.seq` Prelude.rnf subject
       `Prelude.seq` Prelude.rnf id
@@ -401,14 +401,14 @@ instance Prelude.NFData PublishBatchRequestEntry where
 instance Data.ToQuery PublishBatchRequestEntry where
   toQuery PublishBatchRequestEntry' {..} =
     Prelude.mconcat
-      [ "MessageDeduplicationId"
-          Data.=: messageDeduplicationId,
-        "MessageGroupId" Data.=: messageGroupId,
-        "MessageAttributes"
+      [ "MessageAttributes"
           Data.=: Data.toQuery
             ( Data.toQueryMap "entry" "Name" "Value"
                 Prelude.<$> messageAttributes
             ),
+        "MessageDeduplicationId"
+          Data.=: messageDeduplicationId,
+        "MessageGroupId" Data.=: messageGroupId,
         "MessageStructure" Data.=: messageStructure,
         "Subject" Data.=: subject,
         "Id" Data.=: id,

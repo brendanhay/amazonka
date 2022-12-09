@@ -40,8 +40,8 @@ module Amazonka.SNS.Lens
     createPlatformApplicationResponse_httpStatus,
 
     -- ** CreatePlatformEndpoint
-    createPlatformEndpoint_customUserData,
     createPlatformEndpoint_attributes,
+    createPlatformEndpoint_customUserData,
     createPlatformEndpoint_platformApplicationArn,
     createPlatformEndpoint_token,
     createPlatformEndpointResponse_endpointArn,
@@ -53,9 +53,9 @@ module Amazonka.SNS.Lens
     createSMSSandboxPhoneNumberResponse_httpStatus,
 
     -- ** CreateTopic
-    createTopic_tags,
     createTopic_attributes,
     createTopic_dataProtectionPolicy,
+    createTopic_tags,
     createTopic_name,
     createTopicResponse_topicArn,
     createTopicResponse_httpStatus,
@@ -110,13 +110,13 @@ module Amazonka.SNS.Lens
     -- ** ListEndpointsByPlatformApplication
     listEndpointsByPlatformApplication_nextToken,
     listEndpointsByPlatformApplication_platformApplicationArn,
-    listEndpointsByPlatformApplicationResponse_nextToken,
     listEndpointsByPlatformApplicationResponse_endpoints,
+    listEndpointsByPlatformApplicationResponse_nextToken,
     listEndpointsByPlatformApplicationResponse_httpStatus,
 
     -- ** ListOriginationNumbers
-    listOriginationNumbers_nextToken,
     listOriginationNumbers_maxResults,
+    listOriginationNumbers_nextToken,
     listOriginationNumbersResponse_nextToken,
     listOriginationNumbersResponse_phoneNumbers,
     listOriginationNumbersResponse_httpStatus,
@@ -134,8 +134,8 @@ module Amazonka.SNS.Lens
     listPlatformApplicationsResponse_httpStatus,
 
     -- ** ListSMSSandboxPhoneNumbers
-    listSMSSandboxPhoneNumbers_nextToken,
     listSMSSandboxPhoneNumbers_maxResults,
+    listSMSSandboxPhoneNumbers_nextToken,
     listSMSSandboxPhoneNumbersResponse_nextToken,
     listSMSSandboxPhoneNumbersResponse_httpStatus,
     listSMSSandboxPhoneNumbersResponse_phoneNumbers,
@@ -169,14 +169,14 @@ module Amazonka.SNS.Lens
     optInPhoneNumberResponse_httpStatus,
 
     -- ** Publish
+    publish_messageAttributes,
     publish_messageDeduplicationId,
     publish_messageGroupId,
-    publish_targetArn,
-    publish_topicArn,
-    publish_messageAttributes,
     publish_messageStructure,
     publish_phoneNumber,
     publish_subject,
+    publish_targetArn,
+    publish_topicArn,
     publish_message,
     publishResponse_messageId,
     publishResponse_sequenceNumber,
@@ -220,9 +220,9 @@ module Amazonka.SNS.Lens
     setTopicAttributes_attributeName,
 
     -- ** Subscribe
-    subscribe_returnSubscriptionArn,
     subscribe_attributes,
     subscribe_endpoint,
+    subscribe_returnSubscriptionArn,
     subscribe_topicArn,
     subscribe_protocol,
     subscribeResponse_subscriptionArn,
@@ -264,41 +264,41 @@ module Amazonka.SNS.Lens
     messageAttributeValue_dataType,
 
     -- ** PhoneNumberInformation
-    phoneNumberInformation_routeType,
-    phoneNumberInformation_status,
+    phoneNumberInformation_createdAt,
     phoneNumberInformation_iso2CountryCode,
     phoneNumberInformation_numberCapabilities,
     phoneNumberInformation_phoneNumber,
-    phoneNumberInformation_createdAt,
+    phoneNumberInformation_routeType,
+    phoneNumberInformation_status,
 
     -- ** PlatformApplication
-    platformApplication_platformApplicationArn,
     platformApplication_attributes,
+    platformApplication_platformApplicationArn,
 
     -- ** PublishBatchRequestEntry
+    publishBatchRequestEntry_messageAttributes,
     publishBatchRequestEntry_messageDeduplicationId,
     publishBatchRequestEntry_messageGroupId,
-    publishBatchRequestEntry_messageAttributes,
     publishBatchRequestEntry_messageStructure,
     publishBatchRequestEntry_subject,
     publishBatchRequestEntry_id,
     publishBatchRequestEntry_message,
 
     -- ** PublishBatchResultEntry
-    publishBatchResultEntry_messageId,
     publishBatchResultEntry_id,
+    publishBatchResultEntry_messageId,
     publishBatchResultEntry_sequenceNumber,
 
     -- ** SMSSandboxPhoneNumber
-    sMSSandboxPhoneNumber_status,
     sMSSandboxPhoneNumber_phoneNumber,
+    sMSSandboxPhoneNumber_status,
 
     -- ** Subscription
-    subscription_subscriptionArn,
-    subscription_topicArn,
+    subscription_endpoint,
     subscription_owner,
     subscription_protocol,
-    subscription_endpoint,
+    subscription_subscriptionArn,
+    subscription_topicArn,
 
     -- ** Tag
     tag_key,

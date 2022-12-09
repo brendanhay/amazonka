@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPublishBatchResultEntry' smart constructor.
 data PublishBatchResultEntry = PublishBatchResultEntry'
-  { -- | An identifier for the message.
-    messageId :: Prelude.Maybe Prelude.Text,
-    -- | The @Id@ of an entry in a batch request.
+  { -- | The @Id@ of an entry in a batch request.
     id :: Prelude.Maybe Prelude.Text,
+    -- | An identifier for the message.
+    messageId :: Prelude.Maybe Prelude.Text,
     -- | This parameter applies only to FIFO (first-in-first-out) topics.
     --
     -- The large, non-consecutive number that Amazon SNS assigns to each
@@ -52,9 +52,9 @@ data PublishBatchResultEntry = PublishBatchResultEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'messageId', 'publishBatchResultEntry_messageId' - An identifier for the message.
---
 -- 'id', 'publishBatchResultEntry_id' - The @Id@ of an entry in a batch request.
+--
+-- 'messageId', 'publishBatchResultEntry_messageId' - An identifier for the message.
 --
 -- 'sequenceNumber', 'publishBatchResultEntry_sequenceNumber' - This parameter applies only to FIFO (first-in-first-out) topics.
 --
@@ -67,19 +67,18 @@ newPublishBatchResultEntry ::
   PublishBatchResultEntry
 newPublishBatchResultEntry =
   PublishBatchResultEntry'
-    { messageId =
-        Prelude.Nothing,
-      id = Prelude.Nothing,
+    { id = Prelude.Nothing,
+      messageId = Prelude.Nothing,
       sequenceNumber = Prelude.Nothing
     }
-
--- | An identifier for the message.
-publishBatchResultEntry_messageId :: Lens.Lens' PublishBatchResultEntry (Prelude.Maybe Prelude.Text)
-publishBatchResultEntry_messageId = Lens.lens (\PublishBatchResultEntry' {messageId} -> messageId) (\s@PublishBatchResultEntry' {} a -> s {messageId = a} :: PublishBatchResultEntry)
 
 -- | The @Id@ of an entry in a batch request.
 publishBatchResultEntry_id :: Lens.Lens' PublishBatchResultEntry (Prelude.Maybe Prelude.Text)
 publishBatchResultEntry_id = Lens.lens (\PublishBatchResultEntry' {id} -> id) (\s@PublishBatchResultEntry' {} a -> s {id = a} :: PublishBatchResultEntry)
+
+-- | An identifier for the message.
+publishBatchResultEntry_messageId :: Lens.Lens' PublishBatchResultEntry (Prelude.Maybe Prelude.Text)
+publishBatchResultEntry_messageId = Lens.lens (\PublishBatchResultEntry' {messageId} -> messageId) (\s@PublishBatchResultEntry' {} a -> s {messageId = a} :: PublishBatchResultEntry)
 
 -- | This parameter applies only to FIFO (first-in-first-out) topics.
 --
@@ -94,18 +93,18 @@ publishBatchResultEntry_sequenceNumber = Lens.lens (\PublishBatchResultEntry' {s
 instance Data.FromXML PublishBatchResultEntry where
   parseXML x =
     PublishBatchResultEntry'
-      Prelude.<$> (x Data..@? "MessageId")
-      Prelude.<*> (x Data..@? "Id")
+      Prelude.<$> (x Data..@? "Id")
+      Prelude.<*> (x Data..@? "MessageId")
       Prelude.<*> (x Data..@? "SequenceNumber")
 
 instance Prelude.Hashable PublishBatchResultEntry where
   hashWithSalt _salt PublishBatchResultEntry' {..} =
-    _salt `Prelude.hashWithSalt` messageId
-      `Prelude.hashWithSalt` id
+    _salt `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` messageId
       `Prelude.hashWithSalt` sequenceNumber
 
 instance Prelude.NFData PublishBatchResultEntry where
   rnf PublishBatchResultEntry' {..} =
-    Prelude.rnf messageId
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf messageId
       `Prelude.seq` Prelude.rnf sequenceNumber

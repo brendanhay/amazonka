@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPlatformApplication' smart constructor.
 data PlatformApplication = PlatformApplication'
-  { -- | PlatformApplicationArn for platform application object.
-    platformApplicationArn :: Prelude.Maybe Prelude.Text,
-    -- | Attributes for platform application object.
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+  { -- | Attributes for platform application object.
+    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | PlatformApplicationArn for platform application object.
+    platformApplicationArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,40 +43,39 @@ data PlatformApplication = PlatformApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'platformApplicationArn', 'platformApplication_platformApplicationArn' - PlatformApplicationArn for platform application object.
---
 -- 'attributes', 'platformApplication_attributes' - Attributes for platform application object.
+--
+-- 'platformApplicationArn', 'platformApplication_platformApplicationArn' - PlatformApplicationArn for platform application object.
 newPlatformApplication ::
   PlatformApplication
 newPlatformApplication =
   PlatformApplication'
-    { platformApplicationArn =
-        Prelude.Nothing,
-      attributes = Prelude.Nothing
+    { attributes = Prelude.Nothing,
+      platformApplicationArn = Prelude.Nothing
     }
-
--- | PlatformApplicationArn for platform application object.
-platformApplication_platformApplicationArn :: Lens.Lens' PlatformApplication (Prelude.Maybe Prelude.Text)
-platformApplication_platformApplicationArn = Lens.lens (\PlatformApplication' {platformApplicationArn} -> platformApplicationArn) (\s@PlatformApplication' {} a -> s {platformApplicationArn = a} :: PlatformApplication)
 
 -- | Attributes for platform application object.
 platformApplication_attributes :: Lens.Lens' PlatformApplication (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 platformApplication_attributes = Lens.lens (\PlatformApplication' {attributes} -> attributes) (\s@PlatformApplication' {} a -> s {attributes = a} :: PlatformApplication) Prelude.. Lens.mapping Lens.coerced
 
+-- | PlatformApplicationArn for platform application object.
+platformApplication_platformApplicationArn :: Lens.Lens' PlatformApplication (Prelude.Maybe Prelude.Text)
+platformApplication_platformApplicationArn = Lens.lens (\PlatformApplication' {platformApplicationArn} -> platformApplicationArn) (\s@PlatformApplication' {} a -> s {platformApplicationArn = a} :: PlatformApplication)
+
 instance Data.FromXML PlatformApplication where
   parseXML x =
     PlatformApplication'
-      Prelude.<$> (x Data..@? "PlatformApplicationArn")
-      Prelude.<*> ( x Data..@? "Attributes" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Data..@? "Attributes" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLMap "entry" "key" "value")
                   )
+      Prelude.<*> (x Data..@? "PlatformApplicationArn")
 
 instance Prelude.Hashable PlatformApplication where
   hashWithSalt _salt PlatformApplication' {..} =
-    _salt `Prelude.hashWithSalt` platformApplicationArn
-      `Prelude.hashWithSalt` attributes
+    _salt `Prelude.hashWithSalt` attributes
+      `Prelude.hashWithSalt` platformApplicationArn
 
 instance Prelude.NFData PlatformApplication where
   rnf PlatformApplication' {..} =
-    Prelude.rnf platformApplicationArn
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf platformApplicationArn

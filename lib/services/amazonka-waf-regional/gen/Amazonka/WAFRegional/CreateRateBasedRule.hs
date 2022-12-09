@@ -113,8 +113,8 @@ module Amazonka.WAFRegional.CreateRateBasedRule
     newCreateRateBasedRuleResponse,
 
     -- * Response Lenses
-    createRateBasedRuleResponse_rule,
     createRateBasedRuleResponse_changeToken,
+    createRateBasedRuleResponse_rule,
     createRateBasedRuleResponse_httpStatus,
   )
 where
@@ -271,8 +271,8 @@ instance Core.AWSRequest CreateRateBasedRule where
     Response.receiveJSON
       ( \s h x ->
           CreateRateBasedRuleResponse'
-            Prelude.<$> (x Data..?> "Rule")
-            Prelude.<*> (x Data..?> "ChangeToken")
+            Prelude.<$> (x Data..?> "ChangeToken")
+            Prelude.<*> (x Data..?> "Rule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -330,13 +330,13 @@ instance Data.ToQuery CreateRateBasedRule where
 
 -- | /See:/ 'newCreateRateBasedRuleResponse' smart constructor.
 data CreateRateBasedRuleResponse = CreateRateBasedRuleResponse'
-  { -- | The RateBasedRule that is returned in the @CreateRateBasedRule@
-    -- response.
-    rule :: Prelude.Maybe RateBasedRule,
-    -- | The @ChangeToken@ that you used to submit the @CreateRateBasedRule@
+  { -- | The @ChangeToken@ that you used to submit the @CreateRateBasedRule@
     -- request. You can also use this value to query the status of the request.
     -- For more information, see GetChangeTokenStatus.
     changeToken :: Prelude.Maybe Prelude.Text,
+    -- | The RateBasedRule that is returned in the @CreateRateBasedRule@
+    -- response.
+    rule :: Prelude.Maybe RateBasedRule,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -350,12 +350,12 @@ data CreateRateBasedRuleResponse = CreateRateBasedRuleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rule', 'createRateBasedRuleResponse_rule' - The RateBasedRule that is returned in the @CreateRateBasedRule@
--- response.
---
 -- 'changeToken', 'createRateBasedRuleResponse_changeToken' - The @ChangeToken@ that you used to submit the @CreateRateBasedRule@
 -- request. You can also use this value to query the status of the request.
 -- For more information, see GetChangeTokenStatus.
+--
+-- 'rule', 'createRateBasedRuleResponse_rule' - The RateBasedRule that is returned in the @CreateRateBasedRule@
+-- response.
 --
 -- 'httpStatus', 'createRateBasedRuleResponse_httpStatus' - The response's http status code.
 newCreateRateBasedRuleResponse ::
@@ -364,16 +364,11 @@ newCreateRateBasedRuleResponse ::
   CreateRateBasedRuleResponse
 newCreateRateBasedRuleResponse pHttpStatus_ =
   CreateRateBasedRuleResponse'
-    { rule =
+    { changeToken =
         Prelude.Nothing,
-      changeToken = Prelude.Nothing,
+      rule = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The RateBasedRule that is returned in the @CreateRateBasedRule@
--- response.
-createRateBasedRuleResponse_rule :: Lens.Lens' CreateRateBasedRuleResponse (Prelude.Maybe RateBasedRule)
-createRateBasedRuleResponse_rule = Lens.lens (\CreateRateBasedRuleResponse' {rule} -> rule) (\s@CreateRateBasedRuleResponse' {} a -> s {rule = a} :: CreateRateBasedRuleResponse)
 
 -- | The @ChangeToken@ that you used to submit the @CreateRateBasedRule@
 -- request. You can also use this value to query the status of the request.
@@ -381,12 +376,17 @@ createRateBasedRuleResponse_rule = Lens.lens (\CreateRateBasedRuleResponse' {rul
 createRateBasedRuleResponse_changeToken :: Lens.Lens' CreateRateBasedRuleResponse (Prelude.Maybe Prelude.Text)
 createRateBasedRuleResponse_changeToken = Lens.lens (\CreateRateBasedRuleResponse' {changeToken} -> changeToken) (\s@CreateRateBasedRuleResponse' {} a -> s {changeToken = a} :: CreateRateBasedRuleResponse)
 
+-- | The RateBasedRule that is returned in the @CreateRateBasedRule@
+-- response.
+createRateBasedRuleResponse_rule :: Lens.Lens' CreateRateBasedRuleResponse (Prelude.Maybe RateBasedRule)
+createRateBasedRuleResponse_rule = Lens.lens (\CreateRateBasedRuleResponse' {rule} -> rule) (\s@CreateRateBasedRuleResponse' {} a -> s {rule = a} :: CreateRateBasedRuleResponse)
+
 -- | The response's http status code.
 createRateBasedRuleResponse_httpStatus :: Lens.Lens' CreateRateBasedRuleResponse Prelude.Int
 createRateBasedRuleResponse_httpStatus = Lens.lens (\CreateRateBasedRuleResponse' {httpStatus} -> httpStatus) (\s@CreateRateBasedRuleResponse' {} a -> s {httpStatus = a} :: CreateRateBasedRuleResponse)
 
 instance Prelude.NFData CreateRateBasedRuleResponse where
   rnf CreateRateBasedRuleResponse' {..} =
-    Prelude.rnf rule
-      `Prelude.seq` Prelude.rnf changeToken
+    Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf rule
       `Prelude.seq` Prelude.rnf httpStatus

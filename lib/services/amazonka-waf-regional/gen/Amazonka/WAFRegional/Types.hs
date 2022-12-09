@@ -18,26 +18,26 @@ module Amazonka.WAFRegional.Types
     defaultService,
 
     -- * Errors
-    _WAFUnavailableEntityException,
-    _WAFServiceLinkedRoleErrorException,
-    _WAFInvalidRegexPatternException,
-    _WAFNonexistentContainerException,
-    _WAFTagOperationInternalErrorException,
-    _WAFInvalidPermissionPolicyException,
+    _WAFBadRequestException,
     _WAFDisallowedNameException,
     _WAFEntityMigrationException,
-    _WAFBadRequestException,
-    _WAFSubscriptionNotFoundException,
-    _WAFNonexistentItemException,
-    _WAFInvalidAccountException,
-    _WAFStaleDataException,
-    _WAFNonEmptyEntityException,
-    _WAFTagOperationException,
-    _WAFInvalidParameterException,
-    _WAFInvalidOperationException,
     _WAFInternalErrorException,
-    _WAFReferencedItemException,
+    _WAFInvalidAccountException,
+    _WAFInvalidOperationException,
+    _WAFInvalidParameterException,
+    _WAFInvalidPermissionPolicyException,
+    _WAFInvalidRegexPatternException,
     _WAFLimitsExceededException,
+    _WAFNonEmptyEntityException,
+    _WAFNonexistentContainerException,
+    _WAFNonexistentItemException,
+    _WAFReferencedItemException,
+    _WAFServiceLinkedRoleErrorException,
+    _WAFStaleDataException,
+    _WAFSubscriptionNotFoundException,
+    _WAFTagOperationException,
+    _WAFTagOperationInternalErrorException,
+    _WAFUnavailableEntityException,
 
     -- * ChangeAction
     ChangeAction (..),
@@ -87,10 +87,10 @@ module Amazonka.WAFRegional.Types
     -- * ActivatedRule
     ActivatedRule (..),
     newActivatedRule,
-    activatedRule_type,
-    activatedRule_overrideAction,
     activatedRule_action,
     activatedRule_excludedRules,
+    activatedRule_overrideAction,
+    activatedRule_type,
     activatedRule_priority,
     activatedRule_ruleId,
 
@@ -166,12 +166,12 @@ module Amazonka.WAFRegional.Types
     -- * HTTPRequest
     HTTPRequest (..),
     newHTTPRequest,
-    hTTPRequest_hTTPVersion,
-    hTTPRequest_method,
-    hTTPRequest_headers,
-    hTTPRequest_country,
-    hTTPRequest_uri,
     hTTPRequest_clientIP,
+    hTTPRequest_country,
+    hTTPRequest_hTTPVersion,
+    hTTPRequest_headers,
+    hTTPRequest_method,
+    hTTPRequest_uri,
 
     -- * IPSet
     IPSet (..),
@@ -215,8 +215,8 @@ module Amazonka.WAFRegional.Types
     -- * RateBasedRule
     RateBasedRule (..),
     newRateBasedRule,
-    rateBasedRule_name,
     rateBasedRule_metricName,
+    rateBasedRule_name,
     rateBasedRule_ruleId,
     rateBasedRule_matchPredicates,
     rateBasedRule_rateKey,
@@ -226,8 +226,8 @@ module Amazonka.WAFRegional.Types
     RegexMatchSet (..),
     newRegexMatchSet,
     regexMatchSet_name,
-    regexMatchSet_regexMatchTuples,
     regexMatchSet_regexMatchSetId,
+    regexMatchSet_regexMatchTuples,
 
     -- * RegexMatchSetSummary
     RegexMatchSetSummary (..),
@@ -270,16 +270,16 @@ module Amazonka.WAFRegional.Types
     -- * Rule
     Rule (..),
     newRule,
-    rule_name,
     rule_metricName,
+    rule_name,
     rule_ruleId,
     rule_predicates,
 
     -- * RuleGroup
     RuleGroup (..),
     newRuleGroup,
-    ruleGroup_name,
     ruleGroup_metricName,
+    ruleGroup_name,
     ruleGroup_ruleGroupId,
 
     -- * RuleGroupSummary
@@ -309,9 +309,9 @@ module Amazonka.WAFRegional.Types
     -- * SampledHTTPRequest
     SampledHTTPRequest (..),
     newSampledHTTPRequest,
+    sampledHTTPRequest_action,
     sampledHTTPRequest_ruleWithinRuleGroup,
     sampledHTTPRequest_timestamp,
-    sampledHTTPRequest_action,
     sampledHTTPRequest_request,
     sampledHTTPRequest_weight,
 
@@ -383,8 +383,8 @@ module Amazonka.WAFRegional.Types
     -- * TagInfoForResource
     TagInfoForResource (..),
     newTagInfoForResource,
-    tagInfoForResource_tagList,
     tagInfoForResource_resourceARN,
+    tagInfoForResource_tagList,
 
     -- * TimeWindow
     TimeWindow (..),
@@ -405,9 +405,9 @@ module Amazonka.WAFRegional.Types
     -- * WebACL
     WebACL (..),
     newWebACL,
+    webACL_metricName,
     webACL_name,
     webACL_webACLArn,
-    webACL_metricName,
     webACL_webACLId,
     webACL_defaultAction,
     webACL_rules,
@@ -551,28 +551,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -580,13 +574,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -594,96 +592,16 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The operation failed because the entity referenced is temporarily
--- unavailable. Retry your request.
-_WAFUnavailableEntityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_WAFUnavailableEntityException =
-  Core._MatchServiceError
-    defaultService
-    "WAFUnavailableEntityException"
-
--- | AWS WAF is not able to access the service linked role. This can be
--- caused by a previous @PutLoggingConfiguration@ request, which can lock
--- the service linked role for about 20 seconds. Please try your request
--- again. The service linked role can also be locked by a previous
--- @DeleteServiceLinkedRole@ request, which can lock the role for 15
--- minutes or more. If you recently made a @DeleteServiceLinkedRole@, wait
--- at least 15 minutes and try the request again. If you receive this same
--- exception again, you will have to wait additional time until the role is
--- unlocked.
-_WAFServiceLinkedRoleErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_WAFServiceLinkedRoleErrorException =
-  Core._MatchServiceError
-    defaultService
-    "WAFServiceLinkedRoleErrorException"
-
--- | The regular expression (regex) you specified in @RegexPatternString@ is
--- invalid.
-_WAFInvalidRegexPatternException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_WAFInvalidRegexPatternException =
-  Core._MatchServiceError
-    defaultService
-    "WAFInvalidRegexPatternException"
-
--- | The operation failed because you tried to add an object to or delete an
--- object from another object that doesn\'t exist. For example:
---
--- -   You tried to add a @Rule@ to or delete a @Rule@ from a @WebACL@ that
---     doesn\'t exist.
---
--- -   You tried to add a @ByteMatchSet@ to or delete a @ByteMatchSet@ from
---     a @Rule@ that doesn\'t exist.
---
--- -   You tried to add an IP address to or delete an IP address from an
---     @IPSet@ that doesn\'t exist.
---
--- -   You tried to add a @ByteMatchTuple@ to or delete a @ByteMatchTuple@
---     from a @ByteMatchSet@ that doesn\'t exist.
-_WAFNonexistentContainerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_WAFNonexistentContainerException =
-  Core._MatchServiceError
-    defaultService
-    "WAFNonexistentContainerException"
-
 -- |
-_WAFTagOperationInternalErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_WAFTagOperationInternalErrorException =
+_WAFBadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFBadRequestException =
   Core._MatchServiceError
     defaultService
-    "WAFTagOperationInternalErrorException"
-
--- | The operation failed because the specified policy is not in the proper
--- format.
---
--- The policy is subject to the following restrictions:
---
--- -   You can attach only one policy with each @PutPermissionPolicy@
---     request.
---
--- -   The policy must include an @Effect@, @Action@ and @Principal@.
---
--- -   @Effect@ must specify @Allow@.
---
--- -   The @Action@ in the policy must be @waf:UpdateWebACL@,
---     @waf-regional:UpdateWebACL@, @waf:GetRuleGroup@ and
---     @waf-regional:GetRuleGroup@ . Any extra or wildcard actions in the
---     policy will be rejected.
---
--- -   The policy cannot include a @Resource@ parameter.
---
--- -   The ARN in the request must be a valid WAF RuleGroup ARN and the
---     RuleGroup must exist in the same region.
---
--- -   The user making the request must be the owner of the RuleGroup.
---
--- -   Your policy must be composed using IAM Policy version 2012-10-17.
-_WAFInvalidPermissionPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_WAFInvalidPermissionPolicyException =
-  Core._MatchServiceError
-    defaultService
-    "WAFInvalidPermissionPolicyException"
+    "WAFBadRequestException"
 
 -- | The name specified is invalid.
 _WAFDisallowedNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -719,26 +637,13 @@ _WAFEntityMigrationException =
     defaultService
     "WAFEntityMigrationException"
 
--- |
-_WAFBadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_WAFBadRequestException =
+-- | The operation failed because of a system problem, even though the
+-- request was valid. Retry your request.
+_WAFInternalErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFInternalErrorException =
   Core._MatchServiceError
     defaultService
-    "WAFBadRequestException"
-
--- | The specified subscription does not exist.
-_WAFSubscriptionNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_WAFSubscriptionNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "WAFSubscriptionNotFoundException"
-
--- | The operation failed because the referenced object doesn\'t exist.
-_WAFNonexistentItemException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_WAFNonexistentItemException =
-  Core._MatchServiceError
-    defaultService
-    "WAFNonexistentItemException"
+    "WAFInternalErrorException"
 
 -- | The operation failed because you tried to create, update, or delete an
 -- object by using an invalid account identifier.
@@ -748,40 +653,27 @@ _WAFInvalidAccountException =
     defaultService
     "WAFInvalidAccountException"
 
--- | The operation failed because you tried to create, update, or delete an
--- object by using a change token that has already been used.
-_WAFStaleDataException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_WAFStaleDataException =
+-- | The operation failed because there was nothing to do. For example:
+--
+-- -   You tried to remove a @Rule@ from a @WebACL@, but the @Rule@ isn\'t
+--     in the specified @WebACL@.
+--
+-- -   You tried to remove an IP address from an @IPSet@, but the IP
+--     address isn\'t in the specified @IPSet@.
+--
+-- -   You tried to remove a @ByteMatchTuple@ from a @ByteMatchSet@, but
+--     the @ByteMatchTuple@ isn\'t in the specified @WebACL@.
+--
+-- -   You tried to add a @Rule@ to a @WebACL@, but the @Rule@ already
+--     exists in the specified @WebACL@.
+--
+-- -   You tried to add a @ByteMatchTuple@ to a @ByteMatchSet@, but the
+--     @ByteMatchTuple@ already exists in the specified @WebACL@.
+_WAFInvalidOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFInvalidOperationException =
   Core._MatchServiceError
     defaultService
-    "WAFStaleDataException"
-
--- | The operation failed because you tried to delete an object that isn\'t
--- empty. For example:
---
--- -   You tried to delete a @WebACL@ that still contains one or more
---     @Rule@ objects.
---
--- -   You tried to delete a @Rule@ that still contains one or more
---     @ByteMatchSet@ objects or other predicates.
---
--- -   You tried to delete a @ByteMatchSet@ that contains one or more
---     @ByteMatchTuple@ objects.
---
--- -   You tried to delete an @IPSet@ that references one or more IP
---     addresses.
-_WAFNonEmptyEntityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_WAFNonEmptyEntityException =
-  Core._MatchServiceError
-    defaultService
-    "WAFNonEmptyEntityException"
-
--- |
-_WAFTagOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_WAFTagOperationException =
-  Core._MatchServiceError
-    defaultService
-    "WAFTagOperationException"
+    "WAFInvalidOperationException"
 
 -- | The operation failed because AWS WAF didn\'t recognize a parameter in
 -- the request. For example:
@@ -816,35 +708,102 @@ _WAFInvalidParameterException =
     defaultService
     "WAFInvalidParameterException"
 
--- | The operation failed because there was nothing to do. For example:
+-- | The operation failed because the specified policy is not in the proper
+-- format.
 --
--- -   You tried to remove a @Rule@ from a @WebACL@, but the @Rule@ isn\'t
---     in the specified @WebACL@.
+-- The policy is subject to the following restrictions:
 --
--- -   You tried to remove an IP address from an @IPSet@, but the IP
---     address isn\'t in the specified @IPSet@.
+-- -   You can attach only one policy with each @PutPermissionPolicy@
+--     request.
 --
--- -   You tried to remove a @ByteMatchTuple@ from a @ByteMatchSet@, but
---     the @ByteMatchTuple@ isn\'t in the specified @WebACL@.
+-- -   The policy must include an @Effect@, @Action@ and @Principal@.
 --
--- -   You tried to add a @Rule@ to a @WebACL@, but the @Rule@ already
---     exists in the specified @WebACL@.
+-- -   @Effect@ must specify @Allow@.
 --
--- -   You tried to add a @ByteMatchTuple@ to a @ByteMatchSet@, but the
---     @ByteMatchTuple@ already exists in the specified @WebACL@.
-_WAFInvalidOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_WAFInvalidOperationException =
+-- -   The @Action@ in the policy must be @waf:UpdateWebACL@,
+--     @waf-regional:UpdateWebACL@, @waf:GetRuleGroup@ and
+--     @waf-regional:GetRuleGroup@ . Any extra or wildcard actions in the
+--     policy will be rejected.
+--
+-- -   The policy cannot include a @Resource@ parameter.
+--
+-- -   The ARN in the request must be a valid WAF RuleGroup ARN and the
+--     RuleGroup must exist in the same region.
+--
+-- -   The user making the request must be the owner of the RuleGroup.
+--
+-- -   Your policy must be composed using IAM Policy version 2012-10-17.
+_WAFInvalidPermissionPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFInvalidPermissionPolicyException =
   Core._MatchServiceError
     defaultService
-    "WAFInvalidOperationException"
+    "WAFInvalidPermissionPolicyException"
 
--- | The operation failed because of a system problem, even though the
--- request was valid. Retry your request.
-_WAFInternalErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_WAFInternalErrorException =
+-- | The regular expression (regex) you specified in @RegexPatternString@ is
+-- invalid.
+_WAFInvalidRegexPatternException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFInvalidRegexPatternException =
   Core._MatchServiceError
     defaultService
-    "WAFInternalErrorException"
+    "WAFInvalidRegexPatternException"
+
+-- | The operation exceeds a resource limit, for example, the maximum number
+-- of @WebACL@ objects that you can create for an AWS account. For more
+-- information, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html Limits>
+-- in the /AWS WAF Developer Guide/.
+_WAFLimitsExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFLimitsExceededException =
+  Core._MatchServiceError
+    defaultService
+    "WAFLimitsExceededException"
+
+-- | The operation failed because you tried to delete an object that isn\'t
+-- empty. For example:
+--
+-- -   You tried to delete a @WebACL@ that still contains one or more
+--     @Rule@ objects.
+--
+-- -   You tried to delete a @Rule@ that still contains one or more
+--     @ByteMatchSet@ objects or other predicates.
+--
+-- -   You tried to delete a @ByteMatchSet@ that contains one or more
+--     @ByteMatchTuple@ objects.
+--
+-- -   You tried to delete an @IPSet@ that references one or more IP
+--     addresses.
+_WAFNonEmptyEntityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFNonEmptyEntityException =
+  Core._MatchServiceError
+    defaultService
+    "WAFNonEmptyEntityException"
+
+-- | The operation failed because you tried to add an object to or delete an
+-- object from another object that doesn\'t exist. For example:
+--
+-- -   You tried to add a @Rule@ to or delete a @Rule@ from a @WebACL@ that
+--     doesn\'t exist.
+--
+-- -   You tried to add a @ByteMatchSet@ to or delete a @ByteMatchSet@ from
+--     a @Rule@ that doesn\'t exist.
+--
+-- -   You tried to add an IP address to or delete an IP address from an
+--     @IPSet@ that doesn\'t exist.
+--
+-- -   You tried to add a @ByteMatchTuple@ to or delete a @ByteMatchTuple@
+--     from a @ByteMatchSet@ that doesn\'t exist.
+_WAFNonexistentContainerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFNonexistentContainerException =
+  Core._MatchServiceError
+    defaultService
+    "WAFNonexistentContainerException"
+
+-- | The operation failed because the referenced object doesn\'t exist.
+_WAFNonexistentItemException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFNonexistentItemException =
+  Core._MatchServiceError
+    defaultService
+    "WAFNonexistentItemException"
 
 -- | The operation failed because you tried to delete an object that is still
 -- in use. For example:
@@ -859,13 +818,54 @@ _WAFReferencedItemException =
     defaultService
     "WAFReferencedItemException"
 
--- | The operation exceeds a resource limit, for example, the maximum number
--- of @WebACL@ objects that you can create for an AWS account. For more
--- information, see
--- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html Limits>
--- in the /AWS WAF Developer Guide/.
-_WAFLimitsExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_WAFLimitsExceededException =
+-- | AWS WAF is not able to access the service linked role. This can be
+-- caused by a previous @PutLoggingConfiguration@ request, which can lock
+-- the service linked role for about 20 seconds. Please try your request
+-- again. The service linked role can also be locked by a previous
+-- @DeleteServiceLinkedRole@ request, which can lock the role for 15
+-- minutes or more. If you recently made a @DeleteServiceLinkedRole@, wait
+-- at least 15 minutes and try the request again. If you receive this same
+-- exception again, you will have to wait additional time until the role is
+-- unlocked.
+_WAFServiceLinkedRoleErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFServiceLinkedRoleErrorException =
   Core._MatchServiceError
     defaultService
-    "WAFLimitsExceededException"
+    "WAFServiceLinkedRoleErrorException"
+
+-- | The operation failed because you tried to create, update, or delete an
+-- object by using a change token that has already been used.
+_WAFStaleDataException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFStaleDataException =
+  Core._MatchServiceError
+    defaultService
+    "WAFStaleDataException"
+
+-- | The specified subscription does not exist.
+_WAFSubscriptionNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFSubscriptionNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "WAFSubscriptionNotFoundException"
+
+-- |
+_WAFTagOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFTagOperationException =
+  Core._MatchServiceError
+    defaultService
+    "WAFTagOperationException"
+
+-- |
+_WAFTagOperationInternalErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFTagOperationInternalErrorException =
+  Core._MatchServiceError
+    defaultService
+    "WAFTagOperationInternalErrorException"
+
+-- | The operation failed because the entity referenced is temporarily
+-- unavailable. Retry your request.
+_WAFUnavailableEntityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WAFUnavailableEntityException =
+  Core._MatchServiceError
+    defaultService
+    "WAFUnavailableEntityException"

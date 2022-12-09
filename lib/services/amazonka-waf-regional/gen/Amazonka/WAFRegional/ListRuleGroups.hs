@@ -44,8 +44,8 @@ module Amazonka.WAFRegional.ListRuleGroups
     newListRuleGroupsResponse,
 
     -- * Response Lenses
-    listRuleGroupsResponse_ruleGroups,
     listRuleGroupsResponse_nextMarker,
+    listRuleGroupsResponse_ruleGroups,
     listRuleGroupsResponse_httpStatus,
   )
 where
@@ -128,8 +128,8 @@ instance Core.AWSRequest ListRuleGroups where
     Response.receiveJSON
       ( \s h x ->
           ListRuleGroupsResponse'
-            Prelude.<$> (x Data..?> "RuleGroups" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "NextMarker")
+            Prelude.<$> (x Data..?> "NextMarker")
+            Prelude.<*> (x Data..?> "RuleGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -175,14 +175,14 @@ instance Data.ToQuery ListRuleGroups where
 
 -- | /See:/ 'newListRuleGroupsResponse' smart constructor.
 data ListRuleGroupsResponse = ListRuleGroupsResponse'
-  { -- | An array of RuleGroup objects.
-    ruleGroups :: Prelude.Maybe [RuleGroupSummary],
-    -- | If you have more @RuleGroups@ than the number that you specified for
+  { -- | If you have more @RuleGroups@ than the number that you specified for
     -- @Limit@ in the request, the response includes a @NextMarker@ value. To
     -- list more @RuleGroups@, submit another @ListRuleGroups@ request, and
     -- specify the @NextMarker@ value from the response in the @NextMarker@
     -- value in the next request.
     nextMarker :: Prelude.Maybe Prelude.Text,
+    -- | An array of RuleGroup objects.
+    ruleGroups :: Prelude.Maybe [RuleGroupSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -196,13 +196,13 @@ data ListRuleGroupsResponse = ListRuleGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ruleGroups', 'listRuleGroupsResponse_ruleGroups' - An array of RuleGroup objects.
---
 -- 'nextMarker', 'listRuleGroupsResponse_nextMarker' - If you have more @RuleGroups@ than the number that you specified for
 -- @Limit@ in the request, the response includes a @NextMarker@ value. To
 -- list more @RuleGroups@, submit another @ListRuleGroups@ request, and
 -- specify the @NextMarker@ value from the response in the @NextMarker@
 -- value in the next request.
+--
+-- 'ruleGroups', 'listRuleGroupsResponse_ruleGroups' - An array of RuleGroup objects.
 --
 -- 'httpStatus', 'listRuleGroupsResponse_httpStatus' - The response's http status code.
 newListRuleGroupsResponse ::
@@ -211,15 +211,11 @@ newListRuleGroupsResponse ::
   ListRuleGroupsResponse
 newListRuleGroupsResponse pHttpStatus_ =
   ListRuleGroupsResponse'
-    { ruleGroups =
+    { nextMarker =
         Prelude.Nothing,
-      nextMarker = Prelude.Nothing,
+      ruleGroups = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of RuleGroup objects.
-listRuleGroupsResponse_ruleGroups :: Lens.Lens' ListRuleGroupsResponse (Prelude.Maybe [RuleGroupSummary])
-listRuleGroupsResponse_ruleGroups = Lens.lens (\ListRuleGroupsResponse' {ruleGroups} -> ruleGroups) (\s@ListRuleGroupsResponse' {} a -> s {ruleGroups = a} :: ListRuleGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If you have more @RuleGroups@ than the number that you specified for
 -- @Limit@ in the request, the response includes a @NextMarker@ value. To
@@ -229,12 +225,16 @@ listRuleGroupsResponse_ruleGroups = Lens.lens (\ListRuleGroupsResponse' {ruleGro
 listRuleGroupsResponse_nextMarker :: Lens.Lens' ListRuleGroupsResponse (Prelude.Maybe Prelude.Text)
 listRuleGroupsResponse_nextMarker = Lens.lens (\ListRuleGroupsResponse' {nextMarker} -> nextMarker) (\s@ListRuleGroupsResponse' {} a -> s {nextMarker = a} :: ListRuleGroupsResponse)
 
+-- | An array of RuleGroup objects.
+listRuleGroupsResponse_ruleGroups :: Lens.Lens' ListRuleGroupsResponse (Prelude.Maybe [RuleGroupSummary])
+listRuleGroupsResponse_ruleGroups = Lens.lens (\ListRuleGroupsResponse' {ruleGroups} -> ruleGroups) (\s@ListRuleGroupsResponse' {} a -> s {ruleGroups = a} :: ListRuleGroupsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listRuleGroupsResponse_httpStatus :: Lens.Lens' ListRuleGroupsResponse Prelude.Int
 listRuleGroupsResponse_httpStatus = Lens.lens (\ListRuleGroupsResponse' {httpStatus} -> httpStatus) (\s@ListRuleGroupsResponse' {} a -> s {httpStatus = a} :: ListRuleGroupsResponse)
 
 instance Prelude.NFData ListRuleGroupsResponse where
   rnf ListRuleGroupsResponse' {..} =
-    Prelude.rnf ruleGroups
-      `Prelude.seq` Prelude.rnf nextMarker
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf ruleGroups
       `Prelude.seq` Prelude.rnf httpStatus

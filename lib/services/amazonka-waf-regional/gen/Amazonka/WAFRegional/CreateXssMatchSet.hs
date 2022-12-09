@@ -65,8 +65,8 @@ module Amazonka.WAFRegional.CreateXssMatchSet
     newCreateXssMatchSetResponse,
 
     -- * Response Lenses
-    createXssMatchSetResponse_xssMatchSet,
     createXssMatchSetResponse_changeToken,
+    createXssMatchSetResponse_xssMatchSet,
     createXssMatchSetResponse_httpStatus,
   )
 where
@@ -134,8 +134,8 @@ instance Core.AWSRequest CreateXssMatchSet where
     Response.receiveJSON
       ( \s h x ->
           CreateXssMatchSetResponse'
-            Prelude.<$> (x Data..?> "XssMatchSet")
-            Prelude.<*> (x Data..?> "ChangeToken")
+            Prelude.<$> (x Data..?> "ChangeToken")
+            Prelude.<*> (x Data..?> "XssMatchSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -183,12 +183,12 @@ instance Data.ToQuery CreateXssMatchSet where
 --
 -- /See:/ 'newCreateXssMatchSetResponse' smart constructor.
 data CreateXssMatchSetResponse = CreateXssMatchSetResponse'
-  { -- | An XssMatchSet.
-    xssMatchSet :: Prelude.Maybe XssMatchSet,
-    -- | The @ChangeToken@ that you used to submit the @CreateXssMatchSet@
+  { -- | The @ChangeToken@ that you used to submit the @CreateXssMatchSet@
     -- request. You can also use this value to query the status of the request.
     -- For more information, see GetChangeTokenStatus.
     changeToken :: Prelude.Maybe Prelude.Text,
+    -- | An XssMatchSet.
+    xssMatchSet :: Prelude.Maybe XssMatchSet,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -202,11 +202,11 @@ data CreateXssMatchSetResponse = CreateXssMatchSetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'xssMatchSet', 'createXssMatchSetResponse_xssMatchSet' - An XssMatchSet.
---
 -- 'changeToken', 'createXssMatchSetResponse_changeToken' - The @ChangeToken@ that you used to submit the @CreateXssMatchSet@
 -- request. You can also use this value to query the status of the request.
 -- For more information, see GetChangeTokenStatus.
+--
+-- 'xssMatchSet', 'createXssMatchSetResponse_xssMatchSet' - An XssMatchSet.
 --
 -- 'httpStatus', 'createXssMatchSetResponse_httpStatus' - The response's http status code.
 newCreateXssMatchSetResponse ::
@@ -215,15 +215,11 @@ newCreateXssMatchSetResponse ::
   CreateXssMatchSetResponse
 newCreateXssMatchSetResponse pHttpStatus_ =
   CreateXssMatchSetResponse'
-    { xssMatchSet =
+    { changeToken =
         Prelude.Nothing,
-      changeToken = Prelude.Nothing,
+      xssMatchSet = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An XssMatchSet.
-createXssMatchSetResponse_xssMatchSet :: Lens.Lens' CreateXssMatchSetResponse (Prelude.Maybe XssMatchSet)
-createXssMatchSetResponse_xssMatchSet = Lens.lens (\CreateXssMatchSetResponse' {xssMatchSet} -> xssMatchSet) (\s@CreateXssMatchSetResponse' {} a -> s {xssMatchSet = a} :: CreateXssMatchSetResponse)
 
 -- | The @ChangeToken@ that you used to submit the @CreateXssMatchSet@
 -- request. You can also use this value to query the status of the request.
@@ -231,12 +227,16 @@ createXssMatchSetResponse_xssMatchSet = Lens.lens (\CreateXssMatchSetResponse' {
 createXssMatchSetResponse_changeToken :: Lens.Lens' CreateXssMatchSetResponse (Prelude.Maybe Prelude.Text)
 createXssMatchSetResponse_changeToken = Lens.lens (\CreateXssMatchSetResponse' {changeToken} -> changeToken) (\s@CreateXssMatchSetResponse' {} a -> s {changeToken = a} :: CreateXssMatchSetResponse)
 
+-- | An XssMatchSet.
+createXssMatchSetResponse_xssMatchSet :: Lens.Lens' CreateXssMatchSetResponse (Prelude.Maybe XssMatchSet)
+createXssMatchSetResponse_xssMatchSet = Lens.lens (\CreateXssMatchSetResponse' {xssMatchSet} -> xssMatchSet) (\s@CreateXssMatchSetResponse' {} a -> s {xssMatchSet = a} :: CreateXssMatchSetResponse)
+
 -- | The response's http status code.
 createXssMatchSetResponse_httpStatus :: Lens.Lens' CreateXssMatchSetResponse Prelude.Int
 createXssMatchSetResponse_httpStatus = Lens.lens (\CreateXssMatchSetResponse' {httpStatus} -> httpStatus) (\s@CreateXssMatchSetResponse' {} a -> s {httpStatus = a} :: CreateXssMatchSetResponse)
 
 instance Prelude.NFData CreateXssMatchSetResponse where
   rnf CreateXssMatchSetResponse' {..} =
-    Prelude.rnf xssMatchSet
-      `Prelude.seq` Prelude.rnf changeToken
+    Prelude.rnf changeToken
+      `Prelude.seq` Prelude.rnf xssMatchSet
       `Prelude.seq` Prelude.rnf httpStatus

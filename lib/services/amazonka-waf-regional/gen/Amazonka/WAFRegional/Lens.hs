@@ -29,15 +29,15 @@ module Amazonka.WAFRegional.Lens
     -- ** CreateGeoMatchSet
     createGeoMatchSet_name,
     createGeoMatchSet_changeToken,
-    createGeoMatchSetResponse_geoMatchSet,
     createGeoMatchSetResponse_changeToken,
+    createGeoMatchSetResponse_geoMatchSet,
     createGeoMatchSetResponse_httpStatus,
 
     -- ** CreateIPSet
     createIPSet_name,
     createIPSet_changeToken,
-    createIPSetResponse_iPSet,
     createIPSetResponse_changeToken,
+    createIPSetResponse_iPSet,
     createIPSetResponse_httpStatus,
 
     -- ** CreateRateBasedRule
@@ -47,22 +47,22 @@ module Amazonka.WAFRegional.Lens
     createRateBasedRule_rateKey,
     createRateBasedRule_rateLimit,
     createRateBasedRule_changeToken,
-    createRateBasedRuleResponse_rule,
     createRateBasedRuleResponse_changeToken,
+    createRateBasedRuleResponse_rule,
     createRateBasedRuleResponse_httpStatus,
 
     -- ** CreateRegexMatchSet
     createRegexMatchSet_name,
     createRegexMatchSet_changeToken,
-    createRegexMatchSetResponse_regexMatchSet,
     createRegexMatchSetResponse_changeToken,
+    createRegexMatchSetResponse_regexMatchSet,
     createRegexMatchSetResponse_httpStatus,
 
     -- ** CreateRegexPatternSet
     createRegexPatternSet_name,
     createRegexPatternSet_changeToken,
-    createRegexPatternSetResponse_regexPatternSet,
     createRegexPatternSetResponse_changeToken,
+    createRegexPatternSetResponse_regexPatternSet,
     createRegexPatternSetResponse_httpStatus,
 
     -- ** CreateRule
@@ -70,8 +70,8 @@ module Amazonka.WAFRegional.Lens
     createRule_name,
     createRule_metricName,
     createRule_changeToken,
-    createRuleResponse_rule,
     createRuleResponse_changeToken,
+    createRuleResponse_rule,
     createRuleResponse_httpStatus,
 
     -- ** CreateRuleGroup
@@ -79,22 +79,22 @@ module Amazonka.WAFRegional.Lens
     createRuleGroup_name,
     createRuleGroup_metricName,
     createRuleGroup_changeToken,
-    createRuleGroupResponse_ruleGroup,
     createRuleGroupResponse_changeToken,
+    createRuleGroupResponse_ruleGroup,
     createRuleGroupResponse_httpStatus,
 
     -- ** CreateSizeConstraintSet
     createSizeConstraintSet_name,
     createSizeConstraintSet_changeToken,
-    createSizeConstraintSetResponse_sizeConstraintSet,
     createSizeConstraintSetResponse_changeToken,
+    createSizeConstraintSetResponse_sizeConstraintSet,
     createSizeConstraintSetResponse_httpStatus,
 
     -- ** CreateSqlInjectionMatchSet
     createSqlInjectionMatchSet_name,
     createSqlInjectionMatchSet_changeToken,
-    createSqlInjectionMatchSetResponse_sqlInjectionMatchSet,
     createSqlInjectionMatchSetResponse_changeToken,
+    createSqlInjectionMatchSetResponse_sqlInjectionMatchSet,
     createSqlInjectionMatchSetResponse_httpStatus,
 
     -- ** CreateWebACL
@@ -103,8 +103,8 @@ module Amazonka.WAFRegional.Lens
     createWebACL_metricName,
     createWebACL_defaultAction,
     createWebACL_changeToken,
-    createWebACLResponse_webACL,
     createWebACLResponse_changeToken,
+    createWebACLResponse_webACL,
     createWebACLResponse_httpStatus,
 
     -- ** CreateWebACLMigrationStack
@@ -117,8 +117,8 @@ module Amazonka.WAFRegional.Lens
     -- ** CreateXssMatchSet
     createXssMatchSet_name,
     createXssMatchSet_changeToken,
-    createXssMatchSetResponse_xssMatchSet,
     createXssMatchSetResponse_changeToken,
+    createXssMatchSetResponse_xssMatchSet,
     createXssMatchSetResponse_httpStatus,
 
     -- ** DeleteByteMatchSet
@@ -276,8 +276,8 @@ module Amazonka.WAFRegional.Lens
     getSampledRequests_ruleId,
     getSampledRequests_timeWindow,
     getSampledRequests_maxItems,
-    getSampledRequestsResponse_sampledRequests,
     getSampledRequestsResponse_populationSize,
+    getSampledRequestsResponse_sampledRequests,
     getSampledRequestsResponse_timeWindow,
     getSampledRequestsResponse_httpStatus,
 
@@ -307,11 +307,11 @@ module Amazonka.WAFRegional.Lens
     getXssMatchSetResponse_httpStatus,
 
     -- ** ListActivatedRulesInRuleGroup
-    listActivatedRulesInRuleGroup_ruleGroupId,
     listActivatedRulesInRuleGroup_limit,
     listActivatedRulesInRuleGroup_nextMarker,
-    listActivatedRulesInRuleGroupResponse_nextMarker,
+    listActivatedRulesInRuleGroup_ruleGroupId,
     listActivatedRulesInRuleGroupResponse_activatedRules,
+    listActivatedRulesInRuleGroupResponse_nextMarker,
     listActivatedRulesInRuleGroupResponse_httpStatus,
 
     -- ** ListByteMatchSets
@@ -345,8 +345,8 @@ module Amazonka.WAFRegional.Lens
     -- ** ListRateBasedRules
     listRateBasedRules_limit,
     listRateBasedRules_nextMarker,
-    listRateBasedRulesResponse_rules,
     listRateBasedRulesResponse_nextMarker,
+    listRateBasedRulesResponse_rules,
     listRateBasedRulesResponse_httpStatus,
 
     -- ** ListRegexMatchSets
@@ -359,8 +359,8 @@ module Amazonka.WAFRegional.Lens
     -- ** ListRegexPatternSets
     listRegexPatternSets_limit,
     listRegexPatternSets_nextMarker,
-    listRegexPatternSetsResponse_regexPatternSets,
     listRegexPatternSetsResponse_nextMarker,
+    listRegexPatternSetsResponse_regexPatternSets,
     listRegexPatternSetsResponse_httpStatus,
 
     -- ** ListResourcesForWebACL
@@ -372,22 +372,22 @@ module Amazonka.WAFRegional.Lens
     -- ** ListRuleGroups
     listRuleGroups_limit,
     listRuleGroups_nextMarker,
-    listRuleGroupsResponse_ruleGroups,
     listRuleGroupsResponse_nextMarker,
+    listRuleGroupsResponse_ruleGroups,
     listRuleGroupsResponse_httpStatus,
 
     -- ** ListRules
     listRules_limit,
     listRules_nextMarker,
-    listRulesResponse_rules,
     listRulesResponse_nextMarker,
+    listRulesResponse_rules,
     listRulesResponse_httpStatus,
 
     -- ** ListSizeConstraintSets
     listSizeConstraintSets_limit,
     listSizeConstraintSets_nextMarker,
-    listSizeConstraintSetsResponse_sizeConstraintSets,
     listSizeConstraintSetsResponse_nextMarker,
+    listSizeConstraintSetsResponse_sizeConstraintSets,
     listSizeConstraintSetsResponse_httpStatus,
 
     -- ** ListSqlInjectionMatchSets
@@ -400,30 +400,30 @@ module Amazonka.WAFRegional.Lens
     -- ** ListSubscribedRuleGroups
     listSubscribedRuleGroups_limit,
     listSubscribedRuleGroups_nextMarker,
-    listSubscribedRuleGroupsResponse_ruleGroups,
     listSubscribedRuleGroupsResponse_nextMarker,
+    listSubscribedRuleGroupsResponse_ruleGroups,
     listSubscribedRuleGroupsResponse_httpStatus,
 
     -- ** ListTagsForResource
     listTagsForResource_limit,
     listTagsForResource_nextMarker,
     listTagsForResource_resourceARN,
-    listTagsForResourceResponse_tagInfoForResource,
     listTagsForResourceResponse_nextMarker,
+    listTagsForResourceResponse_tagInfoForResource,
     listTagsForResourceResponse_httpStatus,
 
     -- ** ListWebACLs
     listWebACLs_limit,
     listWebACLs_nextMarker,
-    listWebACLsResponse_webACLs,
     listWebACLsResponse_nextMarker,
+    listWebACLsResponse_webACLs,
     listWebACLsResponse_httpStatus,
 
     -- ** ListXssMatchSets
     listXssMatchSets_limit,
     listXssMatchSets_nextMarker,
-    listXssMatchSetsResponse_xssMatchSets,
     listXssMatchSetsResponse_nextMarker,
+    listXssMatchSetsResponse_xssMatchSets,
     listXssMatchSetsResponse_httpStatus,
 
     -- ** PutLoggingConfiguration
@@ -535,10 +535,10 @@ module Amazonka.WAFRegional.Lens
     -- * Types
 
     -- ** ActivatedRule
-    activatedRule_type,
-    activatedRule_overrideAction,
     activatedRule_action,
     activatedRule_excludedRules,
+    activatedRule_overrideAction,
+    activatedRule_type,
     activatedRule_priority,
     activatedRule_ruleId,
 
@@ -590,12 +590,12 @@ module Amazonka.WAFRegional.Lens
     hTTPHeader_value,
 
     -- ** HTTPRequest
-    hTTPRequest_hTTPVersion,
-    hTTPRequest_method,
-    hTTPRequest_headers,
-    hTTPRequest_country,
-    hTTPRequest_uri,
     hTTPRequest_clientIP,
+    hTTPRequest_country,
+    hTTPRequest_hTTPVersion,
+    hTTPRequest_headers,
+    hTTPRequest_method,
+    hTTPRequest_uri,
 
     -- ** IPSet
     iPSet_name,
@@ -625,8 +625,8 @@ module Amazonka.WAFRegional.Lens
     predicate_dataId,
 
     -- ** RateBasedRule
-    rateBasedRule_name,
     rateBasedRule_metricName,
+    rateBasedRule_name,
     rateBasedRule_ruleId,
     rateBasedRule_matchPredicates,
     rateBasedRule_rateKey,
@@ -634,8 +634,8 @@ module Amazonka.WAFRegional.Lens
 
     -- ** RegexMatchSet
     regexMatchSet_name,
-    regexMatchSet_regexMatchTuples,
     regexMatchSet_regexMatchSetId,
+    regexMatchSet_regexMatchTuples,
 
     -- ** RegexMatchSetSummary
     regexMatchSetSummary_regexMatchSetId,
@@ -664,14 +664,14 @@ module Amazonka.WAFRegional.Lens
     regexPatternSetUpdate_regexPatternString,
 
     -- ** Rule
-    rule_name,
     rule_metricName,
+    rule_name,
     rule_ruleId,
     rule_predicates,
 
     -- ** RuleGroup
-    ruleGroup_name,
     ruleGroup_metricName,
+    ruleGroup_name,
     ruleGroup_ruleGroupId,
 
     -- ** RuleGroupSummary
@@ -691,9 +691,9 @@ module Amazonka.WAFRegional.Lens
     ruleUpdate_predicate,
 
     -- ** SampledHTTPRequest
+    sampledHTTPRequest_action,
     sampledHTTPRequest_ruleWithinRuleGroup,
     sampledHTTPRequest_timestamp,
-    sampledHTTPRequest_action,
     sampledHTTPRequest_request,
     sampledHTTPRequest_weight,
 
@@ -743,8 +743,8 @@ module Amazonka.WAFRegional.Lens
     tag_value,
 
     -- ** TagInfoForResource
-    tagInfoForResource_tagList,
     tagInfoForResource_resourceARN,
+    tagInfoForResource_tagList,
 
     -- ** TimeWindow
     timeWindow_startTime,
@@ -757,9 +757,9 @@ module Amazonka.WAFRegional.Lens
     wafOverrideAction_type,
 
     -- ** WebACL
+    webACL_metricName,
     webACL_name,
     webACL_webACLArn,
-    webACL_metricName,
     webACL_webACLId,
     webACL_defaultAction,
     webACL_rules,

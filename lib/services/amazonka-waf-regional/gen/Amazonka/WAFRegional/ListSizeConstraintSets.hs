@@ -44,8 +44,8 @@ module Amazonka.WAFRegional.ListSizeConstraintSets
     newListSizeConstraintSetsResponse,
 
     -- * Response Lenses
-    listSizeConstraintSetsResponse_sizeConstraintSets,
     listSizeConstraintSetsResponse_nextMarker,
+    listSizeConstraintSetsResponse_sizeConstraintSets,
     listSizeConstraintSetsResponse_httpStatus,
   )
 where
@@ -134,10 +134,10 @@ instance Core.AWSRequest ListSizeConstraintSets where
     Response.receiveJSON
       ( \s h x ->
           ListSizeConstraintSetsResponse'
-            Prelude.<$> ( x Data..?> "SizeConstraintSets"
+            Prelude.<$> (x Data..?> "NextMarker")
+            Prelude.<*> ( x Data..?> "SizeConstraintSets"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -183,14 +183,14 @@ instance Data.ToQuery ListSizeConstraintSets where
 
 -- | /See:/ 'newListSizeConstraintSetsResponse' smart constructor.
 data ListSizeConstraintSetsResponse = ListSizeConstraintSetsResponse'
-  { -- | An array of SizeConstraintSetSummary objects.
-    sizeConstraintSets :: Prelude.Maybe [SizeConstraintSetSummary],
-    -- | If you have more @SizeConstraintSet@ objects than the number that you
+  { -- | If you have more @SizeConstraintSet@ objects than the number that you
     -- specified for @Limit@ in the request, the response includes a
     -- @NextMarker@ value. To list more @SizeConstraintSet@ objects, submit
     -- another @ListSizeConstraintSets@ request, and specify the @NextMarker@
     -- value from the response in the @NextMarker@ value in the next request.
     nextMarker :: Prelude.Maybe Prelude.Text,
+    -- | An array of SizeConstraintSetSummary objects.
+    sizeConstraintSets :: Prelude.Maybe [SizeConstraintSetSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -204,13 +204,13 @@ data ListSizeConstraintSetsResponse = ListSizeConstraintSetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sizeConstraintSets', 'listSizeConstraintSetsResponse_sizeConstraintSets' - An array of SizeConstraintSetSummary objects.
---
 -- 'nextMarker', 'listSizeConstraintSetsResponse_nextMarker' - If you have more @SizeConstraintSet@ objects than the number that you
 -- specified for @Limit@ in the request, the response includes a
 -- @NextMarker@ value. To list more @SizeConstraintSet@ objects, submit
 -- another @ListSizeConstraintSets@ request, and specify the @NextMarker@
 -- value from the response in the @NextMarker@ value in the next request.
+--
+-- 'sizeConstraintSets', 'listSizeConstraintSetsResponse_sizeConstraintSets' - An array of SizeConstraintSetSummary objects.
 --
 -- 'httpStatus', 'listSizeConstraintSetsResponse_httpStatus' - The response's http status code.
 newListSizeConstraintSetsResponse ::
@@ -219,15 +219,11 @@ newListSizeConstraintSetsResponse ::
   ListSizeConstraintSetsResponse
 newListSizeConstraintSetsResponse pHttpStatus_ =
   ListSizeConstraintSetsResponse'
-    { sizeConstraintSets =
+    { nextMarker =
         Prelude.Nothing,
-      nextMarker = Prelude.Nothing,
+      sizeConstraintSets = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of SizeConstraintSetSummary objects.
-listSizeConstraintSetsResponse_sizeConstraintSets :: Lens.Lens' ListSizeConstraintSetsResponse (Prelude.Maybe [SizeConstraintSetSummary])
-listSizeConstraintSetsResponse_sizeConstraintSets = Lens.lens (\ListSizeConstraintSetsResponse' {sizeConstraintSets} -> sizeConstraintSets) (\s@ListSizeConstraintSetsResponse' {} a -> s {sizeConstraintSets = a} :: ListSizeConstraintSetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If you have more @SizeConstraintSet@ objects than the number that you
 -- specified for @Limit@ in the request, the response includes a
@@ -236,6 +232,10 @@ listSizeConstraintSetsResponse_sizeConstraintSets = Lens.lens (\ListSizeConstrai
 -- value from the response in the @NextMarker@ value in the next request.
 listSizeConstraintSetsResponse_nextMarker :: Lens.Lens' ListSizeConstraintSetsResponse (Prelude.Maybe Prelude.Text)
 listSizeConstraintSetsResponse_nextMarker = Lens.lens (\ListSizeConstraintSetsResponse' {nextMarker} -> nextMarker) (\s@ListSizeConstraintSetsResponse' {} a -> s {nextMarker = a} :: ListSizeConstraintSetsResponse)
+
+-- | An array of SizeConstraintSetSummary objects.
+listSizeConstraintSetsResponse_sizeConstraintSets :: Lens.Lens' ListSizeConstraintSetsResponse (Prelude.Maybe [SizeConstraintSetSummary])
+listSizeConstraintSetsResponse_sizeConstraintSets = Lens.lens (\ListSizeConstraintSetsResponse' {sizeConstraintSets} -> sizeConstraintSets) (\s@ListSizeConstraintSetsResponse' {} a -> s {sizeConstraintSets = a} :: ListSizeConstraintSetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listSizeConstraintSetsResponse_httpStatus :: Lens.Lens' ListSizeConstraintSetsResponse Prelude.Int
@@ -246,6 +246,6 @@ instance
     ListSizeConstraintSetsResponse
   where
   rnf ListSizeConstraintSetsResponse' {..} =
-    Prelude.rnf sizeConstraintSets
-      `Prelude.seq` Prelude.rnf nextMarker
+    Prelude.rnf nextMarker
+      `Prelude.seq` Prelude.rnf sizeConstraintSets
       `Prelude.seq` Prelude.rnf httpStatus

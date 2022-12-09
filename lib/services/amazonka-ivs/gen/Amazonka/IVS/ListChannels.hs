@@ -33,10 +33,10 @@ module Amazonka.IVS.ListChannels
     newListChannels,
 
     -- * Request Lenses
-    listChannels_nextToken,
     listChannels_filterByName,
-    listChannels_maxResults,
     listChannels_filterByRecordingConfigurationArn,
+    listChannels_maxResults,
+    listChannels_nextToken,
 
     -- * Destructuring the Response
     ListChannelsResponse (..),
@@ -59,16 +59,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListChannels' smart constructor.
 data ListChannels = ListChannels'
-  { -- | The first channel to retrieve. This is used for pagination; see the
-    -- @nextToken@ response field.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters the channel list to match the specified name.
+  { -- | Filters the channel list to match the specified name.
     filterByName :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of channels to return. Default: 100.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Filters the channel list to match the specified recording-configuration
     -- ARN.
-    filterByRecordingConfigurationArn :: Prelude.Maybe Prelude.Text
+    filterByRecordingConfigurationArn :: Prelude.Maybe Prelude.Text,
+    -- | Maximum number of channels to return. Default: 100.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The first channel to retrieve. This is used for pagination; see the
+    -- @nextToken@ response field.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,42 +80,42 @@ data ListChannels = ListChannels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listChannels_nextToken' - The first channel to retrieve. This is used for pagination; see the
--- @nextToken@ response field.
---
 -- 'filterByName', 'listChannels_filterByName' - Filters the channel list to match the specified name.
---
--- 'maxResults', 'listChannels_maxResults' - Maximum number of channels to return. Default: 100.
 --
 -- 'filterByRecordingConfigurationArn', 'listChannels_filterByRecordingConfigurationArn' - Filters the channel list to match the specified recording-configuration
 -- ARN.
+--
+-- 'maxResults', 'listChannels_maxResults' - Maximum number of channels to return. Default: 100.
+--
+-- 'nextToken', 'listChannels_nextToken' - The first channel to retrieve. This is used for pagination; see the
+-- @nextToken@ response field.
 newListChannels ::
   ListChannels
 newListChannels =
   ListChannels'
-    { nextToken = Prelude.Nothing,
-      filterByName = Prelude.Nothing,
+    { filterByName = Prelude.Nothing,
+      filterByRecordingConfigurationArn = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      filterByRecordingConfigurationArn = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | The first channel to retrieve. This is used for pagination; see the
--- @nextToken@ response field.
-listChannels_nextToken :: Lens.Lens' ListChannels (Prelude.Maybe Prelude.Text)
-listChannels_nextToken = Lens.lens (\ListChannels' {nextToken} -> nextToken) (\s@ListChannels' {} a -> s {nextToken = a} :: ListChannels)
 
 -- | Filters the channel list to match the specified name.
 listChannels_filterByName :: Lens.Lens' ListChannels (Prelude.Maybe Prelude.Text)
 listChannels_filterByName = Lens.lens (\ListChannels' {filterByName} -> filterByName) (\s@ListChannels' {} a -> s {filterByName = a} :: ListChannels)
 
--- | Maximum number of channels to return. Default: 100.
-listChannels_maxResults :: Lens.Lens' ListChannels (Prelude.Maybe Prelude.Natural)
-listChannels_maxResults = Lens.lens (\ListChannels' {maxResults} -> maxResults) (\s@ListChannels' {} a -> s {maxResults = a} :: ListChannels)
-
 -- | Filters the channel list to match the specified recording-configuration
 -- ARN.
 listChannels_filterByRecordingConfigurationArn :: Lens.Lens' ListChannels (Prelude.Maybe Prelude.Text)
 listChannels_filterByRecordingConfigurationArn = Lens.lens (\ListChannels' {filterByRecordingConfigurationArn} -> filterByRecordingConfigurationArn) (\s@ListChannels' {} a -> s {filterByRecordingConfigurationArn = a} :: ListChannels)
+
+-- | Maximum number of channels to return. Default: 100.
+listChannels_maxResults :: Lens.Lens' ListChannels (Prelude.Maybe Prelude.Natural)
+listChannels_maxResults = Lens.lens (\ListChannels' {maxResults} -> maxResults) (\s@ListChannels' {} a -> s {maxResults = a} :: ListChannels)
+
+-- | The first channel to retrieve. This is used for pagination; see the
+-- @nextToken@ response field.
+listChannels_nextToken :: Lens.Lens' ListChannels (Prelude.Maybe Prelude.Text)
+listChannels_nextToken = Lens.lens (\ListChannels' {nextToken} -> nextToken) (\s@ListChannels' {} a -> s {nextToken = a} :: ListChannels)
 
 instance Core.AWSPager ListChannels where
   page rq rs
@@ -149,17 +149,17 @@ instance Core.AWSRequest ListChannels where
 
 instance Prelude.Hashable ListChannels where
   hashWithSalt _salt ListChannels' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filterByName
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` filterByName
       `Prelude.hashWithSalt` filterByRecordingConfigurationArn
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListChannels where
   rnf ListChannels' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filterByName
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf filterByName
       `Prelude.seq` Prelude.rnf filterByRecordingConfigurationArn
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListChannels where
   toHeaders =
@@ -176,11 +176,11 @@ instance Data.ToJSON ListChannels where
   toJSON ListChannels' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("filterByName" Data..=) Prelude.<$> filterByName,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("filterByName" Data..=) Prelude.<$> filterByName,
             ("filterByRecordingConfigurationArn" Data..=)
-              Prelude.<$> filterByRecordingConfigurationArn
+              Prelude.<$> filterByRecordingConfigurationArn,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

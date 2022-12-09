@@ -30,9 +30,9 @@ module Amazonka.IVS.ListStreams
     newListStreams,
 
     -- * Request Lenses
-    listStreams_nextToken,
     listStreams_filterBy,
     listStreams_maxResults,
+    listStreams_nextToken,
 
     -- * Destructuring the Response
     ListStreamsResponse (..),
@@ -55,13 +55,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListStreams' smart constructor.
 data ListStreams = ListStreams'
-  { -- | The first stream to retrieve. This is used for pagination; see the
-    -- @nextToken@ response field.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters the stream list to match the specified criterion.
+  { -- | Filters the stream list to match the specified criterion.
     filterBy :: Prelude.Maybe StreamFilters,
     -- | Maximum number of streams to return. Default: 100.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The first stream to retrieve. This is used for pagination; see the
+    -- @nextToken@ response field.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,25 +73,20 @@ data ListStreams = ListStreams'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listStreams_nextToken' - The first stream to retrieve. This is used for pagination; see the
--- @nextToken@ response field.
---
 -- 'filterBy', 'listStreams_filterBy' - Filters the stream list to match the specified criterion.
 --
 -- 'maxResults', 'listStreams_maxResults' - Maximum number of streams to return. Default: 100.
+--
+-- 'nextToken', 'listStreams_nextToken' - The first stream to retrieve. This is used for pagination; see the
+-- @nextToken@ response field.
 newListStreams ::
   ListStreams
 newListStreams =
   ListStreams'
-    { nextToken = Prelude.Nothing,
-      filterBy = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filterBy = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The first stream to retrieve. This is used for pagination; see the
--- @nextToken@ response field.
-listStreams_nextToken :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Text)
-listStreams_nextToken = Lens.lens (\ListStreams' {nextToken} -> nextToken) (\s@ListStreams' {} a -> s {nextToken = a} :: ListStreams)
 
 -- | Filters the stream list to match the specified criterion.
 listStreams_filterBy :: Lens.Lens' ListStreams (Prelude.Maybe StreamFilters)
@@ -100,6 +95,11 @@ listStreams_filterBy = Lens.lens (\ListStreams' {filterBy} -> filterBy) (\s@List
 -- | Maximum number of streams to return. Default: 100.
 listStreams_maxResults :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Natural)
 listStreams_maxResults = Lens.lens (\ListStreams' {maxResults} -> maxResults) (\s@ListStreams' {} a -> s {maxResults = a} :: ListStreams)
+
+-- | The first stream to retrieve. This is used for pagination; see the
+-- @nextToken@ response field.
+listStreams_nextToken :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Text)
+listStreams_nextToken = Lens.lens (\ListStreams' {nextToken} -> nextToken) (\s@ListStreams' {} a -> s {nextToken = a} :: ListStreams)
 
 instance Core.AWSPager ListStreams where
   page rq rs
@@ -132,15 +132,15 @@ instance Core.AWSRequest ListStreams where
 
 instance Prelude.Hashable ListStreams where
   hashWithSalt _salt ListStreams' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filterBy
+    _salt `Prelude.hashWithSalt` filterBy
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListStreams where
   rnf ListStreams' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filterBy
+    Prelude.rnf filterBy
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListStreams where
   toHeaders =
@@ -157,9 +157,9 @@ instance Data.ToJSON ListStreams where
   toJSON ListStreams' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("filterBy" Data..=) Prelude.<$> filterBy,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("filterBy" Data..=) Prelude.<$> filterBy,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

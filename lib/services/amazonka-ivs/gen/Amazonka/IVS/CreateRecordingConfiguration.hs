@@ -40,10 +40,10 @@ module Amazonka.IVS.CreateRecordingConfiguration
     newCreateRecordingConfiguration,
 
     -- * Request Lenses
-    createRecordingConfiguration_tags,
     createRecordingConfiguration_name,
-    createRecordingConfiguration_thumbnailConfiguration,
     createRecordingConfiguration_recordingReconnectWindowSeconds,
+    createRecordingConfiguration_tags,
+    createRecordingConfiguration_thumbnailConfiguration,
     createRecordingConfiguration_destinationConfiguration,
 
     -- * Destructuring the Response
@@ -66,22 +66,22 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateRecordingConfiguration' smart constructor.
 data CreateRecordingConfiguration = CreateRecordingConfiguration'
-  { -- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
+  { -- | Recording-configuration name. The value does not need to be unique.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | If a broadcast disconnects and then reconnects within the specified
+    -- interval, the multiple streams will be considered a single broadcast and
+    -- merged together. Default: 0.
+    recordingReconnectWindowSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
     -- for more information, including restrictions that apply to tags and
     -- \"Tag naming limits and requirements\"; Amazon IVS has no
     -- service-specific constraints beyond what is documented there.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Recording-configuration name. The value does not need to be unique.
-    name :: Prelude.Maybe Prelude.Text,
     -- | A complex type that allows you to enable\/disable the recording of
     -- thumbnails for a live session and modify the interval at which
     -- thumbnails are generated for the live session.
     thumbnailConfiguration :: Prelude.Maybe ThumbnailConfiguration,
-    -- | If a broadcast disconnects and then reconnects within the specified
-    -- interval, the multiple streams will be considered a single broadcast and
-    -- merged together. Default: 0.
-    recordingReconnectWindowSeconds :: Prelude.Maybe Prelude.Natural,
     -- | A complex type that contains a destination configuration for where
     -- recorded video will be stored.
     destinationConfiguration :: DestinationConfiguration
@@ -96,21 +96,21 @@ data CreateRecordingConfiguration = CreateRecordingConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'createRecordingConfiguration_name' - Recording-configuration name. The value does not need to be unique.
+--
+-- 'recordingReconnectWindowSeconds', 'createRecordingConfiguration_recordingReconnectWindowSeconds' - If a broadcast disconnects and then reconnects within the specified
+-- interval, the multiple streams will be considered a single broadcast and
+-- merged together. Default: 0.
+--
 -- 'tags', 'createRecordingConfiguration_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
 -- for more information, including restrictions that apply to tags and
 -- \"Tag naming limits and requirements\"; Amazon IVS has no
 -- service-specific constraints beyond what is documented there.
 --
--- 'name', 'createRecordingConfiguration_name' - Recording-configuration name. The value does not need to be unique.
---
 -- 'thumbnailConfiguration', 'createRecordingConfiguration_thumbnailConfiguration' - A complex type that allows you to enable\/disable the recording of
 -- thumbnails for a live session and modify the interval at which
 -- thumbnails are generated for the live session.
---
--- 'recordingReconnectWindowSeconds', 'createRecordingConfiguration_recordingReconnectWindowSeconds' - If a broadcast disconnects and then reconnects within the specified
--- interval, the multiple streams will be considered a single broadcast and
--- merged together. Default: 0.
 --
 -- 'destinationConfiguration', 'createRecordingConfiguration_destinationConfiguration' - A complex type that contains a destination configuration for where
 -- recorded video will be stored.
@@ -121,15 +121,25 @@ newCreateRecordingConfiguration ::
 newCreateRecordingConfiguration
   pDestinationConfiguration_ =
     CreateRecordingConfiguration'
-      { tags =
+      { name =
           Prelude.Nothing,
-        name = Prelude.Nothing,
-        thumbnailConfiguration = Prelude.Nothing,
         recordingReconnectWindowSeconds =
           Prelude.Nothing,
+        tags = Prelude.Nothing,
+        thumbnailConfiguration = Prelude.Nothing,
         destinationConfiguration =
           pDestinationConfiguration_
       }
+
+-- | Recording-configuration name. The value does not need to be unique.
+createRecordingConfiguration_name :: Lens.Lens' CreateRecordingConfiguration (Prelude.Maybe Prelude.Text)
+createRecordingConfiguration_name = Lens.lens (\CreateRecordingConfiguration' {name} -> name) (\s@CreateRecordingConfiguration' {} a -> s {name = a} :: CreateRecordingConfiguration)
+
+-- | If a broadcast disconnects and then reconnects within the specified
+-- interval, the multiple streams will be considered a single broadcast and
+-- merged together. Default: 0.
+createRecordingConfiguration_recordingReconnectWindowSeconds :: Lens.Lens' CreateRecordingConfiguration (Prelude.Maybe Prelude.Natural)
+createRecordingConfiguration_recordingReconnectWindowSeconds = Lens.lens (\CreateRecordingConfiguration' {recordingReconnectWindowSeconds} -> recordingReconnectWindowSeconds) (\s@CreateRecordingConfiguration' {} a -> s {recordingReconnectWindowSeconds = a} :: CreateRecordingConfiguration)
 
 -- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
@@ -139,21 +149,11 @@ newCreateRecordingConfiguration
 createRecordingConfiguration_tags :: Lens.Lens' CreateRecordingConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createRecordingConfiguration_tags = Lens.lens (\CreateRecordingConfiguration' {tags} -> tags) (\s@CreateRecordingConfiguration' {} a -> s {tags = a} :: CreateRecordingConfiguration) Prelude.. Lens.mapping Lens.coerced
 
--- | Recording-configuration name. The value does not need to be unique.
-createRecordingConfiguration_name :: Lens.Lens' CreateRecordingConfiguration (Prelude.Maybe Prelude.Text)
-createRecordingConfiguration_name = Lens.lens (\CreateRecordingConfiguration' {name} -> name) (\s@CreateRecordingConfiguration' {} a -> s {name = a} :: CreateRecordingConfiguration)
-
 -- | A complex type that allows you to enable\/disable the recording of
 -- thumbnails for a live session and modify the interval at which
 -- thumbnails are generated for the live session.
 createRecordingConfiguration_thumbnailConfiguration :: Lens.Lens' CreateRecordingConfiguration (Prelude.Maybe ThumbnailConfiguration)
 createRecordingConfiguration_thumbnailConfiguration = Lens.lens (\CreateRecordingConfiguration' {thumbnailConfiguration} -> thumbnailConfiguration) (\s@CreateRecordingConfiguration' {} a -> s {thumbnailConfiguration = a} :: CreateRecordingConfiguration)
-
--- | If a broadcast disconnects and then reconnects within the specified
--- interval, the multiple streams will be considered a single broadcast and
--- merged together. Default: 0.
-createRecordingConfiguration_recordingReconnectWindowSeconds :: Lens.Lens' CreateRecordingConfiguration (Prelude.Maybe Prelude.Natural)
-createRecordingConfiguration_recordingReconnectWindowSeconds = Lens.lens (\CreateRecordingConfiguration' {recordingReconnectWindowSeconds} -> recordingReconnectWindowSeconds) (\s@CreateRecordingConfiguration' {} a -> s {recordingReconnectWindowSeconds = a} :: CreateRecordingConfiguration)
 
 -- | A complex type that contains a destination configuration for where
 -- recorded video will be stored.
@@ -179,18 +179,18 @@ instance
     CreateRecordingConfiguration
   where
   hashWithSalt _salt CreateRecordingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` thumbnailConfiguration
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` recordingReconnectWindowSeconds
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` thumbnailConfiguration
       `Prelude.hashWithSalt` destinationConfiguration
 
 instance Prelude.NFData CreateRecordingConfiguration where
   rnf CreateRecordingConfiguration' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf thumbnailConfiguration
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf recordingReconnectWindowSeconds
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf thumbnailConfiguration
       `Prelude.seq` Prelude.rnf destinationConfiguration
 
 instance Data.ToHeaders CreateRecordingConfiguration where
@@ -208,12 +208,12 @@ instance Data.ToJSON CreateRecordingConfiguration where
   toJSON CreateRecordingConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("name" Data..=) Prelude.<$> name,
-            ("thumbnailConfiguration" Data..=)
-              Prelude.<$> thumbnailConfiguration,
+          [ ("name" Data..=) Prelude.<$> name,
             ("recordingReconnectWindowSeconds" Data..=)
               Prelude.<$> recordingReconnectWindowSeconds,
+            ("tags" Data..=) Prelude.<$> tags,
+            ("thumbnailConfiguration" Data..=)
+              Prelude.<$> thumbnailConfiguration,
             Prelude.Just
               ( "destinationConfiguration"
                   Data..= destinationConfiguration

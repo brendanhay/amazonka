@@ -28,18 +28,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPlaybackKeyPair' smart constructor.
 data PlaybackKeyPair = PlaybackKeyPair'
-  { -- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
+  { -- | Key-pair ARN.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | Key-pair identifier.
+    fingerprint :: Prelude.Maybe Prelude.Text,
+    -- | Playback-key-pair name. The value does not need to be unique.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
     -- for more information, including restrictions that apply to tags and
     -- \"Tag naming limits and requirements\"; Amazon IVS has no
     -- service-specific constraints beyond what is documented there.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Playback-key-pair name. The value does not need to be unique.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Key-pair ARN.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | Key-pair identifier.
-    fingerprint :: Prelude.Maybe Prelude.Text
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,38 +51,26 @@ data PlaybackKeyPair = PlaybackKeyPair'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'arn', 'playbackKeyPair_arn' - Key-pair ARN.
+--
+-- 'fingerprint', 'playbackKeyPair_fingerprint' - Key-pair identifier.
+--
+-- 'name', 'playbackKeyPair_name' - Playback-key-pair name. The value does not need to be unique.
+--
 -- 'tags', 'playbackKeyPair_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
 -- for more information, including restrictions that apply to tags and
 -- \"Tag naming limits and requirements\"; Amazon IVS has no
 -- service-specific constraints beyond what is documented there.
---
--- 'name', 'playbackKeyPair_name' - Playback-key-pair name. The value does not need to be unique.
---
--- 'arn', 'playbackKeyPair_arn' - Key-pair ARN.
---
--- 'fingerprint', 'playbackKeyPair_fingerprint' - Key-pair identifier.
 newPlaybackKeyPair ::
   PlaybackKeyPair
 newPlaybackKeyPair =
   PlaybackKeyPair'
-    { tags = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      fingerprint = Prelude.Nothing,
       name = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      fingerprint = Prelude.Nothing
+      tags = Prelude.Nothing
     }
-
--- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
--- for more information, including restrictions that apply to tags and
--- \"Tag naming limits and requirements\"; Amazon IVS has no
--- service-specific constraints beyond what is documented there.
-playbackKeyPair_tags :: Lens.Lens' PlaybackKeyPair (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-playbackKeyPair_tags = Lens.lens (\PlaybackKeyPair' {tags} -> tags) (\s@PlaybackKeyPair' {} a -> s {tags = a} :: PlaybackKeyPair) Prelude.. Lens.mapping Lens.coerced
-
--- | Playback-key-pair name. The value does not need to be unique.
-playbackKeyPair_name :: Lens.Lens' PlaybackKeyPair (Prelude.Maybe Prelude.Text)
-playbackKeyPair_name = Lens.lens (\PlaybackKeyPair' {name} -> name) (\s@PlaybackKeyPair' {} a -> s {name = a} :: PlaybackKeyPair)
 
 -- | Key-pair ARN.
 playbackKeyPair_arn :: Lens.Lens' PlaybackKeyPair (Prelude.Maybe Prelude.Text)
@@ -92,28 +80,40 @@ playbackKeyPair_arn = Lens.lens (\PlaybackKeyPair' {arn} -> arn) (\s@PlaybackKey
 playbackKeyPair_fingerprint :: Lens.Lens' PlaybackKeyPair (Prelude.Maybe Prelude.Text)
 playbackKeyPair_fingerprint = Lens.lens (\PlaybackKeyPair' {fingerprint} -> fingerprint) (\s@PlaybackKeyPair' {} a -> s {fingerprint = a} :: PlaybackKeyPair)
 
+-- | Playback-key-pair name. The value does not need to be unique.
+playbackKeyPair_name :: Lens.Lens' PlaybackKeyPair (Prelude.Maybe Prelude.Text)
+playbackKeyPair_name = Lens.lens (\PlaybackKeyPair' {name} -> name) (\s@PlaybackKeyPair' {} a -> s {name = a} :: PlaybackKeyPair)
+
+-- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- for more information, including restrictions that apply to tags and
+-- \"Tag naming limits and requirements\"; Amazon IVS has no
+-- service-specific constraints beyond what is documented there.
+playbackKeyPair_tags :: Lens.Lens' PlaybackKeyPair (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+playbackKeyPair_tags = Lens.lens (\PlaybackKeyPair' {tags} -> tags) (\s@PlaybackKeyPair' {} a -> s {tags = a} :: PlaybackKeyPair) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON PlaybackKeyPair where
   parseJSON =
     Data.withObject
       "PlaybackKeyPair"
       ( \x ->
           PlaybackKeyPair'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "arn")
+            Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "fingerprint")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable PlaybackKeyPair where
   hashWithSalt _salt PlaybackKeyPair' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` fingerprint
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData PlaybackKeyPair where
   rnf PlaybackKeyPair' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf fingerprint
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags

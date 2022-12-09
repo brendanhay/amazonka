@@ -257,8 +257,20 @@ module Amazonka.IVS
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** ChannelNotBroadcasting
+    _ChannelNotBroadcasting,
+
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** InternalServerException
     _InternalServerException,
+
+    -- ** PendingVerification
+    _PendingVerification,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** ServiceQuotaExceededException
     _ServiceQuotaExceededException,
@@ -266,20 +278,8 @@ module Amazonka.IVS
     -- ** StreamUnavailable
     _StreamUnavailable,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** PendingVerification
-    _PendingVerification,
-
-    -- ** ConflictException
-    _ConflictException,
-
     -- ** ThrottlingException
     _ThrottlingException,
-
-    -- ** ChannelNotBroadcasting
-    _ChannelNotBroadcasting,
 
     -- ** ValidationException
     _ValidationException,

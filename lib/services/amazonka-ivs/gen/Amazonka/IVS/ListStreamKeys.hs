@@ -29,8 +29,8 @@ module Amazonka.IVS.ListStreamKeys
     newListStreamKeys,
 
     -- * Request Lenses
-    listStreamKeys_nextToken,
     listStreamKeys_maxResults,
+    listStreamKeys_nextToken,
     listStreamKeys_channelArn,
 
     -- * Destructuring the Response
@@ -54,11 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListStreamKeys' smart constructor.
 data ListStreamKeys = ListStreamKeys'
-  { -- | The first stream key to retrieve. This is used for pagination; see the
+  { -- | Maximum number of streamKeys to return. Default: 1.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The first stream key to retrieve. This is used for pagination; see the
     -- @nextToken@ response field.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of streamKeys to return. Default: 1.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Channel ARN used to filter the list.
     channelArn :: Prelude.Text
   }
@@ -72,10 +72,10 @@ data ListStreamKeys = ListStreamKeys'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listStreamKeys_maxResults' - Maximum number of streamKeys to return. Default: 1.
+--
 -- 'nextToken', 'listStreamKeys_nextToken' - The first stream key to retrieve. This is used for pagination; see the
 -- @nextToken@ response field.
---
--- 'maxResults', 'listStreamKeys_maxResults' - Maximum number of streamKeys to return. Default: 1.
 --
 -- 'channelArn', 'listStreamKeys_channelArn' - Channel ARN used to filter the list.
 newListStreamKeys ::
@@ -84,19 +84,19 @@ newListStreamKeys ::
   ListStreamKeys
 newListStreamKeys pChannelArn_ =
   ListStreamKeys'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       channelArn = pChannelArn_
     }
+
+-- | Maximum number of streamKeys to return. Default: 1.
+listStreamKeys_maxResults :: Lens.Lens' ListStreamKeys (Prelude.Maybe Prelude.Natural)
+listStreamKeys_maxResults = Lens.lens (\ListStreamKeys' {maxResults} -> maxResults) (\s@ListStreamKeys' {} a -> s {maxResults = a} :: ListStreamKeys)
 
 -- | The first stream key to retrieve. This is used for pagination; see the
 -- @nextToken@ response field.
 listStreamKeys_nextToken :: Lens.Lens' ListStreamKeys (Prelude.Maybe Prelude.Text)
 listStreamKeys_nextToken = Lens.lens (\ListStreamKeys' {nextToken} -> nextToken) (\s@ListStreamKeys' {} a -> s {nextToken = a} :: ListStreamKeys)
-
--- | Maximum number of streamKeys to return. Default: 1.
-listStreamKeys_maxResults :: Lens.Lens' ListStreamKeys (Prelude.Maybe Prelude.Natural)
-listStreamKeys_maxResults = Lens.lens (\ListStreamKeys' {maxResults} -> maxResults) (\s@ListStreamKeys' {} a -> s {maxResults = a} :: ListStreamKeys)
 
 -- | Channel ARN used to filter the list.
 listStreamKeys_channelArn :: Lens.Lens' ListStreamKeys Prelude.Text
@@ -137,14 +137,14 @@ instance Core.AWSRequest ListStreamKeys where
 
 instance Prelude.Hashable ListStreamKeys where
   hashWithSalt _salt ListStreamKeys' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` channelArn
 
 instance Prelude.NFData ListStreamKeys where
   rnf ListStreamKeys' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf channelArn
 
 instance Data.ToHeaders ListStreamKeys where
@@ -162,8 +162,8 @@ instance Data.ToJSON ListStreamKeys where
   toJSON ListStreamKeys' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("channelArn" Data..= channelArn)
           ]
       )

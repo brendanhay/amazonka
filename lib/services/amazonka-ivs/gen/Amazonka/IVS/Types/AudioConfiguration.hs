@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAudioConfiguration' smart constructor.
 data AudioConfiguration = AudioConfiguration'
-  { -- | The expected ingest bitrate (bits per second). This is configured in the
-    -- encoder.
-    targetBitrate :: Prelude.Maybe Prelude.Integer,
-    -- | Number of audio channels.
+  { -- | Number of audio channels.
     channels :: Prelude.Maybe Prelude.Integer,
+    -- | Codec used for the audio encoding.
+    codec :: Prelude.Maybe Prelude.Text,
     -- | Number of audio samples recorded per second.
     sampleRate :: Prelude.Maybe Prelude.Integer,
-    -- | Codec used for the audio encoding.
-    codec :: Prelude.Maybe Prelude.Text
+    -- | The expected ingest bitrate (bits per second). This is configured in the
+    -- encoder.
+    targetBitrate :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,41 +50,40 @@ data AudioConfiguration = AudioConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetBitrate', 'audioConfiguration_targetBitrate' - The expected ingest bitrate (bits per second). This is configured in the
--- encoder.
---
 -- 'channels', 'audioConfiguration_channels' - Number of audio channels.
+--
+-- 'codec', 'audioConfiguration_codec' - Codec used for the audio encoding.
 --
 -- 'sampleRate', 'audioConfiguration_sampleRate' - Number of audio samples recorded per second.
 --
--- 'codec', 'audioConfiguration_codec' - Codec used for the audio encoding.
+-- 'targetBitrate', 'audioConfiguration_targetBitrate' - The expected ingest bitrate (bits per second). This is configured in the
+-- encoder.
 newAudioConfiguration ::
   AudioConfiguration
 newAudioConfiguration =
   AudioConfiguration'
-    { targetBitrate =
-        Prelude.Nothing,
-      channels = Prelude.Nothing,
+    { channels = Prelude.Nothing,
+      codec = Prelude.Nothing,
       sampleRate = Prelude.Nothing,
-      codec = Prelude.Nothing
+      targetBitrate = Prelude.Nothing
     }
-
--- | The expected ingest bitrate (bits per second). This is configured in the
--- encoder.
-audioConfiguration_targetBitrate :: Lens.Lens' AudioConfiguration (Prelude.Maybe Prelude.Integer)
-audioConfiguration_targetBitrate = Lens.lens (\AudioConfiguration' {targetBitrate} -> targetBitrate) (\s@AudioConfiguration' {} a -> s {targetBitrate = a} :: AudioConfiguration)
 
 -- | Number of audio channels.
 audioConfiguration_channels :: Lens.Lens' AudioConfiguration (Prelude.Maybe Prelude.Integer)
 audioConfiguration_channels = Lens.lens (\AudioConfiguration' {channels} -> channels) (\s@AudioConfiguration' {} a -> s {channels = a} :: AudioConfiguration)
 
+-- | Codec used for the audio encoding.
+audioConfiguration_codec :: Lens.Lens' AudioConfiguration (Prelude.Maybe Prelude.Text)
+audioConfiguration_codec = Lens.lens (\AudioConfiguration' {codec} -> codec) (\s@AudioConfiguration' {} a -> s {codec = a} :: AudioConfiguration)
+
 -- | Number of audio samples recorded per second.
 audioConfiguration_sampleRate :: Lens.Lens' AudioConfiguration (Prelude.Maybe Prelude.Integer)
 audioConfiguration_sampleRate = Lens.lens (\AudioConfiguration' {sampleRate} -> sampleRate) (\s@AudioConfiguration' {} a -> s {sampleRate = a} :: AudioConfiguration)
 
--- | Codec used for the audio encoding.
-audioConfiguration_codec :: Lens.Lens' AudioConfiguration (Prelude.Maybe Prelude.Text)
-audioConfiguration_codec = Lens.lens (\AudioConfiguration' {codec} -> codec) (\s@AudioConfiguration' {} a -> s {codec = a} :: AudioConfiguration)
+-- | The expected ingest bitrate (bits per second). This is configured in the
+-- encoder.
+audioConfiguration_targetBitrate :: Lens.Lens' AudioConfiguration (Prelude.Maybe Prelude.Integer)
+audioConfiguration_targetBitrate = Lens.lens (\AudioConfiguration' {targetBitrate} -> targetBitrate) (\s@AudioConfiguration' {} a -> s {targetBitrate = a} :: AudioConfiguration)
 
 instance Data.FromJSON AudioConfiguration where
   parseJSON =
@@ -92,22 +91,22 @@ instance Data.FromJSON AudioConfiguration where
       "AudioConfiguration"
       ( \x ->
           AudioConfiguration'
-            Prelude.<$> (x Data..:? "targetBitrate")
-            Prelude.<*> (x Data..:? "channels")
-            Prelude.<*> (x Data..:? "sampleRate")
+            Prelude.<$> (x Data..:? "channels")
             Prelude.<*> (x Data..:? "codec")
+            Prelude.<*> (x Data..:? "sampleRate")
+            Prelude.<*> (x Data..:? "targetBitrate")
       )
 
 instance Prelude.Hashable AudioConfiguration where
   hashWithSalt _salt AudioConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` targetBitrate
-      `Prelude.hashWithSalt` channels
-      `Prelude.hashWithSalt` sampleRate
+    _salt `Prelude.hashWithSalt` channels
       `Prelude.hashWithSalt` codec
+      `Prelude.hashWithSalt` sampleRate
+      `Prelude.hashWithSalt` targetBitrate
 
 instance Prelude.NFData AudioConfiguration where
   rnf AudioConfiguration' {..} =
-    Prelude.rnf targetBitrate
-      `Prelude.seq` Prelude.rnf channels
-      `Prelude.seq` Prelude.rnf sampleRate
+    Prelude.rnf channels
       `Prelude.seq` Prelude.rnf codec
+      `Prelude.seq` Prelude.rnf sampleRate
+      `Prelude.seq` Prelude.rnf targetBitrate

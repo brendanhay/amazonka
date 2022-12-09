@@ -27,12 +27,12 @@ module Amazonka.IVS.CreateChannel
     newCreateChannel,
 
     -- * Request Lenses
-    createChannel_tags,
-    createChannel_name,
-    createChannel_type,
-    createChannel_latencyMode,
     createChannel_authorized,
+    createChannel_latencyMode,
+    createChannel_name,
     createChannel_recordingConfigurationArn,
+    createChannel_tags,
+    createChannel_type,
 
     -- * Destructuring the Response
     CreateChannelResponse (..),
@@ -55,14 +55,25 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateChannel' smart constructor.
 data CreateChannel = CreateChannel'
-  { -- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
+  { -- | Whether the channel is private (enabled for playback authorization).
+    -- Default: @false@.
+    authorized :: Prelude.Maybe Prelude.Bool,
+    -- | Channel latency mode. Use @NORMAL@ to broadcast and deliver live video
+    -- up to Full HD. Use @LOW@ for near-real-time interaction with viewers.
+    -- (Note: In the Amazon IVS console, @LOW@ and @NORMAL@ correspond to
+    -- Ultra-low and Standard, respectively.) Default: @LOW@.
+    latencyMode :: Prelude.Maybe ChannelLatencyMode,
+    -- | Channel name.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Recording-configuration ARN. Default: \"\" (empty string, recording is
+    -- disabled).
+    recordingConfigurationArn :: Prelude.Maybe Prelude.Text,
+    -- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
     -- for more information, including restrictions that apply to tags and
     -- \"Tag naming limits and requirements\"; Amazon IVS has no
     -- service-specific constraints beyond what is documented there.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Channel name.
-    name :: Prelude.Maybe Prelude.Text,
     -- | Channel type, which determines the allowable resolution and bitrate. /If
     -- you exceed the allowable resolution or bitrate, the stream probably will
     -- disconnect immediately./ Default: @STANDARD@. Valid values:
@@ -80,18 +91,7 @@ data CreateChannel = CreateChannel'
     --     original input. Resolution can be up to 1080p and bitrate can be up
     --     to 1.5 Mbps for 480p and up to 3.5 Mbps for resolutions between 480p
     --     and 1080p.
-    type' :: Prelude.Maybe ChannelType,
-    -- | Channel latency mode. Use @NORMAL@ to broadcast and deliver live video
-    -- up to Full HD. Use @LOW@ for near-real-time interaction with viewers.
-    -- (Note: In the Amazon IVS console, @LOW@ and @NORMAL@ correspond to
-    -- Ultra-low and Standard, respectively.) Default: @LOW@.
-    latencyMode :: Prelude.Maybe ChannelLatencyMode,
-    -- | Whether the channel is private (enabled for playback authorization).
-    -- Default: @false@.
-    authorized :: Prelude.Maybe Prelude.Bool,
-    -- | Recording-configuration ARN. Default: \"\" (empty string, recording is
-    -- disabled).
-    recordingConfigurationArn :: Prelude.Maybe Prelude.Text
+    type' :: Prelude.Maybe ChannelType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -103,13 +103,24 @@ data CreateChannel = CreateChannel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'authorized', 'createChannel_authorized' - Whether the channel is private (enabled for playback authorization).
+-- Default: @false@.
+--
+-- 'latencyMode', 'createChannel_latencyMode' - Channel latency mode. Use @NORMAL@ to broadcast and deliver live video
+-- up to Full HD. Use @LOW@ for near-real-time interaction with viewers.
+-- (Note: In the Amazon IVS console, @LOW@ and @NORMAL@ correspond to
+-- Ultra-low and Standard, respectively.) Default: @LOW@.
+--
+-- 'name', 'createChannel_name' - Channel name.
+--
+-- 'recordingConfigurationArn', 'createChannel_recordingConfigurationArn' - Recording-configuration ARN. Default: \"\" (empty string, recording is
+-- disabled).
+--
 -- 'tags', 'createChannel_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
 -- for more information, including restrictions that apply to tags and
 -- \"Tag naming limits and requirements\"; Amazon IVS has no
 -- service-specific constraints beyond what is documented there.
---
--- 'name', 'createChannel_name' - Channel name.
 --
 -- 'type'', 'createChannel_type' - Channel type, which determines the allowable resolution and bitrate. /If
 -- you exceed the allowable resolution or bitrate, the stream probably will
@@ -128,28 +139,38 @@ data CreateChannel = CreateChannel'
 --     original input. Resolution can be up to 1080p and bitrate can be up
 --     to 1.5 Mbps for 480p and up to 3.5 Mbps for resolutions between 480p
 --     and 1080p.
---
--- 'latencyMode', 'createChannel_latencyMode' - Channel latency mode. Use @NORMAL@ to broadcast and deliver live video
--- up to Full HD. Use @LOW@ for near-real-time interaction with viewers.
--- (Note: In the Amazon IVS console, @LOW@ and @NORMAL@ correspond to
--- Ultra-low and Standard, respectively.) Default: @LOW@.
---
--- 'authorized', 'createChannel_authorized' - Whether the channel is private (enabled for playback authorization).
--- Default: @false@.
---
--- 'recordingConfigurationArn', 'createChannel_recordingConfigurationArn' - Recording-configuration ARN. Default: \"\" (empty string, recording is
--- disabled).
 newCreateChannel ::
   CreateChannel
 newCreateChannel =
   CreateChannel'
-    { tags = Prelude.Nothing,
-      name = Prelude.Nothing,
-      type' = Prelude.Nothing,
+    { authorized = Prelude.Nothing,
       latencyMode = Prelude.Nothing,
-      authorized = Prelude.Nothing,
-      recordingConfigurationArn = Prelude.Nothing
+      name = Prelude.Nothing,
+      recordingConfigurationArn = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
+
+-- | Whether the channel is private (enabled for playback authorization).
+-- Default: @false@.
+createChannel_authorized :: Lens.Lens' CreateChannel (Prelude.Maybe Prelude.Bool)
+createChannel_authorized = Lens.lens (\CreateChannel' {authorized} -> authorized) (\s@CreateChannel' {} a -> s {authorized = a} :: CreateChannel)
+
+-- | Channel latency mode. Use @NORMAL@ to broadcast and deliver live video
+-- up to Full HD. Use @LOW@ for near-real-time interaction with viewers.
+-- (Note: In the Amazon IVS console, @LOW@ and @NORMAL@ correspond to
+-- Ultra-low and Standard, respectively.) Default: @LOW@.
+createChannel_latencyMode :: Lens.Lens' CreateChannel (Prelude.Maybe ChannelLatencyMode)
+createChannel_latencyMode = Lens.lens (\CreateChannel' {latencyMode} -> latencyMode) (\s@CreateChannel' {} a -> s {latencyMode = a} :: CreateChannel)
+
+-- | Channel name.
+createChannel_name :: Lens.Lens' CreateChannel (Prelude.Maybe Prelude.Text)
+createChannel_name = Lens.lens (\CreateChannel' {name} -> name) (\s@CreateChannel' {} a -> s {name = a} :: CreateChannel)
+
+-- | Recording-configuration ARN. Default: \"\" (empty string, recording is
+-- disabled).
+createChannel_recordingConfigurationArn :: Lens.Lens' CreateChannel (Prelude.Maybe Prelude.Text)
+createChannel_recordingConfigurationArn = Lens.lens (\CreateChannel' {recordingConfigurationArn} -> recordingConfigurationArn) (\s@CreateChannel' {} a -> s {recordingConfigurationArn = a} :: CreateChannel)
 
 -- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
@@ -158,10 +179,6 @@ newCreateChannel =
 -- service-specific constraints beyond what is documented there.
 createChannel_tags :: Lens.Lens' CreateChannel (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createChannel_tags = Lens.lens (\CreateChannel' {tags} -> tags) (\s@CreateChannel' {} a -> s {tags = a} :: CreateChannel) Prelude.. Lens.mapping Lens.coerced
-
--- | Channel name.
-createChannel_name :: Lens.Lens' CreateChannel (Prelude.Maybe Prelude.Text)
-createChannel_name = Lens.lens (\CreateChannel' {name} -> name) (\s@CreateChannel' {} a -> s {name = a} :: CreateChannel)
 
 -- | Channel type, which determines the allowable resolution and bitrate. /If
 -- you exceed the allowable resolution or bitrate, the stream probably will
@@ -183,23 +200,6 @@ createChannel_name = Lens.lens (\CreateChannel' {name} -> name) (\s@CreateChanne
 createChannel_type :: Lens.Lens' CreateChannel (Prelude.Maybe ChannelType)
 createChannel_type = Lens.lens (\CreateChannel' {type'} -> type') (\s@CreateChannel' {} a -> s {type' = a} :: CreateChannel)
 
--- | Channel latency mode. Use @NORMAL@ to broadcast and deliver live video
--- up to Full HD. Use @LOW@ for near-real-time interaction with viewers.
--- (Note: In the Amazon IVS console, @LOW@ and @NORMAL@ correspond to
--- Ultra-low and Standard, respectively.) Default: @LOW@.
-createChannel_latencyMode :: Lens.Lens' CreateChannel (Prelude.Maybe ChannelLatencyMode)
-createChannel_latencyMode = Lens.lens (\CreateChannel' {latencyMode} -> latencyMode) (\s@CreateChannel' {} a -> s {latencyMode = a} :: CreateChannel)
-
--- | Whether the channel is private (enabled for playback authorization).
--- Default: @false@.
-createChannel_authorized :: Lens.Lens' CreateChannel (Prelude.Maybe Prelude.Bool)
-createChannel_authorized = Lens.lens (\CreateChannel' {authorized} -> authorized) (\s@CreateChannel' {} a -> s {authorized = a} :: CreateChannel)
-
--- | Recording-configuration ARN. Default: \"\" (empty string, recording is
--- disabled).
-createChannel_recordingConfigurationArn :: Lens.Lens' CreateChannel (Prelude.Maybe Prelude.Text)
-createChannel_recordingConfigurationArn = Lens.lens (\CreateChannel' {recordingConfigurationArn} -> recordingConfigurationArn) (\s@CreateChannel' {} a -> s {recordingConfigurationArn = a} :: CreateChannel)
-
 instance Core.AWSRequest CreateChannel where
   type
     AWSResponse CreateChannel =
@@ -217,21 +217,21 @@ instance Core.AWSRequest CreateChannel where
 
 instance Prelude.Hashable CreateChannel where
   hashWithSalt _salt CreateChannel' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` authorized
       `Prelude.hashWithSalt` latencyMode
-      `Prelude.hashWithSalt` authorized
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` recordingConfigurationArn
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData CreateChannel where
   rnf CreateChannel' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf authorized
       `Prelude.seq` Prelude.rnf latencyMode
-      `Prelude.seq` Prelude.rnf authorized
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf recordingConfigurationArn
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf type'
 
 instance Data.ToHeaders CreateChannel where
   toHeaders =
@@ -248,13 +248,13 @@ instance Data.ToJSON CreateChannel where
   toJSON CreateChannel' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("name" Data..=) Prelude.<$> name,
-            ("type" Data..=) Prelude.<$> type',
+          [ ("authorized" Data..=) Prelude.<$> authorized,
             ("latencyMode" Data..=) Prelude.<$> latencyMode,
-            ("authorized" Data..=) Prelude.<$> authorized,
+            ("name" Data..=) Prelude.<$> name,
             ("recordingConfigurationArn" Data..=)
-              Prelude.<$> recordingConfigurationArn
+              Prelude.<$> recordingConfigurationArn,
+            ("tags" Data..=) Prelude.<$> tags,
+            ("type" Data..=) Prelude.<$> type'
           ]
       )
 

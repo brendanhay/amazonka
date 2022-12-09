@@ -28,8 +28,8 @@ module Amazonka.IVS.ListStreamSessions
     newListStreamSessions,
 
     -- * Request Lenses
-    listStreamSessions_nextToken,
     listStreamSessions_maxResults,
+    listStreamSessions_nextToken,
     listStreamSessions_channelArn,
 
     -- * Destructuring the Response
@@ -53,11 +53,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListStreamSessions' smart constructor.
 data ListStreamSessions = ListStreamSessions'
-  { -- | The first stream to retrieve. This is used for pagination; see the
+  { -- | Maximum number of streams to return. Default: 100.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The first stream to retrieve. This is used for pagination; see the
     -- @nextToken@ response field.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of streams to return. Default: 100.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Channel ARN used to filter the list.
     channelArn :: Prelude.Text
   }
@@ -71,10 +71,10 @@ data ListStreamSessions = ListStreamSessions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listStreamSessions_maxResults' - Maximum number of streams to return. Default: 100.
+--
 -- 'nextToken', 'listStreamSessions_nextToken' - The first stream to retrieve. This is used for pagination; see the
 -- @nextToken@ response field.
---
--- 'maxResults', 'listStreamSessions_maxResults' - Maximum number of streams to return. Default: 100.
 --
 -- 'channelArn', 'listStreamSessions_channelArn' - Channel ARN used to filter the list.
 newListStreamSessions ::
@@ -83,19 +83,19 @@ newListStreamSessions ::
   ListStreamSessions
 newListStreamSessions pChannelArn_ =
   ListStreamSessions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       channelArn = pChannelArn_
     }
+
+-- | Maximum number of streams to return. Default: 100.
+listStreamSessions_maxResults :: Lens.Lens' ListStreamSessions (Prelude.Maybe Prelude.Natural)
+listStreamSessions_maxResults = Lens.lens (\ListStreamSessions' {maxResults} -> maxResults) (\s@ListStreamSessions' {} a -> s {maxResults = a} :: ListStreamSessions)
 
 -- | The first stream to retrieve. This is used for pagination; see the
 -- @nextToken@ response field.
 listStreamSessions_nextToken :: Lens.Lens' ListStreamSessions (Prelude.Maybe Prelude.Text)
 listStreamSessions_nextToken = Lens.lens (\ListStreamSessions' {nextToken} -> nextToken) (\s@ListStreamSessions' {} a -> s {nextToken = a} :: ListStreamSessions)
-
--- | Maximum number of streams to return. Default: 100.
-listStreamSessions_maxResults :: Lens.Lens' ListStreamSessions (Prelude.Maybe Prelude.Natural)
-listStreamSessions_maxResults = Lens.lens (\ListStreamSessions' {maxResults} -> maxResults) (\s@ListStreamSessions' {} a -> s {maxResults = a} :: ListStreamSessions)
 
 -- | Channel ARN used to filter the list.
 listStreamSessions_channelArn :: Lens.Lens' ListStreamSessions Prelude.Text
@@ -120,14 +120,14 @@ instance Core.AWSRequest ListStreamSessions where
 
 instance Prelude.Hashable ListStreamSessions where
   hashWithSalt _salt ListStreamSessions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` channelArn
 
 instance Prelude.NFData ListStreamSessions where
   rnf ListStreamSessions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf channelArn
 
 instance Data.ToHeaders ListStreamSessions where
@@ -145,8 +145,8 @@ instance Data.ToJSON ListStreamSessions where
   toJSON ListStreamSessions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("channelArn" Data..= channelArn)
           ]
       )

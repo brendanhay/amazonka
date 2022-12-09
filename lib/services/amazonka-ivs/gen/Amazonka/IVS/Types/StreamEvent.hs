@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStreamEvent' smart constructor.
 data StreamEvent = StreamEvent'
-  { -- | Name that identifies the stream event within a @type@.
+  { -- | Time when the event occurred. This is an ISO 8601 timestamp; /note that
+    -- this is returned as a string/.
+    eventTime :: Prelude.Maybe Data.POSIX,
+    -- | Name that identifies the stream event within a @type@.
     name :: Prelude.Maybe Prelude.Text,
     -- | Logical group for certain events.
-    type' :: Prelude.Maybe Prelude.Text,
-    -- | Time when the event occurred. This is an ISO 8601 timestamp; /note that
-    -- this is returned as a string/.
-    eventTime :: Prelude.Maybe Data.POSIX
+    type' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,20 +47,25 @@ data StreamEvent = StreamEvent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'eventTime', 'streamEvent_eventTime' - Time when the event occurred. This is an ISO 8601 timestamp; /note that
+-- this is returned as a string/.
+--
 -- 'name', 'streamEvent_name' - Name that identifies the stream event within a @type@.
 --
 -- 'type'', 'streamEvent_type' - Logical group for certain events.
---
--- 'eventTime', 'streamEvent_eventTime' - Time when the event occurred. This is an ISO 8601 timestamp; /note that
--- this is returned as a string/.
 newStreamEvent ::
   StreamEvent
 newStreamEvent =
   StreamEvent'
-    { name = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      eventTime = Prelude.Nothing
+    { eventTime = Prelude.Nothing,
+      name = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
+
+-- | Time when the event occurred. This is an ISO 8601 timestamp; /note that
+-- this is returned as a string/.
+streamEvent_eventTime :: Lens.Lens' StreamEvent (Prelude.Maybe Prelude.UTCTime)
+streamEvent_eventTime = Lens.lens (\StreamEvent' {eventTime} -> eventTime) (\s@StreamEvent' {} a -> s {eventTime = a} :: StreamEvent) Prelude.. Lens.mapping Data._Time
 
 -- | Name that identifies the stream event within a @type@.
 streamEvent_name :: Lens.Lens' StreamEvent (Prelude.Maybe Prelude.Text)
@@ -70,30 +75,25 @@ streamEvent_name = Lens.lens (\StreamEvent' {name} -> name) (\s@StreamEvent' {} 
 streamEvent_type :: Lens.Lens' StreamEvent (Prelude.Maybe Prelude.Text)
 streamEvent_type = Lens.lens (\StreamEvent' {type'} -> type') (\s@StreamEvent' {} a -> s {type' = a} :: StreamEvent)
 
--- | Time when the event occurred. This is an ISO 8601 timestamp; /note that
--- this is returned as a string/.
-streamEvent_eventTime :: Lens.Lens' StreamEvent (Prelude.Maybe Prelude.UTCTime)
-streamEvent_eventTime = Lens.lens (\StreamEvent' {eventTime} -> eventTime) (\s@StreamEvent' {} a -> s {eventTime = a} :: StreamEvent) Prelude.. Lens.mapping Data._Time
-
 instance Data.FromJSON StreamEvent where
   parseJSON =
     Data.withObject
       "StreamEvent"
       ( \x ->
           StreamEvent'
-            Prelude.<$> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "eventTime")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "type")
-            Prelude.<*> (x Data..:? "eventTime")
       )
 
 instance Prelude.Hashable StreamEvent where
   hashWithSalt _salt StreamEvent' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` eventTime
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` eventTime
 
 instance Prelude.NFData StreamEvent where
   rnf StreamEvent' {..} =
-    Prelude.rnf name
+    Prelude.rnf eventTime
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf eventTime

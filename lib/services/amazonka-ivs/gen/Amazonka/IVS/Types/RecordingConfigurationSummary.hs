@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecordingConfigurationSummary' smart constructor.
 data RecordingConfigurationSummary = RecordingConfigurationSummary'
-  { -- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
+  { -- | Recording-configuration name. The value does not need to be unique.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
     -- for more information, including restrictions that apply to tags and
     -- \"Tag naming limits and requirements\"; Amazon IVS has no
     -- service-specific constraints beyond what is documented there.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Recording-configuration name. The value does not need to be unique.
-    name :: Prelude.Maybe Prelude.Text,
     -- | Recording-configuration ARN.
     arn :: Prelude.Text,
     -- | A complex type that contains information about where recorded video will
@@ -58,13 +58,13 @@ data RecordingConfigurationSummary = RecordingConfigurationSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'recordingConfigurationSummary_name' - Recording-configuration name. The value does not need to be unique.
+--
 -- 'tags', 'recordingConfigurationSummary_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
 -- for more information, including restrictions that apply to tags and
 -- \"Tag naming limits and requirements\"; Amazon IVS has no
 -- service-specific constraints beyond what is documented there.
---
--- 'name', 'recordingConfigurationSummary_name' - Recording-configuration name. The value does not need to be unique.
 --
 -- 'arn', 'recordingConfigurationSummary_arn' - Recording-configuration ARN.
 --
@@ -87,14 +87,18 @@ newRecordingConfigurationSummary
   pDestinationConfiguration_
   pState_ =
     RecordingConfigurationSummary'
-      { tags =
+      { name =
           Prelude.Nothing,
-        name = Prelude.Nothing,
+        tags = Prelude.Nothing,
         arn = pArn_,
         destinationConfiguration =
           pDestinationConfiguration_,
         state = pState_
       }
+
+-- | Recording-configuration name. The value does not need to be unique.
+recordingConfigurationSummary_name :: Lens.Lens' RecordingConfigurationSummary (Prelude.Maybe Prelude.Text)
+recordingConfigurationSummary_name = Lens.lens (\RecordingConfigurationSummary' {name} -> name) (\s@RecordingConfigurationSummary' {} a -> s {name = a} :: RecordingConfigurationSummary)
 
 -- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
@@ -103,10 +107,6 @@ newRecordingConfigurationSummary
 -- service-specific constraints beyond what is documented there.
 recordingConfigurationSummary_tags :: Lens.Lens' RecordingConfigurationSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 recordingConfigurationSummary_tags = Lens.lens (\RecordingConfigurationSummary' {tags} -> tags) (\s@RecordingConfigurationSummary' {} a -> s {tags = a} :: RecordingConfigurationSummary) Prelude.. Lens.mapping Lens.coerced
-
--- | Recording-configuration name. The value does not need to be unique.
-recordingConfigurationSummary_name :: Lens.Lens' RecordingConfigurationSummary (Prelude.Maybe Prelude.Text)
-recordingConfigurationSummary_name = Lens.lens (\RecordingConfigurationSummary' {name} -> name) (\s@RecordingConfigurationSummary' {} a -> s {name = a} :: RecordingConfigurationSummary)
 
 -- | Recording-configuration ARN.
 recordingConfigurationSummary_arn :: Lens.Lens' RecordingConfigurationSummary Prelude.Text
@@ -129,8 +129,8 @@ instance Data.FromJSON RecordingConfigurationSummary where
       "RecordingConfigurationSummary"
       ( \x ->
           RecordingConfigurationSummary'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "arn")
             Prelude.<*> (x Data..: "destinationConfiguration")
             Prelude.<*> (x Data..: "state")
@@ -141,16 +141,16 @@ instance
     RecordingConfigurationSummary
   where
   hashWithSalt _salt RecordingConfigurationSummary' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` destinationConfiguration
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData RecordingConfigurationSummary where
   rnf RecordingConfigurationSummary' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf destinationConfiguration
       `Prelude.seq` Prelude.rnf state

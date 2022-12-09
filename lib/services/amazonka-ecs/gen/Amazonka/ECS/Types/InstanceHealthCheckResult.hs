@@ -31,16 +31,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceHealthCheckResult' smart constructor.
 data InstanceHealthCheckResult = InstanceHealthCheckResult'
-  { -- | The type of container instance health status that was verified.
-    type' :: Prelude.Maybe InstanceHealthCheckType,
-    -- | The container instance health status.
-    status :: Prelude.Maybe InstanceHealthCheckState,
-    -- | The Unix timestamp for when the container instance health status last
+  { -- | The Unix timestamp for when the container instance health status last
     -- changed.
     lastStatusChange :: Prelude.Maybe Data.POSIX,
     -- | The Unix timestamp for when the container instance health status was
     -- last updated.
-    lastUpdated :: Prelude.Maybe Data.POSIX
+    lastUpdated :: Prelude.Maybe Data.POSIX,
+    -- | The container instance health status.
+    status :: Prelude.Maybe InstanceHealthCheckState,
+    -- | The type of container instance health status that was verified.
+    type' :: Prelude.Maybe InstanceHealthCheckType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,32 +52,25 @@ data InstanceHealthCheckResult = InstanceHealthCheckResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'instanceHealthCheckResult_type' - The type of container instance health status that was verified.
---
--- 'status', 'instanceHealthCheckResult_status' - The container instance health status.
---
 -- 'lastStatusChange', 'instanceHealthCheckResult_lastStatusChange' - The Unix timestamp for when the container instance health status last
 -- changed.
 --
 -- 'lastUpdated', 'instanceHealthCheckResult_lastUpdated' - The Unix timestamp for when the container instance health status was
 -- last updated.
+--
+-- 'status', 'instanceHealthCheckResult_status' - The container instance health status.
+--
+-- 'type'', 'instanceHealthCheckResult_type' - The type of container instance health status that was verified.
 newInstanceHealthCheckResult ::
   InstanceHealthCheckResult
 newInstanceHealthCheckResult =
   InstanceHealthCheckResult'
-    { type' = Prelude.Nothing,
+    { lastStatusChange =
+        Prelude.Nothing,
+      lastUpdated = Prelude.Nothing,
       status = Prelude.Nothing,
-      lastStatusChange = Prelude.Nothing,
-      lastUpdated = Prelude.Nothing
+      type' = Prelude.Nothing
     }
-
--- | The type of container instance health status that was verified.
-instanceHealthCheckResult_type :: Lens.Lens' InstanceHealthCheckResult (Prelude.Maybe InstanceHealthCheckType)
-instanceHealthCheckResult_type = Lens.lens (\InstanceHealthCheckResult' {type'} -> type') (\s@InstanceHealthCheckResult' {} a -> s {type' = a} :: InstanceHealthCheckResult)
-
--- | The container instance health status.
-instanceHealthCheckResult_status :: Lens.Lens' InstanceHealthCheckResult (Prelude.Maybe InstanceHealthCheckState)
-instanceHealthCheckResult_status = Lens.lens (\InstanceHealthCheckResult' {status} -> status) (\s@InstanceHealthCheckResult' {} a -> s {status = a} :: InstanceHealthCheckResult)
 
 -- | The Unix timestamp for when the container instance health status last
 -- changed.
@@ -89,28 +82,36 @@ instanceHealthCheckResult_lastStatusChange = Lens.lens (\InstanceHealthCheckResu
 instanceHealthCheckResult_lastUpdated :: Lens.Lens' InstanceHealthCheckResult (Prelude.Maybe Prelude.UTCTime)
 instanceHealthCheckResult_lastUpdated = Lens.lens (\InstanceHealthCheckResult' {lastUpdated} -> lastUpdated) (\s@InstanceHealthCheckResult' {} a -> s {lastUpdated = a} :: InstanceHealthCheckResult) Prelude.. Lens.mapping Data._Time
 
+-- | The container instance health status.
+instanceHealthCheckResult_status :: Lens.Lens' InstanceHealthCheckResult (Prelude.Maybe InstanceHealthCheckState)
+instanceHealthCheckResult_status = Lens.lens (\InstanceHealthCheckResult' {status} -> status) (\s@InstanceHealthCheckResult' {} a -> s {status = a} :: InstanceHealthCheckResult)
+
+-- | The type of container instance health status that was verified.
+instanceHealthCheckResult_type :: Lens.Lens' InstanceHealthCheckResult (Prelude.Maybe InstanceHealthCheckType)
+instanceHealthCheckResult_type = Lens.lens (\InstanceHealthCheckResult' {type'} -> type') (\s@InstanceHealthCheckResult' {} a -> s {type' = a} :: InstanceHealthCheckResult)
+
 instance Data.FromJSON InstanceHealthCheckResult where
   parseJSON =
     Data.withObject
       "InstanceHealthCheckResult"
       ( \x ->
           InstanceHealthCheckResult'
-            Prelude.<$> (x Data..:? "type")
-            Prelude.<*> (x Data..:? "status")
-            Prelude.<*> (x Data..:? "lastStatusChange")
+            Prelude.<$> (x Data..:? "lastStatusChange")
             Prelude.<*> (x Data..:? "lastUpdated")
+            Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "type")
       )
 
 instance Prelude.Hashable InstanceHealthCheckResult where
   hashWithSalt _salt InstanceHealthCheckResult' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` lastStatusChange
+    _salt `Prelude.hashWithSalt` lastStatusChange
       `Prelude.hashWithSalt` lastUpdated
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData InstanceHealthCheckResult where
   rnf InstanceHealthCheckResult' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf lastStatusChange
+    Prelude.rnf lastStatusChange
       `Prelude.seq` Prelude.rnf lastUpdated
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf type'

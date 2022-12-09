@@ -44,7 +44,7 @@ data Attribute = Attribute'
     -- characters. It can contain letters (uppercase and lowercase), numbers,
     -- hyphens (-), underscores (_), periods (.), at signs (\@), forward
     -- slashes (\/), back slashes (\\), colons (:), or spaces. The value can\'t
-    -- can\'t start or end with a space.
+    -- start or end with a space.
     value :: Prelude.Maybe Prelude.Text,
     -- | The name of the attribute. The @name@ must contain between 1 and 128
     -- characters. The name may contain letters (uppercase and lowercase),
@@ -73,7 +73,7 @@ data Attribute = Attribute'
 -- characters. It can contain letters (uppercase and lowercase), numbers,
 -- hyphens (-), underscores (_), periods (.), at signs (\@), forward
 -- slashes (\/), back slashes (\\), colons (:), or spaces. The value can\'t
--- can\'t start or end with a space.
+-- start or end with a space.
 --
 -- 'name', 'attribute_name' - The name of the attribute. The @name@ must contain between 1 and 128
 -- characters. The name may contain letters (uppercase and lowercase),
@@ -106,7 +106,7 @@ attribute_targetType = Lens.lens (\Attribute' {targetType} -> targetType) (\s@At
 -- characters. It can contain letters (uppercase and lowercase), numbers,
 -- hyphens (-), underscores (_), periods (.), at signs (\@), forward
 -- slashes (\/), back slashes (\\), colons (:), or spaces. The value can\'t
--- can\'t start or end with a space.
+-- start or end with a space.
 attribute_value :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
 attribute_value = Lens.lens (\Attribute' {value} -> value) (\s@Attribute' {} a -> s {value = a} :: Attribute)
 

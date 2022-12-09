@@ -36,19 +36,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newKernelCapabilities' smart constructor.
 data KernelCapabilities = KernelCapabilities'
-  { -- | The Linux capabilities for the container that have been removed from the
-    -- default configuration provided by Docker. This parameter maps to
-    -- @CapDrop@ in the
-    -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
-    -- section of the
-    -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
-    -- @--cap-drop@ option to
-    -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
-    --
-    -- Valid values:
-    -- @\"ALL\" | \"AUDIT_CONTROL\" | \"AUDIT_WRITE\" | \"BLOCK_SUSPEND\" | \"CHOWN\" | \"DAC_OVERRIDE\" | \"DAC_READ_SEARCH\" | \"FOWNER\" | \"FSETID\" | \"IPC_LOCK\" | \"IPC_OWNER\" | \"KILL\" | \"LEASE\" | \"LINUX_IMMUTABLE\" | \"MAC_ADMIN\" | \"MAC_OVERRIDE\" | \"MKNOD\" | \"NET_ADMIN\" | \"NET_BIND_SERVICE\" | \"NET_BROADCAST\" | \"NET_RAW\" | \"SETFCAP\" | \"SETGID\" | \"SETPCAP\" | \"SETUID\" | \"SYS_ADMIN\" | \"SYS_BOOT\" | \"SYS_CHROOT\" | \"SYS_MODULE\" | \"SYS_NICE\" | \"SYS_PACCT\" | \"SYS_PTRACE\" | \"SYS_RAWIO\" | \"SYS_RESOURCE\" | \"SYS_TIME\" | \"SYS_TTY_CONFIG\" | \"SYSLOG\" | \"WAKE_ALARM\"@
-    drop :: Prelude.Maybe [Prelude.Text],
-    -- | The Linux capabilities for the container that have been added to the
+  { -- | The Linux capabilities for the container that have been added to the
     -- default configuration provided by Docker. This parameter maps to
     -- @CapAdd@ in the
     -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
@@ -62,7 +50,19 @@ data KernelCapabilities = KernelCapabilities'
     --
     -- Valid values:
     -- @\"ALL\" | \"AUDIT_CONTROL\" | \"AUDIT_WRITE\" | \"BLOCK_SUSPEND\" | \"CHOWN\" | \"DAC_OVERRIDE\" | \"DAC_READ_SEARCH\" | \"FOWNER\" | \"FSETID\" | \"IPC_LOCK\" | \"IPC_OWNER\" | \"KILL\" | \"LEASE\" | \"LINUX_IMMUTABLE\" | \"MAC_ADMIN\" | \"MAC_OVERRIDE\" | \"MKNOD\" | \"NET_ADMIN\" | \"NET_BIND_SERVICE\" | \"NET_BROADCAST\" | \"NET_RAW\" | \"SETFCAP\" | \"SETGID\" | \"SETPCAP\" | \"SETUID\" | \"SYS_ADMIN\" | \"SYS_BOOT\" | \"SYS_CHROOT\" | \"SYS_MODULE\" | \"SYS_NICE\" | \"SYS_PACCT\" | \"SYS_PTRACE\" | \"SYS_RAWIO\" | \"SYS_RESOURCE\" | \"SYS_TIME\" | \"SYS_TTY_CONFIG\" | \"SYSLOG\" | \"WAKE_ALARM\"@
-    add :: Prelude.Maybe [Prelude.Text]
+    add :: Prelude.Maybe [Prelude.Text],
+    -- | The Linux capabilities for the container that have been removed from the
+    -- default configuration provided by Docker. This parameter maps to
+    -- @CapDrop@ in the
+    -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
+    -- section of the
+    -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
+    -- @--cap-drop@ option to
+    -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
+    --
+    -- Valid values:
+    -- @\"ALL\" | \"AUDIT_CONTROL\" | \"AUDIT_WRITE\" | \"BLOCK_SUSPEND\" | \"CHOWN\" | \"DAC_OVERRIDE\" | \"DAC_READ_SEARCH\" | \"FOWNER\" | \"FSETID\" | \"IPC_LOCK\" | \"IPC_OWNER\" | \"KILL\" | \"LEASE\" | \"LINUX_IMMUTABLE\" | \"MAC_ADMIN\" | \"MAC_OVERRIDE\" | \"MKNOD\" | \"NET_ADMIN\" | \"NET_BIND_SERVICE\" | \"NET_BROADCAST\" | \"NET_RAW\" | \"SETFCAP\" | \"SETGID\" | \"SETPCAP\" | \"SETUID\" | \"SYS_ADMIN\" | \"SYS_BOOT\" | \"SYS_CHROOT\" | \"SYS_MODULE\" | \"SYS_NICE\" | \"SYS_PACCT\" | \"SYS_PTRACE\" | \"SYS_RAWIO\" | \"SYS_RESOURCE\" | \"SYS_TIME\" | \"SYS_TTY_CONFIG\" | \"SYSLOG\" | \"WAKE_ALARM\"@
+    drop :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,18 +73,6 @@ data KernelCapabilities = KernelCapabilities'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'drop', 'kernelCapabilities_drop' - The Linux capabilities for the container that have been removed from the
--- default configuration provided by Docker. This parameter maps to
--- @CapDrop@ in the
--- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
--- section of the
--- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
--- @--cap-drop@ option to
--- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
---
--- Valid values:
--- @\"ALL\" | \"AUDIT_CONTROL\" | \"AUDIT_WRITE\" | \"BLOCK_SUSPEND\" | \"CHOWN\" | \"DAC_OVERRIDE\" | \"DAC_READ_SEARCH\" | \"FOWNER\" | \"FSETID\" | \"IPC_LOCK\" | \"IPC_OWNER\" | \"KILL\" | \"LEASE\" | \"LINUX_IMMUTABLE\" | \"MAC_ADMIN\" | \"MAC_OVERRIDE\" | \"MKNOD\" | \"NET_ADMIN\" | \"NET_BIND_SERVICE\" | \"NET_BROADCAST\" | \"NET_RAW\" | \"SETFCAP\" | \"SETGID\" | \"SETPCAP\" | \"SETUID\" | \"SYS_ADMIN\" | \"SYS_BOOT\" | \"SYS_CHROOT\" | \"SYS_MODULE\" | \"SYS_NICE\" | \"SYS_PACCT\" | \"SYS_PTRACE\" | \"SYS_RAWIO\" | \"SYS_RESOURCE\" | \"SYS_TIME\" | \"SYS_TTY_CONFIG\" | \"SYSLOG\" | \"WAKE_ALARM\"@
 --
 -- 'add', 'kernelCapabilities_add' - The Linux capabilities for the container that have been added to the
 -- default configuration provided by Docker. This parameter maps to
@@ -100,15 +88,8 @@ data KernelCapabilities = KernelCapabilities'
 --
 -- Valid values:
 -- @\"ALL\" | \"AUDIT_CONTROL\" | \"AUDIT_WRITE\" | \"BLOCK_SUSPEND\" | \"CHOWN\" | \"DAC_OVERRIDE\" | \"DAC_READ_SEARCH\" | \"FOWNER\" | \"FSETID\" | \"IPC_LOCK\" | \"IPC_OWNER\" | \"KILL\" | \"LEASE\" | \"LINUX_IMMUTABLE\" | \"MAC_ADMIN\" | \"MAC_OVERRIDE\" | \"MKNOD\" | \"NET_ADMIN\" | \"NET_BIND_SERVICE\" | \"NET_BROADCAST\" | \"NET_RAW\" | \"SETFCAP\" | \"SETGID\" | \"SETPCAP\" | \"SETUID\" | \"SYS_ADMIN\" | \"SYS_BOOT\" | \"SYS_CHROOT\" | \"SYS_MODULE\" | \"SYS_NICE\" | \"SYS_PACCT\" | \"SYS_PTRACE\" | \"SYS_RAWIO\" | \"SYS_RESOURCE\" | \"SYS_TIME\" | \"SYS_TTY_CONFIG\" | \"SYSLOG\" | \"WAKE_ALARM\"@
-newKernelCapabilities ::
-  KernelCapabilities
-newKernelCapabilities =
-  KernelCapabilities'
-    { drop = Prelude.Nothing,
-      add = Prelude.Nothing
-    }
-
--- | The Linux capabilities for the container that have been removed from the
+--
+-- 'drop', 'kernelCapabilities_drop' - The Linux capabilities for the container that have been removed from the
 -- default configuration provided by Docker. This parameter maps to
 -- @CapDrop@ in the
 -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
@@ -119,8 +100,13 @@ newKernelCapabilities =
 --
 -- Valid values:
 -- @\"ALL\" | \"AUDIT_CONTROL\" | \"AUDIT_WRITE\" | \"BLOCK_SUSPEND\" | \"CHOWN\" | \"DAC_OVERRIDE\" | \"DAC_READ_SEARCH\" | \"FOWNER\" | \"FSETID\" | \"IPC_LOCK\" | \"IPC_OWNER\" | \"KILL\" | \"LEASE\" | \"LINUX_IMMUTABLE\" | \"MAC_ADMIN\" | \"MAC_OVERRIDE\" | \"MKNOD\" | \"NET_ADMIN\" | \"NET_BIND_SERVICE\" | \"NET_BROADCAST\" | \"NET_RAW\" | \"SETFCAP\" | \"SETGID\" | \"SETPCAP\" | \"SETUID\" | \"SYS_ADMIN\" | \"SYS_BOOT\" | \"SYS_CHROOT\" | \"SYS_MODULE\" | \"SYS_NICE\" | \"SYS_PACCT\" | \"SYS_PTRACE\" | \"SYS_RAWIO\" | \"SYS_RESOURCE\" | \"SYS_TIME\" | \"SYS_TTY_CONFIG\" | \"SYSLOG\" | \"WAKE_ALARM\"@
-kernelCapabilities_drop :: Lens.Lens' KernelCapabilities (Prelude.Maybe [Prelude.Text])
-kernelCapabilities_drop = Lens.lens (\KernelCapabilities' {drop} -> drop) (\s@KernelCapabilities' {} a -> s {drop = a} :: KernelCapabilities) Prelude.. Lens.mapping Lens.coerced
+newKernelCapabilities ::
+  KernelCapabilities
+newKernelCapabilities =
+  KernelCapabilities'
+    { add = Prelude.Nothing,
+      drop = Prelude.Nothing
+    }
 
 -- | The Linux capabilities for the container that have been added to the
 -- default configuration provided by Docker. This parameter maps to
@@ -139,30 +125,44 @@ kernelCapabilities_drop = Lens.lens (\KernelCapabilities' {drop} -> drop) (\s@Ke
 kernelCapabilities_add :: Lens.Lens' KernelCapabilities (Prelude.Maybe [Prelude.Text])
 kernelCapabilities_add = Lens.lens (\KernelCapabilities' {add} -> add) (\s@KernelCapabilities' {} a -> s {add = a} :: KernelCapabilities) Prelude.. Lens.mapping Lens.coerced
 
+-- | The Linux capabilities for the container that have been removed from the
+-- default configuration provided by Docker. This parameter maps to
+-- @CapDrop@ in the
+-- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
+-- section of the
+-- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
+-- @--cap-drop@ option to
+-- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
+--
+-- Valid values:
+-- @\"ALL\" | \"AUDIT_CONTROL\" | \"AUDIT_WRITE\" | \"BLOCK_SUSPEND\" | \"CHOWN\" | \"DAC_OVERRIDE\" | \"DAC_READ_SEARCH\" | \"FOWNER\" | \"FSETID\" | \"IPC_LOCK\" | \"IPC_OWNER\" | \"KILL\" | \"LEASE\" | \"LINUX_IMMUTABLE\" | \"MAC_ADMIN\" | \"MAC_OVERRIDE\" | \"MKNOD\" | \"NET_ADMIN\" | \"NET_BIND_SERVICE\" | \"NET_BROADCAST\" | \"NET_RAW\" | \"SETFCAP\" | \"SETGID\" | \"SETPCAP\" | \"SETUID\" | \"SYS_ADMIN\" | \"SYS_BOOT\" | \"SYS_CHROOT\" | \"SYS_MODULE\" | \"SYS_NICE\" | \"SYS_PACCT\" | \"SYS_PTRACE\" | \"SYS_RAWIO\" | \"SYS_RESOURCE\" | \"SYS_TIME\" | \"SYS_TTY_CONFIG\" | \"SYSLOG\" | \"WAKE_ALARM\"@
+kernelCapabilities_drop :: Lens.Lens' KernelCapabilities (Prelude.Maybe [Prelude.Text])
+kernelCapabilities_drop = Lens.lens (\KernelCapabilities' {drop} -> drop) (\s@KernelCapabilities' {} a -> s {drop = a} :: KernelCapabilities) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON KernelCapabilities where
   parseJSON =
     Data.withObject
       "KernelCapabilities"
       ( \x ->
           KernelCapabilities'
-            Prelude.<$> (x Data..:? "drop" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "add" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "add" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "drop" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable KernelCapabilities where
   hashWithSalt _salt KernelCapabilities' {..} =
-    _salt `Prelude.hashWithSalt` drop
-      `Prelude.hashWithSalt` add
+    _salt `Prelude.hashWithSalt` add
+      `Prelude.hashWithSalt` drop
 
 instance Prelude.NFData KernelCapabilities where
   rnf KernelCapabilities' {..} =
-    Prelude.rnf drop `Prelude.seq` Prelude.rnf add
+    Prelude.rnf add `Prelude.seq` Prelude.rnf drop
 
 instance Data.ToJSON KernelCapabilities where
   toJSON KernelCapabilities' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("drop" Data..=) Prelude.<$> drop,
-            ("add" Data..=) Prelude.<$> add
+          [ ("add" Data..=) Prelude.<$> add,
+            ("drop" Data..=) Prelude.<$> drop
           ]
       )

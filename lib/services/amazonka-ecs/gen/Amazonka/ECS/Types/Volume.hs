@@ -40,13 +40,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVolume' smart constructor.
 data Volume = Volume'
-  { -- | This parameter is specified when you use an Amazon Elastic File System
+  { -- | This parameter is specified when you use Docker volumes.
+    --
+    -- Windows containers only support the use of the @local@ driver. To use
+    -- bind mounts, specify the @host@ parameter instead.
+    --
+    -- Docker volumes aren\'t supported by tasks run on Fargate.
+    dockerVolumeConfiguration :: Prelude.Maybe DockerVolumeConfiguration,
+    -- | This parameter is specified when you use an Amazon Elastic File System
     -- file system for task storage.
     efsVolumeConfiguration :: Prelude.Maybe EFSVolumeConfiguration,
-    -- | The name of the volume. Up to 255 letters (uppercase and lowercase),
-    -- numbers, underscores, and hyphens are allowed. This name is referenced
-    -- in the @sourceVolume@ parameter of container definition @mountPoints@.
-    name :: Prelude.Maybe Prelude.Text,
+    -- | This parameter is specified when you use Amazon FSx for Windows File
+    -- Server file system for task storage.
+    fsxWindowsFileServerVolumeConfiguration :: Prelude.Maybe FSxWindowsFileServerVolumeConfiguration,
     -- | This parameter is specified when you use bind mount host volumes. The
     -- contents of the @host@ parameter determine whether your bind mount host
     -- volume persists on the host container instance and where it\'s stored.
@@ -60,16 +66,10 @@ data Volume = Volume'
     -- you can mount @C:\\my\\path:C:\\my\\path@ and @D:\\:D:\\@, but not
     -- @D:\\my\\path:C:\\my\\path@ or @D:\\:C:\\my\\path@.
     host :: Prelude.Maybe HostVolumeProperties,
-    -- | This parameter is specified when you use Docker volumes.
-    --
-    -- Windows containers only support the use of the @local@ driver. To use
-    -- bind mounts, specify the @host@ parameter instead.
-    --
-    -- Docker volumes aren\'t supported by tasks run on Fargate.
-    dockerVolumeConfiguration :: Prelude.Maybe DockerVolumeConfiguration,
-    -- | This parameter is specified when you use Amazon FSx for Windows File
-    -- Server file system for task storage.
-    fsxWindowsFileServerVolumeConfiguration :: Prelude.Maybe FSxWindowsFileServerVolumeConfiguration
+    -- | The name of the volume. Up to 255 letters (uppercase and lowercase),
+    -- numbers, underscores, and hyphens are allowed. This name is referenced
+    -- in the @sourceVolume@ parameter of container definition @mountPoints@.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,12 +81,18 @@ data Volume = Volume'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dockerVolumeConfiguration', 'volume_dockerVolumeConfiguration' - This parameter is specified when you use Docker volumes.
+--
+-- Windows containers only support the use of the @local@ driver. To use
+-- bind mounts, specify the @host@ parameter instead.
+--
+-- Docker volumes aren\'t supported by tasks run on Fargate.
+--
 -- 'efsVolumeConfiguration', 'volume_efsVolumeConfiguration' - This parameter is specified when you use an Amazon Elastic File System
 -- file system for task storage.
 --
--- 'name', 'volume_name' - The name of the volume. Up to 255 letters (uppercase and lowercase),
--- numbers, underscores, and hyphens are allowed. This name is referenced
--- in the @sourceVolume@ parameter of container definition @mountPoints@.
+-- 'fsxWindowsFileServerVolumeConfiguration', 'volume_fsxWindowsFileServerVolumeConfiguration' - This parameter is specified when you use Amazon FSx for Windows File
+-- Server file system for task storage.
 --
 -- 'host', 'volume_host' - This parameter is specified when you use bind mount host volumes. The
 -- contents of the @host@ parameter determine whether your bind mount host
@@ -101,37 +107,40 @@ data Volume = Volume'
 -- you can mount @C:\\my\\path:C:\\my\\path@ and @D:\\:D:\\@, but not
 -- @D:\\my\\path:C:\\my\\path@ or @D:\\:C:\\my\\path@.
 --
--- 'dockerVolumeConfiguration', 'volume_dockerVolumeConfiguration' - This parameter is specified when you use Docker volumes.
+-- 'name', 'volume_name' - The name of the volume. Up to 255 letters (uppercase and lowercase),
+-- numbers, underscores, and hyphens are allowed. This name is referenced
+-- in the @sourceVolume@ parameter of container definition @mountPoints@.
+newVolume ::
+  Volume
+newVolume =
+  Volume'
+    { dockerVolumeConfiguration =
+        Prelude.Nothing,
+      efsVolumeConfiguration = Prelude.Nothing,
+      fsxWindowsFileServerVolumeConfiguration =
+        Prelude.Nothing,
+      host = Prelude.Nothing,
+      name = Prelude.Nothing
+    }
+
+-- | This parameter is specified when you use Docker volumes.
 --
 -- Windows containers only support the use of the @local@ driver. To use
 -- bind mounts, specify the @host@ parameter instead.
 --
 -- Docker volumes aren\'t supported by tasks run on Fargate.
---
--- 'fsxWindowsFileServerVolumeConfiguration', 'volume_fsxWindowsFileServerVolumeConfiguration' - This parameter is specified when you use Amazon FSx for Windows File
--- Server file system for task storage.
-newVolume ::
-  Volume
-newVolume =
-  Volume'
-    { efsVolumeConfiguration = Prelude.Nothing,
-      name = Prelude.Nothing,
-      host = Prelude.Nothing,
-      dockerVolumeConfiguration = Prelude.Nothing,
-      fsxWindowsFileServerVolumeConfiguration =
-        Prelude.Nothing
-    }
+volume_dockerVolumeConfiguration :: Lens.Lens' Volume (Prelude.Maybe DockerVolumeConfiguration)
+volume_dockerVolumeConfiguration = Lens.lens (\Volume' {dockerVolumeConfiguration} -> dockerVolumeConfiguration) (\s@Volume' {} a -> s {dockerVolumeConfiguration = a} :: Volume)
 
 -- | This parameter is specified when you use an Amazon Elastic File System
 -- file system for task storage.
 volume_efsVolumeConfiguration :: Lens.Lens' Volume (Prelude.Maybe EFSVolumeConfiguration)
 volume_efsVolumeConfiguration = Lens.lens (\Volume' {efsVolumeConfiguration} -> efsVolumeConfiguration) (\s@Volume' {} a -> s {efsVolumeConfiguration = a} :: Volume)
 
--- | The name of the volume. Up to 255 letters (uppercase and lowercase),
--- numbers, underscores, and hyphens are allowed. This name is referenced
--- in the @sourceVolume@ parameter of container definition @mountPoints@.
-volume_name :: Lens.Lens' Volume (Prelude.Maybe Prelude.Text)
-volume_name = Lens.lens (\Volume' {name} -> name) (\s@Volume' {} a -> s {name = a} :: Volume)
+-- | This parameter is specified when you use Amazon FSx for Windows File
+-- Server file system for task storage.
+volume_fsxWindowsFileServerVolumeConfiguration :: Lens.Lens' Volume (Prelude.Maybe FSxWindowsFileServerVolumeConfiguration)
+volume_fsxWindowsFileServerVolumeConfiguration = Lens.lens (\Volume' {fsxWindowsFileServerVolumeConfiguration} -> fsxWindowsFileServerVolumeConfiguration) (\s@Volume' {} a -> s {fsxWindowsFileServerVolumeConfiguration = a} :: Volume)
 
 -- | This parameter is specified when you use bind mount host volumes. The
 -- contents of the @host@ parameter determine whether your bind mount host
@@ -148,19 +157,11 @@ volume_name = Lens.lens (\Volume' {name} -> name) (\s@Volume' {} a -> s {name = 
 volume_host :: Lens.Lens' Volume (Prelude.Maybe HostVolumeProperties)
 volume_host = Lens.lens (\Volume' {host} -> host) (\s@Volume' {} a -> s {host = a} :: Volume)
 
--- | This parameter is specified when you use Docker volumes.
---
--- Windows containers only support the use of the @local@ driver. To use
--- bind mounts, specify the @host@ parameter instead.
---
--- Docker volumes aren\'t supported by tasks run on Fargate.
-volume_dockerVolumeConfiguration :: Lens.Lens' Volume (Prelude.Maybe DockerVolumeConfiguration)
-volume_dockerVolumeConfiguration = Lens.lens (\Volume' {dockerVolumeConfiguration} -> dockerVolumeConfiguration) (\s@Volume' {} a -> s {dockerVolumeConfiguration = a} :: Volume)
-
--- | This parameter is specified when you use Amazon FSx for Windows File
--- Server file system for task storage.
-volume_fsxWindowsFileServerVolumeConfiguration :: Lens.Lens' Volume (Prelude.Maybe FSxWindowsFileServerVolumeConfiguration)
-volume_fsxWindowsFileServerVolumeConfiguration = Lens.lens (\Volume' {fsxWindowsFileServerVolumeConfiguration} -> fsxWindowsFileServerVolumeConfiguration) (\s@Volume' {} a -> s {fsxWindowsFileServerVolumeConfiguration = a} :: Volume)
+-- | The name of the volume. Up to 255 letters (uppercase and lowercase),
+-- numbers, underscores, and hyphens are allowed. This name is referenced
+-- in the @sourceVolume@ parameter of container definition @mountPoints@.
+volume_name :: Lens.Lens' Volume (Prelude.Maybe Prelude.Text)
+volume_name = Lens.lens (\Volume' {name} -> name) (\s@Volume' {} a -> s {name = a} :: Volume)
 
 instance Data.FromJSON Volume where
   parseJSON =
@@ -168,42 +169,43 @@ instance Data.FromJSON Volume where
       "Volume"
       ( \x ->
           Volume'
-            Prelude.<$> (x Data..:? "efsVolumeConfiguration")
-            Prelude.<*> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "host")
-            Prelude.<*> (x Data..:? "dockerVolumeConfiguration")
+            Prelude.<$> (x Data..:? "dockerVolumeConfiguration")
+            Prelude.<*> (x Data..:? "efsVolumeConfiguration")
             Prelude.<*> ( x
                             Data..:? "fsxWindowsFileServerVolumeConfiguration"
                         )
+            Prelude.<*> (x Data..:? "host")
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable Volume where
   hashWithSalt _salt Volume' {..} =
-    _salt `Prelude.hashWithSalt` efsVolumeConfiguration
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` host
+    _salt
       `Prelude.hashWithSalt` dockerVolumeConfiguration
+      `Prelude.hashWithSalt` efsVolumeConfiguration
       `Prelude.hashWithSalt` fsxWindowsFileServerVolumeConfiguration
+      `Prelude.hashWithSalt` host
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData Volume where
   rnf Volume' {..} =
-    Prelude.rnf efsVolumeConfiguration
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf host
-      `Prelude.seq` Prelude.rnf dockerVolumeConfiguration
+    Prelude.rnf dockerVolumeConfiguration
+      `Prelude.seq` Prelude.rnf efsVolumeConfiguration
       `Prelude.seq` Prelude.rnf fsxWindowsFileServerVolumeConfiguration
+      `Prelude.seq` Prelude.rnf host
+      `Prelude.seq` Prelude.rnf name
 
 instance Data.ToJSON Volume where
   toJSON Volume' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("efsVolumeConfiguration" Data..=)
-              Prelude.<$> efsVolumeConfiguration,
-            ("name" Data..=) Prelude.<$> name,
-            ("host" Data..=) Prelude.<$> host,
-            ("dockerVolumeConfiguration" Data..=)
+          [ ("dockerVolumeConfiguration" Data..=)
               Prelude.<$> dockerVolumeConfiguration,
+            ("efsVolumeConfiguration" Data..=)
+              Prelude.<$> efsVolumeConfiguration,
             ("fsxWindowsFileServerVolumeConfiguration" Data..=)
-              Prelude.<$> fsxWindowsFileServerVolumeConfiguration
+              Prelude.<$> fsxWindowsFileServerVolumeConfiguration,
+            ("host" Data..=) Prelude.<$> host,
+            ("name" Data..=) Prelude.<$> name
           ]
       )

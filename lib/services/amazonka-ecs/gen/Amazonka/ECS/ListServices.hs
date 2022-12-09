@@ -30,11 +30,11 @@ module Amazonka.ECS.ListServices
     newListServices,
 
     -- * Request Lenses
+    listServices_cluster,
+    listServices_launchType,
+    listServices_maxResults,
     listServices_nextToken,
     listServices_schedulingStrategy,
-    listServices_cluster,
-    listServices_maxResults,
-    listServices_launchType,
 
     -- * Destructuring the Response
     ListServicesResponse (..),
@@ -57,7 +57,22 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListServices' smart constructor.
 data ListServices = ListServices'
-  { -- | The @nextToken@ value returned from a @ListServices@ request indicating
+  { -- | The short name or full Amazon Resource Name (ARN) of the cluster to use
+    -- when filtering the @ListServices@ results. If you do not specify a
+    -- cluster, the default cluster is assumed.
+    cluster :: Prelude.Maybe Prelude.Text,
+    -- | The launch type to use when filtering the @ListServices@ results.
+    launchType :: Prelude.Maybe LaunchType,
+    -- | The maximum number of service results that @ListServices@ returned in
+    -- paginated output. When this parameter is used, @ListServices@ only
+    -- returns @maxResults@ results in a single page along with a @nextToken@
+    -- response element. The remaining results of the initial request can be
+    -- seen by sending another @ListServices@ request with the returned
+    -- @nextToken@ value. This value can be between 1 and 100. If this
+    -- parameter isn\'t used, then @ListServices@ returns up to 10 results and
+    -- a @nextToken@ value if applicable.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The @nextToken@ value returned from a @ListServices@ request indicating
     -- that more results are available to fulfill the request and further calls
     -- will be needed. If @maxResults@ was provided, it is possible the number
     -- of results to be fewer than @maxResults@.
@@ -68,22 +83,7 @@ data ListServices = ListServices'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The scheduling strategy to use when filtering the @ListServices@
     -- results.
-    schedulingStrategy :: Prelude.Maybe SchedulingStrategy,
-    -- | The short name or full Amazon Resource Name (ARN) of the cluster to use
-    -- when filtering the @ListServices@ results. If you do not specify a
-    -- cluster, the default cluster is assumed.
-    cluster :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of service results that @ListServices@ returned in
-    -- paginated output. When this parameter is used, @ListServices@ only
-    -- returns @maxResults@ results in a single page along with a @nextToken@
-    -- response element. The remaining results of the initial request can be
-    -- seen by sending another @ListServices@ request with the returned
-    -- @nextToken@ value. This value can be between 1 and 100. If this
-    -- parameter isn\'t used, then @ListServices@ returns up to 10 results and
-    -- a @nextToken@ value if applicable.
-    maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The launch type to use when filtering the @ListServices@ results.
-    launchType :: Prelude.Maybe LaunchType
+    schedulingStrategy :: Prelude.Maybe SchedulingStrategy
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -94,6 +94,21 @@ data ListServices = ListServices'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'cluster', 'listServices_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster to use
+-- when filtering the @ListServices@ results. If you do not specify a
+-- cluster, the default cluster is assumed.
+--
+-- 'launchType', 'listServices_launchType' - The launch type to use when filtering the @ListServices@ results.
+--
+-- 'maxResults', 'listServices_maxResults' - The maximum number of service results that @ListServices@ returned in
+-- paginated output. When this parameter is used, @ListServices@ only
+-- returns @maxResults@ results in a single page along with a @nextToken@
+-- response element. The remaining results of the initial request can be
+-- seen by sending another @ListServices@ request with the returned
+-- @nextToken@ value. This value can be between 1 and 100. If this
+-- parameter isn\'t used, then @ListServices@ returns up to 10 results and
+-- a @nextToken@ value if applicable.
 --
 -- 'nextToken', 'listServices_nextToken' - The @nextToken@ value returned from a @ListServices@ request indicating
 -- that more results are available to fulfill the request and further calls
@@ -106,12 +121,28 @@ data ListServices = ListServices'
 --
 -- 'schedulingStrategy', 'listServices_schedulingStrategy' - The scheduling strategy to use when filtering the @ListServices@
 -- results.
---
--- 'cluster', 'listServices_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster to use
+newListServices ::
+  ListServices
+newListServices =
+  ListServices'
+    { cluster = Prelude.Nothing,
+      launchType = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      schedulingStrategy = Prelude.Nothing
+    }
+
+-- | The short name or full Amazon Resource Name (ARN) of the cluster to use
 -- when filtering the @ListServices@ results. If you do not specify a
 -- cluster, the default cluster is assumed.
---
--- 'maxResults', 'listServices_maxResults' - The maximum number of service results that @ListServices@ returned in
+listServices_cluster :: Lens.Lens' ListServices (Prelude.Maybe Prelude.Text)
+listServices_cluster = Lens.lens (\ListServices' {cluster} -> cluster) (\s@ListServices' {} a -> s {cluster = a} :: ListServices)
+
+-- | The launch type to use when filtering the @ListServices@ results.
+listServices_launchType :: Lens.Lens' ListServices (Prelude.Maybe LaunchType)
+listServices_launchType = Lens.lens (\ListServices' {launchType} -> launchType) (\s@ListServices' {} a -> s {launchType = a} :: ListServices)
+
+-- | The maximum number of service results that @ListServices@ returned in
 -- paginated output. When this parameter is used, @ListServices@ only
 -- returns @maxResults@ results in a single page along with a @nextToken@
 -- response element. The remaining results of the initial request can be
@@ -119,18 +150,8 @@ data ListServices = ListServices'
 -- @nextToken@ value. This value can be between 1 and 100. If this
 -- parameter isn\'t used, then @ListServices@ returns up to 10 results and
 -- a @nextToken@ value if applicable.
---
--- 'launchType', 'listServices_launchType' - The launch type to use when filtering the @ListServices@ results.
-newListServices ::
-  ListServices
-newListServices =
-  ListServices'
-    { nextToken = Prelude.Nothing,
-      schedulingStrategy = Prelude.Nothing,
-      cluster = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      launchType = Prelude.Nothing
-    }
+listServices_maxResults :: Lens.Lens' ListServices (Prelude.Maybe Prelude.Int)
+listServices_maxResults = Lens.lens (\ListServices' {maxResults} -> maxResults) (\s@ListServices' {} a -> s {maxResults = a} :: ListServices)
 
 -- | The @nextToken@ value returned from a @ListServices@ request indicating
 -- that more results are available to fulfill the request and further calls
@@ -147,27 +168,6 @@ listServices_nextToken = Lens.lens (\ListServices' {nextToken} -> nextToken) (\s
 -- results.
 listServices_schedulingStrategy :: Lens.Lens' ListServices (Prelude.Maybe SchedulingStrategy)
 listServices_schedulingStrategy = Lens.lens (\ListServices' {schedulingStrategy} -> schedulingStrategy) (\s@ListServices' {} a -> s {schedulingStrategy = a} :: ListServices)
-
--- | The short name or full Amazon Resource Name (ARN) of the cluster to use
--- when filtering the @ListServices@ results. If you do not specify a
--- cluster, the default cluster is assumed.
-listServices_cluster :: Lens.Lens' ListServices (Prelude.Maybe Prelude.Text)
-listServices_cluster = Lens.lens (\ListServices' {cluster} -> cluster) (\s@ListServices' {} a -> s {cluster = a} :: ListServices)
-
--- | The maximum number of service results that @ListServices@ returned in
--- paginated output. When this parameter is used, @ListServices@ only
--- returns @maxResults@ results in a single page along with a @nextToken@
--- response element. The remaining results of the initial request can be
--- seen by sending another @ListServices@ request with the returned
--- @nextToken@ value. This value can be between 1 and 100. If this
--- parameter isn\'t used, then @ListServices@ returns up to 10 results and
--- a @nextToken@ value if applicable.
-listServices_maxResults :: Lens.Lens' ListServices (Prelude.Maybe Prelude.Int)
-listServices_maxResults = Lens.lens (\ListServices' {maxResults} -> maxResults) (\s@ListServices' {} a -> s {maxResults = a} :: ListServices)
-
--- | The launch type to use when filtering the @ListServices@ results.
-listServices_launchType :: Lens.Lens' ListServices (Prelude.Maybe LaunchType)
-listServices_launchType = Lens.lens (\ListServices' {launchType} -> launchType) (\s@ListServices' {} a -> s {launchType = a} :: ListServices)
 
 instance Core.AWSPager ListServices where
   page rq rs
@@ -204,19 +204,19 @@ instance Core.AWSRequest ListServices where
 
 instance Prelude.Hashable ListServices where
   hashWithSalt _salt ListServices' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` schedulingStrategy
-      `Prelude.hashWithSalt` cluster
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` cluster
       `Prelude.hashWithSalt` launchType
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` schedulingStrategy
 
 instance Prelude.NFData ListServices where
   rnf ListServices' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf schedulingStrategy
-      `Prelude.seq` Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf cluster
       `Prelude.seq` Prelude.rnf launchType
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf schedulingStrategy
 
 instance Data.ToHeaders ListServices where
   toHeaders =
@@ -237,12 +237,12 @@ instance Data.ToJSON ListServices where
   toJSON ListServices' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("schedulingStrategy" Data..=)
-              Prelude.<$> schedulingStrategy,
-            ("cluster" Data..=) Prelude.<$> cluster,
+          [ ("cluster" Data..=) Prelude.<$> cluster,
+            ("launchType" Data..=) Prelude.<$> launchType,
             ("maxResults" Data..=) Prelude.<$> maxResults,
-            ("launchType" Data..=) Prelude.<$> launchType
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("schedulingStrategy" Data..=)
+              Prelude.<$> schedulingStrategy
           ]
       )
 

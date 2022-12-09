@@ -32,10 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkBinding' smart constructor.
 data NetworkBinding = NetworkBinding'
-  { -- | The port number on the container that\'s used with the network binding.
-    containerPort :: Prelude.Maybe Prelude.Int,
-    -- | The IP address that the container is bound to on the container instance.
+  { -- | The IP address that the container is bound to on the container instance.
     bindIP :: Prelude.Maybe Prelude.Text,
+    -- | The port number on the container that\'s used with the network binding.
+    containerPort :: Prelude.Maybe Prelude.Int,
     -- | The port number on the host that\'s used with the network binding.
     hostPort :: Prelude.Maybe Prelude.Int,
     -- | The protocol used for the network binding.
@@ -51,9 +51,9 @@ data NetworkBinding = NetworkBinding'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'containerPort', 'networkBinding_containerPort' - The port number on the container that\'s used with the network binding.
---
 -- 'bindIP', 'networkBinding_bindIP' - The IP address that the container is bound to on the container instance.
+--
+-- 'containerPort', 'networkBinding_containerPort' - The port number on the container that\'s used with the network binding.
 --
 -- 'hostPort', 'networkBinding_hostPort' - The port number on the host that\'s used with the network binding.
 --
@@ -62,19 +62,19 @@ newNetworkBinding ::
   NetworkBinding
 newNetworkBinding =
   NetworkBinding'
-    { containerPort = Prelude.Nothing,
-      bindIP = Prelude.Nothing,
+    { bindIP = Prelude.Nothing,
+      containerPort = Prelude.Nothing,
       hostPort = Prelude.Nothing,
       protocol = Prelude.Nothing
     }
 
--- | The port number on the container that\'s used with the network binding.
-networkBinding_containerPort :: Lens.Lens' NetworkBinding (Prelude.Maybe Prelude.Int)
-networkBinding_containerPort = Lens.lens (\NetworkBinding' {containerPort} -> containerPort) (\s@NetworkBinding' {} a -> s {containerPort = a} :: NetworkBinding)
-
 -- | The IP address that the container is bound to on the container instance.
 networkBinding_bindIP :: Lens.Lens' NetworkBinding (Prelude.Maybe Prelude.Text)
 networkBinding_bindIP = Lens.lens (\NetworkBinding' {bindIP} -> bindIP) (\s@NetworkBinding' {} a -> s {bindIP = a} :: NetworkBinding)
+
+-- | The port number on the container that\'s used with the network binding.
+networkBinding_containerPort :: Lens.Lens' NetworkBinding (Prelude.Maybe Prelude.Int)
+networkBinding_containerPort = Lens.lens (\NetworkBinding' {containerPort} -> containerPort) (\s@NetworkBinding' {} a -> s {containerPort = a} :: NetworkBinding)
 
 -- | The port number on the host that\'s used with the network binding.
 networkBinding_hostPort :: Lens.Lens' NetworkBinding (Prelude.Maybe Prelude.Int)
@@ -90,23 +90,23 @@ instance Data.FromJSON NetworkBinding where
       "NetworkBinding"
       ( \x ->
           NetworkBinding'
-            Prelude.<$> (x Data..:? "containerPort")
-            Prelude.<*> (x Data..:? "bindIP")
+            Prelude.<$> (x Data..:? "bindIP")
+            Prelude.<*> (x Data..:? "containerPort")
             Prelude.<*> (x Data..:? "hostPort")
             Prelude.<*> (x Data..:? "protocol")
       )
 
 instance Prelude.Hashable NetworkBinding where
   hashWithSalt _salt NetworkBinding' {..} =
-    _salt `Prelude.hashWithSalt` containerPort
-      `Prelude.hashWithSalt` bindIP
+    _salt `Prelude.hashWithSalt` bindIP
+      `Prelude.hashWithSalt` containerPort
       `Prelude.hashWithSalt` hostPort
       `Prelude.hashWithSalt` protocol
 
 instance Prelude.NFData NetworkBinding where
   rnf NetworkBinding' {..} =
-    Prelude.rnf containerPort
-      `Prelude.seq` Prelude.rnf bindIP
+    Prelude.rnf bindIP
+      `Prelude.seq` Prelude.rnf containerPort
       `Prelude.seq` Prelude.rnf hostPort
       `Prelude.seq` Prelude.rnf protocol
 
@@ -114,8 +114,8 @@ instance Data.ToJSON NetworkBinding where
   toJSON NetworkBinding' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("containerPort" Data..=) Prelude.<$> containerPort,
-            ("bindIP" Data..=) Prelude.<$> bindIP,
+          [ ("bindIP" Data..=) Prelude.<$> bindIP,
+            ("containerPort" Data..=) Prelude.<$> containerPort,
             ("hostPort" Data..=) Prelude.<$> hostPort,
             ("protocol" Data..=) Prelude.<$> protocol
           ]

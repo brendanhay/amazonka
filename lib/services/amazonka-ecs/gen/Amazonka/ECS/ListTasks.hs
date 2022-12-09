@@ -34,15 +34,15 @@ module Amazonka.ECS.ListTasks
     newListTasks,
 
     -- * Request Lenses
-    listTasks_nextToken,
-    listTasks_containerInstance,
     listTasks_cluster,
+    listTasks_containerInstance,
     listTasks_desiredStatus,
-    listTasks_startedBy,
-    listTasks_maxResults,
-    listTasks_launchType,
     listTasks_family,
+    listTasks_launchType,
+    listTasks_maxResults,
+    listTasks_nextToken,
     listTasks_serviceName,
+    listTasks_startedBy,
 
     -- * Destructuring the Response
     ListTasksResponse (..),
@@ -65,23 +65,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTasks' smart constructor.
 data ListTasks = ListTasks'
-  { -- | The @nextToken@ value returned from a @ListTasks@ request indicating
-    -- that more results are available to fulfill the request and further calls
-    -- will be needed. If @maxResults@ was provided, it\'s possible the number
-    -- of results to be fewer than @maxResults@.
-    --
-    -- This token should be treated as an opaque identifier that is only used
-    -- to retrieve the next items in a list and not for other programmatic
-    -- purposes.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The short name or full Amazon Resource Name (ARN) of the cluster to use
+    -- when filtering the @ListTasks@ results. If you do not specify a cluster,
+    -- the default cluster is assumed.
+    cluster :: Prelude.Maybe Prelude.Text,
     -- | The container instance ID or full ARN of the container instance to use
     -- when filtering the @ListTasks@ results. Specifying a @containerInstance@
     -- limits the results to tasks that belong to that container instance.
     containerInstance :: Prelude.Maybe Prelude.Text,
-    -- | The short name or full Amazon Resource Name (ARN) of the cluster to use
-    -- when filtering the @ListTasks@ results. If you do not specify a cluster,
-    -- the default cluster is assumed.
-    cluster :: Prelude.Maybe Prelude.Text,
     -- | The task desired status to use when filtering the @ListTasks@ results.
     -- Specifying a @desiredStatus@ of @STOPPED@ limits the results to tasks
     -- that Amazon ECS has set the desired status to @STOPPED@. This can be
@@ -94,10 +85,12 @@ data ListTasks = ListTasks'
     -- status of a task to that value (only a task\'s @lastStatus@ may have a
     -- value of @PENDING@).
     desiredStatus :: Prelude.Maybe DesiredStatus,
-    -- | The @startedBy@ value to filter the task results with. Specifying a
-    -- @startedBy@ value limits the results to tasks that were started with
-    -- that value.
-    startedBy :: Prelude.Maybe Prelude.Text,
+    -- | The name of the task definition family to use when filtering the
+    -- @ListTasks@ results. Specifying a @family@ limits the results to tasks
+    -- that belong to that family.
+    family :: Prelude.Maybe Prelude.Text,
+    -- | The launch type to use when filtering the @ListTasks@ results.
+    launchType :: Prelude.Maybe LaunchType,
     -- | The maximum number of task results that @ListTasks@ returned in
     -- paginated output. When this parameter is used, @ListTasks@ only returns
     -- @maxResults@ results in a single page along with a @nextToken@ response
@@ -107,16 +100,26 @@ data ListTasks = ListTasks'
     -- @ListTasks@ returns up to 100 results and a @nextToken@ value if
     -- applicable.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The launch type to use when filtering the @ListTasks@ results.
-    launchType :: Prelude.Maybe LaunchType,
-    -- | The name of the task definition family to use when filtering the
-    -- @ListTasks@ results. Specifying a @family@ limits the results to tasks
-    -- that belong to that family.
-    family :: Prelude.Maybe Prelude.Text,
+    -- | The @nextToken@ value returned from a @ListTasks@ request indicating
+    -- that more results are available to fulfill the request and further calls
+    -- will be needed. If @maxResults@ was provided, it\'s possible the number
+    -- of results to be fewer than @maxResults@.
+    --
+    -- This token should be treated as an opaque identifier that is only used
+    -- to retrieve the next items in a list and not for other programmatic
+    -- purposes.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the service to use when filtering the @ListTasks@ results.
     -- Specifying a @serviceName@ limits the results to tasks that belong to
     -- that service.
-    serviceName :: Prelude.Maybe Prelude.Text
+    serviceName :: Prelude.Maybe Prelude.Text,
+    -- | The @startedBy@ value to filter the task results with. Specifying a
+    -- @startedBy@ value limits the results to tasks that were started with
+    -- that value.
+    --
+    -- When you specify @startedBy@ as the filter, it must be the only filter
+    -- that you use.
+    startedBy :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -128,22 +131,13 @@ data ListTasks = ListTasks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTasks_nextToken' - The @nextToken@ value returned from a @ListTasks@ request indicating
--- that more results are available to fulfill the request and further calls
--- will be needed. If @maxResults@ was provided, it\'s possible the number
--- of results to be fewer than @maxResults@.
---
--- This token should be treated as an opaque identifier that is only used
--- to retrieve the next items in a list and not for other programmatic
--- purposes.
+-- 'cluster', 'listTasks_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster to use
+-- when filtering the @ListTasks@ results. If you do not specify a cluster,
+-- the default cluster is assumed.
 --
 -- 'containerInstance', 'listTasks_containerInstance' - The container instance ID or full ARN of the container instance to use
 -- when filtering the @ListTasks@ results. Specifying a @containerInstance@
 -- limits the results to tasks that belong to that container instance.
---
--- 'cluster', 'listTasks_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster to use
--- when filtering the @ListTasks@ results. If you do not specify a cluster,
--- the default cluster is assumed.
 --
 -- 'desiredStatus', 'listTasks_desiredStatus' - The task desired status to use when filtering the @ListTasks@ results.
 -- Specifying a @desiredStatus@ of @STOPPED@ limits the results to tasks
@@ -157,9 +151,11 @@ data ListTasks = ListTasks'
 -- status of a task to that value (only a task\'s @lastStatus@ may have a
 -- value of @PENDING@).
 --
--- 'startedBy', 'listTasks_startedBy' - The @startedBy@ value to filter the task results with. Specifying a
--- @startedBy@ value limits the results to tasks that were started with
--- that value.
+-- 'family', 'listTasks_family' - The name of the task definition family to use when filtering the
+-- @ListTasks@ results. Specifying a @family@ limits the results to tasks
+-- that belong to that family.
+--
+-- 'launchType', 'listTasks_launchType' - The launch type to use when filtering the @ListTasks@ results.
 --
 -- 'maxResults', 'listTasks_maxResults' - The maximum number of task results that @ListTasks@ returned in
 -- paginated output. When this parameter is used, @ListTasks@ only returns
@@ -170,31 +166,7 @@ data ListTasks = ListTasks'
 -- @ListTasks@ returns up to 100 results and a @nextToken@ value if
 -- applicable.
 --
--- 'launchType', 'listTasks_launchType' - The launch type to use when filtering the @ListTasks@ results.
---
--- 'family', 'listTasks_family' - The name of the task definition family to use when filtering the
--- @ListTasks@ results. Specifying a @family@ limits the results to tasks
--- that belong to that family.
---
--- 'serviceName', 'listTasks_serviceName' - The name of the service to use when filtering the @ListTasks@ results.
--- Specifying a @serviceName@ limits the results to tasks that belong to
--- that service.
-newListTasks ::
-  ListTasks
-newListTasks =
-  ListTasks'
-    { nextToken = Prelude.Nothing,
-      containerInstance = Prelude.Nothing,
-      cluster = Prelude.Nothing,
-      desiredStatus = Prelude.Nothing,
-      startedBy = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      launchType = Prelude.Nothing,
-      family = Prelude.Nothing,
-      serviceName = Prelude.Nothing
-    }
-
--- | The @nextToken@ value returned from a @ListTasks@ request indicating
+-- 'nextToken', 'listTasks_nextToken' - The @nextToken@ value returned from a @ListTasks@ request indicating
 -- that more results are available to fulfill the request and further calls
 -- will be needed. If @maxResults@ was provided, it\'s possible the number
 -- of results to be fewer than @maxResults@.
@@ -202,20 +174,43 @@ newListTasks =
 -- This token should be treated as an opaque identifier that is only used
 -- to retrieve the next items in a list and not for other programmatic
 -- purposes.
-listTasks_nextToken :: Lens.Lens' ListTasks (Prelude.Maybe Prelude.Text)
-listTasks_nextToken = Lens.lens (\ListTasks' {nextToken} -> nextToken) (\s@ListTasks' {} a -> s {nextToken = a} :: ListTasks)
-
--- | The container instance ID or full ARN of the container instance to use
--- when filtering the @ListTasks@ results. Specifying a @containerInstance@
--- limits the results to tasks that belong to that container instance.
-listTasks_containerInstance :: Lens.Lens' ListTasks (Prelude.Maybe Prelude.Text)
-listTasks_containerInstance = Lens.lens (\ListTasks' {containerInstance} -> containerInstance) (\s@ListTasks' {} a -> s {containerInstance = a} :: ListTasks)
+--
+-- 'serviceName', 'listTasks_serviceName' - The name of the service to use when filtering the @ListTasks@ results.
+-- Specifying a @serviceName@ limits the results to tasks that belong to
+-- that service.
+--
+-- 'startedBy', 'listTasks_startedBy' - The @startedBy@ value to filter the task results with. Specifying a
+-- @startedBy@ value limits the results to tasks that were started with
+-- that value.
+--
+-- When you specify @startedBy@ as the filter, it must be the only filter
+-- that you use.
+newListTasks ::
+  ListTasks
+newListTasks =
+  ListTasks'
+    { cluster = Prelude.Nothing,
+      containerInstance = Prelude.Nothing,
+      desiredStatus = Prelude.Nothing,
+      family = Prelude.Nothing,
+      launchType = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      serviceName = Prelude.Nothing,
+      startedBy = Prelude.Nothing
+    }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster to use
 -- when filtering the @ListTasks@ results. If you do not specify a cluster,
 -- the default cluster is assumed.
 listTasks_cluster :: Lens.Lens' ListTasks (Prelude.Maybe Prelude.Text)
 listTasks_cluster = Lens.lens (\ListTasks' {cluster} -> cluster) (\s@ListTasks' {} a -> s {cluster = a} :: ListTasks)
+
+-- | The container instance ID or full ARN of the container instance to use
+-- when filtering the @ListTasks@ results. Specifying a @containerInstance@
+-- limits the results to tasks that belong to that container instance.
+listTasks_containerInstance :: Lens.Lens' ListTasks (Prelude.Maybe Prelude.Text)
+listTasks_containerInstance = Lens.lens (\ListTasks' {containerInstance} -> containerInstance) (\s@ListTasks' {} a -> s {containerInstance = a} :: ListTasks)
 
 -- | The task desired status to use when filtering the @ListTasks@ results.
 -- Specifying a @desiredStatus@ of @STOPPED@ limits the results to tasks
@@ -231,11 +226,15 @@ listTasks_cluster = Lens.lens (\ListTasks' {cluster} -> cluster) (\s@ListTasks' 
 listTasks_desiredStatus :: Lens.Lens' ListTasks (Prelude.Maybe DesiredStatus)
 listTasks_desiredStatus = Lens.lens (\ListTasks' {desiredStatus} -> desiredStatus) (\s@ListTasks' {} a -> s {desiredStatus = a} :: ListTasks)
 
--- | The @startedBy@ value to filter the task results with. Specifying a
--- @startedBy@ value limits the results to tasks that were started with
--- that value.
-listTasks_startedBy :: Lens.Lens' ListTasks (Prelude.Maybe Prelude.Text)
-listTasks_startedBy = Lens.lens (\ListTasks' {startedBy} -> startedBy) (\s@ListTasks' {} a -> s {startedBy = a} :: ListTasks)
+-- | The name of the task definition family to use when filtering the
+-- @ListTasks@ results. Specifying a @family@ limits the results to tasks
+-- that belong to that family.
+listTasks_family :: Lens.Lens' ListTasks (Prelude.Maybe Prelude.Text)
+listTasks_family = Lens.lens (\ListTasks' {family} -> family) (\s@ListTasks' {} a -> s {family = a} :: ListTasks)
+
+-- | The launch type to use when filtering the @ListTasks@ results.
+listTasks_launchType :: Lens.Lens' ListTasks (Prelude.Maybe LaunchType)
+listTasks_launchType = Lens.lens (\ListTasks' {launchType} -> launchType) (\s@ListTasks' {} a -> s {launchType = a} :: ListTasks)
 
 -- | The maximum number of task results that @ListTasks@ returned in
 -- paginated output. When this parameter is used, @ListTasks@ only returns
@@ -248,21 +247,31 @@ listTasks_startedBy = Lens.lens (\ListTasks' {startedBy} -> startedBy) (\s@ListT
 listTasks_maxResults :: Lens.Lens' ListTasks (Prelude.Maybe Prelude.Int)
 listTasks_maxResults = Lens.lens (\ListTasks' {maxResults} -> maxResults) (\s@ListTasks' {} a -> s {maxResults = a} :: ListTasks)
 
--- | The launch type to use when filtering the @ListTasks@ results.
-listTasks_launchType :: Lens.Lens' ListTasks (Prelude.Maybe LaunchType)
-listTasks_launchType = Lens.lens (\ListTasks' {launchType} -> launchType) (\s@ListTasks' {} a -> s {launchType = a} :: ListTasks)
-
--- | The name of the task definition family to use when filtering the
--- @ListTasks@ results. Specifying a @family@ limits the results to tasks
--- that belong to that family.
-listTasks_family :: Lens.Lens' ListTasks (Prelude.Maybe Prelude.Text)
-listTasks_family = Lens.lens (\ListTasks' {family} -> family) (\s@ListTasks' {} a -> s {family = a} :: ListTasks)
+-- | The @nextToken@ value returned from a @ListTasks@ request indicating
+-- that more results are available to fulfill the request and further calls
+-- will be needed. If @maxResults@ was provided, it\'s possible the number
+-- of results to be fewer than @maxResults@.
+--
+-- This token should be treated as an opaque identifier that is only used
+-- to retrieve the next items in a list and not for other programmatic
+-- purposes.
+listTasks_nextToken :: Lens.Lens' ListTasks (Prelude.Maybe Prelude.Text)
+listTasks_nextToken = Lens.lens (\ListTasks' {nextToken} -> nextToken) (\s@ListTasks' {} a -> s {nextToken = a} :: ListTasks)
 
 -- | The name of the service to use when filtering the @ListTasks@ results.
 -- Specifying a @serviceName@ limits the results to tasks that belong to
 -- that service.
 listTasks_serviceName :: Lens.Lens' ListTasks (Prelude.Maybe Prelude.Text)
 listTasks_serviceName = Lens.lens (\ListTasks' {serviceName} -> serviceName) (\s@ListTasks' {} a -> s {serviceName = a} :: ListTasks)
+
+-- | The @startedBy@ value to filter the task results with. Specifying a
+-- @startedBy@ value limits the results to tasks that were started with
+-- that value.
+--
+-- When you specify @startedBy@ as the filter, it must be the only filter
+-- that you use.
+listTasks_startedBy :: Lens.Lens' ListTasks (Prelude.Maybe Prelude.Text)
+listTasks_startedBy = Lens.lens (\ListTasks' {startedBy} -> startedBy) (\s@ListTasks' {} a -> s {startedBy = a} :: ListTasks)
 
 instance Core.AWSPager ListTasks where
   page rq rs
@@ -298,27 +307,27 @@ instance Core.AWSRequest ListTasks where
 
 instance Prelude.Hashable ListTasks where
   hashWithSalt _salt ListTasks' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` cluster
       `Prelude.hashWithSalt` containerInstance
-      `Prelude.hashWithSalt` cluster
       `Prelude.hashWithSalt` desiredStatus
-      `Prelude.hashWithSalt` startedBy
-      `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` launchType
       `Prelude.hashWithSalt` family
+      `Prelude.hashWithSalt` launchType
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` serviceName
+      `Prelude.hashWithSalt` startedBy
 
 instance Prelude.NFData ListTasks where
   rnf ListTasks' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf cluster
       `Prelude.seq` Prelude.rnf containerInstance
-      `Prelude.seq` Prelude.rnf cluster
       `Prelude.seq` Prelude.rnf desiredStatus
-      `Prelude.seq` Prelude.rnf startedBy
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf launchType
       `Prelude.seq` Prelude.rnf family
+      `Prelude.seq` Prelude.rnf launchType
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf serviceName
+      `Prelude.seq` Prelude.rnf startedBy
 
 instance Data.ToHeaders ListTasks where
   toHeaders =
@@ -339,16 +348,16 @@ instance Data.ToJSON ListTasks where
   toJSON ListTasks' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+          [ ("cluster" Data..=) Prelude.<$> cluster,
             ("containerInstance" Data..=)
               Prelude.<$> containerInstance,
-            ("cluster" Data..=) Prelude.<$> cluster,
             ("desiredStatus" Data..=) Prelude.<$> desiredStatus,
-            ("startedBy" Data..=) Prelude.<$> startedBy,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
-            ("launchType" Data..=) Prelude.<$> launchType,
             ("family" Data..=) Prelude.<$> family,
-            ("serviceName" Data..=) Prelude.<$> serviceName
+            ("launchType" Data..=) Prelude.<$> launchType,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("serviceName" Data..=) Prelude.<$> serviceName,
+            ("startedBy" Data..=) Prelude.<$> startedBy
           ]
       )
 

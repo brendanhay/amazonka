@@ -72,6 +72,7 @@ library
     Amazonka.ECS.ListClusters
     Amazonka.ECS.ListContainerInstances
     Amazonka.ECS.ListServices
+    Amazonka.ECS.ListServicesByNamespace
     Amazonka.ECS.ListTagsForResource
     Amazonka.ECS.ListTaskDefinitionFamilies
     Amazonka.ECS.ListTaskDefinitions
@@ -91,6 +92,7 @@ library
     Amazonka.ECS.TagResource
     Amazonka.ECS.Types
     Amazonka.ECS.Types.AgentUpdateStatus
+    Amazonka.ECS.Types.ApplicationProtocol
     Amazonka.ECS.Types.AssignPublicIp
     Amazonka.ECS.Types.Attachment
     Amazonka.ECS.Types.AttachmentStateChange
@@ -106,6 +108,8 @@ library
     Amazonka.ECS.Types.Cluster
     Amazonka.ECS.Types.ClusterConfiguration
     Amazonka.ECS.Types.ClusterField
+    Amazonka.ECS.Types.ClusterServiceConnectDefaults
+    Amazonka.ECS.Types.ClusterServiceConnectDefaultsRequest
     Amazonka.ECS.Types.ClusterSetting
     Amazonka.ECS.Types.ClusterSettingName
     Amazonka.ECS.Types.Compatibility
@@ -198,6 +202,10 @@ library
     Amazonka.ECS.Types.SchedulingStrategy
     Amazonka.ECS.Types.Scope
     Amazonka.ECS.Types.Secret
+    Amazonka.ECS.Types.ServiceConnectClientAlias
+    Amazonka.ECS.Types.ServiceConnectConfiguration
+    Amazonka.ECS.Types.ServiceConnectService
+    Amazonka.ECS.Types.ServiceConnectServiceResource
     Amazonka.ECS.Types.ServiceEvent
     Amazonka.ECS.Types.ServiceField
     Amazonka.ECS.Types.ServiceRegistry

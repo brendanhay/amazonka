@@ -31,11 +31,11 @@ module Amazonka.ECS.ListTaskDefinitions
     newListTaskDefinitions,
 
     -- * Request Lenses
-    listTaskDefinitions_nextToken,
-    listTaskDefinitions_status,
-    listTaskDefinitions_sort,
-    listTaskDefinitions_maxResults,
     listTaskDefinitions_familyPrefix,
+    listTaskDefinitions_maxResults,
+    listTaskDefinitions_nextToken,
+    listTaskDefinitions_sort,
+    listTaskDefinitions_status,
 
     -- * Destructuring the Response
     ListTaskDefinitionsResponse (..),
@@ -58,29 +58,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTaskDefinitions' smart constructor.
 data ListTaskDefinitions = ListTaskDefinitions'
-  { -- | The @nextToken@ value returned from a @ListTaskDefinitions@ request
-    -- indicating that more results are available to fulfill the request and
-    -- further calls will be needed. If @maxResults@ was provided, it is
-    -- possible the number of results to be fewer than @maxResults@.
-    --
-    -- This token should be treated as an opaque identifier that is only used
-    -- to retrieve the next items in a list and not for other programmatic
-    -- purposes.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The task definition status to filter the @ListTaskDefinitions@ results
-    -- with. By default, only @ACTIVE@ task definitions are listed. By setting
-    -- this parameter to @INACTIVE@, you can view task definitions that are
-    -- @INACTIVE@ as long as an active task or service still references them.
-    -- If you paginate the resulting output, be sure to keep the @status@ value
-    -- constant in each subsequent request.
-    status :: Prelude.Maybe TaskDefinitionStatus,
-    -- | The order to sort the results in. Valid values are @ASC@ and @DESC@. By
-    -- default, (@ASC@) task definitions are listed lexicographically by family
-    -- name and in ascending numerical order by revision so that the newest
-    -- task definitions in a family are listed last. Setting this parameter to
-    -- @DESC@ reverses the sort order on family name and revision. This is so
-    -- that the newest task definitions in a family are listed first.
-    sort :: Prelude.Maybe SortOrder,
+  { -- | The full family name to filter the @ListTaskDefinitions@ results with.
+    -- Specifying a @familyPrefix@ limits the listed task definitions to task
+    -- definition revisions that belong to that family.
+    familyPrefix :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of task definition results that @ListTaskDefinitions@
     -- returned in paginated output. When this parameter is used,
     -- @ListTaskDefinitions@ only returns @maxResults@ results in a single page
@@ -90,10 +71,29 @@ data ListTaskDefinitions = ListTaskDefinitions'
     -- and 100. If this parameter isn\'t used, then @ListTaskDefinitions@
     -- returns up to 100 results and a @nextToken@ value if applicable.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The full family name to filter the @ListTaskDefinitions@ results with.
-    -- Specifying a @familyPrefix@ limits the listed task definitions to task
-    -- definition revisions that belong to that family.
-    familyPrefix :: Prelude.Maybe Prelude.Text
+    -- | The @nextToken@ value returned from a @ListTaskDefinitions@ request
+    -- indicating that more results are available to fulfill the request and
+    -- further calls will be needed. If @maxResults@ was provided, it is
+    -- possible the number of results to be fewer than @maxResults@.
+    --
+    -- This token should be treated as an opaque identifier that is only used
+    -- to retrieve the next items in a list and not for other programmatic
+    -- purposes.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The order to sort the results in. Valid values are @ASC@ and @DESC@. By
+    -- default, (@ASC@) task definitions are listed lexicographically by family
+    -- name and in ascending numerical order by revision so that the newest
+    -- task definitions in a family are listed last. Setting this parameter to
+    -- @DESC@ reverses the sort order on family name and revision. This is so
+    -- that the newest task definitions in a family are listed first.
+    sort :: Prelude.Maybe SortOrder,
+    -- | The task definition status to filter the @ListTaskDefinitions@ results
+    -- with. By default, only @ACTIVE@ task definitions are listed. By setting
+    -- this parameter to @INACTIVE@, you can view task definitions that are
+    -- @INACTIVE@ as long as an active task or service still references them.
+    -- If you paginate the resulting output, be sure to keep the @status@ value
+    -- constant in each subsequent request.
+    status :: Prelude.Maybe TaskDefinitionStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -105,28 +105,9 @@ data ListTaskDefinitions = ListTaskDefinitions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTaskDefinitions_nextToken' - The @nextToken@ value returned from a @ListTaskDefinitions@ request
--- indicating that more results are available to fulfill the request and
--- further calls will be needed. If @maxResults@ was provided, it is
--- possible the number of results to be fewer than @maxResults@.
---
--- This token should be treated as an opaque identifier that is only used
--- to retrieve the next items in a list and not for other programmatic
--- purposes.
---
--- 'status', 'listTaskDefinitions_status' - The task definition status to filter the @ListTaskDefinitions@ results
--- with. By default, only @ACTIVE@ task definitions are listed. By setting
--- this parameter to @INACTIVE@, you can view task definitions that are
--- @INACTIVE@ as long as an active task or service still references them.
--- If you paginate the resulting output, be sure to keep the @status@ value
--- constant in each subsequent request.
---
--- 'sort', 'listTaskDefinitions_sort' - The order to sort the results in. Valid values are @ASC@ and @DESC@. By
--- default, (@ASC@) task definitions are listed lexicographically by family
--- name and in ascending numerical order by revision so that the newest
--- task definitions in a family are listed last. Setting this parameter to
--- @DESC@ reverses the sort order on family name and revision. This is so
--- that the newest task definitions in a family are listed first.
+-- 'familyPrefix', 'listTaskDefinitions_familyPrefix' - The full family name to filter the @ListTaskDefinitions@ results with.
+-- Specifying a @familyPrefix@ limits the listed task definitions to task
+-- definition revisions that belong to that family.
 --
 -- 'maxResults', 'listTaskDefinitions_maxResults' - The maximum number of task definition results that @ListTaskDefinitions@
 -- returned in paginated output. When this parameter is used,
@@ -137,21 +118,7 @@ data ListTaskDefinitions = ListTaskDefinitions'
 -- and 100. If this parameter isn\'t used, then @ListTaskDefinitions@
 -- returns up to 100 results and a @nextToken@ value if applicable.
 --
--- 'familyPrefix', 'listTaskDefinitions_familyPrefix' - The full family name to filter the @ListTaskDefinitions@ results with.
--- Specifying a @familyPrefix@ limits the listed task definitions to task
--- definition revisions that belong to that family.
-newListTaskDefinitions ::
-  ListTaskDefinitions
-newListTaskDefinitions =
-  ListTaskDefinitions'
-    { nextToken = Prelude.Nothing,
-      status = Prelude.Nothing,
-      sort = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      familyPrefix = Prelude.Nothing
-    }
-
--- | The @nextToken@ value returned from a @ListTaskDefinitions@ request
+-- 'nextToken', 'listTaskDefinitions_nextToken' - The @nextToken@ value returned from a @ListTaskDefinitions@ request
 -- indicating that more results are available to fulfill the request and
 -- further calls will be needed. If @maxResults@ was provided, it is
 -- possible the number of results to be fewer than @maxResults@.
@@ -159,26 +126,37 @@ newListTaskDefinitions =
 -- This token should be treated as an opaque identifier that is only used
 -- to retrieve the next items in a list and not for other programmatic
 -- purposes.
-listTaskDefinitions_nextToken :: Lens.Lens' ListTaskDefinitions (Prelude.Maybe Prelude.Text)
-listTaskDefinitions_nextToken = Lens.lens (\ListTaskDefinitions' {nextToken} -> nextToken) (\s@ListTaskDefinitions' {} a -> s {nextToken = a} :: ListTaskDefinitions)
-
--- | The task definition status to filter the @ListTaskDefinitions@ results
--- with. By default, only @ACTIVE@ task definitions are listed. By setting
--- this parameter to @INACTIVE@, you can view task definitions that are
--- @INACTIVE@ as long as an active task or service still references them.
--- If you paginate the resulting output, be sure to keep the @status@ value
--- constant in each subsequent request.
-listTaskDefinitions_status :: Lens.Lens' ListTaskDefinitions (Prelude.Maybe TaskDefinitionStatus)
-listTaskDefinitions_status = Lens.lens (\ListTaskDefinitions' {status} -> status) (\s@ListTaskDefinitions' {} a -> s {status = a} :: ListTaskDefinitions)
-
--- | The order to sort the results in. Valid values are @ASC@ and @DESC@. By
+--
+-- 'sort', 'listTaskDefinitions_sort' - The order to sort the results in. Valid values are @ASC@ and @DESC@. By
 -- default, (@ASC@) task definitions are listed lexicographically by family
 -- name and in ascending numerical order by revision so that the newest
 -- task definitions in a family are listed last. Setting this parameter to
 -- @DESC@ reverses the sort order on family name and revision. This is so
 -- that the newest task definitions in a family are listed first.
-listTaskDefinitions_sort :: Lens.Lens' ListTaskDefinitions (Prelude.Maybe SortOrder)
-listTaskDefinitions_sort = Lens.lens (\ListTaskDefinitions' {sort} -> sort) (\s@ListTaskDefinitions' {} a -> s {sort = a} :: ListTaskDefinitions)
+--
+-- 'status', 'listTaskDefinitions_status' - The task definition status to filter the @ListTaskDefinitions@ results
+-- with. By default, only @ACTIVE@ task definitions are listed. By setting
+-- this parameter to @INACTIVE@, you can view task definitions that are
+-- @INACTIVE@ as long as an active task or service still references them.
+-- If you paginate the resulting output, be sure to keep the @status@ value
+-- constant in each subsequent request.
+newListTaskDefinitions ::
+  ListTaskDefinitions
+newListTaskDefinitions =
+  ListTaskDefinitions'
+    { familyPrefix =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      sort = Prelude.Nothing,
+      status = Prelude.Nothing
+    }
+
+-- | The full family name to filter the @ListTaskDefinitions@ results with.
+-- Specifying a @familyPrefix@ limits the listed task definitions to task
+-- definition revisions that belong to that family.
+listTaskDefinitions_familyPrefix :: Lens.Lens' ListTaskDefinitions (Prelude.Maybe Prelude.Text)
+listTaskDefinitions_familyPrefix = Lens.lens (\ListTaskDefinitions' {familyPrefix} -> familyPrefix) (\s@ListTaskDefinitions' {} a -> s {familyPrefix = a} :: ListTaskDefinitions)
 
 -- | The maximum number of task definition results that @ListTaskDefinitions@
 -- returned in paginated output. When this parameter is used,
@@ -191,11 +169,34 @@ listTaskDefinitions_sort = Lens.lens (\ListTaskDefinitions' {sort} -> sort) (\s@
 listTaskDefinitions_maxResults :: Lens.Lens' ListTaskDefinitions (Prelude.Maybe Prelude.Int)
 listTaskDefinitions_maxResults = Lens.lens (\ListTaskDefinitions' {maxResults} -> maxResults) (\s@ListTaskDefinitions' {} a -> s {maxResults = a} :: ListTaskDefinitions)
 
--- | The full family name to filter the @ListTaskDefinitions@ results with.
--- Specifying a @familyPrefix@ limits the listed task definitions to task
--- definition revisions that belong to that family.
-listTaskDefinitions_familyPrefix :: Lens.Lens' ListTaskDefinitions (Prelude.Maybe Prelude.Text)
-listTaskDefinitions_familyPrefix = Lens.lens (\ListTaskDefinitions' {familyPrefix} -> familyPrefix) (\s@ListTaskDefinitions' {} a -> s {familyPrefix = a} :: ListTaskDefinitions)
+-- | The @nextToken@ value returned from a @ListTaskDefinitions@ request
+-- indicating that more results are available to fulfill the request and
+-- further calls will be needed. If @maxResults@ was provided, it is
+-- possible the number of results to be fewer than @maxResults@.
+--
+-- This token should be treated as an opaque identifier that is only used
+-- to retrieve the next items in a list and not for other programmatic
+-- purposes.
+listTaskDefinitions_nextToken :: Lens.Lens' ListTaskDefinitions (Prelude.Maybe Prelude.Text)
+listTaskDefinitions_nextToken = Lens.lens (\ListTaskDefinitions' {nextToken} -> nextToken) (\s@ListTaskDefinitions' {} a -> s {nextToken = a} :: ListTaskDefinitions)
+
+-- | The order to sort the results in. Valid values are @ASC@ and @DESC@. By
+-- default, (@ASC@) task definitions are listed lexicographically by family
+-- name and in ascending numerical order by revision so that the newest
+-- task definitions in a family are listed last. Setting this parameter to
+-- @DESC@ reverses the sort order on family name and revision. This is so
+-- that the newest task definitions in a family are listed first.
+listTaskDefinitions_sort :: Lens.Lens' ListTaskDefinitions (Prelude.Maybe SortOrder)
+listTaskDefinitions_sort = Lens.lens (\ListTaskDefinitions' {sort} -> sort) (\s@ListTaskDefinitions' {} a -> s {sort = a} :: ListTaskDefinitions)
+
+-- | The task definition status to filter the @ListTaskDefinitions@ results
+-- with. By default, only @ACTIVE@ task definitions are listed. By setting
+-- this parameter to @INACTIVE@, you can view task definitions that are
+-- @INACTIVE@ as long as an active task or service still references them.
+-- If you paginate the resulting output, be sure to keep the @status@ value
+-- constant in each subsequent request.
+listTaskDefinitions_status :: Lens.Lens' ListTaskDefinitions (Prelude.Maybe TaskDefinitionStatus)
+listTaskDefinitions_status = Lens.lens (\ListTaskDefinitions' {status} -> status) (\s@ListTaskDefinitions' {} a -> s {status = a} :: ListTaskDefinitions)
 
 instance Core.AWSPager ListTaskDefinitions where
   page rq rs
@@ -238,19 +239,19 @@ instance Core.AWSRequest ListTaskDefinitions where
 
 instance Prelude.Hashable ListTaskDefinitions where
   hashWithSalt _salt ListTaskDefinitions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` sort
+    _salt `Prelude.hashWithSalt` familyPrefix
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` familyPrefix
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sort
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ListTaskDefinitions where
   rnf ListTaskDefinitions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf sort
+    Prelude.rnf familyPrefix
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf familyPrefix
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sort
+      `Prelude.seq` Prelude.rnf status
 
 instance Data.ToHeaders ListTaskDefinitions where
   toHeaders =
@@ -271,11 +272,11 @@ instance Data.ToJSON ListTaskDefinitions where
   toJSON ListTaskDefinitions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("status" Data..=) Prelude.<$> status,
-            ("sort" Data..=) Prelude.<$> sort,
+          [ ("familyPrefix" Data..=) Prelude.<$> familyPrefix,
             ("maxResults" Data..=) Prelude.<$> maxResults,
-            ("familyPrefix" Data..=) Prelude.<$> familyPrefix
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("sort" Data..=) Prelude.<$> sort,
+            ("status" Data..=) Prelude.<$> status
           ]
       )
 

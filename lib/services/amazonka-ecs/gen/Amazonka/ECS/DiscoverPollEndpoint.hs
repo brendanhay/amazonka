@@ -30,16 +30,17 @@ module Amazonka.ECS.DiscoverPollEndpoint
     newDiscoverPollEndpoint,
 
     -- * Request Lenses
-    discoverPollEndpoint_containerInstance,
     discoverPollEndpoint_cluster,
+    discoverPollEndpoint_containerInstance,
 
     -- * Destructuring the Response
     DiscoverPollEndpointResponse (..),
     newDiscoverPollEndpointResponse,
 
     -- * Response Lenses
-    discoverPollEndpointResponse_telemetryEndpoint,
     discoverPollEndpointResponse_endpoint,
+    discoverPollEndpointResponse_serviceConnectEndpoint,
+    discoverPollEndpointResponse_telemetryEndpoint,
     discoverPollEndpointResponse_httpStatus,
   )
 where
@@ -54,14 +55,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDiscoverPollEndpoint' smart constructor.
 data DiscoverPollEndpoint = DiscoverPollEndpoint'
-  { -- | The container instance ID or full ARN of the container instance. For
+  { -- | The short name or full Amazon Resource Name (ARN) of the cluster that
+    -- the container instance belongs to.
+    cluster :: Prelude.Maybe Prelude.Text,
+    -- | The container instance ID or full ARN of the container instance. For
     -- more information about the ARN format, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids Amazon Resource Name (ARN)>
     -- in the /Amazon ECS Developer Guide/.
-    containerInstance :: Prelude.Maybe Prelude.Text,
-    -- | The short name or full Amazon Resource Name (ARN) of the cluster that
-    -- the container instance belongs to.
-    cluster :: Prelude.Maybe Prelude.Text
+    containerInstance :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,21 +74,25 @@ data DiscoverPollEndpoint = DiscoverPollEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'cluster', 'discoverPollEndpoint_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that
+-- the container instance belongs to.
+--
 -- 'containerInstance', 'discoverPollEndpoint_containerInstance' - The container instance ID or full ARN of the container instance. For
 -- more information about the ARN format, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids Amazon Resource Name (ARN)>
 -- in the /Amazon ECS Developer Guide/.
---
--- 'cluster', 'discoverPollEndpoint_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that
--- the container instance belongs to.
 newDiscoverPollEndpoint ::
   DiscoverPollEndpoint
 newDiscoverPollEndpoint =
   DiscoverPollEndpoint'
-    { containerInstance =
-        Prelude.Nothing,
-      cluster = Prelude.Nothing
+    { cluster = Prelude.Nothing,
+      containerInstance = Prelude.Nothing
     }
+
+-- | The short name or full Amazon Resource Name (ARN) of the cluster that
+-- the container instance belongs to.
+discoverPollEndpoint_cluster :: Lens.Lens' DiscoverPollEndpoint (Prelude.Maybe Prelude.Text)
+discoverPollEndpoint_cluster = Lens.lens (\DiscoverPollEndpoint' {cluster} -> cluster) (\s@DiscoverPollEndpoint' {} a -> s {cluster = a} :: DiscoverPollEndpoint)
 
 -- | The container instance ID or full ARN of the container instance. For
 -- more information about the ARN format, see
@@ -95,11 +100,6 @@ newDiscoverPollEndpoint =
 -- in the /Amazon ECS Developer Guide/.
 discoverPollEndpoint_containerInstance :: Lens.Lens' DiscoverPollEndpoint (Prelude.Maybe Prelude.Text)
 discoverPollEndpoint_containerInstance = Lens.lens (\DiscoverPollEndpoint' {containerInstance} -> containerInstance) (\s@DiscoverPollEndpoint' {} a -> s {containerInstance = a} :: DiscoverPollEndpoint)
-
--- | The short name or full Amazon Resource Name (ARN) of the cluster that
--- the container instance belongs to.
-discoverPollEndpoint_cluster :: Lens.Lens' DiscoverPollEndpoint (Prelude.Maybe Prelude.Text)
-discoverPollEndpoint_cluster = Lens.lens (\DiscoverPollEndpoint' {cluster} -> cluster) (\s@DiscoverPollEndpoint' {} a -> s {cluster = a} :: DiscoverPollEndpoint)
 
 instance Core.AWSRequest DiscoverPollEndpoint where
   type
@@ -111,20 +111,21 @@ instance Core.AWSRequest DiscoverPollEndpoint where
     Response.receiveJSON
       ( \s h x ->
           DiscoverPollEndpointResponse'
-            Prelude.<$> (x Data..?> "telemetryEndpoint")
-            Prelude.<*> (x Data..?> "endpoint")
+            Prelude.<$> (x Data..?> "endpoint")
+            Prelude.<*> (x Data..?> "serviceConnectEndpoint")
+            Prelude.<*> (x Data..?> "telemetryEndpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DiscoverPollEndpoint where
   hashWithSalt _salt DiscoverPollEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` containerInstance
-      `Prelude.hashWithSalt` cluster
+    _salt `Prelude.hashWithSalt` cluster
+      `Prelude.hashWithSalt` containerInstance
 
 instance Prelude.NFData DiscoverPollEndpoint where
   rnf DiscoverPollEndpoint' {..} =
-    Prelude.rnf containerInstance
-      `Prelude.seq` Prelude.rnf cluster
+    Prelude.rnf cluster
+      `Prelude.seq` Prelude.rnf containerInstance
 
 instance Data.ToHeaders DiscoverPollEndpoint where
   toHeaders =
@@ -145,9 +146,9 @@ instance Data.ToJSON DiscoverPollEndpoint where
   toJSON DiscoverPollEndpoint' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("containerInstance" Data..=)
-              Prelude.<$> containerInstance,
-            ("cluster" Data..=) Prelude.<$> cluster
+          [ ("cluster" Data..=) Prelude.<$> cluster,
+            ("containerInstance" Data..=)
+              Prelude.<$> containerInstance
           ]
       )
 
@@ -159,10 +160,15 @@ instance Data.ToQuery DiscoverPollEndpoint where
 
 -- | /See:/ 'newDiscoverPollEndpointResponse' smart constructor.
 data DiscoverPollEndpointResponse = DiscoverPollEndpointResponse'
-  { -- | The telemetry endpoint for the Amazon ECS agent.
-    telemetryEndpoint :: Prelude.Maybe Prelude.Text,
-    -- | The endpoint for the Amazon ECS agent to poll.
+  { -- | The endpoint for the Amazon ECS agent to poll.
     endpoint :: Prelude.Maybe Prelude.Text,
+    -- | The endpoint for the Amazon ECS agent to poll for Service Connect
+    -- configuration. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html Service Connect>
+    -- in the /Amazon Elastic Container Service Developer Guide/.
+    serviceConnectEndpoint :: Prelude.Maybe Prelude.Text,
+    -- | The telemetry endpoint for the Amazon ECS agent.
+    telemetryEndpoint :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -176,9 +182,14 @@ data DiscoverPollEndpointResponse = DiscoverPollEndpointResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'telemetryEndpoint', 'discoverPollEndpointResponse_telemetryEndpoint' - The telemetry endpoint for the Amazon ECS agent.
---
 -- 'endpoint', 'discoverPollEndpointResponse_endpoint' - The endpoint for the Amazon ECS agent to poll.
+--
+-- 'serviceConnectEndpoint', 'discoverPollEndpointResponse_serviceConnectEndpoint' - The endpoint for the Amazon ECS agent to poll for Service Connect
+-- configuration. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html Service Connect>
+-- in the /Amazon Elastic Container Service Developer Guide/.
+--
+-- 'telemetryEndpoint', 'discoverPollEndpointResponse_telemetryEndpoint' - The telemetry endpoint for the Amazon ECS agent.
 --
 -- 'httpStatus', 'discoverPollEndpointResponse_httpStatus' - The response's http status code.
 newDiscoverPollEndpointResponse ::
@@ -187,19 +198,27 @@ newDiscoverPollEndpointResponse ::
   DiscoverPollEndpointResponse
 newDiscoverPollEndpointResponse pHttpStatus_ =
   DiscoverPollEndpointResponse'
-    { telemetryEndpoint =
+    { endpoint =
         Prelude.Nothing,
-      endpoint = Prelude.Nothing,
+      serviceConnectEndpoint = Prelude.Nothing,
+      telemetryEndpoint = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The telemetry endpoint for the Amazon ECS agent.
-discoverPollEndpointResponse_telemetryEndpoint :: Lens.Lens' DiscoverPollEndpointResponse (Prelude.Maybe Prelude.Text)
-discoverPollEndpointResponse_telemetryEndpoint = Lens.lens (\DiscoverPollEndpointResponse' {telemetryEndpoint} -> telemetryEndpoint) (\s@DiscoverPollEndpointResponse' {} a -> s {telemetryEndpoint = a} :: DiscoverPollEndpointResponse)
 
 -- | The endpoint for the Amazon ECS agent to poll.
 discoverPollEndpointResponse_endpoint :: Lens.Lens' DiscoverPollEndpointResponse (Prelude.Maybe Prelude.Text)
 discoverPollEndpointResponse_endpoint = Lens.lens (\DiscoverPollEndpointResponse' {endpoint} -> endpoint) (\s@DiscoverPollEndpointResponse' {} a -> s {endpoint = a} :: DiscoverPollEndpointResponse)
+
+-- | The endpoint for the Amazon ECS agent to poll for Service Connect
+-- configuration. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html Service Connect>
+-- in the /Amazon Elastic Container Service Developer Guide/.
+discoverPollEndpointResponse_serviceConnectEndpoint :: Lens.Lens' DiscoverPollEndpointResponse (Prelude.Maybe Prelude.Text)
+discoverPollEndpointResponse_serviceConnectEndpoint = Lens.lens (\DiscoverPollEndpointResponse' {serviceConnectEndpoint} -> serviceConnectEndpoint) (\s@DiscoverPollEndpointResponse' {} a -> s {serviceConnectEndpoint = a} :: DiscoverPollEndpointResponse)
+
+-- | The telemetry endpoint for the Amazon ECS agent.
+discoverPollEndpointResponse_telemetryEndpoint :: Lens.Lens' DiscoverPollEndpointResponse (Prelude.Maybe Prelude.Text)
+discoverPollEndpointResponse_telemetryEndpoint = Lens.lens (\DiscoverPollEndpointResponse' {telemetryEndpoint} -> telemetryEndpoint) (\s@DiscoverPollEndpointResponse' {} a -> s {telemetryEndpoint = a} :: DiscoverPollEndpointResponse)
 
 -- | The response's http status code.
 discoverPollEndpointResponse_httpStatus :: Lens.Lens' DiscoverPollEndpointResponse Prelude.Int
@@ -207,6 +226,7 @@ discoverPollEndpointResponse_httpStatus = Lens.lens (\DiscoverPollEndpointRespon
 
 instance Prelude.NFData DiscoverPollEndpointResponse where
   rnf DiscoverPollEndpointResponse' {..} =
-    Prelude.rnf telemetryEndpoint
-      `Prelude.seq` Prelude.rnf endpoint
+    Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf serviceConnectEndpoint
+      `Prelude.seq` Prelude.rnf telemetryEndpoint
       `Prelude.seq` Prelude.rnf httpStatus

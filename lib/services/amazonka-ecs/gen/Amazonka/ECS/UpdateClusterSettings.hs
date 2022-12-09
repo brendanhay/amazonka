@@ -56,6 +56,13 @@ data UpdateClusterSettings = UpdateClusterSettings'
     -- turn on CloudWatch Container Insights for a cluster. If this value is
     -- specified, it overrides the @containerInsights@ value set with
     -- PutAccountSetting or PutAccountSettingDefault.
+    --
+    -- Currently, if you delete an existing cluster that does not have
+    -- Container Insights turned on, and then create a new cluster with the
+    -- same name with Container Insights tuned on, Container Insights will not
+    -- actually be turned on. If you want to preserve the same name for your
+    -- existing cluster and turn on Container Insights, you must wait 7 days
+    -- before you can re-create it.
     settings :: [ClusterSetting]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,6 +81,13 @@ data UpdateClusterSettings = UpdateClusterSettings'
 -- turn on CloudWatch Container Insights for a cluster. If this value is
 -- specified, it overrides the @containerInsights@ value set with
 -- PutAccountSetting or PutAccountSettingDefault.
+--
+-- Currently, if you delete an existing cluster that does not have
+-- Container Insights turned on, and then create a new cluster with the
+-- same name with Container Insights tuned on, Container Insights will not
+-- actually be turned on. If you want to preserve the same name for your
+-- existing cluster and turn on Container Insights, you must wait 7 days
+-- before you can re-create it.
 newUpdateClusterSettings ::
   -- | 'cluster'
   Prelude.Text ->
@@ -92,6 +106,13 @@ updateClusterSettings_cluster = Lens.lens (\UpdateClusterSettings' {cluster} -> 
 -- turn on CloudWatch Container Insights for a cluster. If this value is
 -- specified, it overrides the @containerInsights@ value set with
 -- PutAccountSetting or PutAccountSettingDefault.
+--
+-- Currently, if you delete an existing cluster that does not have
+-- Container Insights turned on, and then create a new cluster with the
+-- same name with Container Insights tuned on, Container Insights will not
+-- actually be turned on. If you want to preserve the same name for your
+-- existing cluster and turn on Container Insights, you must wait 7 days
+-- before you can re-create it.
 updateClusterSettings_settings :: Lens.Lens' UpdateClusterSettings [ClusterSetting]
 updateClusterSettings_settings = Lens.lens (\UpdateClusterSettings' {settings} -> settings) (\s@UpdateClusterSettings' {} a -> s {settings = a} :: UpdateClusterSettings) Prelude.. Lens.coerced
 

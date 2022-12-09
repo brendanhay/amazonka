@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newServiceEvent' smart constructor.
 data ServiceEvent = ServiceEvent'
-  { -- | The event message.
-    message :: Prelude.Maybe Prelude.Text,
+  { -- | The Unix timestamp for the time when the event was triggered.
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The ID string for the event.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The Unix timestamp for the time when the event was triggered.
-    createdAt :: Prelude.Maybe Data.POSIX
+    -- | The event message.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,31 +45,31 @@ data ServiceEvent = ServiceEvent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'serviceEvent_message' - The event message.
+-- 'createdAt', 'serviceEvent_createdAt' - The Unix timestamp for the time when the event was triggered.
 --
 -- 'id', 'serviceEvent_id' - The ID string for the event.
 --
--- 'createdAt', 'serviceEvent_createdAt' - The Unix timestamp for the time when the event was triggered.
+-- 'message', 'serviceEvent_message' - The event message.
 newServiceEvent ::
   ServiceEvent
 newServiceEvent =
   ServiceEvent'
-    { message = Prelude.Nothing,
+    { createdAt = Prelude.Nothing,
       id = Prelude.Nothing,
-      createdAt = Prelude.Nothing
+      message = Prelude.Nothing
     }
 
--- | The event message.
-serviceEvent_message :: Lens.Lens' ServiceEvent (Prelude.Maybe Prelude.Text)
-serviceEvent_message = Lens.lens (\ServiceEvent' {message} -> message) (\s@ServiceEvent' {} a -> s {message = a} :: ServiceEvent)
+-- | The Unix timestamp for the time when the event was triggered.
+serviceEvent_createdAt :: Lens.Lens' ServiceEvent (Prelude.Maybe Prelude.UTCTime)
+serviceEvent_createdAt = Lens.lens (\ServiceEvent' {createdAt} -> createdAt) (\s@ServiceEvent' {} a -> s {createdAt = a} :: ServiceEvent) Prelude.. Lens.mapping Data._Time
 
 -- | The ID string for the event.
 serviceEvent_id :: Lens.Lens' ServiceEvent (Prelude.Maybe Prelude.Text)
 serviceEvent_id = Lens.lens (\ServiceEvent' {id} -> id) (\s@ServiceEvent' {} a -> s {id = a} :: ServiceEvent)
 
--- | The Unix timestamp for the time when the event was triggered.
-serviceEvent_createdAt :: Lens.Lens' ServiceEvent (Prelude.Maybe Prelude.UTCTime)
-serviceEvent_createdAt = Lens.lens (\ServiceEvent' {createdAt} -> createdAt) (\s@ServiceEvent' {} a -> s {createdAt = a} :: ServiceEvent) Prelude.. Lens.mapping Data._Time
+-- | The event message.
+serviceEvent_message :: Lens.Lens' ServiceEvent (Prelude.Maybe Prelude.Text)
+serviceEvent_message = Lens.lens (\ServiceEvent' {message} -> message) (\s@ServiceEvent' {} a -> s {message = a} :: ServiceEvent)
 
 instance Data.FromJSON ServiceEvent where
   parseJSON =
@@ -77,19 +77,19 @@ instance Data.FromJSON ServiceEvent where
       "ServiceEvent"
       ( \x ->
           ServiceEvent'
-            Prelude.<$> (x Data..:? "message")
+            Prelude.<$> (x Data..:? "createdAt")
             Prelude.<*> (x Data..:? "id")
-            Prelude.<*> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "message")
       )
 
 instance Prelude.Hashable ServiceEvent where
   hashWithSalt _salt ServiceEvent' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData ServiceEvent where
   rnf ServiceEvent' {..} =
-    Prelude.rnf message
+    Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf message

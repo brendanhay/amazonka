@@ -29,8 +29,8 @@ module Amazonka.ECS.ListClusters
     newListClusters,
 
     -- * Request Lenses
-    listClusters_nextToken,
     listClusters_maxResults,
+    listClusters_nextToken,
 
     -- * Destructuring the Response
     ListClustersResponse (..),
@@ -53,16 +53,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListClusters' smart constructor.
 data ListClusters = ListClusters'
-  { -- | The @nextToken@ value returned from a @ListClusters@ request indicating
-    -- that more results are available to fulfill the request and further calls
-    -- are needed. If @maxResults@ was provided, it\'s possible the number of
-    -- results to be fewer than @maxResults@.
-    --
-    -- This token should be treated as an opaque identifier that is only used
-    -- to retrieve the next items in a list and not for other programmatic
-    -- purposes.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of cluster results that @ListClusters@ returned in
+  { -- | The maximum number of cluster results that @ListClusters@ returned in
     -- paginated output. When this parameter is used, @ListClusters@ only
     -- returns @maxResults@ results in a single page along with a @nextToken@
     -- response element. The remaining results of the initial request can be
@@ -70,7 +61,16 @@ data ListClusters = ListClusters'
     -- @nextToken@ value. This value can be between 1 and 100. If this
     -- parameter isn\'t used, then @ListClusters@ returns up to 100 results and
     -- a @nextToken@ value if applicable.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The @nextToken@ value returned from a @ListClusters@ request indicating
+    -- that more results are available to fulfill the request and further calls
+    -- are needed. If @maxResults@ was provided, it\'s possible the number of
+    -- results to be fewer than @maxResults@.
+    --
+    -- This token should be treated as an opaque identifier that is only used
+    -- to retrieve the next items in a list and not for other programmatic
+    -- purposes.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,15 +82,6 @@ data ListClusters = ListClusters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listClusters_nextToken' - The @nextToken@ value returned from a @ListClusters@ request indicating
--- that more results are available to fulfill the request and further calls
--- are needed. If @maxResults@ was provided, it\'s possible the number of
--- results to be fewer than @maxResults@.
---
--- This token should be treated as an opaque identifier that is only used
--- to retrieve the next items in a list and not for other programmatic
--- purposes.
---
 -- 'maxResults', 'listClusters_maxResults' - The maximum number of cluster results that @ListClusters@ returned in
 -- paginated output. When this parameter is used, @ListClusters@ only
 -- returns @maxResults@ results in a single page along with a @nextToken@
@@ -99,15 +90,8 @@ data ListClusters = ListClusters'
 -- @nextToken@ value. This value can be between 1 and 100. If this
 -- parameter isn\'t used, then @ListClusters@ returns up to 100 results and
 -- a @nextToken@ value if applicable.
-newListClusters ::
-  ListClusters
-newListClusters =
-  ListClusters'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
-    }
-
--- | The @nextToken@ value returned from a @ListClusters@ request indicating
+--
+-- 'nextToken', 'listClusters_nextToken' - The @nextToken@ value returned from a @ListClusters@ request indicating
 -- that more results are available to fulfill the request and further calls
 -- are needed. If @maxResults@ was provided, it\'s possible the number of
 -- results to be fewer than @maxResults@.
@@ -115,8 +99,13 @@ newListClusters =
 -- This token should be treated as an opaque identifier that is only used
 -- to retrieve the next items in a list and not for other programmatic
 -- purposes.
-listClusters_nextToken :: Lens.Lens' ListClusters (Prelude.Maybe Prelude.Text)
-listClusters_nextToken = Lens.lens (\ListClusters' {nextToken} -> nextToken) (\s@ListClusters' {} a -> s {nextToken = a} :: ListClusters)
+newListClusters ::
+  ListClusters
+newListClusters =
+  ListClusters'
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
+    }
 
 -- | The maximum number of cluster results that @ListClusters@ returned in
 -- paginated output. When this parameter is used, @ListClusters@ only
@@ -128,6 +117,17 @@ listClusters_nextToken = Lens.lens (\ListClusters' {nextToken} -> nextToken) (\s
 -- a @nextToken@ value if applicable.
 listClusters_maxResults :: Lens.Lens' ListClusters (Prelude.Maybe Prelude.Int)
 listClusters_maxResults = Lens.lens (\ListClusters' {maxResults} -> maxResults) (\s@ListClusters' {} a -> s {maxResults = a} :: ListClusters)
+
+-- | The @nextToken@ value returned from a @ListClusters@ request indicating
+-- that more results are available to fulfill the request and further calls
+-- are needed. If @maxResults@ was provided, it\'s possible the number of
+-- results to be fewer than @maxResults@.
+--
+-- This token should be treated as an opaque identifier that is only used
+-- to retrieve the next items in a list and not for other programmatic
+-- purposes.
+listClusters_nextToken :: Lens.Lens' ListClusters (Prelude.Maybe Prelude.Text)
+listClusters_nextToken = Lens.lens (\ListClusters' {nextToken} -> nextToken) (\s@ListClusters' {} a -> s {nextToken = a} :: ListClusters)
 
 instance Core.AWSPager ListClusters where
   page rq rs
@@ -164,13 +164,13 @@ instance Core.AWSRequest ListClusters where
 
 instance Prelude.Hashable ListClusters where
   hashWithSalt _salt ListClusters' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListClusters where
   rnf ListClusters' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListClusters where
   toHeaders =
@@ -191,8 +191,8 @@ instance Data.ToJSON ListClusters where
   toJSON ListClusters' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

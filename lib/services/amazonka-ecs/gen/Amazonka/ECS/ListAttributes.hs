@@ -36,11 +36,11 @@ module Amazonka.ECS.ListAttributes
     newListAttributes,
 
     -- * Request Lenses
-    listAttributes_nextToken,
+    listAttributes_attributeName,
     listAttributes_attributeValue,
     listAttributes_cluster,
     listAttributes_maxResults,
-    listAttributes_attributeName,
+    listAttributes_nextToken,
     listAttributes_targetType,
 
     -- * Destructuring the Response
@@ -48,8 +48,8 @@ module Amazonka.ECS.ListAttributes
     newListAttributesResponse,
 
     -- * Response Lenses
-    listAttributesResponse_nextToken,
     listAttributesResponse_attributes,
+    listAttributesResponse_nextToken,
     listAttributesResponse_httpStatus,
   )
 where
@@ -64,15 +64,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAttributes' smart constructor.
 data ListAttributes = ListAttributes'
-  { -- | The @nextToken@ value returned from a @ListAttributes@ request
-    -- indicating that more results are available to fulfill the request and
-    -- further calls are needed. If @maxResults@ was provided, it\'s possible
-    -- the number of results to be fewer than @maxResults@.
-    --
-    -- This token should be treated as an opaque identifier that is only used
-    -- to retrieve the next items in a list and not for other programmatic
-    -- purposes.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The name of the attribute to filter the results with.
+    attributeName :: Prelude.Maybe Prelude.Text,
     -- | The value of the attribute to filter results with. You must also specify
     -- an attribute name to use this parameter.
     attributeValue :: Prelude.Maybe Prelude.Text,
@@ -89,8 +82,15 @@ data ListAttributes = ListAttributes'
     -- parameter isn\'t used, then @ListAttributes@ returns up to 100 results
     -- and a @nextToken@ value if applicable.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The name of the attribute to filter the results with.
-    attributeName :: Prelude.Maybe Prelude.Text,
+    -- | The @nextToken@ value returned from a @ListAttributes@ request
+    -- indicating that more results are available to fulfill the request and
+    -- further calls are needed. If @maxResults@ was provided, it\'s possible
+    -- the number of results to be fewer than @maxResults@.
+    --
+    -- This token should be treated as an opaque identifier that is only used
+    -- to retrieve the next items in a list and not for other programmatic
+    -- purposes.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The type of the target to list attributes with.
     targetType :: TargetType
   }
@@ -104,14 +104,7 @@ data ListAttributes = ListAttributes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAttributes_nextToken' - The @nextToken@ value returned from a @ListAttributes@ request
--- indicating that more results are available to fulfill the request and
--- further calls are needed. If @maxResults@ was provided, it\'s possible
--- the number of results to be fewer than @maxResults@.
---
--- This token should be treated as an opaque identifier that is only used
--- to retrieve the next items in a list and not for other programmatic
--- purposes.
+-- 'attributeName', 'listAttributes_attributeName' - The name of the attribute to filter the results with.
 --
 -- 'attributeValue', 'listAttributes_attributeValue' - The value of the attribute to filter results with. You must also specify
 -- an attribute name to use this parameter.
@@ -129,7 +122,14 @@ data ListAttributes = ListAttributes'
 -- parameter isn\'t used, then @ListAttributes@ returns up to 100 results
 -- and a @nextToken@ value if applicable.
 --
--- 'attributeName', 'listAttributes_attributeName' - The name of the attribute to filter the results with.
+-- 'nextToken', 'listAttributes_nextToken' - The @nextToken@ value returned from a @ListAttributes@ request
+-- indicating that more results are available to fulfill the request and
+-- further calls are needed. If @maxResults@ was provided, it\'s possible
+-- the number of results to be fewer than @maxResults@.
+--
+-- This token should be treated as an opaque identifier that is only used
+-- to retrieve the next items in a list and not for other programmatic
+-- purposes.
 --
 -- 'targetType', 'listAttributes_targetType' - The type of the target to list attributes with.
 newListAttributes ::
@@ -138,24 +138,17 @@ newListAttributes ::
   ListAttributes
 newListAttributes pTargetType_ =
   ListAttributes'
-    { nextToken = Prelude.Nothing,
+    { attributeName = Prelude.Nothing,
       attributeValue = Prelude.Nothing,
       cluster = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      attributeName = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       targetType = pTargetType_
     }
 
--- | The @nextToken@ value returned from a @ListAttributes@ request
--- indicating that more results are available to fulfill the request and
--- further calls are needed. If @maxResults@ was provided, it\'s possible
--- the number of results to be fewer than @maxResults@.
---
--- This token should be treated as an opaque identifier that is only used
--- to retrieve the next items in a list and not for other programmatic
--- purposes.
-listAttributes_nextToken :: Lens.Lens' ListAttributes (Prelude.Maybe Prelude.Text)
-listAttributes_nextToken = Lens.lens (\ListAttributes' {nextToken} -> nextToken) (\s@ListAttributes' {} a -> s {nextToken = a} :: ListAttributes)
+-- | The name of the attribute to filter the results with.
+listAttributes_attributeName :: Lens.Lens' ListAttributes (Prelude.Maybe Prelude.Text)
+listAttributes_attributeName = Lens.lens (\ListAttributes' {attributeName} -> attributeName) (\s@ListAttributes' {} a -> s {attributeName = a} :: ListAttributes)
 
 -- | The value of the attribute to filter results with. You must also specify
 -- an attribute name to use this parameter.
@@ -179,9 +172,16 @@ listAttributes_cluster = Lens.lens (\ListAttributes' {cluster} -> cluster) (\s@L
 listAttributes_maxResults :: Lens.Lens' ListAttributes (Prelude.Maybe Prelude.Int)
 listAttributes_maxResults = Lens.lens (\ListAttributes' {maxResults} -> maxResults) (\s@ListAttributes' {} a -> s {maxResults = a} :: ListAttributes)
 
--- | The name of the attribute to filter the results with.
-listAttributes_attributeName :: Lens.Lens' ListAttributes (Prelude.Maybe Prelude.Text)
-listAttributes_attributeName = Lens.lens (\ListAttributes' {attributeName} -> attributeName) (\s@ListAttributes' {} a -> s {attributeName = a} :: ListAttributes)
+-- | The @nextToken@ value returned from a @ListAttributes@ request
+-- indicating that more results are available to fulfill the request and
+-- further calls are needed. If @maxResults@ was provided, it\'s possible
+-- the number of results to be fewer than @maxResults@.
+--
+-- This token should be treated as an opaque identifier that is only used
+-- to retrieve the next items in a list and not for other programmatic
+-- purposes.
+listAttributes_nextToken :: Lens.Lens' ListAttributes (Prelude.Maybe Prelude.Text)
+listAttributes_nextToken = Lens.lens (\ListAttributes' {nextToken} -> nextToken) (\s@ListAttributes' {} a -> s {nextToken = a} :: ListAttributes)
 
 -- | The type of the target to list attributes with.
 listAttributes_targetType :: Lens.Lens' ListAttributes TargetType
@@ -218,27 +218,27 @@ instance Core.AWSRequest ListAttributes where
     Response.receiveJSON
       ( \s h x ->
           ListAttributesResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "attributes" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "attributes" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListAttributes where
   hashWithSalt _salt ListAttributes' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` attributeName
       `Prelude.hashWithSalt` attributeValue
       `Prelude.hashWithSalt` cluster
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` attributeName
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` targetType
 
 instance Prelude.NFData ListAttributes where
   rnf ListAttributes' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf attributeName
       `Prelude.seq` Prelude.rnf attributeValue
       `Prelude.seq` Prelude.rnf cluster
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf attributeName
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf targetType
 
 instance Data.ToHeaders ListAttributes where
@@ -260,12 +260,12 @@ instance Data.ToJSON ListAttributes where
   toJSON ListAttributes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+          [ ("attributeName" Data..=) Prelude.<$> attributeName,
             ("attributeValue" Data..=)
               Prelude.<$> attributeValue,
             ("cluster" Data..=) Prelude.<$> cluster,
             ("maxResults" Data..=) Prelude.<$> maxResults,
-            ("attributeName" Data..=) Prelude.<$> attributeName,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("targetType" Data..= targetType)
           ]
       )
@@ -278,13 +278,13 @@ instance Data.ToQuery ListAttributes where
 
 -- | /See:/ 'newListAttributesResponse' smart constructor.
 data ListAttributesResponse = ListAttributesResponse'
-  { -- | The @nextToken@ value to include in a future @ListAttributes@ request.
+  { -- | A list of attribute objects that meet the criteria of the request.
+    attributes :: Prelude.Maybe [Attribute],
+    -- | The @nextToken@ value to include in a future @ListAttributes@ request.
     -- When the results of a @ListAttributes@ request exceed @maxResults@, this
     -- value can be used to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of attribute objects that meet the criteria of the request.
-    attributes :: Prelude.Maybe [Attribute],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -298,12 +298,12 @@ data ListAttributesResponse = ListAttributesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attributes', 'listAttributesResponse_attributes' - A list of attribute objects that meet the criteria of the request.
+--
 -- 'nextToken', 'listAttributesResponse_nextToken' - The @nextToken@ value to include in a future @ListAttributes@ request.
 -- When the results of a @ListAttributes@ request exceed @maxResults@, this
 -- value can be used to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
---
--- 'attributes', 'listAttributesResponse_attributes' - A list of attribute objects that meet the criteria of the request.
 --
 -- 'httpStatus', 'listAttributesResponse_httpStatus' - The response's http status code.
 newListAttributesResponse ::
@@ -312,11 +312,15 @@ newListAttributesResponse ::
   ListAttributesResponse
 newListAttributesResponse pHttpStatus_ =
   ListAttributesResponse'
-    { nextToken =
+    { attributes =
         Prelude.Nothing,
-      attributes = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of attribute objects that meet the criteria of the request.
+listAttributesResponse_attributes :: Lens.Lens' ListAttributesResponse (Prelude.Maybe [Attribute])
+listAttributesResponse_attributes = Lens.lens (\ListAttributesResponse' {attributes} -> attributes) (\s@ListAttributesResponse' {} a -> s {attributes = a} :: ListAttributesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @nextToken@ value to include in a future @ListAttributes@ request.
 -- When the results of a @ListAttributes@ request exceed @maxResults@, this
@@ -325,16 +329,12 @@ newListAttributesResponse pHttpStatus_ =
 listAttributesResponse_nextToken :: Lens.Lens' ListAttributesResponse (Prelude.Maybe Prelude.Text)
 listAttributesResponse_nextToken = Lens.lens (\ListAttributesResponse' {nextToken} -> nextToken) (\s@ListAttributesResponse' {} a -> s {nextToken = a} :: ListAttributesResponse)
 
--- | A list of attribute objects that meet the criteria of the request.
-listAttributesResponse_attributes :: Lens.Lens' ListAttributesResponse (Prelude.Maybe [Attribute])
-listAttributesResponse_attributes = Lens.lens (\ListAttributesResponse' {attributes} -> attributes) (\s@ListAttributesResponse' {} a -> s {attributes = a} :: ListAttributesResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listAttributesResponse_httpStatus :: Lens.Lens' ListAttributesResponse Prelude.Int
 listAttributesResponse_httpStatus = Lens.lens (\ListAttributesResponse' {httpStatus} -> httpStatus) (\s@ListAttributesResponse' {} a -> s {httpStatus = a} :: ListAttributesResponse)
 
 instance Prelude.NFData ListAttributesResponse where
   rnf ListAttributesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf attributes
+    Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

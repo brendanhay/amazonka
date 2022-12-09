@@ -30,7 +30,39 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeploymentConfiguration' smart constructor.
 data DeploymentConfiguration = DeploymentConfiguration'
-  { -- | If a service is using the rolling update (@ECS@) deployment type, the
+  { -- | The deployment circuit breaker can only be used for services using the
+    -- rolling update (@ECS@) deployment type.
+    --
+    -- The __deployment circuit breaker__ determines whether a service
+    -- deployment will fail if the service can\'t reach a steady state. If
+    -- deployment circuit breaker is enabled, a service deployment will
+    -- transition to a failed state and stop launching new tasks. If rollback
+    -- is enabled, when a service deployment fails, the service is rolled back
+    -- to the last deployment that completed successfully.
+    deploymentCircuitBreaker :: Prelude.Maybe DeploymentCircuitBreaker,
+    -- | If a service is using the rolling update (@ECS@) deployment type, the
+    -- @maximumPercent@ parameter represents an upper limit on the number of
+    -- your service\'s tasks that are allowed in the @RUNNING@ or @PENDING@
+    -- state during a deployment, as a percentage of the @desiredCount@
+    -- (rounded down to the nearest integer). This parameter enables you to
+    -- define the deployment batch size. For example, if your service is using
+    -- the @REPLICA@ service scheduler and has a @desiredCount@ of four tasks
+    -- and a @maximumPercent@ value of 200%, the scheduler may start four new
+    -- tasks before stopping the four older tasks (provided that the cluster
+    -- resources required to do this are available). The default
+    -- @maximumPercent@ value for a service using the @REPLICA@ service
+    -- scheduler is 200%.
+    --
+    -- If a service is using either the blue\/green (@CODE_DEPLOY@) or
+    -- @EXTERNAL@ deployment types and tasks that use the EC2 launch type, the
+    -- __maximum percent__ value is set to the default value and is used to
+    -- define the upper limit on the number of the tasks in the service that
+    -- remain in the @RUNNING@ state while the container instances are in the
+    -- @DRAINING@ state. If the tasks in the service use the Fargate launch
+    -- type, the maximum percent value is not used, although it is returned
+    -- when describing your service.
+    maximumPercent :: Prelude.Maybe Prelude.Int,
+    -- | If a service is using the rolling update (@ECS@) deployment type, the
     -- @minimumHealthyPercent@ represents a lower limit on the number of your
     -- service\'s tasks that must remain in the @RUNNING@ state during a
     -- deployment, as a percentage of the @desiredCount@ (rounded up to the
@@ -83,39 +115,7 @@ data DeploymentConfiguration = DeploymentConfiguration'
     -- running tasks that use the Fargate launch type, the minimum healthy
     -- percent value is not used, although it is returned when describing your
     -- service.
-    minimumHealthyPercent :: Prelude.Maybe Prelude.Int,
-    -- | If a service is using the rolling update (@ECS@) deployment type, the
-    -- @maximumPercent@ parameter represents an upper limit on the number of
-    -- your service\'s tasks that are allowed in the @RUNNING@ or @PENDING@
-    -- state during a deployment, as a percentage of the @desiredCount@
-    -- (rounded down to the nearest integer). This parameter enables you to
-    -- define the deployment batch size. For example, if your service is using
-    -- the @REPLICA@ service scheduler and has a @desiredCount@ of four tasks
-    -- and a @maximumPercent@ value of 200%, the scheduler may start four new
-    -- tasks before stopping the four older tasks (provided that the cluster
-    -- resources required to do this are available). The default
-    -- @maximumPercent@ value for a service using the @REPLICA@ service
-    -- scheduler is 200%.
-    --
-    -- If a service is using either the blue\/green (@CODE_DEPLOY@) or
-    -- @EXTERNAL@ deployment types and tasks that use the EC2 launch type, the
-    -- __maximum percent__ value is set to the default value and is used to
-    -- define the upper limit on the number of the tasks in the service that
-    -- remain in the @RUNNING@ state while the container instances are in the
-    -- @DRAINING@ state. If the tasks in the service use the Fargate launch
-    -- type, the maximum percent value is not used, although it is returned
-    -- when describing your service.
-    maximumPercent :: Prelude.Maybe Prelude.Int,
-    -- | The deployment circuit breaker can only be used for services using the
-    -- rolling update (@ECS@) deployment type.
-    --
-    -- The __deployment circuit breaker__ determines whether a service
-    -- deployment will fail if the service can\'t reach a steady state. If
-    -- deployment circuit breaker is enabled, a service deployment will
-    -- transition to a failed state and stop launching new tasks. If rollback
-    -- is enabled, when a service deployment fails, the service is rolled back
-    -- to the last deployment that completed successfully.
-    deploymentCircuitBreaker :: Prelude.Maybe DeploymentCircuitBreaker
+    minimumHealthyPercent :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -126,6 +126,38 @@ data DeploymentConfiguration = DeploymentConfiguration'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'deploymentCircuitBreaker', 'deploymentConfiguration_deploymentCircuitBreaker' - The deployment circuit breaker can only be used for services using the
+-- rolling update (@ECS@) deployment type.
+--
+-- The __deployment circuit breaker__ determines whether a service
+-- deployment will fail if the service can\'t reach a steady state. If
+-- deployment circuit breaker is enabled, a service deployment will
+-- transition to a failed state and stop launching new tasks. If rollback
+-- is enabled, when a service deployment fails, the service is rolled back
+-- to the last deployment that completed successfully.
+--
+-- 'maximumPercent', 'deploymentConfiguration_maximumPercent' - If a service is using the rolling update (@ECS@) deployment type, the
+-- @maximumPercent@ parameter represents an upper limit on the number of
+-- your service\'s tasks that are allowed in the @RUNNING@ or @PENDING@
+-- state during a deployment, as a percentage of the @desiredCount@
+-- (rounded down to the nearest integer). This parameter enables you to
+-- define the deployment batch size. For example, if your service is using
+-- the @REPLICA@ service scheduler and has a @desiredCount@ of four tasks
+-- and a @maximumPercent@ value of 200%, the scheduler may start four new
+-- tasks before stopping the four older tasks (provided that the cluster
+-- resources required to do this are available). The default
+-- @maximumPercent@ value for a service using the @REPLICA@ service
+-- scheduler is 200%.
+--
+-- If a service is using either the blue\/green (@CODE_DEPLOY@) or
+-- @EXTERNAL@ deployment types and tasks that use the EC2 launch type, the
+-- __maximum percent__ value is set to the default value and is used to
+-- define the upper limit on the number of the tasks in the service that
+-- remain in the @RUNNING@ state while the container instances are in the
+-- @DRAINING@ state. If the tasks in the service use the Fargate launch
+-- type, the maximum percent value is not used, although it is returned
+-- when describing your service.
 --
 -- 'minimumHealthyPercent', 'deploymentConfiguration_minimumHealthyPercent' - If a service is using the rolling update (@ECS@) deployment type, the
 -- @minimumHealthyPercent@ represents a lower limit on the number of your
@@ -180,8 +212,29 @@ data DeploymentConfiguration = DeploymentConfiguration'
 -- running tasks that use the Fargate launch type, the minimum healthy
 -- percent value is not used, although it is returned when describing your
 -- service.
+newDeploymentConfiguration ::
+  DeploymentConfiguration
+newDeploymentConfiguration =
+  DeploymentConfiguration'
+    { deploymentCircuitBreaker =
+        Prelude.Nothing,
+      maximumPercent = Prelude.Nothing,
+      minimumHealthyPercent = Prelude.Nothing
+    }
+
+-- | The deployment circuit breaker can only be used for services using the
+-- rolling update (@ECS@) deployment type.
 --
--- 'maximumPercent', 'deploymentConfiguration_maximumPercent' - If a service is using the rolling update (@ECS@) deployment type, the
+-- The __deployment circuit breaker__ determines whether a service
+-- deployment will fail if the service can\'t reach a steady state. If
+-- deployment circuit breaker is enabled, a service deployment will
+-- transition to a failed state and stop launching new tasks. If rollback
+-- is enabled, when a service deployment fails, the service is rolled back
+-- to the last deployment that completed successfully.
+deploymentConfiguration_deploymentCircuitBreaker :: Lens.Lens' DeploymentConfiguration (Prelude.Maybe DeploymentCircuitBreaker)
+deploymentConfiguration_deploymentCircuitBreaker = Lens.lens (\DeploymentConfiguration' {deploymentCircuitBreaker} -> deploymentCircuitBreaker) (\s@DeploymentConfiguration' {} a -> s {deploymentCircuitBreaker = a} :: DeploymentConfiguration)
+
+-- | If a service is using the rolling update (@ECS@) deployment type, the
 -- @maximumPercent@ parameter represents an upper limit on the number of
 -- your service\'s tasks that are allowed in the @RUNNING@ or @PENDING@
 -- state during a deployment, as a percentage of the @desiredCount@
@@ -202,25 +255,8 @@ data DeploymentConfiguration = DeploymentConfiguration'
 -- @DRAINING@ state. If the tasks in the service use the Fargate launch
 -- type, the maximum percent value is not used, although it is returned
 -- when describing your service.
---
--- 'deploymentCircuitBreaker', 'deploymentConfiguration_deploymentCircuitBreaker' - The deployment circuit breaker can only be used for services using the
--- rolling update (@ECS@) deployment type.
---
--- The __deployment circuit breaker__ determines whether a service
--- deployment will fail if the service can\'t reach a steady state. If
--- deployment circuit breaker is enabled, a service deployment will
--- transition to a failed state and stop launching new tasks. If rollback
--- is enabled, when a service deployment fails, the service is rolled back
--- to the last deployment that completed successfully.
-newDeploymentConfiguration ::
-  DeploymentConfiguration
-newDeploymentConfiguration =
-  DeploymentConfiguration'
-    { minimumHealthyPercent =
-        Prelude.Nothing,
-      maximumPercent = Prelude.Nothing,
-      deploymentCircuitBreaker = Prelude.Nothing
-    }
+deploymentConfiguration_maximumPercent :: Lens.Lens' DeploymentConfiguration (Prelude.Maybe Prelude.Int)
+deploymentConfiguration_maximumPercent = Lens.lens (\DeploymentConfiguration' {maximumPercent} -> maximumPercent) (\s@DeploymentConfiguration' {} a -> s {maximumPercent = a} :: DeploymentConfiguration)
 
 -- | If a service is using the rolling update (@ECS@) deployment type, the
 -- @minimumHealthyPercent@ represents a lower limit on the number of your
@@ -278,74 +314,39 @@ newDeploymentConfiguration =
 deploymentConfiguration_minimumHealthyPercent :: Lens.Lens' DeploymentConfiguration (Prelude.Maybe Prelude.Int)
 deploymentConfiguration_minimumHealthyPercent = Lens.lens (\DeploymentConfiguration' {minimumHealthyPercent} -> minimumHealthyPercent) (\s@DeploymentConfiguration' {} a -> s {minimumHealthyPercent = a} :: DeploymentConfiguration)
 
--- | If a service is using the rolling update (@ECS@) deployment type, the
--- @maximumPercent@ parameter represents an upper limit on the number of
--- your service\'s tasks that are allowed in the @RUNNING@ or @PENDING@
--- state during a deployment, as a percentage of the @desiredCount@
--- (rounded down to the nearest integer). This parameter enables you to
--- define the deployment batch size. For example, if your service is using
--- the @REPLICA@ service scheduler and has a @desiredCount@ of four tasks
--- and a @maximumPercent@ value of 200%, the scheduler may start four new
--- tasks before stopping the four older tasks (provided that the cluster
--- resources required to do this are available). The default
--- @maximumPercent@ value for a service using the @REPLICA@ service
--- scheduler is 200%.
---
--- If a service is using either the blue\/green (@CODE_DEPLOY@) or
--- @EXTERNAL@ deployment types and tasks that use the EC2 launch type, the
--- __maximum percent__ value is set to the default value and is used to
--- define the upper limit on the number of the tasks in the service that
--- remain in the @RUNNING@ state while the container instances are in the
--- @DRAINING@ state. If the tasks in the service use the Fargate launch
--- type, the maximum percent value is not used, although it is returned
--- when describing your service.
-deploymentConfiguration_maximumPercent :: Lens.Lens' DeploymentConfiguration (Prelude.Maybe Prelude.Int)
-deploymentConfiguration_maximumPercent = Lens.lens (\DeploymentConfiguration' {maximumPercent} -> maximumPercent) (\s@DeploymentConfiguration' {} a -> s {maximumPercent = a} :: DeploymentConfiguration)
-
--- | The deployment circuit breaker can only be used for services using the
--- rolling update (@ECS@) deployment type.
---
--- The __deployment circuit breaker__ determines whether a service
--- deployment will fail if the service can\'t reach a steady state. If
--- deployment circuit breaker is enabled, a service deployment will
--- transition to a failed state and stop launching new tasks. If rollback
--- is enabled, when a service deployment fails, the service is rolled back
--- to the last deployment that completed successfully.
-deploymentConfiguration_deploymentCircuitBreaker :: Lens.Lens' DeploymentConfiguration (Prelude.Maybe DeploymentCircuitBreaker)
-deploymentConfiguration_deploymentCircuitBreaker = Lens.lens (\DeploymentConfiguration' {deploymentCircuitBreaker} -> deploymentCircuitBreaker) (\s@DeploymentConfiguration' {} a -> s {deploymentCircuitBreaker = a} :: DeploymentConfiguration)
-
 instance Data.FromJSON DeploymentConfiguration where
   parseJSON =
     Data.withObject
       "DeploymentConfiguration"
       ( \x ->
           DeploymentConfiguration'
-            Prelude.<$> (x Data..:? "minimumHealthyPercent")
+            Prelude.<$> (x Data..:? "deploymentCircuitBreaker")
             Prelude.<*> (x Data..:? "maximumPercent")
-            Prelude.<*> (x Data..:? "deploymentCircuitBreaker")
+            Prelude.<*> (x Data..:? "minimumHealthyPercent")
       )
 
 instance Prelude.Hashable DeploymentConfiguration where
   hashWithSalt _salt DeploymentConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` minimumHealthyPercent
-      `Prelude.hashWithSalt` maximumPercent
+    _salt
       `Prelude.hashWithSalt` deploymentCircuitBreaker
+      `Prelude.hashWithSalt` maximumPercent
+      `Prelude.hashWithSalt` minimumHealthyPercent
 
 instance Prelude.NFData DeploymentConfiguration where
   rnf DeploymentConfiguration' {..} =
-    Prelude.rnf minimumHealthyPercent
+    Prelude.rnf deploymentCircuitBreaker
       `Prelude.seq` Prelude.rnf maximumPercent
-      `Prelude.seq` Prelude.rnf deploymentCircuitBreaker
+      `Prelude.seq` Prelude.rnf minimumHealthyPercent
 
 instance Data.ToJSON DeploymentConfiguration where
   toJSON DeploymentConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("minimumHealthyPercent" Data..=)
-              Prelude.<$> minimumHealthyPercent,
+          [ ("deploymentCircuitBreaker" Data..=)
+              Prelude.<$> deploymentCircuitBreaker,
             ("maximumPercent" Data..=)
               Prelude.<$> maximumPercent,
-            ("deploymentCircuitBreaker" Data..=)
-              Prelude.<$> deploymentCircuitBreaker
+            ("minimumHealthyPercent" Data..=)
+              Prelude.<$> minimumHealthyPercent
           ]
       )

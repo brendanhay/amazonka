@@ -147,22 +147,23 @@ module Amazonka.ECS.UpdateService
     newUpdateService,
 
     -- * Request Lenses
-    updateService_healthCheckGracePeriodSeconds,
-    updateService_deploymentConfiguration,
-    updateService_serviceRegistries,
-    updateService_cluster,
-    updateService_placementStrategy,
-    updateService_taskDefinition,
-    updateService_networkConfiguration,
-    updateService_desiredCount,
-    updateService_enableExecuteCommand,
     updateService_capacityProviderStrategy,
-    updateService_placementConstraints,
-    updateService_propagateTags,
-    updateService_loadBalancers,
-    updateService_forceNewDeployment,
-    updateService_platformVersion,
+    updateService_cluster,
+    updateService_deploymentConfiguration,
+    updateService_desiredCount,
     updateService_enableECSManagedTags,
+    updateService_enableExecuteCommand,
+    updateService_forceNewDeployment,
+    updateService_healthCheckGracePeriodSeconds,
+    updateService_loadBalancers,
+    updateService_networkConfiguration,
+    updateService_placementConstraints,
+    updateService_placementStrategy,
+    updateService_platformVersion,
+    updateService_propagateTags,
+    updateService_serviceConnectConfiguration,
+    updateService_serviceRegistries,
+    updateService_taskDefinition,
     updateService_service,
 
     -- * Destructuring the Response
@@ -185,62 +186,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateService' smart constructor.
 data UpdateService = UpdateService'
-  { -- | The period of time, in seconds, that the Amazon ECS service scheduler
-    -- ignores unhealthy Elastic Load Balancing target health checks after a
-    -- task has first started. This is only valid if your service is configured
-    -- to use a load balancer. If your service\'s tasks take a while to start
-    -- and respond to Elastic Load Balancing health checks, you can specify a
-    -- health check grace period of up to 2,147,483,647 seconds. During that
-    -- time, the Amazon ECS service scheduler ignores the Elastic Load
-    -- Balancing health check status. This grace period can prevent the ECS
-    -- service scheduler from marking tasks as unhealthy and stopping them
-    -- before they have time to come up.
-    healthCheckGracePeriodSeconds :: Prelude.Maybe Prelude.Int,
-    -- | Optional deployment parameters that control how many tasks run during
-    -- the deployment and the ordering of stopping and starting tasks.
-    deploymentConfiguration :: Prelude.Maybe DeploymentConfiguration,
-    -- | The details for the service discovery registries to assign to this
-    -- service. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery>.
-    --
-    -- When you add, update, or remove the service registries configuration,
-    -- Amazon ECS starts new tasks with the updated service registries
-    -- configuration, and then stops the old tasks when the new tasks are
-    -- running.
-    --
-    -- You can remove existing @serviceRegistries@ by passing an empty list.
-    serviceRegistries :: Prelude.Maybe [ServiceRegistry],
-    -- | The short name or full Amazon Resource Name (ARN) of the cluster that
-    -- your service runs on. If you do not specify a cluster, the default
-    -- cluster is assumed.
-    cluster :: Prelude.Maybe Prelude.Text,
-    -- | The task placement strategy objects to update the service to use. If no
-    -- value is specified, the existing placement strategy for the service will
-    -- remain unchanged. If this value is specified, it will override the
-    -- existing placement strategy defined for the service. To remove an
-    -- existing placement strategy, specify an empty object.
-    --
-    -- You can specify a maximum of five strategy rules for each service.
-    placementStrategy :: Prelude.Maybe [PlacementStrategy],
-    -- | The @family@ and @revision@ (@family:revision@) or full ARN of the task
-    -- definition to run in your service. If a @revision@ is not specified, the
-    -- latest @ACTIVE@ revision is used. If you modify the task definition with
-    -- @UpdateService@, Amazon ECS spawns a task with the new version of the
-    -- task definition and then stops an old task after the new version is
-    -- running.
-    taskDefinition :: Prelude.Maybe Prelude.Text,
-    -- | An object representing the network configuration for the service.
-    networkConfiguration :: Prelude.Maybe NetworkConfiguration,
-    -- | The number of instantiations of the task to place and keep running in
-    -- your service.
-    desiredCount :: Prelude.Maybe Prelude.Int,
-    -- | If @true@, this enables execute command functionality on all task
-    -- containers.
-    --
-    -- If you do not want to override the value that was set when the service
-    -- was created, you can set this to @null@ when performing this action.
-    enableExecuteCommand :: Prelude.Maybe Prelude.Bool,
-    -- | The capacity provider strategy to update the service to use.
+  { -- | The capacity provider strategy to update the service to use.
     --
     -- if the service uses the default capacity provider strategy for the
     -- cluster, the service can be updated to use one or more capacity
@@ -269,24 +215,49 @@ data UpdateService = UpdateService'
     -- of available capacity providers for a cluster after the cluster is
     -- created.
     capacityProviderStrategy :: Prelude.Maybe [CapacityProviderStrategyItem],
-    -- | An array of task placement constraint objects to update the service to
-    -- use. If no value is specified, the existing placement constraints for
-    -- the service will remain unchanged. If this value is specified, it will
-    -- override any existing placement constraints defined for the service. To
-    -- remove all existing placement constraints, specify an empty array.
-    --
-    -- You can specify a maximum of 10 constraints for each task. This limit
-    -- includes constraints in the task definition and those specified at
-    -- runtime.
-    placementConstraints :: Prelude.Maybe [PlacementConstraint],
-    -- | Determines whether to propagate the tags from the task definition or the
-    -- service to the task. If no value is specified, the tags aren\'t
-    -- propagated.
+    -- | The short name or full Amazon Resource Name (ARN) of the cluster that
+    -- your service runs on. If you do not specify a cluster, the default
+    -- cluster is assumed.
+    cluster :: Prelude.Maybe Prelude.Text,
+    -- | Optional deployment parameters that control how many tasks run during
+    -- the deployment and the ordering of stopping and starting tasks.
+    deploymentConfiguration :: Prelude.Maybe DeploymentConfiguration,
+    -- | The number of instantiations of the task to place and keep running in
+    -- your service.
+    desiredCount :: Prelude.Maybe Prelude.Int,
+    -- | Determines whether to turn on Amazon ECS managed tags for the tasks in
+    -- the service. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources>
+    -- in the /Amazon Elastic Container Service Developer Guide/.
     --
     -- Only tasks launched after the update will reflect the update. To update
     -- the tags on all tasks, set @forceNewDeployment@ to @true@, so that
     -- Amazon ECS starts new tasks with the updated tags.
-    propagateTags :: Prelude.Maybe PropagateTags,
+    enableECSManagedTags :: Prelude.Maybe Prelude.Bool,
+    -- | If @true@, this enables execute command functionality on all task
+    -- containers.
+    --
+    -- If you do not want to override the value that was set when the service
+    -- was created, you can set this to @null@ when performing this action.
+    enableExecuteCommand :: Prelude.Maybe Prelude.Bool,
+    -- | Determines whether to force a new deployment of the service. By default,
+    -- deployments aren\'t forced. You can use this option to start a new
+    -- deployment with no service definition changes. For example, you can
+    -- update a service\'s tasks to use a newer Docker image with the same
+    -- image\/tag combination (@my_image:latest@) or to roll Fargate tasks onto
+    -- a newer platform version.
+    forceNewDeployment :: Prelude.Maybe Prelude.Bool,
+    -- | The period of time, in seconds, that the Amazon ECS service scheduler
+    -- ignores unhealthy Elastic Load Balancing target health checks after a
+    -- task has first started. This is only valid if your service is configured
+    -- to use a load balancer. If your service\'s tasks take a while to start
+    -- and respond to Elastic Load Balancing health checks, you can specify a
+    -- health check grace period of up to 2,147,483,647 seconds. During that
+    -- time, the Amazon ECS service scheduler ignores the Elastic Load
+    -- Balancing health check status. This grace period can prevent the ECS
+    -- service scheduler from marking tasks as unhealthy and stopping them
+    -- before they have time to come up.
+    healthCheckGracePeriodSeconds :: Prelude.Maybe Prelude.Int,
     -- | A list of Elastic Load Balancing load balancer objects. It contains the
     -- load balancer name, the container name, and the container port to access
     -- from the load balancer. The container name is as it appears in a
@@ -319,13 +290,26 @@ data UpdateService = UpdateService'
     --
     -- You can remove existing @loadBalancers@ by passing an empty list.
     loadBalancers :: Prelude.Maybe [LoadBalancer],
-    -- | Determines whether to force a new deployment of the service. By default,
-    -- deployments aren\'t forced. You can use this option to start a new
-    -- deployment with no service definition changes. For example, you can
-    -- update a service\'s tasks to use a newer Docker image with the same
-    -- image\/tag combination (@my_image:latest@) or to roll Fargate tasks onto
-    -- a newer platform version.
-    forceNewDeployment :: Prelude.Maybe Prelude.Bool,
+    -- | An object representing the network configuration for the service.
+    networkConfiguration :: Prelude.Maybe NetworkConfiguration,
+    -- | An array of task placement constraint objects to update the service to
+    -- use. If no value is specified, the existing placement constraints for
+    -- the service will remain unchanged. If this value is specified, it will
+    -- override any existing placement constraints defined for the service. To
+    -- remove all existing placement constraints, specify an empty array.
+    --
+    -- You can specify a maximum of 10 constraints for each task. This limit
+    -- includes constraints in the task definition and those specified at
+    -- runtime.
+    placementConstraints :: Prelude.Maybe [PlacementConstraint],
+    -- | The task placement strategy objects to update the service to use. If no
+    -- value is specified, the existing placement strategy for the service will
+    -- remain unchanged. If this value is specified, it will override the
+    -- existing placement strategy defined for the service. To remove an
+    -- existing placement strategy, specify an empty object.
+    --
+    -- You can specify a maximum of five strategy rules for each service.
+    placementStrategy :: Prelude.Maybe [PlacementStrategy],
     -- | The platform version that your tasks in the service run on. A platform
     -- version is only specified for tasks using the Fargate launch type. If a
     -- platform version is not specified, the @LATEST@ platform version is
@@ -333,15 +317,45 @@ data UpdateService = UpdateService'
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html Fargate Platform Versions>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     platformVersion :: Prelude.Maybe Prelude.Text,
-    -- | Determines whether to turn on Amazon ECS managed tags for the tasks in
-    -- the service. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources>
-    -- in the /Amazon Elastic Container Service Developer Guide/.
+    -- | Determines whether to propagate the tags from the task definition or the
+    -- service to the task. If no value is specified, the tags aren\'t
+    -- propagated.
     --
     -- Only tasks launched after the update will reflect the update. To update
     -- the tags on all tasks, set @forceNewDeployment@ to @true@, so that
     -- Amazon ECS starts new tasks with the updated tags.
-    enableECSManagedTags :: Prelude.Maybe Prelude.Bool,
+    propagateTags :: Prelude.Maybe PropagateTags,
+    -- | The configuration for this service to discover and connect to services,
+    -- and be discovered by, and connected from, other services within a
+    -- namespace.
+    --
+    -- Tasks that run in a namespace can use short names to connect to services
+    -- in the namespace. Tasks can connect to services across all of the
+    -- clusters in the namespace. Tasks connect through a managed proxy
+    -- container that collects logs and metrics for increased visibility. Only
+    -- the tasks that Amazon ECS services create are supported with Service
+    -- Connect. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html Service Connect>
+    -- in the /Amazon Elastic Container Service Developer Guide/.
+    serviceConnectConfiguration :: Prelude.Maybe ServiceConnectConfiguration,
+    -- | The details for the service discovery registries to assign to this
+    -- service. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery>.
+    --
+    -- When you add, update, or remove the service registries configuration,
+    -- Amazon ECS starts new tasks with the updated service registries
+    -- configuration, and then stops the old tasks when the new tasks are
+    -- running.
+    --
+    -- You can remove existing @serviceRegistries@ by passing an empty list.
+    serviceRegistries :: Prelude.Maybe [ServiceRegistry],
+    -- | The @family@ and @revision@ (@family:revision@) or full ARN of the task
+    -- definition to run in your service. If a @revision@ is not specified, the
+    -- latest @ACTIVE@ revision is used. If you modify the task definition with
+    -- @UpdateService@, Amazon ECS spawns a task with the new version of the
+    -- task definition and then stops an old task after the new version is
+    -- running.
+    taskDefinition :: Prelude.Maybe Prelude.Text,
     -- | The name of the service to update.
     service :: Prelude.Text
   }
@@ -354,61 +368,6 @@ data UpdateService = UpdateService'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'healthCheckGracePeriodSeconds', 'updateService_healthCheckGracePeriodSeconds' - The period of time, in seconds, that the Amazon ECS service scheduler
--- ignores unhealthy Elastic Load Balancing target health checks after a
--- task has first started. This is only valid if your service is configured
--- to use a load balancer. If your service\'s tasks take a while to start
--- and respond to Elastic Load Balancing health checks, you can specify a
--- health check grace period of up to 2,147,483,647 seconds. During that
--- time, the Amazon ECS service scheduler ignores the Elastic Load
--- Balancing health check status. This grace period can prevent the ECS
--- service scheduler from marking tasks as unhealthy and stopping them
--- before they have time to come up.
---
--- 'deploymentConfiguration', 'updateService_deploymentConfiguration' - Optional deployment parameters that control how many tasks run during
--- the deployment and the ordering of stopping and starting tasks.
---
--- 'serviceRegistries', 'updateService_serviceRegistries' - The details for the service discovery registries to assign to this
--- service. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery>.
---
--- When you add, update, or remove the service registries configuration,
--- Amazon ECS starts new tasks with the updated service registries
--- configuration, and then stops the old tasks when the new tasks are
--- running.
---
--- You can remove existing @serviceRegistries@ by passing an empty list.
---
--- 'cluster', 'updateService_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that
--- your service runs on. If you do not specify a cluster, the default
--- cluster is assumed.
---
--- 'placementStrategy', 'updateService_placementStrategy' - The task placement strategy objects to update the service to use. If no
--- value is specified, the existing placement strategy for the service will
--- remain unchanged. If this value is specified, it will override the
--- existing placement strategy defined for the service. To remove an
--- existing placement strategy, specify an empty object.
---
--- You can specify a maximum of five strategy rules for each service.
---
--- 'taskDefinition', 'updateService_taskDefinition' - The @family@ and @revision@ (@family:revision@) or full ARN of the task
--- definition to run in your service. If a @revision@ is not specified, the
--- latest @ACTIVE@ revision is used. If you modify the task definition with
--- @UpdateService@, Amazon ECS spawns a task with the new version of the
--- task definition and then stops an old task after the new version is
--- running.
---
--- 'networkConfiguration', 'updateService_networkConfiguration' - An object representing the network configuration for the service.
---
--- 'desiredCount', 'updateService_desiredCount' - The number of instantiations of the task to place and keep running in
--- your service.
---
--- 'enableExecuteCommand', 'updateService_enableExecuteCommand' - If @true@, this enables execute command functionality on all task
--- containers.
---
--- If you do not want to override the value that was set when the service
--- was created, you can set this to @null@ when performing this action.
 --
 -- 'capacityProviderStrategy', 'updateService_capacityProviderStrategy' - The capacity provider strategy to update the service to use.
 --
@@ -439,23 +398,48 @@ data UpdateService = UpdateService'
 -- of available capacity providers for a cluster after the cluster is
 -- created.
 --
--- 'placementConstraints', 'updateService_placementConstraints' - An array of task placement constraint objects to update the service to
--- use. If no value is specified, the existing placement constraints for
--- the service will remain unchanged. If this value is specified, it will
--- override any existing placement constraints defined for the service. To
--- remove all existing placement constraints, specify an empty array.
+-- 'cluster', 'updateService_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that
+-- your service runs on. If you do not specify a cluster, the default
+-- cluster is assumed.
 --
--- You can specify a maximum of 10 constraints for each task. This limit
--- includes constraints in the task definition and those specified at
--- runtime.
+-- 'deploymentConfiguration', 'updateService_deploymentConfiguration' - Optional deployment parameters that control how many tasks run during
+-- the deployment and the ordering of stopping and starting tasks.
 --
--- 'propagateTags', 'updateService_propagateTags' - Determines whether to propagate the tags from the task definition or the
--- service to the task. If no value is specified, the tags aren\'t
--- propagated.
+-- 'desiredCount', 'updateService_desiredCount' - The number of instantiations of the task to place and keep running in
+-- your service.
+--
+-- 'enableECSManagedTags', 'updateService_enableECSManagedTags' - Determines whether to turn on Amazon ECS managed tags for the tasks in
+-- the service. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources>
+-- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- Only tasks launched after the update will reflect the update. To update
 -- the tags on all tasks, set @forceNewDeployment@ to @true@, so that
 -- Amazon ECS starts new tasks with the updated tags.
+--
+-- 'enableExecuteCommand', 'updateService_enableExecuteCommand' - If @true@, this enables execute command functionality on all task
+-- containers.
+--
+-- If you do not want to override the value that was set when the service
+-- was created, you can set this to @null@ when performing this action.
+--
+-- 'forceNewDeployment', 'updateService_forceNewDeployment' - Determines whether to force a new deployment of the service. By default,
+-- deployments aren\'t forced. You can use this option to start a new
+-- deployment with no service definition changes. For example, you can
+-- update a service\'s tasks to use a newer Docker image with the same
+-- image\/tag combination (@my_image:latest@) or to roll Fargate tasks onto
+-- a newer platform version.
+--
+-- 'healthCheckGracePeriodSeconds', 'updateService_healthCheckGracePeriodSeconds' - The period of time, in seconds, that the Amazon ECS service scheduler
+-- ignores unhealthy Elastic Load Balancing target health checks after a
+-- task has first started. This is only valid if your service is configured
+-- to use a load balancer. If your service\'s tasks take a while to start
+-- and respond to Elastic Load Balancing health checks, you can specify a
+-- health check grace period of up to 2,147,483,647 seconds. During that
+-- time, the Amazon ECS service scheduler ignores the Elastic Load
+-- Balancing health check status. This grace period can prevent the ECS
+-- service scheduler from marking tasks as unhealthy and stopping them
+-- before they have time to come up.
 --
 -- 'loadBalancers', 'updateService_loadBalancers' - A list of Elastic Load Balancing load balancer objects. It contains the
 -- load balancer name, the container name, and the container port to access
@@ -489,12 +473,25 @@ data UpdateService = UpdateService'
 --
 -- You can remove existing @loadBalancers@ by passing an empty list.
 --
--- 'forceNewDeployment', 'updateService_forceNewDeployment' - Determines whether to force a new deployment of the service. By default,
--- deployments aren\'t forced. You can use this option to start a new
--- deployment with no service definition changes. For example, you can
--- update a service\'s tasks to use a newer Docker image with the same
--- image\/tag combination (@my_image:latest@) or to roll Fargate tasks onto
--- a newer platform version.
+-- 'networkConfiguration', 'updateService_networkConfiguration' - An object representing the network configuration for the service.
+--
+-- 'placementConstraints', 'updateService_placementConstraints' - An array of task placement constraint objects to update the service to
+-- use. If no value is specified, the existing placement constraints for
+-- the service will remain unchanged. If this value is specified, it will
+-- override any existing placement constraints defined for the service. To
+-- remove all existing placement constraints, specify an empty array.
+--
+-- You can specify a maximum of 10 constraints for each task. This limit
+-- includes constraints in the task definition and those specified at
+-- runtime.
+--
+-- 'placementStrategy', 'updateService_placementStrategy' - The task placement strategy objects to update the service to use. If no
+-- value is specified, the existing placement strategy for the service will
+-- remain unchanged. If this value is specified, it will override the
+-- existing placement strategy defined for the service. To remove an
+-- existing placement strategy, specify an empty object.
+--
+-- You can specify a maximum of five strategy rules for each service.
 --
 -- 'platformVersion', 'updateService_platformVersion' - The platform version that your tasks in the service run on. A platform
 -- version is only specified for tasks using the Fargate launch type. If a
@@ -503,61 +500,28 @@ data UpdateService = UpdateService'
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html Fargate Platform Versions>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
--- 'enableECSManagedTags', 'updateService_enableECSManagedTags' - Determines whether to turn on Amazon ECS managed tags for the tasks in
--- the service. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources>
--- in the /Amazon Elastic Container Service Developer Guide/.
+-- 'propagateTags', 'updateService_propagateTags' - Determines whether to propagate the tags from the task definition or the
+-- service to the task. If no value is specified, the tags aren\'t
+-- propagated.
 --
 -- Only tasks launched after the update will reflect the update. To update
 -- the tags on all tasks, set @forceNewDeployment@ to @true@, so that
 -- Amazon ECS starts new tasks with the updated tags.
 --
--- 'service', 'updateService_service' - The name of the service to update.
-newUpdateService ::
-  -- | 'service'
-  Prelude.Text ->
-  UpdateService
-newUpdateService pService_ =
-  UpdateService'
-    { healthCheckGracePeriodSeconds =
-        Prelude.Nothing,
-      deploymentConfiguration = Prelude.Nothing,
-      serviceRegistries = Prelude.Nothing,
-      cluster = Prelude.Nothing,
-      placementStrategy = Prelude.Nothing,
-      taskDefinition = Prelude.Nothing,
-      networkConfiguration = Prelude.Nothing,
-      desiredCount = Prelude.Nothing,
-      enableExecuteCommand = Prelude.Nothing,
-      capacityProviderStrategy = Prelude.Nothing,
-      placementConstraints = Prelude.Nothing,
-      propagateTags = Prelude.Nothing,
-      loadBalancers = Prelude.Nothing,
-      forceNewDeployment = Prelude.Nothing,
-      platformVersion = Prelude.Nothing,
-      enableECSManagedTags = Prelude.Nothing,
-      service = pService_
-    }
-
--- | The period of time, in seconds, that the Amazon ECS service scheduler
--- ignores unhealthy Elastic Load Balancing target health checks after a
--- task has first started. This is only valid if your service is configured
--- to use a load balancer. If your service\'s tasks take a while to start
--- and respond to Elastic Load Balancing health checks, you can specify a
--- health check grace period of up to 2,147,483,647 seconds. During that
--- time, the Amazon ECS service scheduler ignores the Elastic Load
--- Balancing health check status. This grace period can prevent the ECS
--- service scheduler from marking tasks as unhealthy and stopping them
--- before they have time to come up.
-updateService_healthCheckGracePeriodSeconds :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Int)
-updateService_healthCheckGracePeriodSeconds = Lens.lens (\UpdateService' {healthCheckGracePeriodSeconds} -> healthCheckGracePeriodSeconds) (\s@UpdateService' {} a -> s {healthCheckGracePeriodSeconds = a} :: UpdateService)
-
--- | Optional deployment parameters that control how many tasks run during
--- the deployment and the ordering of stopping and starting tasks.
-updateService_deploymentConfiguration :: Lens.Lens' UpdateService (Prelude.Maybe DeploymentConfiguration)
-updateService_deploymentConfiguration = Lens.lens (\UpdateService' {deploymentConfiguration} -> deploymentConfiguration) (\s@UpdateService' {} a -> s {deploymentConfiguration = a} :: UpdateService)
-
--- | The details for the service discovery registries to assign to this
+-- 'serviceConnectConfiguration', 'updateService_serviceConnectConfiguration' - The configuration for this service to discover and connect to services,
+-- and be discovered by, and connected from, other services within a
+-- namespace.
+--
+-- Tasks that run in a namespace can use short names to connect to services
+-- in the namespace. Tasks can connect to services across all of the
+-- clusters in the namespace. Tasks connect through a managed proxy
+-- container that collects logs and metrics for increased visibility. Only
+-- the tasks that Amazon ECS services create are supported with Service
+-- Connect. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html Service Connect>
+-- in the /Amazon Elastic Container Service Developer Guide/.
+--
+-- 'serviceRegistries', 'updateService_serviceRegistries' - The details for the service discovery registries to assign to this
 -- service. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery>.
 --
@@ -567,50 +531,41 @@ updateService_deploymentConfiguration = Lens.lens (\UpdateService' {deploymentCo
 -- running.
 --
 -- You can remove existing @serviceRegistries@ by passing an empty list.
-updateService_serviceRegistries :: Lens.Lens' UpdateService (Prelude.Maybe [ServiceRegistry])
-updateService_serviceRegistries = Lens.lens (\UpdateService' {serviceRegistries} -> serviceRegistries) (\s@UpdateService' {} a -> s {serviceRegistries = a} :: UpdateService) Prelude.. Lens.mapping Lens.coerced
-
--- | The short name or full Amazon Resource Name (ARN) of the cluster that
--- your service runs on. If you do not specify a cluster, the default
--- cluster is assumed.
-updateService_cluster :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Text)
-updateService_cluster = Lens.lens (\UpdateService' {cluster} -> cluster) (\s@UpdateService' {} a -> s {cluster = a} :: UpdateService)
-
--- | The task placement strategy objects to update the service to use. If no
--- value is specified, the existing placement strategy for the service will
--- remain unchanged. If this value is specified, it will override the
--- existing placement strategy defined for the service. To remove an
--- existing placement strategy, specify an empty object.
 --
--- You can specify a maximum of five strategy rules for each service.
-updateService_placementStrategy :: Lens.Lens' UpdateService (Prelude.Maybe [PlacementStrategy])
-updateService_placementStrategy = Lens.lens (\UpdateService' {placementStrategy} -> placementStrategy) (\s@UpdateService' {} a -> s {placementStrategy = a} :: UpdateService) Prelude.. Lens.mapping Lens.coerced
-
--- | The @family@ and @revision@ (@family:revision@) or full ARN of the task
+-- 'taskDefinition', 'updateService_taskDefinition' - The @family@ and @revision@ (@family:revision@) or full ARN of the task
 -- definition to run in your service. If a @revision@ is not specified, the
 -- latest @ACTIVE@ revision is used. If you modify the task definition with
 -- @UpdateService@, Amazon ECS spawns a task with the new version of the
 -- task definition and then stops an old task after the new version is
 -- running.
-updateService_taskDefinition :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Text)
-updateService_taskDefinition = Lens.lens (\UpdateService' {taskDefinition} -> taskDefinition) (\s@UpdateService' {} a -> s {taskDefinition = a} :: UpdateService)
-
--- | An object representing the network configuration for the service.
-updateService_networkConfiguration :: Lens.Lens' UpdateService (Prelude.Maybe NetworkConfiguration)
-updateService_networkConfiguration = Lens.lens (\UpdateService' {networkConfiguration} -> networkConfiguration) (\s@UpdateService' {} a -> s {networkConfiguration = a} :: UpdateService)
-
--- | The number of instantiations of the task to place and keep running in
--- your service.
-updateService_desiredCount :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Int)
-updateService_desiredCount = Lens.lens (\UpdateService' {desiredCount} -> desiredCount) (\s@UpdateService' {} a -> s {desiredCount = a} :: UpdateService)
-
--- | If @true@, this enables execute command functionality on all task
--- containers.
 --
--- If you do not want to override the value that was set when the service
--- was created, you can set this to @null@ when performing this action.
-updateService_enableExecuteCommand :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Bool)
-updateService_enableExecuteCommand = Lens.lens (\UpdateService' {enableExecuteCommand} -> enableExecuteCommand) (\s@UpdateService' {} a -> s {enableExecuteCommand = a} :: UpdateService)
+-- 'service', 'updateService_service' - The name of the service to update.
+newUpdateService ::
+  -- | 'service'
+  Prelude.Text ->
+  UpdateService
+newUpdateService pService_ =
+  UpdateService'
+    { capacityProviderStrategy =
+        Prelude.Nothing,
+      cluster = Prelude.Nothing,
+      deploymentConfiguration = Prelude.Nothing,
+      desiredCount = Prelude.Nothing,
+      enableECSManagedTags = Prelude.Nothing,
+      enableExecuteCommand = Prelude.Nothing,
+      forceNewDeployment = Prelude.Nothing,
+      healthCheckGracePeriodSeconds = Prelude.Nothing,
+      loadBalancers = Prelude.Nothing,
+      networkConfiguration = Prelude.Nothing,
+      placementConstraints = Prelude.Nothing,
+      placementStrategy = Prelude.Nothing,
+      platformVersion = Prelude.Nothing,
+      propagateTags = Prelude.Nothing,
+      serviceConnectConfiguration = Prelude.Nothing,
+      serviceRegistries = Prelude.Nothing,
+      taskDefinition = Prelude.Nothing,
+      service = pService_
+    }
 
 -- | The capacity provider strategy to update the service to use.
 --
@@ -643,27 +598,62 @@ updateService_enableExecuteCommand = Lens.lens (\UpdateService' {enableExecuteCo
 updateService_capacityProviderStrategy :: Lens.Lens' UpdateService (Prelude.Maybe [CapacityProviderStrategyItem])
 updateService_capacityProviderStrategy = Lens.lens (\UpdateService' {capacityProviderStrategy} -> capacityProviderStrategy) (\s@UpdateService' {} a -> s {capacityProviderStrategy = a} :: UpdateService) Prelude.. Lens.mapping Lens.coerced
 
--- | An array of task placement constraint objects to update the service to
--- use. If no value is specified, the existing placement constraints for
--- the service will remain unchanged. If this value is specified, it will
--- override any existing placement constraints defined for the service. To
--- remove all existing placement constraints, specify an empty array.
---
--- You can specify a maximum of 10 constraints for each task. This limit
--- includes constraints in the task definition and those specified at
--- runtime.
-updateService_placementConstraints :: Lens.Lens' UpdateService (Prelude.Maybe [PlacementConstraint])
-updateService_placementConstraints = Lens.lens (\UpdateService' {placementConstraints} -> placementConstraints) (\s@UpdateService' {} a -> s {placementConstraints = a} :: UpdateService) Prelude.. Lens.mapping Lens.coerced
+-- | The short name or full Amazon Resource Name (ARN) of the cluster that
+-- your service runs on. If you do not specify a cluster, the default
+-- cluster is assumed.
+updateService_cluster :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Text)
+updateService_cluster = Lens.lens (\UpdateService' {cluster} -> cluster) (\s@UpdateService' {} a -> s {cluster = a} :: UpdateService)
 
--- | Determines whether to propagate the tags from the task definition or the
--- service to the task. If no value is specified, the tags aren\'t
--- propagated.
+-- | Optional deployment parameters that control how many tasks run during
+-- the deployment and the ordering of stopping and starting tasks.
+updateService_deploymentConfiguration :: Lens.Lens' UpdateService (Prelude.Maybe DeploymentConfiguration)
+updateService_deploymentConfiguration = Lens.lens (\UpdateService' {deploymentConfiguration} -> deploymentConfiguration) (\s@UpdateService' {} a -> s {deploymentConfiguration = a} :: UpdateService)
+
+-- | The number of instantiations of the task to place and keep running in
+-- your service.
+updateService_desiredCount :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Int)
+updateService_desiredCount = Lens.lens (\UpdateService' {desiredCount} -> desiredCount) (\s@UpdateService' {} a -> s {desiredCount = a} :: UpdateService)
+
+-- | Determines whether to turn on Amazon ECS managed tags for the tasks in
+-- the service. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources>
+-- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- Only tasks launched after the update will reflect the update. To update
 -- the tags on all tasks, set @forceNewDeployment@ to @true@, so that
 -- Amazon ECS starts new tasks with the updated tags.
-updateService_propagateTags :: Lens.Lens' UpdateService (Prelude.Maybe PropagateTags)
-updateService_propagateTags = Lens.lens (\UpdateService' {propagateTags} -> propagateTags) (\s@UpdateService' {} a -> s {propagateTags = a} :: UpdateService)
+updateService_enableECSManagedTags :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Bool)
+updateService_enableECSManagedTags = Lens.lens (\UpdateService' {enableECSManagedTags} -> enableECSManagedTags) (\s@UpdateService' {} a -> s {enableECSManagedTags = a} :: UpdateService)
+
+-- | If @true@, this enables execute command functionality on all task
+-- containers.
+--
+-- If you do not want to override the value that was set when the service
+-- was created, you can set this to @null@ when performing this action.
+updateService_enableExecuteCommand :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Bool)
+updateService_enableExecuteCommand = Lens.lens (\UpdateService' {enableExecuteCommand} -> enableExecuteCommand) (\s@UpdateService' {} a -> s {enableExecuteCommand = a} :: UpdateService)
+
+-- | Determines whether to force a new deployment of the service. By default,
+-- deployments aren\'t forced. You can use this option to start a new
+-- deployment with no service definition changes. For example, you can
+-- update a service\'s tasks to use a newer Docker image with the same
+-- image\/tag combination (@my_image:latest@) or to roll Fargate tasks onto
+-- a newer platform version.
+updateService_forceNewDeployment :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Bool)
+updateService_forceNewDeployment = Lens.lens (\UpdateService' {forceNewDeployment} -> forceNewDeployment) (\s@UpdateService' {} a -> s {forceNewDeployment = a} :: UpdateService)
+
+-- | The period of time, in seconds, that the Amazon ECS service scheduler
+-- ignores unhealthy Elastic Load Balancing target health checks after a
+-- task has first started. This is only valid if your service is configured
+-- to use a load balancer. If your service\'s tasks take a while to start
+-- and respond to Elastic Load Balancing health checks, you can specify a
+-- health check grace period of up to 2,147,483,647 seconds. During that
+-- time, the Amazon ECS service scheduler ignores the Elastic Load
+-- Balancing health check status. This grace period can prevent the ECS
+-- service scheduler from marking tasks as unhealthy and stopping them
+-- before they have time to come up.
+updateService_healthCheckGracePeriodSeconds :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Int)
+updateService_healthCheckGracePeriodSeconds = Lens.lens (\UpdateService' {healthCheckGracePeriodSeconds} -> healthCheckGracePeriodSeconds) (\s@UpdateService' {} a -> s {healthCheckGracePeriodSeconds = a} :: UpdateService)
 
 -- | A list of Elastic Load Balancing load balancer objects. It contains the
 -- load balancer name, the container name, and the container port to access
@@ -699,14 +689,31 @@ updateService_propagateTags = Lens.lens (\UpdateService' {propagateTags} -> prop
 updateService_loadBalancers :: Lens.Lens' UpdateService (Prelude.Maybe [LoadBalancer])
 updateService_loadBalancers = Lens.lens (\UpdateService' {loadBalancers} -> loadBalancers) (\s@UpdateService' {} a -> s {loadBalancers = a} :: UpdateService) Prelude.. Lens.mapping Lens.coerced
 
--- | Determines whether to force a new deployment of the service. By default,
--- deployments aren\'t forced. You can use this option to start a new
--- deployment with no service definition changes. For example, you can
--- update a service\'s tasks to use a newer Docker image with the same
--- image\/tag combination (@my_image:latest@) or to roll Fargate tasks onto
--- a newer platform version.
-updateService_forceNewDeployment :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Bool)
-updateService_forceNewDeployment = Lens.lens (\UpdateService' {forceNewDeployment} -> forceNewDeployment) (\s@UpdateService' {} a -> s {forceNewDeployment = a} :: UpdateService)
+-- | An object representing the network configuration for the service.
+updateService_networkConfiguration :: Lens.Lens' UpdateService (Prelude.Maybe NetworkConfiguration)
+updateService_networkConfiguration = Lens.lens (\UpdateService' {networkConfiguration} -> networkConfiguration) (\s@UpdateService' {} a -> s {networkConfiguration = a} :: UpdateService)
+
+-- | An array of task placement constraint objects to update the service to
+-- use. If no value is specified, the existing placement constraints for
+-- the service will remain unchanged. If this value is specified, it will
+-- override any existing placement constraints defined for the service. To
+-- remove all existing placement constraints, specify an empty array.
+--
+-- You can specify a maximum of 10 constraints for each task. This limit
+-- includes constraints in the task definition and those specified at
+-- runtime.
+updateService_placementConstraints :: Lens.Lens' UpdateService (Prelude.Maybe [PlacementConstraint])
+updateService_placementConstraints = Lens.lens (\UpdateService' {placementConstraints} -> placementConstraints) (\s@UpdateService' {} a -> s {placementConstraints = a} :: UpdateService) Prelude.. Lens.mapping Lens.coerced
+
+-- | The task placement strategy objects to update the service to use. If no
+-- value is specified, the existing placement strategy for the service will
+-- remain unchanged. If this value is specified, it will override the
+-- existing placement strategy defined for the service. To remove an
+-- existing placement strategy, specify an empty object.
+--
+-- You can specify a maximum of five strategy rules for each service.
+updateService_placementStrategy :: Lens.Lens' UpdateService (Prelude.Maybe [PlacementStrategy])
+updateService_placementStrategy = Lens.lens (\UpdateService' {placementStrategy} -> placementStrategy) (\s@UpdateService' {} a -> s {placementStrategy = a} :: UpdateService) Prelude.. Lens.mapping Lens.coerced
 
 -- | The platform version that your tasks in the service run on. A platform
 -- version is only specified for tasks using the Fargate launch type. If a
@@ -717,16 +724,52 @@ updateService_forceNewDeployment = Lens.lens (\UpdateService' {forceNewDeploymen
 updateService_platformVersion :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Text)
 updateService_platformVersion = Lens.lens (\UpdateService' {platformVersion} -> platformVersion) (\s@UpdateService' {} a -> s {platformVersion = a} :: UpdateService)
 
--- | Determines whether to turn on Amazon ECS managed tags for the tasks in
--- the service. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources>
--- in the /Amazon Elastic Container Service Developer Guide/.
+-- | Determines whether to propagate the tags from the task definition or the
+-- service to the task. If no value is specified, the tags aren\'t
+-- propagated.
 --
 -- Only tasks launched after the update will reflect the update. To update
 -- the tags on all tasks, set @forceNewDeployment@ to @true@, so that
 -- Amazon ECS starts new tasks with the updated tags.
-updateService_enableECSManagedTags :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Bool)
-updateService_enableECSManagedTags = Lens.lens (\UpdateService' {enableECSManagedTags} -> enableECSManagedTags) (\s@UpdateService' {} a -> s {enableECSManagedTags = a} :: UpdateService)
+updateService_propagateTags :: Lens.Lens' UpdateService (Prelude.Maybe PropagateTags)
+updateService_propagateTags = Lens.lens (\UpdateService' {propagateTags} -> propagateTags) (\s@UpdateService' {} a -> s {propagateTags = a} :: UpdateService)
+
+-- | The configuration for this service to discover and connect to services,
+-- and be discovered by, and connected from, other services within a
+-- namespace.
+--
+-- Tasks that run in a namespace can use short names to connect to services
+-- in the namespace. Tasks can connect to services across all of the
+-- clusters in the namespace. Tasks connect through a managed proxy
+-- container that collects logs and metrics for increased visibility. Only
+-- the tasks that Amazon ECS services create are supported with Service
+-- Connect. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html Service Connect>
+-- in the /Amazon Elastic Container Service Developer Guide/.
+updateService_serviceConnectConfiguration :: Lens.Lens' UpdateService (Prelude.Maybe ServiceConnectConfiguration)
+updateService_serviceConnectConfiguration = Lens.lens (\UpdateService' {serviceConnectConfiguration} -> serviceConnectConfiguration) (\s@UpdateService' {} a -> s {serviceConnectConfiguration = a} :: UpdateService)
+
+-- | The details for the service discovery registries to assign to this
+-- service. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery>.
+--
+-- When you add, update, or remove the service registries configuration,
+-- Amazon ECS starts new tasks with the updated service registries
+-- configuration, and then stops the old tasks when the new tasks are
+-- running.
+--
+-- You can remove existing @serviceRegistries@ by passing an empty list.
+updateService_serviceRegistries :: Lens.Lens' UpdateService (Prelude.Maybe [ServiceRegistry])
+updateService_serviceRegistries = Lens.lens (\UpdateService' {serviceRegistries} -> serviceRegistries) (\s@UpdateService' {} a -> s {serviceRegistries = a} :: UpdateService) Prelude.. Lens.mapping Lens.coerced
+
+-- | The @family@ and @revision@ (@family:revision@) or full ARN of the task
+-- definition to run in your service. If a @revision@ is not specified, the
+-- latest @ACTIVE@ revision is used. If you modify the task definition with
+-- @UpdateService@, Amazon ECS spawns a task with the new version of the
+-- task definition and then stops an old task after the new version is
+-- running.
+updateService_taskDefinition :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Text)
+updateService_taskDefinition = Lens.lens (\UpdateService' {taskDefinition} -> taskDefinition) (\s@UpdateService' {} a -> s {taskDefinition = a} :: UpdateService)
 
 -- | The name of the service to update.
 updateService_service :: Lens.Lens' UpdateService Prelude.Text
@@ -749,42 +792,44 @@ instance Core.AWSRequest UpdateService where
 instance Prelude.Hashable UpdateService where
   hashWithSalt _salt UpdateService' {..} =
     _salt
-      `Prelude.hashWithSalt` healthCheckGracePeriodSeconds
-      `Prelude.hashWithSalt` deploymentConfiguration
-      `Prelude.hashWithSalt` serviceRegistries
-      `Prelude.hashWithSalt` cluster
-      `Prelude.hashWithSalt` placementStrategy
-      `Prelude.hashWithSalt` taskDefinition
-      `Prelude.hashWithSalt` networkConfiguration
-      `Prelude.hashWithSalt` desiredCount
-      `Prelude.hashWithSalt` enableExecuteCommand
       `Prelude.hashWithSalt` capacityProviderStrategy
-      `Prelude.hashWithSalt` placementConstraints
-      `Prelude.hashWithSalt` propagateTags
-      `Prelude.hashWithSalt` loadBalancers
-      `Prelude.hashWithSalt` forceNewDeployment
-      `Prelude.hashWithSalt` platformVersion
+      `Prelude.hashWithSalt` cluster
+      `Prelude.hashWithSalt` deploymentConfiguration
+      `Prelude.hashWithSalt` desiredCount
       `Prelude.hashWithSalt` enableECSManagedTags
+      `Prelude.hashWithSalt` enableExecuteCommand
+      `Prelude.hashWithSalt` forceNewDeployment
+      `Prelude.hashWithSalt` healthCheckGracePeriodSeconds
+      `Prelude.hashWithSalt` loadBalancers
+      `Prelude.hashWithSalt` networkConfiguration
+      `Prelude.hashWithSalt` placementConstraints
+      `Prelude.hashWithSalt` placementStrategy
+      `Prelude.hashWithSalt` platformVersion
+      `Prelude.hashWithSalt` propagateTags
+      `Prelude.hashWithSalt` serviceConnectConfiguration
+      `Prelude.hashWithSalt` serviceRegistries
+      `Prelude.hashWithSalt` taskDefinition
       `Prelude.hashWithSalt` service
 
 instance Prelude.NFData UpdateService where
   rnf UpdateService' {..} =
-    Prelude.rnf healthCheckGracePeriodSeconds
-      `Prelude.seq` Prelude.rnf deploymentConfiguration
-      `Prelude.seq` Prelude.rnf serviceRegistries
+    Prelude.rnf capacityProviderStrategy
       `Prelude.seq` Prelude.rnf cluster
-      `Prelude.seq` Prelude.rnf placementStrategy
-      `Prelude.seq` Prelude.rnf taskDefinition
-      `Prelude.seq` Prelude.rnf networkConfiguration
+      `Prelude.seq` Prelude.rnf deploymentConfiguration
       `Prelude.seq` Prelude.rnf desiredCount
-      `Prelude.seq` Prelude.rnf enableExecuteCommand
-      `Prelude.seq` Prelude.rnf capacityProviderStrategy
-      `Prelude.seq` Prelude.rnf placementConstraints
-      `Prelude.seq` Prelude.rnf propagateTags
-      `Prelude.seq` Prelude.rnf loadBalancers
-      `Prelude.seq` Prelude.rnf forceNewDeployment
-      `Prelude.seq` Prelude.rnf platformVersion
       `Prelude.seq` Prelude.rnf enableECSManagedTags
+      `Prelude.seq` Prelude.rnf enableExecuteCommand
+      `Prelude.seq` Prelude.rnf forceNewDeployment
+      `Prelude.seq` Prelude.rnf healthCheckGracePeriodSeconds
+      `Prelude.seq` Prelude.rnf loadBalancers
+      `Prelude.seq` Prelude.rnf networkConfiguration
+      `Prelude.seq` Prelude.rnf placementConstraints
+      `Prelude.seq` Prelude.rnf placementStrategy
+      `Prelude.seq` Prelude.rnf platformVersion
+      `Prelude.seq` Prelude.rnf propagateTags
+      `Prelude.seq` Prelude.rnf serviceConnectConfiguration
+      `Prelude.seq` Prelude.rnf serviceRegistries
+      `Prelude.seq` Prelude.rnf taskDefinition
       `Prelude.seq` Prelude.rnf service
 
 instance Data.ToHeaders UpdateService where
@@ -806,34 +851,36 @@ instance Data.ToJSON UpdateService where
   toJSON UpdateService' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("healthCheckGracePeriodSeconds" Data..=)
-              Prelude.<$> healthCheckGracePeriodSeconds,
+          [ ("capacityProviderStrategy" Data..=)
+              Prelude.<$> capacityProviderStrategy,
+            ("cluster" Data..=) Prelude.<$> cluster,
             ("deploymentConfiguration" Data..=)
               Prelude.<$> deploymentConfiguration,
-            ("serviceRegistries" Data..=)
-              Prelude.<$> serviceRegistries,
-            ("cluster" Data..=) Prelude.<$> cluster,
-            ("placementStrategy" Data..=)
-              Prelude.<$> placementStrategy,
-            ("taskDefinition" Data..=)
-              Prelude.<$> taskDefinition,
-            ("networkConfiguration" Data..=)
-              Prelude.<$> networkConfiguration,
             ("desiredCount" Data..=) Prelude.<$> desiredCount,
-            ("enableExecuteCommand" Data..=)
-              Prelude.<$> enableExecuteCommand,
-            ("capacityProviderStrategy" Data..=)
-              Prelude.<$> capacityProviderStrategy,
-            ("placementConstraints" Data..=)
-              Prelude.<$> placementConstraints,
-            ("propagateTags" Data..=) Prelude.<$> propagateTags,
-            ("loadBalancers" Data..=) Prelude.<$> loadBalancers,
-            ("forceNewDeployment" Data..=)
-              Prelude.<$> forceNewDeployment,
-            ("platformVersion" Data..=)
-              Prelude.<$> platformVersion,
             ("enableECSManagedTags" Data..=)
               Prelude.<$> enableECSManagedTags,
+            ("enableExecuteCommand" Data..=)
+              Prelude.<$> enableExecuteCommand,
+            ("forceNewDeployment" Data..=)
+              Prelude.<$> forceNewDeployment,
+            ("healthCheckGracePeriodSeconds" Data..=)
+              Prelude.<$> healthCheckGracePeriodSeconds,
+            ("loadBalancers" Data..=) Prelude.<$> loadBalancers,
+            ("networkConfiguration" Data..=)
+              Prelude.<$> networkConfiguration,
+            ("placementConstraints" Data..=)
+              Prelude.<$> placementConstraints,
+            ("placementStrategy" Data..=)
+              Prelude.<$> placementStrategy,
+            ("platformVersion" Data..=)
+              Prelude.<$> platformVersion,
+            ("propagateTags" Data..=) Prelude.<$> propagateTags,
+            ("serviceConnectConfiguration" Data..=)
+              Prelude.<$> serviceConnectConfiguration,
+            ("serviceRegistries" Data..=)
+              Prelude.<$> serviceRegistries,
+            ("taskDefinition" Data..=)
+              Prelude.<$> taskDefinition,
             Prelude.Just ("service" Data..= service)
           ]
       )

@@ -37,9 +37,9 @@ import qualified Amazonka.Prelude as Prelude
 data Ulimit = Ulimit'
   { -- | The @type@ of the @ulimit@.
     name :: UlimitName,
-    -- | The soft limit for the ulimit type.
+    -- | The soft limit for the @ulimit@ type.
     softLimit :: Prelude.Int,
-    -- | The hard limit for the ulimit type.
+    -- | The hard limit for the @ulimit@ type.
     hardLimit :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -54,9 +54,9 @@ data Ulimit = Ulimit'
 --
 -- 'name', 'ulimit_name' - The @type@ of the @ulimit@.
 --
--- 'softLimit', 'ulimit_softLimit' - The soft limit for the ulimit type.
+-- 'softLimit', 'ulimit_softLimit' - The soft limit for the @ulimit@ type.
 --
--- 'hardLimit', 'ulimit_hardLimit' - The hard limit for the ulimit type.
+-- 'hardLimit', 'ulimit_hardLimit' - The hard limit for the @ulimit@ type.
 newUlimit ::
   -- | 'name'
   UlimitName ->
@@ -76,11 +76,11 @@ newUlimit pName_ pSoftLimit_ pHardLimit_ =
 ulimit_name :: Lens.Lens' Ulimit UlimitName
 ulimit_name = Lens.lens (\Ulimit' {name} -> name) (\s@Ulimit' {} a -> s {name = a} :: Ulimit)
 
--- | The soft limit for the ulimit type.
+-- | The soft limit for the @ulimit@ type.
 ulimit_softLimit :: Lens.Lens' Ulimit Prelude.Int
 ulimit_softLimit = Lens.lens (\Ulimit' {softLimit} -> softLimit) (\s@Ulimit' {} a -> s {softLimit = a} :: Ulimit)
 
--- | The hard limit for the ulimit type.
+-- | The hard limit for the @ulimit@ type.
 ulimit_hardLimit :: Lens.Lens' Ulimit Prelude.Int
 ulimit_hardLimit = Lens.lens (\Ulimit' {hardLimit} -> hardLimit) (\s@Ulimit' {} a -> s {hardLimit = a} :: Ulimit)
 

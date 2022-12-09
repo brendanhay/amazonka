@@ -21,7 +21,10 @@ module Amazonka.ECS.Types.TaskStopCode
   ( TaskStopCode
       ( ..,
         TaskStopCode_EssentialContainerExited,
+        TaskStopCode_ServiceSchedulerInitiated,
+        TaskStopCode_SpotInterruption,
         TaskStopCode_TaskFailedToStart,
+        TaskStopCode_TerminationNotice,
         TaskStopCode_UserInitiated
       ),
   )
@@ -62,15 +65,27 @@ newtype TaskStopCode = TaskStopCode'
 pattern TaskStopCode_EssentialContainerExited :: TaskStopCode
 pattern TaskStopCode_EssentialContainerExited = TaskStopCode' "EssentialContainerExited"
 
+pattern TaskStopCode_ServiceSchedulerInitiated :: TaskStopCode
+pattern TaskStopCode_ServiceSchedulerInitiated = TaskStopCode' "ServiceSchedulerInitiated"
+
+pattern TaskStopCode_SpotInterruption :: TaskStopCode
+pattern TaskStopCode_SpotInterruption = TaskStopCode' "SpotInterruption"
+
 pattern TaskStopCode_TaskFailedToStart :: TaskStopCode
 pattern TaskStopCode_TaskFailedToStart = TaskStopCode' "TaskFailedToStart"
+
+pattern TaskStopCode_TerminationNotice :: TaskStopCode
+pattern TaskStopCode_TerminationNotice = TaskStopCode' "TerminationNotice"
 
 pattern TaskStopCode_UserInitiated :: TaskStopCode
 pattern TaskStopCode_UserInitiated = TaskStopCode' "UserInitiated"
 
 {-# COMPLETE
   TaskStopCode_EssentialContainerExited,
+  TaskStopCode_ServiceSchedulerInitiated,
+  TaskStopCode_SpotInterruption,
   TaskStopCode_TaskFailedToStart,
+  TaskStopCode_TerminationNotice,
   TaskStopCode_UserInitiated,
   TaskStopCode'
   #-}

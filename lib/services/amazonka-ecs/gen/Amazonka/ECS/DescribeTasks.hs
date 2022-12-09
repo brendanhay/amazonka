@@ -39,8 +39,8 @@ module Amazonka.ECS.DescribeTasks
     newDescribeTasksResponse,
 
     -- * Response Lenses
-    describeTasksResponse_tasks,
     describeTasksResponse_failures,
+    describeTasksResponse_tasks,
     describeTasksResponse_httpStatus,
   )
 where
@@ -126,8 +126,8 @@ instance Core.AWSRequest DescribeTasks where
     Response.receiveJSON
       ( \s h x ->
           DescribeTasksResponse'
-            Prelude.<$> (x Data..?> "tasks" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "tasks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,10 +176,10 @@ instance Data.ToQuery DescribeTasks where
 
 -- | /See:/ 'newDescribeTasksResponse' smart constructor.
 data DescribeTasksResponse = DescribeTasksResponse'
-  { -- | The list of tasks.
-    tasks :: Prelude.Maybe [Task],
-    -- | Any failures associated with the call.
+  { -- | Any failures associated with the call.
     failures :: Prelude.Maybe [Failure],
+    -- | The list of tasks.
+    tasks :: Prelude.Maybe [Task],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -193,9 +193,9 @@ data DescribeTasksResponse = DescribeTasksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tasks', 'describeTasksResponse_tasks' - The list of tasks.
---
 -- 'failures', 'describeTasksResponse_failures' - Any failures associated with the call.
+--
+-- 'tasks', 'describeTasksResponse_tasks' - The list of tasks.
 --
 -- 'httpStatus', 'describeTasksResponse_httpStatus' - The response's http status code.
 newDescribeTasksResponse ::
@@ -204,18 +204,18 @@ newDescribeTasksResponse ::
   DescribeTasksResponse
 newDescribeTasksResponse pHttpStatus_ =
   DescribeTasksResponse'
-    { tasks = Prelude.Nothing,
-      failures = Prelude.Nothing,
+    { failures = Prelude.Nothing,
+      tasks = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The list of tasks.
-describeTasksResponse_tasks :: Lens.Lens' DescribeTasksResponse (Prelude.Maybe [Task])
-describeTasksResponse_tasks = Lens.lens (\DescribeTasksResponse' {tasks} -> tasks) (\s@DescribeTasksResponse' {} a -> s {tasks = a} :: DescribeTasksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Any failures associated with the call.
 describeTasksResponse_failures :: Lens.Lens' DescribeTasksResponse (Prelude.Maybe [Failure])
 describeTasksResponse_failures = Lens.lens (\DescribeTasksResponse' {failures} -> failures) (\s@DescribeTasksResponse' {} a -> s {failures = a} :: DescribeTasksResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The list of tasks.
+describeTasksResponse_tasks :: Lens.Lens' DescribeTasksResponse (Prelude.Maybe [Task])
+describeTasksResponse_tasks = Lens.lens (\DescribeTasksResponse' {tasks} -> tasks) (\s@DescribeTasksResponse' {} a -> s {tasks = a} :: DescribeTasksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeTasksResponse_httpStatus :: Lens.Lens' DescribeTasksResponse Prelude.Int
@@ -223,6 +223,6 @@ describeTasksResponse_httpStatus = Lens.lens (\DescribeTasksResponse' {httpStatu
 
 instance Prelude.NFData DescribeTasksResponse where
   rnf DescribeTasksResponse' {..} =
-    Prelude.rnf tasks
-      `Prelude.seq` Prelude.rnf failures
+    Prelude.rnf failures
+      `Prelude.seq` Prelude.rnf tasks
       `Prelude.seq` Prelude.rnf httpStatus

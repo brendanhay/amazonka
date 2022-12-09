@@ -36,8 +36,8 @@ module Amazonka.ECS.DescribeServices
     newDescribeServicesResponse,
 
     -- * Response Lenses
-    describeServicesResponse_services,
     describeServicesResponse_failures,
+    describeServicesResponse_services,
     describeServicesResponse_httpStatus,
   )
 where
@@ -126,8 +126,8 @@ instance Core.AWSRequest DescribeServices where
     Response.receiveJSON
       ( \s h x ->
           DescribeServicesResponse'
-            Prelude.<$> (x Data..?> "services" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "services" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,10 +176,10 @@ instance Data.ToQuery DescribeServices where
 
 -- | /See:/ 'newDescribeServicesResponse' smart constructor.
 data DescribeServicesResponse = DescribeServicesResponse'
-  { -- | The list of services described.
-    services :: Prelude.Maybe [ContainerService],
-    -- | Any failures associated with the call.
+  { -- | Any failures associated with the call.
     failures :: Prelude.Maybe [Failure],
+    -- | The list of services described.
+    services :: Prelude.Maybe [ContainerService],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -193,9 +193,9 @@ data DescribeServicesResponse = DescribeServicesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'services', 'describeServicesResponse_services' - The list of services described.
---
 -- 'failures', 'describeServicesResponse_failures' - Any failures associated with the call.
+--
+-- 'services', 'describeServicesResponse_services' - The list of services described.
 --
 -- 'httpStatus', 'describeServicesResponse_httpStatus' - The response's http status code.
 newDescribeServicesResponse ::
@@ -204,19 +204,19 @@ newDescribeServicesResponse ::
   DescribeServicesResponse
 newDescribeServicesResponse pHttpStatus_ =
   DescribeServicesResponse'
-    { services =
+    { failures =
         Prelude.Nothing,
-      failures = Prelude.Nothing,
+      services = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The list of services described.
-describeServicesResponse_services :: Lens.Lens' DescribeServicesResponse (Prelude.Maybe [ContainerService])
-describeServicesResponse_services = Lens.lens (\DescribeServicesResponse' {services} -> services) (\s@DescribeServicesResponse' {} a -> s {services = a} :: DescribeServicesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Any failures associated with the call.
 describeServicesResponse_failures :: Lens.Lens' DescribeServicesResponse (Prelude.Maybe [Failure])
 describeServicesResponse_failures = Lens.lens (\DescribeServicesResponse' {failures} -> failures) (\s@DescribeServicesResponse' {} a -> s {failures = a} :: DescribeServicesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The list of services described.
+describeServicesResponse_services :: Lens.Lens' DescribeServicesResponse (Prelude.Maybe [ContainerService])
+describeServicesResponse_services = Lens.lens (\DescribeServicesResponse' {services} -> services) (\s@DescribeServicesResponse' {} a -> s {services = a} :: DescribeServicesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeServicesResponse_httpStatus :: Lens.Lens' DescribeServicesResponse Prelude.Int
@@ -224,6 +224,6 @@ describeServicesResponse_httpStatus = Lens.lens (\DescribeServicesResponse' {htt
 
 instance Prelude.NFData DescribeServicesResponse where
   rnf DescribeServicesResponse' {..} =
-    Prelude.rnf services
-      `Prelude.seq` Prelude.rnf failures
+    Prelude.rnf failures
+      `Prelude.seq` Prelude.rnf services
       `Prelude.seq` Prelude.rnf httpStatus

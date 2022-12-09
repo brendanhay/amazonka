@@ -60,7 +60,8 @@ data DescribeClusters = DescribeClusters'
     -- included.
     --
     -- If @ATTACHMENTS@ is specified, the attachments for the container
-    -- instances or tasks within the cluster are included.
+    -- instances or tasks within the cluster are included, for example the
+    -- capacity providers.
     --
     -- If @SETTINGS@ is specified, the settings for the cluster are included.
     --
@@ -93,7 +94,8 @@ data DescribeClusters = DescribeClusters'
 -- included.
 --
 -- If @ATTACHMENTS@ is specified, the attachments for the container
--- instances or tasks within the cluster are included.
+-- instances or tasks within the cluster are included, for example the
+-- capacity providers.
 --
 -- If @SETTINGS@ is specified, the settings for the cluster are included.
 --
@@ -124,7 +126,8 @@ describeClusters_clusters = Lens.lens (\DescribeClusters' {clusters} -> clusters
 -- included.
 --
 -- If @ATTACHMENTS@ is specified, the attachments for the container
--- instances or tasks within the cluster are included.
+-- instances or tasks within the cluster are included, for example the
+-- capacity providers.
 --
 -- If @SETTINGS@ is specified, the settings for the cluster are included.
 --

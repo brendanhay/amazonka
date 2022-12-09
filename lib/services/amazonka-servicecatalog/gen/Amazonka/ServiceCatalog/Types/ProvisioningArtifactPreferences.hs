@@ -35,20 +35,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProvisioningArtifactPreferences' smart constructor.
 data ProvisioningArtifactPreferences = ProvisioningArtifactPreferences'
-  { -- | One or more Amazon Web Services Regions where stack instances are
-    -- deployed from the stack set. These Regions can be scoped in
-    -- @ProvisioningPreferences$StackSetRegions@ and
-    -- @UpdateProvisioningPreferences$StackSetRegions@.
-    --
-    -- Applicable only to a @CFN_STACKSET@ provisioned product type.
-    stackSetRegions :: Prelude.Maybe [Prelude.Text],
-    -- | One or more Amazon Web Services accounts where stack instances are
+  { -- | One or more Amazon Web Services accounts where stack instances are
     -- deployed from the stack set. These accounts can be scoped in
     -- @ProvisioningPreferences$StackSetAccounts@ and
     -- @UpdateProvisioningPreferences$StackSetAccounts@.
     --
     -- Applicable only to a @CFN_STACKSET@ provisioned product type.
-    stackSetAccounts :: Prelude.Maybe [Prelude.Text]
+    stackSetAccounts :: Prelude.Maybe [Prelude.Text],
+    -- | One or more Amazon Web Services Regions where stack instances are
+    -- deployed from the stack set. These Regions can be scoped in
+    -- @ProvisioningPreferences$StackSetRegions@ and
+    -- @UpdateProvisioningPreferences$StackSetRegions@.
+    --
+    -- Applicable only to a @CFN_STACKSET@ provisioned product type.
+    stackSetRegions :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,36 +60,27 @@ data ProvisioningArtifactPreferences = ProvisioningArtifactPreferences'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stackSetRegions', 'provisioningArtifactPreferences_stackSetRegions' - One or more Amazon Web Services Regions where stack instances are
--- deployed from the stack set. These Regions can be scoped in
--- @ProvisioningPreferences$StackSetRegions@ and
--- @UpdateProvisioningPreferences$StackSetRegions@.
---
--- Applicable only to a @CFN_STACKSET@ provisioned product type.
---
 -- 'stackSetAccounts', 'provisioningArtifactPreferences_stackSetAccounts' - One or more Amazon Web Services accounts where stack instances are
 -- deployed from the stack set. These accounts can be scoped in
 -- @ProvisioningPreferences$StackSetAccounts@ and
 -- @UpdateProvisioningPreferences$StackSetAccounts@.
 --
 -- Applicable only to a @CFN_STACKSET@ provisioned product type.
-newProvisioningArtifactPreferences ::
-  ProvisioningArtifactPreferences
-newProvisioningArtifactPreferences =
-  ProvisioningArtifactPreferences'
-    { stackSetRegions =
-        Prelude.Nothing,
-      stackSetAccounts = Prelude.Nothing
-    }
-
--- | One or more Amazon Web Services Regions where stack instances are
+--
+-- 'stackSetRegions', 'provisioningArtifactPreferences_stackSetRegions' - One or more Amazon Web Services Regions where stack instances are
 -- deployed from the stack set. These Regions can be scoped in
 -- @ProvisioningPreferences$StackSetRegions@ and
 -- @UpdateProvisioningPreferences$StackSetRegions@.
 --
 -- Applicable only to a @CFN_STACKSET@ provisioned product type.
-provisioningArtifactPreferences_stackSetRegions :: Lens.Lens' ProvisioningArtifactPreferences (Prelude.Maybe [Prelude.Text])
-provisioningArtifactPreferences_stackSetRegions = Lens.lens (\ProvisioningArtifactPreferences' {stackSetRegions} -> stackSetRegions) (\s@ProvisioningArtifactPreferences' {} a -> s {stackSetRegions = a} :: ProvisioningArtifactPreferences) Prelude.. Lens.mapping Lens.coerced
+newProvisioningArtifactPreferences ::
+  ProvisioningArtifactPreferences
+newProvisioningArtifactPreferences =
+  ProvisioningArtifactPreferences'
+    { stackSetAccounts =
+        Prelude.Nothing,
+      stackSetRegions = Prelude.Nothing
+    }
 
 -- | One or more Amazon Web Services accounts where stack instances are
 -- deployed from the stack set. These accounts can be scoped in
@@ -100,6 +91,15 @@ provisioningArtifactPreferences_stackSetRegions = Lens.lens (\ProvisioningArtifa
 provisioningArtifactPreferences_stackSetAccounts :: Lens.Lens' ProvisioningArtifactPreferences (Prelude.Maybe [Prelude.Text])
 provisioningArtifactPreferences_stackSetAccounts = Lens.lens (\ProvisioningArtifactPreferences' {stackSetAccounts} -> stackSetAccounts) (\s@ProvisioningArtifactPreferences' {} a -> s {stackSetAccounts = a} :: ProvisioningArtifactPreferences) Prelude.. Lens.mapping Lens.coerced
 
+-- | One or more Amazon Web Services Regions where stack instances are
+-- deployed from the stack set. These Regions can be scoped in
+-- @ProvisioningPreferences$StackSetRegions@ and
+-- @UpdateProvisioningPreferences$StackSetRegions@.
+--
+-- Applicable only to a @CFN_STACKSET@ provisioned product type.
+provisioningArtifactPreferences_stackSetRegions :: Lens.Lens' ProvisioningArtifactPreferences (Prelude.Maybe [Prelude.Text])
+provisioningArtifactPreferences_stackSetRegions = Lens.lens (\ProvisioningArtifactPreferences' {stackSetRegions} -> stackSetRegions) (\s@ProvisioningArtifactPreferences' {} a -> s {stackSetRegions = a} :: ProvisioningArtifactPreferences) Prelude.. Lens.mapping Lens.coerced
+
 instance
   Data.FromJSON
     ProvisioningArtifactPreferences
@@ -109,10 +109,10 @@ instance
       "ProvisioningArtifactPreferences"
       ( \x ->
           ProvisioningArtifactPreferences'
-            Prelude.<$> ( x Data..:? "StackSetRegions"
+            Prelude.<$> ( x Data..:? "StackSetAccounts"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "StackSetAccounts"
+            Prelude.<*> ( x Data..:? "StackSetRegions"
                             Data..!= Prelude.mempty
                         )
       )
@@ -124,13 +124,13 @@ instance
   hashWithSalt
     _salt
     ProvisioningArtifactPreferences' {..} =
-      _salt `Prelude.hashWithSalt` stackSetRegions
-        `Prelude.hashWithSalt` stackSetAccounts
+      _salt `Prelude.hashWithSalt` stackSetAccounts
+        `Prelude.hashWithSalt` stackSetRegions
 
 instance
   Prelude.NFData
     ProvisioningArtifactPreferences
   where
   rnf ProvisioningArtifactPreferences' {..} =
-    Prelude.rnf stackSetRegions
-      `Prelude.seq` Prelude.rnf stackSetAccounts
+    Prelude.rnf stackSetAccounts
+      `Prelude.seq` Prelude.rnf stackSetRegions

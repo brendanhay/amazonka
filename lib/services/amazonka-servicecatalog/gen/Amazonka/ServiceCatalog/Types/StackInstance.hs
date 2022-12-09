@@ -36,7 +36,13 @@ import Amazonka.ServiceCatalog.Types.StackInstanceStatus
 --
 -- /See:/ 'newStackInstance' smart constructor.
 data StackInstance = StackInstance'
-  { -- | The status of the stack instance, in terms of its synchronization with
+  { -- | The name of the Amazon Web Services account that the stack instance is
+    -- associated with.
+    account :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Amazon Web Services Region that the stack instance is
+    -- associated with.
+    region :: Prelude.Maybe Prelude.Text,
+    -- | The status of the stack instance, in terms of its synchronization with
     -- its associated stack set.
     --
     -- -   @INOPERABLE@: A @DeleteStackInstances@ operation has failed and left
@@ -52,13 +58,7 @@ data StackInstance = StackInstance'
     --     stopped before the stack was created or updated.
     --
     -- -   @CURRENT@: The stack is currently up to date with the stack set.
-    stackInstanceStatus :: Prelude.Maybe StackInstanceStatus,
-    -- | The name of the Amazon Web Services account that the stack instance is
-    -- associated with.
-    account :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Amazon Web Services Region that the stack instance is
-    -- associated with.
-    region :: Prelude.Maybe Prelude.Text
+    stackInstanceStatus :: Prelude.Maybe StackInstanceStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,6 +69,12 @@ data StackInstance = StackInstance'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'account', 'stackInstance_account' - The name of the Amazon Web Services account that the stack instance is
+-- associated with.
+--
+-- 'region', 'stackInstance_region' - The name of the Amazon Web Services Region that the stack instance is
+-- associated with.
 --
 -- 'stackInstanceStatus', 'stackInstance_stackInstanceStatus' - The status of the stack instance, in terms of its synchronization with
 -- its associated stack set.
@@ -86,21 +92,24 @@ data StackInstance = StackInstance'
 --     stopped before the stack was created or updated.
 --
 -- -   @CURRENT@: The stack is currently up to date with the stack set.
---
--- 'account', 'stackInstance_account' - The name of the Amazon Web Services account that the stack instance is
--- associated with.
---
--- 'region', 'stackInstance_region' - The name of the Amazon Web Services Region that the stack instance is
--- associated with.
 newStackInstance ::
   StackInstance
 newStackInstance =
   StackInstance'
-    { stackInstanceStatus =
-        Prelude.Nothing,
-      account = Prelude.Nothing,
-      region = Prelude.Nothing
+    { account = Prelude.Nothing,
+      region = Prelude.Nothing,
+      stackInstanceStatus = Prelude.Nothing
     }
+
+-- | The name of the Amazon Web Services account that the stack instance is
+-- associated with.
+stackInstance_account :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.Text)
+stackInstance_account = Lens.lens (\StackInstance' {account} -> account) (\s@StackInstance' {} a -> s {account = a} :: StackInstance)
+
+-- | The name of the Amazon Web Services Region that the stack instance is
+-- associated with.
+stackInstance_region :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.Text)
+stackInstance_region = Lens.lens (\StackInstance' {region} -> region) (\s@StackInstance' {} a -> s {region = a} :: StackInstance)
 
 -- | The status of the stack instance, in terms of its synchronization with
 -- its associated stack set.
@@ -121,35 +130,25 @@ newStackInstance =
 stackInstance_stackInstanceStatus :: Lens.Lens' StackInstance (Prelude.Maybe StackInstanceStatus)
 stackInstance_stackInstanceStatus = Lens.lens (\StackInstance' {stackInstanceStatus} -> stackInstanceStatus) (\s@StackInstance' {} a -> s {stackInstanceStatus = a} :: StackInstance)
 
--- | The name of the Amazon Web Services account that the stack instance is
--- associated with.
-stackInstance_account :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.Text)
-stackInstance_account = Lens.lens (\StackInstance' {account} -> account) (\s@StackInstance' {} a -> s {account = a} :: StackInstance)
-
--- | The name of the Amazon Web Services Region that the stack instance is
--- associated with.
-stackInstance_region :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.Text)
-stackInstance_region = Lens.lens (\StackInstance' {region} -> region) (\s@StackInstance' {} a -> s {region = a} :: StackInstance)
-
 instance Data.FromJSON StackInstance where
   parseJSON =
     Data.withObject
       "StackInstance"
       ( \x ->
           StackInstance'
-            Prelude.<$> (x Data..:? "StackInstanceStatus")
-            Prelude.<*> (x Data..:? "Account")
+            Prelude.<$> (x Data..:? "Account")
             Prelude.<*> (x Data..:? "Region")
+            Prelude.<*> (x Data..:? "StackInstanceStatus")
       )
 
 instance Prelude.Hashable StackInstance where
   hashWithSalt _salt StackInstance' {..} =
-    _salt `Prelude.hashWithSalt` stackInstanceStatus
-      `Prelude.hashWithSalt` account
+    _salt `Prelude.hashWithSalt` account
       `Prelude.hashWithSalt` region
+      `Prelude.hashWithSalt` stackInstanceStatus
 
 instance Prelude.NFData StackInstance where
   rnf StackInstance' {..} =
-    Prelude.rnf stackInstanceStatus
-      `Prelude.seq` Prelude.rnf account
+    Prelude.rnf account
       `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf stackInstanceStatus

@@ -29,8 +29,8 @@ module Amazonka.ServiceCatalog.AssociateProductWithPortfolio
     newAssociateProductWithPortfolio,
 
     -- * Request Lenses
-    associateProductWithPortfolio_sourcePortfolioId,
     associateProductWithPortfolio_acceptLanguage,
+    associateProductWithPortfolio_sourcePortfolioId,
     associateProductWithPortfolio_productId,
     associateProductWithPortfolio_portfolioId,
 
@@ -53,9 +53,7 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newAssociateProductWithPortfolio' smart constructor.
 data AssociateProductWithPortfolio = AssociateProductWithPortfolio'
-  { -- | The identifier of the source portfolio.
-    sourcePortfolioId :: Prelude.Maybe Prelude.Text,
-    -- | The language code.
+  { -- | The language code.
     --
     -- -   @en@ - English (default)
     --
@@ -63,6 +61,8 @@ data AssociateProductWithPortfolio = AssociateProductWithPortfolio'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the source portfolio.
+    sourcePortfolioId :: Prelude.Maybe Prelude.Text,
     -- | The product identifier.
     productId :: Prelude.Text,
     -- | The portfolio identifier.
@@ -78,8 +78,6 @@ data AssociateProductWithPortfolio = AssociateProductWithPortfolio'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourcePortfolioId', 'associateProductWithPortfolio_sourcePortfolioId' - The identifier of the source portfolio.
---
 -- 'acceptLanguage', 'associateProductWithPortfolio_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -87,6 +85,8 @@ data AssociateProductWithPortfolio = AssociateProductWithPortfolio'
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
+--
+-- 'sourcePortfolioId', 'associateProductWithPortfolio_sourcePortfolioId' - The identifier of the source portfolio.
 --
 -- 'productId', 'associateProductWithPortfolio_productId' - The product identifier.
 --
@@ -101,16 +101,12 @@ newAssociateProductWithPortfolio
   pProductId_
   pPortfolioId_ =
     AssociateProductWithPortfolio'
-      { sourcePortfolioId =
+      { acceptLanguage =
           Prelude.Nothing,
-        acceptLanguage = Prelude.Nothing,
+        sourcePortfolioId = Prelude.Nothing,
         productId = pProductId_,
         portfolioId = pPortfolioId_
       }
-
--- | The identifier of the source portfolio.
-associateProductWithPortfolio_sourcePortfolioId :: Lens.Lens' AssociateProductWithPortfolio (Prelude.Maybe Prelude.Text)
-associateProductWithPortfolio_sourcePortfolioId = Lens.lens (\AssociateProductWithPortfolio' {sourcePortfolioId} -> sourcePortfolioId) (\s@AssociateProductWithPortfolio' {} a -> s {sourcePortfolioId = a} :: AssociateProductWithPortfolio)
 
 -- | The language code.
 --
@@ -121,6 +117,10 @@ associateProductWithPortfolio_sourcePortfolioId = Lens.lens (\AssociateProductWi
 -- -   @zh@ - Chinese
 associateProductWithPortfolio_acceptLanguage :: Lens.Lens' AssociateProductWithPortfolio (Prelude.Maybe Prelude.Text)
 associateProductWithPortfolio_acceptLanguage = Lens.lens (\AssociateProductWithPortfolio' {acceptLanguage} -> acceptLanguage) (\s@AssociateProductWithPortfolio' {} a -> s {acceptLanguage = a} :: AssociateProductWithPortfolio)
+
+-- | The identifier of the source portfolio.
+associateProductWithPortfolio_sourcePortfolioId :: Lens.Lens' AssociateProductWithPortfolio (Prelude.Maybe Prelude.Text)
+associateProductWithPortfolio_sourcePortfolioId = Lens.lens (\AssociateProductWithPortfolio' {sourcePortfolioId} -> sourcePortfolioId) (\s@AssociateProductWithPortfolio' {} a -> s {sourcePortfolioId = a} :: AssociateProductWithPortfolio)
 
 -- | The product identifier.
 associateProductWithPortfolio_productId :: Lens.Lens' AssociateProductWithPortfolio Prelude.Text
@@ -151,15 +151,15 @@ instance
     AssociateProductWithPortfolio
   where
   hashWithSalt _salt AssociateProductWithPortfolio' {..} =
-    _salt `Prelude.hashWithSalt` sourcePortfolioId
-      `Prelude.hashWithSalt` acceptLanguage
+    _salt `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` sourcePortfolioId
       `Prelude.hashWithSalt` productId
       `Prelude.hashWithSalt` portfolioId
 
 instance Prelude.NFData AssociateProductWithPortfolio where
   rnf AssociateProductWithPortfolio' {..} =
-    Prelude.rnf sourcePortfolioId
-      `Prelude.seq` Prelude.rnf acceptLanguage
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf sourcePortfolioId
       `Prelude.seq` Prelude.rnf productId
       `Prelude.seq` Prelude.rnf portfolioId
 
@@ -182,10 +182,10 @@ instance Data.ToJSON AssociateProductWithPortfolio where
   toJSON AssociateProductWithPortfolio' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SourcePortfolioId" Data..=)
-              Prelude.<$> sourcePortfolioId,
-            ("AcceptLanguage" Data..=)
+          [ ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
+            ("SourcePortfolioId" Data..=)
+              Prelude.<$> sourcePortfolioId,
             Prelude.Just ("ProductId" Data..= productId),
             Prelude.Just ("PortfolioId" Data..= portfolioId)
           ]

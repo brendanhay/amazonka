@@ -29,11 +29,11 @@ module Amazonka.ServiceCatalog.ListRecordHistory
     newListRecordHistory,
 
     -- * Request Lenses
-    listRecordHistory_accessLevelFilter,
-    listRecordHistory_searchFilter,
-    listRecordHistory_pageToken,
-    listRecordHistory_pageSize,
     listRecordHistory_acceptLanguage,
+    listRecordHistory_accessLevelFilter,
+    listRecordHistory_pageSize,
+    listRecordHistory_pageToken,
+    listRecordHistory_searchFilter,
 
     -- * Destructuring the Response
     ListRecordHistoryResponse (..),
@@ -56,23 +56,23 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newListRecordHistory' smart constructor.
 data ListRecordHistory = ListRecordHistory'
-  { -- | The access level to use to obtain results. The default is @User@.
-    accessLevelFilter :: Prelude.Maybe AccessLevelFilter,
-    -- | The search filter to scope the results.
-    searchFilter :: Prelude.Maybe ListRecordHistorySearchFilter,
-    -- | The page token for the next set of results. To retrieve the first set of
-    -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
-    -- | The language code.
+  { -- | The language code.
     --
     -- -   @en@ - English (default)
     --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The access level to use to obtain results. The default is @User@.
+    accessLevelFilter :: Prelude.Maybe AccessLevelFilter,
+    -- | The maximum number of items to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural,
+    -- | The page token for the next set of results. To retrieve the first set of
+    -- results, use null.
+    pageToken :: Prelude.Maybe Prelude.Text,
+    -- | The search filter to scope the results.
+    searchFilter :: Prelude.Maybe ListRecordHistorySearchFilter
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,15 +84,6 @@ data ListRecordHistory = ListRecordHistory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accessLevelFilter', 'listRecordHistory_accessLevelFilter' - The access level to use to obtain results. The default is @User@.
---
--- 'searchFilter', 'listRecordHistory_searchFilter' - The search filter to scope the results.
---
--- 'pageToken', 'listRecordHistory_pageToken' - The page token for the next set of results. To retrieve the first set of
--- results, use null.
---
--- 'pageSize', 'listRecordHistory_pageSize' - The maximum number of items to return with this call.
---
 -- 'acceptLanguage', 'listRecordHistory_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -100,34 +91,26 @@ data ListRecordHistory = ListRecordHistory'
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
+--
+-- 'accessLevelFilter', 'listRecordHistory_accessLevelFilter' - The access level to use to obtain results. The default is @User@.
+--
+-- 'pageSize', 'listRecordHistory_pageSize' - The maximum number of items to return with this call.
+--
+-- 'pageToken', 'listRecordHistory_pageToken' - The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+--
+-- 'searchFilter', 'listRecordHistory_searchFilter' - The search filter to scope the results.
 newListRecordHistory ::
   ListRecordHistory
 newListRecordHistory =
   ListRecordHistory'
-    { accessLevelFilter =
+    { acceptLanguage =
         Prelude.Nothing,
-      searchFilter = Prelude.Nothing,
-      pageToken = Prelude.Nothing,
+      accessLevelFilter = Prelude.Nothing,
       pageSize = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing
+      pageToken = Prelude.Nothing,
+      searchFilter = Prelude.Nothing
     }
-
--- | The access level to use to obtain results. The default is @User@.
-listRecordHistory_accessLevelFilter :: Lens.Lens' ListRecordHistory (Prelude.Maybe AccessLevelFilter)
-listRecordHistory_accessLevelFilter = Lens.lens (\ListRecordHistory' {accessLevelFilter} -> accessLevelFilter) (\s@ListRecordHistory' {} a -> s {accessLevelFilter = a} :: ListRecordHistory)
-
--- | The search filter to scope the results.
-listRecordHistory_searchFilter :: Lens.Lens' ListRecordHistory (Prelude.Maybe ListRecordHistorySearchFilter)
-listRecordHistory_searchFilter = Lens.lens (\ListRecordHistory' {searchFilter} -> searchFilter) (\s@ListRecordHistory' {} a -> s {searchFilter = a} :: ListRecordHistory)
-
--- | The page token for the next set of results. To retrieve the first set of
--- results, use null.
-listRecordHistory_pageToken :: Lens.Lens' ListRecordHistory (Prelude.Maybe Prelude.Text)
-listRecordHistory_pageToken = Lens.lens (\ListRecordHistory' {pageToken} -> pageToken) (\s@ListRecordHistory' {} a -> s {pageToken = a} :: ListRecordHistory)
-
--- | The maximum number of items to return with this call.
-listRecordHistory_pageSize :: Lens.Lens' ListRecordHistory (Prelude.Maybe Prelude.Natural)
-listRecordHistory_pageSize = Lens.lens (\ListRecordHistory' {pageSize} -> pageSize) (\s@ListRecordHistory' {} a -> s {pageSize = a} :: ListRecordHistory)
 
 -- | The language code.
 --
@@ -138,6 +121,23 @@ listRecordHistory_pageSize = Lens.lens (\ListRecordHistory' {pageSize} -> pageSi
 -- -   @zh@ - Chinese
 listRecordHistory_acceptLanguage :: Lens.Lens' ListRecordHistory (Prelude.Maybe Prelude.Text)
 listRecordHistory_acceptLanguage = Lens.lens (\ListRecordHistory' {acceptLanguage} -> acceptLanguage) (\s@ListRecordHistory' {} a -> s {acceptLanguage = a} :: ListRecordHistory)
+
+-- | The access level to use to obtain results. The default is @User@.
+listRecordHistory_accessLevelFilter :: Lens.Lens' ListRecordHistory (Prelude.Maybe AccessLevelFilter)
+listRecordHistory_accessLevelFilter = Lens.lens (\ListRecordHistory' {accessLevelFilter} -> accessLevelFilter) (\s@ListRecordHistory' {} a -> s {accessLevelFilter = a} :: ListRecordHistory)
+
+-- | The maximum number of items to return with this call.
+listRecordHistory_pageSize :: Lens.Lens' ListRecordHistory (Prelude.Maybe Prelude.Natural)
+listRecordHistory_pageSize = Lens.lens (\ListRecordHistory' {pageSize} -> pageSize) (\s@ListRecordHistory' {} a -> s {pageSize = a} :: ListRecordHistory)
+
+-- | The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+listRecordHistory_pageToken :: Lens.Lens' ListRecordHistory (Prelude.Maybe Prelude.Text)
+listRecordHistory_pageToken = Lens.lens (\ListRecordHistory' {pageToken} -> pageToken) (\s@ListRecordHistory' {} a -> s {pageToken = a} :: ListRecordHistory)
+
+-- | The search filter to scope the results.
+listRecordHistory_searchFilter :: Lens.Lens' ListRecordHistory (Prelude.Maybe ListRecordHistorySearchFilter)
+listRecordHistory_searchFilter = Lens.lens (\ListRecordHistory' {searchFilter} -> searchFilter) (\s@ListRecordHistory' {} a -> s {searchFilter = a} :: ListRecordHistory)
 
 instance Core.AWSPager ListRecordHistory where
   page rq rs
@@ -178,19 +178,19 @@ instance Core.AWSRequest ListRecordHistory where
 
 instance Prelude.Hashable ListRecordHistory where
   hashWithSalt _salt ListRecordHistory' {..} =
-    _salt `Prelude.hashWithSalt` accessLevelFilter
-      `Prelude.hashWithSalt` searchFilter
-      `Prelude.hashWithSalt` pageToken
+    _salt `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` accessLevelFilter
       `Prelude.hashWithSalt` pageSize
-      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` pageToken
+      `Prelude.hashWithSalt` searchFilter
 
 instance Prelude.NFData ListRecordHistory where
   rnf ListRecordHistory' {..} =
-    Prelude.rnf accessLevelFilter
-      `Prelude.seq` Prelude.rnf searchFilter
-      `Prelude.seq` Prelude.rnf pageToken
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf accessLevelFilter
       `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf pageToken
+      `Prelude.seq` Prelude.rnf searchFilter
 
 instance Data.ToHeaders ListRecordHistory where
   toHeaders =
@@ -211,13 +211,13 @@ instance Data.ToJSON ListRecordHistory where
   toJSON ListRecordHistory' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("AccessLevelFilter" Data..=)
+          [ ("AcceptLanguage" Data..=)
+              Prelude.<$> acceptLanguage,
+            ("AccessLevelFilter" Data..=)
               Prelude.<$> accessLevelFilter,
-            ("SearchFilter" Data..=) Prelude.<$> searchFilter,
-            ("PageToken" Data..=) Prelude.<$> pageToken,
             ("PageSize" Data..=) Prelude.<$> pageSize,
-            ("AcceptLanguage" Data..=)
-              Prelude.<$> acceptLanguage
+            ("PageToken" Data..=) Prelude.<$> pageToken,
+            ("SearchFilter" Data..=) Prelude.<$> searchFilter
           ]
       )
 

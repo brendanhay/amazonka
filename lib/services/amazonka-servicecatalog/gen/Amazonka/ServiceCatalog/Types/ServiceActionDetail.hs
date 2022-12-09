@@ -30,10 +30,10 @@ import Amazonka.ServiceCatalog.Types.ServiceActionSummary
 --
 -- /See:/ 'newServiceActionDetail' smart constructor.
 data ServiceActionDetail = ServiceActionDetail'
-  { -- | Summary information about the self-service action.
-    serviceActionSummary :: Prelude.Maybe ServiceActionSummary,
-    -- | A map that defines the self-service action.
-    definition :: Prelude.Maybe (Prelude.HashMap ServiceActionDefinitionKey Prelude.Text)
+  { -- | A map that defines the self-service action.
+    definition :: Prelude.Maybe (Prelude.HashMap ServiceActionDefinitionKey Prelude.Text),
+    -- | Summary information about the self-service action.
+    serviceActionSummary :: Prelude.Maybe ServiceActionSummary
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,25 +45,24 @@ data ServiceActionDetail = ServiceActionDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceActionSummary', 'serviceActionDetail_serviceActionSummary' - Summary information about the self-service action.
---
 -- 'definition', 'serviceActionDetail_definition' - A map that defines the self-service action.
+--
+-- 'serviceActionSummary', 'serviceActionDetail_serviceActionSummary' - Summary information about the self-service action.
 newServiceActionDetail ::
   ServiceActionDetail
 newServiceActionDetail =
   ServiceActionDetail'
-    { serviceActionSummary =
-        Prelude.Nothing,
-      definition = Prelude.Nothing
+    { definition = Prelude.Nothing,
+      serviceActionSummary = Prelude.Nothing
     }
-
--- | Summary information about the self-service action.
-serviceActionDetail_serviceActionSummary :: Lens.Lens' ServiceActionDetail (Prelude.Maybe ServiceActionSummary)
-serviceActionDetail_serviceActionSummary = Lens.lens (\ServiceActionDetail' {serviceActionSummary} -> serviceActionSummary) (\s@ServiceActionDetail' {} a -> s {serviceActionSummary = a} :: ServiceActionDetail)
 
 -- | A map that defines the self-service action.
 serviceActionDetail_definition :: Lens.Lens' ServiceActionDetail (Prelude.Maybe (Prelude.HashMap ServiceActionDefinitionKey Prelude.Text))
 serviceActionDetail_definition = Lens.lens (\ServiceActionDetail' {definition} -> definition) (\s@ServiceActionDetail' {} a -> s {definition = a} :: ServiceActionDetail) Prelude.. Lens.mapping Lens.coerced
+
+-- | Summary information about the self-service action.
+serviceActionDetail_serviceActionSummary :: Lens.Lens' ServiceActionDetail (Prelude.Maybe ServiceActionSummary)
+serviceActionDetail_serviceActionSummary = Lens.lens (\ServiceActionDetail' {serviceActionSummary} -> serviceActionSummary) (\s@ServiceActionDetail' {} a -> s {serviceActionSummary = a} :: ServiceActionDetail)
 
 instance Data.FromJSON ServiceActionDetail where
   parseJSON =
@@ -71,16 +70,16 @@ instance Data.FromJSON ServiceActionDetail where
       "ServiceActionDetail"
       ( \x ->
           ServiceActionDetail'
-            Prelude.<$> (x Data..:? "ServiceActionSummary")
-            Prelude.<*> (x Data..:? "Definition" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Definition" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ServiceActionSummary")
       )
 
 instance Prelude.Hashable ServiceActionDetail where
   hashWithSalt _salt ServiceActionDetail' {..} =
-    _salt `Prelude.hashWithSalt` serviceActionSummary
-      `Prelude.hashWithSalt` definition
+    _salt `Prelude.hashWithSalt` definition
+      `Prelude.hashWithSalt` serviceActionSummary
 
 instance Prelude.NFData ServiceActionDetail where
   rnf ServiceActionDetail' {..} =
-    Prelude.rnf serviceActionSummary
-      `Prelude.seq` Prelude.rnf definition
+    Prelude.rnf definition
+      `Prelude.seq` Prelude.rnf serviceActionSummary

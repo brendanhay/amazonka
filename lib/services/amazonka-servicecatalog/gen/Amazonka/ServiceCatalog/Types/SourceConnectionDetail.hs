@@ -31,7 +31,9 @@ import Amazonka.ServiceCatalog.Types.SourceType
 --
 -- /See:/ 'newSourceConnectionDetail' smart constructor.
 data SourceConnectionDetail = SourceConnectionDetail'
-  { -- | Provides details about the product\'s connection sync and contains the
+  { -- | The connection details based on the connection @Type@.
+    connectionParameters :: Prelude.Maybe SourceConnectionParameters,
+    -- | Provides details about the product\'s connection sync and contains the
     -- following sub-fields.
     --
     -- -   @LastSyncTime@
@@ -45,9 +47,7 @@ data SourceConnectionDetail = SourceConnectionDetail'
     -- -   @LastSuccessfulSyncProvisioningArtifactID@
     lastSync :: Prelude.Maybe LastSync,
     -- | The only supported @SourceConnection@ type is Codestar.
-    type' :: Prelude.Maybe SourceType,
-    -- | The connection details based on the connection @Type@.
-    connectionParameters :: Prelude.Maybe SourceConnectionParameters
+    type' :: Prelude.Maybe SourceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,6 +58,8 @@ data SourceConnectionDetail = SourceConnectionDetail'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'connectionParameters', 'sourceConnectionDetail_connectionParameters' - The connection details based on the connection @Type@.
 --
 -- 'lastSync', 'sourceConnectionDetail_lastSync' - Provides details about the product\'s connection sync and contains the
 -- following sub-fields.
@@ -73,16 +75,19 @@ data SourceConnectionDetail = SourceConnectionDetail'
 -- -   @LastSuccessfulSyncProvisioningArtifactID@
 --
 -- 'type'', 'sourceConnectionDetail_type' - The only supported @SourceConnection@ type is Codestar.
---
--- 'connectionParameters', 'sourceConnectionDetail_connectionParameters' - The connection details based on the connection @Type@.
 newSourceConnectionDetail ::
   SourceConnectionDetail
 newSourceConnectionDetail =
   SourceConnectionDetail'
-    { lastSync = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      connectionParameters = Prelude.Nothing
+    { connectionParameters =
+        Prelude.Nothing,
+      lastSync = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
+
+-- | The connection details based on the connection @Type@.
+sourceConnectionDetail_connectionParameters :: Lens.Lens' SourceConnectionDetail (Prelude.Maybe SourceConnectionParameters)
+sourceConnectionDetail_connectionParameters = Lens.lens (\SourceConnectionDetail' {connectionParameters} -> connectionParameters) (\s@SourceConnectionDetail' {} a -> s {connectionParameters = a} :: SourceConnectionDetail)
 
 -- | Provides details about the product\'s connection sync and contains the
 -- following sub-fields.
@@ -103,29 +108,25 @@ sourceConnectionDetail_lastSync = Lens.lens (\SourceConnectionDetail' {lastSync}
 sourceConnectionDetail_type :: Lens.Lens' SourceConnectionDetail (Prelude.Maybe SourceType)
 sourceConnectionDetail_type = Lens.lens (\SourceConnectionDetail' {type'} -> type') (\s@SourceConnectionDetail' {} a -> s {type' = a} :: SourceConnectionDetail)
 
--- | The connection details based on the connection @Type@.
-sourceConnectionDetail_connectionParameters :: Lens.Lens' SourceConnectionDetail (Prelude.Maybe SourceConnectionParameters)
-sourceConnectionDetail_connectionParameters = Lens.lens (\SourceConnectionDetail' {connectionParameters} -> connectionParameters) (\s@SourceConnectionDetail' {} a -> s {connectionParameters = a} :: SourceConnectionDetail)
-
 instance Data.FromJSON SourceConnectionDetail where
   parseJSON =
     Data.withObject
       "SourceConnectionDetail"
       ( \x ->
           SourceConnectionDetail'
-            Prelude.<$> (x Data..:? "LastSync")
+            Prelude.<$> (x Data..:? "ConnectionParameters")
+            Prelude.<*> (x Data..:? "LastSync")
             Prelude.<*> (x Data..:? "Type")
-            Prelude.<*> (x Data..:? "ConnectionParameters")
       )
 
 instance Prelude.Hashable SourceConnectionDetail where
   hashWithSalt _salt SourceConnectionDetail' {..} =
-    _salt `Prelude.hashWithSalt` lastSync
+    _salt `Prelude.hashWithSalt` connectionParameters
+      `Prelude.hashWithSalt` lastSync
       `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` connectionParameters
 
 instance Prelude.NFData SourceConnectionDetail where
   rnf SourceConnectionDetail' {..} =
-    Prelude.rnf lastSync
+    Prelude.rnf connectionParameters
+      `Prelude.seq` Prelude.rnf lastSync
       `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf connectionParameters

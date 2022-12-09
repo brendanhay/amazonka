@@ -39,11 +39,11 @@ module Amazonka.ServiceCatalog.CreateProvisionedProductPlan
     newCreateProvisionedProductPlan,
 
     -- * Request Lenses
-    createProvisionedProductPlan_tags,
-    createProvisionedProductPlan_pathId,
-    createProvisionedProductPlan_notificationArns,
-    createProvisionedProductPlan_provisioningParameters,
     createProvisionedProductPlan_acceptLanguage,
+    createProvisionedProductPlan_notificationArns,
+    createProvisionedProductPlan_pathId,
+    createProvisionedProductPlan_provisioningParameters,
+    createProvisionedProductPlan_tags,
     createProvisionedProductPlan_planName,
     createProvisionedProductPlan_planType,
     createProvisionedProductPlan_productId,
@@ -57,8 +57,8 @@ module Amazonka.ServiceCatalog.CreateProvisionedProductPlan
 
     -- * Response Lenses
     createProvisionedProductPlanResponse_planId,
-    createProvisionedProductPlanResponse_provisionProductId,
     createProvisionedProductPlanResponse_planName,
+    createProvisionedProductPlanResponse_provisionProductId,
     createProvisionedProductPlanResponse_provisionedProductName,
     createProvisionedProductPlanResponse_provisioningArtifactId,
     createProvisionedProductPlanResponse_httpStatus,
@@ -75,23 +75,7 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newCreateProvisionedProductPlan' smart constructor.
 data CreateProvisionedProductPlan = CreateProvisionedProductPlan'
-  { -- | One or more tags.
-    --
-    -- If the plan is for an existing provisioned product, the product must
-    -- have a @RESOURCE_UPDATE@ constraint with
-    -- @TagUpdatesOnProvisionedProduct@ set to @ALLOWED@ to allow tag updates.
-    tags :: Prelude.Maybe [Tag],
-    -- | The path identifier of the product. This value is optional if the
-    -- product has a default path, and required if the product has more than
-    -- one path. To list the paths for a product, use ListLaunchPaths.
-    pathId :: Prelude.Maybe Prelude.Text,
-    -- | Passed to CloudFormation. The SNS topic ARNs to which to publish
-    -- stack-related events.
-    notificationArns :: Prelude.Maybe [Prelude.Text],
-    -- | Parameters specified by the administrator that are required for
-    -- provisioning the product.
-    provisioningParameters :: Prelude.Maybe [UpdateProvisioningParameter],
-    -- | The language code.
+  { -- | The language code.
     --
     -- -   @en@ - English (default)
     --
@@ -99,6 +83,22 @@ data CreateProvisionedProductPlan = CreateProvisionedProductPlan'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | Passed to CloudFormation. The SNS topic ARNs to which to publish
+    -- stack-related events.
+    notificationArns :: Prelude.Maybe [Prelude.Text],
+    -- | The path identifier of the product. This value is optional if the
+    -- product has a default path, and required if the product has more than
+    -- one path. To list the paths for a product, use ListLaunchPaths.
+    pathId :: Prelude.Maybe Prelude.Text,
+    -- | Parameters specified by the administrator that are required for
+    -- provisioning the product.
+    provisioningParameters :: Prelude.Maybe [UpdateProvisioningParameter],
+    -- | One or more tags.
+    --
+    -- If the plan is for an existing provisioned product, the product must
+    -- have a @RESOURCE_UPDATE@ constraint with
+    -- @TagUpdatesOnProvisionedProduct@ set to @ALLOWED@ to allow tag updates.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the plan.
     planName :: Prelude.Text,
     -- | The plan type.
@@ -126,22 +126,6 @@ data CreateProvisionedProductPlan = CreateProvisionedProductPlan'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createProvisionedProductPlan_tags' - One or more tags.
---
--- If the plan is for an existing provisioned product, the product must
--- have a @RESOURCE_UPDATE@ constraint with
--- @TagUpdatesOnProvisionedProduct@ set to @ALLOWED@ to allow tag updates.
---
--- 'pathId', 'createProvisionedProductPlan_pathId' - The path identifier of the product. This value is optional if the
--- product has a default path, and required if the product has more than
--- one path. To list the paths for a product, use ListLaunchPaths.
---
--- 'notificationArns', 'createProvisionedProductPlan_notificationArns' - Passed to CloudFormation. The SNS topic ARNs to which to publish
--- stack-related events.
---
--- 'provisioningParameters', 'createProvisionedProductPlan_provisioningParameters' - Parameters specified by the administrator that are required for
--- provisioning the product.
---
 -- 'acceptLanguage', 'createProvisionedProductPlan_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -149,6 +133,22 @@ data CreateProvisionedProductPlan = CreateProvisionedProductPlan'
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
+--
+-- 'notificationArns', 'createProvisionedProductPlan_notificationArns' - Passed to CloudFormation. The SNS topic ARNs to which to publish
+-- stack-related events.
+--
+-- 'pathId', 'createProvisionedProductPlan_pathId' - The path identifier of the product. This value is optional if the
+-- product has a default path, and required if the product has more than
+-- one path. To list the paths for a product, use ListLaunchPaths.
+--
+-- 'provisioningParameters', 'createProvisionedProductPlan_provisioningParameters' - Parameters specified by the administrator that are required for
+-- provisioning the product.
+--
+-- 'tags', 'createProvisionedProductPlan_tags' - One or more tags.
+--
+-- If the plan is for an existing provisioned product, the product must
+-- have a @RESOURCE_UPDATE@ constraint with
+-- @TagUpdatesOnProvisionedProduct@ set to @ALLOWED@ to allow tag updates.
 --
 -- 'planName', 'createProvisionedProductPlan_planName' - The name of the plan.
 --
@@ -187,12 +187,12 @@ newCreateProvisionedProductPlan
   pProvisioningArtifactId_
   pIdempotencyToken_ =
     CreateProvisionedProductPlan'
-      { tags =
+      { acceptLanguage =
           Prelude.Nothing,
-        pathId = Prelude.Nothing,
         notificationArns = Prelude.Nothing,
+        pathId = Prelude.Nothing,
         provisioningParameters = Prelude.Nothing,
-        acceptLanguage = Prelude.Nothing,
+        tags = Prelude.Nothing,
         planName = pPlanName_,
         planType = pPlanType_,
         productId = pProductId_,
@@ -203,30 +203,6 @@ newCreateProvisionedProductPlan
         idempotencyToken = pIdempotencyToken_
       }
 
--- | One or more tags.
---
--- If the plan is for an existing provisioned product, the product must
--- have a @RESOURCE_UPDATE@ constraint with
--- @TagUpdatesOnProvisionedProduct@ set to @ALLOWED@ to allow tag updates.
-createProvisionedProductPlan_tags :: Lens.Lens' CreateProvisionedProductPlan (Prelude.Maybe [Tag])
-createProvisionedProductPlan_tags = Lens.lens (\CreateProvisionedProductPlan' {tags} -> tags) (\s@CreateProvisionedProductPlan' {} a -> s {tags = a} :: CreateProvisionedProductPlan) Prelude.. Lens.mapping Lens.coerced
-
--- | The path identifier of the product. This value is optional if the
--- product has a default path, and required if the product has more than
--- one path. To list the paths for a product, use ListLaunchPaths.
-createProvisionedProductPlan_pathId :: Lens.Lens' CreateProvisionedProductPlan (Prelude.Maybe Prelude.Text)
-createProvisionedProductPlan_pathId = Lens.lens (\CreateProvisionedProductPlan' {pathId} -> pathId) (\s@CreateProvisionedProductPlan' {} a -> s {pathId = a} :: CreateProvisionedProductPlan)
-
--- | Passed to CloudFormation. The SNS topic ARNs to which to publish
--- stack-related events.
-createProvisionedProductPlan_notificationArns :: Lens.Lens' CreateProvisionedProductPlan (Prelude.Maybe [Prelude.Text])
-createProvisionedProductPlan_notificationArns = Lens.lens (\CreateProvisionedProductPlan' {notificationArns} -> notificationArns) (\s@CreateProvisionedProductPlan' {} a -> s {notificationArns = a} :: CreateProvisionedProductPlan) Prelude.. Lens.mapping Lens.coerced
-
--- | Parameters specified by the administrator that are required for
--- provisioning the product.
-createProvisionedProductPlan_provisioningParameters :: Lens.Lens' CreateProvisionedProductPlan (Prelude.Maybe [UpdateProvisioningParameter])
-createProvisionedProductPlan_provisioningParameters = Lens.lens (\CreateProvisionedProductPlan' {provisioningParameters} -> provisioningParameters) (\s@CreateProvisionedProductPlan' {} a -> s {provisioningParameters = a} :: CreateProvisionedProductPlan) Prelude.. Lens.mapping Lens.coerced
-
 -- | The language code.
 --
 -- -   @en@ - English (default)
@@ -236,6 +212,30 @@ createProvisionedProductPlan_provisioningParameters = Lens.lens (\CreateProvisio
 -- -   @zh@ - Chinese
 createProvisionedProductPlan_acceptLanguage :: Lens.Lens' CreateProvisionedProductPlan (Prelude.Maybe Prelude.Text)
 createProvisionedProductPlan_acceptLanguage = Lens.lens (\CreateProvisionedProductPlan' {acceptLanguage} -> acceptLanguage) (\s@CreateProvisionedProductPlan' {} a -> s {acceptLanguage = a} :: CreateProvisionedProductPlan)
+
+-- | Passed to CloudFormation. The SNS topic ARNs to which to publish
+-- stack-related events.
+createProvisionedProductPlan_notificationArns :: Lens.Lens' CreateProvisionedProductPlan (Prelude.Maybe [Prelude.Text])
+createProvisionedProductPlan_notificationArns = Lens.lens (\CreateProvisionedProductPlan' {notificationArns} -> notificationArns) (\s@CreateProvisionedProductPlan' {} a -> s {notificationArns = a} :: CreateProvisionedProductPlan) Prelude.. Lens.mapping Lens.coerced
+
+-- | The path identifier of the product. This value is optional if the
+-- product has a default path, and required if the product has more than
+-- one path. To list the paths for a product, use ListLaunchPaths.
+createProvisionedProductPlan_pathId :: Lens.Lens' CreateProvisionedProductPlan (Prelude.Maybe Prelude.Text)
+createProvisionedProductPlan_pathId = Lens.lens (\CreateProvisionedProductPlan' {pathId} -> pathId) (\s@CreateProvisionedProductPlan' {} a -> s {pathId = a} :: CreateProvisionedProductPlan)
+
+-- | Parameters specified by the administrator that are required for
+-- provisioning the product.
+createProvisionedProductPlan_provisioningParameters :: Lens.Lens' CreateProvisionedProductPlan (Prelude.Maybe [UpdateProvisioningParameter])
+createProvisionedProductPlan_provisioningParameters = Lens.lens (\CreateProvisionedProductPlan' {provisioningParameters} -> provisioningParameters) (\s@CreateProvisionedProductPlan' {} a -> s {provisioningParameters = a} :: CreateProvisionedProductPlan) Prelude.. Lens.mapping Lens.coerced
+
+-- | One or more tags.
+--
+-- If the plan is for an existing provisioned product, the product must
+-- have a @RESOURCE_UPDATE@ constraint with
+-- @TagUpdatesOnProvisionedProduct@ set to @ALLOWED@ to allow tag updates.
+createProvisionedProductPlan_tags :: Lens.Lens' CreateProvisionedProductPlan (Prelude.Maybe [Tag])
+createProvisionedProductPlan_tags = Lens.lens (\CreateProvisionedProductPlan' {tags} -> tags) (\s@CreateProvisionedProductPlan' {} a -> s {tags = a} :: CreateProvisionedProductPlan) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the plan.
 createProvisionedProductPlan_planName :: Lens.Lens' CreateProvisionedProductPlan Prelude.Text
@@ -276,8 +276,8 @@ instance Core.AWSRequest CreateProvisionedProductPlan where
       ( \s h x ->
           CreateProvisionedProductPlanResponse'
             Prelude.<$> (x Data..?> "PlanId")
-            Prelude.<*> (x Data..?> "ProvisionProductId")
             Prelude.<*> (x Data..?> "PlanName")
+            Prelude.<*> (x Data..?> "ProvisionProductId")
             Prelude.<*> (x Data..?> "ProvisionedProductName")
             Prelude.<*> (x Data..?> "ProvisioningArtifactId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -288,11 +288,11 @@ instance
     CreateProvisionedProductPlan
   where
   hashWithSalt _salt CreateProvisionedProductPlan' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` pathId
+    _salt `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` notificationArns
+      `Prelude.hashWithSalt` pathId
       `Prelude.hashWithSalt` provisioningParameters
-      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` planName
       `Prelude.hashWithSalt` planType
       `Prelude.hashWithSalt` productId
@@ -302,11 +302,11 @@ instance
 
 instance Prelude.NFData CreateProvisionedProductPlan where
   rnf CreateProvisionedProductPlan' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf pathId
+    Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf notificationArns
+      `Prelude.seq` Prelude.rnf pathId
       `Prelude.seq` Prelude.rnf provisioningParameters
-      `Prelude.seq` Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf planName
       `Prelude.seq` Prelude.rnf planType
       `Prelude.seq` Prelude.rnf productId
@@ -333,14 +333,14 @@ instance Data.ToJSON CreateProvisionedProductPlan where
   toJSON CreateProvisionedProductPlan' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("PathId" Data..=) Prelude.<$> pathId,
+          [ ("AcceptLanguage" Data..=)
+              Prelude.<$> acceptLanguage,
             ("NotificationArns" Data..=)
               Prelude.<$> notificationArns,
+            ("PathId" Data..=) Prelude.<$> pathId,
             ("ProvisioningParameters" Data..=)
               Prelude.<$> provisioningParameters,
-            ("AcceptLanguage" Data..=)
-              Prelude.<$> acceptLanguage,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("PlanName" Data..= planName),
             Prelude.Just ("PlanType" Data..= planType),
             Prelude.Just ("ProductId" Data..= productId),
@@ -367,10 +367,10 @@ instance Data.ToQuery CreateProvisionedProductPlan where
 data CreateProvisionedProductPlanResponse = CreateProvisionedProductPlanResponse'
   { -- | The plan identifier.
     planId :: Prelude.Maybe Prelude.Text,
-    -- | The product identifier.
-    provisionProductId :: Prelude.Maybe Prelude.Text,
     -- | The name of the plan.
     planName :: Prelude.Maybe Prelude.Text,
+    -- | The product identifier.
+    provisionProductId :: Prelude.Maybe Prelude.Text,
     -- | The user-friendly name of the provisioned product.
     provisionedProductName :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the provisioning artifact.
@@ -390,9 +390,9 @@ data CreateProvisionedProductPlanResponse = CreateProvisionedProductPlanResponse
 --
 -- 'planId', 'createProvisionedProductPlanResponse_planId' - The plan identifier.
 --
--- 'provisionProductId', 'createProvisionedProductPlanResponse_provisionProductId' - The product identifier.
---
 -- 'planName', 'createProvisionedProductPlanResponse_planName' - The name of the plan.
+--
+-- 'provisionProductId', 'createProvisionedProductPlanResponse_provisionProductId' - The product identifier.
 --
 -- 'provisionedProductName', 'createProvisionedProductPlanResponse_provisionedProductName' - The user-friendly name of the provisioned product.
 --
@@ -407,8 +407,8 @@ newCreateProvisionedProductPlanResponse pHttpStatus_ =
   CreateProvisionedProductPlanResponse'
     { planId =
         Prelude.Nothing,
-      provisionProductId = Prelude.Nothing,
       planName = Prelude.Nothing,
+      provisionProductId = Prelude.Nothing,
       provisionedProductName =
         Prelude.Nothing,
       provisioningArtifactId =
@@ -420,13 +420,13 @@ newCreateProvisionedProductPlanResponse pHttpStatus_ =
 createProvisionedProductPlanResponse_planId :: Lens.Lens' CreateProvisionedProductPlanResponse (Prelude.Maybe Prelude.Text)
 createProvisionedProductPlanResponse_planId = Lens.lens (\CreateProvisionedProductPlanResponse' {planId} -> planId) (\s@CreateProvisionedProductPlanResponse' {} a -> s {planId = a} :: CreateProvisionedProductPlanResponse)
 
--- | The product identifier.
-createProvisionedProductPlanResponse_provisionProductId :: Lens.Lens' CreateProvisionedProductPlanResponse (Prelude.Maybe Prelude.Text)
-createProvisionedProductPlanResponse_provisionProductId = Lens.lens (\CreateProvisionedProductPlanResponse' {provisionProductId} -> provisionProductId) (\s@CreateProvisionedProductPlanResponse' {} a -> s {provisionProductId = a} :: CreateProvisionedProductPlanResponse)
-
 -- | The name of the plan.
 createProvisionedProductPlanResponse_planName :: Lens.Lens' CreateProvisionedProductPlanResponse (Prelude.Maybe Prelude.Text)
 createProvisionedProductPlanResponse_planName = Lens.lens (\CreateProvisionedProductPlanResponse' {planName} -> planName) (\s@CreateProvisionedProductPlanResponse' {} a -> s {planName = a} :: CreateProvisionedProductPlanResponse)
+
+-- | The product identifier.
+createProvisionedProductPlanResponse_provisionProductId :: Lens.Lens' CreateProvisionedProductPlanResponse (Prelude.Maybe Prelude.Text)
+createProvisionedProductPlanResponse_provisionProductId = Lens.lens (\CreateProvisionedProductPlanResponse' {provisionProductId} -> provisionProductId) (\s@CreateProvisionedProductPlanResponse' {} a -> s {provisionProductId = a} :: CreateProvisionedProductPlanResponse)
 
 -- | The user-friendly name of the provisioned product.
 createProvisionedProductPlanResponse_provisionedProductName :: Lens.Lens' CreateProvisionedProductPlanResponse (Prelude.Maybe Prelude.Text)
@@ -446,8 +446,8 @@ instance
   where
   rnf CreateProvisionedProductPlanResponse' {..} =
     Prelude.rnf planId
-      `Prelude.seq` Prelude.rnf provisionProductId
       `Prelude.seq` Prelude.rnf planName
+      `Prelude.seq` Prelude.rnf provisionProductId
       `Prelude.seq` Prelude.rnf provisionedProductName
       `Prelude.seq` Prelude.rnf provisioningArtifactId
       `Prelude.seq` Prelude.rnf httpStatus

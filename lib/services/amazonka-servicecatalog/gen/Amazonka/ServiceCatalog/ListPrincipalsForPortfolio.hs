@@ -30,9 +30,9 @@ module Amazonka.ServiceCatalog.ListPrincipalsForPortfolio
     newListPrincipalsForPortfolio,
 
     -- * Request Lenses
-    listPrincipalsForPortfolio_pageToken,
-    listPrincipalsForPortfolio_pageSize,
     listPrincipalsForPortfolio_acceptLanguage,
+    listPrincipalsForPortfolio_pageSize,
+    listPrincipalsForPortfolio_pageToken,
     listPrincipalsForPortfolio_portfolioId,
 
     -- * Destructuring the Response
@@ -56,12 +56,7 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newListPrincipalsForPortfolio' smart constructor.
 data ListPrincipalsForPortfolio = ListPrincipalsForPortfolio'
-  { -- | The page token for the next set of results. To retrieve the first set of
-    -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
-    -- | The language code.
+  { -- | The language code.
     --
     -- -   @en@ - English (default)
     --
@@ -69,6 +64,11 @@ data ListPrincipalsForPortfolio = ListPrincipalsForPortfolio'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural,
+    -- | The page token for the next set of results. To retrieve the first set of
+    -- results, use null.
+    pageToken :: Prelude.Maybe Prelude.Text,
     -- | The portfolio identifier.
     portfolioId :: Prelude.Text
   }
@@ -82,11 +82,6 @@ data ListPrincipalsForPortfolio = ListPrincipalsForPortfolio'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pageToken', 'listPrincipalsForPortfolio_pageToken' - The page token for the next set of results. To retrieve the first set of
--- results, use null.
---
--- 'pageSize', 'listPrincipalsForPortfolio_pageSize' - The maximum number of items to return with this call.
---
 -- 'acceptLanguage', 'listPrincipalsForPortfolio_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -95,6 +90,11 @@ data ListPrincipalsForPortfolio = ListPrincipalsForPortfolio'
 --
 -- -   @zh@ - Chinese
 --
+-- 'pageSize', 'listPrincipalsForPortfolio_pageSize' - The maximum number of items to return with this call.
+--
+-- 'pageToken', 'listPrincipalsForPortfolio_pageToken' - The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+--
 -- 'portfolioId', 'listPrincipalsForPortfolio_portfolioId' - The portfolio identifier.
 newListPrincipalsForPortfolio ::
   -- | 'portfolioId'
@@ -102,21 +102,12 @@ newListPrincipalsForPortfolio ::
   ListPrincipalsForPortfolio
 newListPrincipalsForPortfolio pPortfolioId_ =
   ListPrincipalsForPortfolio'
-    { pageToken =
+    { acceptLanguage =
         Prelude.Nothing,
       pageSize = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing,
+      pageToken = Prelude.Nothing,
       portfolioId = pPortfolioId_
     }
-
--- | The page token for the next set of results. To retrieve the first set of
--- results, use null.
-listPrincipalsForPortfolio_pageToken :: Lens.Lens' ListPrincipalsForPortfolio (Prelude.Maybe Prelude.Text)
-listPrincipalsForPortfolio_pageToken = Lens.lens (\ListPrincipalsForPortfolio' {pageToken} -> pageToken) (\s@ListPrincipalsForPortfolio' {} a -> s {pageToken = a} :: ListPrincipalsForPortfolio)
-
--- | The maximum number of items to return with this call.
-listPrincipalsForPortfolio_pageSize :: Lens.Lens' ListPrincipalsForPortfolio (Prelude.Maybe Prelude.Natural)
-listPrincipalsForPortfolio_pageSize = Lens.lens (\ListPrincipalsForPortfolio' {pageSize} -> pageSize) (\s@ListPrincipalsForPortfolio' {} a -> s {pageSize = a} :: ListPrincipalsForPortfolio)
 
 -- | The language code.
 --
@@ -127,6 +118,15 @@ listPrincipalsForPortfolio_pageSize = Lens.lens (\ListPrincipalsForPortfolio' {p
 -- -   @zh@ - Chinese
 listPrincipalsForPortfolio_acceptLanguage :: Lens.Lens' ListPrincipalsForPortfolio (Prelude.Maybe Prelude.Text)
 listPrincipalsForPortfolio_acceptLanguage = Lens.lens (\ListPrincipalsForPortfolio' {acceptLanguage} -> acceptLanguage) (\s@ListPrincipalsForPortfolio' {} a -> s {acceptLanguage = a} :: ListPrincipalsForPortfolio)
+
+-- | The maximum number of items to return with this call.
+listPrincipalsForPortfolio_pageSize :: Lens.Lens' ListPrincipalsForPortfolio (Prelude.Maybe Prelude.Natural)
+listPrincipalsForPortfolio_pageSize = Lens.lens (\ListPrincipalsForPortfolio' {pageSize} -> pageSize) (\s@ListPrincipalsForPortfolio' {} a -> s {pageSize = a} :: ListPrincipalsForPortfolio)
+
+-- | The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+listPrincipalsForPortfolio_pageToken :: Lens.Lens' ListPrincipalsForPortfolio (Prelude.Maybe Prelude.Text)
+listPrincipalsForPortfolio_pageToken = Lens.lens (\ListPrincipalsForPortfolio' {pageToken} -> pageToken) (\s@ListPrincipalsForPortfolio' {} a -> s {pageToken = a} :: ListPrincipalsForPortfolio)
 
 -- | The portfolio identifier.
 listPrincipalsForPortfolio_portfolioId :: Lens.Lens' ListPrincipalsForPortfolio Prelude.Text
@@ -171,16 +171,16 @@ instance Core.AWSRequest ListPrincipalsForPortfolio where
 
 instance Prelude.Hashable ListPrincipalsForPortfolio where
   hashWithSalt _salt ListPrincipalsForPortfolio' {..} =
-    _salt `Prelude.hashWithSalt` pageToken
+    _salt `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` pageSize
-      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` pageToken
       `Prelude.hashWithSalt` portfolioId
 
 instance Prelude.NFData ListPrincipalsForPortfolio where
   rnf ListPrincipalsForPortfolio' {..} =
-    Prelude.rnf pageToken
+    Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf pageToken
       `Prelude.seq` Prelude.rnf portfolioId
 
 instance Data.ToHeaders ListPrincipalsForPortfolio where
@@ -202,10 +202,10 @@ instance Data.ToJSON ListPrincipalsForPortfolio where
   toJSON ListPrincipalsForPortfolio' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PageToken" Data..=) Prelude.<$> pageToken,
-            ("PageSize" Data..=) Prelude.<$> pageSize,
-            ("AcceptLanguage" Data..=)
+          [ ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
+            ("PageSize" Data..=) Prelude.<$> pageSize,
+            ("PageToken" Data..=) Prelude.<$> pageToken,
             Prelude.Just ("PortfolioId" Data..= portfolioId)
           ]
       )

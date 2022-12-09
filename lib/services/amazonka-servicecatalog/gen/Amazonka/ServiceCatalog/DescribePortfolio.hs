@@ -37,10 +37,10 @@ module Amazonka.ServiceCatalog.DescribePortfolio
     newDescribePortfolioResponse,
 
     -- * Response Lenses
-    describePortfolioResponse_tags,
-    describePortfolioResponse_portfolioDetail,
     describePortfolioResponse_budgets,
+    describePortfolioResponse_portfolioDetail,
     describePortfolioResponse_tagOptions,
+    describePortfolioResponse_tags,
     describePortfolioResponse_httpStatus,
   )
 where
@@ -120,10 +120,10 @@ instance Core.AWSRequest DescribePortfolio where
     Response.receiveJSON
       ( \s h x ->
           DescribePortfolioResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Budgets" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "PortfolioDetail")
-            Prelude.<*> (x Data..?> "Budgets" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "TagOptions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,14 +170,14 @@ instance Data.ToQuery DescribePortfolio where
 
 -- | /See:/ 'newDescribePortfolioResponse' smart constructor.
 data DescribePortfolioResponse = DescribePortfolioResponse'
-  { -- | Information about the tags associated with the portfolio.
-    tags :: Prelude.Maybe [Tag],
+  { -- | Information about the associated budgets.
+    budgets :: Prelude.Maybe [BudgetDetail],
     -- | Information about the portfolio.
     portfolioDetail :: Prelude.Maybe PortfolioDetail,
-    -- | Information about the associated budgets.
-    budgets :: Prelude.Maybe [BudgetDetail],
     -- | Information about the TagOptions associated with the portfolio.
     tagOptions :: Prelude.Maybe [TagOptionDetail],
+    -- | Information about the tags associated with the portfolio.
+    tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -191,13 +191,13 @@ data DescribePortfolioResponse = DescribePortfolioResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'describePortfolioResponse_tags' - Information about the tags associated with the portfolio.
+-- 'budgets', 'describePortfolioResponse_budgets' - Information about the associated budgets.
 --
 -- 'portfolioDetail', 'describePortfolioResponse_portfolioDetail' - Information about the portfolio.
 --
--- 'budgets', 'describePortfolioResponse_budgets' - Information about the associated budgets.
---
 -- 'tagOptions', 'describePortfolioResponse_tagOptions' - Information about the TagOptions associated with the portfolio.
+--
+-- 'tags', 'describePortfolioResponse_tags' - Information about the tags associated with the portfolio.
 --
 -- 'httpStatus', 'describePortfolioResponse_httpStatus' - The response's http status code.
 newDescribePortfolioResponse ::
@@ -206,28 +206,29 @@ newDescribePortfolioResponse ::
   DescribePortfolioResponse
 newDescribePortfolioResponse pHttpStatus_ =
   DescribePortfolioResponse'
-    { tags = Prelude.Nothing,
+    { budgets =
+        Prelude.Nothing,
       portfolioDetail = Prelude.Nothing,
-      budgets = Prelude.Nothing,
       tagOptions = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the tags associated with the portfolio.
-describePortfolioResponse_tags :: Lens.Lens' DescribePortfolioResponse (Prelude.Maybe [Tag])
-describePortfolioResponse_tags = Lens.lens (\DescribePortfolioResponse' {tags} -> tags) (\s@DescribePortfolioResponse' {} a -> s {tags = a} :: DescribePortfolioResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | Information about the portfolio.
-describePortfolioResponse_portfolioDetail :: Lens.Lens' DescribePortfolioResponse (Prelude.Maybe PortfolioDetail)
-describePortfolioResponse_portfolioDetail = Lens.lens (\DescribePortfolioResponse' {portfolioDetail} -> portfolioDetail) (\s@DescribePortfolioResponse' {} a -> s {portfolioDetail = a} :: DescribePortfolioResponse)
 
 -- | Information about the associated budgets.
 describePortfolioResponse_budgets :: Lens.Lens' DescribePortfolioResponse (Prelude.Maybe [BudgetDetail])
 describePortfolioResponse_budgets = Lens.lens (\DescribePortfolioResponse' {budgets} -> budgets) (\s@DescribePortfolioResponse' {} a -> s {budgets = a} :: DescribePortfolioResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | Information about the portfolio.
+describePortfolioResponse_portfolioDetail :: Lens.Lens' DescribePortfolioResponse (Prelude.Maybe PortfolioDetail)
+describePortfolioResponse_portfolioDetail = Lens.lens (\DescribePortfolioResponse' {portfolioDetail} -> portfolioDetail) (\s@DescribePortfolioResponse' {} a -> s {portfolioDetail = a} :: DescribePortfolioResponse)
+
 -- | Information about the TagOptions associated with the portfolio.
 describePortfolioResponse_tagOptions :: Lens.Lens' DescribePortfolioResponse (Prelude.Maybe [TagOptionDetail])
 describePortfolioResponse_tagOptions = Lens.lens (\DescribePortfolioResponse' {tagOptions} -> tagOptions) (\s@DescribePortfolioResponse' {} a -> s {tagOptions = a} :: DescribePortfolioResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Information about the tags associated with the portfolio.
+describePortfolioResponse_tags :: Lens.Lens' DescribePortfolioResponse (Prelude.Maybe [Tag])
+describePortfolioResponse_tags = Lens.lens (\DescribePortfolioResponse' {tags} -> tags) (\s@DescribePortfolioResponse' {} a -> s {tags = a} :: DescribePortfolioResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describePortfolioResponse_httpStatus :: Lens.Lens' DescribePortfolioResponse Prelude.Int
@@ -235,8 +236,8 @@ describePortfolioResponse_httpStatus = Lens.lens (\DescribePortfolioResponse' {h
 
 instance Prelude.NFData DescribePortfolioResponse where
   rnf DescribePortfolioResponse' {..} =
-    Prelude.rnf tags
+    Prelude.rnf budgets
       `Prelude.seq` Prelude.rnf portfolioDetail
-      `Prelude.seq` Prelude.rnf budgets
       `Prelude.seq` Prelude.rnf tagOptions
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

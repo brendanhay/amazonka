@@ -29,10 +29,10 @@ import Amazonka.ServiceCatalog.Types.ShareError
 --
 -- /See:/ 'newShareDetails' smart constructor.
 data ShareDetails = ShareDetails'
-  { -- | List of accounts for whom the operation succeeded.
-    successfulShares :: Prelude.Maybe [Prelude.Text],
-    -- | List of errors.
-    shareErrors :: Prelude.Maybe [ShareError]
+  { -- | List of errors.
+    shareErrors :: Prelude.Maybe [ShareError],
+    -- | List of accounts for whom the operation succeeded.
+    successfulShares :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data ShareDetails = ShareDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'successfulShares', 'shareDetails_successfulShares' - List of accounts for whom the operation succeeded.
---
 -- 'shareErrors', 'shareDetails_shareErrors' - List of errors.
+--
+-- 'successfulShares', 'shareDetails_successfulShares' - List of accounts for whom the operation succeeded.
 newShareDetails ::
   ShareDetails
 newShareDetails =
   ShareDetails'
-    { successfulShares = Prelude.Nothing,
-      shareErrors = Prelude.Nothing
+    { shareErrors = Prelude.Nothing,
+      successfulShares = Prelude.Nothing
     }
-
--- | List of accounts for whom the operation succeeded.
-shareDetails_successfulShares :: Lens.Lens' ShareDetails (Prelude.Maybe [Prelude.Text])
-shareDetails_successfulShares = Lens.lens (\ShareDetails' {successfulShares} -> successfulShares) (\s@ShareDetails' {} a -> s {successfulShares = a} :: ShareDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | List of errors.
 shareDetails_shareErrors :: Lens.Lens' ShareDetails (Prelude.Maybe [ShareError])
 shareDetails_shareErrors = Lens.lens (\ShareDetails' {shareErrors} -> shareErrors) (\s@ShareDetails' {} a -> s {shareErrors = a} :: ShareDetails) Prelude.. Lens.mapping Lens.coerced
+
+-- | List of accounts for whom the operation succeeded.
+shareDetails_successfulShares :: Lens.Lens' ShareDetails (Prelude.Maybe [Prelude.Text])
+shareDetails_successfulShares = Lens.lens (\ShareDetails' {successfulShares} -> successfulShares) (\s@ShareDetails' {} a -> s {successfulShares = a} :: ShareDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON ShareDetails where
   parseJSON =
@@ -69,18 +69,18 @@ instance Data.FromJSON ShareDetails where
       "ShareDetails"
       ( \x ->
           ShareDetails'
-            Prelude.<$> ( x Data..:? "SuccessfulShares"
+            Prelude.<$> (x Data..:? "ShareErrors" Data..!= Prelude.mempty)
+            Prelude.<*> ( x Data..:? "SuccessfulShares"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "ShareErrors" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ShareDetails where
   hashWithSalt _salt ShareDetails' {..} =
-    _salt `Prelude.hashWithSalt` successfulShares
-      `Prelude.hashWithSalt` shareErrors
+    _salt `Prelude.hashWithSalt` shareErrors
+      `Prelude.hashWithSalt` successfulShares
 
 instance Prelude.NFData ShareDetails where
   rnf ShareDetails' {..} =
-    Prelude.rnf successfulShares
-      `Prelude.seq` Prelude.rnf shareErrors
+    Prelude.rnf shareErrors
+      `Prelude.seq` Prelude.rnf successfulShares

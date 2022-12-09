@@ -33,9 +33,9 @@ module Amazonka.ServiceCatalog.DeletePortfolioShare
     newDeletePortfolioShare,
 
     -- * Request Lenses
+    deletePortfolioShare_acceptLanguage,
     deletePortfolioShare_accountId,
     deletePortfolioShare_organizationNode,
-    deletePortfolioShare_acceptLanguage,
     deletePortfolioShare_portfolioId,
 
     -- * Destructuring the Response
@@ -58,11 +58,7 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newDeletePortfolioShare' smart constructor.
 data DeletePortfolioShare = DeletePortfolioShare'
-  { -- | The Amazon Web Services account ID.
-    accountId :: Prelude.Maybe Prelude.Text,
-    -- | The organization node to whom you are going to stop sharing.
-    organizationNode :: Prelude.Maybe OrganizationNode,
-    -- | The language code.
+  { -- | The language code.
     --
     -- -   @en@ - English (default)
     --
@@ -70,6 +66,10 @@ data DeletePortfolioShare = DeletePortfolioShare'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services account ID.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | The organization node to whom you are going to stop sharing.
+    organizationNode :: Prelude.Maybe OrganizationNode,
     -- | The portfolio identifier.
     portfolioId :: Prelude.Text
   }
@@ -83,10 +83,6 @@ data DeletePortfolioShare = DeletePortfolioShare'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountId', 'deletePortfolioShare_accountId' - The Amazon Web Services account ID.
---
--- 'organizationNode', 'deletePortfolioShare_organizationNode' - The organization node to whom you are going to stop sharing.
---
 -- 'acceptLanguage', 'deletePortfolioShare_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -95,6 +91,10 @@ data DeletePortfolioShare = DeletePortfolioShare'
 --
 -- -   @zh@ - Chinese
 --
+-- 'accountId', 'deletePortfolioShare_accountId' - The Amazon Web Services account ID.
+--
+-- 'organizationNode', 'deletePortfolioShare_organizationNode' - The organization node to whom you are going to stop sharing.
+--
 -- 'portfolioId', 'deletePortfolioShare_portfolioId' - The portfolio identifier.
 newDeletePortfolioShare ::
   -- | 'portfolioId'
@@ -102,19 +102,12 @@ newDeletePortfolioShare ::
   DeletePortfolioShare
 newDeletePortfolioShare pPortfolioId_ =
   DeletePortfolioShare'
-    { accountId = Prelude.Nothing,
+    { acceptLanguage =
+        Prelude.Nothing,
+      accountId = Prelude.Nothing,
       organizationNode = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing,
       portfolioId = pPortfolioId_
     }
-
--- | The Amazon Web Services account ID.
-deletePortfolioShare_accountId :: Lens.Lens' DeletePortfolioShare (Prelude.Maybe Prelude.Text)
-deletePortfolioShare_accountId = Lens.lens (\DeletePortfolioShare' {accountId} -> accountId) (\s@DeletePortfolioShare' {} a -> s {accountId = a} :: DeletePortfolioShare)
-
--- | The organization node to whom you are going to stop sharing.
-deletePortfolioShare_organizationNode :: Lens.Lens' DeletePortfolioShare (Prelude.Maybe OrganizationNode)
-deletePortfolioShare_organizationNode = Lens.lens (\DeletePortfolioShare' {organizationNode} -> organizationNode) (\s@DeletePortfolioShare' {} a -> s {organizationNode = a} :: DeletePortfolioShare)
 
 -- | The language code.
 --
@@ -125,6 +118,14 @@ deletePortfolioShare_organizationNode = Lens.lens (\DeletePortfolioShare' {organ
 -- -   @zh@ - Chinese
 deletePortfolioShare_acceptLanguage :: Lens.Lens' DeletePortfolioShare (Prelude.Maybe Prelude.Text)
 deletePortfolioShare_acceptLanguage = Lens.lens (\DeletePortfolioShare' {acceptLanguage} -> acceptLanguage) (\s@DeletePortfolioShare' {} a -> s {acceptLanguage = a} :: DeletePortfolioShare)
+
+-- | The Amazon Web Services account ID.
+deletePortfolioShare_accountId :: Lens.Lens' DeletePortfolioShare (Prelude.Maybe Prelude.Text)
+deletePortfolioShare_accountId = Lens.lens (\DeletePortfolioShare' {accountId} -> accountId) (\s@DeletePortfolioShare' {} a -> s {accountId = a} :: DeletePortfolioShare)
+
+-- | The organization node to whom you are going to stop sharing.
+deletePortfolioShare_organizationNode :: Lens.Lens' DeletePortfolioShare (Prelude.Maybe OrganizationNode)
+deletePortfolioShare_organizationNode = Lens.lens (\DeletePortfolioShare' {organizationNode} -> organizationNode) (\s@DeletePortfolioShare' {} a -> s {organizationNode = a} :: DeletePortfolioShare)
 
 -- | The portfolio identifier.
 deletePortfolioShare_portfolioId :: Lens.Lens' DeletePortfolioShare Prelude.Text
@@ -146,16 +147,16 @@ instance Core.AWSRequest DeletePortfolioShare where
 
 instance Prelude.Hashable DeletePortfolioShare where
   hashWithSalt _salt DeletePortfolioShare' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` organizationNode
-      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` portfolioId
 
 instance Prelude.NFData DeletePortfolioShare where
   rnf DeletePortfolioShare' {..} =
-    Prelude.rnf accountId
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf organizationNode
-      `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf portfolioId
 
 instance Data.ToHeaders DeletePortfolioShare where
@@ -177,11 +178,11 @@ instance Data.ToJSON DeletePortfolioShare where
   toJSON DeletePortfolioShare' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("AccountId" Data..=) Prelude.<$> accountId,
+          [ ("AcceptLanguage" Data..=)
+              Prelude.<$> acceptLanguage,
+            ("AccountId" Data..=) Prelude.<$> accountId,
             ("OrganizationNode" Data..=)
               Prelude.<$> organizationNode,
-            ("AcceptLanguage" Data..=)
-              Prelude.<$> acceptLanguage,
             Prelude.Just ("PortfolioId" Data..= portfolioId)
           ]
       )

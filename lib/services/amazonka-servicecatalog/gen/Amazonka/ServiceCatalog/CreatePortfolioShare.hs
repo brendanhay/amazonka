@@ -57,10 +57,10 @@ module Amazonka.ServiceCatalog.CreatePortfolioShare
     newCreatePortfolioShare,
 
     -- * Request Lenses
+    createPortfolioShare_acceptLanguage,
     createPortfolioShare_accountId,
     createPortfolioShare_organizationNode,
     createPortfolioShare_sharePrincipals,
-    createPortfolioShare_acceptLanguage,
     createPortfolioShare_shareTagOptions,
     createPortfolioShare_portfolioId,
 
@@ -84,7 +84,15 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newCreatePortfolioShare' smart constructor.
 data CreatePortfolioShare = CreatePortfolioShare'
-  { -- | The Amazon Web Services account ID. For example, @123456789012@.
+  { -- | The language code.
+    --
+    -- -   @en@ - English (default)
+    --
+    -- -   @jp@ - Japanese
+    --
+    -- -   @zh@ - Chinese
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services account ID. For example, @123456789012@.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | The organization node to whom you are going to share. When you pass
     -- @OrganizationNode@, it creates @PortfolioShare@ for all of the Amazon
@@ -102,14 +110,6 @@ data CreatePortfolioShare = CreatePortfolioShare'
     -- @IAM_PATTERN@ on their portfolio. You can create the principals in the
     -- recipient account before or after creating the share.
     sharePrincipals :: Prelude.Maybe Prelude.Bool,
-    -- | The language code.
-    --
-    -- -   @en@ - English (default)
-    --
-    -- -   @jp@ - Japanese
-    --
-    -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text,
     -- | Enables or disables @TagOptions @ sharing when creating the portfolio
     -- share. If this flag is not provided, TagOptions sharing is disabled.
     shareTagOptions :: Prelude.Maybe Prelude.Bool,
@@ -125,6 +125,14 @@ data CreatePortfolioShare = CreatePortfolioShare'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'acceptLanguage', 'createPortfolioShare_acceptLanguage' - The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
 --
 -- 'accountId', 'createPortfolioShare_accountId' - The Amazon Web Services account ID. For example, @123456789012@.
 --
@@ -144,14 +152,6 @@ data CreatePortfolioShare = CreatePortfolioShare'
 -- @IAM_PATTERN@ on their portfolio. You can create the principals in the
 -- recipient account before or after creating the share.
 --
--- 'acceptLanguage', 'createPortfolioShare_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
---
--- -   @jp@ - Japanese
---
--- -   @zh@ - Chinese
---
 -- 'shareTagOptions', 'createPortfolioShare_shareTagOptions' - Enables or disables @TagOptions @ sharing when creating the portfolio
 -- share. If this flag is not provided, TagOptions sharing is disabled.
 --
@@ -162,13 +162,24 @@ newCreatePortfolioShare ::
   CreatePortfolioShare
 newCreatePortfolioShare pPortfolioId_ =
   CreatePortfolioShare'
-    { accountId = Prelude.Nothing,
+    { acceptLanguage =
+        Prelude.Nothing,
+      accountId = Prelude.Nothing,
       organizationNode = Prelude.Nothing,
       sharePrincipals = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing,
       shareTagOptions = Prelude.Nothing,
       portfolioId = pPortfolioId_
     }
+
+-- | The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
+createPortfolioShare_acceptLanguage :: Lens.Lens' CreatePortfolioShare (Prelude.Maybe Prelude.Text)
+createPortfolioShare_acceptLanguage = Lens.lens (\CreatePortfolioShare' {acceptLanguage} -> acceptLanguage) (\s@CreatePortfolioShare' {} a -> s {acceptLanguage = a} :: CreatePortfolioShare)
 
 -- | The Amazon Web Services account ID. For example, @123456789012@.
 createPortfolioShare_accountId :: Lens.Lens' CreatePortfolioShare (Prelude.Maybe Prelude.Text)
@@ -193,16 +204,6 @@ createPortfolioShare_organizationNode = Lens.lens (\CreatePortfolioShare' {organ
 -- recipient account before or after creating the share.
 createPortfolioShare_sharePrincipals :: Lens.Lens' CreatePortfolioShare (Prelude.Maybe Prelude.Bool)
 createPortfolioShare_sharePrincipals = Lens.lens (\CreatePortfolioShare' {sharePrincipals} -> sharePrincipals) (\s@CreatePortfolioShare' {} a -> s {sharePrincipals = a} :: CreatePortfolioShare)
-
--- | The language code.
---
--- -   @en@ - English (default)
---
--- -   @jp@ - Japanese
---
--- -   @zh@ - Chinese
-createPortfolioShare_acceptLanguage :: Lens.Lens' CreatePortfolioShare (Prelude.Maybe Prelude.Text)
-createPortfolioShare_acceptLanguage = Lens.lens (\CreatePortfolioShare' {acceptLanguage} -> acceptLanguage) (\s@CreatePortfolioShare' {} a -> s {acceptLanguage = a} :: CreatePortfolioShare)
 
 -- | Enables or disables @TagOptions @ sharing when creating the portfolio
 -- share. If this flag is not provided, TagOptions sharing is disabled.
@@ -229,19 +230,19 @@ instance Core.AWSRequest CreatePortfolioShare where
 
 instance Prelude.Hashable CreatePortfolioShare where
   hashWithSalt _salt CreatePortfolioShare' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` organizationNode
       `Prelude.hashWithSalt` sharePrincipals
-      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` shareTagOptions
       `Prelude.hashWithSalt` portfolioId
 
 instance Prelude.NFData CreatePortfolioShare where
   rnf CreatePortfolioShare' {..} =
-    Prelude.rnf accountId
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf organizationNode
       `Prelude.seq` Prelude.rnf sharePrincipals
-      `Prelude.seq` Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf shareTagOptions
       `Prelude.seq` Prelude.rnf portfolioId
 
@@ -264,13 +265,13 @@ instance Data.ToJSON CreatePortfolioShare where
   toJSON CreatePortfolioShare' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("AccountId" Data..=) Prelude.<$> accountId,
+          [ ("AcceptLanguage" Data..=)
+              Prelude.<$> acceptLanguage,
+            ("AccountId" Data..=) Prelude.<$> accountId,
             ("OrganizationNode" Data..=)
               Prelude.<$> organizationNode,
             ("SharePrincipals" Data..=)
               Prelude.<$> sharePrincipals,
-            ("AcceptLanguage" Data..=)
-              Prelude.<$> acceptLanguage,
             ("ShareTagOptions" Data..=)
               Prelude.<$> shareTagOptions,
             Prelude.Just ("PortfolioId" Data..= portfolioId)

@@ -31,16 +31,16 @@ import Amazonka.ServiceCatalog.Types.ProvisionedProductPlanType
 data ProvisionedProductPlanSummary = ProvisionedProductPlanSummary'
   { -- | The plan identifier.
     planId :: Prelude.Maybe Prelude.Text,
-    -- | The product identifier.
-    provisionProductId :: Prelude.Maybe Prelude.Text,
-    -- | The plan type.
-    planType :: Prelude.Maybe ProvisionedProductPlanType,
     -- | The name of the plan.
     planName :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the provisioning artifact.
-    provisioningArtifactId :: Prelude.Maybe Prelude.Text,
+    -- | The plan type.
+    planType :: Prelude.Maybe ProvisionedProductPlanType,
+    -- | The product identifier.
+    provisionProductId :: Prelude.Maybe Prelude.Text,
     -- | The user-friendly name of the provisioned product.
-    provisionProductName :: Prelude.Maybe Prelude.Text
+    provisionProductName :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the provisioning artifact.
+    provisioningArtifactId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,51 +54,51 @@ data ProvisionedProductPlanSummary = ProvisionedProductPlanSummary'
 --
 -- 'planId', 'provisionedProductPlanSummary_planId' - The plan identifier.
 --
--- 'provisionProductId', 'provisionedProductPlanSummary_provisionProductId' - The product identifier.
+-- 'planName', 'provisionedProductPlanSummary_planName' - The name of the plan.
 --
 -- 'planType', 'provisionedProductPlanSummary_planType' - The plan type.
 --
--- 'planName', 'provisionedProductPlanSummary_planName' - The name of the plan.
---
--- 'provisioningArtifactId', 'provisionedProductPlanSummary_provisioningArtifactId' - The identifier of the provisioning artifact.
+-- 'provisionProductId', 'provisionedProductPlanSummary_provisionProductId' - The product identifier.
 --
 -- 'provisionProductName', 'provisionedProductPlanSummary_provisionProductName' - The user-friendly name of the provisioned product.
+--
+-- 'provisioningArtifactId', 'provisionedProductPlanSummary_provisioningArtifactId' - The identifier of the provisioning artifact.
 newProvisionedProductPlanSummary ::
   ProvisionedProductPlanSummary
 newProvisionedProductPlanSummary =
   ProvisionedProductPlanSummary'
     { planId =
         Prelude.Nothing,
-      provisionProductId = Prelude.Nothing,
-      planType = Prelude.Nothing,
       planName = Prelude.Nothing,
-      provisioningArtifactId = Prelude.Nothing,
-      provisionProductName = Prelude.Nothing
+      planType = Prelude.Nothing,
+      provisionProductId = Prelude.Nothing,
+      provisionProductName = Prelude.Nothing,
+      provisioningArtifactId = Prelude.Nothing
     }
 
 -- | The plan identifier.
 provisionedProductPlanSummary_planId :: Lens.Lens' ProvisionedProductPlanSummary (Prelude.Maybe Prelude.Text)
 provisionedProductPlanSummary_planId = Lens.lens (\ProvisionedProductPlanSummary' {planId} -> planId) (\s@ProvisionedProductPlanSummary' {} a -> s {planId = a} :: ProvisionedProductPlanSummary)
 
--- | The product identifier.
-provisionedProductPlanSummary_provisionProductId :: Lens.Lens' ProvisionedProductPlanSummary (Prelude.Maybe Prelude.Text)
-provisionedProductPlanSummary_provisionProductId = Lens.lens (\ProvisionedProductPlanSummary' {provisionProductId} -> provisionProductId) (\s@ProvisionedProductPlanSummary' {} a -> s {provisionProductId = a} :: ProvisionedProductPlanSummary)
+-- | The name of the plan.
+provisionedProductPlanSummary_planName :: Lens.Lens' ProvisionedProductPlanSummary (Prelude.Maybe Prelude.Text)
+provisionedProductPlanSummary_planName = Lens.lens (\ProvisionedProductPlanSummary' {planName} -> planName) (\s@ProvisionedProductPlanSummary' {} a -> s {planName = a} :: ProvisionedProductPlanSummary)
 
 -- | The plan type.
 provisionedProductPlanSummary_planType :: Lens.Lens' ProvisionedProductPlanSummary (Prelude.Maybe ProvisionedProductPlanType)
 provisionedProductPlanSummary_planType = Lens.lens (\ProvisionedProductPlanSummary' {planType} -> planType) (\s@ProvisionedProductPlanSummary' {} a -> s {planType = a} :: ProvisionedProductPlanSummary)
 
--- | The name of the plan.
-provisionedProductPlanSummary_planName :: Lens.Lens' ProvisionedProductPlanSummary (Prelude.Maybe Prelude.Text)
-provisionedProductPlanSummary_planName = Lens.lens (\ProvisionedProductPlanSummary' {planName} -> planName) (\s@ProvisionedProductPlanSummary' {} a -> s {planName = a} :: ProvisionedProductPlanSummary)
-
--- | The identifier of the provisioning artifact.
-provisionedProductPlanSummary_provisioningArtifactId :: Lens.Lens' ProvisionedProductPlanSummary (Prelude.Maybe Prelude.Text)
-provisionedProductPlanSummary_provisioningArtifactId = Lens.lens (\ProvisionedProductPlanSummary' {provisioningArtifactId} -> provisioningArtifactId) (\s@ProvisionedProductPlanSummary' {} a -> s {provisioningArtifactId = a} :: ProvisionedProductPlanSummary)
+-- | The product identifier.
+provisionedProductPlanSummary_provisionProductId :: Lens.Lens' ProvisionedProductPlanSummary (Prelude.Maybe Prelude.Text)
+provisionedProductPlanSummary_provisionProductId = Lens.lens (\ProvisionedProductPlanSummary' {provisionProductId} -> provisionProductId) (\s@ProvisionedProductPlanSummary' {} a -> s {provisionProductId = a} :: ProvisionedProductPlanSummary)
 
 -- | The user-friendly name of the provisioned product.
 provisionedProductPlanSummary_provisionProductName :: Lens.Lens' ProvisionedProductPlanSummary (Prelude.Maybe Prelude.Text)
 provisionedProductPlanSummary_provisionProductName = Lens.lens (\ProvisionedProductPlanSummary' {provisionProductName} -> provisionProductName) (\s@ProvisionedProductPlanSummary' {} a -> s {provisionProductName = a} :: ProvisionedProductPlanSummary)
+
+-- | The identifier of the provisioning artifact.
+provisionedProductPlanSummary_provisioningArtifactId :: Lens.Lens' ProvisionedProductPlanSummary (Prelude.Maybe Prelude.Text)
+provisionedProductPlanSummary_provisioningArtifactId = Lens.lens (\ProvisionedProductPlanSummary' {provisioningArtifactId} -> provisioningArtifactId) (\s@ProvisionedProductPlanSummary' {} a -> s {provisioningArtifactId = a} :: ProvisionedProductPlanSummary)
 
 instance Data.FromJSON ProvisionedProductPlanSummary where
   parseJSON =
@@ -107,11 +107,11 @@ instance Data.FromJSON ProvisionedProductPlanSummary where
       ( \x ->
           ProvisionedProductPlanSummary'
             Prelude.<$> (x Data..:? "PlanId")
-            Prelude.<*> (x Data..:? "ProvisionProductId")
-            Prelude.<*> (x Data..:? "PlanType")
             Prelude.<*> (x Data..:? "PlanName")
-            Prelude.<*> (x Data..:? "ProvisioningArtifactId")
+            Prelude.<*> (x Data..:? "PlanType")
+            Prelude.<*> (x Data..:? "ProvisionProductId")
             Prelude.<*> (x Data..:? "ProvisionProductName")
+            Prelude.<*> (x Data..:? "ProvisioningArtifactId")
       )
 
 instance
@@ -120,17 +120,17 @@ instance
   where
   hashWithSalt _salt ProvisionedProductPlanSummary' {..} =
     _salt `Prelude.hashWithSalt` planId
-      `Prelude.hashWithSalt` provisionProductId
-      `Prelude.hashWithSalt` planType
       `Prelude.hashWithSalt` planName
-      `Prelude.hashWithSalt` provisioningArtifactId
+      `Prelude.hashWithSalt` planType
+      `Prelude.hashWithSalt` provisionProductId
       `Prelude.hashWithSalt` provisionProductName
+      `Prelude.hashWithSalt` provisioningArtifactId
 
 instance Prelude.NFData ProvisionedProductPlanSummary where
   rnf ProvisionedProductPlanSummary' {..} =
     Prelude.rnf planId
-      `Prelude.seq` Prelude.rnf provisionProductId
-      `Prelude.seq` Prelude.rnf planType
       `Prelude.seq` Prelude.rnf planName
-      `Prelude.seq` Prelude.rnf provisioningArtifactId
+      `Prelude.seq` Prelude.rnf planType
+      `Prelude.seq` Prelude.rnf provisionProductId
       `Prelude.seq` Prelude.rnf provisionProductName
+      `Prelude.seq` Prelude.rnf provisioningArtifactId

@@ -25,29 +25,29 @@ module Amazonka.ServiceCatalog
     -- * Errors
     -- $errors
 
-    -- ** TagOptionNotMigratedException
-    _TagOptionNotMigratedException,
-
-    -- ** InvalidStateException
-    _InvalidStateException,
-
     -- ** DuplicateResourceException
     _DuplicateResourceException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** ResourceInUseException
-    _ResourceInUseException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
 
     -- ** InvalidParametersException
     _InvalidParametersException,
 
+    -- ** InvalidStateException
+    _InvalidStateException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
     -- ** OperationNotSupportedException
     _OperationNotSupportedException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** TagOptionNotMigratedException
+    _TagOptionNotMigratedException,
 
     -- * Waiters
     -- $waiters

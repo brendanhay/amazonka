@@ -30,11 +30,11 @@ module Amazonka.ServiceCatalog.ListProvisionedProductPlans
     newListProvisionedProductPlans,
 
     -- * Request Lenses
-    listProvisionedProductPlans_accessLevelFilter,
-    listProvisionedProductPlans_provisionProductId,
-    listProvisionedProductPlans_pageToken,
-    listProvisionedProductPlans_pageSize,
     listProvisionedProductPlans_acceptLanguage,
+    listProvisionedProductPlans_accessLevelFilter,
+    listProvisionedProductPlans_pageSize,
+    listProvisionedProductPlans_pageToken,
+    listProvisionedProductPlans_provisionProductId,
 
     -- * Destructuring the Response
     ListProvisionedProductPlansResponse (..),
@@ -57,23 +57,23 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newListProvisionedProductPlans' smart constructor.
 data ListProvisionedProductPlans = ListProvisionedProductPlans'
-  { -- | The access level to use to obtain results. The default is @User@.
-    accessLevelFilter :: Prelude.Maybe AccessLevelFilter,
-    -- | The product identifier.
-    provisionProductId :: Prelude.Maybe Prelude.Text,
-    -- | The page token for the next set of results. To retrieve the first set of
-    -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
-    -- | The language code.
+  { -- | The language code.
     --
     -- -   @en@ - English (default)
     --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The access level to use to obtain results. The default is @User@.
+    accessLevelFilter :: Prelude.Maybe AccessLevelFilter,
+    -- | The maximum number of items to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural,
+    -- | The page token for the next set of results. To retrieve the first set of
+    -- results, use null.
+    pageToken :: Prelude.Maybe Prelude.Text,
+    -- | The product identifier.
+    provisionProductId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,15 +85,6 @@ data ListProvisionedProductPlans = ListProvisionedProductPlans'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accessLevelFilter', 'listProvisionedProductPlans_accessLevelFilter' - The access level to use to obtain results. The default is @User@.
---
--- 'provisionProductId', 'listProvisionedProductPlans_provisionProductId' - The product identifier.
---
--- 'pageToken', 'listProvisionedProductPlans_pageToken' - The page token for the next set of results. To retrieve the first set of
--- results, use null.
---
--- 'pageSize', 'listProvisionedProductPlans_pageSize' - The maximum number of items to return with this call.
---
 -- 'acceptLanguage', 'listProvisionedProductPlans_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -101,34 +92,26 @@ data ListProvisionedProductPlans = ListProvisionedProductPlans'
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
+--
+-- 'accessLevelFilter', 'listProvisionedProductPlans_accessLevelFilter' - The access level to use to obtain results. The default is @User@.
+--
+-- 'pageSize', 'listProvisionedProductPlans_pageSize' - The maximum number of items to return with this call.
+--
+-- 'pageToken', 'listProvisionedProductPlans_pageToken' - The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+--
+-- 'provisionProductId', 'listProvisionedProductPlans_provisionProductId' - The product identifier.
 newListProvisionedProductPlans ::
   ListProvisionedProductPlans
 newListProvisionedProductPlans =
   ListProvisionedProductPlans'
-    { accessLevelFilter =
+    { acceptLanguage =
         Prelude.Nothing,
-      provisionProductId = Prelude.Nothing,
-      pageToken = Prelude.Nothing,
+      accessLevelFilter = Prelude.Nothing,
       pageSize = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing
+      pageToken = Prelude.Nothing,
+      provisionProductId = Prelude.Nothing
     }
-
--- | The access level to use to obtain results. The default is @User@.
-listProvisionedProductPlans_accessLevelFilter :: Lens.Lens' ListProvisionedProductPlans (Prelude.Maybe AccessLevelFilter)
-listProvisionedProductPlans_accessLevelFilter = Lens.lens (\ListProvisionedProductPlans' {accessLevelFilter} -> accessLevelFilter) (\s@ListProvisionedProductPlans' {} a -> s {accessLevelFilter = a} :: ListProvisionedProductPlans)
-
--- | The product identifier.
-listProvisionedProductPlans_provisionProductId :: Lens.Lens' ListProvisionedProductPlans (Prelude.Maybe Prelude.Text)
-listProvisionedProductPlans_provisionProductId = Lens.lens (\ListProvisionedProductPlans' {provisionProductId} -> provisionProductId) (\s@ListProvisionedProductPlans' {} a -> s {provisionProductId = a} :: ListProvisionedProductPlans)
-
--- | The page token for the next set of results. To retrieve the first set of
--- results, use null.
-listProvisionedProductPlans_pageToken :: Lens.Lens' ListProvisionedProductPlans (Prelude.Maybe Prelude.Text)
-listProvisionedProductPlans_pageToken = Lens.lens (\ListProvisionedProductPlans' {pageToken} -> pageToken) (\s@ListProvisionedProductPlans' {} a -> s {pageToken = a} :: ListProvisionedProductPlans)
-
--- | The maximum number of items to return with this call.
-listProvisionedProductPlans_pageSize :: Lens.Lens' ListProvisionedProductPlans (Prelude.Maybe Prelude.Natural)
-listProvisionedProductPlans_pageSize = Lens.lens (\ListProvisionedProductPlans' {pageSize} -> pageSize) (\s@ListProvisionedProductPlans' {} a -> s {pageSize = a} :: ListProvisionedProductPlans)
 
 -- | The language code.
 --
@@ -139,6 +122,23 @@ listProvisionedProductPlans_pageSize = Lens.lens (\ListProvisionedProductPlans' 
 -- -   @zh@ - Chinese
 listProvisionedProductPlans_acceptLanguage :: Lens.Lens' ListProvisionedProductPlans (Prelude.Maybe Prelude.Text)
 listProvisionedProductPlans_acceptLanguage = Lens.lens (\ListProvisionedProductPlans' {acceptLanguage} -> acceptLanguage) (\s@ListProvisionedProductPlans' {} a -> s {acceptLanguage = a} :: ListProvisionedProductPlans)
+
+-- | The access level to use to obtain results. The default is @User@.
+listProvisionedProductPlans_accessLevelFilter :: Lens.Lens' ListProvisionedProductPlans (Prelude.Maybe AccessLevelFilter)
+listProvisionedProductPlans_accessLevelFilter = Lens.lens (\ListProvisionedProductPlans' {accessLevelFilter} -> accessLevelFilter) (\s@ListProvisionedProductPlans' {} a -> s {accessLevelFilter = a} :: ListProvisionedProductPlans)
+
+-- | The maximum number of items to return with this call.
+listProvisionedProductPlans_pageSize :: Lens.Lens' ListProvisionedProductPlans (Prelude.Maybe Prelude.Natural)
+listProvisionedProductPlans_pageSize = Lens.lens (\ListProvisionedProductPlans' {pageSize} -> pageSize) (\s@ListProvisionedProductPlans' {} a -> s {pageSize = a} :: ListProvisionedProductPlans)
+
+-- | The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+listProvisionedProductPlans_pageToken :: Lens.Lens' ListProvisionedProductPlans (Prelude.Maybe Prelude.Text)
+listProvisionedProductPlans_pageToken = Lens.lens (\ListProvisionedProductPlans' {pageToken} -> pageToken) (\s@ListProvisionedProductPlans' {} a -> s {pageToken = a} :: ListProvisionedProductPlans)
+
+-- | The product identifier.
+listProvisionedProductPlans_provisionProductId :: Lens.Lens' ListProvisionedProductPlans (Prelude.Maybe Prelude.Text)
+listProvisionedProductPlans_provisionProductId = Lens.lens (\ListProvisionedProductPlans' {provisionProductId} -> provisionProductId) (\s@ListProvisionedProductPlans' {} a -> s {provisionProductId = a} :: ListProvisionedProductPlans)
 
 instance Core.AWSPager ListProvisionedProductPlans where
   page rq rs
@@ -181,19 +181,19 @@ instance Core.AWSRequest ListProvisionedProductPlans where
 
 instance Prelude.Hashable ListProvisionedProductPlans where
   hashWithSalt _salt ListProvisionedProductPlans' {..} =
-    _salt `Prelude.hashWithSalt` accessLevelFilter
-      `Prelude.hashWithSalt` provisionProductId
-      `Prelude.hashWithSalt` pageToken
+    _salt `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` accessLevelFilter
       `Prelude.hashWithSalt` pageSize
-      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` pageToken
+      `Prelude.hashWithSalt` provisionProductId
 
 instance Prelude.NFData ListProvisionedProductPlans where
   rnf ListProvisionedProductPlans' {..} =
-    Prelude.rnf accessLevelFilter
-      `Prelude.seq` Prelude.rnf provisionProductId
-      `Prelude.seq` Prelude.rnf pageToken
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf accessLevelFilter
       `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf pageToken
+      `Prelude.seq` Prelude.rnf provisionProductId
 
 instance Data.ToHeaders ListProvisionedProductPlans where
   toHeaders =
@@ -214,14 +214,14 @@ instance Data.ToJSON ListProvisionedProductPlans where
   toJSON ListProvisionedProductPlans' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("AccessLevelFilter" Data..=)
+          [ ("AcceptLanguage" Data..=)
+              Prelude.<$> acceptLanguage,
+            ("AccessLevelFilter" Data..=)
               Prelude.<$> accessLevelFilter,
-            ("ProvisionProductId" Data..=)
-              Prelude.<$> provisionProductId,
-            ("PageToken" Data..=) Prelude.<$> pageToken,
             ("PageSize" Data..=) Prelude.<$> pageSize,
-            ("AcceptLanguage" Data..=)
-              Prelude.<$> acceptLanguage
+            ("PageToken" Data..=) Prelude.<$> pageToken,
+            ("ProvisionProductId" Data..=)
+              Prelude.<$> provisionProductId
           ]
       )
 

@@ -34,15 +34,15 @@ module Amazonka.ServiceCatalog.CreateProduct
     newCreateProduct,
 
     -- * Request Lenses
-    createProduct_tags,
+    createProduct_acceptLanguage,
+    createProduct_description,
+    createProduct_distributor,
+    createProduct_provisioningArtifactParameters,
+    createProduct_sourceConnection,
     createProduct_supportDescription,
     createProduct_supportEmail,
     createProduct_supportUrl,
-    createProduct_description,
-    createProduct_provisioningArtifactParameters,
-    createProduct_distributor,
-    createProduct_sourceConnection,
-    createProduct_acceptLanguage,
+    createProduct_tags,
     createProduct_name,
     createProduct_owner,
     createProduct_productType,
@@ -53,9 +53,9 @@ module Amazonka.ServiceCatalog.CreateProduct
     newCreateProductResponse,
 
     -- * Response Lenses
-    createProductResponse_tags,
     createProductResponse_productViewDetail,
     createProductResponse_provisioningArtifactDetail,
+    createProductResponse_tags,
     createProductResponse_httpStatus,
   )
 where
@@ -70,22 +70,20 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newCreateProduct' smart constructor.
 data CreateProduct = CreateProduct'
-  { -- | One or more tags.
-    tags :: Prelude.Maybe [Tag],
-    -- | The support information about the product.
-    supportDescription :: Prelude.Maybe Prelude.Text,
-    -- | The contact email for product support.
-    supportEmail :: Prelude.Maybe Prelude.Text,
-    -- | The contact URL for product support.
+  { -- | The language code.
     --
-    -- @^https?:\\\/\\\/\/ @\/ is the pattern used to validate SupportUrl.
-    supportUrl :: Prelude.Maybe Prelude.Text,
+    -- -   @en@ - English (default)
+    --
+    -- -   @jp@ - Japanese
+    --
+    -- -   @zh@ - Chinese
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
     -- | The description of the product.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The configuration of the provisioning artifact.
-    provisioningArtifactParameters :: Prelude.Maybe ProvisioningArtifactProperties,
     -- | The distributor of the product.
     distributor :: Prelude.Maybe Prelude.Text,
+    -- | The configuration of the provisioning artifact.
+    provisioningArtifactParameters :: Prelude.Maybe ProvisioningArtifactProperties,
     -- | Specifies connection details for the created product and syncs the
     -- product to the connection source artifact. This automatically manages
     -- the product\'s artifacts based on changes to the source. The
@@ -95,14 +93,16 @@ data CreateProduct = CreateProduct'
     --
     -- -   @ConnectionParamters@
     sourceConnection :: Prelude.Maybe SourceConnection,
-    -- | The language code.
+    -- | The support information about the product.
+    supportDescription :: Prelude.Maybe Prelude.Text,
+    -- | The contact email for product support.
+    supportEmail :: Prelude.Maybe Prelude.Text,
+    -- | The contact URL for product support.
     --
-    -- -   @en@ - English (default)
-    --
-    -- -   @jp@ - Japanese
-    --
-    -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- @^https?:\\\/\\\/\/ @\/ is the pattern used to validate SupportUrl.
+    supportUrl :: Prelude.Maybe Prelude.Text,
+    -- | One or more tags.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the product.
     name :: Prelude.Text,
     -- | The owner of the product.
@@ -124,21 +124,19 @@ data CreateProduct = CreateProduct'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createProduct_tags' - One or more tags.
+-- 'acceptLanguage', 'createProduct_acceptLanguage' - The language code.
 --
--- 'supportDescription', 'createProduct_supportDescription' - The support information about the product.
+-- -   @en@ - English (default)
 --
--- 'supportEmail', 'createProduct_supportEmail' - The contact email for product support.
+-- -   @jp@ - Japanese
 --
--- 'supportUrl', 'createProduct_supportUrl' - The contact URL for product support.
---
--- @^https?:\\\/\\\/\/ @\/ is the pattern used to validate SupportUrl.
+-- -   @zh@ - Chinese
 --
 -- 'description', 'createProduct_description' - The description of the product.
 --
--- 'provisioningArtifactParameters', 'createProduct_provisioningArtifactParameters' - The configuration of the provisioning artifact.
---
 -- 'distributor', 'createProduct_distributor' - The distributor of the product.
+--
+-- 'provisioningArtifactParameters', 'createProduct_provisioningArtifactParameters' - The configuration of the provisioning artifact.
 --
 -- 'sourceConnection', 'createProduct_sourceConnection' - Specifies connection details for the created product and syncs the
 -- product to the connection source artifact. This automatically manages
@@ -149,13 +147,15 @@ data CreateProduct = CreateProduct'
 --
 -- -   @ConnectionParamters@
 --
--- 'acceptLanguage', 'createProduct_acceptLanguage' - The language code.
+-- 'supportDescription', 'createProduct_supportDescription' - The support information about the product.
 --
--- -   @en@ - English (default)
+-- 'supportEmail', 'createProduct_supportEmail' - The contact email for product support.
 --
--- -   @jp@ - Japanese
+-- 'supportUrl', 'createProduct_supportUrl' - The contact URL for product support.
 --
--- -   @zh@ - Chinese
+-- @^https?:\\\/\\\/\/ @\/ is the pattern used to validate SupportUrl.
+--
+-- 'tags', 'createProduct_tags' - One or more tags.
 --
 -- 'name', 'createProduct_name' - The name of the product.
 --
@@ -182,24 +182,53 @@ newCreateProduct
   pProductType_
   pIdempotencyToken_ =
     CreateProduct'
-      { tags = Prelude.Nothing,
+      { acceptLanguage = Prelude.Nothing,
+        description = Prelude.Nothing,
+        distributor = Prelude.Nothing,
+        provisioningArtifactParameters = Prelude.Nothing,
+        sourceConnection = Prelude.Nothing,
         supportDescription = Prelude.Nothing,
         supportEmail = Prelude.Nothing,
         supportUrl = Prelude.Nothing,
-        description = Prelude.Nothing,
-        provisioningArtifactParameters = Prelude.Nothing,
-        distributor = Prelude.Nothing,
-        sourceConnection = Prelude.Nothing,
-        acceptLanguage = Prelude.Nothing,
+        tags = Prelude.Nothing,
         name = pName_,
         owner = pOwner_,
         productType = pProductType_,
         idempotencyToken = pIdempotencyToken_
       }
 
--- | One or more tags.
-createProduct_tags :: Lens.Lens' CreateProduct (Prelude.Maybe [Tag])
-createProduct_tags = Lens.lens (\CreateProduct' {tags} -> tags) (\s@CreateProduct' {} a -> s {tags = a} :: CreateProduct) Prelude.. Lens.mapping Lens.coerced
+-- | The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
+createProduct_acceptLanguage :: Lens.Lens' CreateProduct (Prelude.Maybe Prelude.Text)
+createProduct_acceptLanguage = Lens.lens (\CreateProduct' {acceptLanguage} -> acceptLanguage) (\s@CreateProduct' {} a -> s {acceptLanguage = a} :: CreateProduct)
+
+-- | The description of the product.
+createProduct_description :: Lens.Lens' CreateProduct (Prelude.Maybe Prelude.Text)
+createProduct_description = Lens.lens (\CreateProduct' {description} -> description) (\s@CreateProduct' {} a -> s {description = a} :: CreateProduct)
+
+-- | The distributor of the product.
+createProduct_distributor :: Lens.Lens' CreateProduct (Prelude.Maybe Prelude.Text)
+createProduct_distributor = Lens.lens (\CreateProduct' {distributor} -> distributor) (\s@CreateProduct' {} a -> s {distributor = a} :: CreateProduct)
+
+-- | The configuration of the provisioning artifact.
+createProduct_provisioningArtifactParameters :: Lens.Lens' CreateProduct (Prelude.Maybe ProvisioningArtifactProperties)
+createProduct_provisioningArtifactParameters = Lens.lens (\CreateProduct' {provisioningArtifactParameters} -> provisioningArtifactParameters) (\s@CreateProduct' {} a -> s {provisioningArtifactParameters = a} :: CreateProduct)
+
+-- | Specifies connection details for the created product and syncs the
+-- product to the connection source artifact. This automatically manages
+-- the product\'s artifacts based on changes to the source. The
+-- @SourceConnection@ parameter consists of the following sub-fields.
+--
+-- -   @Type@
+--
+-- -   @ConnectionParamters@
+createProduct_sourceConnection :: Lens.Lens' CreateProduct (Prelude.Maybe SourceConnection)
+createProduct_sourceConnection = Lens.lens (\CreateProduct' {sourceConnection} -> sourceConnection) (\s@CreateProduct' {} a -> s {sourceConnection = a} :: CreateProduct)
 
 -- | The support information about the product.
 createProduct_supportDescription :: Lens.Lens' CreateProduct (Prelude.Maybe Prelude.Text)
@@ -215,38 +244,9 @@ createProduct_supportEmail = Lens.lens (\CreateProduct' {supportEmail} -> suppor
 createProduct_supportUrl :: Lens.Lens' CreateProduct (Prelude.Maybe Prelude.Text)
 createProduct_supportUrl = Lens.lens (\CreateProduct' {supportUrl} -> supportUrl) (\s@CreateProduct' {} a -> s {supportUrl = a} :: CreateProduct)
 
--- | The description of the product.
-createProduct_description :: Lens.Lens' CreateProduct (Prelude.Maybe Prelude.Text)
-createProduct_description = Lens.lens (\CreateProduct' {description} -> description) (\s@CreateProduct' {} a -> s {description = a} :: CreateProduct)
-
--- | The configuration of the provisioning artifact.
-createProduct_provisioningArtifactParameters :: Lens.Lens' CreateProduct (Prelude.Maybe ProvisioningArtifactProperties)
-createProduct_provisioningArtifactParameters = Lens.lens (\CreateProduct' {provisioningArtifactParameters} -> provisioningArtifactParameters) (\s@CreateProduct' {} a -> s {provisioningArtifactParameters = a} :: CreateProduct)
-
--- | The distributor of the product.
-createProduct_distributor :: Lens.Lens' CreateProduct (Prelude.Maybe Prelude.Text)
-createProduct_distributor = Lens.lens (\CreateProduct' {distributor} -> distributor) (\s@CreateProduct' {} a -> s {distributor = a} :: CreateProduct)
-
--- | Specifies connection details for the created product and syncs the
--- product to the connection source artifact. This automatically manages
--- the product\'s artifacts based on changes to the source. The
--- @SourceConnection@ parameter consists of the following sub-fields.
---
--- -   @Type@
---
--- -   @ConnectionParamters@
-createProduct_sourceConnection :: Lens.Lens' CreateProduct (Prelude.Maybe SourceConnection)
-createProduct_sourceConnection = Lens.lens (\CreateProduct' {sourceConnection} -> sourceConnection) (\s@CreateProduct' {} a -> s {sourceConnection = a} :: CreateProduct)
-
--- | The language code.
---
--- -   @en@ - English (default)
---
--- -   @jp@ - Japanese
---
--- -   @zh@ - Chinese
-createProduct_acceptLanguage :: Lens.Lens' CreateProduct (Prelude.Maybe Prelude.Text)
-createProduct_acceptLanguage = Lens.lens (\CreateProduct' {acceptLanguage} -> acceptLanguage) (\s@CreateProduct' {} a -> s {acceptLanguage = a} :: CreateProduct)
+-- | One or more tags.
+createProduct_tags :: Lens.Lens' CreateProduct (Prelude.Maybe [Tag])
+createProduct_tags = Lens.lens (\CreateProduct' {tags} -> tags) (\s@CreateProduct' {} a -> s {tags = a} :: CreateProduct) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the product.
 createProduct_name :: Lens.Lens' CreateProduct Prelude.Text
@@ -276,23 +276,23 @@ instance Core.AWSRequest CreateProduct where
     Response.receiveJSON
       ( \s h x ->
           CreateProductResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "ProductViewDetail")
+            Prelude.<$> (x Data..?> "ProductViewDetail")
             Prelude.<*> (x Data..?> "ProvisioningArtifactDetail")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateProduct where
   hashWithSalt _salt CreateProduct' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` distributor
+      `Prelude.hashWithSalt` provisioningArtifactParameters
+      `Prelude.hashWithSalt` sourceConnection
       `Prelude.hashWithSalt` supportDescription
       `Prelude.hashWithSalt` supportEmail
       `Prelude.hashWithSalt` supportUrl
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` provisioningArtifactParameters
-      `Prelude.hashWithSalt` distributor
-      `Prelude.hashWithSalt` sourceConnection
-      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` owner
       `Prelude.hashWithSalt` productType
@@ -300,15 +300,15 @@ instance Prelude.Hashable CreateProduct where
 
 instance Prelude.NFData CreateProduct where
   rnf CreateProduct' {..} =
-    Prelude.rnf tags
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf distributor
+      `Prelude.seq` Prelude.rnf provisioningArtifactParameters
+      `Prelude.seq` Prelude.rnf sourceConnection
       `Prelude.seq` Prelude.rnf supportDescription
       `Prelude.seq` Prelude.rnf supportEmail
       `Prelude.seq` Prelude.rnf supportUrl
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf provisioningArtifactParameters
-      `Prelude.seq` Prelude.rnf distributor
-      `Prelude.seq` Prelude.rnf sourceConnection
-      `Prelude.seq` Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf owner
       `Prelude.seq` Prelude.rnf productType
@@ -333,19 +333,19 @@ instance Data.ToJSON CreateProduct where
   toJSON CreateProduct' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("AcceptLanguage" Data..=)
+              Prelude.<$> acceptLanguage,
+            ("Description" Data..=) Prelude.<$> description,
+            ("Distributor" Data..=) Prelude.<$> distributor,
+            ("ProvisioningArtifactParameters" Data..=)
+              Prelude.<$> provisioningArtifactParameters,
+            ("SourceConnection" Data..=)
+              Prelude.<$> sourceConnection,
             ("SupportDescription" Data..=)
               Prelude.<$> supportDescription,
             ("SupportEmail" Data..=) Prelude.<$> supportEmail,
             ("SupportUrl" Data..=) Prelude.<$> supportUrl,
-            ("Description" Data..=) Prelude.<$> description,
-            ("ProvisioningArtifactParameters" Data..=)
-              Prelude.<$> provisioningArtifactParameters,
-            ("Distributor" Data..=) Prelude.<$> distributor,
-            ("SourceConnection" Data..=)
-              Prelude.<$> sourceConnection,
-            ("AcceptLanguage" Data..=)
-              Prelude.<$> acceptLanguage,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Owner" Data..= owner),
             Prelude.Just ("ProductType" Data..= productType),
@@ -362,12 +362,12 @@ instance Data.ToQuery CreateProduct where
 
 -- | /See:/ 'newCreateProductResponse' smart constructor.
 data CreateProductResponse = CreateProductResponse'
-  { -- | Information about the tags associated with the product.
-    tags :: Prelude.Maybe [Tag],
-    -- | Information about the product view.
+  { -- | Information about the product view.
     productViewDetail :: Prelude.Maybe ProductViewDetail,
     -- | Information about the provisioning artifact.
     provisioningArtifactDetail :: Prelude.Maybe ProvisioningArtifactDetail,
+    -- | Information about the tags associated with the product.
+    tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -381,11 +381,11 @@ data CreateProductResponse = CreateProductResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createProductResponse_tags' - Information about the tags associated with the product.
---
 -- 'productViewDetail', 'createProductResponse_productViewDetail' - Information about the product view.
 --
 -- 'provisioningArtifactDetail', 'createProductResponse_provisioningArtifactDetail' - Information about the provisioning artifact.
+--
+-- 'tags', 'createProductResponse_tags' - Information about the tags associated with the product.
 --
 -- 'httpStatus', 'createProductResponse_httpStatus' - The response's http status code.
 newCreateProductResponse ::
@@ -394,15 +394,12 @@ newCreateProductResponse ::
   CreateProductResponse
 newCreateProductResponse pHttpStatus_ =
   CreateProductResponse'
-    { tags = Prelude.Nothing,
-      productViewDetail = Prelude.Nothing,
+    { productViewDetail =
+        Prelude.Nothing,
       provisioningArtifactDetail = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the tags associated with the product.
-createProductResponse_tags :: Lens.Lens' CreateProductResponse (Prelude.Maybe [Tag])
-createProductResponse_tags = Lens.lens (\CreateProductResponse' {tags} -> tags) (\s@CreateProductResponse' {} a -> s {tags = a} :: CreateProductResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about the product view.
 createProductResponse_productViewDetail :: Lens.Lens' CreateProductResponse (Prelude.Maybe ProductViewDetail)
@@ -412,13 +409,17 @@ createProductResponse_productViewDetail = Lens.lens (\CreateProductResponse' {pr
 createProductResponse_provisioningArtifactDetail :: Lens.Lens' CreateProductResponse (Prelude.Maybe ProvisioningArtifactDetail)
 createProductResponse_provisioningArtifactDetail = Lens.lens (\CreateProductResponse' {provisioningArtifactDetail} -> provisioningArtifactDetail) (\s@CreateProductResponse' {} a -> s {provisioningArtifactDetail = a} :: CreateProductResponse)
 
+-- | Information about the tags associated with the product.
+createProductResponse_tags :: Lens.Lens' CreateProductResponse (Prelude.Maybe [Tag])
+createProductResponse_tags = Lens.lens (\CreateProductResponse' {tags} -> tags) (\s@CreateProductResponse' {} a -> s {tags = a} :: CreateProductResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 createProductResponse_httpStatus :: Lens.Lens' CreateProductResponse Prelude.Int
 createProductResponse_httpStatus = Lens.lens (\CreateProductResponse' {httpStatus} -> httpStatus) (\s@CreateProductResponse' {} a -> s {httpStatus = a} :: CreateProductResponse)
 
 instance Prelude.NFData CreateProductResponse where
   rnf CreateProductResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf productViewDetail
+    Prelude.rnf productViewDetail
       `Prelude.seq` Prelude.rnf provisioningArtifactDetail
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus

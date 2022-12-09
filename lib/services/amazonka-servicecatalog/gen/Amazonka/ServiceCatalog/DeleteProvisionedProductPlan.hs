@@ -27,8 +27,8 @@ module Amazonka.ServiceCatalog.DeleteProvisionedProductPlan
     newDeleteProvisionedProductPlan,
 
     -- * Request Lenses
-    deleteProvisionedProductPlan_ignoreErrors,
     deleteProvisionedProductPlan_acceptLanguage,
+    deleteProvisionedProductPlan_ignoreErrors,
     deleteProvisionedProductPlan_planId,
 
     -- * Destructuring the Response
@@ -50,10 +50,7 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newDeleteProvisionedProductPlan' smart constructor.
 data DeleteProvisionedProductPlan = DeleteProvisionedProductPlan'
-  { -- | If set to true, Service Catalog stops managing the specified provisioned
-    -- product even if it cannot delete the underlying resources.
-    ignoreErrors :: Prelude.Maybe Prelude.Bool,
-    -- | The language code.
+  { -- | The language code.
     --
     -- -   @en@ - English (default)
     --
@@ -61,6 +58,9 @@ data DeleteProvisionedProductPlan = DeleteProvisionedProductPlan'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | If set to true, Service Catalog stops managing the specified provisioned
+    -- product even if it cannot delete the underlying resources.
+    ignoreErrors :: Prelude.Maybe Prelude.Bool,
     -- | The plan identifier.
     planId :: Prelude.Text
   }
@@ -74,9 +74,6 @@ data DeleteProvisionedProductPlan = DeleteProvisionedProductPlan'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ignoreErrors', 'deleteProvisionedProductPlan_ignoreErrors' - If set to true, Service Catalog stops managing the specified provisioned
--- product even if it cannot delete the underlying resources.
---
 -- 'acceptLanguage', 'deleteProvisionedProductPlan_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -85,6 +82,9 @@ data DeleteProvisionedProductPlan = DeleteProvisionedProductPlan'
 --
 -- -   @zh@ - Chinese
 --
+-- 'ignoreErrors', 'deleteProvisionedProductPlan_ignoreErrors' - If set to true, Service Catalog stops managing the specified provisioned
+-- product even if it cannot delete the underlying resources.
+--
 -- 'planId', 'deleteProvisionedProductPlan_planId' - The plan identifier.
 newDeleteProvisionedProductPlan ::
   -- | 'planId'
@@ -92,16 +92,11 @@ newDeleteProvisionedProductPlan ::
   DeleteProvisionedProductPlan
 newDeleteProvisionedProductPlan pPlanId_ =
   DeleteProvisionedProductPlan'
-    { ignoreErrors =
+    { acceptLanguage =
         Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing,
+      ignoreErrors = Prelude.Nothing,
       planId = pPlanId_
     }
-
--- | If set to true, Service Catalog stops managing the specified provisioned
--- product even if it cannot delete the underlying resources.
-deleteProvisionedProductPlan_ignoreErrors :: Lens.Lens' DeleteProvisionedProductPlan (Prelude.Maybe Prelude.Bool)
-deleteProvisionedProductPlan_ignoreErrors = Lens.lens (\DeleteProvisionedProductPlan' {ignoreErrors} -> ignoreErrors) (\s@DeleteProvisionedProductPlan' {} a -> s {ignoreErrors = a} :: DeleteProvisionedProductPlan)
 
 -- | The language code.
 --
@@ -112,6 +107,11 @@ deleteProvisionedProductPlan_ignoreErrors = Lens.lens (\DeleteProvisionedProduct
 -- -   @zh@ - Chinese
 deleteProvisionedProductPlan_acceptLanguage :: Lens.Lens' DeleteProvisionedProductPlan (Prelude.Maybe Prelude.Text)
 deleteProvisionedProductPlan_acceptLanguage = Lens.lens (\DeleteProvisionedProductPlan' {acceptLanguage} -> acceptLanguage) (\s@DeleteProvisionedProductPlan' {} a -> s {acceptLanguage = a} :: DeleteProvisionedProductPlan)
+
+-- | If set to true, Service Catalog stops managing the specified provisioned
+-- product even if it cannot delete the underlying resources.
+deleteProvisionedProductPlan_ignoreErrors :: Lens.Lens' DeleteProvisionedProductPlan (Prelude.Maybe Prelude.Bool)
+deleteProvisionedProductPlan_ignoreErrors = Lens.lens (\DeleteProvisionedProductPlan' {ignoreErrors} -> ignoreErrors) (\s@DeleteProvisionedProductPlan' {} a -> s {ignoreErrors = a} :: DeleteProvisionedProductPlan)
 
 -- | The plan identifier.
 deleteProvisionedProductPlan_planId :: Lens.Lens' DeleteProvisionedProductPlan Prelude.Text
@@ -135,14 +135,14 @@ instance
     DeleteProvisionedProductPlan
   where
   hashWithSalt _salt DeleteProvisionedProductPlan' {..} =
-    _salt `Prelude.hashWithSalt` ignoreErrors
-      `Prelude.hashWithSalt` acceptLanguage
+    _salt `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` ignoreErrors
       `Prelude.hashWithSalt` planId
 
 instance Prelude.NFData DeleteProvisionedProductPlan where
   rnf DeleteProvisionedProductPlan' {..} =
-    Prelude.rnf ignoreErrors
-      `Prelude.seq` Prelude.rnf acceptLanguage
+    Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf ignoreErrors
       `Prelude.seq` Prelude.rnf planId
 
 instance Data.ToHeaders DeleteProvisionedProductPlan where
@@ -164,9 +164,9 @@ instance Data.ToJSON DeleteProvisionedProductPlan where
   toJSON DeleteProvisionedProductPlan' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("IgnoreErrors" Data..=) Prelude.<$> ignoreErrors,
-            ("AcceptLanguage" Data..=)
+          [ ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
+            ("IgnoreErrors" Data..=) Prelude.<$> ignoreErrors,
             Prelude.Just ("PlanId" Data..= planId)
           ]
       )

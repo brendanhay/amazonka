@@ -27,9 +27,9 @@ module Amazonka.ServiceCatalog.DescribeProduct
     newDescribeProduct,
 
     -- * Request Lenses
-    describeProduct_name,
-    describeProduct_id,
     describeProduct_acceptLanguage,
+    describeProduct_id,
+    describeProduct_name,
 
     -- * Destructuring the Response
     DescribeProductResponse (..),
@@ -54,18 +54,18 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newDescribeProduct' smart constructor.
 data DescribeProduct = DescribeProduct'
-  { -- | The product name.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The product identifier.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The language code.
+  { -- | The language code.
     --
     -- -   @en@ - English (default)
     --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The product identifier.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The product name.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,10 +77,6 @@ data DescribeProduct = DescribeProduct'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'describeProduct_name' - The product name.
---
--- 'id', 'describeProduct_id' - The product identifier.
---
 -- 'acceptLanguage', 'describeProduct_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -88,22 +84,18 @@ data DescribeProduct = DescribeProduct'
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
+--
+-- 'id', 'describeProduct_id' - The product identifier.
+--
+-- 'name', 'describeProduct_name' - The product name.
 newDescribeProduct ::
   DescribeProduct
 newDescribeProduct =
   DescribeProduct'
-    { name = Prelude.Nothing,
+    { acceptLanguage = Prelude.Nothing,
       id = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing
+      name = Prelude.Nothing
     }
-
--- | The product name.
-describeProduct_name :: Lens.Lens' DescribeProduct (Prelude.Maybe Prelude.Text)
-describeProduct_name = Lens.lens (\DescribeProduct' {name} -> name) (\s@DescribeProduct' {} a -> s {name = a} :: DescribeProduct)
-
--- | The product identifier.
-describeProduct_id :: Lens.Lens' DescribeProduct (Prelude.Maybe Prelude.Text)
-describeProduct_id = Lens.lens (\DescribeProduct' {id} -> id) (\s@DescribeProduct' {} a -> s {id = a} :: DescribeProduct)
 
 -- | The language code.
 --
@@ -114,6 +106,14 @@ describeProduct_id = Lens.lens (\DescribeProduct' {id} -> id) (\s@DescribeProduc
 -- -   @zh@ - Chinese
 describeProduct_acceptLanguage :: Lens.Lens' DescribeProduct (Prelude.Maybe Prelude.Text)
 describeProduct_acceptLanguage = Lens.lens (\DescribeProduct' {acceptLanguage} -> acceptLanguage) (\s@DescribeProduct' {} a -> s {acceptLanguage = a} :: DescribeProduct)
+
+-- | The product identifier.
+describeProduct_id :: Lens.Lens' DescribeProduct (Prelude.Maybe Prelude.Text)
+describeProduct_id = Lens.lens (\DescribeProduct' {id} -> id) (\s@DescribeProduct' {} a -> s {id = a} :: DescribeProduct)
+
+-- | The product name.
+describeProduct_name :: Lens.Lens' DescribeProduct (Prelude.Maybe Prelude.Text)
+describeProduct_name = Lens.lens (\DescribeProduct' {name} -> name) (\s@DescribeProduct' {} a -> s {name = a} :: DescribeProduct)
 
 instance Core.AWSRequest DescribeProduct where
   type
@@ -136,15 +136,15 @@ instance Core.AWSRequest DescribeProduct where
 
 instance Prelude.Hashable DescribeProduct where
   hashWithSalt _salt DescribeProduct' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DescribeProduct where
   rnf DescribeProduct' {..} =
-    Prelude.rnf name
+    Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders DescribeProduct where
   toHeaders =
@@ -165,10 +165,10 @@ instance Data.ToJSON DescribeProduct where
   toJSON DescribeProduct' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
+          [ ("AcceptLanguage" Data..=)
+              Prelude.<$> acceptLanguage,
             ("Id" Data..=) Prelude.<$> id,
-            ("AcceptLanguage" Data..=)
-              Prelude.<$> acceptLanguage
+            ("Name" Data..=) Prelude.<$> name
           ]
       )
 

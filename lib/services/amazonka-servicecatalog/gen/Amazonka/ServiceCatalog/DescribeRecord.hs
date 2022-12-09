@@ -38,9 +38,9 @@ module Amazonka.ServiceCatalog.DescribeRecord
     newDescribeRecord,
 
     -- * Request Lenses
-    describeRecord_pageToken,
-    describeRecord_pageSize,
     describeRecord_acceptLanguage,
+    describeRecord_pageSize,
+    describeRecord_pageToken,
     describeRecord_id,
 
     -- * Destructuring the Response
@@ -65,12 +65,7 @@ import Amazonka.ServiceCatalog.Types
 
 -- | /See:/ 'newDescribeRecord' smart constructor.
 data DescribeRecord = DescribeRecord'
-  { -- | The page token for the next set of results. To retrieve the first set of
-    -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
-    -- | The language code.
+  { -- | The language code.
     --
     -- -   @en@ - English (default)
     --
@@ -78,6 +73,11 @@ data DescribeRecord = DescribeRecord'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural,
+    -- | The page token for the next set of results. To retrieve the first set of
+    -- results, use null.
+    pageToken :: Prelude.Maybe Prelude.Text,
     -- | The record identifier of the provisioned product. This identifier is
     -- returned by the request operation.
     id :: Prelude.Text
@@ -92,11 +92,6 @@ data DescribeRecord = DescribeRecord'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pageToken', 'describeRecord_pageToken' - The page token for the next set of results. To retrieve the first set of
--- results, use null.
---
--- 'pageSize', 'describeRecord_pageSize' - The maximum number of items to return with this call.
---
 -- 'acceptLanguage', 'describeRecord_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -104,6 +99,11 @@ data DescribeRecord = DescribeRecord'
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
+--
+-- 'pageSize', 'describeRecord_pageSize' - The maximum number of items to return with this call.
+--
+-- 'pageToken', 'describeRecord_pageToken' - The page token for the next set of results. To retrieve the first set of
+-- results, use null.
 --
 -- 'id', 'describeRecord_id' - The record identifier of the provisioned product. This identifier is
 -- returned by the request operation.
@@ -113,20 +113,11 @@ newDescribeRecord ::
   DescribeRecord
 newDescribeRecord pId_ =
   DescribeRecord'
-    { pageToken = Prelude.Nothing,
+    { acceptLanguage = Prelude.Nothing,
       pageSize = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing,
+      pageToken = Prelude.Nothing,
       id = pId_
     }
-
--- | The page token for the next set of results. To retrieve the first set of
--- results, use null.
-describeRecord_pageToken :: Lens.Lens' DescribeRecord (Prelude.Maybe Prelude.Text)
-describeRecord_pageToken = Lens.lens (\DescribeRecord' {pageToken} -> pageToken) (\s@DescribeRecord' {} a -> s {pageToken = a} :: DescribeRecord)
-
--- | The maximum number of items to return with this call.
-describeRecord_pageSize :: Lens.Lens' DescribeRecord (Prelude.Maybe Prelude.Natural)
-describeRecord_pageSize = Lens.lens (\DescribeRecord' {pageSize} -> pageSize) (\s@DescribeRecord' {} a -> s {pageSize = a} :: DescribeRecord)
 
 -- | The language code.
 --
@@ -137,6 +128,15 @@ describeRecord_pageSize = Lens.lens (\DescribeRecord' {pageSize} -> pageSize) (\
 -- -   @zh@ - Chinese
 describeRecord_acceptLanguage :: Lens.Lens' DescribeRecord (Prelude.Maybe Prelude.Text)
 describeRecord_acceptLanguage = Lens.lens (\DescribeRecord' {acceptLanguage} -> acceptLanguage) (\s@DescribeRecord' {} a -> s {acceptLanguage = a} :: DescribeRecord)
+
+-- | The maximum number of items to return with this call.
+describeRecord_pageSize :: Lens.Lens' DescribeRecord (Prelude.Maybe Prelude.Natural)
+describeRecord_pageSize = Lens.lens (\DescribeRecord' {pageSize} -> pageSize) (\s@DescribeRecord' {} a -> s {pageSize = a} :: DescribeRecord)
+
+-- | The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+describeRecord_pageToken :: Lens.Lens' DescribeRecord (Prelude.Maybe Prelude.Text)
+describeRecord_pageToken = Lens.lens (\DescribeRecord' {pageToken} -> pageToken) (\s@DescribeRecord' {} a -> s {pageToken = a} :: DescribeRecord)
 
 -- | The record identifier of the provisioned product. This identifier is
 -- returned by the request operation.
@@ -161,16 +161,16 @@ instance Core.AWSRequest DescribeRecord where
 
 instance Prelude.Hashable DescribeRecord where
   hashWithSalt _salt DescribeRecord' {..} =
-    _salt `Prelude.hashWithSalt` pageToken
+    _salt `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` pageSize
-      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` pageToken
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DescribeRecord where
   rnf DescribeRecord' {..} =
-    Prelude.rnf pageToken
+    Prelude.rnf acceptLanguage
       `Prelude.seq` Prelude.rnf pageSize
-      `Prelude.seq` Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf pageToken
       `Prelude.seq` Prelude.rnf id
 
 instance Data.ToHeaders DescribeRecord where
@@ -192,10 +192,10 @@ instance Data.ToJSON DescribeRecord where
   toJSON DescribeRecord' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PageToken" Data..=) Prelude.<$> pageToken,
-            ("PageSize" Data..=) Prelude.<$> pageSize,
-            ("AcceptLanguage" Data..=)
+          [ ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
+            ("PageSize" Data..=) Prelude.<$> pageSize,
+            ("PageToken" Data..=) Prelude.<$> pageToken,
             Prelude.Just ("Id" Data..= id)
           ]
       )

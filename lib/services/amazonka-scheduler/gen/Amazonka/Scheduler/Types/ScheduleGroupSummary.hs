@@ -29,16 +29,16 @@ import Amazonka.Scheduler.Types.ScheduleGroupState
 --
 -- /See:/ 'newScheduleGroupSummary' smart constructor.
 data ScheduleGroupSummary = ScheduleGroupSummary'
-  { -- | The name of the schedule group.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the schedule group.
+  { -- | The Amazon Resource Name (ARN) of the schedule group.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the state of the schedule group.
-    state :: Prelude.Maybe ScheduleGroupState,
     -- | The time at which the schedule group was created.
     creationDate :: Prelude.Maybe Data.POSIX,
     -- | The time at which the schedule group was last modified.
-    lastModificationDate :: Prelude.Maybe Data.POSIX
+    lastModificationDate :: Prelude.Maybe Data.POSIX,
+    -- | The name of the schedule group.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the state of the schedule group.
+    state :: Prelude.Maybe ScheduleGroupState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,37 +50,29 @@ data ScheduleGroupSummary = ScheduleGroupSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'scheduleGroupSummary_name' - The name of the schedule group.
---
 -- 'arn', 'scheduleGroupSummary_arn' - The Amazon Resource Name (ARN) of the schedule group.
---
--- 'state', 'scheduleGroupSummary_state' - Specifies the state of the schedule group.
 --
 -- 'creationDate', 'scheduleGroupSummary_creationDate' - The time at which the schedule group was created.
 --
 -- 'lastModificationDate', 'scheduleGroupSummary_lastModificationDate' - The time at which the schedule group was last modified.
+--
+-- 'name', 'scheduleGroupSummary_name' - The name of the schedule group.
+--
+-- 'state', 'scheduleGroupSummary_state' - Specifies the state of the schedule group.
 newScheduleGroupSummary ::
   ScheduleGroupSummary
 newScheduleGroupSummary =
   ScheduleGroupSummary'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      state = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       creationDate = Prelude.Nothing,
-      lastModificationDate = Prelude.Nothing
+      lastModificationDate = Prelude.Nothing,
+      name = Prelude.Nothing,
+      state = Prelude.Nothing
     }
-
--- | The name of the schedule group.
-scheduleGroupSummary_name :: Lens.Lens' ScheduleGroupSummary (Prelude.Maybe Prelude.Text)
-scheduleGroupSummary_name = Lens.lens (\ScheduleGroupSummary' {name} -> name) (\s@ScheduleGroupSummary' {} a -> s {name = a} :: ScheduleGroupSummary)
 
 -- | The Amazon Resource Name (ARN) of the schedule group.
 scheduleGroupSummary_arn :: Lens.Lens' ScheduleGroupSummary (Prelude.Maybe Prelude.Text)
 scheduleGroupSummary_arn = Lens.lens (\ScheduleGroupSummary' {arn} -> arn) (\s@ScheduleGroupSummary' {} a -> s {arn = a} :: ScheduleGroupSummary)
-
--- | Specifies the state of the schedule group.
-scheduleGroupSummary_state :: Lens.Lens' ScheduleGroupSummary (Prelude.Maybe ScheduleGroupState)
-scheduleGroupSummary_state = Lens.lens (\ScheduleGroupSummary' {state} -> state) (\s@ScheduleGroupSummary' {} a -> s {state = a} :: ScheduleGroupSummary)
 
 -- | The time at which the schedule group was created.
 scheduleGroupSummary_creationDate :: Lens.Lens' ScheduleGroupSummary (Prelude.Maybe Prelude.UTCTime)
@@ -90,31 +82,39 @@ scheduleGroupSummary_creationDate = Lens.lens (\ScheduleGroupSummary' {creationD
 scheduleGroupSummary_lastModificationDate :: Lens.Lens' ScheduleGroupSummary (Prelude.Maybe Prelude.UTCTime)
 scheduleGroupSummary_lastModificationDate = Lens.lens (\ScheduleGroupSummary' {lastModificationDate} -> lastModificationDate) (\s@ScheduleGroupSummary' {} a -> s {lastModificationDate = a} :: ScheduleGroupSummary) Prelude.. Lens.mapping Data._Time
 
+-- | The name of the schedule group.
+scheduleGroupSummary_name :: Lens.Lens' ScheduleGroupSummary (Prelude.Maybe Prelude.Text)
+scheduleGroupSummary_name = Lens.lens (\ScheduleGroupSummary' {name} -> name) (\s@ScheduleGroupSummary' {} a -> s {name = a} :: ScheduleGroupSummary)
+
+-- | Specifies the state of the schedule group.
+scheduleGroupSummary_state :: Lens.Lens' ScheduleGroupSummary (Prelude.Maybe ScheduleGroupState)
+scheduleGroupSummary_state = Lens.lens (\ScheduleGroupSummary' {state} -> state) (\s@ScheduleGroupSummary' {} a -> s {state = a} :: ScheduleGroupSummary)
+
 instance Data.FromJSON ScheduleGroupSummary where
   parseJSON =
     Data.withObject
       "ScheduleGroupSummary"
       ( \x ->
           ScheduleGroupSummary'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "Arn")
-            Prelude.<*> (x Data..:? "State")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "CreationDate")
             Prelude.<*> (x Data..:? "LastModificationDate")
+            Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "State")
       )
 
 instance Prelude.Hashable ScheduleGroupSummary where
   hashWithSalt _salt ScheduleGroupSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` state
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` lastModificationDate
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` state
 
 instance Prelude.NFData ScheduleGroupSummary where
   rnf ScheduleGroupSummary' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf lastModificationDate
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf state

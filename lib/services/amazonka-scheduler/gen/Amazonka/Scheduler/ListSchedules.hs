@@ -29,11 +29,11 @@ module Amazonka.Scheduler.ListSchedules
     newListSchedules,
 
     -- * Request Lenses
-    listSchedules_nextToken,
-    listSchedules_state,
     listSchedules_groupName,
     listSchedules_maxResults,
     listSchedules_namePrefix,
+    listSchedules_nextToken,
+    listSchedules_state,
 
     -- * Destructuring the Response
     ListSchedulesResponse (..),
@@ -56,13 +56,7 @@ import Amazonka.Scheduler.Types
 
 -- | /See:/ 'newListSchedules' smart constructor.
 data ListSchedules = ListSchedules'
-  { -- | The token returned by a previous call to retrieve the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | If specified, only lists the schedules whose current state matches the
-    -- given filter.
-    state :: Prelude.Maybe ScheduleState,
-    -- | If specified, only lists the schedules whose associated schedule group
+  { -- | If specified, only lists the schedules whose associated schedule group
     -- matches the given filter.
     groupName :: Prelude.Maybe Prelude.Text,
     -- | If specified, limits the number of results returned by this operation.
@@ -70,7 +64,13 @@ data ListSchedules = ListSchedules'
     -- subsequent operation to retrieve the next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Schedule name prefix to return the filtered list of resources.
-    namePrefix :: Prelude.Maybe Prelude.Text
+    namePrefix :: Prelude.Maybe Prelude.Text,
+    -- | The token returned by a previous call to retrieve the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | If specified, only lists the schedules whose current state matches the
+    -- given filter.
+    state :: Prelude.Maybe ScheduleState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,12 +82,6 @@ data ListSchedules = ListSchedules'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSchedules_nextToken' - The token returned by a previous call to retrieve the next set of
--- results.
---
--- 'state', 'listSchedules_state' - If specified, only lists the schedules whose current state matches the
--- given filter.
---
 -- 'groupName', 'listSchedules_groupName' - If specified, only lists the schedules whose associated schedule group
 -- matches the given filter.
 --
@@ -96,26 +90,22 @@ data ListSchedules = ListSchedules'
 -- subsequent operation to retrieve the next set of results.
 --
 -- 'namePrefix', 'listSchedules_namePrefix' - Schedule name prefix to return the filtered list of resources.
+--
+-- 'nextToken', 'listSchedules_nextToken' - The token returned by a previous call to retrieve the next set of
+-- results.
+--
+-- 'state', 'listSchedules_state' - If specified, only lists the schedules whose current state matches the
+-- given filter.
 newListSchedules ::
   ListSchedules
 newListSchedules =
   ListSchedules'
-    { nextToken = Prelude.Nothing,
-      state = Prelude.Nothing,
-      groupName = Prelude.Nothing,
+    { groupName = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      namePrefix = Prelude.Nothing
+      namePrefix = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      state = Prelude.Nothing
     }
-
--- | The token returned by a previous call to retrieve the next set of
--- results.
-listSchedules_nextToken :: Lens.Lens' ListSchedules (Prelude.Maybe Prelude.Text)
-listSchedules_nextToken = Lens.lens (\ListSchedules' {nextToken} -> nextToken) (\s@ListSchedules' {} a -> s {nextToken = a} :: ListSchedules)
-
--- | If specified, only lists the schedules whose current state matches the
--- given filter.
-listSchedules_state :: Lens.Lens' ListSchedules (Prelude.Maybe ScheduleState)
-listSchedules_state = Lens.lens (\ListSchedules' {state} -> state) (\s@ListSchedules' {} a -> s {state = a} :: ListSchedules)
 
 -- | If specified, only lists the schedules whose associated schedule group
 -- matches the given filter.
@@ -131,6 +121,16 @@ listSchedules_maxResults = Lens.lens (\ListSchedules' {maxResults} -> maxResults
 -- | Schedule name prefix to return the filtered list of resources.
 listSchedules_namePrefix :: Lens.Lens' ListSchedules (Prelude.Maybe Prelude.Text)
 listSchedules_namePrefix = Lens.lens (\ListSchedules' {namePrefix} -> namePrefix) (\s@ListSchedules' {} a -> s {namePrefix = a} :: ListSchedules)
+
+-- | The token returned by a previous call to retrieve the next set of
+-- results.
+listSchedules_nextToken :: Lens.Lens' ListSchedules (Prelude.Maybe Prelude.Text)
+listSchedules_nextToken = Lens.lens (\ListSchedules' {nextToken} -> nextToken) (\s@ListSchedules' {} a -> s {nextToken = a} :: ListSchedules)
+
+-- | If specified, only lists the schedules whose current state matches the
+-- given filter.
+listSchedules_state :: Lens.Lens' ListSchedules (Prelude.Maybe ScheduleState)
+listSchedules_state = Lens.lens (\ListSchedules' {state} -> state) (\s@ListSchedules' {} a -> s {state = a} :: ListSchedules)
 
 instance Core.AWSPager ListSchedules where
   page rq rs
@@ -166,19 +166,19 @@ instance Core.AWSRequest ListSchedules where
 
 instance Prelude.Hashable ListSchedules where
   hashWithSalt _salt ListSchedules' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` groupName
+    _salt `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` namePrefix
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` state
 
 instance Prelude.NFData ListSchedules where
   rnf ListSchedules' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf groupName
+    Prelude.rnf groupName
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf namePrefix
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf state
 
 instance Data.ToHeaders ListSchedules where
   toHeaders =
@@ -197,11 +197,11 @@ instance Data.ToPath ListSchedules where
 instance Data.ToQuery ListSchedules where
   toQuery ListSchedules' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "State" Data.=: state,
-        "ScheduleGroup" Data.=: groupName,
+      [ "ScheduleGroup" Data.=: groupName,
         "MaxResults" Data.=: maxResults,
-        "NamePrefix" Data.=: namePrefix
+        "NamePrefix" Data.=: namePrefix,
+        "NextToken" Data.=: nextToken,
+        "State" Data.=: state
       ]
 
 -- | /See:/ 'newListSchedulesResponse' smart constructor.

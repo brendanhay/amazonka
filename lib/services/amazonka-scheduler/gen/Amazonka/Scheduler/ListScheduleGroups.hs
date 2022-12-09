@@ -29,9 +29,9 @@ module Amazonka.Scheduler.ListScheduleGroups
     newListScheduleGroups,
 
     -- * Request Lenses
-    listScheduleGroups_nextToken,
     listScheduleGroups_maxResults,
     listScheduleGroups_namePrefix,
+    listScheduleGroups_nextToken,
 
     -- * Destructuring the Response
     ListScheduleGroupsResponse (..),
@@ -54,16 +54,16 @@ import Amazonka.Scheduler.Types
 
 -- | /See:/ 'newListScheduleGroups' smart constructor.
 data ListScheduleGroups = ListScheduleGroups'
-  { -- | The token returned by a previous call to retrieve the next set of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | If specified, limits the number of results returned by this operation.
+  { -- | If specified, limits the number of results returned by this operation.
     -- The operation also returns a @NextToken@ which you can use in a
     -- subsequent operation to retrieve the next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name prefix that you can use to return a filtered list of your
     -- schedule groups.
-    namePrefix :: Prelude.Maybe Prelude.Text
+    namePrefix :: Prelude.Maybe Prelude.Text,
+    -- | The token returned by a previous call to retrieve the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,28 +75,23 @@ data ListScheduleGroups = ListScheduleGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listScheduleGroups_nextToken' - The token returned by a previous call to retrieve the next set of
--- results.
---
 -- 'maxResults', 'listScheduleGroups_maxResults' - If specified, limits the number of results returned by this operation.
 -- The operation also returns a @NextToken@ which you can use in a
 -- subsequent operation to retrieve the next set of results.
 --
 -- 'namePrefix', 'listScheduleGroups_namePrefix' - The name prefix that you can use to return a filtered list of your
 -- schedule groups.
+--
+-- 'nextToken', 'listScheduleGroups_nextToken' - The token returned by a previous call to retrieve the next set of
+-- results.
 newListScheduleGroups ::
   ListScheduleGroups
 newListScheduleGroups =
   ListScheduleGroups'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      namePrefix = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      namePrefix = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token returned by a previous call to retrieve the next set of
--- results.
-listScheduleGroups_nextToken :: Lens.Lens' ListScheduleGroups (Prelude.Maybe Prelude.Text)
-listScheduleGroups_nextToken = Lens.lens (\ListScheduleGroups' {nextToken} -> nextToken) (\s@ListScheduleGroups' {} a -> s {nextToken = a} :: ListScheduleGroups)
 
 -- | If specified, limits the number of results returned by this operation.
 -- The operation also returns a @NextToken@ which you can use in a
@@ -108,6 +103,11 @@ listScheduleGroups_maxResults = Lens.lens (\ListScheduleGroups' {maxResults} -> 
 -- schedule groups.
 listScheduleGroups_namePrefix :: Lens.Lens' ListScheduleGroups (Prelude.Maybe Prelude.Text)
 listScheduleGroups_namePrefix = Lens.lens (\ListScheduleGroups' {namePrefix} -> namePrefix) (\s@ListScheduleGroups' {} a -> s {namePrefix = a} :: ListScheduleGroups)
+
+-- | The token returned by a previous call to retrieve the next set of
+-- results.
+listScheduleGroups_nextToken :: Lens.Lens' ListScheduleGroups (Prelude.Maybe Prelude.Text)
+listScheduleGroups_nextToken = Lens.lens (\ListScheduleGroups' {nextToken} -> nextToken) (\s@ListScheduleGroups' {} a -> s {nextToken = a} :: ListScheduleGroups)
 
 instance Core.AWSPager ListScheduleGroups where
   page rq rs
@@ -149,15 +149,15 @@ instance Core.AWSRequest ListScheduleGroups where
 
 instance Prelude.Hashable ListScheduleGroups where
   hashWithSalt _salt ListScheduleGroups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` namePrefix
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListScheduleGroups where
   rnf ListScheduleGroups' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf namePrefix
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListScheduleGroups where
   toHeaders =
@@ -176,9 +176,9 @@ instance Data.ToPath ListScheduleGroups where
 instance Data.ToQuery ListScheduleGroups where
   toQuery ListScheduleGroups' {..} =
     Prelude.mconcat
-      [ "NextToken" Data.=: nextToken,
-        "MaxResults" Data.=: maxResults,
-        "NamePrefix" Data.=: namePrefix
+      [ "MaxResults" Data.=: maxResults,
+        "NamePrefix" Data.=: namePrefix,
+        "NextToken" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListScheduleGroupsResponse' smart constructor.

@@ -34,11 +34,11 @@ module Amazonka.Scheduler.GetScheduleGroup
     newGetScheduleGroupResponse,
 
     -- * Response Lenses
-    getScheduleGroupResponse_name,
     getScheduleGroupResponse_arn,
-    getScheduleGroupResponse_state,
     getScheduleGroupResponse_creationDate,
     getScheduleGroupResponse_lastModificationDate,
+    getScheduleGroupResponse_name,
+    getScheduleGroupResponse_state,
     getScheduleGroupResponse_httpStatus,
   )
 where
@@ -88,11 +88,11 @@ instance Core.AWSRequest GetScheduleGroup where
     Response.receiveJSON
       ( \s h x ->
           GetScheduleGroupResponse'
-            Prelude.<$> (x Data..?> "Name")
-            Prelude.<*> (x Data..?> "Arn")
-            Prelude.<*> (x Data..?> "State")
+            Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "CreationDate")
             Prelude.<*> (x Data..?> "LastModificationDate")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "State")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -124,16 +124,16 @@ instance Data.ToQuery GetScheduleGroup where
 
 -- | /See:/ 'newGetScheduleGroupResponse' smart constructor.
 data GetScheduleGroupResponse = GetScheduleGroupResponse'
-  { -- | The name of the schedule group.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the schedule group.
+  { -- | The Amazon Resource Name (ARN) of the schedule group.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the state of the schedule group.
-    state :: Prelude.Maybe ScheduleGroupState,
     -- | The time at which the schedule group was created.
     creationDate :: Prelude.Maybe Data.POSIX,
     -- | The time at which the schedule group was last modified.
     lastModificationDate :: Prelude.Maybe Data.POSIX,
+    -- | The name of the schedule group.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the state of the schedule group.
+    state :: Prelude.Maybe ScheduleGroupState,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -147,15 +147,15 @@ data GetScheduleGroupResponse = GetScheduleGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'getScheduleGroupResponse_name' - The name of the schedule group.
---
 -- 'arn', 'getScheduleGroupResponse_arn' - The Amazon Resource Name (ARN) of the schedule group.
---
--- 'state', 'getScheduleGroupResponse_state' - Specifies the state of the schedule group.
 --
 -- 'creationDate', 'getScheduleGroupResponse_creationDate' - The time at which the schedule group was created.
 --
 -- 'lastModificationDate', 'getScheduleGroupResponse_lastModificationDate' - The time at which the schedule group was last modified.
+--
+-- 'name', 'getScheduleGroupResponse_name' - The name of the schedule group.
+--
+-- 'state', 'getScheduleGroupResponse_state' - Specifies the state of the schedule group.
 --
 -- 'httpStatus', 'getScheduleGroupResponse_httpStatus' - The response's http status code.
 newGetScheduleGroupResponse ::
@@ -164,25 +164,17 @@ newGetScheduleGroupResponse ::
   GetScheduleGroupResponse
 newGetScheduleGroupResponse pHttpStatus_ =
   GetScheduleGroupResponse'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      state = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       creationDate = Prelude.Nothing,
       lastModificationDate = Prelude.Nothing,
+      name = Prelude.Nothing,
+      state = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The name of the schedule group.
-getScheduleGroupResponse_name :: Lens.Lens' GetScheduleGroupResponse (Prelude.Maybe Prelude.Text)
-getScheduleGroupResponse_name = Lens.lens (\GetScheduleGroupResponse' {name} -> name) (\s@GetScheduleGroupResponse' {} a -> s {name = a} :: GetScheduleGroupResponse)
 
 -- | The Amazon Resource Name (ARN) of the schedule group.
 getScheduleGroupResponse_arn :: Lens.Lens' GetScheduleGroupResponse (Prelude.Maybe Prelude.Text)
 getScheduleGroupResponse_arn = Lens.lens (\GetScheduleGroupResponse' {arn} -> arn) (\s@GetScheduleGroupResponse' {} a -> s {arn = a} :: GetScheduleGroupResponse)
-
--- | Specifies the state of the schedule group.
-getScheduleGroupResponse_state :: Lens.Lens' GetScheduleGroupResponse (Prelude.Maybe ScheduleGroupState)
-getScheduleGroupResponse_state = Lens.lens (\GetScheduleGroupResponse' {state} -> state) (\s@GetScheduleGroupResponse' {} a -> s {state = a} :: GetScheduleGroupResponse)
 
 -- | The time at which the schedule group was created.
 getScheduleGroupResponse_creationDate :: Lens.Lens' GetScheduleGroupResponse (Prelude.Maybe Prelude.UTCTime)
@@ -192,15 +184,23 @@ getScheduleGroupResponse_creationDate = Lens.lens (\GetScheduleGroupResponse' {c
 getScheduleGroupResponse_lastModificationDate :: Lens.Lens' GetScheduleGroupResponse (Prelude.Maybe Prelude.UTCTime)
 getScheduleGroupResponse_lastModificationDate = Lens.lens (\GetScheduleGroupResponse' {lastModificationDate} -> lastModificationDate) (\s@GetScheduleGroupResponse' {} a -> s {lastModificationDate = a} :: GetScheduleGroupResponse) Prelude.. Lens.mapping Data._Time
 
+-- | The name of the schedule group.
+getScheduleGroupResponse_name :: Lens.Lens' GetScheduleGroupResponse (Prelude.Maybe Prelude.Text)
+getScheduleGroupResponse_name = Lens.lens (\GetScheduleGroupResponse' {name} -> name) (\s@GetScheduleGroupResponse' {} a -> s {name = a} :: GetScheduleGroupResponse)
+
+-- | Specifies the state of the schedule group.
+getScheduleGroupResponse_state :: Lens.Lens' GetScheduleGroupResponse (Prelude.Maybe ScheduleGroupState)
+getScheduleGroupResponse_state = Lens.lens (\GetScheduleGroupResponse' {state} -> state) (\s@GetScheduleGroupResponse' {} a -> s {state = a} :: GetScheduleGroupResponse)
+
 -- | The response's http status code.
 getScheduleGroupResponse_httpStatus :: Lens.Lens' GetScheduleGroupResponse Prelude.Int
 getScheduleGroupResponse_httpStatus = Lens.lens (\GetScheduleGroupResponse' {httpStatus} -> httpStatus) (\s@GetScheduleGroupResponse' {} a -> s {httpStatus = a} :: GetScheduleGroupResponse)
 
 instance Prelude.NFData GetScheduleGroupResponse where
   rnf GetScheduleGroupResponse' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf lastModificationDate
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf httpStatus

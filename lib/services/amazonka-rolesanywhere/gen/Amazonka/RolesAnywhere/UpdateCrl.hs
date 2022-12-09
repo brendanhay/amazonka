@@ -32,8 +32,8 @@ module Amazonka.RolesAnywhere.UpdateCrl
     newUpdateCrl,
 
     -- * Request Lenses
-    updateCrl_name,
     updateCrl_crlData,
+    updateCrl_name,
     updateCrl_crlId,
 
     -- * Destructuring the Response
@@ -55,10 +55,10 @@ import Amazonka.RolesAnywhere.Types
 
 -- | /See:/ 'newUpdateCrl' smart constructor.
 data UpdateCrl = UpdateCrl'
-  { -- | The name of the Crl.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The x509 v3 specified certificate revocation list
+  { -- | The x509 v3 specified certificate revocation list
     crlData :: Prelude.Maybe Data.Base64,
+    -- | The name of the Crl.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the certificate revocation list (CRL).
     crlId :: Prelude.Text
   }
@@ -72,13 +72,13 @@ data UpdateCrl = UpdateCrl'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateCrl_name' - The name of the Crl.
---
 -- 'crlData', 'updateCrl_crlData' - The x509 v3 specified certificate revocation list--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- 'name', 'updateCrl_name' - The name of the Crl.
 --
 -- 'crlId', 'updateCrl_crlId' - The unique identifier of the certificate revocation list (CRL).
 newUpdateCrl ::
@@ -87,14 +87,10 @@ newUpdateCrl ::
   UpdateCrl
 newUpdateCrl pCrlId_ =
   UpdateCrl'
-    { name = Prelude.Nothing,
-      crlData = Prelude.Nothing,
+    { crlData = Prelude.Nothing,
+      name = Prelude.Nothing,
       crlId = pCrlId_
     }
-
--- | The name of the Crl.
-updateCrl_name :: Lens.Lens' UpdateCrl (Prelude.Maybe Prelude.Text)
-updateCrl_name = Lens.lens (\UpdateCrl' {name} -> name) (\s@UpdateCrl' {} a -> s {name = a} :: UpdateCrl)
 
 -- | The x509 v3 specified certificate revocation list--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -103,6 +99,10 @@ updateCrl_name = Lens.lens (\UpdateCrl' {name} -> name) (\s@UpdateCrl' {} a -> s
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 updateCrl_crlData :: Lens.Lens' UpdateCrl (Prelude.Maybe Prelude.ByteString)
 updateCrl_crlData = Lens.lens (\UpdateCrl' {crlData} -> crlData) (\s@UpdateCrl' {} a -> s {crlData = a} :: UpdateCrl) Prelude.. Lens.mapping Data._Base64
+
+-- | The name of the Crl.
+updateCrl_name :: Lens.Lens' UpdateCrl (Prelude.Maybe Prelude.Text)
+updateCrl_name = Lens.lens (\UpdateCrl' {name} -> name) (\s@UpdateCrl' {} a -> s {name = a} :: UpdateCrl)
 
 -- | The unique identifier of the certificate revocation list (CRL).
 updateCrl_crlId :: Lens.Lens' UpdateCrl Prelude.Text
@@ -118,14 +118,14 @@ instance Core.AWSRequest UpdateCrl where
 
 instance Prelude.Hashable UpdateCrl where
   hashWithSalt _salt UpdateCrl' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` crlData
+    _salt `Prelude.hashWithSalt` crlData
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` crlId
 
 instance Prelude.NFData UpdateCrl where
   rnf UpdateCrl' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf crlData
+    Prelude.rnf crlData
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf crlId
 
 instance Data.ToHeaders UpdateCrl where
@@ -143,8 +143,8 @@ instance Data.ToJSON UpdateCrl where
   toJSON UpdateCrl' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
-            ("crlData" Data..=) Prelude.<$> crlData
+          [ ("crlData" Data..=) Prelude.<$> crlData,
+            ("name" Data..=) Prelude.<$> name
           ]
       )
 

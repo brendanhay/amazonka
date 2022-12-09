@@ -29,23 +29,23 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCrlDetail' smart constructor.
 data CrlDetail = CrlDetail'
-  { -- | The ARN of the certificate revocation list (CRL).
+  { -- | The ISO-8601 timestamp when the certificate revocation list (CRL) was
+    -- created.
+    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The ARN of the certificate revocation list (CRL).
     crlArn :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the certificate revocation list (CRL).
-    crlId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the certificate revocation list (CRL).
-    name :: Prelude.Maybe Prelude.Text,
     -- | The state of the certificate revocation list (CRL) after a read or write
     -- operation.
     crlData :: Prelude.Maybe Data.Base64,
+    -- | The unique identifier of the certificate revocation list (CRL).
+    crlId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the certificate revocation list (CRL) is enabled.
     enabled :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the certificate revocation list (CRL).
+    name :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the TrustAnchor the certificate revocation list (CRL) will
     -- provide revocation for.
     trustAnchorArn :: Prelude.Maybe Prelude.Text,
-    -- | The ISO-8601 timestamp when the certificate revocation list (CRL) was
-    -- created.
-    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The ISO-8601 timestamp when the certificate revocation list (CRL) was
     -- last updated.
     updatedAt :: Prelude.Maybe Data.POSIX
@@ -60,11 +60,10 @@ data CrlDetail = CrlDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'createdAt', 'crlDetail_createdAt' - The ISO-8601 timestamp when the certificate revocation list (CRL) was
+-- created.
+--
 -- 'crlArn', 'crlDetail_crlArn' - The ARN of the certificate revocation list (CRL).
---
--- 'crlId', 'crlDetail_crlId' - The unique identifier of the certificate revocation list (CRL).
---
--- 'name', 'crlDetail_name' - The name of the certificate revocation list (CRL).
 --
 -- 'crlData', 'crlDetail_crlData' - The state of the certificate revocation list (CRL) after a read or write
 -- operation.--
@@ -73,13 +72,14 @@ data CrlDetail = CrlDetail'
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
+-- 'crlId', 'crlDetail_crlId' - The unique identifier of the certificate revocation list (CRL).
+--
 -- 'enabled', 'crlDetail_enabled' - Indicates whether the certificate revocation list (CRL) is enabled.
+--
+-- 'name', 'crlDetail_name' - The name of the certificate revocation list (CRL).
 --
 -- 'trustAnchorArn', 'crlDetail_trustAnchorArn' - The ARN of the TrustAnchor the certificate revocation list (CRL) will
 -- provide revocation for.
---
--- 'createdAt', 'crlDetail_createdAt' - The ISO-8601 timestamp when the certificate revocation list (CRL) was
--- created.
 --
 -- 'updatedAt', 'crlDetail_updatedAt' - The ISO-8601 timestamp when the certificate revocation list (CRL) was
 -- last updated.
@@ -87,27 +87,24 @@ newCrlDetail ::
   CrlDetail
 newCrlDetail =
   CrlDetail'
-    { crlArn = Prelude.Nothing,
-      crlId = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { createdAt = Prelude.Nothing,
+      crlArn = Prelude.Nothing,
       crlData = Prelude.Nothing,
+      crlId = Prelude.Nothing,
       enabled = Prelude.Nothing,
+      name = Prelude.Nothing,
       trustAnchorArn = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
       updatedAt = Prelude.Nothing
     }
+
+-- | The ISO-8601 timestamp when the certificate revocation list (CRL) was
+-- created.
+crlDetail_createdAt :: Lens.Lens' CrlDetail (Prelude.Maybe Prelude.UTCTime)
+crlDetail_createdAt = Lens.lens (\CrlDetail' {createdAt} -> createdAt) (\s@CrlDetail' {} a -> s {createdAt = a} :: CrlDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the certificate revocation list (CRL).
 crlDetail_crlArn :: Lens.Lens' CrlDetail (Prelude.Maybe Prelude.Text)
 crlDetail_crlArn = Lens.lens (\CrlDetail' {crlArn} -> crlArn) (\s@CrlDetail' {} a -> s {crlArn = a} :: CrlDetail)
-
--- | The unique identifier of the certificate revocation list (CRL).
-crlDetail_crlId :: Lens.Lens' CrlDetail (Prelude.Maybe Prelude.Text)
-crlDetail_crlId = Lens.lens (\CrlDetail' {crlId} -> crlId) (\s@CrlDetail' {} a -> s {crlId = a} :: CrlDetail)
-
--- | The name of the certificate revocation list (CRL).
-crlDetail_name :: Lens.Lens' CrlDetail (Prelude.Maybe Prelude.Text)
-crlDetail_name = Lens.lens (\CrlDetail' {name} -> name) (\s@CrlDetail' {} a -> s {name = a} :: CrlDetail)
 
 -- | The state of the certificate revocation list (CRL) after a read or write
 -- operation.--
@@ -118,19 +115,22 @@ crlDetail_name = Lens.lens (\CrlDetail' {name} -> name) (\s@CrlDetail' {} a -> s
 crlDetail_crlData :: Lens.Lens' CrlDetail (Prelude.Maybe Prelude.ByteString)
 crlDetail_crlData = Lens.lens (\CrlDetail' {crlData} -> crlData) (\s@CrlDetail' {} a -> s {crlData = a} :: CrlDetail) Prelude.. Lens.mapping Data._Base64
 
+-- | The unique identifier of the certificate revocation list (CRL).
+crlDetail_crlId :: Lens.Lens' CrlDetail (Prelude.Maybe Prelude.Text)
+crlDetail_crlId = Lens.lens (\CrlDetail' {crlId} -> crlId) (\s@CrlDetail' {} a -> s {crlId = a} :: CrlDetail)
+
 -- | Indicates whether the certificate revocation list (CRL) is enabled.
 crlDetail_enabled :: Lens.Lens' CrlDetail (Prelude.Maybe Prelude.Bool)
 crlDetail_enabled = Lens.lens (\CrlDetail' {enabled} -> enabled) (\s@CrlDetail' {} a -> s {enabled = a} :: CrlDetail)
+
+-- | The name of the certificate revocation list (CRL).
+crlDetail_name :: Lens.Lens' CrlDetail (Prelude.Maybe Prelude.Text)
+crlDetail_name = Lens.lens (\CrlDetail' {name} -> name) (\s@CrlDetail' {} a -> s {name = a} :: CrlDetail)
 
 -- | The ARN of the TrustAnchor the certificate revocation list (CRL) will
 -- provide revocation for.
 crlDetail_trustAnchorArn :: Lens.Lens' CrlDetail (Prelude.Maybe Prelude.Text)
 crlDetail_trustAnchorArn = Lens.lens (\CrlDetail' {trustAnchorArn} -> trustAnchorArn) (\s@CrlDetail' {} a -> s {trustAnchorArn = a} :: CrlDetail)
-
--- | The ISO-8601 timestamp when the certificate revocation list (CRL) was
--- created.
-crlDetail_createdAt :: Lens.Lens' CrlDetail (Prelude.Maybe Prelude.UTCTime)
-crlDetail_createdAt = Lens.lens (\CrlDetail' {createdAt} -> createdAt) (\s@CrlDetail' {} a -> s {createdAt = a} :: CrlDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The ISO-8601 timestamp when the certificate revocation list (CRL) was
 -- last updated.
@@ -143,34 +143,34 @@ instance Data.FromJSON CrlDetail where
       "CrlDetail"
       ( \x ->
           CrlDetail'
-            Prelude.<$> (x Data..:? "crlArn")
-            Prelude.<*> (x Data..:? "crlId")
-            Prelude.<*> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "createdAt")
+            Prelude.<*> (x Data..:? "crlArn")
             Prelude.<*> (x Data..:? "crlData")
+            Prelude.<*> (x Data..:? "crlId")
             Prelude.<*> (x Data..:? "enabled")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "trustAnchorArn")
-            Prelude.<*> (x Data..:? "createdAt")
             Prelude.<*> (x Data..:? "updatedAt")
       )
 
 instance Prelude.Hashable CrlDetail where
   hashWithSalt _salt CrlDetail' {..} =
-    _salt `Prelude.hashWithSalt` crlArn
-      `Prelude.hashWithSalt` crlId
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` crlArn
       `Prelude.hashWithSalt` crlData
+      `Prelude.hashWithSalt` crlId
       `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` trustAnchorArn
-      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` updatedAt
 
 instance Prelude.NFData CrlDetail where
   rnf CrlDetail' {..} =
-    Prelude.rnf crlArn
-      `Prelude.seq` Prelude.rnf crlId
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf crlArn
       `Prelude.seq` Prelude.rnf crlData
+      `Prelude.seq` Prelude.rnf crlId
       `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf trustAnchorArn
-      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf updatedAt

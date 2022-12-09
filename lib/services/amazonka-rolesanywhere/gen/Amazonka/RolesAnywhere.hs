@@ -41,11 +41,11 @@ module Amazonka.RolesAnywhere
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
 
     -- ** ValidationException
     _ValidationException,

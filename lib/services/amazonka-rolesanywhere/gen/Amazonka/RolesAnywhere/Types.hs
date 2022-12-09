@@ -19,8 +19,8 @@ module Amazonka.RolesAnywhere.Types
 
     -- * Errors
     _AccessDeniedException,
-    _TooManyTagsException,
     _ResourceNotFoundException,
+    _TooManyTagsException,
     _ValidationException,
 
     -- * TrustAnchorType
@@ -29,23 +29,23 @@ module Amazonka.RolesAnywhere.Types
     -- * CredentialSummary
     CredentialSummary (..),
     newCredentialSummary,
-    credentialSummary_issuer,
-    credentialSummary_failed,
-    credentialSummary_seenAt,
     credentialSummary_enabled,
+    credentialSummary_failed,
+    credentialSummary_issuer,
+    credentialSummary_seenAt,
     credentialSummary_serialNumber,
     credentialSummary_x509CertificateData,
 
     -- * CrlDetail
     CrlDetail (..),
     newCrlDetail,
-    crlDetail_crlArn,
-    crlDetail_crlId,
-    crlDetail_name,
-    crlDetail_crlData,
-    crlDetail_enabled,
-    crlDetail_trustAnchorArn,
     crlDetail_createdAt,
+    crlDetail_crlArn,
+    crlDetail_crlData,
+    crlDetail_crlId,
+    crlDetail_enabled,
+    crlDetail_name,
+    crlDetail_trustAnchorArn,
     crlDetail_updatedAt,
 
     -- * CrlDetailResponse
@@ -57,8 +57,8 @@ module Amazonka.RolesAnywhere.Types
     InstanceProperty (..),
     newInstanceProperty,
     instanceProperty_failed,
-    instanceProperty_seenAt,
     instanceProperty_properties,
+    instanceProperty_seenAt,
 
     -- * ListRequest
     ListRequest (..),
@@ -69,17 +69,17 @@ module Amazonka.RolesAnywhere.Types
     -- * ProfileDetail
     ProfileDetail (..),
     newProfileDetail,
-    profileDetail_name,
-    profileDetail_profileId,
-    profileDetail_managedPolicyArns,
-    profileDetail_profileArn,
-    profileDetail_roleArns,
-    profileDetail_enabled,
-    profileDetail_durationSeconds,
-    profileDetail_sessionPolicy,
-    profileDetail_createdBy,
-    profileDetail_requireInstanceProperties,
     profileDetail_createdAt,
+    profileDetail_createdBy,
+    profileDetail_durationSeconds,
+    profileDetail_enabled,
+    profileDetail_managedPolicyArns,
+    profileDetail_name,
+    profileDetail_profileArn,
+    profileDetail_profileId,
+    profileDetail_requireInstanceProperties,
+    profileDetail_roleArns,
+    profileDetail_sessionPolicy,
     profileDetail_updatedAt,
 
     -- * ProfileDetailResponse
@@ -105,8 +105,8 @@ module Amazonka.RolesAnywhere.Types
     -- * Source
     Source (..),
     newSource,
-    source_sourceType,
     source_sourceData,
+    source_sourceType,
 
     -- * SourceData
     SourceData (..),
@@ -117,26 +117,26 @@ module Amazonka.RolesAnywhere.Types
     -- * SubjectDetail
     SubjectDetail (..),
     newSubjectDetail,
-    subjectDetail_subjectId,
-    subjectDetail_enabled,
-    subjectDetail_subjectArn,
-    subjectDetail_credentials,
-    subjectDetail_x509Subject,
-    subjectDetail_instanceProperties,
     subjectDetail_createdAt,
-    subjectDetail_updatedAt,
+    subjectDetail_credentials,
+    subjectDetail_enabled,
+    subjectDetail_instanceProperties,
     subjectDetail_lastSeenAt,
+    subjectDetail_subjectArn,
+    subjectDetail_subjectId,
+    subjectDetail_updatedAt,
+    subjectDetail_x509Subject,
 
     -- * SubjectSummary
     SubjectSummary (..),
     newSubjectSummary,
-    subjectSummary_subjectId,
-    subjectSummary_enabled,
-    subjectSummary_subjectArn,
-    subjectSummary_x509Subject,
     subjectSummary_createdAt,
-    subjectSummary_updatedAt,
+    subjectSummary_enabled,
     subjectSummary_lastSeenAt,
+    subjectSummary_subjectArn,
+    subjectSummary_subjectId,
+    subjectSummary_updatedAt,
+    subjectSummary_x509Subject,
 
     -- * Tag
     Tag (..),
@@ -147,12 +147,12 @@ module Amazonka.RolesAnywhere.Types
     -- * TrustAnchorDetail
     TrustAnchorDetail (..),
     newTrustAnchorDetail,
-    trustAnchorDetail_name,
-    trustAnchorDetail_trustAnchorId,
+    trustAnchorDetail_createdAt,
     trustAnchorDetail_enabled,
+    trustAnchorDetail_name,
     trustAnchorDetail_source,
     trustAnchorDetail_trustAnchorArn,
-    trustAnchorDetail_createdAt,
+    trustAnchorDetail_trustAnchorId,
     trustAnchorDetail_updatedAt,
 
     -- * TrustAnchorDetailResponse
@@ -210,28 +210,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -239,13 +233,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -253,6 +251,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
@@ -263,14 +263,6 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
--- | Too many tags.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyTagsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyTagsException"
-    Prelude.. Core.hasStatus 400
-
 -- | The resource could not be found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
@@ -278,6 +270,14 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
+
+-- | Too many tags.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyTagsException"
+    Prelude.. Core.hasStatus 400
 
 -- | Validation exception error.
 _ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

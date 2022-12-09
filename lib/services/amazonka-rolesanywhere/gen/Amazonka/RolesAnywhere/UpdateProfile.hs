@@ -32,10 +32,10 @@ module Amazonka.RolesAnywhere.UpdateProfile
     newUpdateProfile,
 
     -- * Request Lenses
-    updateProfile_name,
-    updateProfile_managedPolicyArns,
-    updateProfile_roleArns,
     updateProfile_durationSeconds,
+    updateProfile_managedPolicyArns,
+    updateProfile_name,
+    updateProfile_roleArns,
     updateProfile_sessionPolicy,
     updateProfile_profileId,
 
@@ -58,17 +58,17 @@ import Amazonka.RolesAnywhere.Types
 
 -- | /See:/ 'newUpdateProfile' smart constructor.
 data UpdateProfile = UpdateProfile'
-  { -- | The name of the profile.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The number of seconds the vended session credentials are valid for.
+    durationSeconds :: Prelude.Maybe Prelude.Natural,
     -- | A list of managed policy ARNs that apply to the vended session
     -- credentials.
     managedPolicyArns :: Prelude.Maybe [Prelude.Text],
+    -- | The name of the profile.
+    name :: Prelude.Maybe Prelude.Text,
     -- | A list of IAM roles that this profile can assume in a
     -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
     -- operation.
     roleArns :: Prelude.Maybe [Prelude.Text],
-    -- | The number of seconds the vended session credentials are valid for.
-    durationSeconds :: Prelude.Maybe Prelude.Natural,
     -- | A session policy that applies to the trust boundary of the vended
     -- session credentials.
     sessionPolicy :: Prelude.Maybe Prelude.Text,
@@ -85,16 +85,16 @@ data UpdateProfile = UpdateProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateProfile_name' - The name of the profile.
+-- 'durationSeconds', 'updateProfile_durationSeconds' - The number of seconds the vended session credentials are valid for.
 --
 -- 'managedPolicyArns', 'updateProfile_managedPolicyArns' - A list of managed policy ARNs that apply to the vended session
 -- credentials.
 --
+-- 'name', 'updateProfile_name' - The name of the profile.
+--
 -- 'roleArns', 'updateProfile_roleArns' - A list of IAM roles that this profile can assume in a
 -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
 -- operation.
---
--- 'durationSeconds', 'updateProfile_durationSeconds' - The number of seconds the vended session credentials are valid for.
 --
 -- 'sessionPolicy', 'updateProfile_sessionPolicy' - A session policy that applies to the trust boundary of the vended
 -- session credentials.
@@ -106,32 +106,32 @@ newUpdateProfile ::
   UpdateProfile
 newUpdateProfile pProfileId_ =
   UpdateProfile'
-    { name = Prelude.Nothing,
+    { durationSeconds = Prelude.Nothing,
       managedPolicyArns = Prelude.Nothing,
+      name = Prelude.Nothing,
       roleArns = Prelude.Nothing,
-      durationSeconds = Prelude.Nothing,
       sessionPolicy = Prelude.Nothing,
       profileId = pProfileId_
     }
 
--- | The name of the profile.
-updateProfile_name :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Text)
-updateProfile_name = Lens.lens (\UpdateProfile' {name} -> name) (\s@UpdateProfile' {} a -> s {name = a} :: UpdateProfile)
+-- | The number of seconds the vended session credentials are valid for.
+updateProfile_durationSeconds :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Natural)
+updateProfile_durationSeconds = Lens.lens (\UpdateProfile' {durationSeconds} -> durationSeconds) (\s@UpdateProfile' {} a -> s {durationSeconds = a} :: UpdateProfile)
 
 -- | A list of managed policy ARNs that apply to the vended session
 -- credentials.
 updateProfile_managedPolicyArns :: Lens.Lens' UpdateProfile (Prelude.Maybe [Prelude.Text])
 updateProfile_managedPolicyArns = Lens.lens (\UpdateProfile' {managedPolicyArns} -> managedPolicyArns) (\s@UpdateProfile' {} a -> s {managedPolicyArns = a} :: UpdateProfile) Prelude.. Lens.mapping Lens.coerced
 
+-- | The name of the profile.
+updateProfile_name :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Text)
+updateProfile_name = Lens.lens (\UpdateProfile' {name} -> name) (\s@UpdateProfile' {} a -> s {name = a} :: UpdateProfile)
+
 -- | A list of IAM roles that this profile can assume in a
 -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
 -- operation.
 updateProfile_roleArns :: Lens.Lens' UpdateProfile (Prelude.Maybe [Prelude.Text])
 updateProfile_roleArns = Lens.lens (\UpdateProfile' {roleArns} -> roleArns) (\s@UpdateProfile' {} a -> s {roleArns = a} :: UpdateProfile) Prelude.. Lens.mapping Lens.coerced
-
--- | The number of seconds the vended session credentials are valid for.
-updateProfile_durationSeconds :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Natural)
-updateProfile_durationSeconds = Lens.lens (\UpdateProfile' {durationSeconds} -> durationSeconds) (\s@UpdateProfile' {} a -> s {durationSeconds = a} :: UpdateProfile)
 
 -- | A session policy that applies to the trust boundary of the vended
 -- session credentials.
@@ -154,19 +154,19 @@ instance Core.AWSRequest UpdateProfile where
 
 instance Prelude.Hashable UpdateProfile where
   hashWithSalt _salt UpdateProfile' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` durationSeconds
       `Prelude.hashWithSalt` managedPolicyArns
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` roleArns
-      `Prelude.hashWithSalt` durationSeconds
       `Prelude.hashWithSalt` sessionPolicy
       `Prelude.hashWithSalt` profileId
 
 instance Prelude.NFData UpdateProfile where
   rnf UpdateProfile' {..} =
-    Prelude.rnf name
+    Prelude.rnf durationSeconds
       `Prelude.seq` Prelude.rnf managedPolicyArns
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf roleArns
-      `Prelude.seq` Prelude.rnf durationSeconds
       `Prelude.seq` Prelude.rnf sessionPolicy
       `Prelude.seq` Prelude.rnf profileId
 
@@ -185,12 +185,12 @@ instance Data.ToJSON UpdateProfile where
   toJSON UpdateProfile' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
+          [ ("durationSeconds" Data..=)
+              Prelude.<$> durationSeconds,
             ("managedPolicyArns" Data..=)
               Prelude.<$> managedPolicyArns,
+            ("name" Data..=) Prelude.<$> name,
             ("roleArns" Data..=) Prelude.<$> roleArns,
-            ("durationSeconds" Data..=)
-              Prelude.<$> durationSeconds,
             ("sessionPolicy" Data..=) Prelude.<$> sessionPolicy
           ]
       )

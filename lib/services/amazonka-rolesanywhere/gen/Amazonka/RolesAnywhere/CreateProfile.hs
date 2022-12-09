@@ -32,12 +32,12 @@ module Amazonka.RolesAnywhere.CreateProfile
     newCreateProfile,
 
     -- * Request Lenses
-    createProfile_tags,
-    createProfile_managedPolicyArns,
-    createProfile_enabled,
     createProfile_durationSeconds,
-    createProfile_sessionPolicy,
+    createProfile_enabled,
+    createProfile_managedPolicyArns,
     createProfile_requireInstanceProperties,
+    createProfile_sessionPolicy,
+    createProfile_tags,
     createProfile_name,
     createProfile_roleArns,
 
@@ -60,22 +60,22 @@ import Amazonka.RolesAnywhere.Types
 
 -- | /See:/ 'newCreateProfile' smart constructor.
 data CreateProfile = CreateProfile'
-  { -- | The tags to attach to the profile.
-    tags :: Prelude.Maybe [Tag],
+  { -- | The number of seconds the vended session credentials are valid for.
+    durationSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies whether the profile is enabled.
+    enabled :: Prelude.Maybe Prelude.Bool,
     -- | A list of managed policy ARNs that apply to the vended session
     -- credentials.
     managedPolicyArns :: Prelude.Maybe [Prelude.Text],
-    -- | Specifies whether the profile is enabled.
-    enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The number of seconds the vended session credentials are valid for.
-    durationSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | A session policy that applies to the trust boundary of the vended
-    -- session credentials.
-    sessionPolicy :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether instance properties are required in
     -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
     -- requests with this profile.
     requireInstanceProperties :: Prelude.Maybe Prelude.Bool,
+    -- | A session policy that applies to the trust boundary of the vended
+    -- session credentials.
+    sessionPolicy :: Prelude.Maybe Prelude.Text,
+    -- | The tags to attach to the profile.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the profile.
     name :: Prelude.Text,
     -- | A list of IAM roles that this profile can assume in a
@@ -93,21 +93,21 @@ data CreateProfile = CreateProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createProfile_tags' - The tags to attach to the profile.
+-- 'durationSeconds', 'createProfile_durationSeconds' - The number of seconds the vended session credentials are valid for.
+--
+-- 'enabled', 'createProfile_enabled' - Specifies whether the profile is enabled.
 --
 -- 'managedPolicyArns', 'createProfile_managedPolicyArns' - A list of managed policy ARNs that apply to the vended session
 -- credentials.
 --
--- 'enabled', 'createProfile_enabled' - Specifies whether the profile is enabled.
---
--- 'durationSeconds', 'createProfile_durationSeconds' - The number of seconds the vended session credentials are valid for.
+-- 'requireInstanceProperties', 'createProfile_requireInstanceProperties' - Specifies whether instance properties are required in
+-- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
+-- requests with this profile.
 --
 -- 'sessionPolicy', 'createProfile_sessionPolicy' - A session policy that applies to the trust boundary of the vended
 -- session credentials.
 --
--- 'requireInstanceProperties', 'createProfile_requireInstanceProperties' - Specifies whether instance properties are required in
--- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
--- requests with this profile.
+-- 'tags', 'createProfile_tags' - The tags to attach to the profile.
 --
 -- 'name', 'createProfile_name' - The name of the profile.
 --
@@ -120,43 +120,43 @@ newCreateProfile ::
   CreateProfile
 newCreateProfile pName_ =
   CreateProfile'
-    { tags = Prelude.Nothing,
-      managedPolicyArns = Prelude.Nothing,
+    { durationSeconds = Prelude.Nothing,
       enabled = Prelude.Nothing,
-      durationSeconds = Prelude.Nothing,
-      sessionPolicy = Prelude.Nothing,
+      managedPolicyArns = Prelude.Nothing,
       requireInstanceProperties = Prelude.Nothing,
+      sessionPolicy = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       roleArns = Prelude.mempty
     }
 
--- | The tags to attach to the profile.
-createProfile_tags :: Lens.Lens' CreateProfile (Prelude.Maybe [Tag])
-createProfile_tags = Lens.lens (\CreateProfile' {tags} -> tags) (\s@CreateProfile' {} a -> s {tags = a} :: CreateProfile) Prelude.. Lens.mapping Lens.coerced
+-- | The number of seconds the vended session credentials are valid for.
+createProfile_durationSeconds :: Lens.Lens' CreateProfile (Prelude.Maybe Prelude.Natural)
+createProfile_durationSeconds = Lens.lens (\CreateProfile' {durationSeconds} -> durationSeconds) (\s@CreateProfile' {} a -> s {durationSeconds = a} :: CreateProfile)
+
+-- | Specifies whether the profile is enabled.
+createProfile_enabled :: Lens.Lens' CreateProfile (Prelude.Maybe Prelude.Bool)
+createProfile_enabled = Lens.lens (\CreateProfile' {enabled} -> enabled) (\s@CreateProfile' {} a -> s {enabled = a} :: CreateProfile)
 
 -- | A list of managed policy ARNs that apply to the vended session
 -- credentials.
 createProfile_managedPolicyArns :: Lens.Lens' CreateProfile (Prelude.Maybe [Prelude.Text])
 createProfile_managedPolicyArns = Lens.lens (\CreateProfile' {managedPolicyArns} -> managedPolicyArns) (\s@CreateProfile' {} a -> s {managedPolicyArns = a} :: CreateProfile) Prelude.. Lens.mapping Lens.coerced
 
--- | Specifies whether the profile is enabled.
-createProfile_enabled :: Lens.Lens' CreateProfile (Prelude.Maybe Prelude.Bool)
-createProfile_enabled = Lens.lens (\CreateProfile' {enabled} -> enabled) (\s@CreateProfile' {} a -> s {enabled = a} :: CreateProfile)
-
--- | The number of seconds the vended session credentials are valid for.
-createProfile_durationSeconds :: Lens.Lens' CreateProfile (Prelude.Maybe Prelude.Natural)
-createProfile_durationSeconds = Lens.lens (\CreateProfile' {durationSeconds} -> durationSeconds) (\s@CreateProfile' {} a -> s {durationSeconds = a} :: CreateProfile)
+-- | Specifies whether instance properties are required in
+-- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
+-- requests with this profile.
+createProfile_requireInstanceProperties :: Lens.Lens' CreateProfile (Prelude.Maybe Prelude.Bool)
+createProfile_requireInstanceProperties = Lens.lens (\CreateProfile' {requireInstanceProperties} -> requireInstanceProperties) (\s@CreateProfile' {} a -> s {requireInstanceProperties = a} :: CreateProfile)
 
 -- | A session policy that applies to the trust boundary of the vended
 -- session credentials.
 createProfile_sessionPolicy :: Lens.Lens' CreateProfile (Prelude.Maybe Prelude.Text)
 createProfile_sessionPolicy = Lens.lens (\CreateProfile' {sessionPolicy} -> sessionPolicy) (\s@CreateProfile' {} a -> s {sessionPolicy = a} :: CreateProfile)
 
--- | Specifies whether instance properties are required in
--- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
--- requests with this profile.
-createProfile_requireInstanceProperties :: Lens.Lens' CreateProfile (Prelude.Maybe Prelude.Bool)
-createProfile_requireInstanceProperties = Lens.lens (\CreateProfile' {requireInstanceProperties} -> requireInstanceProperties) (\s@CreateProfile' {} a -> s {requireInstanceProperties = a} :: CreateProfile)
+-- | The tags to attach to the profile.
+createProfile_tags :: Lens.Lens' CreateProfile (Prelude.Maybe [Tag])
+createProfile_tags = Lens.lens (\CreateProfile' {tags} -> tags) (\s@CreateProfile' {} a -> s {tags = a} :: CreateProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the profile.
 createProfile_name :: Lens.Lens' CreateProfile Prelude.Text
@@ -180,23 +180,23 @@ instance Core.AWSRequest CreateProfile where
 
 instance Prelude.Hashable CreateProfile where
   hashWithSalt _salt CreateProfile' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` managedPolicyArns
+    _salt `Prelude.hashWithSalt` durationSeconds
       `Prelude.hashWithSalt` enabled
-      `Prelude.hashWithSalt` durationSeconds
-      `Prelude.hashWithSalt` sessionPolicy
+      `Prelude.hashWithSalt` managedPolicyArns
       `Prelude.hashWithSalt` requireInstanceProperties
+      `Prelude.hashWithSalt` sessionPolicy
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` roleArns
 
 instance Prelude.NFData CreateProfile where
   rnf CreateProfile' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf managedPolicyArns
+    Prelude.rnf durationSeconds
       `Prelude.seq` Prelude.rnf enabled
-      `Prelude.seq` Prelude.rnf durationSeconds
-      `Prelude.seq` Prelude.rnf sessionPolicy
+      `Prelude.seq` Prelude.rnf managedPolicyArns
       `Prelude.seq` Prelude.rnf requireInstanceProperties
+      `Prelude.seq` Prelude.rnf sessionPolicy
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf roleArns
 
@@ -215,15 +215,15 @@ instance Data.ToJSON CreateProfile where
   toJSON CreateProfile' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
+          [ ("durationSeconds" Data..=)
+              Prelude.<$> durationSeconds,
+            ("enabled" Data..=) Prelude.<$> enabled,
             ("managedPolicyArns" Data..=)
               Prelude.<$> managedPolicyArns,
-            ("enabled" Data..=) Prelude.<$> enabled,
-            ("durationSeconds" Data..=)
-              Prelude.<$> durationSeconds,
-            ("sessionPolicy" Data..=) Prelude.<$> sessionPolicy,
             ("requireInstanceProperties" Data..=)
               Prelude.<$> requireInstanceProperties,
+            ("sessionPolicy" Data..=) Prelude.<$> sessionPolicy,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("roleArns" Data..= roleArns)
           ]

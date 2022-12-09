@@ -40,8 +40,8 @@ module Amazonka.RolesAnywhere.ListCrls
     newListCrlsResponse,
 
     -- * Response Lenses
-    listCrlsResponse_nextToken,
     listCrlsResponse_crls,
+    listCrlsResponse_nextToken,
     listCrlsResponse_httpStatus,
   )
 where
@@ -123,8 +123,8 @@ instance Core.AWSRequest ListCrls where
     Response.receiveJSON
       ( \s h x ->
           ListCrlsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "crls" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "crls" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,12 +161,12 @@ instance Data.ToQuery ListCrls where
 
 -- | /See:/ 'newListCrlsResponse' smart constructor.
 data ListCrlsResponse = ListCrlsResponse'
-  { -- | A token that indicates where the output should continue from, if a
+  { -- | A list of certificate revocation lists (CRL).
+    crls :: Prelude.Maybe [CrlDetail],
+    -- | A token that indicates where the output should continue from, if a
     -- previous operation did not show all results. To get the next results,
     -- call the operation again with this value.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of certificate revocation lists (CRL).
-    crls :: Prelude.Maybe [CrlDetail],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -180,11 +180,11 @@ data ListCrlsResponse = ListCrlsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'crls', 'listCrlsResponse_crls' - A list of certificate revocation lists (CRL).
+--
 -- 'nextToken', 'listCrlsResponse_nextToken' - A token that indicates where the output should continue from, if a
 -- previous operation did not show all results. To get the next results,
 -- call the operation again with this value.
---
--- 'crls', 'listCrlsResponse_crls' - A list of certificate revocation lists (CRL).
 --
 -- 'httpStatus', 'listCrlsResponse_httpStatus' - The response's http status code.
 newListCrlsResponse ::
@@ -193,10 +193,14 @@ newListCrlsResponse ::
   ListCrlsResponse
 newListCrlsResponse pHttpStatus_ =
   ListCrlsResponse'
-    { nextToken = Prelude.Nothing,
-      crls = Prelude.Nothing,
+    { crls = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of certificate revocation lists (CRL).
+listCrlsResponse_crls :: Lens.Lens' ListCrlsResponse (Prelude.Maybe [CrlDetail])
+listCrlsResponse_crls = Lens.lens (\ListCrlsResponse' {crls} -> crls) (\s@ListCrlsResponse' {} a -> s {crls = a} :: ListCrlsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that indicates where the output should continue from, if a
 -- previous operation did not show all results. To get the next results,
@@ -204,16 +208,12 @@ newListCrlsResponse pHttpStatus_ =
 listCrlsResponse_nextToken :: Lens.Lens' ListCrlsResponse (Prelude.Maybe Prelude.Text)
 listCrlsResponse_nextToken = Lens.lens (\ListCrlsResponse' {nextToken} -> nextToken) (\s@ListCrlsResponse' {} a -> s {nextToken = a} :: ListCrlsResponse)
 
--- | A list of certificate revocation lists (CRL).
-listCrlsResponse_crls :: Lens.Lens' ListCrlsResponse (Prelude.Maybe [CrlDetail])
-listCrlsResponse_crls = Lens.lens (\ListCrlsResponse' {crls} -> crls) (\s@ListCrlsResponse' {} a -> s {crls = a} :: ListCrlsResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | The response's http status code.
 listCrlsResponse_httpStatus :: Lens.Lens' ListCrlsResponse Prelude.Int
 listCrlsResponse_httpStatus = Lens.lens (\ListCrlsResponse' {httpStatus} -> httpStatus) (\s@ListCrlsResponse' {} a -> s {httpStatus = a} :: ListCrlsResponse)
 
 instance Prelude.NFData ListCrlsResponse where
   rnf ListCrlsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf crls
+    Prelude.rnf crls
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

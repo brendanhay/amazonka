@@ -25,11 +25,17 @@ module Amazonka.Amplify
     -- * Errors
     -- $errors
 
-    -- ** UnauthorizedException
-    _UnauthorizedException,
+    -- ** BadRequestException
+    _BadRequestException,
 
     -- ** DependentServiceFailureException
     _DependentServiceFailureException,
+
+    -- ** InternalFailureException
+    _InternalFailureException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- ** NotFoundException
     _NotFoundException,
@@ -37,14 +43,8 @@ module Amazonka.Amplify
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** BadRequestException
-    _BadRequestException,
-
-    -- ** InternalFailureException
-    _InternalFailureException,
+    -- ** UnauthorizedException
+    _UnauthorizedException,
 
     -- * Waiters
     -- $waiters

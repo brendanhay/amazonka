@@ -27,8 +27,8 @@ module Amazonka.Amplify.ListArtifacts
     newListArtifacts,
 
     -- * Request Lenses
-    listArtifacts_nextToken,
     listArtifacts_maxResults,
+    listArtifacts_nextToken,
     listArtifacts_appId,
     listArtifacts_branchName,
     listArtifacts_jobId,
@@ -56,12 +56,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListArtifacts' smart constructor.
 data ListArtifacts = ListArtifacts'
-  { -- | A pagination token. Set to null to start listing artifacts from start.
+  { -- | The maximum number of records to list in a single response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token. Set to null to start listing artifacts from start.
     -- If a non-null pagination token is returned in a result, pass its value
     -- in here to list more artifacts.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of records to list in a single response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The unique ID for an Amplify app.
     appId :: Prelude.Text,
     -- | The name of a branch that is part of an Amplify app.
@@ -79,11 +79,11 @@ data ListArtifacts = ListArtifacts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listArtifacts_maxResults' - The maximum number of records to list in a single response.
+--
 -- 'nextToken', 'listArtifacts_nextToken' - A pagination token. Set to null to start listing artifacts from start.
 -- If a non-null pagination token is returned in a result, pass its value
 -- in here to list more artifacts.
---
--- 'maxResults', 'listArtifacts_maxResults' - The maximum number of records to list in a single response.
 --
 -- 'appId', 'listArtifacts_appId' - The unique ID for an Amplify app.
 --
@@ -100,22 +100,22 @@ newListArtifacts ::
   ListArtifacts
 newListArtifacts pAppId_ pBranchName_ pJobId_ =
   ListArtifacts'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       appId = pAppId_,
       branchName = pBranchName_,
       jobId = pJobId_
     }
+
+-- | The maximum number of records to list in a single response.
+listArtifacts_maxResults :: Lens.Lens' ListArtifacts (Prelude.Maybe Prelude.Natural)
+listArtifacts_maxResults = Lens.lens (\ListArtifacts' {maxResults} -> maxResults) (\s@ListArtifacts' {} a -> s {maxResults = a} :: ListArtifacts)
 
 -- | A pagination token. Set to null to start listing artifacts from start.
 -- If a non-null pagination token is returned in a result, pass its value
 -- in here to list more artifacts.
 listArtifacts_nextToken :: Lens.Lens' ListArtifacts (Prelude.Maybe Prelude.Text)
 listArtifacts_nextToken = Lens.lens (\ListArtifacts' {nextToken} -> nextToken) (\s@ListArtifacts' {} a -> s {nextToken = a} :: ListArtifacts)
-
--- | The maximum number of records to list in a single response.
-listArtifacts_maxResults :: Lens.Lens' ListArtifacts (Prelude.Maybe Prelude.Natural)
-listArtifacts_maxResults = Lens.lens (\ListArtifacts' {maxResults} -> maxResults) (\s@ListArtifacts' {} a -> s {maxResults = a} :: ListArtifacts)
 
 -- | The unique ID for an Amplify app.
 listArtifacts_appId :: Lens.Lens' ListArtifacts Prelude.Text
@@ -146,16 +146,16 @@ instance Core.AWSRequest ListArtifacts where
 
 instance Prelude.Hashable ListArtifacts where
   hashWithSalt _salt ListArtifacts' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` branchName
       `Prelude.hashWithSalt` jobId
 
 instance Prelude.NFData ListArtifacts where
   rnf ListArtifacts' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf appId
       `Prelude.seq` Prelude.rnf branchName
       `Prelude.seq` Prelude.rnf jobId
@@ -186,8 +186,8 @@ instance Data.ToPath ListArtifacts where
 instance Data.ToQuery ListArtifacts where
   toQuery ListArtifacts' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | The result structure for the list artifacts request.

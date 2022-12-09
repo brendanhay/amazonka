@@ -29,8 +29,8 @@ module Amazonka.Amplify.ListBranches
     newListBranches,
 
     -- * Request Lenses
-    listBranches_nextToken,
     listBranches_maxResults,
+    listBranches_nextToken,
     listBranches_appId,
 
     -- * Destructuring the Response
@@ -56,12 +56,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListBranches' smart constructor.
 data ListBranches = ListBranches'
-  { -- | A pagination token. Set to null to start listing branches from the
+  { -- | The maximum number of records to list in a single response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token. Set to null to start listing branches from the
     -- start. If a non-null pagination token is returned in a result, pass its
     -- value in here to list more branches.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of records to list in a single response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The unique ID for an Amplify app.
     appId :: Prelude.Text
   }
@@ -75,11 +75,11 @@ data ListBranches = ListBranches'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listBranches_maxResults' - The maximum number of records to list in a single response.
+--
 -- 'nextToken', 'listBranches_nextToken' - A pagination token. Set to null to start listing branches from the
 -- start. If a non-null pagination token is returned in a result, pass its
 -- value in here to list more branches.
---
--- 'maxResults', 'listBranches_maxResults' - The maximum number of records to list in a single response.
 --
 -- 'appId', 'listBranches_appId' - The unique ID for an Amplify app.
 newListBranches ::
@@ -88,20 +88,20 @@ newListBranches ::
   ListBranches
 newListBranches pAppId_ =
   ListBranches'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       appId = pAppId_
     }
+
+-- | The maximum number of records to list in a single response.
+listBranches_maxResults :: Lens.Lens' ListBranches (Prelude.Maybe Prelude.Natural)
+listBranches_maxResults = Lens.lens (\ListBranches' {maxResults} -> maxResults) (\s@ListBranches' {} a -> s {maxResults = a} :: ListBranches)
 
 -- | A pagination token. Set to null to start listing branches from the
 -- start. If a non-null pagination token is returned in a result, pass its
 -- value in here to list more branches.
 listBranches_nextToken :: Lens.Lens' ListBranches (Prelude.Maybe Prelude.Text)
 listBranches_nextToken = Lens.lens (\ListBranches' {nextToken} -> nextToken) (\s@ListBranches' {} a -> s {nextToken = a} :: ListBranches)
-
--- | The maximum number of records to list in a single response.
-listBranches_maxResults :: Lens.Lens' ListBranches (Prelude.Maybe Prelude.Natural)
-listBranches_maxResults = Lens.lens (\ListBranches' {maxResults} -> maxResults) (\s@ListBranches' {} a -> s {maxResults = a} :: ListBranches)
 
 -- | The unique ID for an Amplify app.
 listBranches_appId :: Lens.Lens' ListBranches Prelude.Text
@@ -139,14 +139,14 @@ instance Core.AWSRequest ListBranches where
 
 instance Prelude.Hashable ListBranches where
   hashWithSalt _salt ListBranches' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` appId
 
 instance Prelude.NFData ListBranches where
   rnf ListBranches' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf appId
 
 instance Data.ToHeaders ListBranches where
@@ -168,8 +168,8 @@ instance Data.ToPath ListBranches where
 instance Data.ToQuery ListBranches where
   toQuery ListBranches' {..} =
     Prelude.mconcat
-      [ "nextToken" Data.=: nextToken,
-        "maxResults" Data.=: maxResults
+      [ "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken
       ]
 
 -- | The result structure for the list branches request.

@@ -18,13 +18,13 @@ module Amazonka.Amplify.Types
     defaultService,
 
     -- * Errors
-    _UnauthorizedException,
+    _BadRequestException,
     _DependentServiceFailureException,
+    _InternalFailureException,
+    _LimitExceededException,
     _NotFoundException,
     _ResourceNotFoundException,
-    _LimitExceededException,
-    _BadRequestException,
-    _InternalFailureException,
+    _UnauthorizedException,
 
     -- * DomainStatus
     DomainStatus (..),
@@ -47,18 +47,18 @@ module Amazonka.Amplify.Types
     -- * App
     App (..),
     newApp,
-    app_tags,
-    app_repositoryCloneMethod,
-    app_iamServiceRoleArn,
+    app_autoBranchCreationConfig,
     app_autoBranchCreationPatterns,
-    app_customHeaders,
-    app_enableBranchAutoDeletion,
     app_basicAuthCredentials,
-    app_productionBranch,
+    app_buildSpec,
+    app_customHeaders,
     app_customRules,
     app_enableAutoBranchCreation,
-    app_buildSpec,
-    app_autoBranchCreationConfig,
+    app_enableBranchAutoDeletion,
+    app_iamServiceRoleArn,
+    app_productionBranch,
+    app_repositoryCloneMethod,
+    app_tags,
     app_appId,
     app_appArn,
     app_name,
@@ -81,16 +81,16 @@ module Amazonka.Amplify.Types
     -- * AutoBranchCreationConfig
     AutoBranchCreationConfig (..),
     newAutoBranchCreationConfig,
-    autoBranchCreationConfig_enablePerformanceMode,
     autoBranchCreationConfig_basicAuthCredentials,
-    autoBranchCreationConfig_environmentVariables,
-    autoBranchCreationConfig_pullRequestEnvironmentName,
-    autoBranchCreationConfig_stage,
+    autoBranchCreationConfig_buildSpec,
     autoBranchCreationConfig_enableAutoBuild,
     autoBranchCreationConfig_enableBasicAuth,
-    autoBranchCreationConfig_framework,
-    autoBranchCreationConfig_buildSpec,
+    autoBranchCreationConfig_enablePerformanceMode,
     autoBranchCreationConfig_enablePullRequestPreview,
+    autoBranchCreationConfig_environmentVariables,
+    autoBranchCreationConfig_framework,
+    autoBranchCreationConfig_pullRequestEnvironmentName,
+    autoBranchCreationConfig_stage,
 
     -- * BackendEnvironment
     BackendEnvironment (..),
@@ -105,16 +105,16 @@ module Amazonka.Amplify.Types
     -- * Branch
     Branch (..),
     newBranch,
+    branch_associatedResources,
+    branch_backendEnvironmentArn,
+    branch_basicAuthCredentials,
+    branch_buildSpec,
+    branch_destinationBranch,
+    branch_enablePerformanceMode,
+    branch_pullRequestEnvironmentName,
+    branch_sourceBranch,
     branch_tags,
     branch_thumbnailUrl,
-    branch_enablePerformanceMode,
-    branch_destinationBranch,
-    branch_associatedResources,
-    branch_basicAuthCredentials,
-    branch_sourceBranch,
-    branch_pullRequestEnvironmentName,
-    branch_backendEnvironmentArn,
-    branch_buildSpec,
     branch_branchArn,
     branch_branchName,
     branch_description,
@@ -136,16 +136,16 @@ module Amazonka.Amplify.Types
     -- * CustomRule
     CustomRule (..),
     newCustomRule,
-    customRule_status,
     customRule_condition,
+    customRule_status,
     customRule_source,
     customRule_target,
 
     -- * DomainAssociation
     DomainAssociation (..),
     newDomainAssociation,
-    domainAssociation_autoSubDomainIAMRole,
     domainAssociation_autoSubDomainCreationPatterns,
+    domainAssociation_autoSubDomainIAMRole,
     domainAssociation_certificateVerificationDNSRecord,
     domainAssociation_domainAssociationArn,
     domainAssociation_domainName,
@@ -176,21 +176,21 @@ module Amazonka.Amplify.Types
     -- * ProductionBranch
     ProductionBranch (..),
     newProductionBranch,
-    productionBranch_thumbnailUrl,
     productionBranch_branchName,
-    productionBranch_status,
     productionBranch_lastDeployTime,
+    productionBranch_status,
+    productionBranch_thumbnailUrl,
 
     -- * Step
     Step (..),
     newStep,
+    step_artifactsUrl,
+    step_context,
+    step_logUrl,
     step_screenshots,
     step_statusReason,
-    step_logUrl,
-    step_context,
-    step_artifactsUrl,
-    step_testConfigUrl,
     step_testArtifactsUrl,
+    step_testConfigUrl,
     step_stepName,
     step_startTime,
     step_status,
@@ -272,28 +272,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -301,13 +295,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -315,15 +313,17 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
--- | An operation failed due to a lack of access.
-_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnauthorizedException =
+-- | A request contains unexpected data.
+_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
   Core._MatchServiceError
     defaultService
-    "UnauthorizedException"
-    Prelude.. Core.hasStatus 401
+    "BadRequestException"
+    Prelude.. Core.hasStatus 400
 
 -- | An operation failed because a dependent service threw an exception.
 _DependentServiceFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -332,6 +332,22 @@ _DependentServiceFailureException =
     defaultService
     "DependentServiceFailureException"
     Prelude.. Core.hasStatus 503
+
+-- | The service failed to perform an operation due to an internal issue.
+_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalFailureException =
+  Core._MatchServiceError
+    defaultService
+    "InternalFailureException"
+    Prelude.. Core.hasStatus 500
+
+-- | A resource could not be created because service quotas were exceeded.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
+    Prelude.. Core.hasStatus 429
 
 -- | An entity was not found during an operation.
 _NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -349,26 +365,10 @@ _ResourceNotFoundException =
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | A resource could not be created because service quotas were exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
+-- | An operation failed due to a lack of access.
+_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedException =
   Core._MatchServiceError
     defaultService
-    "LimitExceededException"
-    Prelude.. Core.hasStatus 429
-
--- | A request contains unexpected data.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BadRequestException =
-  Core._MatchServiceError
-    defaultService
-    "BadRequestException"
-    Prelude.. Core.hasStatus 400
-
--- | The service failed to perform an operation due to an internal issue.
-_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalFailureException =
-  Core._MatchServiceError
-    defaultService
-    "InternalFailureException"
-    Prelude.. Core.hasStatus 500
+    "UnauthorizedException"
+    Prelude.. Core.hasStatus 401

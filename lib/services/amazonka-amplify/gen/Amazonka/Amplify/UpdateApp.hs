@@ -27,24 +27,24 @@ module Amazonka.Amplify.UpdateApp
     newUpdateApp,
 
     -- * Request Lenses
-    updateApp_iamServiceRoleArn,
     updateApp_accessToken,
-    updateApp_name,
-    updateApp_autoBranchCreationPatterns,
-    updateApp_customHeaders,
-    updateApp_enableBranchAutoBuild,
-    updateApp_repository,
-    updateApp_enableBranchAutoDeletion,
-    updateApp_basicAuthCredentials,
-    updateApp_description,
-    updateApp_platform,
-    updateApp_oauthToken,
-    updateApp_environmentVariables,
-    updateApp_customRules,
-    updateApp_enableBasicAuth,
-    updateApp_enableAutoBranchCreation,
-    updateApp_buildSpec,
     updateApp_autoBranchCreationConfig,
+    updateApp_autoBranchCreationPatterns,
+    updateApp_basicAuthCredentials,
+    updateApp_buildSpec,
+    updateApp_customHeaders,
+    updateApp_customRules,
+    updateApp_description,
+    updateApp_enableAutoBranchCreation,
+    updateApp_enableBasicAuth,
+    updateApp_enableBranchAutoBuild,
+    updateApp_enableBranchAutoDeletion,
+    updateApp_environmentVariables,
+    updateApp_iamServiceRoleArn,
+    updateApp_name,
+    updateApp_oauthToken,
+    updateApp_platform,
+    updateApp_repository,
     updateApp_appId,
 
     -- * Destructuring the Response
@@ -69,10 +69,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateApp' smart constructor.
 data UpdateApp = UpdateApp'
-  { -- | The AWS Identity and Access Management (IAM) service role for an Amplify
-    -- app.
-    iamServiceRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The personal access token for a GitHub repository for an Amplify app.
+  { -- | The personal access token for a GitHub repository for an Amplify app.
     -- The personal access token is used to authorize access to a GitHub
     -- repository using the Amplify GitHub App. The token is not stored.
     --
@@ -88,31 +85,39 @@ data UpdateApp = UpdateApp'
     -- <https://docs.aws.amazon.com/amplify/latest/UserGuide/setting-up-GitHub-access.html#migrating-to-github-app-auth Migrating an existing OAuth app to the Amplify GitHub App>
     -- in the /Amplify User Guide/ .
     accessToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The name for an Amplify app.
-    name :: Prelude.Maybe Prelude.Text,
+    -- | The automated branch creation configuration for an Amplify app.
+    autoBranchCreationConfig :: Prelude.Maybe AutoBranchCreationConfig,
     -- | Describes the automated branch creation glob patterns for an Amplify
     -- app.
     autoBranchCreationPatterns :: Prelude.Maybe [Prelude.Text],
-    -- | The custom HTTP headers for an Amplify app.
-    customHeaders :: Prelude.Maybe Prelude.Text,
-    -- | Enables branch auto-building for an Amplify app.
-    enableBranchAutoBuild :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the repository for an Amplify app
-    repository :: Prelude.Maybe Prelude.Text,
-    -- | Automatically disconnects a branch in the Amplify Console when you
-    -- delete a branch from your Git repository.
-    enableBranchAutoDeletion :: Prelude.Maybe Prelude.Bool,
     -- | The basic authorization credentials for an Amplify app. You must
     -- base64-encode the authorization credentials and provide them in the
     -- format @user:password@.
     basicAuthCredentials :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The build specification (build spec) for an Amplify app.
+    buildSpec :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The custom HTTP headers for an Amplify app.
+    customHeaders :: Prelude.Maybe Prelude.Text,
+    -- | The custom redirect and rewrite rules for an Amplify app.
+    customRules :: Prelude.Maybe [CustomRule],
     -- | The description for an Amplify app.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The platform for the Amplify app. For a static app, set the platform
-    -- type to @WEB@. For a dynamic server-side rendered (SSR) app, set the
-    -- platform type to @WEB_COMPUTE@. For an app requiring Amplify Hosting\'s
-    -- original SSR support only, set the platform type to @WEB_DYNAMIC@.
-    platform :: Prelude.Maybe Platform,
+    -- | Enables automated branch creation for an Amplify app.
+    enableAutoBranchCreation :: Prelude.Maybe Prelude.Bool,
+    -- | Enables basic authorization for an Amplify app.
+    enableBasicAuth :: Prelude.Maybe Prelude.Bool,
+    -- | Enables branch auto-building for an Amplify app.
+    enableBranchAutoBuild :: Prelude.Maybe Prelude.Bool,
+    -- | Automatically disconnects a branch in the Amplify Console when you
+    -- delete a branch from your Git repository.
+    enableBranchAutoDeletion :: Prelude.Maybe Prelude.Bool,
+    -- | The environment variables for an Amplify app.
+    environmentVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The AWS Identity and Access Management (IAM) service role for an Amplify
+    -- app.
+    iamServiceRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The name for an Amplify app.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The OAuth token for a third-party source control system for an Amplify
     -- app. The OAuth token is used to create a webhook and a read-only deploy
     -- key using SSH cloning. The OAuth token is not stored.
@@ -132,18 +137,13 @@ data UpdateApp = UpdateApp'
     -- <https://docs.aws.amazon.com/amplify/latest/UserGuide/setting-up-GitHub-access.html#migrating-to-github-app-auth Migrating an existing OAuth app to the Amplify GitHub App>
     -- in the /Amplify User Guide/ .
     oauthToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The environment variables for an Amplify app.
-    environmentVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The custom redirect and rewrite rules for an Amplify app.
-    customRules :: Prelude.Maybe [CustomRule],
-    -- | Enables basic authorization for an Amplify app.
-    enableBasicAuth :: Prelude.Maybe Prelude.Bool,
-    -- | Enables automated branch creation for an Amplify app.
-    enableAutoBranchCreation :: Prelude.Maybe Prelude.Bool,
-    -- | The build specification (build spec) for an Amplify app.
-    buildSpec :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The automated branch creation configuration for an Amplify app.
-    autoBranchCreationConfig :: Prelude.Maybe AutoBranchCreationConfig,
+    -- | The platform for the Amplify app. For a static app, set the platform
+    -- type to @WEB@. For a dynamic server-side rendered (SSR) app, set the
+    -- platform type to @WEB_COMPUTE@. For an app requiring Amplify Hosting\'s
+    -- original SSR support only, set the platform type to @WEB_DYNAMIC@.
+    platform :: Prelude.Maybe Platform,
+    -- | The name of the repository for an Amplify app
+    repository :: Prelude.Maybe Prelude.Text,
     -- | The unique ID for an Amplify app.
     appId :: Prelude.Text
   }
@@ -156,9 +156,6 @@ data UpdateApp = UpdateApp'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'iamServiceRoleArn', 'updateApp_iamServiceRoleArn' - The AWS Identity and Access Management (IAM) service role for an Amplify
--- app.
 --
 -- 'accessToken', 'updateApp_accessToken' - The personal access token for a GitHub repository for an Amplify app.
 -- The personal access token is used to authorize access to a GitHub
@@ -176,30 +173,38 @@ data UpdateApp = UpdateApp'
 -- <https://docs.aws.amazon.com/amplify/latest/UserGuide/setting-up-GitHub-access.html#migrating-to-github-app-auth Migrating an existing OAuth app to the Amplify GitHub App>
 -- in the /Amplify User Guide/ .
 --
--- 'name', 'updateApp_name' - The name for an Amplify app.
+-- 'autoBranchCreationConfig', 'updateApp_autoBranchCreationConfig' - The automated branch creation configuration for an Amplify app.
 --
 -- 'autoBranchCreationPatterns', 'updateApp_autoBranchCreationPatterns' - Describes the automated branch creation glob patterns for an Amplify
 -- app.
---
--- 'customHeaders', 'updateApp_customHeaders' - The custom HTTP headers for an Amplify app.
---
--- 'enableBranchAutoBuild', 'updateApp_enableBranchAutoBuild' - Enables branch auto-building for an Amplify app.
---
--- 'repository', 'updateApp_repository' - The name of the repository for an Amplify app
---
--- 'enableBranchAutoDeletion', 'updateApp_enableBranchAutoDeletion' - Automatically disconnects a branch in the Amplify Console when you
--- delete a branch from your Git repository.
 --
 -- 'basicAuthCredentials', 'updateApp_basicAuthCredentials' - The basic authorization credentials for an Amplify app. You must
 -- base64-encode the authorization credentials and provide them in the
 -- format @user:password@.
 --
+-- 'buildSpec', 'updateApp_buildSpec' - The build specification (build spec) for an Amplify app.
+--
+-- 'customHeaders', 'updateApp_customHeaders' - The custom HTTP headers for an Amplify app.
+--
+-- 'customRules', 'updateApp_customRules' - The custom redirect and rewrite rules for an Amplify app.
+--
 -- 'description', 'updateApp_description' - The description for an Amplify app.
 --
--- 'platform', 'updateApp_platform' - The platform for the Amplify app. For a static app, set the platform
--- type to @WEB@. For a dynamic server-side rendered (SSR) app, set the
--- platform type to @WEB_COMPUTE@. For an app requiring Amplify Hosting\'s
--- original SSR support only, set the platform type to @WEB_DYNAMIC@.
+-- 'enableAutoBranchCreation', 'updateApp_enableAutoBranchCreation' - Enables automated branch creation for an Amplify app.
+--
+-- 'enableBasicAuth', 'updateApp_enableBasicAuth' - Enables basic authorization for an Amplify app.
+--
+-- 'enableBranchAutoBuild', 'updateApp_enableBranchAutoBuild' - Enables branch auto-building for an Amplify app.
+--
+-- 'enableBranchAutoDeletion', 'updateApp_enableBranchAutoDeletion' - Automatically disconnects a branch in the Amplify Console when you
+-- delete a branch from your Git repository.
+--
+-- 'environmentVariables', 'updateApp_environmentVariables' - The environment variables for an Amplify app.
+--
+-- 'iamServiceRoleArn', 'updateApp_iamServiceRoleArn' - The AWS Identity and Access Management (IAM) service role for an Amplify
+-- app.
+--
+-- 'name', 'updateApp_name' - The name for an Amplify app.
 --
 -- 'oauthToken', 'updateApp_oauthToken' - The OAuth token for a third-party source control system for an Amplify
 -- app. The OAuth token is used to create a webhook and a read-only deploy
@@ -220,17 +225,12 @@ data UpdateApp = UpdateApp'
 -- <https://docs.aws.amazon.com/amplify/latest/UserGuide/setting-up-GitHub-access.html#migrating-to-github-app-auth Migrating an existing OAuth app to the Amplify GitHub App>
 -- in the /Amplify User Guide/ .
 --
--- 'environmentVariables', 'updateApp_environmentVariables' - The environment variables for an Amplify app.
+-- 'platform', 'updateApp_platform' - The platform for the Amplify app. For a static app, set the platform
+-- type to @WEB@. For a dynamic server-side rendered (SSR) app, set the
+-- platform type to @WEB_COMPUTE@. For an app requiring Amplify Hosting\'s
+-- original SSR support only, set the platform type to @WEB_DYNAMIC@.
 --
--- 'customRules', 'updateApp_customRules' - The custom redirect and rewrite rules for an Amplify app.
---
--- 'enableBasicAuth', 'updateApp_enableBasicAuth' - Enables basic authorization for an Amplify app.
---
--- 'enableAutoBranchCreation', 'updateApp_enableAutoBranchCreation' - Enables automated branch creation for an Amplify app.
---
--- 'buildSpec', 'updateApp_buildSpec' - The build specification (build spec) for an Amplify app.
---
--- 'autoBranchCreationConfig', 'updateApp_autoBranchCreationConfig' - The automated branch creation configuration for an Amplify app.
+-- 'repository', 'updateApp_repository' - The name of the repository for an Amplify app
 --
 -- 'appId', 'updateApp_appId' - The unique ID for an Amplify app.
 newUpdateApp ::
@@ -239,31 +239,26 @@ newUpdateApp ::
   UpdateApp
 newUpdateApp pAppId_ =
   UpdateApp'
-    { iamServiceRoleArn = Prelude.Nothing,
-      accessToken = Prelude.Nothing,
-      name = Prelude.Nothing,
-      autoBranchCreationPatterns = Prelude.Nothing,
-      customHeaders = Prelude.Nothing,
-      enableBranchAutoBuild = Prelude.Nothing,
-      repository = Prelude.Nothing,
-      enableBranchAutoDeletion = Prelude.Nothing,
-      basicAuthCredentials = Prelude.Nothing,
-      description = Prelude.Nothing,
-      platform = Prelude.Nothing,
-      oauthToken = Prelude.Nothing,
-      environmentVariables = Prelude.Nothing,
-      customRules = Prelude.Nothing,
-      enableBasicAuth = Prelude.Nothing,
-      enableAutoBranchCreation = Prelude.Nothing,
-      buildSpec = Prelude.Nothing,
+    { accessToken = Prelude.Nothing,
       autoBranchCreationConfig = Prelude.Nothing,
+      autoBranchCreationPatterns = Prelude.Nothing,
+      basicAuthCredentials = Prelude.Nothing,
+      buildSpec = Prelude.Nothing,
+      customHeaders = Prelude.Nothing,
+      customRules = Prelude.Nothing,
+      description = Prelude.Nothing,
+      enableAutoBranchCreation = Prelude.Nothing,
+      enableBasicAuth = Prelude.Nothing,
+      enableBranchAutoBuild = Prelude.Nothing,
+      enableBranchAutoDeletion = Prelude.Nothing,
+      environmentVariables = Prelude.Nothing,
+      iamServiceRoleArn = Prelude.Nothing,
+      name = Prelude.Nothing,
+      oauthToken = Prelude.Nothing,
+      platform = Prelude.Nothing,
+      repository = Prelude.Nothing,
       appId = pAppId_
     }
-
--- | The AWS Identity and Access Management (IAM) service role for an Amplify
--- app.
-updateApp_iamServiceRoleArn :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
-updateApp_iamServiceRoleArn = Lens.lens (\UpdateApp' {iamServiceRoleArn} -> iamServiceRoleArn) (\s@UpdateApp' {} a -> s {iamServiceRoleArn = a} :: UpdateApp)
 
 -- | The personal access token for a GitHub repository for an Amplify app.
 -- The personal access token is used to authorize access to a GitHub
@@ -283,31 +278,14 @@ updateApp_iamServiceRoleArn = Lens.lens (\UpdateApp' {iamServiceRoleArn} -> iamS
 updateApp_accessToken :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
 updateApp_accessToken = Lens.lens (\UpdateApp' {accessToken} -> accessToken) (\s@UpdateApp' {} a -> s {accessToken = a} :: UpdateApp) Prelude.. Lens.mapping Data._Sensitive
 
--- | The name for an Amplify app.
-updateApp_name :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
-updateApp_name = Lens.lens (\UpdateApp' {name} -> name) (\s@UpdateApp' {} a -> s {name = a} :: UpdateApp)
+-- | The automated branch creation configuration for an Amplify app.
+updateApp_autoBranchCreationConfig :: Lens.Lens' UpdateApp (Prelude.Maybe AutoBranchCreationConfig)
+updateApp_autoBranchCreationConfig = Lens.lens (\UpdateApp' {autoBranchCreationConfig} -> autoBranchCreationConfig) (\s@UpdateApp' {} a -> s {autoBranchCreationConfig = a} :: UpdateApp)
 
 -- | Describes the automated branch creation glob patterns for an Amplify
 -- app.
 updateApp_autoBranchCreationPatterns :: Lens.Lens' UpdateApp (Prelude.Maybe [Prelude.Text])
 updateApp_autoBranchCreationPatterns = Lens.lens (\UpdateApp' {autoBranchCreationPatterns} -> autoBranchCreationPatterns) (\s@UpdateApp' {} a -> s {autoBranchCreationPatterns = a} :: UpdateApp) Prelude.. Lens.mapping Lens.coerced
-
--- | The custom HTTP headers for an Amplify app.
-updateApp_customHeaders :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
-updateApp_customHeaders = Lens.lens (\UpdateApp' {customHeaders} -> customHeaders) (\s@UpdateApp' {} a -> s {customHeaders = a} :: UpdateApp)
-
--- | Enables branch auto-building for an Amplify app.
-updateApp_enableBranchAutoBuild :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Bool)
-updateApp_enableBranchAutoBuild = Lens.lens (\UpdateApp' {enableBranchAutoBuild} -> enableBranchAutoBuild) (\s@UpdateApp' {} a -> s {enableBranchAutoBuild = a} :: UpdateApp)
-
--- | The name of the repository for an Amplify app
-updateApp_repository :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
-updateApp_repository = Lens.lens (\UpdateApp' {repository} -> repository) (\s@UpdateApp' {} a -> s {repository = a} :: UpdateApp)
-
--- | Automatically disconnects a branch in the Amplify Console when you
--- delete a branch from your Git repository.
-updateApp_enableBranchAutoDeletion :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Bool)
-updateApp_enableBranchAutoDeletion = Lens.lens (\UpdateApp' {enableBranchAutoDeletion} -> enableBranchAutoDeletion) (\s@UpdateApp' {} a -> s {enableBranchAutoDeletion = a} :: UpdateApp)
 
 -- | The basic authorization credentials for an Amplify app. You must
 -- base64-encode the authorization credentials and provide them in the
@@ -315,16 +293,51 @@ updateApp_enableBranchAutoDeletion = Lens.lens (\UpdateApp' {enableBranchAutoDel
 updateApp_basicAuthCredentials :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
 updateApp_basicAuthCredentials = Lens.lens (\UpdateApp' {basicAuthCredentials} -> basicAuthCredentials) (\s@UpdateApp' {} a -> s {basicAuthCredentials = a} :: UpdateApp) Prelude.. Lens.mapping Data._Sensitive
 
+-- | The build specification (build spec) for an Amplify app.
+updateApp_buildSpec :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
+updateApp_buildSpec = Lens.lens (\UpdateApp' {buildSpec} -> buildSpec) (\s@UpdateApp' {} a -> s {buildSpec = a} :: UpdateApp) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The custom HTTP headers for an Amplify app.
+updateApp_customHeaders :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
+updateApp_customHeaders = Lens.lens (\UpdateApp' {customHeaders} -> customHeaders) (\s@UpdateApp' {} a -> s {customHeaders = a} :: UpdateApp)
+
+-- | The custom redirect and rewrite rules for an Amplify app.
+updateApp_customRules :: Lens.Lens' UpdateApp (Prelude.Maybe [CustomRule])
+updateApp_customRules = Lens.lens (\UpdateApp' {customRules} -> customRules) (\s@UpdateApp' {} a -> s {customRules = a} :: UpdateApp) Prelude.. Lens.mapping Lens.coerced
+
 -- | The description for an Amplify app.
 updateApp_description :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
 updateApp_description = Lens.lens (\UpdateApp' {description} -> description) (\s@UpdateApp' {} a -> s {description = a} :: UpdateApp)
 
--- | The platform for the Amplify app. For a static app, set the platform
--- type to @WEB@. For a dynamic server-side rendered (SSR) app, set the
--- platform type to @WEB_COMPUTE@. For an app requiring Amplify Hosting\'s
--- original SSR support only, set the platform type to @WEB_DYNAMIC@.
-updateApp_platform :: Lens.Lens' UpdateApp (Prelude.Maybe Platform)
-updateApp_platform = Lens.lens (\UpdateApp' {platform} -> platform) (\s@UpdateApp' {} a -> s {platform = a} :: UpdateApp)
+-- | Enables automated branch creation for an Amplify app.
+updateApp_enableAutoBranchCreation :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Bool)
+updateApp_enableAutoBranchCreation = Lens.lens (\UpdateApp' {enableAutoBranchCreation} -> enableAutoBranchCreation) (\s@UpdateApp' {} a -> s {enableAutoBranchCreation = a} :: UpdateApp)
+
+-- | Enables basic authorization for an Amplify app.
+updateApp_enableBasicAuth :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Bool)
+updateApp_enableBasicAuth = Lens.lens (\UpdateApp' {enableBasicAuth} -> enableBasicAuth) (\s@UpdateApp' {} a -> s {enableBasicAuth = a} :: UpdateApp)
+
+-- | Enables branch auto-building for an Amplify app.
+updateApp_enableBranchAutoBuild :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Bool)
+updateApp_enableBranchAutoBuild = Lens.lens (\UpdateApp' {enableBranchAutoBuild} -> enableBranchAutoBuild) (\s@UpdateApp' {} a -> s {enableBranchAutoBuild = a} :: UpdateApp)
+
+-- | Automatically disconnects a branch in the Amplify Console when you
+-- delete a branch from your Git repository.
+updateApp_enableBranchAutoDeletion :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Bool)
+updateApp_enableBranchAutoDeletion = Lens.lens (\UpdateApp' {enableBranchAutoDeletion} -> enableBranchAutoDeletion) (\s@UpdateApp' {} a -> s {enableBranchAutoDeletion = a} :: UpdateApp)
+
+-- | The environment variables for an Amplify app.
+updateApp_environmentVariables :: Lens.Lens' UpdateApp (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updateApp_environmentVariables = Lens.lens (\UpdateApp' {environmentVariables} -> environmentVariables) (\s@UpdateApp' {} a -> s {environmentVariables = a} :: UpdateApp) Prelude.. Lens.mapping Lens.coerced
+
+-- | The AWS Identity and Access Management (IAM) service role for an Amplify
+-- app.
+updateApp_iamServiceRoleArn :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
+updateApp_iamServiceRoleArn = Lens.lens (\UpdateApp' {iamServiceRoleArn} -> iamServiceRoleArn) (\s@UpdateApp' {} a -> s {iamServiceRoleArn = a} :: UpdateApp)
+
+-- | The name for an Amplify app.
+updateApp_name :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
+updateApp_name = Lens.lens (\UpdateApp' {name} -> name) (\s@UpdateApp' {} a -> s {name = a} :: UpdateApp)
 
 -- | The OAuth token for a third-party source control system for an Amplify
 -- app. The OAuth token is used to create a webhook and a read-only deploy
@@ -347,29 +360,16 @@ updateApp_platform = Lens.lens (\UpdateApp' {platform} -> platform) (\s@UpdateAp
 updateApp_oauthToken :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
 updateApp_oauthToken = Lens.lens (\UpdateApp' {oauthToken} -> oauthToken) (\s@UpdateApp' {} a -> s {oauthToken = a} :: UpdateApp) Prelude.. Lens.mapping Data._Sensitive
 
--- | The environment variables for an Amplify app.
-updateApp_environmentVariables :: Lens.Lens' UpdateApp (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateApp_environmentVariables = Lens.lens (\UpdateApp' {environmentVariables} -> environmentVariables) (\s@UpdateApp' {} a -> s {environmentVariables = a} :: UpdateApp) Prelude.. Lens.mapping Lens.coerced
+-- | The platform for the Amplify app. For a static app, set the platform
+-- type to @WEB@. For a dynamic server-side rendered (SSR) app, set the
+-- platform type to @WEB_COMPUTE@. For an app requiring Amplify Hosting\'s
+-- original SSR support only, set the platform type to @WEB_DYNAMIC@.
+updateApp_platform :: Lens.Lens' UpdateApp (Prelude.Maybe Platform)
+updateApp_platform = Lens.lens (\UpdateApp' {platform} -> platform) (\s@UpdateApp' {} a -> s {platform = a} :: UpdateApp)
 
--- | The custom redirect and rewrite rules for an Amplify app.
-updateApp_customRules :: Lens.Lens' UpdateApp (Prelude.Maybe [CustomRule])
-updateApp_customRules = Lens.lens (\UpdateApp' {customRules} -> customRules) (\s@UpdateApp' {} a -> s {customRules = a} :: UpdateApp) Prelude.. Lens.mapping Lens.coerced
-
--- | Enables basic authorization for an Amplify app.
-updateApp_enableBasicAuth :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Bool)
-updateApp_enableBasicAuth = Lens.lens (\UpdateApp' {enableBasicAuth} -> enableBasicAuth) (\s@UpdateApp' {} a -> s {enableBasicAuth = a} :: UpdateApp)
-
--- | Enables automated branch creation for an Amplify app.
-updateApp_enableAutoBranchCreation :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Bool)
-updateApp_enableAutoBranchCreation = Lens.lens (\UpdateApp' {enableAutoBranchCreation} -> enableAutoBranchCreation) (\s@UpdateApp' {} a -> s {enableAutoBranchCreation = a} :: UpdateApp)
-
--- | The build specification (build spec) for an Amplify app.
-updateApp_buildSpec :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
-updateApp_buildSpec = Lens.lens (\UpdateApp' {buildSpec} -> buildSpec) (\s@UpdateApp' {} a -> s {buildSpec = a} :: UpdateApp) Prelude.. Lens.mapping Data._Sensitive
-
--- | The automated branch creation configuration for an Amplify app.
-updateApp_autoBranchCreationConfig :: Lens.Lens' UpdateApp (Prelude.Maybe AutoBranchCreationConfig)
-updateApp_autoBranchCreationConfig = Lens.lens (\UpdateApp' {autoBranchCreationConfig} -> autoBranchCreationConfig) (\s@UpdateApp' {} a -> s {autoBranchCreationConfig = a} :: UpdateApp)
+-- | The name of the repository for an Amplify app
+updateApp_repository :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
+updateApp_repository = Lens.lens (\UpdateApp' {repository} -> repository) (\s@UpdateApp' {} a -> s {repository = a} :: UpdateApp)
 
 -- | The unique ID for an Amplify app.
 updateApp_appId :: Lens.Lens' UpdateApp Prelude.Text
@@ -389,47 +389,46 @@ instance Core.AWSRequest UpdateApp where
 
 instance Prelude.Hashable UpdateApp where
   hashWithSalt _salt UpdateApp' {..} =
-    _salt `Prelude.hashWithSalt` iamServiceRoleArn
-      `Prelude.hashWithSalt` accessToken
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` autoBranchCreationPatterns
-      `Prelude.hashWithSalt` customHeaders
-      `Prelude.hashWithSalt` enableBranchAutoBuild
-      `Prelude.hashWithSalt` repository
-      `Prelude.hashWithSalt` enableBranchAutoDeletion
-      `Prelude.hashWithSalt` basicAuthCredentials
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` platform
-      `Prelude.hashWithSalt` oauthToken
-      `Prelude.hashWithSalt` environmentVariables
-      `Prelude.hashWithSalt` customRules
-      `Prelude.hashWithSalt` enableBasicAuth
-      `Prelude.hashWithSalt` enableAutoBranchCreation
-      `Prelude.hashWithSalt` buildSpec
+    _salt `Prelude.hashWithSalt` accessToken
       `Prelude.hashWithSalt` autoBranchCreationConfig
+      `Prelude.hashWithSalt` autoBranchCreationPatterns
+      `Prelude.hashWithSalt` basicAuthCredentials
+      `Prelude.hashWithSalt` buildSpec
+      `Prelude.hashWithSalt` customHeaders
+      `Prelude.hashWithSalt` customRules
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` enableAutoBranchCreation
+      `Prelude.hashWithSalt` enableBasicAuth
+      `Prelude.hashWithSalt` enableBranchAutoBuild
+      `Prelude.hashWithSalt` enableBranchAutoDeletion
+      `Prelude.hashWithSalt` environmentVariables
+      `Prelude.hashWithSalt` iamServiceRoleArn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` oauthToken
+      `Prelude.hashWithSalt` platform
+      `Prelude.hashWithSalt` repository
       `Prelude.hashWithSalt` appId
 
 instance Prelude.NFData UpdateApp where
   rnf UpdateApp' {..} =
-    Prelude.rnf iamServiceRoleArn
-      `Prelude.seq` Prelude.rnf accessToken
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf accessToken
+      `Prelude.seq` Prelude.rnf autoBranchCreationConfig
       `Prelude.seq` Prelude.rnf autoBranchCreationPatterns
-      `Prelude.seq` Prelude.rnf customHeaders
-      `Prelude.seq` Prelude.rnf enableBranchAutoBuild
-      `Prelude.seq` Prelude.rnf repository
-      `Prelude.seq` Prelude.rnf enableBranchAutoDeletion
       `Prelude.seq` Prelude.rnf basicAuthCredentials
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf platform
-      `Prelude.seq` Prelude.rnf oauthToken
-      `Prelude.seq` Prelude.rnf environmentVariables
-      `Prelude.seq` Prelude.rnf customRules
-      `Prelude.seq` Prelude.rnf enableBasicAuth
-      `Prelude.seq` Prelude.rnf enableAutoBranchCreation
       `Prelude.seq` Prelude.rnf buildSpec
-      `Prelude.seq` Prelude.rnf
-        autoBranchCreationConfig
+      `Prelude.seq` Prelude.rnf customHeaders
+      `Prelude.seq` Prelude.rnf customRules
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf enableAutoBranchCreation
+      `Prelude.seq` Prelude.rnf enableBasicAuth
+      `Prelude.seq` Prelude.rnf enableBranchAutoBuild
+      `Prelude.seq` Prelude.rnf enableBranchAutoDeletion
+      `Prelude.seq` Prelude.rnf environmentVariables
+      `Prelude.seq` Prelude.rnf iamServiceRoleArn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf oauthToken
+      `Prelude.seq` Prelude.rnf platform
+      `Prelude.seq` Prelude.rnf repository
       `Prelude.seq` Prelude.rnf appId
 
 instance Data.ToHeaders UpdateApp where
@@ -447,33 +446,33 @@ instance Data.ToJSON UpdateApp where
   toJSON UpdateApp' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("iamServiceRoleArn" Data..=)
-              Prelude.<$> iamServiceRoleArn,
-            ("accessToken" Data..=) Prelude.<$> accessToken,
-            ("name" Data..=) Prelude.<$> name,
+          [ ("accessToken" Data..=) Prelude.<$> accessToken,
+            ("autoBranchCreationConfig" Data..=)
+              Prelude.<$> autoBranchCreationConfig,
             ("autoBranchCreationPatterns" Data..=)
               Prelude.<$> autoBranchCreationPatterns,
-            ("customHeaders" Data..=) Prelude.<$> customHeaders,
-            ("enableBranchAutoBuild" Data..=)
-              Prelude.<$> enableBranchAutoBuild,
-            ("repository" Data..=) Prelude.<$> repository,
-            ("enableBranchAutoDeletion" Data..=)
-              Prelude.<$> enableBranchAutoDeletion,
             ("basicAuthCredentials" Data..=)
               Prelude.<$> basicAuthCredentials,
-            ("description" Data..=) Prelude.<$> description,
-            ("platform" Data..=) Prelude.<$> platform,
-            ("oauthToken" Data..=) Prelude.<$> oauthToken,
-            ("environmentVariables" Data..=)
-              Prelude.<$> environmentVariables,
+            ("buildSpec" Data..=) Prelude.<$> buildSpec,
+            ("customHeaders" Data..=) Prelude.<$> customHeaders,
             ("customRules" Data..=) Prelude.<$> customRules,
-            ("enableBasicAuth" Data..=)
-              Prelude.<$> enableBasicAuth,
+            ("description" Data..=) Prelude.<$> description,
             ("enableAutoBranchCreation" Data..=)
               Prelude.<$> enableAutoBranchCreation,
-            ("buildSpec" Data..=) Prelude.<$> buildSpec,
-            ("autoBranchCreationConfig" Data..=)
-              Prelude.<$> autoBranchCreationConfig
+            ("enableBasicAuth" Data..=)
+              Prelude.<$> enableBasicAuth,
+            ("enableBranchAutoBuild" Data..=)
+              Prelude.<$> enableBranchAutoBuild,
+            ("enableBranchAutoDeletion" Data..=)
+              Prelude.<$> enableBranchAutoDeletion,
+            ("environmentVariables" Data..=)
+              Prelude.<$> environmentVariables,
+            ("iamServiceRoleArn" Data..=)
+              Prelude.<$> iamServiceRoleArn,
+            ("name" Data..=) Prelude.<$> name,
+            ("oauthToken" Data..=) Prelude.<$> oauthToken,
+            ("platform" Data..=) Prelude.<$> platform,
+            ("repository" Data..=) Prelude.<$> repository
           ]
       )
 

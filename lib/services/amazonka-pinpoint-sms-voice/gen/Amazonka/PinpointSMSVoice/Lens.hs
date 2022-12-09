@@ -41,9 +41,9 @@ module Amazonka.PinpointSMSVoice.Lens
     -- ** SendVoiceMessage
     sendVoiceMessage_callerId,
     sendVoiceMessage_configurationSetName,
+    sendVoiceMessage_content,
     sendVoiceMessage_destinationPhoneNumber,
     sendVoiceMessage_originationPhoneNumber,
-    sendVoiceMessage_content,
     sendVoiceMessageResponse_messageId,
     sendVoiceMessageResponse_httpStatus,
 
@@ -59,45 +59,45 @@ module Amazonka.PinpointSMSVoice.Lens
     callInstructionsMessageType_text,
 
     -- ** CloudWatchLogsDestination
-    cloudWatchLogsDestination_logGroupArn,
     cloudWatchLogsDestination_iamRoleArn,
+    cloudWatchLogsDestination_logGroupArn,
 
     -- ** EventDestination
-    eventDestination_name,
     eventDestination_cloudWatchLogsDestination,
-    eventDestination_matchingEventTypes,
-    eventDestination_snsDestination,
     eventDestination_enabled,
     eventDestination_kinesisFirehoseDestination,
+    eventDestination_matchingEventTypes,
+    eventDestination_name,
+    eventDestination_snsDestination,
 
     -- ** EventDestinationDefinition
     eventDestinationDefinition_cloudWatchLogsDestination,
-    eventDestinationDefinition_matchingEventTypes,
-    eventDestinationDefinition_snsDestination,
     eventDestinationDefinition_enabled,
     eventDestinationDefinition_kinesisFirehoseDestination,
+    eventDestinationDefinition_matchingEventTypes,
+    eventDestinationDefinition_snsDestination,
 
     -- ** KinesisFirehoseDestination
     kinesisFirehoseDestination_deliveryStreamArn,
     kinesisFirehoseDestination_iamRoleArn,
 
     -- ** PlainTextMessageType
-    plainTextMessageType_voiceId,
     plainTextMessageType_languageCode,
     plainTextMessageType_text,
+    plainTextMessageType_voiceId,
 
     -- ** SSMLMessageType
-    sSMLMessageType_voiceId,
     sSMLMessageType_languageCode,
     sSMLMessageType_text,
+    sSMLMessageType_voiceId,
 
     -- ** SnsDestination
     snsDestination_topicArn,
 
     -- ** VoiceMessageContent
-    voiceMessageContent_sSMLMessage,
     voiceMessageContent_callInstructionsMessage,
     voiceMessageContent_plainTextMessage,
+    voiceMessageContent_sSMLMessage,
   )
 where
 

@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTrialMinutes' smart constructor.
 data TrialMinutes = TrialMinutes'
-  { -- | The total number of free trial minutes that the account started with.
-    total :: Prelude.Maybe Prelude.Double,
-    -- | The number of free trial minutes remaining in the account.
-    remaining :: Prelude.Maybe Prelude.Double
+  { -- | The number of free trial minutes remaining in the account.
+    remaining :: Prelude.Maybe Prelude.Double,
+    -- | The total number of free trial minutes that the account started with.
+    total :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data TrialMinutes = TrialMinutes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'total', 'trialMinutes_total' - The total number of free trial minutes that the account started with.
---
 -- 'remaining', 'trialMinutes_remaining' - The number of free trial minutes remaining in the account.
+--
+-- 'total', 'trialMinutes_total' - The total number of free trial minutes that the account started with.
 newTrialMinutes ::
   TrialMinutes
 newTrialMinutes =
   TrialMinutes'
-    { total = Prelude.Nothing,
-      remaining = Prelude.Nothing
+    { remaining = Prelude.Nothing,
+      total = Prelude.Nothing
     }
-
--- | The total number of free trial minutes that the account started with.
-trialMinutes_total :: Lens.Lens' TrialMinutes (Prelude.Maybe Prelude.Double)
-trialMinutes_total = Lens.lens (\TrialMinutes' {total} -> total) (\s@TrialMinutes' {} a -> s {total = a} :: TrialMinutes)
 
 -- | The number of free trial minutes remaining in the account.
 trialMinutes_remaining :: Lens.Lens' TrialMinutes (Prelude.Maybe Prelude.Double)
 trialMinutes_remaining = Lens.lens (\TrialMinutes' {remaining} -> remaining) (\s@TrialMinutes' {} a -> s {remaining = a} :: TrialMinutes)
+
+-- | The total number of free trial minutes that the account started with.
+trialMinutes_total :: Lens.Lens' TrialMinutes (Prelude.Maybe Prelude.Double)
+trialMinutes_total = Lens.lens (\TrialMinutes' {total} -> total) (\s@TrialMinutes' {} a -> s {total = a} :: TrialMinutes)
 
 instance Data.FromJSON TrialMinutes where
   parseJSON =
@@ -69,16 +69,16 @@ instance Data.FromJSON TrialMinutes where
       "TrialMinutes"
       ( \x ->
           TrialMinutes'
-            Prelude.<$> (x Data..:? "total")
-            Prelude.<*> (x Data..:? "remaining")
+            Prelude.<$> (x Data..:? "remaining")
+            Prelude.<*> (x Data..:? "total")
       )
 
 instance Prelude.Hashable TrialMinutes where
   hashWithSalt _salt TrialMinutes' {..} =
-    _salt `Prelude.hashWithSalt` total
-      `Prelude.hashWithSalt` remaining
+    _salt `Prelude.hashWithSalt` remaining
+      `Prelude.hashWithSalt` total
 
 instance Prelude.NFData TrialMinutes where
   rnf TrialMinutes' {..} =
-    Prelude.rnf total
-      `Prelude.seq` Prelude.rnf remaining
+    Prelude.rnf remaining
+      `Prelude.seq` Prelude.rnf total

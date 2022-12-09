@@ -30,21 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDevicePool' smart constructor.
 data DevicePool = DevicePool'
-  { -- | The device pool\'s name.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The device pool\'s type.
-    --
-    -- Allowed values include:
-    --
-    -- -   CURATED: A device pool that is created and managed by AWS Device
-    --     Farm.
-    --
-    -- -   PRIVATE: A device pool that is created and managed by the device
-    --     pool developer.
-    type' :: Prelude.Maybe DevicePoolType,
-    -- | Information about the device pool\'s rules.
-    rules :: Prelude.Maybe [Rule],
-    -- | The device pool\'s ARN.
+  { -- | The device pool\'s ARN.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The device pool\'s description.
     description :: Prelude.Maybe Prelude.Text,
@@ -56,7 +42,21 @@ data DevicePool = DevicePool'
     --
     -- By specifying the maximum number of devices, you can control the costs
     -- that you incur by running tests.
-    maxDevices :: Prelude.Maybe Prelude.Int
+    maxDevices :: Prelude.Maybe Prelude.Int,
+    -- | The device pool\'s name.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Information about the device pool\'s rules.
+    rules :: Prelude.Maybe [Rule],
+    -- | The device pool\'s type.
+    --
+    -- Allowed values include:
+    --
+    -- -   CURATED: A device pool that is created and managed by AWS Device
+    --     Farm.
+    --
+    -- -   PRIVATE: A device pool that is created and managed by the device
+    --     pool developer.
+    type' :: Prelude.Maybe DevicePoolType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,20 +67,6 @@ data DevicePool = DevicePool'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'name', 'devicePool_name' - The device pool\'s name.
---
--- 'type'', 'devicePool_type' - The device pool\'s type.
---
--- Allowed values include:
---
--- -   CURATED: A device pool that is created and managed by AWS Device
---     Farm.
---
--- -   PRIVATE: A device pool that is created and managed by the device
---     pool developer.
---
--- 'rules', 'devicePool_rules' - Information about the device pool\'s rules.
 --
 -- 'arn', 'devicePool_arn' - The device pool\'s ARN.
 --
@@ -94,23 +80,12 @@ data DevicePool = DevicePool'
 --
 -- By specifying the maximum number of devices, you can control the costs
 -- that you incur by running tests.
-newDevicePool ::
-  DevicePool
-newDevicePool =
-  DevicePool'
-    { name = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      rules = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      description = Prelude.Nothing,
-      maxDevices = Prelude.Nothing
-    }
-
--- | The device pool\'s name.
-devicePool_name :: Lens.Lens' DevicePool (Prelude.Maybe Prelude.Text)
-devicePool_name = Lens.lens (\DevicePool' {name} -> name) (\s@DevicePool' {} a -> s {name = a} :: DevicePool)
-
--- | The device pool\'s type.
+--
+-- 'name', 'devicePool_name' - The device pool\'s name.
+--
+-- 'rules', 'devicePool_rules' - Information about the device pool\'s rules.
+--
+-- 'type'', 'devicePool_type' - The device pool\'s type.
 --
 -- Allowed values include:
 --
@@ -119,12 +94,17 @@ devicePool_name = Lens.lens (\DevicePool' {name} -> name) (\s@DevicePool' {} a -
 --
 -- -   PRIVATE: A device pool that is created and managed by the device
 --     pool developer.
-devicePool_type :: Lens.Lens' DevicePool (Prelude.Maybe DevicePoolType)
-devicePool_type = Lens.lens (\DevicePool' {type'} -> type') (\s@DevicePool' {} a -> s {type' = a} :: DevicePool)
-
--- | Information about the device pool\'s rules.
-devicePool_rules :: Lens.Lens' DevicePool (Prelude.Maybe [Rule])
-devicePool_rules = Lens.lens (\DevicePool' {rules} -> rules) (\s@DevicePool' {} a -> s {rules = a} :: DevicePool) Prelude.. Lens.mapping Lens.coerced
+newDevicePool ::
+  DevicePool
+newDevicePool =
+  DevicePool'
+    { arn = Prelude.Nothing,
+      description = Prelude.Nothing,
+      maxDevices = Prelude.Nothing,
+      name = Prelude.Nothing,
+      rules = Prelude.Nothing,
+      type' = Prelude.Nothing
+    }
 
 -- | The device pool\'s ARN.
 devicePool_arn :: Lens.Lens' DevicePool (Prelude.Maybe Prelude.Text)
@@ -145,34 +125,54 @@ devicePool_description = Lens.lens (\DevicePool' {description} -> description) (
 devicePool_maxDevices :: Lens.Lens' DevicePool (Prelude.Maybe Prelude.Int)
 devicePool_maxDevices = Lens.lens (\DevicePool' {maxDevices} -> maxDevices) (\s@DevicePool' {} a -> s {maxDevices = a} :: DevicePool)
 
+-- | The device pool\'s name.
+devicePool_name :: Lens.Lens' DevicePool (Prelude.Maybe Prelude.Text)
+devicePool_name = Lens.lens (\DevicePool' {name} -> name) (\s@DevicePool' {} a -> s {name = a} :: DevicePool)
+
+-- | Information about the device pool\'s rules.
+devicePool_rules :: Lens.Lens' DevicePool (Prelude.Maybe [Rule])
+devicePool_rules = Lens.lens (\DevicePool' {rules} -> rules) (\s@DevicePool' {} a -> s {rules = a} :: DevicePool) Prelude.. Lens.mapping Lens.coerced
+
+-- | The device pool\'s type.
+--
+-- Allowed values include:
+--
+-- -   CURATED: A device pool that is created and managed by AWS Device
+--     Farm.
+--
+-- -   PRIVATE: A device pool that is created and managed by the device
+--     pool developer.
+devicePool_type :: Lens.Lens' DevicePool (Prelude.Maybe DevicePoolType)
+devicePool_type = Lens.lens (\DevicePool' {type'} -> type') (\s@DevicePool' {} a -> s {type' = a} :: DevicePool)
+
 instance Data.FromJSON DevicePool where
   parseJSON =
     Data.withObject
       "DevicePool"
       ( \x ->
           DevicePool'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "type")
-            Prelude.<*> (x Data..:? "rules" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "arn")
+            Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "maxDevices")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "rules" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "type")
       )
 
 instance Prelude.Hashable DevicePool where
   hashWithSalt _salt DevicePool' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` rules
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` maxDevices
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` rules
+      `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData DevicePool where
   rnf DevicePool' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf rules
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf maxDevices
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf rules
+      `Prelude.seq` Prelude.rnf type'

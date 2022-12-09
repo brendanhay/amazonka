@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResolution' smart constructor.
 data Resolution = Resolution'
-  { -- | The screen resolution\'s width, expressed in pixels.
-    width :: Prelude.Maybe Prelude.Int,
-    -- | The screen resolution\'s height, expressed in pixels.
-    height :: Prelude.Maybe Prelude.Int
+  { -- | The screen resolution\'s height, expressed in pixels.
+    height :: Prelude.Maybe Prelude.Int,
+    -- | The screen resolution\'s width, expressed in pixels.
+    width :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data Resolution = Resolution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'width', 'resolution_width' - The screen resolution\'s width, expressed in pixels.
---
 -- 'height', 'resolution_height' - The screen resolution\'s height, expressed in pixels.
+--
+-- 'width', 'resolution_width' - The screen resolution\'s width, expressed in pixels.
 newResolution ::
   Resolution
 newResolution =
   Resolution'
-    { width = Prelude.Nothing,
-      height = Prelude.Nothing
+    { height = Prelude.Nothing,
+      width = Prelude.Nothing
     }
-
--- | The screen resolution\'s width, expressed in pixels.
-resolution_width :: Lens.Lens' Resolution (Prelude.Maybe Prelude.Int)
-resolution_width = Lens.lens (\Resolution' {width} -> width) (\s@Resolution' {} a -> s {width = a} :: Resolution)
 
 -- | The screen resolution\'s height, expressed in pixels.
 resolution_height :: Lens.Lens' Resolution (Prelude.Maybe Prelude.Int)
 resolution_height = Lens.lens (\Resolution' {height} -> height) (\s@Resolution' {} a -> s {height = a} :: Resolution)
+
+-- | The screen resolution\'s width, expressed in pixels.
+resolution_width :: Lens.Lens' Resolution (Prelude.Maybe Prelude.Int)
+resolution_width = Lens.lens (\Resolution' {width} -> width) (\s@Resolution' {} a -> s {width = a} :: Resolution)
 
 instance Data.FromJSON Resolution where
   parseJSON =
@@ -69,15 +69,15 @@ instance Data.FromJSON Resolution where
       "Resolution"
       ( \x ->
           Resolution'
-            Prelude.<$> (x Data..:? "width")
-            Prelude.<*> (x Data..:? "height")
+            Prelude.<$> (x Data..:? "height")
+            Prelude.<*> (x Data..:? "width")
       )
 
 instance Prelude.Hashable Resolution where
   hashWithSalt _salt Resolution' {..} =
-    _salt `Prelude.hashWithSalt` width
-      `Prelude.hashWithSalt` height
+    _salt `Prelude.hashWithSalt` height
+      `Prelude.hashWithSalt` width
 
 instance Prelude.NFData Resolution where
   rnf Resolution' {..} =
-    Prelude.rnf width `Prelude.seq` Prelude.rnf height
+    Prelude.rnf height `Prelude.seq` Prelude.rnf width

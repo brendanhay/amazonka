@@ -38,8 +38,8 @@ module Amazonka.DeviceFarm.ListUploads
     newListUploadsResponse,
 
     -- * Response Lenses
-    listUploadsResponse_uploads,
     listUploadsResponse_nextToken,
+    listUploadsResponse_uploads,
     listUploadsResponse_httpStatus,
   )
 where
@@ -335,8 +335,8 @@ instance Core.AWSRequest ListUploads where
     Response.receiveJSON
       ( \s h x ->
           ListUploadsResponse'
-            Prelude.<$> (x Data..?> "uploads" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "uploads" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -387,12 +387,12 @@ instance Data.ToQuery ListUploads where
 --
 -- /See:/ 'newListUploadsResponse' smart constructor.
 data ListUploadsResponse = ListUploadsResponse'
-  { -- | Information about the uploads.
-    uploads :: Prelude.Maybe [Upload],
-    -- | If the number of items that are returned is significantly large, this is
+  { -- | If the number of items that are returned is significantly large, this is
     -- an identifier that is also returned. It can be used in a subsequent call
     -- to this operation to return the next set of items in the list.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the uploads.
+    uploads :: Prelude.Maybe [Upload],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -406,11 +406,11 @@ data ListUploadsResponse = ListUploadsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'uploads', 'listUploadsResponse_uploads' - Information about the uploads.
---
 -- 'nextToken', 'listUploadsResponse_nextToken' - If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned. It can be used in a subsequent call
 -- to this operation to return the next set of items in the list.
+--
+-- 'uploads', 'listUploadsResponse_uploads' - Information about the uploads.
 --
 -- 'httpStatus', 'listUploadsResponse_httpStatus' - The response's http status code.
 newListUploadsResponse ::
@@ -419,14 +419,10 @@ newListUploadsResponse ::
   ListUploadsResponse
 newListUploadsResponse pHttpStatus_ =
   ListUploadsResponse'
-    { uploads = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      uploads = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the uploads.
-listUploadsResponse_uploads :: Lens.Lens' ListUploadsResponse (Prelude.Maybe [Upload])
-listUploadsResponse_uploads = Lens.lens (\ListUploadsResponse' {uploads} -> uploads) (\s@ListUploadsResponse' {} a -> s {uploads = a} :: ListUploadsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned. It can be used in a subsequent call
@@ -434,12 +430,16 @@ listUploadsResponse_uploads = Lens.lens (\ListUploadsResponse' {uploads} -> uplo
 listUploadsResponse_nextToken :: Lens.Lens' ListUploadsResponse (Prelude.Maybe Prelude.Text)
 listUploadsResponse_nextToken = Lens.lens (\ListUploadsResponse' {nextToken} -> nextToken) (\s@ListUploadsResponse' {} a -> s {nextToken = a} :: ListUploadsResponse)
 
+-- | Information about the uploads.
+listUploadsResponse_uploads :: Lens.Lens' ListUploadsResponse (Prelude.Maybe [Upload])
+listUploadsResponse_uploads = Lens.lens (\ListUploadsResponse' {uploads} -> uploads) (\s@ListUploadsResponse' {} a -> s {uploads = a} :: ListUploadsResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listUploadsResponse_httpStatus :: Lens.Lens' ListUploadsResponse Prelude.Int
 listUploadsResponse_httpStatus = Lens.lens (\ListUploadsResponse' {httpStatus} -> httpStatus) (\s@ListUploadsResponse' {} a -> s {httpStatus = a} :: ListUploadsResponse)
 
 instance Prelude.NFData ListUploadsResponse where
   rnf ListUploadsResponse' {..} =
-    Prelude.rnf uploads
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf uploads
       `Prelude.seq` Prelude.rnf httpStatus

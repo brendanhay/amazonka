@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMonetaryAmount' smart constructor.
 data MonetaryAmount = MonetaryAmount'
-  { -- | The currency code of a monetary amount. For example, @USD@ means U.S.
+  { -- | The numerical amount of an offering or transaction.
+    amount :: Prelude.Maybe Prelude.Double,
+    -- | The currency code of a monetary amount. For example, @USD@ means U.S.
     -- dollars.
-    currencyCode :: Prelude.Maybe CurrencyCode,
-    -- | The numerical amount of an offering or transaction.
-    amount :: Prelude.Maybe Prelude.Double
+    currencyCode :: Prelude.Maybe CurrencyCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,26 +46,26 @@ data MonetaryAmount = MonetaryAmount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'amount', 'monetaryAmount_amount' - The numerical amount of an offering or transaction.
+--
 -- 'currencyCode', 'monetaryAmount_currencyCode' - The currency code of a monetary amount. For example, @USD@ means U.S.
 -- dollars.
---
--- 'amount', 'monetaryAmount_amount' - The numerical amount of an offering or transaction.
 newMonetaryAmount ::
   MonetaryAmount
 newMonetaryAmount =
   MonetaryAmount'
-    { currencyCode = Prelude.Nothing,
-      amount = Prelude.Nothing
+    { amount = Prelude.Nothing,
+      currencyCode = Prelude.Nothing
     }
+
+-- | The numerical amount of an offering or transaction.
+monetaryAmount_amount :: Lens.Lens' MonetaryAmount (Prelude.Maybe Prelude.Double)
+monetaryAmount_amount = Lens.lens (\MonetaryAmount' {amount} -> amount) (\s@MonetaryAmount' {} a -> s {amount = a} :: MonetaryAmount)
 
 -- | The currency code of a monetary amount. For example, @USD@ means U.S.
 -- dollars.
 monetaryAmount_currencyCode :: Lens.Lens' MonetaryAmount (Prelude.Maybe CurrencyCode)
 monetaryAmount_currencyCode = Lens.lens (\MonetaryAmount' {currencyCode} -> currencyCode) (\s@MonetaryAmount' {} a -> s {currencyCode = a} :: MonetaryAmount)
-
--- | The numerical amount of an offering or transaction.
-monetaryAmount_amount :: Lens.Lens' MonetaryAmount (Prelude.Maybe Prelude.Double)
-monetaryAmount_amount = Lens.lens (\MonetaryAmount' {amount} -> amount) (\s@MonetaryAmount' {} a -> s {amount = a} :: MonetaryAmount)
 
 instance Data.FromJSON MonetaryAmount where
   parseJSON =
@@ -73,16 +73,16 @@ instance Data.FromJSON MonetaryAmount where
       "MonetaryAmount"
       ( \x ->
           MonetaryAmount'
-            Prelude.<$> (x Data..:? "currencyCode")
-            Prelude.<*> (x Data..:? "amount")
+            Prelude.<$> (x Data..:? "amount")
+            Prelude.<*> (x Data..:? "currencyCode")
       )
 
 instance Prelude.Hashable MonetaryAmount where
   hashWithSalt _salt MonetaryAmount' {..} =
-    _salt `Prelude.hashWithSalt` currencyCode
-      `Prelude.hashWithSalt` amount
+    _salt `Prelude.hashWithSalt` amount
+      `Prelude.hashWithSalt` currencyCode
 
 instance Prelude.NFData MonetaryAmount where
   rnf MonetaryAmount' {..} =
-    Prelude.rnf currencyCode
-      `Prelude.seq` Prelude.rnf amount
+    Prelude.rnf amount
+      `Prelude.seq` Prelude.rnf currencyCode

@@ -28,15 +28,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTestGridSessionAction' smart constructor.
 data TestGridSessionAction = TestGridSessionAction'
-  { -- | HTTP method that the browser used to make the request.
-    requestMethod :: Prelude.Maybe Prelude.Text,
-    -- | The time that the session invoked the action.
-    started :: Prelude.Maybe Data.POSIX,
+  { -- | The action taken by the session.
+    action :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds, that the action took to complete in the
     -- browser.
     duration :: Prelude.Maybe Prelude.Integer,
-    -- | The action taken by the session.
-    action :: Prelude.Maybe Prelude.Text,
+    -- | HTTP method that the browser used to make the request.
+    requestMethod :: Prelude.Maybe Prelude.Text,
+    -- | The time that the session invoked the action.
+    started :: Prelude.Maybe Data.POSIX,
     -- | HTTP status code returned to the browser when the action was taken.
     statusCode :: Prelude.Maybe Prelude.Text
   }
@@ -50,27 +50,35 @@ data TestGridSessionAction = TestGridSessionAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestMethod', 'testGridSessionAction_requestMethod' - HTTP method that the browser used to make the request.
---
--- 'started', 'testGridSessionAction_started' - The time that the session invoked the action.
+-- 'action', 'testGridSessionAction_action' - The action taken by the session.
 --
 -- 'duration', 'testGridSessionAction_duration' - The time, in milliseconds, that the action took to complete in the
 -- browser.
 --
--- 'action', 'testGridSessionAction_action' - The action taken by the session.
+-- 'requestMethod', 'testGridSessionAction_requestMethod' - HTTP method that the browser used to make the request.
+--
+-- 'started', 'testGridSessionAction_started' - The time that the session invoked the action.
 --
 -- 'statusCode', 'testGridSessionAction_statusCode' - HTTP status code returned to the browser when the action was taken.
 newTestGridSessionAction ::
   TestGridSessionAction
 newTestGridSessionAction =
   TestGridSessionAction'
-    { requestMethod =
-        Prelude.Nothing,
-      started = Prelude.Nothing,
+    { action = Prelude.Nothing,
       duration = Prelude.Nothing,
-      action = Prelude.Nothing,
+      requestMethod = Prelude.Nothing,
+      started = Prelude.Nothing,
       statusCode = Prelude.Nothing
     }
+
+-- | The action taken by the session.
+testGridSessionAction_action :: Lens.Lens' TestGridSessionAction (Prelude.Maybe Prelude.Text)
+testGridSessionAction_action = Lens.lens (\TestGridSessionAction' {action} -> action) (\s@TestGridSessionAction' {} a -> s {action = a} :: TestGridSessionAction)
+
+-- | The time, in milliseconds, that the action took to complete in the
+-- browser.
+testGridSessionAction_duration :: Lens.Lens' TestGridSessionAction (Prelude.Maybe Prelude.Integer)
+testGridSessionAction_duration = Lens.lens (\TestGridSessionAction' {duration} -> duration) (\s@TestGridSessionAction' {} a -> s {duration = a} :: TestGridSessionAction)
 
 -- | HTTP method that the browser used to make the request.
 testGridSessionAction_requestMethod :: Lens.Lens' TestGridSessionAction (Prelude.Maybe Prelude.Text)
@@ -79,15 +87,6 @@ testGridSessionAction_requestMethod = Lens.lens (\TestGridSessionAction' {reques
 -- | The time that the session invoked the action.
 testGridSessionAction_started :: Lens.Lens' TestGridSessionAction (Prelude.Maybe Prelude.UTCTime)
 testGridSessionAction_started = Lens.lens (\TestGridSessionAction' {started} -> started) (\s@TestGridSessionAction' {} a -> s {started = a} :: TestGridSessionAction) Prelude.. Lens.mapping Data._Time
-
--- | The time, in milliseconds, that the action took to complete in the
--- browser.
-testGridSessionAction_duration :: Lens.Lens' TestGridSessionAction (Prelude.Maybe Prelude.Integer)
-testGridSessionAction_duration = Lens.lens (\TestGridSessionAction' {duration} -> duration) (\s@TestGridSessionAction' {} a -> s {duration = a} :: TestGridSessionAction)
-
--- | The action taken by the session.
-testGridSessionAction_action :: Lens.Lens' TestGridSessionAction (Prelude.Maybe Prelude.Text)
-testGridSessionAction_action = Lens.lens (\TestGridSessionAction' {action} -> action) (\s@TestGridSessionAction' {} a -> s {action = a} :: TestGridSessionAction)
 
 -- | HTTP status code returned to the browser when the action was taken.
 testGridSessionAction_statusCode :: Lens.Lens' TestGridSessionAction (Prelude.Maybe Prelude.Text)
@@ -99,25 +98,25 @@ instance Data.FromJSON TestGridSessionAction where
       "TestGridSessionAction"
       ( \x ->
           TestGridSessionAction'
-            Prelude.<$> (x Data..:? "requestMethod")
-            Prelude.<*> (x Data..:? "started")
+            Prelude.<$> (x Data..:? "action")
             Prelude.<*> (x Data..:? "duration")
-            Prelude.<*> (x Data..:? "action")
+            Prelude.<*> (x Data..:? "requestMethod")
+            Prelude.<*> (x Data..:? "started")
             Prelude.<*> (x Data..:? "statusCode")
       )
 
 instance Prelude.Hashable TestGridSessionAction where
   hashWithSalt _salt TestGridSessionAction' {..} =
-    _salt `Prelude.hashWithSalt` requestMethod
-      `Prelude.hashWithSalt` started
+    _salt `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` duration
-      `Prelude.hashWithSalt` action
+      `Prelude.hashWithSalt` requestMethod
+      `Prelude.hashWithSalt` started
       `Prelude.hashWithSalt` statusCode
 
 instance Prelude.NFData TestGridSessionAction where
   rnf TestGridSessionAction' {..} =
-    Prelude.rnf requestMethod
-      `Prelude.seq` Prelude.rnf started
+    Prelude.rnf action
       `Prelude.seq` Prelude.rnf duration
-      `Prelude.seq` Prelude.rnf action
+      `Prelude.seq` Prelude.rnf requestMethod
+      `Prelude.seq` Prelude.rnf started
       `Prelude.seq` Prelude.rnf statusCode

@@ -29,24 +29,24 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExecutionConfiguration' smart constructor.
 data ExecutionConfiguration = ExecutionConfiguration'
-  { -- | The number of minutes a test run executes before it times out.
-    jobTimeoutMinutes :: Prelude.Maybe Prelude.Int,
-    -- | Set to true to enable video capture. Otherwise, set to false. The
-    -- default is true.
-    videoCapture :: Prelude.Maybe Prelude.Bool,
-    -- | True if account cleanup is enabled at the beginning of the test.
+  { -- | True if account cleanup is enabled at the beginning of the test.
     -- Otherwise, false.
     accountsCleanup :: Prelude.Maybe Prelude.Bool,
     -- | True if app package cleanup is enabled at the beginning of the test.
     -- Otherwise, false.
     appPackagesCleanup :: Prelude.Maybe Prelude.Bool,
+    -- | The number of minutes a test run executes before it times out.
+    jobTimeoutMinutes :: Prelude.Maybe Prelude.Int,
     -- | When set to @true@, for private devices, Device Farm does not sign your
     -- app again. For public devices, Device Farm always signs your apps again.
     --
     -- For more information about how Device Farm re-signs your apps, see
     -- <http://aws.amazon.com/device-farm/faqs/ Do you modify my app?> in the
     -- /AWS Device Farm FAQs/.
-    skipAppResign :: Prelude.Maybe Prelude.Bool
+    skipAppResign :: Prelude.Maybe Prelude.Bool,
+    -- | Set to true to enable video capture. Otherwise, set to false. The
+    -- default is true.
+    videoCapture :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,16 +58,13 @@ data ExecutionConfiguration = ExecutionConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobTimeoutMinutes', 'executionConfiguration_jobTimeoutMinutes' - The number of minutes a test run executes before it times out.
---
--- 'videoCapture', 'executionConfiguration_videoCapture' - Set to true to enable video capture. Otherwise, set to false. The
--- default is true.
---
 -- 'accountsCleanup', 'executionConfiguration_accountsCleanup' - True if account cleanup is enabled at the beginning of the test.
 -- Otherwise, false.
 --
 -- 'appPackagesCleanup', 'executionConfiguration_appPackagesCleanup' - True if app package cleanup is enabled at the beginning of the test.
 -- Otherwise, false.
+--
+-- 'jobTimeoutMinutes', 'executionConfiguration_jobTimeoutMinutes' - The number of minutes a test run executes before it times out.
 --
 -- 'skipAppResign', 'executionConfiguration_skipAppResign' - When set to @true@, for private devices, Device Farm does not sign your
 -- app again. For public devices, Device Farm always signs your apps again.
@@ -75,26 +72,20 @@ data ExecutionConfiguration = ExecutionConfiguration'
 -- For more information about how Device Farm re-signs your apps, see
 -- <http://aws.amazon.com/device-farm/faqs/ Do you modify my app?> in the
 -- /AWS Device Farm FAQs/.
+--
+-- 'videoCapture', 'executionConfiguration_videoCapture' - Set to true to enable video capture. Otherwise, set to false. The
+-- default is true.
 newExecutionConfiguration ::
   ExecutionConfiguration
 newExecutionConfiguration =
   ExecutionConfiguration'
-    { jobTimeoutMinutes =
+    { accountsCleanup =
         Prelude.Nothing,
-      videoCapture = Prelude.Nothing,
-      accountsCleanup = Prelude.Nothing,
       appPackagesCleanup = Prelude.Nothing,
-      skipAppResign = Prelude.Nothing
+      jobTimeoutMinutes = Prelude.Nothing,
+      skipAppResign = Prelude.Nothing,
+      videoCapture = Prelude.Nothing
     }
-
--- | The number of minutes a test run executes before it times out.
-executionConfiguration_jobTimeoutMinutes :: Lens.Lens' ExecutionConfiguration (Prelude.Maybe Prelude.Int)
-executionConfiguration_jobTimeoutMinutes = Lens.lens (\ExecutionConfiguration' {jobTimeoutMinutes} -> jobTimeoutMinutes) (\s@ExecutionConfiguration' {} a -> s {jobTimeoutMinutes = a} :: ExecutionConfiguration)
-
--- | Set to true to enable video capture. Otherwise, set to false. The
--- default is true.
-executionConfiguration_videoCapture :: Lens.Lens' ExecutionConfiguration (Prelude.Maybe Prelude.Bool)
-executionConfiguration_videoCapture = Lens.lens (\ExecutionConfiguration' {videoCapture} -> videoCapture) (\s@ExecutionConfiguration' {} a -> s {videoCapture = a} :: ExecutionConfiguration)
 
 -- | True if account cleanup is enabled at the beginning of the test.
 -- Otherwise, false.
@@ -106,6 +97,10 @@ executionConfiguration_accountsCleanup = Lens.lens (\ExecutionConfiguration' {ac
 executionConfiguration_appPackagesCleanup :: Lens.Lens' ExecutionConfiguration (Prelude.Maybe Prelude.Bool)
 executionConfiguration_appPackagesCleanup = Lens.lens (\ExecutionConfiguration' {appPackagesCleanup} -> appPackagesCleanup) (\s@ExecutionConfiguration' {} a -> s {appPackagesCleanup = a} :: ExecutionConfiguration)
 
+-- | The number of minutes a test run executes before it times out.
+executionConfiguration_jobTimeoutMinutes :: Lens.Lens' ExecutionConfiguration (Prelude.Maybe Prelude.Int)
+executionConfiguration_jobTimeoutMinutes = Lens.lens (\ExecutionConfiguration' {jobTimeoutMinutes} -> jobTimeoutMinutes) (\s@ExecutionConfiguration' {} a -> s {jobTimeoutMinutes = a} :: ExecutionConfiguration)
+
 -- | When set to @true@, for private devices, Device Farm does not sign your
 -- app again. For public devices, Device Farm always signs your apps again.
 --
@@ -115,33 +110,38 @@ executionConfiguration_appPackagesCleanup = Lens.lens (\ExecutionConfiguration' 
 executionConfiguration_skipAppResign :: Lens.Lens' ExecutionConfiguration (Prelude.Maybe Prelude.Bool)
 executionConfiguration_skipAppResign = Lens.lens (\ExecutionConfiguration' {skipAppResign} -> skipAppResign) (\s@ExecutionConfiguration' {} a -> s {skipAppResign = a} :: ExecutionConfiguration)
 
+-- | Set to true to enable video capture. Otherwise, set to false. The
+-- default is true.
+executionConfiguration_videoCapture :: Lens.Lens' ExecutionConfiguration (Prelude.Maybe Prelude.Bool)
+executionConfiguration_videoCapture = Lens.lens (\ExecutionConfiguration' {videoCapture} -> videoCapture) (\s@ExecutionConfiguration' {} a -> s {videoCapture = a} :: ExecutionConfiguration)
+
 instance Prelude.Hashable ExecutionConfiguration where
   hashWithSalt _salt ExecutionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` jobTimeoutMinutes
-      `Prelude.hashWithSalt` videoCapture
-      `Prelude.hashWithSalt` accountsCleanup
+    _salt `Prelude.hashWithSalt` accountsCleanup
       `Prelude.hashWithSalt` appPackagesCleanup
+      `Prelude.hashWithSalt` jobTimeoutMinutes
       `Prelude.hashWithSalt` skipAppResign
+      `Prelude.hashWithSalt` videoCapture
 
 instance Prelude.NFData ExecutionConfiguration where
   rnf ExecutionConfiguration' {..} =
-    Prelude.rnf jobTimeoutMinutes
-      `Prelude.seq` Prelude.rnf videoCapture
-      `Prelude.seq` Prelude.rnf accountsCleanup
+    Prelude.rnf accountsCleanup
       `Prelude.seq` Prelude.rnf appPackagesCleanup
+      `Prelude.seq` Prelude.rnf jobTimeoutMinutes
       `Prelude.seq` Prelude.rnf skipAppResign
+      `Prelude.seq` Prelude.rnf videoCapture
 
 instance Data.ToJSON ExecutionConfiguration where
   toJSON ExecutionConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("jobTimeoutMinutes" Data..=)
-              Prelude.<$> jobTimeoutMinutes,
-            ("videoCapture" Data..=) Prelude.<$> videoCapture,
-            ("accountsCleanup" Data..=)
+          [ ("accountsCleanup" Data..=)
               Prelude.<$> accountsCleanup,
             ("appPackagesCleanup" Data..=)
               Prelude.<$> appPackagesCleanup,
-            ("skipAppResign" Data..=) Prelude.<$> skipAppResign
+            ("jobTimeoutMinutes" Data..=)
+              Prelude.<$> jobTimeoutMinutes,
+            ("skipAppResign" Data..=) Prelude.<$> skipAppResign,
+            ("videoCapture" Data..=) Prelude.<$> videoCapture
           ]
       )

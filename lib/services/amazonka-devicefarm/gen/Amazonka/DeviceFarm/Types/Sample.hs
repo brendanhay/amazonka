@@ -29,7 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSample' smart constructor.
 data Sample = Sample'
-  { -- | The sample\'s type.
+  { -- | The sample\'s ARN.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The sample\'s type.
     --
     -- Must be one of the following values:
     --
@@ -73,8 +75,6 @@ data Sample = Sample'
     -- -   TX_RATE: The total number of bytes per second (TCP and UDP) that are
     --     received, by app process.
     type' :: Prelude.Maybe SampleType,
-    -- | The sample\'s ARN.
-    arn :: Prelude.Maybe Prelude.Text,
     -- | The presigned Amazon S3 URL that can be used with a GET request to
     -- download the sample\'s file.
     url :: Prelude.Maybe Prelude.Text
@@ -88,6 +88,8 @@ data Sample = Sample'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'arn', 'sample_arn' - The sample\'s ARN.
 --
 -- 'type'', 'sample_type' - The sample\'s type.
 --
@@ -133,18 +135,20 @@ data Sample = Sample'
 -- -   TX_RATE: The total number of bytes per second (TCP and UDP) that are
 --     received, by app process.
 --
--- 'arn', 'sample_arn' - The sample\'s ARN.
---
 -- 'url', 'sample_url' - The presigned Amazon S3 URL that can be used with a GET request to
 -- download the sample\'s file.
 newSample ::
   Sample
 newSample =
   Sample'
-    { type' = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      type' = Prelude.Nothing,
       url = Prelude.Nothing
     }
+
+-- | The sample\'s ARN.
+sample_arn :: Lens.Lens' Sample (Prelude.Maybe Prelude.Text)
+sample_arn = Lens.lens (\Sample' {arn} -> arn) (\s@Sample' {} a -> s {arn = a} :: Sample)
 
 -- | The sample\'s type.
 --
@@ -192,10 +196,6 @@ newSample =
 sample_type :: Lens.Lens' Sample (Prelude.Maybe SampleType)
 sample_type = Lens.lens (\Sample' {type'} -> type') (\s@Sample' {} a -> s {type' = a} :: Sample)
 
--- | The sample\'s ARN.
-sample_arn :: Lens.Lens' Sample (Prelude.Maybe Prelude.Text)
-sample_arn = Lens.lens (\Sample' {arn} -> arn) (\s@Sample' {} a -> s {arn = a} :: Sample)
-
 -- | The presigned Amazon S3 URL that can be used with a GET request to
 -- download the sample\'s file.
 sample_url :: Lens.Lens' Sample (Prelude.Maybe Prelude.Text)
@@ -207,19 +207,19 @@ instance Data.FromJSON Sample where
       "Sample"
       ( \x ->
           Sample'
-            Prelude.<$> (x Data..:? "type")
-            Prelude.<*> (x Data..:? "arn")
+            Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "type")
             Prelude.<*> (x Data..:? "url")
       )
 
 instance Prelude.Hashable Sample where
   hashWithSalt _salt Sample' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` url
 
 instance Prelude.NFData Sample where
   rnf Sample' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf url

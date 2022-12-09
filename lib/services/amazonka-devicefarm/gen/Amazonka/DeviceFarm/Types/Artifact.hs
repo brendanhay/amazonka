@@ -30,7 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newArtifact' smart constructor.
 data Artifact = Artifact'
-  { -- | The artifact\'s name.
+  { -- | The artifact\'s ARN.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The artifact\'s file extension.
+    extension :: Prelude.Maybe Prelude.Text,
+    -- | The artifact\'s name.
     name :: Prelude.Maybe Prelude.Text,
     -- | The artifact\'s type.
     --
@@ -93,10 +97,6 @@ data Artifact = Artifact'
     --
     -- -   TESTSPEC_OUTPUT
     type' :: Prelude.Maybe ArtifactType,
-    -- | The artifact\'s file extension.
-    extension :: Prelude.Maybe Prelude.Text,
-    -- | The artifact\'s ARN.
-    arn :: Prelude.Maybe Prelude.Text,
     -- | The presigned Amazon S3 URL that can be used with a GET request to
     -- download the artifact\'s file.
     url :: Prelude.Maybe Prelude.Text
@@ -110,6 +110,10 @@ data Artifact = Artifact'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'arn', 'artifact_arn' - The artifact\'s ARN.
+--
+-- 'extension', 'artifact_extension' - The artifact\'s file extension.
 --
 -- 'name', 'artifact_name' - The artifact\'s name.
 --
@@ -174,22 +178,26 @@ data Artifact = Artifact'
 --
 -- -   TESTSPEC_OUTPUT
 --
--- 'extension', 'artifact_extension' - The artifact\'s file extension.
---
--- 'arn', 'artifact_arn' - The artifact\'s ARN.
---
 -- 'url', 'artifact_url' - The presigned Amazon S3 URL that can be used with a GET request to
 -- download the artifact\'s file.
 newArtifact ::
   Artifact
 newArtifact =
   Artifact'
-    { name = Prelude.Nothing,
-      type' = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       extension = Prelude.Nothing,
-      arn = Prelude.Nothing,
+      name = Prelude.Nothing,
+      type' = Prelude.Nothing,
       url = Prelude.Nothing
     }
+
+-- | The artifact\'s ARN.
+artifact_arn :: Lens.Lens' Artifact (Prelude.Maybe Prelude.Text)
+artifact_arn = Lens.lens (\Artifact' {arn} -> arn) (\s@Artifact' {} a -> s {arn = a} :: Artifact)
+
+-- | The artifact\'s file extension.
+artifact_extension :: Lens.Lens' Artifact (Prelude.Maybe Prelude.Text)
+artifact_extension = Lens.lens (\Artifact' {extension} -> extension) (\s@Artifact' {} a -> s {extension = a} :: Artifact)
 
 -- | The artifact\'s name.
 artifact_name :: Lens.Lens' Artifact (Prelude.Maybe Prelude.Text)
@@ -258,14 +266,6 @@ artifact_name = Lens.lens (\Artifact' {name} -> name) (\s@Artifact' {} a -> s {n
 artifact_type :: Lens.Lens' Artifact (Prelude.Maybe ArtifactType)
 artifact_type = Lens.lens (\Artifact' {type'} -> type') (\s@Artifact' {} a -> s {type' = a} :: Artifact)
 
--- | The artifact\'s file extension.
-artifact_extension :: Lens.Lens' Artifact (Prelude.Maybe Prelude.Text)
-artifact_extension = Lens.lens (\Artifact' {extension} -> extension) (\s@Artifact' {} a -> s {extension = a} :: Artifact)
-
--- | The artifact\'s ARN.
-artifact_arn :: Lens.Lens' Artifact (Prelude.Maybe Prelude.Text)
-artifact_arn = Lens.lens (\Artifact' {arn} -> arn) (\s@Artifact' {} a -> s {arn = a} :: Artifact)
-
 -- | The presigned Amazon S3 URL that can be used with a GET request to
 -- download the artifact\'s file.
 artifact_url :: Lens.Lens' Artifact (Prelude.Maybe Prelude.Text)
@@ -277,25 +277,25 @@ instance Data.FromJSON Artifact where
       "Artifact"
       ( \x ->
           Artifact'
-            Prelude.<$> (x Data..:? "name")
-            Prelude.<*> (x Data..:? "type")
+            Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "extension")
-            Prelude.<*> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
             Prelude.<*> (x Data..:? "url")
       )
 
 instance Prelude.Hashable Artifact where
   hashWithSalt _salt Artifact' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` extension
-      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` url
 
 instance Prelude.NFData Artifact where
   rnf Artifact' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf type'
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf extension
-      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf url

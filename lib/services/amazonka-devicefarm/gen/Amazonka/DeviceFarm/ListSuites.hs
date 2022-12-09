@@ -37,8 +37,8 @@ module Amazonka.DeviceFarm.ListSuites
     newListSuitesResponse,
 
     -- * Response Lenses
-    listSuitesResponse_suites,
     listSuitesResponse_nextToken,
+    listSuitesResponse_suites,
     listSuitesResponse_httpStatus,
   )
 where
@@ -124,8 +124,8 @@ instance Core.AWSRequest ListSuites where
     Response.receiveJSON
       ( \s h x ->
           ListSuitesResponse'
-            Prelude.<$> (x Data..?> "suites" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "suites" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -172,12 +172,12 @@ instance Data.ToQuery ListSuites where
 --
 -- /See:/ 'newListSuitesResponse' smart constructor.
 data ListSuitesResponse = ListSuitesResponse'
-  { -- | Information about the suites.
-    suites :: Prelude.Maybe [Suite],
-    -- | If the number of items that are returned is significantly large, this is
+  { -- | If the number of items that are returned is significantly large, this is
     -- an identifier that is also returned. It can be used in a subsequent call
     -- to this operation to return the next set of items in the list.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the suites.
+    suites :: Prelude.Maybe [Suite],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -191,11 +191,11 @@ data ListSuitesResponse = ListSuitesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'suites', 'listSuitesResponse_suites' - Information about the suites.
---
 -- 'nextToken', 'listSuitesResponse_nextToken' - If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned. It can be used in a subsequent call
 -- to this operation to return the next set of items in the list.
+--
+-- 'suites', 'listSuitesResponse_suites' - Information about the suites.
 --
 -- 'httpStatus', 'listSuitesResponse_httpStatus' - The response's http status code.
 newListSuitesResponse ::
@@ -204,14 +204,10 @@ newListSuitesResponse ::
   ListSuitesResponse
 newListSuitesResponse pHttpStatus_ =
   ListSuitesResponse'
-    { suites = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      suites = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the suites.
-listSuitesResponse_suites :: Lens.Lens' ListSuitesResponse (Prelude.Maybe [Suite])
-listSuitesResponse_suites = Lens.lens (\ListSuitesResponse' {suites} -> suites) (\s@ListSuitesResponse' {} a -> s {suites = a} :: ListSuitesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned. It can be used in a subsequent call
@@ -219,12 +215,16 @@ listSuitesResponse_suites = Lens.lens (\ListSuitesResponse' {suites} -> suites) 
 listSuitesResponse_nextToken :: Lens.Lens' ListSuitesResponse (Prelude.Maybe Prelude.Text)
 listSuitesResponse_nextToken = Lens.lens (\ListSuitesResponse' {nextToken} -> nextToken) (\s@ListSuitesResponse' {} a -> s {nextToken = a} :: ListSuitesResponse)
 
+-- | Information about the suites.
+listSuitesResponse_suites :: Lens.Lens' ListSuitesResponse (Prelude.Maybe [Suite])
+listSuitesResponse_suites = Lens.lens (\ListSuitesResponse' {suites} -> suites) (\s@ListSuitesResponse' {} a -> s {suites = a} :: ListSuitesResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listSuitesResponse_httpStatus :: Lens.Lens' ListSuitesResponse Prelude.Int
 listSuitesResponse_httpStatus = Lens.lens (\ListSuitesResponse' {httpStatus} -> httpStatus) (\s@ListSuitesResponse' {} a -> s {httpStatus = a} :: ListSuitesResponse)
 
 instance Prelude.NFData ListSuitesResponse where
   rnf ListSuitesResponse' {..} =
-    Prelude.rnf suites
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf suites
       `Prelude.seq` Prelude.rnf httpStatus

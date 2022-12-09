@@ -33,10 +33,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTestGridSessionArtifact' smart constructor.
 data TestGridSessionArtifact = TestGridSessionArtifact'
-  { -- | The kind of artifact.
-    type' :: Prelude.Maybe TestGridSessionArtifactType,
-    -- | The file name of the artifact.
+  { -- | The file name of the artifact.
     filename :: Prelude.Maybe Prelude.Text,
+    -- | The kind of artifact.
+    type' :: Prelude.Maybe TestGridSessionArtifactType,
     -- | A semi-stable URL to the content of the object.
     url :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
@@ -50,27 +50,28 @@ data TestGridSessionArtifact = TestGridSessionArtifact'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'testGridSessionArtifact_type' - The kind of artifact.
---
 -- 'filename', 'testGridSessionArtifact_filename' - The file name of the artifact.
+--
+-- 'type'', 'testGridSessionArtifact_type' - The kind of artifact.
 --
 -- 'url', 'testGridSessionArtifact_url' - A semi-stable URL to the content of the object.
 newTestGridSessionArtifact ::
   TestGridSessionArtifact
 newTestGridSessionArtifact =
   TestGridSessionArtifact'
-    { type' = Prelude.Nothing,
-      filename = Prelude.Nothing,
+    { filename =
+        Prelude.Nothing,
+      type' = Prelude.Nothing,
       url = Prelude.Nothing
     }
-
--- | The kind of artifact.
-testGridSessionArtifact_type :: Lens.Lens' TestGridSessionArtifact (Prelude.Maybe TestGridSessionArtifactType)
-testGridSessionArtifact_type = Lens.lens (\TestGridSessionArtifact' {type'} -> type') (\s@TestGridSessionArtifact' {} a -> s {type' = a} :: TestGridSessionArtifact)
 
 -- | The file name of the artifact.
 testGridSessionArtifact_filename :: Lens.Lens' TestGridSessionArtifact (Prelude.Maybe Prelude.Text)
 testGridSessionArtifact_filename = Lens.lens (\TestGridSessionArtifact' {filename} -> filename) (\s@TestGridSessionArtifact' {} a -> s {filename = a} :: TestGridSessionArtifact)
+
+-- | The kind of artifact.
+testGridSessionArtifact_type :: Lens.Lens' TestGridSessionArtifact (Prelude.Maybe TestGridSessionArtifactType)
+testGridSessionArtifact_type = Lens.lens (\TestGridSessionArtifact' {type'} -> type') (\s@TestGridSessionArtifact' {} a -> s {type' = a} :: TestGridSessionArtifact)
 
 -- | A semi-stable URL to the content of the object.
 testGridSessionArtifact_url :: Lens.Lens' TestGridSessionArtifact (Prelude.Maybe Prelude.Text)
@@ -82,19 +83,19 @@ instance Data.FromJSON TestGridSessionArtifact where
       "TestGridSessionArtifact"
       ( \x ->
           TestGridSessionArtifact'
-            Prelude.<$> (x Data..:? "type")
-            Prelude.<*> (x Data..:? "filename")
+            Prelude.<$> (x Data..:? "filename")
+            Prelude.<*> (x Data..:? "type")
             Prelude.<*> (x Data..:? "url")
       )
 
 instance Prelude.Hashable TestGridSessionArtifact where
   hashWithSalt _salt TestGridSessionArtifact' {..} =
-    _salt `Prelude.hashWithSalt` type'
-      `Prelude.hashWithSalt` filename
+    _salt `Prelude.hashWithSalt` filename
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` url
 
 instance Prelude.NFData TestGridSessionArtifact where
   rnf TestGridSessionArtifact' {..} =
-    Prelude.rnf type'
-      `Prelude.seq` Prelude.rnf filename
+    Prelude.rnf filename
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf url

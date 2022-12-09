@@ -33,11 +33,11 @@ import qualified Amazonka.Prelude as Prelude
 data DeviceSelectionResult = DeviceSelectionResult'
   { -- | The filters in a device selection result.
     filters :: Prelude.Maybe [DeviceFilter],
+    -- | The number of devices that matched the device filter selection criteria.
+    matchedDevicesCount :: Prelude.Maybe Prelude.Int,
     -- | The maximum number of devices to be selected by a device filter and
     -- included in a test run.
-    maxDevices :: Prelude.Maybe Prelude.Int,
-    -- | The number of devices that matched the device filter selection criteria.
-    matchedDevicesCount :: Prelude.Maybe Prelude.Int
+    maxDevices :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,31 +51,31 @@ data DeviceSelectionResult = DeviceSelectionResult'
 --
 -- 'filters', 'deviceSelectionResult_filters' - The filters in a device selection result.
 --
+-- 'matchedDevicesCount', 'deviceSelectionResult_matchedDevicesCount' - The number of devices that matched the device filter selection criteria.
+--
 -- 'maxDevices', 'deviceSelectionResult_maxDevices' - The maximum number of devices to be selected by a device filter and
 -- included in a test run.
---
--- 'matchedDevicesCount', 'deviceSelectionResult_matchedDevicesCount' - The number of devices that matched the device filter selection criteria.
 newDeviceSelectionResult ::
   DeviceSelectionResult
 newDeviceSelectionResult =
   DeviceSelectionResult'
     { filters = Prelude.Nothing,
-      maxDevices = Prelude.Nothing,
-      matchedDevicesCount = Prelude.Nothing
+      matchedDevicesCount = Prelude.Nothing,
+      maxDevices = Prelude.Nothing
     }
 
 -- | The filters in a device selection result.
 deviceSelectionResult_filters :: Lens.Lens' DeviceSelectionResult (Prelude.Maybe [DeviceFilter])
 deviceSelectionResult_filters = Lens.lens (\DeviceSelectionResult' {filters} -> filters) (\s@DeviceSelectionResult' {} a -> s {filters = a} :: DeviceSelectionResult) Prelude.. Lens.mapping Lens.coerced
 
+-- | The number of devices that matched the device filter selection criteria.
+deviceSelectionResult_matchedDevicesCount :: Lens.Lens' DeviceSelectionResult (Prelude.Maybe Prelude.Int)
+deviceSelectionResult_matchedDevicesCount = Lens.lens (\DeviceSelectionResult' {matchedDevicesCount} -> matchedDevicesCount) (\s@DeviceSelectionResult' {} a -> s {matchedDevicesCount = a} :: DeviceSelectionResult)
+
 -- | The maximum number of devices to be selected by a device filter and
 -- included in a test run.
 deviceSelectionResult_maxDevices :: Lens.Lens' DeviceSelectionResult (Prelude.Maybe Prelude.Int)
 deviceSelectionResult_maxDevices = Lens.lens (\DeviceSelectionResult' {maxDevices} -> maxDevices) (\s@DeviceSelectionResult' {} a -> s {maxDevices = a} :: DeviceSelectionResult)
-
--- | The number of devices that matched the device filter selection criteria.
-deviceSelectionResult_matchedDevicesCount :: Lens.Lens' DeviceSelectionResult (Prelude.Maybe Prelude.Int)
-deviceSelectionResult_matchedDevicesCount = Lens.lens (\DeviceSelectionResult' {matchedDevicesCount} -> matchedDevicesCount) (\s@DeviceSelectionResult' {} a -> s {matchedDevicesCount = a} :: DeviceSelectionResult)
 
 instance Data.FromJSON DeviceSelectionResult where
   parseJSON =
@@ -84,18 +84,18 @@ instance Data.FromJSON DeviceSelectionResult where
       ( \x ->
           DeviceSelectionResult'
             Prelude.<$> (x Data..:? "filters" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "maxDevices")
             Prelude.<*> (x Data..:? "matchedDevicesCount")
+            Prelude.<*> (x Data..:? "maxDevices")
       )
 
 instance Prelude.Hashable DeviceSelectionResult where
   hashWithSalt _salt DeviceSelectionResult' {..} =
     _salt `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` maxDevices
       `Prelude.hashWithSalt` matchedDevicesCount
+      `Prelude.hashWithSalt` maxDevices
 
 instance Prelude.NFData DeviceSelectionResult where
   rnf DeviceSelectionResult' {..} =
     Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf maxDevices
       `Prelude.seq` Prelude.rnf matchedDevicesCount
+      `Prelude.seq` Prelude.rnf maxDevices

@@ -24,8 +24,8 @@ module Amazonka.DeviceFarm.Lens
     createDevicePoolResponse_httpStatus,
 
     -- ** CreateInstanceProfile
-    createInstanceProfile_excludeAppPackagesFromCleanup,
     createInstanceProfile_description,
+    createInstanceProfile_excludeAppPackagesFromCleanup,
     createInstanceProfile_packageCleanup,
     createInstanceProfile_rebootAfterUse,
     createInstanceProfile_name,
@@ -33,47 +33,47 @@ module Amazonka.DeviceFarm.Lens
     createInstanceProfileResponse_httpStatus,
 
     -- ** CreateNetworkProfile
-    createNetworkProfile_uplinkDelayMs,
-    createNetworkProfile_type,
-    createNetworkProfile_uplinkJitterMs,
-    createNetworkProfile_downlinkBandwidthBits,
-    createNetworkProfile_uplinkLossPercent,
-    createNetworkProfile_uplinkBandwidthBits,
     createNetworkProfile_description,
-    createNetworkProfile_downlinkLossPercent,
+    createNetworkProfile_downlinkBandwidthBits,
     createNetworkProfile_downlinkDelayMs,
     createNetworkProfile_downlinkJitterMs,
+    createNetworkProfile_downlinkLossPercent,
+    createNetworkProfile_type,
+    createNetworkProfile_uplinkBandwidthBits,
+    createNetworkProfile_uplinkDelayMs,
+    createNetworkProfile_uplinkJitterMs,
+    createNetworkProfile_uplinkLossPercent,
     createNetworkProfile_projectArn,
     createNetworkProfile_name,
     createNetworkProfileResponse_networkProfile,
     createNetworkProfileResponse_httpStatus,
 
     -- ** CreateProject
-    createProject_vpcConfig,
     createProject_defaultJobTimeoutMinutes,
+    createProject_vpcConfig,
     createProject_name,
     createProjectResponse_project,
     createProjectResponse_httpStatus,
 
     -- ** CreateRemoteAccessSession
-    createRemoteAccessSession_name,
     createRemoteAccessSession_clientId,
+    createRemoteAccessSession_configuration,
+    createRemoteAccessSession_instanceArn,
+    createRemoteAccessSession_interactionMode,
+    createRemoteAccessSession_name,
     createRemoteAccessSession_remoteDebugEnabled,
     createRemoteAccessSession_remoteRecordAppArn,
     createRemoteAccessSession_remoteRecordEnabled,
-    createRemoteAccessSession_configuration,
-    createRemoteAccessSession_sshPublicKey,
-    createRemoteAccessSession_instanceArn,
-    createRemoteAccessSession_interactionMode,
     createRemoteAccessSession_skipAppResign,
+    createRemoteAccessSession_sshPublicKey,
     createRemoteAccessSession_projectArn,
     createRemoteAccessSession_deviceArn,
     createRemoteAccessSessionResponse_remoteAccessSession,
     createRemoteAccessSessionResponse_httpStatus,
 
     -- ** CreateTestGridProject
-    createTestGridProject_vpcConfig,
     createTestGridProject_description,
+    createTestGridProject_vpcConfig,
     createTestGridProject_name,
     createTestGridProjectResponse_testGridProject,
     createTestGridProjectResponse_httpStatus,
@@ -81,8 +81,8 @@ module Amazonka.DeviceFarm.Lens
     -- ** CreateTestGridUrl
     createTestGridUrl_projectArn,
     createTestGridUrl_expiresInSeconds,
-    createTestGridUrlResponse_url,
     createTestGridUrlResponse_expires,
+    createTestGridUrlResponse_url,
     createTestGridUrlResponse_httpStatus,
 
     -- ** CreateUpload
@@ -157,13 +157,13 @@ module Amazonka.DeviceFarm.Lens
     getDevicePoolResponse_httpStatus,
 
     -- ** GetDevicePoolCompatibility
-    getDevicePoolCompatibility_configuration,
-    getDevicePoolCompatibility_testType,
     getDevicePoolCompatibility_appArn,
+    getDevicePoolCompatibility_configuration,
     getDevicePoolCompatibility_test,
+    getDevicePoolCompatibility_testType,
     getDevicePoolCompatibility_devicePoolArn,
-    getDevicePoolCompatibilityResponse_incompatibleDevices,
     getDevicePoolCompatibilityResponse_compatibleDevices,
+    getDevicePoolCompatibilityResponse_incompatibleDevices,
     getDevicePoolCompatibilityResponse_httpStatus,
 
     -- ** GetInstanceProfile
@@ -183,9 +183,9 @@ module Amazonka.DeviceFarm.Lens
 
     -- ** GetOfferingStatus
     getOfferingStatus_nextToken,
-    getOfferingStatusResponse_nextToken,
-    getOfferingStatusResponse_nextPeriod,
     getOfferingStatusResponse_current,
+    getOfferingStatusResponse_nextPeriod,
+    getOfferingStatusResponse_nextToken,
     getOfferingStatusResponse_httpStatus,
 
     -- ** GetProject
@@ -219,9 +219,9 @@ module Amazonka.DeviceFarm.Lens
     getTestGridProjectResponse_httpStatus,
 
     -- ** GetTestGridSession
+    getTestGridSession_projectArn,
     getTestGridSession_sessionArn,
     getTestGridSession_sessionId,
-    getTestGridSession_projectArn,
     getTestGridSessionResponse_testGridSession,
     getTestGridSessionResponse_httpStatus,
 
@@ -245,53 +245,53 @@ module Amazonka.DeviceFarm.Lens
     listArtifacts_nextToken,
     listArtifacts_arn,
     listArtifacts_type,
-    listArtifactsResponse_nextToken,
     listArtifactsResponse_artifacts,
+    listArtifactsResponse_nextToken,
     listArtifactsResponse_httpStatus,
 
     -- ** ListDeviceInstances
-    listDeviceInstances_nextToken,
     listDeviceInstances_maxResults,
-    listDeviceInstancesResponse_nextToken,
+    listDeviceInstances_nextToken,
     listDeviceInstancesResponse_deviceInstances,
+    listDeviceInstancesResponse_nextToken,
     listDeviceInstancesResponse_httpStatus,
 
     -- ** ListDevicePools
     listDevicePools_nextToken,
     listDevicePools_type,
     listDevicePools_arn,
-    listDevicePoolsResponse_nextToken,
     listDevicePoolsResponse_devicePools,
+    listDevicePoolsResponse_nextToken,
     listDevicePoolsResponse_httpStatus,
 
     -- ** ListDevices
-    listDevices_nextToken,
-    listDevices_filters,
     listDevices_arn,
+    listDevices_filters,
+    listDevices_nextToken,
     listDevicesResponse_devices,
     listDevicesResponse_nextToken,
     listDevicesResponse_httpStatus,
 
     -- ** ListInstanceProfiles
-    listInstanceProfiles_nextToken,
     listInstanceProfiles_maxResults,
-    listInstanceProfilesResponse_nextToken,
+    listInstanceProfiles_nextToken,
     listInstanceProfilesResponse_instanceProfiles,
+    listInstanceProfilesResponse_nextToken,
     listInstanceProfilesResponse_httpStatus,
 
     -- ** ListJobs
     listJobs_nextToken,
     listJobs_arn,
-    listJobsResponse_nextToken,
     listJobsResponse_jobs,
+    listJobsResponse_nextToken,
     listJobsResponse_httpStatus,
 
     -- ** ListNetworkProfiles
     listNetworkProfiles_nextToken,
     listNetworkProfiles_type,
     listNetworkProfiles_arn,
-    listNetworkProfilesResponse_nextToken,
     listNetworkProfilesResponse_networkProfiles,
+    listNetworkProfilesResponse_nextToken,
     listNetworkProfilesResponse_httpStatus,
 
     -- ** ListOfferingPromotions
@@ -313,10 +313,10 @@ module Amazonka.DeviceFarm.Lens
     listOfferingsResponse_httpStatus,
 
     -- ** ListProjects
-    listProjects_nextToken,
     listProjects_arn,
-    listProjectsResponse_projects,
+    listProjects_nextToken,
     listProjectsResponse_nextToken,
+    listProjectsResponse_projects,
     listProjectsResponse_httpStatus,
 
     -- ** ListRemoteAccessSessions
@@ -343,8 +343,8 @@ module Amazonka.DeviceFarm.Lens
     -- ** ListSuites
     listSuites_nextToken,
     listSuites_arn,
-    listSuitesResponse_suites,
     listSuitesResponse_nextToken,
+    listSuitesResponse_suites,
     listSuitesResponse_httpStatus,
 
     -- ** ListTagsForResource
@@ -353,37 +353,37 @@ module Amazonka.DeviceFarm.Lens
     listTagsForResourceResponse_httpStatus,
 
     -- ** ListTestGridProjects
-    listTestGridProjects_nextToken,
     listTestGridProjects_maxResult,
+    listTestGridProjects_nextToken,
     listTestGridProjectsResponse_nextToken,
     listTestGridProjectsResponse_testGridProjects,
     listTestGridProjectsResponse_httpStatus,
 
     -- ** ListTestGridSessionActions
-    listTestGridSessionActions_nextToken,
     listTestGridSessionActions_maxResult,
+    listTestGridSessionActions_nextToken,
     listTestGridSessionActions_sessionArn,
-    listTestGridSessionActionsResponse_nextToken,
     listTestGridSessionActionsResponse_actions,
+    listTestGridSessionActionsResponse_nextToken,
     listTestGridSessionActionsResponse_httpStatus,
 
     -- ** ListTestGridSessionArtifacts
+    listTestGridSessionArtifacts_maxResult,
     listTestGridSessionArtifacts_nextToken,
     listTestGridSessionArtifacts_type,
-    listTestGridSessionArtifacts_maxResult,
     listTestGridSessionArtifacts_sessionArn,
-    listTestGridSessionArtifactsResponse_nextToken,
     listTestGridSessionArtifactsResponse_artifacts,
+    listTestGridSessionArtifactsResponse_nextToken,
     listTestGridSessionArtifactsResponse_httpStatus,
 
     -- ** ListTestGridSessions
-    listTestGridSessions_nextToken,
-    listTestGridSessions_maxResult,
-    listTestGridSessions_status,
-    listTestGridSessions_creationTimeBefore,
-    listTestGridSessions_endTimeBefore,
-    listTestGridSessions_endTimeAfter,
     listTestGridSessions_creationTimeAfter,
+    listTestGridSessions_creationTimeBefore,
+    listTestGridSessions_endTimeAfter,
+    listTestGridSessions_endTimeBefore,
+    listTestGridSessions_maxResult,
+    listTestGridSessions_nextToken,
+    listTestGridSessions_status,
     listTestGridSessions_projectArn,
     listTestGridSessionsResponse_nextToken,
     listTestGridSessionsResponse_testGridSessions,
@@ -407,13 +407,13 @@ module Amazonka.DeviceFarm.Lens
     listUploads_nextToken,
     listUploads_type,
     listUploads_arn,
-    listUploadsResponse_uploads,
     listUploadsResponse_nextToken,
+    listUploadsResponse_uploads,
     listUploadsResponse_httpStatus,
 
     -- ** ListVPCEConfigurations
-    listVPCEConfigurations_nextToken,
     listVPCEConfigurations_maxResults,
+    listVPCEConfigurations_nextToken,
     listVPCEConfigurationsResponse_nextToken,
     listVPCEConfigurationsResponse_vpceConfigurations,
     listVPCEConfigurationsResponse_httpStatus,
@@ -432,12 +432,12 @@ module Amazonka.DeviceFarm.Lens
     renewOfferingResponse_httpStatus,
 
     -- ** ScheduleRun
-    scheduleRun_name,
-    scheduleRun_deviceSelectionConfiguration,
-    scheduleRun_configuration,
-    scheduleRun_executionConfiguration,
     scheduleRun_appArn,
+    scheduleRun_configuration,
     scheduleRun_devicePoolArn,
+    scheduleRun_deviceSelectionConfiguration,
+    scheduleRun_executionConfiguration,
+    scheduleRun_name,
     scheduleRun_projectArn,
     scheduleRun_test,
     scheduleRunResponse_run,
@@ -469,26 +469,26 @@ module Amazonka.DeviceFarm.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateDeviceInstance
-    updateDeviceInstance_profileArn,
     updateDeviceInstance_labels,
+    updateDeviceInstance_profileArn,
     updateDeviceInstance_arn,
     updateDeviceInstanceResponse_deviceInstance,
     updateDeviceInstanceResponse_httpStatus,
 
     -- ** UpdateDevicePool
-    updateDevicePool_name,
-    updateDevicePool_rules,
     updateDevicePool_clearMaxDevices,
     updateDevicePool_description,
     updateDevicePool_maxDevices,
+    updateDevicePool_name,
+    updateDevicePool_rules,
     updateDevicePool_arn,
     updateDevicePoolResponse_devicePool,
     updateDevicePoolResponse_httpStatus,
 
     -- ** UpdateInstanceProfile
-    updateInstanceProfile_name,
-    updateInstanceProfile_excludeAppPackagesFromCleanup,
     updateInstanceProfile_description,
+    updateInstanceProfile_excludeAppPackagesFromCleanup,
+    updateInstanceProfile_name,
     updateInstanceProfile_packageCleanup,
     updateInstanceProfile_rebootAfterUse,
     updateInstanceProfile_arn,
@@ -496,50 +496,50 @@ module Amazonka.DeviceFarm.Lens
     updateInstanceProfileResponse_httpStatus,
 
     -- ** UpdateNetworkProfile
-    updateNetworkProfile_uplinkDelayMs,
-    updateNetworkProfile_name,
-    updateNetworkProfile_type,
-    updateNetworkProfile_uplinkJitterMs,
-    updateNetworkProfile_downlinkBandwidthBits,
-    updateNetworkProfile_uplinkLossPercent,
-    updateNetworkProfile_uplinkBandwidthBits,
     updateNetworkProfile_description,
-    updateNetworkProfile_downlinkLossPercent,
+    updateNetworkProfile_downlinkBandwidthBits,
     updateNetworkProfile_downlinkDelayMs,
     updateNetworkProfile_downlinkJitterMs,
+    updateNetworkProfile_downlinkLossPercent,
+    updateNetworkProfile_name,
+    updateNetworkProfile_type,
+    updateNetworkProfile_uplinkBandwidthBits,
+    updateNetworkProfile_uplinkDelayMs,
+    updateNetworkProfile_uplinkJitterMs,
+    updateNetworkProfile_uplinkLossPercent,
     updateNetworkProfile_arn,
     updateNetworkProfileResponse_networkProfile,
     updateNetworkProfileResponse_httpStatus,
 
     -- ** UpdateProject
+    updateProject_defaultJobTimeoutMinutes,
     updateProject_name,
     updateProject_vpcConfig,
-    updateProject_defaultJobTimeoutMinutes,
     updateProject_arn,
     updateProjectResponse_project,
     updateProjectResponse_httpStatus,
 
     -- ** UpdateTestGridProject
+    updateTestGridProject_description,
     updateTestGridProject_name,
     updateTestGridProject_vpcConfig,
-    updateTestGridProject_description,
     updateTestGridProject_projectArn,
     updateTestGridProjectResponse_testGridProject,
     updateTestGridProjectResponse_httpStatus,
 
     -- ** UpdateUpload
-    updateUpload_name,
-    updateUpload_editContent,
     updateUpload_contentType,
+    updateUpload_editContent,
+    updateUpload_name,
     updateUpload_arn,
     updateUploadResponse_upload,
     updateUploadResponse_httpStatus,
 
     -- ** UpdateVPCEConfiguration
-    updateVPCEConfiguration_vpceServiceName,
-    updateVPCEConfiguration_vpceConfigurationName,
-    updateVPCEConfiguration_vpceConfigurationDescription,
     updateVPCEConfiguration_serviceDnsName,
+    updateVPCEConfiguration_vpceConfigurationDescription,
+    updateVPCEConfiguration_vpceConfigurationName,
+    updateVPCEConfiguration_vpceServiceName,
     updateVPCEConfiguration_arn,
     updateVPCEConfigurationResponse_vpceConfiguration,
     updateVPCEConfigurationResponse_httpStatus,
@@ -547,39 +547,39 @@ module Amazonka.DeviceFarm.Lens
     -- * Types
 
     -- ** AccountSettings
-    accountSettings_unmeteredRemoteAccessDevices,
-    accountSettings_trialMinutes,
-    accountSettings_defaultJobTimeoutMinutes,
-    accountSettings_maxSlots,
-    accountSettings_unmeteredDevices,
     accountSettings_awsAccountNumber,
+    accountSettings_defaultJobTimeoutMinutes,
     accountSettings_maxJobTimeoutMinutes,
+    accountSettings_maxSlots,
     accountSettings_skipAppResign,
+    accountSettings_trialMinutes,
+    accountSettings_unmeteredDevices,
+    accountSettings_unmeteredRemoteAccessDevices,
 
     -- ** Artifact
+    artifact_arn,
+    artifact_extension,
     artifact_name,
     artifact_type,
-    artifact_extension,
-    artifact_arn,
     artifact_url,
 
     -- ** CPU
-    cpu_frequency,
-    cpu_clock,
     cpu_architecture,
+    cpu_clock,
+    cpu_frequency,
 
     -- ** Counters
+    counters_errored,
     counters_failed,
+    counters_passed,
+    counters_skipped,
+    counters_stopped,
     counters_total,
     counters_warned,
-    counters_errored,
-    counters_skipped,
-    counters_passed,
-    counters_stopped,
 
     -- ** CreateRemoteAccessSessionConfiguration
-    createRemoteAccessSessionConfiguration_vpceConfigurationArns,
     createRemoteAccessSessionConfiguration_billingMethod,
+    createRemoteAccessSessionConfiguration_vpceConfigurationArns,
 
     -- ** CustomerArtifactPaths
     customerArtifactPaths_androidPaths,
@@ -587,27 +587,27 @@ module Amazonka.DeviceFarm.Lens
     customerArtifactPaths_iosPaths,
 
     -- ** Device
-    device_instances,
-    device_os,
-    device_name,
-    device_model,
+    device_arn,
+    device_availability,
+    device_carrier,
+    device_cpu,
+    device_fleetName,
     device_fleetType,
     device_formFactor,
-    device_remoteDebugEnabled,
-    device_memory,
-    device_cpu,
-    device_remoteAccessEnabled,
-    device_arn,
     device_heapSize,
-    device_carrier,
-    device_platform,
-    device_availability,
-    device_fleetName,
-    device_manufacturer,
-    device_modelId,
-    device_resolution,
     device_image,
+    device_instances,
+    device_manufacturer,
+    device_memory,
+    device_model,
+    device_modelId,
+    device_name,
+    device_os,
+    device_platform,
     device_radio,
+    device_remoteAccessEnabled,
+    device_remoteDebugEnabled,
+    device_resolution,
 
     -- ** DeviceFilter
     deviceFilter_attribute,
@@ -616,24 +616,24 @@ module Amazonka.DeviceFarm.Lens
 
     -- ** DeviceInstance
     deviceInstance_arn,
-    deviceInstance_status,
+    deviceInstance_deviceArn,
     deviceInstance_instanceProfile,
     deviceInstance_labels,
-    deviceInstance_deviceArn,
+    deviceInstance_status,
     deviceInstance_udid,
 
     -- ** DeviceMinutes
-    deviceMinutes_unmetered,
-    deviceMinutes_total,
     deviceMinutes_metered,
+    deviceMinutes_total,
+    deviceMinutes_unmetered,
 
     -- ** DevicePool
-    devicePool_name,
-    devicePool_type,
-    devicePool_rules,
     devicePool_arn,
     devicePool_description,
     devicePool_maxDevices,
+    devicePool_name,
+    devicePool_rules,
+    devicePool_type,
 
     -- ** DevicePoolCompatibilityResult
     devicePoolCompatibilityResult_compatible,
@@ -646,73 +646,73 @@ module Amazonka.DeviceFarm.Lens
 
     -- ** DeviceSelectionResult
     deviceSelectionResult_filters,
-    deviceSelectionResult_maxDevices,
     deviceSelectionResult_matchedDevicesCount,
+    deviceSelectionResult_maxDevices,
 
     -- ** ExecutionConfiguration
-    executionConfiguration_jobTimeoutMinutes,
-    executionConfiguration_videoCapture,
     executionConfiguration_accountsCleanup,
     executionConfiguration_appPackagesCleanup,
+    executionConfiguration_jobTimeoutMinutes,
     executionConfiguration_skipAppResign,
+    executionConfiguration_videoCapture,
 
     -- ** IncompatibilityMessage
     incompatibilityMessage_message,
     incompatibilityMessage_type,
 
     -- ** InstanceProfile
-    instanceProfile_name,
-    instanceProfile_excludeAppPackagesFromCleanup,
     instanceProfile_arn,
     instanceProfile_description,
+    instanceProfile_excludeAppPackagesFromCleanup,
+    instanceProfile_name,
     instanceProfile_packageCleanup,
     instanceProfile_rebootAfterUse,
 
     -- ** Job
+    job_arn,
+    job_counters,
+    job_created,
+    job_device,
+    job_deviceMinutes,
+    job_instanceArn,
     job_message,
     job_name,
-    job_type,
+    job_result,
     job_started,
-    job_created,
-    job_deviceMinutes,
-    job_device,
-    job_arn,
+    job_status,
+    job_stopped,
+    job_type,
     job_videoCapture,
     job_videoEndpoint,
-    job_status,
-    job_counters,
-    job_instanceArn,
-    job_result,
-    job_stopped,
 
     -- ** Location
     location_latitude,
     location_longitude,
 
     -- ** MonetaryAmount
-    monetaryAmount_currencyCode,
     monetaryAmount_amount,
+    monetaryAmount_currencyCode,
 
     -- ** NetworkProfile
-    networkProfile_uplinkDelayMs,
-    networkProfile_name,
-    networkProfile_type,
-    networkProfile_uplinkJitterMs,
-    networkProfile_downlinkBandwidthBits,
-    networkProfile_uplinkLossPercent,
-    networkProfile_uplinkBandwidthBits,
     networkProfile_arn,
     networkProfile_description,
-    networkProfile_downlinkLossPercent,
+    networkProfile_downlinkBandwidthBits,
     networkProfile_downlinkDelayMs,
     networkProfile_downlinkJitterMs,
+    networkProfile_downlinkLossPercent,
+    networkProfile_name,
+    networkProfile_type,
+    networkProfile_uplinkBandwidthBits,
+    networkProfile_uplinkDelayMs,
+    networkProfile_uplinkJitterMs,
+    networkProfile_uplinkLossPercent,
 
     -- ** Offering
-    offering_type,
-    offering_recurringCharges,
     offering_description,
-    offering_platform,
     offering_id,
+    offering_platform,
+    offering_recurringCharges,
+    offering_type,
 
     -- ** OfferingPromotion
     offeringPromotion_description,
@@ -720,74 +720,74 @@ module Amazonka.DeviceFarm.Lens
 
     -- ** OfferingStatus
     offeringStatus_effectiveOn,
+    offeringStatus_offering,
     offeringStatus_quantity,
     offeringStatus_type,
-    offeringStatus_offering,
 
     -- ** OfferingTransaction
+    offeringTransaction_cost,
     offeringTransaction_createdOn,
     offeringTransaction_offeringPromotionId,
-    offeringTransaction_transactionId,
     offeringTransaction_offeringStatus,
-    offeringTransaction_cost,
+    offeringTransaction_transactionId,
 
     -- ** Problem
-    problem_message,
-    problem_suite,
     problem_device,
-    problem_run,
     problem_job,
-    problem_test,
+    problem_message,
     problem_result,
+    problem_run,
+    problem_suite,
+    problem_test,
 
     -- ** ProblemDetail
-    problemDetail_name,
     problemDetail_arn,
+    problemDetail_name,
 
     -- ** Project
+    project_arn,
+    project_created,
+    project_defaultJobTimeoutMinutes,
     project_name,
     project_vpcConfig,
-    project_created,
-    project_arn,
-    project_defaultJobTimeoutMinutes,
 
     -- ** Radios
-    radios_gps,
-    radios_wifi,
     radios_bluetooth,
+    radios_gps,
     radios_nfc,
+    radios_wifi,
 
     -- ** RecurringCharge
-    recurringCharge_frequency,
     recurringCharge_cost,
+    recurringCharge_frequency,
 
     -- ** RemoteAccessSession
+    remoteAccessSession_arn,
+    remoteAccessSession_billingMethod,
+    remoteAccessSession_clientId,
+    remoteAccessSession_created,
+    remoteAccessSession_device,
+    remoteAccessSession_deviceMinutes,
     remoteAccessSession_deviceUdid,
+    remoteAccessSession_endpoint,
+    remoteAccessSession_hostAddress,
+    remoteAccessSession_instanceArn,
+    remoteAccessSession_interactionMode,
     remoteAccessSession_message,
     remoteAccessSession_name,
-    remoteAccessSession_started,
-    remoteAccessSession_clientId,
     remoteAccessSession_remoteDebugEnabled,
     remoteAccessSession_remoteRecordAppArn,
-    remoteAccessSession_vpcConfig,
-    remoteAccessSession_created,
     remoteAccessSession_remoteRecordEnabled,
-    remoteAccessSession_deviceMinutes,
-    remoteAccessSession_device,
-    remoteAccessSession_arn,
-    remoteAccessSession_status,
-    remoteAccessSession_billingMethod,
-    remoteAccessSession_instanceArn,
     remoteAccessSession_result,
-    remoteAccessSession_endpoint,
-    remoteAccessSession_interactionMode,
-    remoteAccessSession_stopped,
-    remoteAccessSession_hostAddress,
     remoteAccessSession_skipAppResign,
+    remoteAccessSession_started,
+    remoteAccessSession_status,
+    remoteAccessSession_stopped,
+    remoteAccessSession_vpcConfig,
 
     -- ** Resolution
-    resolution_width,
     resolution_height,
+    resolution_width,
 
     -- ** Rule
     rule_attribute,
@@ -796,116 +796,116 @@ module Amazonka.DeviceFarm.Lens
 
     -- ** Run
     run_appUpload,
-    run_message,
-    run_jobTimeoutMinutes,
-    run_name,
-    run_type,
-    run_started,
-    run_customerArtifactPaths,
-    run_vpcConfig,
-    run_created,
-    run_deviceMinutes,
-    run_locale,
-    run_resultCode,
-    run_networkProfile,
-    run_seed,
-    run_radios,
     run_arn,
-    run_totalJobs,
-    run_status,
-    run_platform,
     run_billingMethod,
-    run_counters,
-    run_webUrl,
-    run_eventCount,
-    run_location,
-    run_deviceSelectionResult,
-    run_parsingResultUrl,
     run_completedJobs,
-    run_testSpecArn,
-    run_result,
-    run_stopped,
+    run_counters,
+    run_created,
+    run_customerArtifactPaths,
+    run_deviceMinutes,
     run_devicePoolArn,
+    run_deviceSelectionResult,
+    run_eventCount,
+    run_jobTimeoutMinutes,
+    run_locale,
+    run_location,
+    run_message,
+    run_name,
+    run_networkProfile,
+    run_parsingResultUrl,
+    run_platform,
+    run_radios,
+    run_result,
+    run_resultCode,
+    run_seed,
     run_skipAppResign,
+    run_started,
+    run_status,
+    run_stopped,
+    run_testSpecArn,
+    run_totalJobs,
+    run_type,
+    run_vpcConfig,
+    run_webUrl,
 
     -- ** Sample
-    sample_type,
     sample_arn,
+    sample_type,
     sample_url,
 
     -- ** ScheduleRunConfiguration
-    scheduleRunConfiguration_customerArtifactPaths,
-    scheduleRunConfiguration_vpceConfigurationArns,
-    scheduleRunConfiguration_locale,
-    scheduleRunConfiguration_radios,
-    scheduleRunConfiguration_billingMethod,
-    scheduleRunConfiguration_location,
-    scheduleRunConfiguration_extraDataPackageArn,
     scheduleRunConfiguration_auxiliaryApps,
+    scheduleRunConfiguration_billingMethod,
+    scheduleRunConfiguration_customerArtifactPaths,
+    scheduleRunConfiguration_extraDataPackageArn,
+    scheduleRunConfiguration_locale,
+    scheduleRunConfiguration_location,
     scheduleRunConfiguration_networkProfileArn,
+    scheduleRunConfiguration_radios,
+    scheduleRunConfiguration_vpceConfigurationArns,
 
     -- ** ScheduleRunTest
     scheduleRunTest_filter,
-    scheduleRunTest_testSpecArn,
-    scheduleRunTest_testPackageArn,
     scheduleRunTest_parameters,
+    scheduleRunTest_testPackageArn,
+    scheduleRunTest_testSpecArn,
     scheduleRunTest_type,
 
     -- ** Suite
-    suite_message,
-    suite_name,
-    suite_type,
-    suite_started,
+    suite_arn,
+    suite_counters,
     suite_created,
     suite_deviceMinutes,
-    suite_arn,
-    suite_status,
-    suite_counters,
+    suite_message,
+    suite_name,
     suite_result,
+    suite_started,
+    suite_status,
     suite_stopped,
+    suite_type,
 
     -- ** Tag
     tag_key,
     tag_value,
 
     -- ** Test
-    test_message,
-    test_name,
-    test_type,
-    test_started,
+    test_arn,
+    test_counters,
     test_created,
     test_deviceMinutes,
-    test_arn,
-    test_status,
-    test_counters,
+    test_message,
+    test_name,
     test_result,
+    test_started,
+    test_status,
     test_stopped,
+    test_type,
 
     -- ** TestGridProject
+    testGridProject_arn,
+    testGridProject_created,
+    testGridProject_description,
     testGridProject_name,
     testGridProject_vpcConfig,
-    testGridProject_created,
-    testGridProject_arn,
-    testGridProject_description,
 
     -- ** TestGridSession
-    testGridSession_seleniumProperties,
-    testGridSession_ended,
-    testGridSession_created,
     testGridSession_arn,
-    testGridSession_status,
     testGridSession_billingMinutes,
+    testGridSession_created,
+    testGridSession_ended,
+    testGridSession_seleniumProperties,
+    testGridSession_status,
 
     -- ** TestGridSessionAction
+    testGridSessionAction_action,
+    testGridSessionAction_duration,
     testGridSessionAction_requestMethod,
     testGridSessionAction_started,
-    testGridSessionAction_duration,
-    testGridSessionAction_action,
     testGridSessionAction_statusCode,
 
     -- ** TestGridSessionArtifact
-    testGridSessionArtifact_type,
     testGridSessionArtifact_filename,
+    testGridSessionArtifact_type,
     testGridSessionArtifact_url,
 
     -- ** TestGridVpcConfig
@@ -914,31 +914,31 @@ module Amazonka.DeviceFarm.Lens
     testGridVpcConfig_vpcId,
 
     -- ** TrialMinutes
-    trialMinutes_total,
     trialMinutes_remaining,
+    trialMinutes_total,
 
     -- ** UniqueProblem
     uniqueProblem_message,
     uniqueProblem_problems,
 
     -- ** Upload
-    upload_message,
-    upload_name,
-    upload_type,
-    upload_created,
-    upload_metadata,
     upload_arn,
-    upload_url,
-    upload_status,
     upload_category,
     upload_contentType,
+    upload_created,
+    upload_message,
+    upload_metadata,
+    upload_name,
+    upload_status,
+    upload_type,
+    upload_url,
 
     -- ** VPCEConfiguration
     vPCEConfiguration_arn,
-    vPCEConfiguration_vpceServiceName,
-    vPCEConfiguration_vpceConfigurationName,
-    vPCEConfiguration_vpceConfigurationDescription,
     vPCEConfiguration_serviceDnsName,
+    vPCEConfiguration_vpceConfigurationDescription,
+    vPCEConfiguration_vpceConfigurationName,
+    vPCEConfiguration_vpceServiceName,
 
     -- ** VpcConfig
     vpcConfig_securityGroupIds,

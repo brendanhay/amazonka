@@ -27,8 +27,8 @@ module Amazonka.DeviceFarm.UpdateDeviceInstance
     newUpdateDeviceInstance,
 
     -- * Request Lenses
-    updateDeviceInstance_profileArn,
     updateDeviceInstance_labels,
+    updateDeviceInstance_profileArn,
     updateDeviceInstance_arn,
 
     -- * Destructuring the Response
@@ -51,11 +51,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateDeviceInstance' smart constructor.
 data UpdateDeviceInstance = UpdateDeviceInstance'
-  { -- | The ARN of the profile that you want to associate with the device
+  { -- | An array of strings that you want to associate with the device instance.
+    labels :: Prelude.Maybe [Prelude.Text],
+    -- | The ARN of the profile that you want to associate with the device
     -- instance.
     profileArn :: Prelude.Maybe Prelude.Text,
-    -- | An array of strings that you want to associate with the device instance.
-    labels :: Prelude.Maybe [Prelude.Text],
     -- | The Amazon Resource Name (ARN) of the device instance.
     arn :: Prelude.Text
   }
@@ -69,10 +69,10 @@ data UpdateDeviceInstance = UpdateDeviceInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'labels', 'updateDeviceInstance_labels' - An array of strings that you want to associate with the device instance.
+--
 -- 'profileArn', 'updateDeviceInstance_profileArn' - The ARN of the profile that you want to associate with the device
 -- instance.
---
--- 'labels', 'updateDeviceInstance_labels' - An array of strings that you want to associate with the device instance.
 --
 -- 'arn', 'updateDeviceInstance_arn' - The Amazon Resource Name (ARN) of the device instance.
 newUpdateDeviceInstance ::
@@ -81,19 +81,19 @@ newUpdateDeviceInstance ::
   UpdateDeviceInstance
 newUpdateDeviceInstance pArn_ =
   UpdateDeviceInstance'
-    { profileArn = Prelude.Nothing,
-      labels = Prelude.Nothing,
+    { labels = Prelude.Nothing,
+      profileArn = Prelude.Nothing,
       arn = pArn_
     }
+
+-- | An array of strings that you want to associate with the device instance.
+updateDeviceInstance_labels :: Lens.Lens' UpdateDeviceInstance (Prelude.Maybe [Prelude.Text])
+updateDeviceInstance_labels = Lens.lens (\UpdateDeviceInstance' {labels} -> labels) (\s@UpdateDeviceInstance' {} a -> s {labels = a} :: UpdateDeviceInstance) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the profile that you want to associate with the device
 -- instance.
 updateDeviceInstance_profileArn :: Lens.Lens' UpdateDeviceInstance (Prelude.Maybe Prelude.Text)
 updateDeviceInstance_profileArn = Lens.lens (\UpdateDeviceInstance' {profileArn} -> profileArn) (\s@UpdateDeviceInstance' {} a -> s {profileArn = a} :: UpdateDeviceInstance)
-
--- | An array of strings that you want to associate with the device instance.
-updateDeviceInstance_labels :: Lens.Lens' UpdateDeviceInstance (Prelude.Maybe [Prelude.Text])
-updateDeviceInstance_labels = Lens.lens (\UpdateDeviceInstance' {labels} -> labels) (\s@UpdateDeviceInstance' {} a -> s {labels = a} :: UpdateDeviceInstance) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the device instance.
 updateDeviceInstance_arn :: Lens.Lens' UpdateDeviceInstance Prelude.Text
@@ -115,14 +115,14 @@ instance Core.AWSRequest UpdateDeviceInstance where
 
 instance Prelude.Hashable UpdateDeviceInstance where
   hashWithSalt _salt UpdateDeviceInstance' {..} =
-    _salt `Prelude.hashWithSalt` profileArn
-      `Prelude.hashWithSalt` labels
+    _salt `Prelude.hashWithSalt` labels
+      `Prelude.hashWithSalt` profileArn
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData UpdateDeviceInstance where
   rnf UpdateDeviceInstance' {..} =
-    Prelude.rnf profileArn
-      `Prelude.seq` Prelude.rnf labels
+    Prelude.rnf labels
+      `Prelude.seq` Prelude.rnf profileArn
       `Prelude.seq` Prelude.rnf arn
 
 instance Data.ToHeaders UpdateDeviceInstance where
@@ -144,8 +144,8 @@ instance Data.ToJSON UpdateDeviceInstance where
   toJSON UpdateDeviceInstance' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("profileArn" Data..=) Prelude.<$> profileArn,
-            ("labels" Data..=) Prelude.<$> labels,
+          [ ("labels" Data..=) Prelude.<$> labels,
+            ("profileArn" Data..=) Prelude.<$> profileArn,
             Prelude.Just ("arn" Data..= arn)
           ]
       )

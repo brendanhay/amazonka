@@ -27,8 +27,8 @@ module Amazonka.DeviceFarm.CreateProject
     newCreateProject,
 
     -- * Request Lenses
-    createProject_vpcConfig,
     createProject_defaultJobTimeoutMinutes,
+    createProject_vpcConfig,
     createProject_name,
 
     -- * Destructuring the Response
@@ -53,12 +53,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateProject' smart constructor.
 data CreateProject = CreateProject'
-  { -- | The VPC security groups and subnets that are attached to a project.
-    vpcConfig :: Prelude.Maybe VpcConfig,
-    -- | Sets the execution timeout value (in minutes) for a project. All test
+  { -- | Sets the execution timeout value (in minutes) for a project. All test
     -- runs in this project use the specified execution timeout value unless
     -- overridden when scheduling a run.
     defaultJobTimeoutMinutes :: Prelude.Maybe Prelude.Int,
+    -- | The VPC security groups and subnets that are attached to a project.
+    vpcConfig :: Prelude.Maybe VpcConfig,
     -- | The project\'s name.
     name :: Prelude.Text
   }
@@ -72,11 +72,11 @@ data CreateProject = CreateProject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcConfig', 'createProject_vpcConfig' - The VPC security groups and subnets that are attached to a project.
---
 -- 'defaultJobTimeoutMinutes', 'createProject_defaultJobTimeoutMinutes' - Sets the execution timeout value (in minutes) for a project. All test
 -- runs in this project use the specified execution timeout value unless
 -- overridden when scheduling a run.
+--
+-- 'vpcConfig', 'createProject_vpcConfig' - The VPC security groups and subnets that are attached to a project.
 --
 -- 'name', 'createProject_name' - The project\'s name.
 newCreateProject ::
@@ -85,20 +85,21 @@ newCreateProject ::
   CreateProject
 newCreateProject pName_ =
   CreateProject'
-    { vpcConfig = Prelude.Nothing,
-      defaultJobTimeoutMinutes = Prelude.Nothing,
+    { defaultJobTimeoutMinutes =
+        Prelude.Nothing,
+      vpcConfig = Prelude.Nothing,
       name = pName_
     }
-
--- | The VPC security groups and subnets that are attached to a project.
-createProject_vpcConfig :: Lens.Lens' CreateProject (Prelude.Maybe VpcConfig)
-createProject_vpcConfig = Lens.lens (\CreateProject' {vpcConfig} -> vpcConfig) (\s@CreateProject' {} a -> s {vpcConfig = a} :: CreateProject)
 
 -- | Sets the execution timeout value (in minutes) for a project. All test
 -- runs in this project use the specified execution timeout value unless
 -- overridden when scheduling a run.
 createProject_defaultJobTimeoutMinutes :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Int)
 createProject_defaultJobTimeoutMinutes = Lens.lens (\CreateProject' {defaultJobTimeoutMinutes} -> defaultJobTimeoutMinutes) (\s@CreateProject' {} a -> s {defaultJobTimeoutMinutes = a} :: CreateProject)
+
+-- | The VPC security groups and subnets that are attached to a project.
+createProject_vpcConfig :: Lens.Lens' CreateProject (Prelude.Maybe VpcConfig)
+createProject_vpcConfig = Lens.lens (\CreateProject' {vpcConfig} -> vpcConfig) (\s@CreateProject' {} a -> s {vpcConfig = a} :: CreateProject)
 
 -- | The project\'s name.
 createProject_name :: Lens.Lens' CreateProject Prelude.Text
@@ -120,14 +121,15 @@ instance Core.AWSRequest CreateProject where
 
 instance Prelude.Hashable CreateProject where
   hashWithSalt _salt CreateProject' {..} =
-    _salt `Prelude.hashWithSalt` vpcConfig
+    _salt
       `Prelude.hashWithSalt` defaultJobTimeoutMinutes
+      `Prelude.hashWithSalt` vpcConfig
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateProject where
   rnf CreateProject' {..} =
-    Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf defaultJobTimeoutMinutes
+    Prelude.rnf defaultJobTimeoutMinutes
+      `Prelude.seq` Prelude.rnf vpcConfig
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders CreateProject where
@@ -149,9 +151,9 @@ instance Data.ToJSON CreateProject where
   toJSON CreateProject' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("vpcConfig" Data..=) Prelude.<$> vpcConfig,
-            ("defaultJobTimeoutMinutes" Data..=)
+          [ ("defaultJobTimeoutMinutes" Data..=)
               Prelude.<$> defaultJobTimeoutMinutes,
+            ("vpcConfig" Data..=) Prelude.<$> vpcConfig,
             Prelude.Just ("name" Data..= name)
           ]
       )

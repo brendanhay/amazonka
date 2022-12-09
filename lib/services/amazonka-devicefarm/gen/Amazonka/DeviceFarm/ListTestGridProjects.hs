@@ -27,8 +27,8 @@ module Amazonka.DeviceFarm.ListTestGridProjects
     newListTestGridProjects,
 
     -- * Request Lenses
-    listTestGridProjects_nextToken,
     listTestGridProjects_maxResult,
+    listTestGridProjects_nextToken,
 
     -- * Destructuring the Response
     ListTestGridProjectsResponse (..),
@@ -51,10 +51,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTestGridProjects' smart constructor.
 data ListTestGridProjects = ListTestGridProjects'
-  { -- | From a response, used to continue a paginated listing.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Return no more than this number of results.
-    maxResult :: Prelude.Maybe Prelude.Natural
+  { -- | Return no more than this number of results.
+    maxResult :: Prelude.Maybe Prelude.Natural,
+    -- | From a response, used to continue a paginated listing.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,24 +66,24 @@ data ListTestGridProjects = ListTestGridProjects'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTestGridProjects_nextToken' - From a response, used to continue a paginated listing.
---
 -- 'maxResult', 'listTestGridProjects_maxResult' - Return no more than this number of results.
+--
+-- 'nextToken', 'listTestGridProjects_nextToken' - From a response, used to continue a paginated listing.
 newListTestGridProjects ::
   ListTestGridProjects
 newListTestGridProjects =
   ListTestGridProjects'
-    { nextToken = Prelude.Nothing,
-      maxResult = Prelude.Nothing
+    { maxResult = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | From a response, used to continue a paginated listing.
-listTestGridProjects_nextToken :: Lens.Lens' ListTestGridProjects (Prelude.Maybe Prelude.Text)
-listTestGridProjects_nextToken = Lens.lens (\ListTestGridProjects' {nextToken} -> nextToken) (\s@ListTestGridProjects' {} a -> s {nextToken = a} :: ListTestGridProjects)
 
 -- | Return no more than this number of results.
 listTestGridProjects_maxResult :: Lens.Lens' ListTestGridProjects (Prelude.Maybe Prelude.Natural)
 listTestGridProjects_maxResult = Lens.lens (\ListTestGridProjects' {maxResult} -> maxResult) (\s@ListTestGridProjects' {} a -> s {maxResult = a} :: ListTestGridProjects)
+
+-- | From a response, used to continue a paginated listing.
+listTestGridProjects_nextToken :: Lens.Lens' ListTestGridProjects (Prelude.Maybe Prelude.Text)
+listTestGridProjects_nextToken = Lens.lens (\ListTestGridProjects' {nextToken} -> nextToken) (\s@ListTestGridProjects' {} a -> s {nextToken = a} :: ListTestGridProjects)
 
 instance Core.AWSRequest ListTestGridProjects where
   type
@@ -104,13 +104,13 @@ instance Core.AWSRequest ListTestGridProjects where
 
 instance Prelude.Hashable ListTestGridProjects where
   hashWithSalt _salt ListTestGridProjects' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResult
+    _salt `Prelude.hashWithSalt` maxResult
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListTestGridProjects where
   rnf ListTestGridProjects' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResult
+    Prelude.rnf maxResult
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListTestGridProjects where
   toHeaders =
@@ -131,8 +131,8 @@ instance Data.ToJSON ListTestGridProjects where
   toJSON ListTestGridProjects' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResult" Data..=) Prelude.<$> maxResult
+          [ ("maxResult" Data..=) Prelude.<$> maxResult,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

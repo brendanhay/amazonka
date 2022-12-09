@@ -36,9 +36,6 @@ data Entitlement = Entitlement'
     -- application. Customer identifiers are obtained through the
     -- ResolveCustomer operation in AWS Marketplace Metering Service.
     customerIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The product code for which the given entitlement applies. Product codes
-    -- are provided by AWS Marketplace when the product listing is created.
-    productCode :: Prelude.Maybe Prelude.Text,
     -- | The dimension for which the given entitlement applies. Dimensions
     -- represent categories of capacity in a product and are specified when the
     -- product is listed in AWS Marketplace.
@@ -50,6 +47,9 @@ data Entitlement = Entitlement'
     -- to renew their contract will still have entitlements with an expiration
     -- date.
     expirationDate :: Prelude.Maybe Data.POSIX,
+    -- | The product code for which the given entitlement applies. Product codes
+    -- are provided by AWS Marketplace when the product listing is created.
+    productCode :: Prelude.Maybe Prelude.Text,
     -- | The EntitlementValue represents the amount of capacity that the customer
     -- is entitled to for the product.
     value :: Prelude.Maybe EntitlementValue
@@ -68,9 +68,6 @@ data Entitlement = Entitlement'
 -- application. Customer identifiers are obtained through the
 -- ResolveCustomer operation in AWS Marketplace Metering Service.
 --
--- 'productCode', 'entitlement_productCode' - The product code for which the given entitlement applies. Product codes
--- are provided by AWS Marketplace when the product listing is created.
---
 -- 'dimension', 'entitlement_dimension' - The dimension for which the given entitlement applies. Dimensions
 -- represent categories of capacity in a product and are specified when the
 -- product is listed in AWS Marketplace.
@@ -82,6 +79,9 @@ data Entitlement = Entitlement'
 -- to renew their contract will still have entitlements with an expiration
 -- date.
 --
+-- 'productCode', 'entitlement_productCode' - The product code for which the given entitlement applies. Product codes
+-- are provided by AWS Marketplace when the product listing is created.
+--
 -- 'value', 'entitlement_value' - The EntitlementValue represents the amount of capacity that the customer
 -- is entitled to for the product.
 newEntitlement ::
@@ -89,9 +89,9 @@ newEntitlement ::
 newEntitlement =
   Entitlement'
     { customerIdentifier = Prelude.Nothing,
-      productCode = Prelude.Nothing,
       dimension = Prelude.Nothing,
       expirationDate = Prelude.Nothing,
+      productCode = Prelude.Nothing,
       value = Prelude.Nothing
     }
 
@@ -100,11 +100,6 @@ newEntitlement =
 -- ResolveCustomer operation in AWS Marketplace Metering Service.
 entitlement_customerIdentifier :: Lens.Lens' Entitlement (Prelude.Maybe Prelude.Text)
 entitlement_customerIdentifier = Lens.lens (\Entitlement' {customerIdentifier} -> customerIdentifier) (\s@Entitlement' {} a -> s {customerIdentifier = a} :: Entitlement)
-
--- | The product code for which the given entitlement applies. Product codes
--- are provided by AWS Marketplace when the product listing is created.
-entitlement_productCode :: Lens.Lens' Entitlement (Prelude.Maybe Prelude.Text)
-entitlement_productCode = Lens.lens (\Entitlement' {productCode} -> productCode) (\s@Entitlement' {} a -> s {productCode = a} :: Entitlement)
 
 -- | The dimension for which the given entitlement applies. Dimensions
 -- represent categories of capacity in a product and are specified when the
@@ -121,6 +116,11 @@ entitlement_dimension = Lens.lens (\Entitlement' {dimension} -> dimension) (\s@E
 entitlement_expirationDate :: Lens.Lens' Entitlement (Prelude.Maybe Prelude.UTCTime)
 entitlement_expirationDate = Lens.lens (\Entitlement' {expirationDate} -> expirationDate) (\s@Entitlement' {} a -> s {expirationDate = a} :: Entitlement) Prelude.. Lens.mapping Data._Time
 
+-- | The product code for which the given entitlement applies. Product codes
+-- are provided by AWS Marketplace when the product listing is created.
+entitlement_productCode :: Lens.Lens' Entitlement (Prelude.Maybe Prelude.Text)
+entitlement_productCode = Lens.lens (\Entitlement' {productCode} -> productCode) (\s@Entitlement' {} a -> s {productCode = a} :: Entitlement)
+
 -- | The EntitlementValue represents the amount of capacity that the customer
 -- is entitled to for the product.
 entitlement_value :: Lens.Lens' Entitlement (Prelude.Maybe EntitlementValue)
@@ -133,24 +133,24 @@ instance Data.FromJSON Entitlement where
       ( \x ->
           Entitlement'
             Prelude.<$> (x Data..:? "CustomerIdentifier")
-            Prelude.<*> (x Data..:? "ProductCode")
             Prelude.<*> (x Data..:? "Dimension")
             Prelude.<*> (x Data..:? "ExpirationDate")
+            Prelude.<*> (x Data..:? "ProductCode")
             Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable Entitlement where
   hashWithSalt _salt Entitlement' {..} =
     _salt `Prelude.hashWithSalt` customerIdentifier
-      `Prelude.hashWithSalt` productCode
       `Prelude.hashWithSalt` dimension
       `Prelude.hashWithSalt` expirationDate
+      `Prelude.hashWithSalt` productCode
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Entitlement where
   rnf Entitlement' {..} =
     Prelude.rnf customerIdentifier
-      `Prelude.seq` Prelude.rnf productCode
       `Prelude.seq` Prelude.rnf dimension
       `Prelude.seq` Prelude.rnf expirationDate
+      `Prelude.seq` Prelude.rnf productCode
       `Prelude.seq` Prelude.rnf value

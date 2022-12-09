@@ -32,14 +32,14 @@ module Amazonka.MarketplaceEntitlement
     -- * Errors
     -- $errors
 
-    -- ** ThrottlingException
-    _ThrottlingException,
-
     -- ** InternalServiceErrorException
     _InternalServiceErrorException,
 
     -- ** InvalidParameterException
     _InvalidParameterException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
 
     -- * Waiters
     -- $waiters

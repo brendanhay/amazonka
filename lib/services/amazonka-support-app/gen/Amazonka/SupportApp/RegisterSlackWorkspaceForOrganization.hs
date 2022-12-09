@@ -66,9 +66,9 @@ module Amazonka.SupportApp.RegisterSlackWorkspaceForOrganization
     newRegisterSlackWorkspaceForOrganizationResponse,
 
     -- * Response Lenses
-    registerSlackWorkspaceForOrganizationResponse_teamName,
-    registerSlackWorkspaceForOrganizationResponse_teamId,
     registerSlackWorkspaceForOrganizationResponse_accountType,
+    registerSlackWorkspaceForOrganizationResponse_teamId,
+    registerSlackWorkspaceForOrganizationResponse_teamName,
     registerSlackWorkspaceForOrganizationResponse_httpStatus,
   )
 where
@@ -131,9 +131,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           RegisterSlackWorkspaceForOrganizationResponse'
-            Prelude.<$> (x Data..?> "teamName")
+            Prelude.<$> (x Data..?> "accountType")
               Prelude.<*> (x Data..?> "teamId")
-              Prelude.<*> (x Data..?> "accountType")
+              Prelude.<*> (x Data..?> "teamName")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -193,14 +193,14 @@ instance
 
 -- | /See:/ 'newRegisterSlackWorkspaceForOrganizationResponse' smart constructor.
 data RegisterSlackWorkspaceForOrganizationResponse = RegisterSlackWorkspaceForOrganizationResponse'
-  { -- | The name of the Slack workspace.
-    teamName :: Prelude.Maybe Prelude.Text,
+  { -- | Whether the Amazon Web Services account is a management or member
+    -- account that\'s part of an organization in Organizations.
+    accountType :: Prelude.Maybe AccountType,
     -- | The team ID in Slack. This ID uniquely identifies a Slack workspace,
     -- such as @T012ABCDEFG@.
     teamId :: Prelude.Maybe Prelude.Text,
-    -- | Whether the Amazon Web Services account is a management or member
-    -- account that\'s part of an organization in Organizations.
-    accountType :: Prelude.Maybe AccountType,
+    -- | The name of the Slack workspace.
+    teamName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -214,13 +214,13 @@ data RegisterSlackWorkspaceForOrganizationResponse = RegisterSlackWorkspaceForOr
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'teamName', 'registerSlackWorkspaceForOrganizationResponse_teamName' - The name of the Slack workspace.
+-- 'accountType', 'registerSlackWorkspaceForOrganizationResponse_accountType' - Whether the Amazon Web Services account is a management or member
+-- account that\'s part of an organization in Organizations.
 --
 -- 'teamId', 'registerSlackWorkspaceForOrganizationResponse_teamId' - The team ID in Slack. This ID uniquely identifies a Slack workspace,
 -- such as @T012ABCDEFG@.
 --
--- 'accountType', 'registerSlackWorkspaceForOrganizationResponse_accountType' - Whether the Amazon Web Services account is a management or member
--- account that\'s part of an organization in Organizations.
+-- 'teamName', 'registerSlackWorkspaceForOrganizationResponse_teamName' - The name of the Slack workspace.
 --
 -- 'httpStatus', 'registerSlackWorkspaceForOrganizationResponse_httpStatus' - The response's http status code.
 newRegisterSlackWorkspaceForOrganizationResponse ::
@@ -230,27 +230,26 @@ newRegisterSlackWorkspaceForOrganizationResponse ::
 newRegisterSlackWorkspaceForOrganizationResponse
   pHttpStatus_ =
     RegisterSlackWorkspaceForOrganizationResponse'
-      { teamName =
+      { accountType =
           Prelude.Nothing,
         teamId = Prelude.Nothing,
-        accountType =
-          Prelude.Nothing,
+        teamName = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
--- | The name of the Slack workspace.
-registerSlackWorkspaceForOrganizationResponse_teamName :: Lens.Lens' RegisterSlackWorkspaceForOrganizationResponse (Prelude.Maybe Prelude.Text)
-registerSlackWorkspaceForOrganizationResponse_teamName = Lens.lens (\RegisterSlackWorkspaceForOrganizationResponse' {teamName} -> teamName) (\s@RegisterSlackWorkspaceForOrganizationResponse' {} a -> s {teamName = a} :: RegisterSlackWorkspaceForOrganizationResponse)
+-- | Whether the Amazon Web Services account is a management or member
+-- account that\'s part of an organization in Organizations.
+registerSlackWorkspaceForOrganizationResponse_accountType :: Lens.Lens' RegisterSlackWorkspaceForOrganizationResponse (Prelude.Maybe AccountType)
+registerSlackWorkspaceForOrganizationResponse_accountType = Lens.lens (\RegisterSlackWorkspaceForOrganizationResponse' {accountType} -> accountType) (\s@RegisterSlackWorkspaceForOrganizationResponse' {} a -> s {accountType = a} :: RegisterSlackWorkspaceForOrganizationResponse)
 
 -- | The team ID in Slack. This ID uniquely identifies a Slack workspace,
 -- such as @T012ABCDEFG@.
 registerSlackWorkspaceForOrganizationResponse_teamId :: Lens.Lens' RegisterSlackWorkspaceForOrganizationResponse (Prelude.Maybe Prelude.Text)
 registerSlackWorkspaceForOrganizationResponse_teamId = Lens.lens (\RegisterSlackWorkspaceForOrganizationResponse' {teamId} -> teamId) (\s@RegisterSlackWorkspaceForOrganizationResponse' {} a -> s {teamId = a} :: RegisterSlackWorkspaceForOrganizationResponse)
 
--- | Whether the Amazon Web Services account is a management or member
--- account that\'s part of an organization in Organizations.
-registerSlackWorkspaceForOrganizationResponse_accountType :: Lens.Lens' RegisterSlackWorkspaceForOrganizationResponse (Prelude.Maybe AccountType)
-registerSlackWorkspaceForOrganizationResponse_accountType = Lens.lens (\RegisterSlackWorkspaceForOrganizationResponse' {accountType} -> accountType) (\s@RegisterSlackWorkspaceForOrganizationResponse' {} a -> s {accountType = a} :: RegisterSlackWorkspaceForOrganizationResponse)
+-- | The name of the Slack workspace.
+registerSlackWorkspaceForOrganizationResponse_teamName :: Lens.Lens' RegisterSlackWorkspaceForOrganizationResponse (Prelude.Maybe Prelude.Text)
+registerSlackWorkspaceForOrganizationResponse_teamName = Lens.lens (\RegisterSlackWorkspaceForOrganizationResponse' {teamName} -> teamName) (\s@RegisterSlackWorkspaceForOrganizationResponse' {} a -> s {teamName = a} :: RegisterSlackWorkspaceForOrganizationResponse)
 
 -- | The response's http status code.
 registerSlackWorkspaceForOrganizationResponse_httpStatus :: Lens.Lens' RegisterSlackWorkspaceForOrganizationResponse Prelude.Int
@@ -262,7 +261,7 @@ instance
   where
   rnf
     RegisterSlackWorkspaceForOrganizationResponse' {..} =
-      Prelude.rnf teamName
+      Prelude.rnf accountType
         `Prelude.seq` Prelude.rnf teamId
-        `Prelude.seq` Prelude.rnf accountType
+        `Prelude.seq` Prelude.rnf teamName
         `Prelude.seq` Prelude.rnf httpStatus

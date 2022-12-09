@@ -30,14 +30,7 @@ import Amazonka.SESV2.Types.DeliverabilityTestStatus
 --
 -- /See:/ 'newDeliverabilityTestReport' smart constructor.
 data DeliverabilityTestReport = DeliverabilityTestReport'
-  { -- | A name that helps you identify a predictive inbox placement test report.
-    reportName :: Prelude.Maybe Prelude.Text,
-    -- | The sender address that you specified for the predictive inbox placement
-    -- test.
-    fromEmailAddress :: Prelude.Maybe Prelude.Text,
-    -- | A unique string that identifies the predictive inbox placement test.
-    reportId :: Prelude.Maybe Prelude.Text,
-    -- | The date and time when the predictive inbox placement test was created.
+  { -- | The date and time when the predictive inbox placement test was created.
     createDate :: Prelude.Maybe Data.POSIX,
     -- | The status of the predictive inbox placement test. If the status is
     -- @IN_PROGRESS@, then the predictive inbox placement test is currently
@@ -46,6 +39,13 @@ data DeliverabilityTestReport = DeliverabilityTestReport'
     -- is finished, and you can use the @GetDeliverabilityTestReport@ to view
     -- the results of the test.
     deliverabilityTestStatus :: Prelude.Maybe DeliverabilityTestStatus,
+    -- | The sender address that you specified for the predictive inbox placement
+    -- test.
+    fromEmailAddress :: Prelude.Maybe Prelude.Text,
+    -- | A unique string that identifies the predictive inbox placement test.
+    reportId :: Prelude.Maybe Prelude.Text,
+    -- | A name that helps you identify a predictive inbox placement test report.
+    reportName :: Prelude.Maybe Prelude.Text,
     -- | The subject line for an email that you submitted in a predictive inbox
     -- placement test.
     subject :: Prelude.Maybe Prelude.Text
@@ -60,13 +60,6 @@ data DeliverabilityTestReport = DeliverabilityTestReport'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reportName', 'deliverabilityTestReport_reportName' - A name that helps you identify a predictive inbox placement test report.
---
--- 'fromEmailAddress', 'deliverabilityTestReport_fromEmailAddress' - The sender address that you specified for the predictive inbox placement
--- test.
---
--- 'reportId', 'deliverabilityTestReport_reportId' - A unique string that identifies the predictive inbox placement test.
---
 -- 'createDate', 'deliverabilityTestReport_createDate' - The date and time when the predictive inbox placement test was created.
 --
 -- 'deliverabilityTestStatus', 'deliverabilityTestReport_deliverabilityTestStatus' - The status of the predictive inbox placement test. If the status is
@@ -76,33 +69,27 @@ data DeliverabilityTestReport = DeliverabilityTestReport'
 -- is finished, and you can use the @GetDeliverabilityTestReport@ to view
 -- the results of the test.
 --
+-- 'fromEmailAddress', 'deliverabilityTestReport_fromEmailAddress' - The sender address that you specified for the predictive inbox placement
+-- test.
+--
+-- 'reportId', 'deliverabilityTestReport_reportId' - A unique string that identifies the predictive inbox placement test.
+--
+-- 'reportName', 'deliverabilityTestReport_reportName' - A name that helps you identify a predictive inbox placement test report.
+--
 -- 'subject', 'deliverabilityTestReport_subject' - The subject line for an email that you submitted in a predictive inbox
 -- placement test.
 newDeliverabilityTestReport ::
   DeliverabilityTestReport
 newDeliverabilityTestReport =
   DeliverabilityTestReport'
-    { reportName =
+    { createDate =
         Prelude.Nothing,
+      deliverabilityTestStatus = Prelude.Nothing,
       fromEmailAddress = Prelude.Nothing,
       reportId = Prelude.Nothing,
-      createDate = Prelude.Nothing,
-      deliverabilityTestStatus = Prelude.Nothing,
+      reportName = Prelude.Nothing,
       subject = Prelude.Nothing
     }
-
--- | A name that helps you identify a predictive inbox placement test report.
-deliverabilityTestReport_reportName :: Lens.Lens' DeliverabilityTestReport (Prelude.Maybe Prelude.Text)
-deliverabilityTestReport_reportName = Lens.lens (\DeliverabilityTestReport' {reportName} -> reportName) (\s@DeliverabilityTestReport' {} a -> s {reportName = a} :: DeliverabilityTestReport)
-
--- | The sender address that you specified for the predictive inbox placement
--- test.
-deliverabilityTestReport_fromEmailAddress :: Lens.Lens' DeliverabilityTestReport (Prelude.Maybe Prelude.Text)
-deliverabilityTestReport_fromEmailAddress = Lens.lens (\DeliverabilityTestReport' {fromEmailAddress} -> fromEmailAddress) (\s@DeliverabilityTestReport' {} a -> s {fromEmailAddress = a} :: DeliverabilityTestReport)
-
--- | A unique string that identifies the predictive inbox placement test.
-deliverabilityTestReport_reportId :: Lens.Lens' DeliverabilityTestReport (Prelude.Maybe Prelude.Text)
-deliverabilityTestReport_reportId = Lens.lens (\DeliverabilityTestReport' {reportId} -> reportId) (\s@DeliverabilityTestReport' {} a -> s {reportId = a} :: DeliverabilityTestReport)
 
 -- | The date and time when the predictive inbox placement test was created.
 deliverabilityTestReport_createDate :: Lens.Lens' DeliverabilityTestReport (Prelude.Maybe Prelude.UTCTime)
@@ -117,6 +104,19 @@ deliverabilityTestReport_createDate = Lens.lens (\DeliverabilityTestReport' {cre
 deliverabilityTestReport_deliverabilityTestStatus :: Lens.Lens' DeliverabilityTestReport (Prelude.Maybe DeliverabilityTestStatus)
 deliverabilityTestReport_deliverabilityTestStatus = Lens.lens (\DeliverabilityTestReport' {deliverabilityTestStatus} -> deliverabilityTestStatus) (\s@DeliverabilityTestReport' {} a -> s {deliverabilityTestStatus = a} :: DeliverabilityTestReport)
 
+-- | The sender address that you specified for the predictive inbox placement
+-- test.
+deliverabilityTestReport_fromEmailAddress :: Lens.Lens' DeliverabilityTestReport (Prelude.Maybe Prelude.Text)
+deliverabilityTestReport_fromEmailAddress = Lens.lens (\DeliverabilityTestReport' {fromEmailAddress} -> fromEmailAddress) (\s@DeliverabilityTestReport' {} a -> s {fromEmailAddress = a} :: DeliverabilityTestReport)
+
+-- | A unique string that identifies the predictive inbox placement test.
+deliverabilityTestReport_reportId :: Lens.Lens' DeliverabilityTestReport (Prelude.Maybe Prelude.Text)
+deliverabilityTestReport_reportId = Lens.lens (\DeliverabilityTestReport' {reportId} -> reportId) (\s@DeliverabilityTestReport' {} a -> s {reportId = a} :: DeliverabilityTestReport)
+
+-- | A name that helps you identify a predictive inbox placement test report.
+deliverabilityTestReport_reportName :: Lens.Lens' DeliverabilityTestReport (Prelude.Maybe Prelude.Text)
+deliverabilityTestReport_reportName = Lens.lens (\DeliverabilityTestReport' {reportName} -> reportName) (\s@DeliverabilityTestReport' {} a -> s {reportName = a} :: DeliverabilityTestReport)
+
 -- | The subject line for an email that you submitted in a predictive inbox
 -- placement test.
 deliverabilityTestReport_subject :: Lens.Lens' DeliverabilityTestReport (Prelude.Maybe Prelude.Text)
@@ -128,28 +128,28 @@ instance Data.FromJSON DeliverabilityTestReport where
       "DeliverabilityTestReport"
       ( \x ->
           DeliverabilityTestReport'
-            Prelude.<$> (x Data..:? "ReportName")
+            Prelude.<$> (x Data..:? "CreateDate")
+            Prelude.<*> (x Data..:? "DeliverabilityTestStatus")
             Prelude.<*> (x Data..:? "FromEmailAddress")
             Prelude.<*> (x Data..:? "ReportId")
-            Prelude.<*> (x Data..:? "CreateDate")
-            Prelude.<*> (x Data..:? "DeliverabilityTestStatus")
+            Prelude.<*> (x Data..:? "ReportName")
             Prelude.<*> (x Data..:? "Subject")
       )
 
 instance Prelude.Hashable DeliverabilityTestReport where
   hashWithSalt _salt DeliverabilityTestReport' {..} =
-    _salt `Prelude.hashWithSalt` reportName
+    _salt `Prelude.hashWithSalt` createDate
+      `Prelude.hashWithSalt` deliverabilityTestStatus
       `Prelude.hashWithSalt` fromEmailAddress
       `Prelude.hashWithSalt` reportId
-      `Prelude.hashWithSalt` createDate
-      `Prelude.hashWithSalt` deliverabilityTestStatus
+      `Prelude.hashWithSalt` reportName
       `Prelude.hashWithSalt` subject
 
 instance Prelude.NFData DeliverabilityTestReport where
   rnf DeliverabilityTestReport' {..} =
-    Prelude.rnf reportName
+    Prelude.rnf createDate
+      `Prelude.seq` Prelude.rnf deliverabilityTestStatus
       `Prelude.seq` Prelude.rnf fromEmailAddress
       `Prelude.seq` Prelude.rnf reportId
-      `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf deliverabilityTestStatus
+      `Prelude.seq` Prelude.rnf reportName
       `Prelude.seq` Prelude.rnf subject

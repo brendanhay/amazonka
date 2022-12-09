@@ -30,18 +30,18 @@ import Amazonka.SESV2.Types.VerificationStatus
 --
 -- /See:/ 'newIdentityInfo' smart constructor.
 data IdentityInfo = IdentityInfo'
-  { -- | Indicates whether or not you can send email from the identity.
+  { -- | The address or domain of the identity.
+    identityName :: Prelude.Maybe Prelude.Text,
+    -- | The email identity type. Note: the @MANAGED_DOMAIN@ type is not
+    -- supported for email identity types.
+    identityType :: Prelude.Maybe IdentityType,
+    -- | Indicates whether or not you can send email from the identity.
     --
     -- An /identity/ is an email address or domain that you send email from.
     -- Before you can send email from an identity, you have to demostrate that
     -- you own the identity, and that you authorize Amazon SES to send email
     -- from that identity.
     sendingEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The address or domain of the identity.
-    identityName :: Prelude.Maybe Prelude.Text,
-    -- | The email identity type. Note: the @MANAGED_DOMAIN@ type is not
-    -- supported for email identity types.
-    identityType :: Prelude.Maybe IdentityType,
     -- | The verification status of the identity. The status can be one of the
     -- following:
     --
@@ -69,17 +69,17 @@ data IdentityInfo = IdentityInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'identityName', 'identityInfo_identityName' - The address or domain of the identity.
+--
+-- 'identityType', 'identityInfo_identityType' - The email identity type. Note: the @MANAGED_DOMAIN@ type is not
+-- supported for email identity types.
+--
 -- 'sendingEnabled', 'identityInfo_sendingEnabled' - Indicates whether or not you can send email from the identity.
 --
 -- An /identity/ is an email address or domain that you send email from.
 -- Before you can send email from an identity, you have to demostrate that
 -- you own the identity, and that you authorize Amazon SES to send email
 -- from that identity.
---
--- 'identityName', 'identityInfo_identityName' - The address or domain of the identity.
---
--- 'identityType', 'identityInfo_identityType' - The email identity type. Note: the @MANAGED_DOMAIN@ type is not
--- supported for email identity types.
 --
 -- 'verificationStatus', 'identityInfo_verificationStatus' - The verification status of the identity. The status can be one of the
 -- following:
@@ -100,20 +100,11 @@ newIdentityInfo ::
   IdentityInfo
 newIdentityInfo =
   IdentityInfo'
-    { sendingEnabled = Prelude.Nothing,
-      identityName = Prelude.Nothing,
+    { identityName = Prelude.Nothing,
       identityType = Prelude.Nothing,
+      sendingEnabled = Prelude.Nothing,
       verificationStatus = Prelude.Nothing
     }
-
--- | Indicates whether or not you can send email from the identity.
---
--- An /identity/ is an email address or domain that you send email from.
--- Before you can send email from an identity, you have to demostrate that
--- you own the identity, and that you authorize Amazon SES to send email
--- from that identity.
-identityInfo_sendingEnabled :: Lens.Lens' IdentityInfo (Prelude.Maybe Prelude.Bool)
-identityInfo_sendingEnabled = Lens.lens (\IdentityInfo' {sendingEnabled} -> sendingEnabled) (\s@IdentityInfo' {} a -> s {sendingEnabled = a} :: IdentityInfo)
 
 -- | The address or domain of the identity.
 identityInfo_identityName :: Lens.Lens' IdentityInfo (Prelude.Maybe Prelude.Text)
@@ -123,6 +114,15 @@ identityInfo_identityName = Lens.lens (\IdentityInfo' {identityName} -> identity
 -- supported for email identity types.
 identityInfo_identityType :: Lens.Lens' IdentityInfo (Prelude.Maybe IdentityType)
 identityInfo_identityType = Lens.lens (\IdentityInfo' {identityType} -> identityType) (\s@IdentityInfo' {} a -> s {identityType = a} :: IdentityInfo)
+
+-- | Indicates whether or not you can send email from the identity.
+--
+-- An /identity/ is an email address or domain that you send email from.
+-- Before you can send email from an identity, you have to demostrate that
+-- you own the identity, and that you authorize Amazon SES to send email
+-- from that identity.
+identityInfo_sendingEnabled :: Lens.Lens' IdentityInfo (Prelude.Maybe Prelude.Bool)
+identityInfo_sendingEnabled = Lens.lens (\IdentityInfo' {sendingEnabled} -> sendingEnabled) (\s@IdentityInfo' {} a -> s {sendingEnabled = a} :: IdentityInfo)
 
 -- | The verification status of the identity. The status can be one of the
 -- following:
@@ -148,22 +148,22 @@ instance Data.FromJSON IdentityInfo where
       "IdentityInfo"
       ( \x ->
           IdentityInfo'
-            Prelude.<$> (x Data..:? "SendingEnabled")
-            Prelude.<*> (x Data..:? "IdentityName")
+            Prelude.<$> (x Data..:? "IdentityName")
             Prelude.<*> (x Data..:? "IdentityType")
+            Prelude.<*> (x Data..:? "SendingEnabled")
             Prelude.<*> (x Data..:? "VerificationStatus")
       )
 
 instance Prelude.Hashable IdentityInfo where
   hashWithSalt _salt IdentityInfo' {..} =
-    _salt `Prelude.hashWithSalt` sendingEnabled
-      `Prelude.hashWithSalt` identityName
+    _salt `Prelude.hashWithSalt` identityName
       `Prelude.hashWithSalt` identityType
+      `Prelude.hashWithSalt` sendingEnabled
       `Prelude.hashWithSalt` verificationStatus
 
 instance Prelude.NFData IdentityInfo where
   rnf IdentityInfo' {..} =
-    Prelude.rnf sendingEnabled
-      `Prelude.seq` Prelude.rnf identityName
+    Prelude.rnf identityName
       `Prelude.seq` Prelude.rnf identityType
+      `Prelude.seq` Prelude.rnf sendingEnabled
       `Prelude.seq` Prelude.rnf verificationStatus

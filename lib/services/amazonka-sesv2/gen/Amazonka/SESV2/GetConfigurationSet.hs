@@ -42,13 +42,13 @@ module Amazonka.SESV2.GetConfigurationSet
     newGetConfigurationSetResponse,
 
     -- * Response Lenses
-    getConfigurationSetResponse_tags,
-    getConfigurationSetResponse_reputationOptions,
     getConfigurationSetResponse_configurationSetName,
     getConfigurationSetResponse_deliveryOptions,
-    getConfigurationSetResponse_trackingOptions,
-    getConfigurationSetResponse_suppressionOptions,
+    getConfigurationSetResponse_reputationOptions,
     getConfigurationSetResponse_sendingOptions,
+    getConfigurationSetResponse_suppressionOptions,
+    getConfigurationSetResponse_tags,
+    getConfigurationSetResponse_trackingOptions,
     getConfigurationSetResponse_vdmOptions,
     getConfigurationSetResponse_httpStatus,
   )
@@ -104,13 +104,13 @@ instance Core.AWSRequest GetConfigurationSet where
     Response.receiveJSON
       ( \s h x ->
           GetConfigurationSetResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "ReputationOptions")
-            Prelude.<*> (x Data..?> "ConfigurationSetName")
+            Prelude.<$> (x Data..?> "ConfigurationSetName")
             Prelude.<*> (x Data..?> "DeliveryOptions")
-            Prelude.<*> (x Data..?> "TrackingOptions")
-            Prelude.<*> (x Data..?> "SuppressionOptions")
+            Prelude.<*> (x Data..?> "ReputationOptions")
             Prelude.<*> (x Data..?> "SendingOptions")
+            Prelude.<*> (x Data..?> "SuppressionOptions")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "TrackingOptions")
             Prelude.<*> (x Data..?> "VdmOptions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -148,26 +148,26 @@ instance Data.ToQuery GetConfigurationSet where
 --
 -- /See:/ 'newGetConfigurationSetResponse' smart constructor.
 data GetConfigurationSetResponse = GetConfigurationSetResponse'
-  { -- | An array of objects that define the tags (keys and values) that are
-    -- associated with the configuration set.
-    tags :: Prelude.Maybe [Tag],
-    -- | An object that defines whether or not Amazon SES collects reputation
-    -- metrics for the emails that you send that use the configuration set.
-    reputationOptions :: Prelude.Maybe ReputationOptions,
-    -- | The name of the configuration set.
+  { -- | The name of the configuration set.
     configurationSetName :: Prelude.Maybe Prelude.Text,
     -- | An object that defines the dedicated IP pool that is used to send emails
     -- that you send using the configuration set.
     deliveryOptions :: Prelude.Maybe DeliveryOptions,
-    -- | An object that defines the open and click tracking options for emails
-    -- that you send using the configuration set.
-    trackingOptions :: Prelude.Maybe TrackingOptions,
-    -- | An object that contains information about the suppression list
-    -- preferences for your account.
-    suppressionOptions :: Prelude.Maybe SuppressionOptions,
+    -- | An object that defines whether or not Amazon SES collects reputation
+    -- metrics for the emails that you send that use the configuration set.
+    reputationOptions :: Prelude.Maybe ReputationOptions,
     -- | An object that defines whether or not Amazon SES can send email that you
     -- send using the configuration set.
     sendingOptions :: Prelude.Maybe SendingOptions,
+    -- | An object that contains information about the suppression list
+    -- preferences for your account.
+    suppressionOptions :: Prelude.Maybe SuppressionOptions,
+    -- | An array of objects that define the tags (keys and values) that are
+    -- associated with the configuration set.
+    tags :: Prelude.Maybe [Tag],
+    -- | An object that defines the open and click tracking options for emails
+    -- that you send using the configuration set.
+    trackingOptions :: Prelude.Maybe TrackingOptions,
     -- | An object that contains information about the VDM preferences for your
     -- configuration set.
     vdmOptions :: Prelude.Maybe VdmOptions,
@@ -184,25 +184,25 @@ data GetConfigurationSetResponse = GetConfigurationSetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'getConfigurationSetResponse_tags' - An array of objects that define the tags (keys and values) that are
--- associated with the configuration set.
---
--- 'reputationOptions', 'getConfigurationSetResponse_reputationOptions' - An object that defines whether or not Amazon SES collects reputation
--- metrics for the emails that you send that use the configuration set.
---
 -- 'configurationSetName', 'getConfigurationSetResponse_configurationSetName' - The name of the configuration set.
 --
 -- 'deliveryOptions', 'getConfigurationSetResponse_deliveryOptions' - An object that defines the dedicated IP pool that is used to send emails
 -- that you send using the configuration set.
 --
--- 'trackingOptions', 'getConfigurationSetResponse_trackingOptions' - An object that defines the open and click tracking options for emails
--- that you send using the configuration set.
+-- 'reputationOptions', 'getConfigurationSetResponse_reputationOptions' - An object that defines whether or not Amazon SES collects reputation
+-- metrics for the emails that you send that use the configuration set.
+--
+-- 'sendingOptions', 'getConfigurationSetResponse_sendingOptions' - An object that defines whether or not Amazon SES can send email that you
+-- send using the configuration set.
 --
 -- 'suppressionOptions', 'getConfigurationSetResponse_suppressionOptions' - An object that contains information about the suppression list
 -- preferences for your account.
 --
--- 'sendingOptions', 'getConfigurationSetResponse_sendingOptions' - An object that defines whether or not Amazon SES can send email that you
--- send using the configuration set.
+-- 'tags', 'getConfigurationSetResponse_tags' - An array of objects that define the tags (keys and values) that are
+-- associated with the configuration set.
+--
+-- 'trackingOptions', 'getConfigurationSetResponse_trackingOptions' - An object that defines the open and click tracking options for emails
+-- that you send using the configuration set.
 --
 -- 'vdmOptions', 'getConfigurationSetResponse_vdmOptions' - An object that contains information about the VDM preferences for your
 -- configuration set.
@@ -214,27 +214,17 @@ newGetConfigurationSetResponse ::
   GetConfigurationSetResponse
 newGetConfigurationSetResponse pHttpStatus_ =
   GetConfigurationSetResponse'
-    { tags =
+    { configurationSetName =
         Prelude.Nothing,
-      reputationOptions = Prelude.Nothing,
-      configurationSetName = Prelude.Nothing,
       deliveryOptions = Prelude.Nothing,
-      trackingOptions = Prelude.Nothing,
-      suppressionOptions = Prelude.Nothing,
+      reputationOptions = Prelude.Nothing,
       sendingOptions = Prelude.Nothing,
+      suppressionOptions = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      trackingOptions = Prelude.Nothing,
       vdmOptions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of objects that define the tags (keys and values) that are
--- associated with the configuration set.
-getConfigurationSetResponse_tags :: Lens.Lens' GetConfigurationSetResponse (Prelude.Maybe [Tag])
-getConfigurationSetResponse_tags = Lens.lens (\GetConfigurationSetResponse' {tags} -> tags) (\s@GetConfigurationSetResponse' {} a -> s {tags = a} :: GetConfigurationSetResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | An object that defines whether or not Amazon SES collects reputation
--- metrics for the emails that you send that use the configuration set.
-getConfigurationSetResponse_reputationOptions :: Lens.Lens' GetConfigurationSetResponse (Prelude.Maybe ReputationOptions)
-getConfigurationSetResponse_reputationOptions = Lens.lens (\GetConfigurationSetResponse' {reputationOptions} -> reputationOptions) (\s@GetConfigurationSetResponse' {} a -> s {reputationOptions = a} :: GetConfigurationSetResponse)
 
 -- | The name of the configuration set.
 getConfigurationSetResponse_configurationSetName :: Lens.Lens' GetConfigurationSetResponse (Prelude.Maybe Prelude.Text)
@@ -245,20 +235,30 @@ getConfigurationSetResponse_configurationSetName = Lens.lens (\GetConfigurationS
 getConfigurationSetResponse_deliveryOptions :: Lens.Lens' GetConfigurationSetResponse (Prelude.Maybe DeliveryOptions)
 getConfigurationSetResponse_deliveryOptions = Lens.lens (\GetConfigurationSetResponse' {deliveryOptions} -> deliveryOptions) (\s@GetConfigurationSetResponse' {} a -> s {deliveryOptions = a} :: GetConfigurationSetResponse)
 
--- | An object that defines the open and click tracking options for emails
--- that you send using the configuration set.
-getConfigurationSetResponse_trackingOptions :: Lens.Lens' GetConfigurationSetResponse (Prelude.Maybe TrackingOptions)
-getConfigurationSetResponse_trackingOptions = Lens.lens (\GetConfigurationSetResponse' {trackingOptions} -> trackingOptions) (\s@GetConfigurationSetResponse' {} a -> s {trackingOptions = a} :: GetConfigurationSetResponse)
+-- | An object that defines whether or not Amazon SES collects reputation
+-- metrics for the emails that you send that use the configuration set.
+getConfigurationSetResponse_reputationOptions :: Lens.Lens' GetConfigurationSetResponse (Prelude.Maybe ReputationOptions)
+getConfigurationSetResponse_reputationOptions = Lens.lens (\GetConfigurationSetResponse' {reputationOptions} -> reputationOptions) (\s@GetConfigurationSetResponse' {} a -> s {reputationOptions = a} :: GetConfigurationSetResponse)
+
+-- | An object that defines whether or not Amazon SES can send email that you
+-- send using the configuration set.
+getConfigurationSetResponse_sendingOptions :: Lens.Lens' GetConfigurationSetResponse (Prelude.Maybe SendingOptions)
+getConfigurationSetResponse_sendingOptions = Lens.lens (\GetConfigurationSetResponse' {sendingOptions} -> sendingOptions) (\s@GetConfigurationSetResponse' {} a -> s {sendingOptions = a} :: GetConfigurationSetResponse)
 
 -- | An object that contains information about the suppression list
 -- preferences for your account.
 getConfigurationSetResponse_suppressionOptions :: Lens.Lens' GetConfigurationSetResponse (Prelude.Maybe SuppressionOptions)
 getConfigurationSetResponse_suppressionOptions = Lens.lens (\GetConfigurationSetResponse' {suppressionOptions} -> suppressionOptions) (\s@GetConfigurationSetResponse' {} a -> s {suppressionOptions = a} :: GetConfigurationSetResponse)
 
--- | An object that defines whether or not Amazon SES can send email that you
--- send using the configuration set.
-getConfigurationSetResponse_sendingOptions :: Lens.Lens' GetConfigurationSetResponse (Prelude.Maybe SendingOptions)
-getConfigurationSetResponse_sendingOptions = Lens.lens (\GetConfigurationSetResponse' {sendingOptions} -> sendingOptions) (\s@GetConfigurationSetResponse' {} a -> s {sendingOptions = a} :: GetConfigurationSetResponse)
+-- | An array of objects that define the tags (keys and values) that are
+-- associated with the configuration set.
+getConfigurationSetResponse_tags :: Lens.Lens' GetConfigurationSetResponse (Prelude.Maybe [Tag])
+getConfigurationSetResponse_tags = Lens.lens (\GetConfigurationSetResponse' {tags} -> tags) (\s@GetConfigurationSetResponse' {} a -> s {tags = a} :: GetConfigurationSetResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | An object that defines the open and click tracking options for emails
+-- that you send using the configuration set.
+getConfigurationSetResponse_trackingOptions :: Lens.Lens' GetConfigurationSetResponse (Prelude.Maybe TrackingOptions)
+getConfigurationSetResponse_trackingOptions = Lens.lens (\GetConfigurationSetResponse' {trackingOptions} -> trackingOptions) (\s@GetConfigurationSetResponse' {} a -> s {trackingOptions = a} :: GetConfigurationSetResponse)
 
 -- | An object that contains information about the VDM preferences for your
 -- configuration set.
@@ -271,12 +271,12 @@ getConfigurationSetResponse_httpStatus = Lens.lens (\GetConfigurationSetResponse
 
 instance Prelude.NFData GetConfigurationSetResponse where
   rnf GetConfigurationSetResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf reputationOptions
-      `Prelude.seq` Prelude.rnf configurationSetName
+    Prelude.rnf configurationSetName
       `Prelude.seq` Prelude.rnf deliveryOptions
-      `Prelude.seq` Prelude.rnf trackingOptions
-      `Prelude.seq` Prelude.rnf suppressionOptions
+      `Prelude.seq` Prelude.rnf reputationOptions
       `Prelude.seq` Prelude.rnf sendingOptions
+      `Prelude.seq` Prelude.rnf suppressionOptions
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf trackingOptions
       `Prelude.seq` Prelude.rnf vdmOptions
       `Prelude.seq` Prelude.rnf httpStatus

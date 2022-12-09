@@ -21,12 +21,12 @@ module Amazonka.SESV2.Lens
     batchGetMetricDataResponse_httpStatus,
 
     -- ** CreateConfigurationSet
-    createConfigurationSet_tags,
-    createConfigurationSet_reputationOptions,
     createConfigurationSet_deliveryOptions,
-    createConfigurationSet_trackingOptions,
-    createConfigurationSet_suppressionOptions,
+    createConfigurationSet_reputationOptions,
     createConfigurationSet_sendingOptions,
+    createConfigurationSet_suppressionOptions,
+    createConfigurationSet_tags,
+    createConfigurationSet_trackingOptions,
     createConfigurationSet_vdmOptions,
     createConfigurationSet_configurationSetName,
     createConfigurationSetResponse_httpStatus,
@@ -38,16 +38,16 @@ module Amazonka.SESV2.Lens
     createConfigurationSetEventDestinationResponse_httpStatus,
 
     -- ** CreateContact
-    createContact_unsubscribeAll,
-    createContact_topicPreferences,
     createContact_attributesData,
+    createContact_topicPreferences,
+    createContact_unsubscribeAll,
     createContact_contactListName,
     createContact_emailAddress,
     createContactResponse_httpStatus,
 
     -- ** CreateContactList
-    createContactList_tags,
     createContactList_description,
+    createContactList_tags,
     createContactList_topics,
     createContactList_contactListName,
     createContactListResponse_httpStatus,
@@ -62,14 +62,14 @@ module Amazonka.SESV2.Lens
     createCustomVerificationEmailTemplateResponse_httpStatus,
 
     -- ** CreateDedicatedIpPool
-    createDedicatedIpPool_tags,
     createDedicatedIpPool_scalingMode,
+    createDedicatedIpPool_tags,
     createDedicatedIpPool_poolName,
     createDedicatedIpPoolResponse_httpStatus,
 
     -- ** CreateDeliverabilityTestReport
-    createDeliverabilityTestReport_tags,
     createDeliverabilityTestReport_reportName,
+    createDeliverabilityTestReport_tags,
     createDeliverabilityTestReport_fromEmailAddress,
     createDeliverabilityTestReport_content,
     createDeliverabilityTestReportResponse_httpStatus,
@@ -77,13 +77,13 @@ module Amazonka.SESV2.Lens
     createDeliverabilityTestReportResponse_deliverabilityTestStatus,
 
     -- ** CreateEmailIdentity
-    createEmailIdentity_tags,
     createEmailIdentity_configurationSetName,
     createEmailIdentity_dkimSigningAttributes,
+    createEmailIdentity_tags,
     createEmailIdentity_emailIdentity,
-    createEmailIdentityResponse_verifiedForSendingStatus,
     createEmailIdentityResponse_dkimAttributes,
     createEmailIdentityResponse_identityType,
+    createEmailIdentityResponse_verifiedForSendingStatus,
     createEmailIdentityResponse_httpStatus,
 
     -- ** CreateEmailIdentityPolicy
@@ -147,14 +147,14 @@ module Amazonka.SESV2.Lens
     deleteSuppressedDestinationResponse_httpStatus,
 
     -- ** GetAccount
-    getAccountResponse_vdmAttributes,
-    getAccountResponse_sendingEnabled,
-    getAccountResponse_suppressionAttributes,
+    getAccountResponse_dedicatedIpAutoWarmupEnabled,
+    getAccountResponse_details,
     getAccountResponse_enforcementStatus,
     getAccountResponse_productionAccessEnabled,
-    getAccountResponse_details,
-    getAccountResponse_dedicatedIpAutoWarmupEnabled,
     getAccountResponse_sendQuota,
+    getAccountResponse_sendingEnabled,
+    getAccountResponse_suppressionAttributes,
+    getAccountResponse_vdmAttributes,
     getAccountResponse_httpStatus,
 
     -- ** GetBlacklistReports
@@ -164,13 +164,13 @@ module Amazonka.SESV2.Lens
 
     -- ** GetConfigurationSet
     getConfigurationSet_configurationSetName,
-    getConfigurationSetResponse_tags,
-    getConfigurationSetResponse_reputationOptions,
     getConfigurationSetResponse_configurationSetName,
     getConfigurationSetResponse_deliveryOptions,
-    getConfigurationSetResponse_trackingOptions,
-    getConfigurationSetResponse_suppressionOptions,
+    getConfigurationSetResponse_reputationOptions,
     getConfigurationSetResponse_sendingOptions,
+    getConfigurationSetResponse_suppressionOptions,
+    getConfigurationSetResponse_tags,
+    getConfigurationSetResponse_trackingOptions,
     getConfigurationSetResponse_vdmOptions,
     getConfigurationSetResponse_httpStatus,
 
@@ -182,34 +182,34 @@ module Amazonka.SESV2.Lens
     -- ** GetContact
     getContact_contactListName,
     getContact_emailAddress,
-    getContactResponse_lastUpdatedTimestamp,
-    getContactResponse_unsubscribeAll,
-    getContactResponse_topicPreferences,
-    getContactResponse_createdTimestamp,
-    getContactResponse_topicDefaultPreferences,
-    getContactResponse_emailAddress,
     getContactResponse_attributesData,
     getContactResponse_contactListName,
+    getContactResponse_createdTimestamp,
+    getContactResponse_emailAddress,
+    getContactResponse_lastUpdatedTimestamp,
+    getContactResponse_topicDefaultPreferences,
+    getContactResponse_topicPreferences,
+    getContactResponse_unsubscribeAll,
     getContactResponse_httpStatus,
 
     -- ** GetContactList
     getContactList_contactListName,
-    getContactListResponse_tags,
-    getContactListResponse_lastUpdatedTimestamp,
+    getContactListResponse_contactListName,
     getContactListResponse_createdTimestamp,
     getContactListResponse_description,
+    getContactListResponse_lastUpdatedTimestamp,
+    getContactListResponse_tags,
     getContactListResponse_topics,
-    getContactListResponse_contactListName,
     getContactListResponse_httpStatus,
 
     -- ** GetCustomVerificationEmailTemplate
     getCustomVerificationEmailTemplate_templateName,
-    getCustomVerificationEmailTemplateResponse_templateName,
-    getCustomVerificationEmailTemplateResponse_successRedirectionURL,
-    getCustomVerificationEmailTemplateResponse_fromEmailAddress,
-    getCustomVerificationEmailTemplateResponse_templateContent,
-    getCustomVerificationEmailTemplateResponse_templateSubject,
     getCustomVerificationEmailTemplateResponse_failureRedirectionURL,
+    getCustomVerificationEmailTemplateResponse_fromEmailAddress,
+    getCustomVerificationEmailTemplateResponse_successRedirectionURL,
+    getCustomVerificationEmailTemplateResponse_templateContent,
+    getCustomVerificationEmailTemplateResponse_templateName,
+    getCustomVerificationEmailTemplateResponse_templateSubject,
     getCustomVerificationEmailTemplateResponse_httpStatus,
 
     -- ** GetDedicatedIp
@@ -226,22 +226,22 @@ module Amazonka.SESV2.Lens
     getDedicatedIps_nextToken,
     getDedicatedIps_pageSize,
     getDedicatedIps_poolName,
-    getDedicatedIpsResponse_nextToken,
     getDedicatedIpsResponse_dedicatedIps,
+    getDedicatedIpsResponse_nextToken,
     getDedicatedIpsResponse_httpStatus,
 
     -- ** GetDeliverabilityDashboardOptions
     getDeliverabilityDashboardOptionsResponse_accountStatus,
-    getDeliverabilityDashboardOptionsResponse_pendingExpirationSubscribedDomains,
     getDeliverabilityDashboardOptionsResponse_activeSubscribedDomains,
+    getDeliverabilityDashboardOptionsResponse_pendingExpirationSubscribedDomains,
     getDeliverabilityDashboardOptionsResponse_subscriptionExpiryDate,
     getDeliverabilityDashboardOptionsResponse_httpStatus,
     getDeliverabilityDashboardOptionsResponse_dashboardEnabled,
 
     -- ** GetDeliverabilityTestReport
     getDeliverabilityTestReport_reportId,
-    getDeliverabilityTestReportResponse_tags,
     getDeliverabilityTestReportResponse_message,
+    getDeliverabilityTestReportResponse_tags,
     getDeliverabilityTestReportResponse_httpStatus,
     getDeliverabilityTestReportResponse_deliverabilityTestReport,
     getDeliverabilityTestReportResponse_overallPlacement,
@@ -262,15 +262,15 @@ module Amazonka.SESV2.Lens
 
     -- ** GetEmailIdentity
     getEmailIdentity_emailIdentity,
-    getEmailIdentityResponse_tags,
-    getEmailIdentityResponse_verifiedForSendingStatus,
-    getEmailIdentityResponse_feedbackForwardingStatus,
-    getEmailIdentityResponse_mailFromAttributes,
     getEmailIdentityResponse_configurationSetName,
-    getEmailIdentityResponse_policies,
     getEmailIdentityResponse_dkimAttributes,
+    getEmailIdentityResponse_feedbackForwardingStatus,
     getEmailIdentityResponse_identityType,
+    getEmailIdentityResponse_mailFromAttributes,
+    getEmailIdentityResponse_policies,
+    getEmailIdentityResponse_tags,
     getEmailIdentityResponse_verificationStatus,
+    getEmailIdentityResponse_verifiedForSendingStatus,
     getEmailIdentityResponse_httpStatus,
 
     -- ** GetEmailIdentityPolicies
@@ -286,15 +286,15 @@ module Amazonka.SESV2.Lens
 
     -- ** GetImportJob
     getImportJob_jobId,
-    getImportJobResponse_jobStatus,
-    getImportJobResponse_createdTimestamp,
-    getImportJobResponse_jobId,
-    getImportJobResponse_importDestination,
-    getImportJobResponse_failureInfo,
-    getImportJobResponse_failedRecordsCount,
-    getImportJobResponse_processedRecordsCount,
     getImportJobResponse_completedTimestamp,
+    getImportJobResponse_createdTimestamp,
+    getImportJobResponse_failedRecordsCount,
+    getImportJobResponse_failureInfo,
     getImportJobResponse_importDataSource,
+    getImportJobResponse_importDestination,
+    getImportJobResponse_jobId,
+    getImportJobResponse_jobStatus,
+    getImportJobResponse_processedRecordsCount,
     getImportJobResponse_httpStatus,
 
     -- ** GetSuppressedDestination
@@ -305,24 +305,24 @@ module Amazonka.SESV2.Lens
     -- ** ListConfigurationSets
     listConfigurationSets_nextToken,
     listConfigurationSets_pageSize,
-    listConfigurationSetsResponse_nextToken,
     listConfigurationSetsResponse_configurationSets,
+    listConfigurationSetsResponse_nextToken,
     listConfigurationSetsResponse_httpStatus,
 
     -- ** ListContactLists
     listContactLists_nextToken,
     listContactLists_pageSize,
-    listContactListsResponse_nextToken,
     listContactListsResponse_contactLists,
+    listContactListsResponse_nextToken,
     listContactListsResponse_httpStatus,
 
     -- ** ListContacts
-    listContacts_nextToken,
     listContacts_filter,
+    listContacts_nextToken,
     listContacts_pageSize,
     listContacts_contactListName,
-    listContactsResponse_nextToken,
     listContactsResponse_contacts,
+    listContactsResponse_nextToken,
     listContactsResponse_httpStatus,
 
     -- ** ListCustomVerificationEmailTemplates
@@ -335,8 +335,8 @@ module Amazonka.SESV2.Lens
     -- ** ListDedicatedIpPools
     listDedicatedIpPools_nextToken,
     listDedicatedIpPools_pageSize,
-    listDedicatedIpPoolsResponse_nextToken,
     listDedicatedIpPoolsResponse_dedicatedIpPools,
+    listDedicatedIpPoolsResponse_nextToken,
     listDedicatedIpPoolsResponse_httpStatus,
 
     -- ** ListDeliverabilityTestReports
@@ -359,8 +359,8 @@ module Amazonka.SESV2.Lens
     -- ** ListEmailIdentities
     listEmailIdentities_nextToken,
     listEmailIdentities_pageSize,
-    listEmailIdentitiesResponse_nextToken,
     listEmailIdentitiesResponse_emailIdentities,
+    listEmailIdentitiesResponse_nextToken,
     listEmailIdentitiesResponse_httpStatus,
 
     -- ** ListEmailTemplates
@@ -371,27 +371,27 @@ module Amazonka.SESV2.Lens
     listEmailTemplatesResponse_httpStatus,
 
     -- ** ListImportJobs
+    listImportJobs_importDestinationType,
     listImportJobs_nextToken,
     listImportJobs_pageSize,
-    listImportJobs_importDestinationType,
-    listImportJobsResponse_nextToken,
     listImportJobsResponse_importJobs,
+    listImportJobsResponse_nextToken,
     listImportJobsResponse_httpStatus,
 
     -- ** ListRecommendations
-    listRecommendations_nextToken,
     listRecommendations_filter,
+    listRecommendations_nextToken,
     listRecommendations_pageSize,
     listRecommendationsResponse_nextToken,
     listRecommendationsResponse_recommendations,
     listRecommendationsResponse_httpStatus,
 
     -- ** ListSuppressedDestinations
-    listSuppressedDestinations_nextToken,
     listSuppressedDestinations_endDate,
+    listSuppressedDestinations_nextToken,
     listSuppressedDestinations_pageSize,
-    listSuppressedDestinations_startDate,
     listSuppressedDestinations_reasons,
+    listSuppressedDestinations_startDate,
     listSuppressedDestinationsResponse_nextToken,
     listSuppressedDestinationsResponse_suppressedDestinationSummaries,
     listSuppressedDestinationsResponse_httpStatus,
@@ -406,9 +406,9 @@ module Amazonka.SESV2.Lens
     putAccountDedicatedIpWarmupAttributesResponse_httpStatus,
 
     -- ** PutAccountDetails
+    putAccountDetails_additionalContactEmailAddresses,
     putAccountDetails_contactLanguage,
     putAccountDetails_productionAccessEnabled,
-    putAccountDetails_additionalContactEmailAddresses,
     putAccountDetails_mailType,
     putAccountDetails_websiteURL,
     putAccountDetails_useCaseDescription,
@@ -427,8 +427,8 @@ module Amazonka.SESV2.Lens
     putAccountVdmAttributesResponse_httpStatus,
 
     -- ** PutConfigurationSetDeliveryOptions
-    putConfigurationSetDeliveryOptions_tlsPolicy,
     putConfigurationSetDeliveryOptions_sendingPoolName,
+    putConfigurationSetDeliveryOptions_tlsPolicy,
     putConfigurationSetDeliveryOptions_configurationSetName,
     putConfigurationSetDeliveryOptionsResponse_httpStatus,
 
@@ -496,8 +496,8 @@ module Amazonka.SESV2.Lens
     putEmailIdentityFeedbackAttributesResponse_httpStatus,
 
     -- ** PutEmailIdentityMailFromAttributes
-    putEmailIdentityMailFromAttributes_mailFromDomain,
     putEmailIdentityMailFromAttributes_behaviorOnMxFailure,
+    putEmailIdentityMailFromAttributes_mailFromDomain,
     putEmailIdentityMailFromAttributes_emailIdentity,
     putEmailIdentityMailFromAttributesResponse_httpStatus,
 
@@ -507,13 +507,13 @@ module Amazonka.SESV2.Lens
     putSuppressedDestinationResponse_httpStatus,
 
     -- ** SendBulkEmail
-    sendBulkEmail_feedbackForwardingEmailAddressIdentityArn,
-    sendBulkEmail_replyToAddresses,
-    sendBulkEmail_defaultEmailTags,
-    sendBulkEmail_fromEmailAddress,
     sendBulkEmail_configurationSetName,
-    sendBulkEmail_fromEmailAddressIdentityArn,
+    sendBulkEmail_defaultEmailTags,
     sendBulkEmail_feedbackForwardingEmailAddress,
+    sendBulkEmail_feedbackForwardingEmailAddressIdentityArn,
+    sendBulkEmail_fromEmailAddress,
+    sendBulkEmail_fromEmailAddressIdentityArn,
+    sendBulkEmail_replyToAddresses,
     sendBulkEmail_defaultContent,
     sendBulkEmail_bulkEmailEntries,
     sendBulkEmailResponse_httpStatus,
@@ -527,15 +527,15 @@ module Amazonka.SESV2.Lens
     sendCustomVerificationEmailResponse_httpStatus,
 
     -- ** SendEmail
-    sendEmail_destination,
-    sendEmail_feedbackForwardingEmailAddressIdentityArn,
-    sendEmail_replyToAddresses,
-    sendEmail_emailTags,
-    sendEmail_fromEmailAddress,
     sendEmail_configurationSetName,
-    sendEmail_fromEmailAddressIdentityArn,
+    sendEmail_destination,
+    sendEmail_emailTags,
     sendEmail_feedbackForwardingEmailAddress,
+    sendEmail_feedbackForwardingEmailAddressIdentityArn,
+    sendEmail_fromEmailAddress,
+    sendEmail_fromEmailAddressIdentityArn,
     sendEmail_listManagementOptions,
+    sendEmail_replyToAddresses,
     sendEmail_content,
     sendEmailResponse_messageId,
     sendEmailResponse_httpStatus,
@@ -563,9 +563,9 @@ module Amazonka.SESV2.Lens
     updateConfigurationSetEventDestinationResponse_httpStatus,
 
     -- ** UpdateContact
-    updateContact_unsubscribeAll,
-    updateContact_topicPreferences,
     updateContact_attributesData,
+    updateContact_topicPreferences,
+    updateContact_unsubscribeAll,
     updateContact_contactListName,
     updateContact_emailAddress,
     updateContactResponse_httpStatus,
@@ -599,12 +599,12 @@ module Amazonka.SESV2.Lens
     -- * Types
 
     -- ** AccountDetails
-    accountDetails_mailType,
-    accountDetails_contactLanguage,
-    accountDetails_useCaseDescription,
-    accountDetails_reviewDetails,
-    accountDetails_websiteURL,
     accountDetails_additionalContactEmailAddresses,
+    accountDetails_contactLanguage,
+    accountDetails_mailType,
+    accountDetails_reviewDetails,
+    accountDetails_useCaseDescription,
+    accountDetails_websiteURL,
 
     -- ** BatchGetMetricDataQuery
     batchGetMetricDataQuery_dimensions,
@@ -615,8 +615,8 @@ module Amazonka.SESV2.Lens
     batchGetMetricDataQuery_endDate,
 
     -- ** BlacklistEntry
-    blacklistEntry_listingTime,
     blacklistEntry_description,
+    blacklistEntry_listingTime,
     blacklistEntry_rblName,
 
     -- ** Body
@@ -632,9 +632,9 @@ module Amazonka.SESV2.Lens
     bulkEmailEntry_destination,
 
     -- ** BulkEmailEntryResult
+    bulkEmailEntryResult_error,
     bulkEmailEntryResult_messageId,
     bulkEmailEntryResult_status,
-    bulkEmailEntryResult_error,
 
     -- ** CloudWatchDestination
     cloudWatchDestination_dimensionConfigurations,
@@ -645,15 +645,15 @@ module Amazonka.SESV2.Lens
     cloudWatchDimensionConfiguration_defaultDimensionValue,
 
     -- ** Contact
-    contact_lastUpdatedTimestamp,
-    contact_unsubscribeAll,
-    contact_topicPreferences,
-    contact_topicDefaultPreferences,
     contact_emailAddress,
+    contact_lastUpdatedTimestamp,
+    contact_topicDefaultPreferences,
+    contact_topicPreferences,
+    contact_unsubscribeAll,
 
     -- ** ContactList
-    contactList_lastUpdatedTimestamp,
     contactList_contactListName,
+    contactList_lastUpdatedTimestamp,
 
     -- ** ContactListDestination
     contactListDestination_contactListName,
@@ -664,16 +664,16 @@ module Amazonka.SESV2.Lens
     content_data,
 
     -- ** CustomVerificationEmailTemplateMetadata
-    customVerificationEmailTemplateMetadata_templateName,
-    customVerificationEmailTemplateMetadata_successRedirectionURL,
-    customVerificationEmailTemplateMetadata_fromEmailAddress,
-    customVerificationEmailTemplateMetadata_templateSubject,
     customVerificationEmailTemplateMetadata_failureRedirectionURL,
+    customVerificationEmailTemplateMetadata_fromEmailAddress,
+    customVerificationEmailTemplateMetadata_successRedirectionURL,
+    customVerificationEmailTemplateMetadata_templateName,
+    customVerificationEmailTemplateMetadata_templateSubject,
 
     -- ** DailyVolume
-    dailyVolume_volumeStatistics,
-    dailyVolume_startDate,
     dailyVolume_domainIspPlacements,
+    dailyVolume_startDate,
+    dailyVolume_volumeStatistics,
 
     -- ** DashboardAttributes
     dashboardAttributes_engagementMetrics,
@@ -692,51 +692,51 @@ module Amazonka.SESV2.Lens
     dedicatedIpPool_scalingMode,
 
     -- ** DeliverabilityTestReport
-    deliverabilityTestReport_reportName,
-    deliverabilityTestReport_fromEmailAddress,
-    deliverabilityTestReport_reportId,
     deliverabilityTestReport_createDate,
     deliverabilityTestReport_deliverabilityTestStatus,
+    deliverabilityTestReport_fromEmailAddress,
+    deliverabilityTestReport_reportId,
+    deliverabilityTestReport_reportName,
     deliverabilityTestReport_subject,
 
     -- ** DeliveryOptions
-    deliveryOptions_tlsPolicy,
     deliveryOptions_sendingPoolName,
+    deliveryOptions_tlsPolicy,
 
     -- ** Destination
-    destination_ccAddresses,
     destination_bccAddresses,
+    destination_ccAddresses,
     destination_toAddresses,
 
     -- ** DkimAttributes
-    dkimAttributes_signingAttributesOrigin,
-    dkimAttributes_tokens,
     dkimAttributes_currentSigningKeyLength,
-    dkimAttributes_status,
-    dkimAttributes_signingEnabled,
     dkimAttributes_lastKeyGenerationTimestamp,
     dkimAttributes_nextSigningKeyLength,
+    dkimAttributes_signingAttributesOrigin,
+    dkimAttributes_signingEnabled,
+    dkimAttributes_status,
+    dkimAttributes_tokens,
 
     -- ** DkimSigningAttributes
+    dkimSigningAttributes_domainSigningPrivateKey,
     dkimSigningAttributes_domainSigningSelector,
     dkimSigningAttributes_nextSigningKeyLength,
-    dkimSigningAttributes_domainSigningPrivateKey,
 
     -- ** DomainDeliverabilityCampaign
-    domainDeliverabilityCampaign_inboxCount,
     domainDeliverabilityCampaign_campaignId,
-    domainDeliverabilityCampaign_fromAddress,
     domainDeliverabilityCampaign_deleteRate,
-    domainDeliverabilityCampaign_lastSeenDateTime,
-    domainDeliverabilityCampaign_sendingIps,
-    domainDeliverabilityCampaign_imageUrl,
     domainDeliverabilityCampaign_esps,
+    domainDeliverabilityCampaign_firstSeenDateTime,
+    domainDeliverabilityCampaign_fromAddress,
+    domainDeliverabilityCampaign_imageUrl,
+    domainDeliverabilityCampaign_inboxCount,
+    domainDeliverabilityCampaign_lastSeenDateTime,
     domainDeliverabilityCampaign_projectedVolume,
     domainDeliverabilityCampaign_readDeleteRate,
+    domainDeliverabilityCampaign_readRate,
+    domainDeliverabilityCampaign_sendingIps,
     domainDeliverabilityCampaign_spamCount,
     domainDeliverabilityCampaign_subject,
-    domainDeliverabilityCampaign_firstSeenDateTime,
-    domainDeliverabilityCampaign_readRate,
 
     -- ** DomainDeliverabilityTrackingOption
     domainDeliverabilityTrackingOption_domain,
@@ -744,15 +744,15 @@ module Amazonka.SESV2.Lens
     domainDeliverabilityTrackingOption_subscriptionStartDate,
 
     -- ** DomainIspPlacement
-    domainIspPlacement_inboxRawCount,
-    domainIspPlacement_spamPercentage,
     domainIspPlacement_inboxPercentage,
-    domainIspPlacement_spamRawCount,
+    domainIspPlacement_inboxRawCount,
     domainIspPlacement_ispName,
+    domainIspPlacement_spamPercentage,
+    domainIspPlacement_spamRawCount,
 
     -- ** EmailContent
-    emailContent_simple,
     emailContent_raw,
+    emailContent_simple,
     emailContent_template,
 
     -- ** EmailTemplateContent
@@ -761,25 +761,25 @@ module Amazonka.SESV2.Lens
     emailTemplateContent_text,
 
     -- ** EmailTemplateMetadata
-    emailTemplateMetadata_templateName,
     emailTemplateMetadata_createdTimestamp,
+    emailTemplateMetadata_templateName,
 
     -- ** EventDestination
+    eventDestination_cloudWatchDestination,
+    eventDestination_enabled,
+    eventDestination_kinesisFirehoseDestination,
     eventDestination_pinpointDestination,
     eventDestination_snsDestination,
-    eventDestination_enabled,
-    eventDestination_cloudWatchDestination,
-    eventDestination_kinesisFirehoseDestination,
     eventDestination_name,
     eventDestination_matchingEventTypes,
 
     -- ** EventDestinationDefinition
+    eventDestinationDefinition_cloudWatchDestination,
+    eventDestinationDefinition_enabled,
+    eventDestinationDefinition_kinesisFirehoseDestination,
     eventDestinationDefinition_matchingEventTypes,
     eventDestinationDefinition_pinpointDestination,
     eventDestinationDefinition_snsDestination,
-    eventDestinationDefinition_enabled,
-    eventDestinationDefinition_cloudWatchDestination,
-    eventDestinationDefinition_kinesisFirehoseDestination,
 
     -- ** FailureInfo
     failureInfo_errorMessage,
@@ -792,9 +792,9 @@ module Amazonka.SESV2.Lens
     guardianOptions_optimizedSharedDelivery,
 
     -- ** IdentityInfo
-    identityInfo_sendingEnabled,
     identityInfo_identityName,
     identityInfo_identityType,
+    identityInfo_sendingEnabled,
     identityInfo_verificationStatus,
 
     -- ** ImportDataSource
@@ -802,24 +802,24 @@ module Amazonka.SESV2.Lens
     importDataSource_dataFormat,
 
     -- ** ImportDestination
-    importDestination_suppressionListDestination,
     importDestination_contactListDestination,
+    importDestination_suppressionListDestination,
 
     -- ** ImportJobSummary
-    importJobSummary_jobStatus,
     importJobSummary_createdTimestamp,
-    importJobSummary_jobId,
-    importJobSummary_importDestination,
     importJobSummary_failedRecordsCount,
+    importJobSummary_importDestination,
+    importJobSummary_jobId,
+    importJobSummary_jobStatus,
     importJobSummary_processedRecordsCount,
 
     -- ** InboxPlacementTrackingOption
-    inboxPlacementTrackingOption_trackedIsps,
     inboxPlacementTrackingOption_global,
+    inboxPlacementTrackingOption_trackedIsps,
 
     -- ** IspPlacement
-    ispPlacement_placementStatistics,
     ispPlacement_ispName,
+    ispPlacement_placementStatistics,
 
     -- ** KinesisFirehoseDestination
     kinesisFirehoseDestination_iamRoleArn,
@@ -847,41 +847,41 @@ module Amazonka.SESV2.Lens
     messageTag_value,
 
     -- ** MetricDataError
-    metricDataError_message,
     metricDataError_code,
     metricDataError_id,
+    metricDataError_message,
 
     -- ** MetricDataResult
-    metricDataResult_timestamps,
     metricDataResult_id,
+    metricDataResult_timestamps,
     metricDataResult_values,
 
     -- ** OverallVolume
-    overallVolume_volumeStatistics,
-    overallVolume_readRatePercent,
     overallVolume_domainIspPlacements,
+    overallVolume_readRatePercent,
+    overallVolume_volumeStatistics,
 
     -- ** PinpointDestination
     pinpointDestination_applicationArn,
 
     -- ** PlacementStatistics
-    placementStatistics_missingPercentage,
     placementStatistics_dkimPercentage,
-    placementStatistics_spfPercentage,
-    placementStatistics_spamPercentage,
     placementStatistics_inboxPercentage,
+    placementStatistics_missingPercentage,
+    placementStatistics_spamPercentage,
+    placementStatistics_spfPercentage,
 
     -- ** RawMessage
     rawMessage_data,
 
     -- ** Recommendation
-    recommendation_lastUpdatedTimestamp,
-    recommendation_impact,
-    recommendation_type,
     recommendation_createdTimestamp,
-    recommendation_status,
     recommendation_description,
+    recommendation_impact,
+    recommendation_lastUpdatedTimestamp,
     recommendation_resourceArn,
+    recommendation_status,
+    recommendation_type,
 
     -- ** ReplacementEmailContent
     replacementEmailContent_replacementTemplate,
@@ -890,8 +890,8 @@ module Amazonka.SESV2.Lens
     replacementTemplate_replacementTemplateData,
 
     -- ** ReputationOptions
-    reputationOptions_reputationMetricsEnabled,
     reputationOptions_lastFreshStart,
+    reputationOptions_reputationMetricsEnabled,
 
     -- ** ReviewDetails
     reviewDetails_caseId,
@@ -899,8 +899,8 @@ module Amazonka.SESV2.Lens
 
     -- ** SendQuota
     sendQuota_max24HourSend,
-    sendQuota_sentLast24Hours,
     sendQuota_maxSendRate,
+    sendQuota_sentLast24Hours,
 
     -- ** SendingOptions
     sendingOptions_sendingEnabled,
@@ -937,9 +937,9 @@ module Amazonka.SESV2.Lens
     tag_value,
 
     -- ** Template
-    template_templateName,
-    template_templateData,
     template_templateArn,
+    template_templateData,
+    template_templateName,
 
     -- ** Topic
     topic_description,
@@ -959,19 +959,19 @@ module Amazonka.SESV2.Lens
     trackingOptions_customRedirectDomain,
 
     -- ** VdmAttributes
-    vdmAttributes_guardianAttributes,
     vdmAttributes_dashboardAttributes,
+    vdmAttributes_guardianAttributes,
     vdmAttributes_vdmEnabled,
 
     -- ** VdmOptions
-    vdmOptions_guardianOptions,
     vdmOptions_dashboardOptions,
+    vdmOptions_guardianOptions,
 
     -- ** VolumeStatistics
     volumeStatistics_inboxRawCount,
+    volumeStatistics_projectedInbox,
     volumeStatistics_projectedSpam,
     volumeStatistics_spamRawCount,
-    volumeStatistics_projectedInbox,
   )
 where
 

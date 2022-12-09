@@ -30,14 +30,14 @@ import Amazonka.SESV2.Types.JobStatus
 --
 -- /See:/ 'newImportJobSummary' smart constructor.
 data ImportJobSummary = ImportJobSummary'
-  { jobStatus :: Prelude.Maybe JobStatus,
-    -- | The date and time when the import job was created.
+  { -- | The date and time when the import job was created.
     createdTimestamp :: Prelude.Maybe Data.POSIX,
-    jobId :: Prelude.Maybe Prelude.Text,
-    importDestination :: Prelude.Maybe ImportDestination,
     -- | The number of records that failed processing because of invalid input or
     -- other reasons.
     failedRecordsCount :: Prelude.Maybe Prelude.Int,
+    importDestination :: Prelude.Maybe ImportDestination,
+    jobId :: Prelude.Maybe Prelude.Text,
+    jobStatus :: Prelude.Maybe JobStatus,
     -- | The current number of records processed.
     processedRecordsCount :: Prelude.Maybe Prelude.Int
   }
@@ -51,50 +51,51 @@ data ImportJobSummary = ImportJobSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobStatus', 'importJobSummary_jobStatus' - Undocumented member.
---
 -- 'createdTimestamp', 'importJobSummary_createdTimestamp' - The date and time when the import job was created.
---
--- 'jobId', 'importJobSummary_jobId' - Undocumented member.
---
--- 'importDestination', 'importJobSummary_importDestination' - Undocumented member.
 --
 -- 'failedRecordsCount', 'importJobSummary_failedRecordsCount' - The number of records that failed processing because of invalid input or
 -- other reasons.
+--
+-- 'importDestination', 'importJobSummary_importDestination' - Undocumented member.
+--
+-- 'jobId', 'importJobSummary_jobId' - Undocumented member.
+--
+-- 'jobStatus', 'importJobSummary_jobStatus' - Undocumented member.
 --
 -- 'processedRecordsCount', 'importJobSummary_processedRecordsCount' - The current number of records processed.
 newImportJobSummary ::
   ImportJobSummary
 newImportJobSummary =
   ImportJobSummary'
-    { jobStatus = Prelude.Nothing,
-      createdTimestamp = Prelude.Nothing,
-      jobId = Prelude.Nothing,
-      importDestination = Prelude.Nothing,
+    { createdTimestamp =
+        Prelude.Nothing,
       failedRecordsCount = Prelude.Nothing,
+      importDestination = Prelude.Nothing,
+      jobId = Prelude.Nothing,
+      jobStatus = Prelude.Nothing,
       processedRecordsCount = Prelude.Nothing
     }
-
--- | Undocumented member.
-importJobSummary_jobStatus :: Lens.Lens' ImportJobSummary (Prelude.Maybe JobStatus)
-importJobSummary_jobStatus = Lens.lens (\ImportJobSummary' {jobStatus} -> jobStatus) (\s@ImportJobSummary' {} a -> s {jobStatus = a} :: ImportJobSummary)
 
 -- | The date and time when the import job was created.
 importJobSummary_createdTimestamp :: Lens.Lens' ImportJobSummary (Prelude.Maybe Prelude.UTCTime)
 importJobSummary_createdTimestamp = Lens.lens (\ImportJobSummary' {createdTimestamp} -> createdTimestamp) (\s@ImportJobSummary' {} a -> s {createdTimestamp = a} :: ImportJobSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The number of records that failed processing because of invalid input or
+-- other reasons.
+importJobSummary_failedRecordsCount :: Lens.Lens' ImportJobSummary (Prelude.Maybe Prelude.Int)
+importJobSummary_failedRecordsCount = Lens.lens (\ImportJobSummary' {failedRecordsCount} -> failedRecordsCount) (\s@ImportJobSummary' {} a -> s {failedRecordsCount = a} :: ImportJobSummary)
+
+-- | Undocumented member.
+importJobSummary_importDestination :: Lens.Lens' ImportJobSummary (Prelude.Maybe ImportDestination)
+importJobSummary_importDestination = Lens.lens (\ImportJobSummary' {importDestination} -> importDestination) (\s@ImportJobSummary' {} a -> s {importDestination = a} :: ImportJobSummary)
 
 -- | Undocumented member.
 importJobSummary_jobId :: Lens.Lens' ImportJobSummary (Prelude.Maybe Prelude.Text)
 importJobSummary_jobId = Lens.lens (\ImportJobSummary' {jobId} -> jobId) (\s@ImportJobSummary' {} a -> s {jobId = a} :: ImportJobSummary)
 
 -- | Undocumented member.
-importJobSummary_importDestination :: Lens.Lens' ImportJobSummary (Prelude.Maybe ImportDestination)
-importJobSummary_importDestination = Lens.lens (\ImportJobSummary' {importDestination} -> importDestination) (\s@ImportJobSummary' {} a -> s {importDestination = a} :: ImportJobSummary)
-
--- | The number of records that failed processing because of invalid input or
--- other reasons.
-importJobSummary_failedRecordsCount :: Lens.Lens' ImportJobSummary (Prelude.Maybe Prelude.Int)
-importJobSummary_failedRecordsCount = Lens.lens (\ImportJobSummary' {failedRecordsCount} -> failedRecordsCount) (\s@ImportJobSummary' {} a -> s {failedRecordsCount = a} :: ImportJobSummary)
+importJobSummary_jobStatus :: Lens.Lens' ImportJobSummary (Prelude.Maybe JobStatus)
+importJobSummary_jobStatus = Lens.lens (\ImportJobSummary' {jobStatus} -> jobStatus) (\s@ImportJobSummary' {} a -> s {jobStatus = a} :: ImportJobSummary)
 
 -- | The current number of records processed.
 importJobSummary_processedRecordsCount :: Lens.Lens' ImportJobSummary (Prelude.Maybe Prelude.Int)
@@ -106,28 +107,28 @@ instance Data.FromJSON ImportJobSummary where
       "ImportJobSummary"
       ( \x ->
           ImportJobSummary'
-            Prelude.<$> (x Data..:? "JobStatus")
-            Prelude.<*> (x Data..:? "CreatedTimestamp")
-            Prelude.<*> (x Data..:? "JobId")
-            Prelude.<*> (x Data..:? "ImportDestination")
+            Prelude.<$> (x Data..:? "CreatedTimestamp")
             Prelude.<*> (x Data..:? "FailedRecordsCount")
+            Prelude.<*> (x Data..:? "ImportDestination")
+            Prelude.<*> (x Data..:? "JobId")
+            Prelude.<*> (x Data..:? "JobStatus")
             Prelude.<*> (x Data..:? "ProcessedRecordsCount")
       )
 
 instance Prelude.Hashable ImportJobSummary where
   hashWithSalt _salt ImportJobSummary' {..} =
-    _salt `Prelude.hashWithSalt` jobStatus
-      `Prelude.hashWithSalt` createdTimestamp
-      `Prelude.hashWithSalt` jobId
-      `Prelude.hashWithSalt` importDestination
+    _salt `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` failedRecordsCount
+      `Prelude.hashWithSalt` importDestination
+      `Prelude.hashWithSalt` jobId
+      `Prelude.hashWithSalt` jobStatus
       `Prelude.hashWithSalt` processedRecordsCount
 
 instance Prelude.NFData ImportJobSummary where
   rnf ImportJobSummary' {..} =
-    Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf createdTimestamp
-      `Prelude.seq` Prelude.rnf jobId
-      `Prelude.seq` Prelude.rnf importDestination
+    Prelude.rnf createdTimestamp
       `Prelude.seq` Prelude.rnf failedRecordsCount
+      `Prelude.seq` Prelude.rnf importDestination
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobStatus
       `Prelude.seq` Prelude.rnf processedRecordsCount

@@ -30,9 +30,7 @@ import Amazonka.SESV2.Types.QueryErrorCode
 --
 -- /See:/ 'newMetricDataError' smart constructor.
 data MetricDataError = MetricDataError'
-  { -- | The error message associated with the current query error.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The query error code. Can be one of:
+  { -- | The query error code. Can be one of:
     --
     -- -   @INTERNAL_FAILURE@ – Amazon SES has failed to process one of the
     --     queries.
@@ -41,7 +39,9 @@ data MetricDataError = MetricDataError'
     --     based on the given query.
     code :: Prelude.Maybe QueryErrorCode,
     -- | The query identifier.
-    id :: Prelude.Maybe Prelude.Text
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The error message associated with the current query error.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,8 +53,6 @@ data MetricDataError = MetricDataError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'metricDataError_message' - The error message associated with the current query error.
---
 -- 'code', 'metricDataError_code' - The query error code. Can be one of:
 --
 -- -   @INTERNAL_FAILURE@ – Amazon SES has failed to process one of the
@@ -64,18 +62,16 @@ data MetricDataError = MetricDataError'
 --     based on the given query.
 --
 -- 'id', 'metricDataError_id' - The query identifier.
+--
+-- 'message', 'metricDataError_message' - The error message associated with the current query error.
 newMetricDataError ::
   MetricDataError
 newMetricDataError =
   MetricDataError'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing,
-      id = Prelude.Nothing
+    { code = Prelude.Nothing,
+      id = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | The error message associated with the current query error.
-metricDataError_message :: Lens.Lens' MetricDataError (Prelude.Maybe Prelude.Text)
-metricDataError_message = Lens.lens (\MetricDataError' {message} -> message) (\s@MetricDataError' {} a -> s {message = a} :: MetricDataError)
 
 -- | The query error code. Can be one of:
 --
@@ -91,25 +87,29 @@ metricDataError_code = Lens.lens (\MetricDataError' {code} -> code) (\s@MetricDa
 metricDataError_id :: Lens.Lens' MetricDataError (Prelude.Maybe Prelude.Text)
 metricDataError_id = Lens.lens (\MetricDataError' {id} -> id) (\s@MetricDataError' {} a -> s {id = a} :: MetricDataError)
 
+-- | The error message associated with the current query error.
+metricDataError_message :: Lens.Lens' MetricDataError (Prelude.Maybe Prelude.Text)
+metricDataError_message = Lens.lens (\MetricDataError' {message} -> message) (\s@MetricDataError' {} a -> s {message = a} :: MetricDataError)
+
 instance Data.FromJSON MetricDataError where
   parseJSON =
     Data.withObject
       "MetricDataError"
       ( \x ->
           MetricDataError'
-            Prelude.<$> (x Data..:? "Message")
-            Prelude.<*> (x Data..:? "Code")
+            Prelude.<$> (x Data..:? "Code")
             Prelude.<*> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Message")
       )
 
 instance Prelude.Hashable MetricDataError where
   hashWithSalt _salt MetricDataError' {..} =
-    _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` code
+    _salt `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` message
 
 instance Prelude.NFData MetricDataError where
   rnf MetricDataError' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf code
+    Prelude.rnf code
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf message

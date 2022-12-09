@@ -28,41 +28,41 @@ module Amazonka.SESV2
     -- * Errors
     -- $errors
 
-    -- ** ConcurrentModificationException
-    _ConcurrentModificationException,
-
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** MailFromDomainNotVerifiedException
-    _MailFromDomainNotVerifiedException,
+    -- ** AccountSuspendedException
+    _AccountSuspendedException,
 
     -- ** AlreadyExistsException
     _AlreadyExistsException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** BadRequestException
+    _BadRequestException,
 
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
 
     -- ** ConflictException
     _ConflictException,
 
-    -- ** SendingPausedException
-    _SendingPausedException,
+    -- ** InternalServiceErrorException
+    _InternalServiceErrorException,
 
-    -- ** AccountSuspendedException
-    _AccountSuspendedException,
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** MailFromDomainNotVerifiedException
+    _MailFromDomainNotVerifiedException,
 
     -- ** MessageRejected
     _MessageRejected,
 
-    -- ** BadRequestException
-    _BadRequestException,
+    -- ** NotFoundException
+    _NotFoundException,
 
-    -- ** InternalServiceErrorException
-    _InternalServiceErrorException,
+    -- ** SendingPausedException
+    _SendingPausedException,
 
     -- ** TooManyRequestsException
     _TooManyRequestsException,

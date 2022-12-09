@@ -18,24 +18,24 @@ module Amazonka.GlobalAccelerator.Types
     defaultService,
 
     -- * Errors
-    _InvalidArgumentException,
-    _ListenerNotFoundException,
-    _EndpointAlreadyExistsException,
-    _AccessDeniedException,
     _AcceleratorNotDisabledException,
+    _AcceleratorNotFoundException,
+    _AccessDeniedException,
     _AssociatedEndpointGroupFoundException,
-    _LimitExceededException,
-    _InvalidNextTokenException,
-    _ConflictException,
-    _EndpointGroupAlreadyExistsException,
     _AssociatedListenerFoundException,
     _ByoipCidrNotFoundException,
-    _AcceleratorNotFoundException,
-    _EndpointNotFoundException,
+    _ConflictException,
+    _EndpointAlreadyExistsException,
+    _EndpointGroupAlreadyExistsException,
     _EndpointGroupNotFoundException,
-    _InternalServiceErrorException,
+    _EndpointNotFoundException,
     _IncorrectCidrStateException,
+    _InternalServiceErrorException,
+    _InvalidArgumentException,
+    _InvalidNextTokenException,
     _InvalidPortRangeException,
+    _LimitExceededException,
+    _ListenerNotFoundException,
     _TransactionInProgressException,
 
     -- * AcceleratorStatus
@@ -74,17 +74,17 @@ module Amazonka.GlobalAccelerator.Types
     -- * Accelerator
     Accelerator (..),
     newAccelerator,
-    accelerator_ipSets,
-    accelerator_name,
     accelerator_acceleratorArn,
     accelerator_createdTime,
-    accelerator_status,
-    accelerator_enabled,
-    accelerator_lastModifiedTime,
-    accelerator_dualStackDnsName,
-    accelerator_events,
     accelerator_dnsName,
+    accelerator_dualStackDnsName,
+    accelerator_enabled,
+    accelerator_events,
     accelerator_ipAddressType,
+    accelerator_ipSets,
+    accelerator_lastModifiedTime,
+    accelerator_name,
+    accelerator_status,
 
     -- * AcceleratorAttributes
     AcceleratorAttributes (..),
@@ -103,8 +103,8 @@ module Amazonka.GlobalAccelerator.Types
     ByoipCidr (..),
     newByoipCidr,
     byoipCidr_cidr,
-    byoipCidr_state,
     byoipCidr_events,
+    byoipCidr_state,
 
     -- * ByoipCidrEvent
     ByoipCidrEvent (..),
@@ -121,15 +121,15 @@ module Amazonka.GlobalAccelerator.Types
     -- * CustomRoutingAccelerator
     CustomRoutingAccelerator (..),
     newCustomRoutingAccelerator,
-    customRoutingAccelerator_ipSets,
-    customRoutingAccelerator_name,
     customRoutingAccelerator_acceleratorArn,
     customRoutingAccelerator_createdTime,
-    customRoutingAccelerator_status,
-    customRoutingAccelerator_enabled,
-    customRoutingAccelerator_lastModifiedTime,
     customRoutingAccelerator_dnsName,
+    customRoutingAccelerator_enabled,
     customRoutingAccelerator_ipAddressType,
+    customRoutingAccelerator_ipSets,
+    customRoutingAccelerator_lastModifiedTime,
+    customRoutingAccelerator_name,
+    customRoutingAccelerator_status,
 
     -- * CustomRoutingAcceleratorAttributes
     CustomRoutingAcceleratorAttributes (..),
@@ -148,9 +148,9 @@ module Amazonka.GlobalAccelerator.Types
     -- * CustomRoutingDestinationDescription
     CustomRoutingDestinationDescription (..),
     newCustomRoutingDestinationDescription,
-    customRoutingDestinationDescription_toPort,
-    customRoutingDestinationDescription_protocols,
     customRoutingDestinationDescription_fromPort,
+    customRoutingDestinationDescription_protocols,
+    customRoutingDestinationDescription_toPort,
 
     -- * CustomRoutingEndpointConfiguration
     CustomRoutingEndpointConfiguration (..),
@@ -165,10 +165,10 @@ module Amazonka.GlobalAccelerator.Types
     -- * CustomRoutingEndpointGroup
     CustomRoutingEndpointGroup (..),
     newCustomRoutingEndpointGroup,
-    customRoutingEndpointGroup_endpointGroupRegion,
-    customRoutingEndpointGroup_endpointDescriptions,
     customRoutingEndpointGroup_destinationDescriptions,
+    customRoutingEndpointGroup_endpointDescriptions,
     customRoutingEndpointGroup_endpointGroupArn,
+    customRoutingEndpointGroup_endpointGroupRegion,
 
     -- * CustomRoutingListener
     CustomRoutingListener (..),
@@ -179,44 +179,44 @@ module Amazonka.GlobalAccelerator.Types
     -- * DestinationPortMapping
     DestinationPortMapping (..),
     newDestinationPortMapping,
-    destinationPortMapping_endpointGroupRegion,
     destinationPortMapping_acceleratorArn,
-    destinationPortMapping_endpointId,
-    destinationPortMapping_destinationTrafficState,
-    destinationPortMapping_ipAddressType,
-    destinationPortMapping_endpointGroupArn,
-    destinationPortMapping_destinationSocketAddress,
     destinationPortMapping_acceleratorSocketAddresses,
+    destinationPortMapping_destinationSocketAddress,
+    destinationPortMapping_destinationTrafficState,
+    destinationPortMapping_endpointGroupArn,
+    destinationPortMapping_endpointGroupRegion,
+    destinationPortMapping_endpointId,
+    destinationPortMapping_ipAddressType,
 
     -- * EndpointConfiguration
     EndpointConfiguration (..),
     newEndpointConfiguration,
+    endpointConfiguration_clientIPPreservationEnabled,
     endpointConfiguration_endpointId,
     endpointConfiguration_weight,
-    endpointConfiguration_clientIPPreservationEnabled,
 
     -- * EndpointDescription
     EndpointDescription (..),
     newEndpointDescription,
+    endpointDescription_clientIPPreservationEnabled,
     endpointDescription_endpointId,
     endpointDescription_healthReason,
-    endpointDescription_weight,
-    endpointDescription_clientIPPreservationEnabled,
     endpointDescription_healthState,
+    endpointDescription_weight,
 
     -- * EndpointGroup
     EndpointGroup (..),
     newEndpointGroup,
-    endpointGroup_healthCheckProtocol,
-    endpointGroup_endpointGroupRegion,
-    endpointGroup_portOverrides,
-    endpointGroup_healthCheckPath,
-    endpointGroup_healthCheckIntervalSeconds,
     endpointGroup_endpointDescriptions,
-    endpointGroup_trafficDialPercentage,
-    endpointGroup_thresholdCount,
-    endpointGroup_healthCheckPort,
     endpointGroup_endpointGroupArn,
+    endpointGroup_endpointGroupRegion,
+    endpointGroup_healthCheckIntervalSeconds,
+    endpointGroup_healthCheckPath,
+    endpointGroup_healthCheckPort,
+    endpointGroup_healthCheckProtocol,
+    endpointGroup_portOverrides,
+    endpointGroup_thresholdCount,
+    endpointGroup_trafficDialPercentage,
 
     -- * EndpointIdentifier
     EndpointIdentifier (..),
@@ -227,27 +227,27 @@ module Amazonka.GlobalAccelerator.Types
     -- * IpSet
     IpSet (..),
     newIpSet,
-    ipSet_ipFamily,
     ipSet_ipAddressFamily,
     ipSet_ipAddresses,
+    ipSet_ipFamily,
 
     -- * Listener
     Listener (..),
     newListener,
-    listener_listenerArn,
     listener_clientAffinity,
-    listener_protocol,
+    listener_listenerArn,
     listener_portRanges,
+    listener_protocol,
 
     -- * PortMapping
     PortMapping (..),
     newPortMapping,
     portMapping_acceleratorPort,
-    portMapping_endpointId,
-    portMapping_protocols,
+    portMapping_destinationSocketAddress,
     portMapping_destinationTrafficState,
     portMapping_endpointGroupArn,
-    portMapping_destinationSocketAddress,
+    portMapping_endpointId,
+    portMapping_protocols,
 
     -- * PortOverride
     PortOverride (..),
@@ -258,14 +258,14 @@ module Amazonka.GlobalAccelerator.Types
     -- * PortRange
     PortRange (..),
     newPortRange,
-    portRange_toPort,
     portRange_fromPort,
+    portRange_toPort,
 
     -- * SocketAddress
     SocketAddress (..),
     newSocketAddress,
-    socketAddress_port,
     socketAddress_ipAddress,
+    socketAddress_port,
 
     -- * Tag
     Tag (..),
@@ -342,28 +342,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -371,13 +365,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -385,35 +383,9 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
-
--- | An argument that you specified is invalid.
-_InvalidArgumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidArgumentException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidArgumentException"
-
--- | The listener that you specified doesn\'t exist.
-_ListenerNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ListenerNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ListenerNotFoundException"
-
--- | The endpoint that you specified doesn\'t exist.
-_EndpointAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_EndpointAlreadyExistsException =
-  Core._MatchServiceError
-    defaultService
-    "EndpointAlreadyExistsException"
-
--- | You don\'t have access permission.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AccessDeniedException =
-  Core._MatchServiceError
-    defaultService
-    "AccessDeniedException"
 
 -- | The accelerator that you specified could not be disabled.
 _AcceleratorNotDisabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -421,6 +393,20 @@ _AcceleratorNotDisabledException =
   Core._MatchServiceError
     defaultService
     "AcceleratorNotDisabledException"
+
+-- | The accelerator that you specified doesn\'t exist.
+_AcceleratorNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AcceleratorNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "AcceleratorNotFoundException"
+
+-- | You don\'t have access permission.
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException =
+  Core._MatchServiceError
+    defaultService
+    "AccessDeniedException"
 
 -- | The listener that you specified has an endpoint group associated with
 -- it. You must remove all dependent resources from a listener before you
@@ -430,35 +416,6 @@ _AssociatedEndpointGroupFoundException =
   Core._MatchServiceError
     defaultService
     "AssociatedEndpointGroupFoundException"
-
--- | Processing your request would cause you to exceed an Global Accelerator
--- limit.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
-
--- | There isn\'t another item to return.
-_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidNextTokenException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidNextTokenException"
-
--- | You can\'t use both of those options.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-
--- | The endpoint group that you specified already exists.
-_EndpointGroupAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_EndpointGroupAlreadyExistsException =
-  Core._MatchServiceError
-    defaultService
-    "EndpointGroupAlreadyExistsException"
 
 -- | The accelerator that you specified has a listener associated with it.
 -- You must remove all dependent resources from an accelerator before you
@@ -476,19 +433,26 @@ _ByoipCidrNotFoundException =
     defaultService
     "ByoipCidrNotFoundException"
 
--- | The accelerator that you specified doesn\'t exist.
-_AcceleratorNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AcceleratorNotFoundException =
+-- | You can\'t use both of those options.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
   Core._MatchServiceError
     defaultService
-    "AcceleratorNotFoundException"
+    "ConflictException"
 
 -- | The endpoint that you specified doesn\'t exist.
-_EndpointNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_EndpointNotFoundException =
+_EndpointAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EndpointAlreadyExistsException =
   Core._MatchServiceError
     defaultService
-    "EndpointNotFoundException"
+    "EndpointAlreadyExistsException"
+
+-- | The endpoint group that you specified already exists.
+_EndpointGroupAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EndpointGroupAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "EndpointGroupAlreadyExistsException"
 
 -- | The endpoint group that you specified doesn\'t exist.
 _EndpointGroupNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -497,12 +461,12 @@ _EndpointGroupNotFoundException =
     defaultService
     "EndpointGroupNotFoundException"
 
--- | There was an internal error for Global Accelerator.
-_InternalServiceErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServiceErrorException =
+-- | The endpoint that you specified doesn\'t exist.
+_EndpointNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EndpointNotFoundException =
   Core._MatchServiceError
     defaultService
-    "InternalServiceErrorException"
+    "EndpointNotFoundException"
 
 -- | The CIDR that you specified is not valid for this action. For example,
 -- the state of the CIDR might be incorrect for this action.
@@ -512,6 +476,27 @@ _IncorrectCidrStateException =
     defaultService
     "IncorrectCidrStateException"
 
+-- | There was an internal error for Global Accelerator.
+_InternalServiceErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceErrorException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServiceErrorException"
+
+-- | An argument that you specified is invalid.
+_InvalidArgumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidArgumentException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidArgumentException"
+
+-- | There isn\'t another item to return.
+_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidNextTokenException"
+
 -- | The port numbers that you specified are not valid numbers or are not
 -- unique for this accelerator.
 _InvalidPortRangeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -519,6 +504,21 @@ _InvalidPortRangeException =
   Core._MatchServiceError
     defaultService
     "InvalidPortRangeException"
+
+-- | Processing your request would cause you to exceed an Global Accelerator
+-- limit.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
+
+-- | The listener that you specified doesn\'t exist.
+_ListenerNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ListenerNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ListenerNotFoundException"
 
 -- | There\'s already a transaction in progress. Another transaction can\'t
 -- be processed.

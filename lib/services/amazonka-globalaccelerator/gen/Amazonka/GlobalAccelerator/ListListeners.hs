@@ -29,8 +29,8 @@ module Amazonka.GlobalAccelerator.ListListeners
     newListListeners,
 
     -- * Request Lenses
-    listListeners_nextToken,
     listListeners_maxResults,
+    listListeners_nextToken,
     listListeners_acceleratorArn,
 
     -- * Destructuring the Response
@@ -38,8 +38,8 @@ module Amazonka.GlobalAccelerator.ListListeners
     newListListenersResponse,
 
     -- * Response Lenses
-    listListenersResponse_nextToken,
     listListenersResponse_listeners,
+    listListenersResponse_nextToken,
     listListenersResponse_httpStatus,
   )
 where
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListListeners' smart constructor.
 data ListListeners = ListListeners'
-  { -- | The token for the next set of results. You receive this token from a
-    -- previous call.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The number of listener objects that you want to return with this call.
+  { -- | The number of listener objects that you want to return with this call.
     -- The default value is 10.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. You receive this token from a
+    -- previous call.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the accelerator for which you want to
     -- list listener objects.
     acceleratorArn :: Prelude.Text
@@ -74,11 +74,11 @@ data ListListeners = ListListeners'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listListeners_nextToken' - The token for the next set of results. You receive this token from a
--- previous call.
---
 -- 'maxResults', 'listListeners_maxResults' - The number of listener objects that you want to return with this call.
 -- The default value is 10.
+--
+-- 'nextToken', 'listListeners_nextToken' - The token for the next set of results. You receive this token from a
+-- previous call.
 --
 -- 'acceleratorArn', 'listListeners_acceleratorArn' - The Amazon Resource Name (ARN) of the accelerator for which you want to
 -- list listener objects.
@@ -88,20 +88,20 @@ newListListeners ::
   ListListeners
 newListListeners pAcceleratorArn_ =
   ListListeners'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       acceleratorArn = pAcceleratorArn_
     }
-
--- | The token for the next set of results. You receive this token from a
--- previous call.
-listListeners_nextToken :: Lens.Lens' ListListeners (Prelude.Maybe Prelude.Text)
-listListeners_nextToken = Lens.lens (\ListListeners' {nextToken} -> nextToken) (\s@ListListeners' {} a -> s {nextToken = a} :: ListListeners)
 
 -- | The number of listener objects that you want to return with this call.
 -- The default value is 10.
 listListeners_maxResults :: Lens.Lens' ListListeners (Prelude.Maybe Prelude.Natural)
 listListeners_maxResults = Lens.lens (\ListListeners' {maxResults} -> maxResults) (\s@ListListeners' {} a -> s {maxResults = a} :: ListListeners)
+
+-- | The token for the next set of results. You receive this token from a
+-- previous call.
+listListeners_nextToken :: Lens.Lens' ListListeners (Prelude.Maybe Prelude.Text)
+listListeners_nextToken = Lens.lens (\ListListeners' {nextToken} -> nextToken) (\s@ListListeners' {} a -> s {nextToken = a} :: ListListeners)
 
 -- | The Amazon Resource Name (ARN) of the accelerator for which you want to
 -- list listener objects.
@@ -137,21 +137,21 @@ instance Core.AWSRequest ListListeners where
     Response.receiveJSON
       ( \s h x ->
           ListListenersResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Listeners" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Listeners" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListListeners where
   hashWithSalt _salt ListListeners' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` acceleratorArn
 
 instance Prelude.NFData ListListeners where
   rnf ListListeners' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf acceleratorArn
 
 instance Data.ToHeaders ListListeners where
@@ -173,8 +173,8 @@ instance Data.ToJSON ListListeners where
   toJSON ListListeners' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("AcceleratorArn" Data..= acceleratorArn)
           ]
@@ -188,11 +188,11 @@ instance Data.ToQuery ListListeners where
 
 -- | /See:/ 'newListListenersResponse' smart constructor.
 data ListListenersResponse = ListListenersResponse'
-  { -- | The token for the next set of results. You receive this token from a
+  { -- | The list of listeners for an accelerator.
+    listeners :: Prelude.Maybe [Listener],
+    -- | The token for the next set of results. You receive this token from a
     -- previous call.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of listeners for an accelerator.
-    listeners :: Prelude.Maybe [Listener],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -206,10 +206,10 @@ data ListListenersResponse = ListListenersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'listeners', 'listListenersResponse_listeners' - The list of listeners for an accelerator.
+--
 -- 'nextToken', 'listListenersResponse_nextToken' - The token for the next set of results. You receive this token from a
 -- previous call.
---
--- 'listeners', 'listListenersResponse_listeners' - The list of listeners for an accelerator.
 --
 -- 'httpStatus', 'listListenersResponse_httpStatus' - The response's http status code.
 newListListenersResponse ::
@@ -218,19 +218,19 @@ newListListenersResponse ::
   ListListenersResponse
 newListListenersResponse pHttpStatus_ =
   ListListenersResponse'
-    { nextToken = Prelude.Nothing,
-      listeners = Prelude.Nothing,
+    { listeners = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of listeners for an accelerator.
+listListenersResponse_listeners :: Lens.Lens' ListListenersResponse (Prelude.Maybe [Listener])
+listListenersResponse_listeners = Lens.lens (\ListListenersResponse' {listeners} -> listeners) (\s@ListListenersResponse' {} a -> s {listeners = a} :: ListListenersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results. You receive this token from a
 -- previous call.
 listListenersResponse_nextToken :: Lens.Lens' ListListenersResponse (Prelude.Maybe Prelude.Text)
 listListenersResponse_nextToken = Lens.lens (\ListListenersResponse' {nextToken} -> nextToken) (\s@ListListenersResponse' {} a -> s {nextToken = a} :: ListListenersResponse)
-
--- | The list of listeners for an accelerator.
-listListenersResponse_listeners :: Lens.Lens' ListListenersResponse (Prelude.Maybe [Listener])
-listListenersResponse_listeners = Lens.lens (\ListListenersResponse' {listeners} -> listeners) (\s@ListListenersResponse' {} a -> s {listeners = a} :: ListListenersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listListenersResponse_httpStatus :: Lens.Lens' ListListenersResponse Prelude.Int
@@ -238,6 +238,6 @@ listListenersResponse_httpStatus = Lens.lens (\ListListenersResponse' {httpStatu
 
 instance Prelude.NFData ListListenersResponse where
   rnf ListListenersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf listeners
+    Prelude.rnf listeners
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

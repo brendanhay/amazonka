@@ -28,14 +28,14 @@ module Amazonka.GlobalAccelerator.UpdateEndpointGroup
     newUpdateEndpointGroup,
 
     -- * Request Lenses
+    updateEndpointGroup_endpointConfigurations,
+    updateEndpointGroup_healthCheckIntervalSeconds,
+    updateEndpointGroup_healthCheckPath,
+    updateEndpointGroup_healthCheckPort,
     updateEndpointGroup_healthCheckProtocol,
     updateEndpointGroup_portOverrides,
-    updateEndpointGroup_healthCheckPath,
-    updateEndpointGroup_healthCheckIntervalSeconds,
-    updateEndpointGroup_endpointConfigurations,
-    updateEndpointGroup_trafficDialPercentage,
     updateEndpointGroup_thresholdCount,
-    updateEndpointGroup_healthCheckPort,
+    updateEndpointGroup_trafficDialPercentage,
     updateEndpointGroup_endpointGroupArn,
 
     -- * Destructuring the Response
@@ -58,7 +58,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateEndpointGroup' smart constructor.
 data UpdateEndpointGroup = UpdateEndpointGroup'
-  { -- | The protocol that Global Accelerator uses to check the health of
+  { -- | The list of endpoint objects. A resource must be valid and active when
+    -- you add it as an endpoint.
+    endpointConfigurations :: Prelude.Maybe [EndpointConfiguration],
+    -- | The time—10 seconds or 30 seconds—between each health check for an
+    -- endpoint. The default value is 30.
+    healthCheckIntervalSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | If the protocol is HTTP\/S, then this specifies the path that is the
+    -- destination for health check targets. The default value is slash (\/).
+    healthCheckPath :: Prelude.Maybe Prelude.Text,
+    -- | The port that Global Accelerator uses to check the health of endpoints
+    -- that are part of this endpoint group. The default port is the listener
+    -- port that this endpoint group is associated with. If the listener port
+    -- is a list of ports, Global Accelerator uses the first port in the list.
+    healthCheckPort :: Prelude.Maybe Prelude.Natural,
+    -- | The protocol that Global Accelerator uses to check the health of
     -- endpoints that are part of this endpoint group. The default value is
     -- TCP.
     healthCheckProtocol :: Prelude.Maybe HealthCheckProtocol,
@@ -72,15 +86,10 @@ data UpdateEndpointGroup = UpdateEndpointGroup'
     -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html Overriding listener ports>
     -- in the /Global Accelerator Developer Guide/.
     portOverrides :: Prelude.Maybe [PortOverride],
-    -- | If the protocol is HTTP\/S, then this specifies the path that is the
-    -- destination for health check targets. The default value is slash (\/).
-    healthCheckPath :: Prelude.Maybe Prelude.Text,
-    -- | The time—10 seconds or 30 seconds—between each health check for an
-    -- endpoint. The default value is 30.
-    healthCheckIntervalSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | The list of endpoint objects. A resource must be valid and active when
-    -- you add it as an endpoint.
-    endpointConfigurations :: Prelude.Maybe [EndpointConfiguration],
+    -- | The number of consecutive health checks required to set the state of a
+    -- healthy endpoint to unhealthy, or to set an unhealthy endpoint to
+    -- healthy. The default value is 3.
+    thresholdCount :: Prelude.Maybe Prelude.Natural,
     -- | The percentage of traffic to send to an Amazon Web Services Region.
     -- Additional traffic is distributed to other endpoint groups for this
     -- listener.
@@ -91,15 +100,6 @@ data UpdateEndpointGroup = UpdateEndpointGroup'
     --
     -- The default value is 100.
     trafficDialPercentage :: Prelude.Maybe Prelude.Double,
-    -- | The number of consecutive health checks required to set the state of a
-    -- healthy endpoint to unhealthy, or to set an unhealthy endpoint to
-    -- healthy. The default value is 3.
-    thresholdCount :: Prelude.Maybe Prelude.Natural,
-    -- | The port that Global Accelerator uses to check the health of endpoints
-    -- that are part of this endpoint group. The default port is the listener
-    -- port that this endpoint group is associated with. If the listener port
-    -- is a list of ports, Global Accelerator uses the first port in the list.
-    healthCheckPort :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the endpoint group.
     endpointGroupArn :: Prelude.Text
   }
@@ -112,6 +112,20 @@ data UpdateEndpointGroup = UpdateEndpointGroup'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'endpointConfigurations', 'updateEndpointGroup_endpointConfigurations' - The list of endpoint objects. A resource must be valid and active when
+-- you add it as an endpoint.
+--
+-- 'healthCheckIntervalSeconds', 'updateEndpointGroup_healthCheckIntervalSeconds' - The time—10 seconds or 30 seconds—between each health check for an
+-- endpoint. The default value is 30.
+--
+-- 'healthCheckPath', 'updateEndpointGroup_healthCheckPath' - If the protocol is HTTP\/S, then this specifies the path that is the
+-- destination for health check targets. The default value is slash (\/).
+--
+-- 'healthCheckPort', 'updateEndpointGroup_healthCheckPort' - The port that Global Accelerator uses to check the health of endpoints
+-- that are part of this endpoint group. The default port is the listener
+-- port that this endpoint group is associated with. If the listener port
+-- is a list of ports, Global Accelerator uses the first port in the list.
 --
 -- 'healthCheckProtocol', 'updateEndpointGroup_healthCheckProtocol' - The protocol that Global Accelerator uses to check the health of
 -- endpoints that are part of this endpoint group. The default value is
@@ -127,14 +141,9 @@ data UpdateEndpointGroup = UpdateEndpointGroup'
 -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html Overriding listener ports>
 -- in the /Global Accelerator Developer Guide/.
 --
--- 'healthCheckPath', 'updateEndpointGroup_healthCheckPath' - If the protocol is HTTP\/S, then this specifies the path that is the
--- destination for health check targets. The default value is slash (\/).
---
--- 'healthCheckIntervalSeconds', 'updateEndpointGroup_healthCheckIntervalSeconds' - The time—10 seconds or 30 seconds—between each health check for an
--- endpoint. The default value is 30.
---
--- 'endpointConfigurations', 'updateEndpointGroup_endpointConfigurations' - The list of endpoint objects. A resource must be valid and active when
--- you add it as an endpoint.
+-- 'thresholdCount', 'updateEndpointGroup_thresholdCount' - The number of consecutive health checks required to set the state of a
+-- healthy endpoint to unhealthy, or to set an unhealthy endpoint to
+-- healthy. The default value is 3.
 --
 -- 'trafficDialPercentage', 'updateEndpointGroup_trafficDialPercentage' - The percentage of traffic to send to an Amazon Web Services Region.
 -- Additional traffic is distributed to other endpoint groups for this
@@ -146,15 +155,6 @@ data UpdateEndpointGroup = UpdateEndpointGroup'
 --
 -- The default value is 100.
 --
--- 'thresholdCount', 'updateEndpointGroup_thresholdCount' - The number of consecutive health checks required to set the state of a
--- healthy endpoint to unhealthy, or to set an unhealthy endpoint to
--- healthy. The default value is 3.
---
--- 'healthCheckPort', 'updateEndpointGroup_healthCheckPort' - The port that Global Accelerator uses to check the health of endpoints
--- that are part of this endpoint group. The default port is the listener
--- port that this endpoint group is associated with. If the listener port
--- is a list of ports, Global Accelerator uses the first port in the list.
---
 -- 'endpointGroupArn', 'updateEndpointGroup_endpointGroupArn' - The Amazon Resource Name (ARN) of the endpoint group.
 newUpdateEndpointGroup ::
   -- | 'endpointGroupArn'
@@ -162,17 +162,39 @@ newUpdateEndpointGroup ::
   UpdateEndpointGroup
 newUpdateEndpointGroup pEndpointGroupArn_ =
   UpdateEndpointGroup'
-    { healthCheckProtocol =
+    { endpointConfigurations =
         Prelude.Nothing,
-      portOverrides = Prelude.Nothing,
-      healthCheckPath = Prelude.Nothing,
       healthCheckIntervalSeconds = Prelude.Nothing,
-      endpointConfigurations = Prelude.Nothing,
-      trafficDialPercentage = Prelude.Nothing,
-      thresholdCount = Prelude.Nothing,
+      healthCheckPath = Prelude.Nothing,
       healthCheckPort = Prelude.Nothing,
+      healthCheckProtocol = Prelude.Nothing,
+      portOverrides = Prelude.Nothing,
+      thresholdCount = Prelude.Nothing,
+      trafficDialPercentage = Prelude.Nothing,
       endpointGroupArn = pEndpointGroupArn_
     }
+
+-- | The list of endpoint objects. A resource must be valid and active when
+-- you add it as an endpoint.
+updateEndpointGroup_endpointConfigurations :: Lens.Lens' UpdateEndpointGroup (Prelude.Maybe [EndpointConfiguration])
+updateEndpointGroup_endpointConfigurations = Lens.lens (\UpdateEndpointGroup' {endpointConfigurations} -> endpointConfigurations) (\s@UpdateEndpointGroup' {} a -> s {endpointConfigurations = a} :: UpdateEndpointGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | The time—10 seconds or 30 seconds—between each health check for an
+-- endpoint. The default value is 30.
+updateEndpointGroup_healthCheckIntervalSeconds :: Lens.Lens' UpdateEndpointGroup (Prelude.Maybe Prelude.Natural)
+updateEndpointGroup_healthCheckIntervalSeconds = Lens.lens (\UpdateEndpointGroup' {healthCheckIntervalSeconds} -> healthCheckIntervalSeconds) (\s@UpdateEndpointGroup' {} a -> s {healthCheckIntervalSeconds = a} :: UpdateEndpointGroup)
+
+-- | If the protocol is HTTP\/S, then this specifies the path that is the
+-- destination for health check targets. The default value is slash (\/).
+updateEndpointGroup_healthCheckPath :: Lens.Lens' UpdateEndpointGroup (Prelude.Maybe Prelude.Text)
+updateEndpointGroup_healthCheckPath = Lens.lens (\UpdateEndpointGroup' {healthCheckPath} -> healthCheckPath) (\s@UpdateEndpointGroup' {} a -> s {healthCheckPath = a} :: UpdateEndpointGroup)
+
+-- | The port that Global Accelerator uses to check the health of endpoints
+-- that are part of this endpoint group. The default port is the listener
+-- port that this endpoint group is associated with. If the listener port
+-- is a list of ports, Global Accelerator uses the first port in the list.
+updateEndpointGroup_healthCheckPort :: Lens.Lens' UpdateEndpointGroup (Prelude.Maybe Prelude.Natural)
+updateEndpointGroup_healthCheckPort = Lens.lens (\UpdateEndpointGroup' {healthCheckPort} -> healthCheckPort) (\s@UpdateEndpointGroup' {} a -> s {healthCheckPort = a} :: UpdateEndpointGroup)
 
 -- | The protocol that Global Accelerator uses to check the health of
 -- endpoints that are part of this endpoint group. The default value is
@@ -192,20 +214,11 @@ updateEndpointGroup_healthCheckProtocol = Lens.lens (\UpdateEndpointGroup' {heal
 updateEndpointGroup_portOverrides :: Lens.Lens' UpdateEndpointGroup (Prelude.Maybe [PortOverride])
 updateEndpointGroup_portOverrides = Lens.lens (\UpdateEndpointGroup' {portOverrides} -> portOverrides) (\s@UpdateEndpointGroup' {} a -> s {portOverrides = a} :: UpdateEndpointGroup) Prelude.. Lens.mapping Lens.coerced
 
--- | If the protocol is HTTP\/S, then this specifies the path that is the
--- destination for health check targets. The default value is slash (\/).
-updateEndpointGroup_healthCheckPath :: Lens.Lens' UpdateEndpointGroup (Prelude.Maybe Prelude.Text)
-updateEndpointGroup_healthCheckPath = Lens.lens (\UpdateEndpointGroup' {healthCheckPath} -> healthCheckPath) (\s@UpdateEndpointGroup' {} a -> s {healthCheckPath = a} :: UpdateEndpointGroup)
-
--- | The time—10 seconds or 30 seconds—between each health check for an
--- endpoint. The default value is 30.
-updateEndpointGroup_healthCheckIntervalSeconds :: Lens.Lens' UpdateEndpointGroup (Prelude.Maybe Prelude.Natural)
-updateEndpointGroup_healthCheckIntervalSeconds = Lens.lens (\UpdateEndpointGroup' {healthCheckIntervalSeconds} -> healthCheckIntervalSeconds) (\s@UpdateEndpointGroup' {} a -> s {healthCheckIntervalSeconds = a} :: UpdateEndpointGroup)
-
--- | The list of endpoint objects. A resource must be valid and active when
--- you add it as an endpoint.
-updateEndpointGroup_endpointConfigurations :: Lens.Lens' UpdateEndpointGroup (Prelude.Maybe [EndpointConfiguration])
-updateEndpointGroup_endpointConfigurations = Lens.lens (\UpdateEndpointGroup' {endpointConfigurations} -> endpointConfigurations) (\s@UpdateEndpointGroup' {} a -> s {endpointConfigurations = a} :: UpdateEndpointGroup) Prelude.. Lens.mapping Lens.coerced
+-- | The number of consecutive health checks required to set the state of a
+-- healthy endpoint to unhealthy, or to set an unhealthy endpoint to
+-- healthy. The default value is 3.
+updateEndpointGroup_thresholdCount :: Lens.Lens' UpdateEndpointGroup (Prelude.Maybe Prelude.Natural)
+updateEndpointGroup_thresholdCount = Lens.lens (\UpdateEndpointGroup' {thresholdCount} -> thresholdCount) (\s@UpdateEndpointGroup' {} a -> s {thresholdCount = a} :: UpdateEndpointGroup)
 
 -- | The percentage of traffic to send to an Amazon Web Services Region.
 -- Additional traffic is distributed to other endpoint groups for this
@@ -218,19 +231,6 @@ updateEndpointGroup_endpointConfigurations = Lens.lens (\UpdateEndpointGroup' {e
 -- The default value is 100.
 updateEndpointGroup_trafficDialPercentage :: Lens.Lens' UpdateEndpointGroup (Prelude.Maybe Prelude.Double)
 updateEndpointGroup_trafficDialPercentage = Lens.lens (\UpdateEndpointGroup' {trafficDialPercentage} -> trafficDialPercentage) (\s@UpdateEndpointGroup' {} a -> s {trafficDialPercentage = a} :: UpdateEndpointGroup)
-
--- | The number of consecutive health checks required to set the state of a
--- healthy endpoint to unhealthy, or to set an unhealthy endpoint to
--- healthy. The default value is 3.
-updateEndpointGroup_thresholdCount :: Lens.Lens' UpdateEndpointGroup (Prelude.Maybe Prelude.Natural)
-updateEndpointGroup_thresholdCount = Lens.lens (\UpdateEndpointGroup' {thresholdCount} -> thresholdCount) (\s@UpdateEndpointGroup' {} a -> s {thresholdCount = a} :: UpdateEndpointGroup)
-
--- | The port that Global Accelerator uses to check the health of endpoints
--- that are part of this endpoint group. The default port is the listener
--- port that this endpoint group is associated with. If the listener port
--- is a list of ports, Global Accelerator uses the first port in the list.
-updateEndpointGroup_healthCheckPort :: Lens.Lens' UpdateEndpointGroup (Prelude.Maybe Prelude.Natural)
-updateEndpointGroup_healthCheckPort = Lens.lens (\UpdateEndpointGroup' {healthCheckPort} -> healthCheckPort) (\s@UpdateEndpointGroup' {} a -> s {healthCheckPort = a} :: UpdateEndpointGroup)
 
 -- | The Amazon Resource Name (ARN) of the endpoint group.
 updateEndpointGroup_endpointGroupArn :: Lens.Lens' UpdateEndpointGroup Prelude.Text
@@ -252,26 +252,26 @@ instance Core.AWSRequest UpdateEndpointGroup where
 
 instance Prelude.Hashable UpdateEndpointGroup where
   hashWithSalt _salt UpdateEndpointGroup' {..} =
-    _salt `Prelude.hashWithSalt` healthCheckProtocol
-      `Prelude.hashWithSalt` portOverrides
-      `Prelude.hashWithSalt` healthCheckPath
+    _salt `Prelude.hashWithSalt` endpointConfigurations
       `Prelude.hashWithSalt` healthCheckIntervalSeconds
-      `Prelude.hashWithSalt` endpointConfigurations
-      `Prelude.hashWithSalt` trafficDialPercentage
-      `Prelude.hashWithSalt` thresholdCount
+      `Prelude.hashWithSalt` healthCheckPath
       `Prelude.hashWithSalt` healthCheckPort
+      `Prelude.hashWithSalt` healthCheckProtocol
+      `Prelude.hashWithSalt` portOverrides
+      `Prelude.hashWithSalt` thresholdCount
+      `Prelude.hashWithSalt` trafficDialPercentage
       `Prelude.hashWithSalt` endpointGroupArn
 
 instance Prelude.NFData UpdateEndpointGroup where
   rnf UpdateEndpointGroup' {..} =
-    Prelude.rnf healthCheckProtocol
-      `Prelude.seq` Prelude.rnf portOverrides
-      `Prelude.seq` Prelude.rnf healthCheckPath
+    Prelude.rnf endpointConfigurations
       `Prelude.seq` Prelude.rnf healthCheckIntervalSeconds
-      `Prelude.seq` Prelude.rnf endpointConfigurations
-      `Prelude.seq` Prelude.rnf trafficDialPercentage
-      `Prelude.seq` Prelude.rnf thresholdCount
+      `Prelude.seq` Prelude.rnf healthCheckPath
       `Prelude.seq` Prelude.rnf healthCheckPort
+      `Prelude.seq` Prelude.rnf healthCheckProtocol
+      `Prelude.seq` Prelude.rnf portOverrides
+      `Prelude.seq` Prelude.rnf thresholdCount
+      `Prelude.seq` Prelude.rnf trafficDialPercentage
       `Prelude.seq` Prelude.rnf endpointGroupArn
 
 instance Data.ToHeaders UpdateEndpointGroup where
@@ -293,21 +293,21 @@ instance Data.ToJSON UpdateEndpointGroup where
   toJSON UpdateEndpointGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("HealthCheckProtocol" Data..=)
-              Prelude.<$> healthCheckProtocol,
-            ("PortOverrides" Data..=) Prelude.<$> portOverrides,
-            ("HealthCheckPath" Data..=)
-              Prelude.<$> healthCheckPath,
+          [ ("EndpointConfigurations" Data..=)
+              Prelude.<$> endpointConfigurations,
             ("HealthCheckIntervalSeconds" Data..=)
               Prelude.<$> healthCheckIntervalSeconds,
-            ("EndpointConfigurations" Data..=)
-              Prelude.<$> endpointConfigurations,
-            ("TrafficDialPercentage" Data..=)
-              Prelude.<$> trafficDialPercentage,
-            ("ThresholdCount" Data..=)
-              Prelude.<$> thresholdCount,
+            ("HealthCheckPath" Data..=)
+              Prelude.<$> healthCheckPath,
             ("HealthCheckPort" Data..=)
               Prelude.<$> healthCheckPort,
+            ("HealthCheckProtocol" Data..=)
+              Prelude.<$> healthCheckProtocol,
+            ("PortOverrides" Data..=) Prelude.<$> portOverrides,
+            ("ThresholdCount" Data..=)
+              Prelude.<$> thresholdCount,
+            ("TrafficDialPercentage" Data..=)
+              Prelude.<$> trafficDialPercentage,
             Prelude.Just
               ("EndpointGroupArn" Data..= endpointGroupArn)
           ]

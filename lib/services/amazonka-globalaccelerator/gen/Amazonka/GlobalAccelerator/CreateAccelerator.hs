@@ -35,10 +35,10 @@ module Amazonka.GlobalAccelerator.CreateAccelerator
     newCreateAccelerator,
 
     -- * Request Lenses
-    createAccelerator_tags,
     createAccelerator_enabled,
     createAccelerator_ipAddressType,
     createAccelerator_ipAddresses,
+    createAccelerator_tags,
     createAccelerator_name,
     createAccelerator_idempotencyToken,
 
@@ -62,13 +62,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateAccelerator' smart constructor.
 data CreateAccelerator = CreateAccelerator'
-  { -- | Create tags for an accelerator.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html Tagging in Global Accelerator>
-    -- in the /Global Accelerator Developer Guide/.
-    tags :: Prelude.Maybe [Tag],
-    -- | Indicates whether an accelerator is enabled. The value is true or false.
+  { -- | Indicates whether an accelerator is enabled. The value is true or false.
     -- The default value is true.
     --
     -- If the value is set to true, an accelerator cannot be deleted. If set to
@@ -101,6 +95,12 @@ data CreateAccelerator = CreateAccelerator'
     -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html Bring your own IP addresses (BYOIP)>
     -- in the /Global Accelerator Developer Guide/.
     ipAddresses :: Prelude.Maybe [Prelude.Text],
+    -- | Create tags for an accelerator.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html Tagging in Global Accelerator>
+    -- in the /Global Accelerator Developer Guide/.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the accelerator. The name can have a maximum of 64
     -- characters, must contain only alphanumeric characters, periods (.), or
     -- hyphens (-), and must not begin or end with a hyphen or period.
@@ -118,12 +118,6 @@ data CreateAccelerator = CreateAccelerator'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'tags', 'createAccelerator_tags' - Create tags for an accelerator.
---
--- For more information, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html Tagging in Global Accelerator>
--- in the /Global Accelerator Developer Guide/.
 --
 -- 'enabled', 'createAccelerator_enabled' - Indicates whether an accelerator is enabled. The value is true or false.
 -- The default value is true.
@@ -158,6 +152,12 @@ data CreateAccelerator = CreateAccelerator'
 -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html Bring your own IP addresses (BYOIP)>
 -- in the /Global Accelerator Developer Guide/.
 --
+-- 'tags', 'createAccelerator_tags' - Create tags for an accelerator.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html Tagging in Global Accelerator>
+-- in the /Global Accelerator Developer Guide/.
+--
 -- 'name', 'createAccelerator_name' - The name of the accelerator. The name can have a maximum of 64
 -- characters, must contain only alphanumeric characters, periods (.), or
 -- hyphens (-), and must not begin or end with a hyphen or period.
@@ -172,21 +172,13 @@ newCreateAccelerator ::
   CreateAccelerator
 newCreateAccelerator pName_ pIdempotencyToken_ =
   CreateAccelerator'
-    { tags = Prelude.Nothing,
-      enabled = Prelude.Nothing,
+    { enabled = Prelude.Nothing,
       ipAddressType = Prelude.Nothing,
       ipAddresses = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       idempotencyToken = pIdempotencyToken_
     }
-
--- | Create tags for an accelerator.
---
--- For more information, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html Tagging in Global Accelerator>
--- in the /Global Accelerator Developer Guide/.
-createAccelerator_tags :: Lens.Lens' CreateAccelerator (Prelude.Maybe [Tag])
-createAccelerator_tags = Lens.lens (\CreateAccelerator' {tags} -> tags) (\s@CreateAccelerator' {} a -> s {tags = a} :: CreateAccelerator) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates whether an accelerator is enabled. The value is true or false.
 -- The default value is true.
@@ -227,6 +219,14 @@ createAccelerator_ipAddressType = Lens.lens (\CreateAccelerator' {ipAddressType}
 createAccelerator_ipAddresses :: Lens.Lens' CreateAccelerator (Prelude.Maybe [Prelude.Text])
 createAccelerator_ipAddresses = Lens.lens (\CreateAccelerator' {ipAddresses} -> ipAddresses) (\s@CreateAccelerator' {} a -> s {ipAddresses = a} :: CreateAccelerator) Prelude.. Lens.mapping Lens.coerced
 
+-- | Create tags for an accelerator.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html Tagging in Global Accelerator>
+-- in the /Global Accelerator Developer Guide/.
+createAccelerator_tags :: Lens.Lens' CreateAccelerator (Prelude.Maybe [Tag])
+createAccelerator_tags = Lens.lens (\CreateAccelerator' {tags} -> tags) (\s@CreateAccelerator' {} a -> s {tags = a} :: CreateAccelerator) Prelude.. Lens.mapping Lens.coerced
+
 -- | The name of the accelerator. The name can have a maximum of 64
 -- characters, must contain only alphanumeric characters, periods (.), or
 -- hyphens (-), and must not begin or end with a hyphen or period.
@@ -254,19 +254,19 @@ instance Core.AWSRequest CreateAccelerator where
 
 instance Prelude.Hashable CreateAccelerator where
   hashWithSalt _salt CreateAccelerator' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` enabled
+    _salt `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` ipAddressType
       `Prelude.hashWithSalt` ipAddresses
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` idempotencyToken
 
 instance Prelude.NFData CreateAccelerator where
   rnf CreateAccelerator' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf ipAddressType
       `Prelude.seq` Prelude.rnf ipAddresses
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf idempotencyToken
 
@@ -289,10 +289,10 @@ instance Data.ToJSON CreateAccelerator where
   toJSON CreateAccelerator' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Enabled" Data..=) Prelude.<$> enabled,
+          [ ("Enabled" Data..=) Prelude.<$> enabled,
             ("IpAddressType" Data..=) Prelude.<$> ipAddressType,
             ("IpAddresses" Data..=) Prelude.<$> ipAddresses,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ("IdempotencyToken" Data..= idempotencyToken)

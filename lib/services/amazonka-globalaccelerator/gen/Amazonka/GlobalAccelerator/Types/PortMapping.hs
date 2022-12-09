@@ -37,19 +37,19 @@ import qualified Amazonka.Prelude as Prelude
 data PortMapping = PortMapping'
   { -- | The accelerator port.
     acceleratorPort :: Prelude.Maybe Prelude.Natural,
-    -- | The IP address of the VPC subnet (the subnet ID).
-    endpointId :: Prelude.Maybe Prelude.Text,
-    -- | The protocols supported by the endpoint group.
-    protocols :: Prelude.Maybe (Prelude.NonEmpty CustomRoutingProtocol),
+    -- | The EC2 instance IP address and port number in the virtual private cloud
+    -- (VPC) subnet.
+    destinationSocketAddress :: Prelude.Maybe SocketAddress,
     -- | Indicates whether or not a port mapping destination can receive traffic.
     -- The value is either ALLOW, if traffic is allowed to the destination, or
     -- DENY, if traffic is not allowed to the destination.
     destinationTrafficState :: Prelude.Maybe CustomRoutingDestinationTrafficState,
     -- | The Amazon Resource Name (ARN) of the endpoint group.
     endpointGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | The EC2 instance IP address and port number in the virtual private cloud
-    -- (VPC) subnet.
-    destinationSocketAddress :: Prelude.Maybe SocketAddress
+    -- | The IP address of the VPC subnet (the subnet ID).
+    endpointId :: Prelude.Maybe Prelude.Text,
+    -- | The protocols supported by the endpoint group.
+    protocols :: Prelude.Maybe (Prelude.NonEmpty CustomRoutingProtocol)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,9 +63,8 @@ data PortMapping = PortMapping'
 --
 -- 'acceleratorPort', 'portMapping_acceleratorPort' - The accelerator port.
 --
--- 'endpointId', 'portMapping_endpointId' - The IP address of the VPC subnet (the subnet ID).
---
--- 'protocols', 'portMapping_protocols' - The protocols supported by the endpoint group.
+-- 'destinationSocketAddress', 'portMapping_destinationSocketAddress' - The EC2 instance IP address and port number in the virtual private cloud
+-- (VPC) subnet.
 --
 -- 'destinationTrafficState', 'portMapping_destinationTrafficState' - Indicates whether or not a port mapping destination can receive traffic.
 -- The value is either ALLOW, if traffic is allowed to the destination, or
@@ -73,31 +72,29 @@ data PortMapping = PortMapping'
 --
 -- 'endpointGroupArn', 'portMapping_endpointGroupArn' - The Amazon Resource Name (ARN) of the endpoint group.
 --
--- 'destinationSocketAddress', 'portMapping_destinationSocketAddress' - The EC2 instance IP address and port number in the virtual private cloud
--- (VPC) subnet.
+-- 'endpointId', 'portMapping_endpointId' - The IP address of the VPC subnet (the subnet ID).
+--
+-- 'protocols', 'portMapping_protocols' - The protocols supported by the endpoint group.
 newPortMapping ::
   PortMapping
 newPortMapping =
   PortMapping'
     { acceleratorPort = Prelude.Nothing,
-      endpointId = Prelude.Nothing,
-      protocols = Prelude.Nothing,
+      destinationSocketAddress = Prelude.Nothing,
       destinationTrafficState = Prelude.Nothing,
       endpointGroupArn = Prelude.Nothing,
-      destinationSocketAddress = Prelude.Nothing
+      endpointId = Prelude.Nothing,
+      protocols = Prelude.Nothing
     }
 
 -- | The accelerator port.
 portMapping_acceleratorPort :: Lens.Lens' PortMapping (Prelude.Maybe Prelude.Natural)
 portMapping_acceleratorPort = Lens.lens (\PortMapping' {acceleratorPort} -> acceleratorPort) (\s@PortMapping' {} a -> s {acceleratorPort = a} :: PortMapping)
 
--- | The IP address of the VPC subnet (the subnet ID).
-portMapping_endpointId :: Lens.Lens' PortMapping (Prelude.Maybe Prelude.Text)
-portMapping_endpointId = Lens.lens (\PortMapping' {endpointId} -> endpointId) (\s@PortMapping' {} a -> s {endpointId = a} :: PortMapping)
-
--- | The protocols supported by the endpoint group.
-portMapping_protocols :: Lens.Lens' PortMapping (Prelude.Maybe (Prelude.NonEmpty CustomRoutingProtocol))
-portMapping_protocols = Lens.lens (\PortMapping' {protocols} -> protocols) (\s@PortMapping' {} a -> s {protocols = a} :: PortMapping) Prelude.. Lens.mapping Lens.coerced
+-- | The EC2 instance IP address and port number in the virtual private cloud
+-- (VPC) subnet.
+portMapping_destinationSocketAddress :: Lens.Lens' PortMapping (Prelude.Maybe SocketAddress)
+portMapping_destinationSocketAddress = Lens.lens (\PortMapping' {destinationSocketAddress} -> destinationSocketAddress) (\s@PortMapping' {} a -> s {destinationSocketAddress = a} :: PortMapping)
 
 -- | Indicates whether or not a port mapping destination can receive traffic.
 -- The value is either ALLOW, if traffic is allowed to the destination, or
@@ -109,10 +106,13 @@ portMapping_destinationTrafficState = Lens.lens (\PortMapping' {destinationTraff
 portMapping_endpointGroupArn :: Lens.Lens' PortMapping (Prelude.Maybe Prelude.Text)
 portMapping_endpointGroupArn = Lens.lens (\PortMapping' {endpointGroupArn} -> endpointGroupArn) (\s@PortMapping' {} a -> s {endpointGroupArn = a} :: PortMapping)
 
--- | The EC2 instance IP address and port number in the virtual private cloud
--- (VPC) subnet.
-portMapping_destinationSocketAddress :: Lens.Lens' PortMapping (Prelude.Maybe SocketAddress)
-portMapping_destinationSocketAddress = Lens.lens (\PortMapping' {destinationSocketAddress} -> destinationSocketAddress) (\s@PortMapping' {} a -> s {destinationSocketAddress = a} :: PortMapping)
+-- | The IP address of the VPC subnet (the subnet ID).
+portMapping_endpointId :: Lens.Lens' PortMapping (Prelude.Maybe Prelude.Text)
+portMapping_endpointId = Lens.lens (\PortMapping' {endpointId} -> endpointId) (\s@PortMapping' {} a -> s {endpointId = a} :: PortMapping)
+
+-- | The protocols supported by the endpoint group.
+portMapping_protocols :: Lens.Lens' PortMapping (Prelude.Maybe (Prelude.NonEmpty CustomRoutingProtocol))
+portMapping_protocols = Lens.lens (\PortMapping' {protocols} -> protocols) (\s@PortMapping' {} a -> s {protocols = a} :: PortMapping) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON PortMapping where
   parseJSON =
@@ -121,27 +121,27 @@ instance Data.FromJSON PortMapping where
       ( \x ->
           PortMapping'
             Prelude.<$> (x Data..:? "AcceleratorPort")
-            Prelude.<*> (x Data..:? "EndpointId")
-            Prelude.<*> (x Data..:? "Protocols")
+            Prelude.<*> (x Data..:? "DestinationSocketAddress")
             Prelude.<*> (x Data..:? "DestinationTrafficState")
             Prelude.<*> (x Data..:? "EndpointGroupArn")
-            Prelude.<*> (x Data..:? "DestinationSocketAddress")
+            Prelude.<*> (x Data..:? "EndpointId")
+            Prelude.<*> (x Data..:? "Protocols")
       )
 
 instance Prelude.Hashable PortMapping where
   hashWithSalt _salt PortMapping' {..} =
     _salt `Prelude.hashWithSalt` acceleratorPort
-      `Prelude.hashWithSalt` endpointId
-      `Prelude.hashWithSalt` protocols
+      `Prelude.hashWithSalt` destinationSocketAddress
       `Prelude.hashWithSalt` destinationTrafficState
       `Prelude.hashWithSalt` endpointGroupArn
-      `Prelude.hashWithSalt` destinationSocketAddress
+      `Prelude.hashWithSalt` endpointId
+      `Prelude.hashWithSalt` protocols
 
 instance Prelude.NFData PortMapping where
   rnf PortMapping' {..} =
     Prelude.rnf acceleratorPort
-      `Prelude.seq` Prelude.rnf endpointId
-      `Prelude.seq` Prelude.rnf protocols
+      `Prelude.seq` Prelude.rnf destinationSocketAddress
       `Prelude.seq` Prelude.rnf destinationTrafficState
       `Prelude.seq` Prelude.rnf endpointGroupArn
-      `Prelude.seq` Prelude.rnf destinationSocketAddress
+      `Prelude.seq` Prelude.rnf endpointId
+      `Prelude.seq` Prelude.rnf protocols

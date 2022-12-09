@@ -29,8 +29,8 @@ module Amazonka.GlobalAccelerator.ListCustomRoutingListeners
     newListCustomRoutingListeners,
 
     -- * Request Lenses
-    listCustomRoutingListeners_nextToken,
     listCustomRoutingListeners_maxResults,
+    listCustomRoutingListeners_nextToken,
     listCustomRoutingListeners_acceleratorArn,
 
     -- * Destructuring the Response
@@ -38,8 +38,8 @@ module Amazonka.GlobalAccelerator.ListCustomRoutingListeners
     newListCustomRoutingListenersResponse,
 
     -- * Response Lenses
-    listCustomRoutingListenersResponse_nextToken,
     listCustomRoutingListenersResponse_listeners,
+    listCustomRoutingListenersResponse_nextToken,
     listCustomRoutingListenersResponse_httpStatus,
   )
 where
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListCustomRoutingListeners' smart constructor.
 data ListCustomRoutingListeners = ListCustomRoutingListeners'
-  { -- | The token for the next set of results. You receive this token from a
-    -- previous call.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The number of listener objects that you want to return with this call.
+  { -- | The number of listener objects that you want to return with this call.
     -- The default value is 10.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. You receive this token from a
+    -- previous call.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the accelerator to list listeners for.
     acceleratorArn :: Prelude.Text
   }
@@ -73,11 +73,11 @@ data ListCustomRoutingListeners = ListCustomRoutingListeners'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCustomRoutingListeners_nextToken' - The token for the next set of results. You receive this token from a
--- previous call.
---
 -- 'maxResults', 'listCustomRoutingListeners_maxResults' - The number of listener objects that you want to return with this call.
 -- The default value is 10.
+--
+-- 'nextToken', 'listCustomRoutingListeners_nextToken' - The token for the next set of results. You receive this token from a
+-- previous call.
 --
 -- 'acceleratorArn', 'listCustomRoutingListeners_acceleratorArn' - The Amazon Resource Name (ARN) of the accelerator to list listeners for.
 newListCustomRoutingListeners ::
@@ -86,21 +86,21 @@ newListCustomRoutingListeners ::
   ListCustomRoutingListeners
 newListCustomRoutingListeners pAcceleratorArn_ =
   ListCustomRoutingListeners'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       acceleratorArn = pAcceleratorArn_
     }
-
--- | The token for the next set of results. You receive this token from a
--- previous call.
-listCustomRoutingListeners_nextToken :: Lens.Lens' ListCustomRoutingListeners (Prelude.Maybe Prelude.Text)
-listCustomRoutingListeners_nextToken = Lens.lens (\ListCustomRoutingListeners' {nextToken} -> nextToken) (\s@ListCustomRoutingListeners' {} a -> s {nextToken = a} :: ListCustomRoutingListeners)
 
 -- | The number of listener objects that you want to return with this call.
 -- The default value is 10.
 listCustomRoutingListeners_maxResults :: Lens.Lens' ListCustomRoutingListeners (Prelude.Maybe Prelude.Natural)
 listCustomRoutingListeners_maxResults = Lens.lens (\ListCustomRoutingListeners' {maxResults} -> maxResults) (\s@ListCustomRoutingListeners' {} a -> s {maxResults = a} :: ListCustomRoutingListeners)
+
+-- | The token for the next set of results. You receive this token from a
+-- previous call.
+listCustomRoutingListeners_nextToken :: Lens.Lens' ListCustomRoutingListeners (Prelude.Maybe Prelude.Text)
+listCustomRoutingListeners_nextToken = Lens.lens (\ListCustomRoutingListeners' {nextToken} -> nextToken) (\s@ListCustomRoutingListeners' {} a -> s {nextToken = a} :: ListCustomRoutingListeners)
 
 -- | The Amazon Resource Name (ARN) of the accelerator to list listeners for.
 listCustomRoutingListeners_acceleratorArn :: Lens.Lens' ListCustomRoutingListeners Prelude.Text
@@ -138,21 +138,21 @@ instance Core.AWSRequest ListCustomRoutingListeners where
     Response.receiveJSON
       ( \s h x ->
           ListCustomRoutingListenersResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Listeners" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Listeners" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListCustomRoutingListeners where
   hashWithSalt _salt ListCustomRoutingListeners' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` acceleratorArn
 
 instance Prelude.NFData ListCustomRoutingListeners where
   rnf ListCustomRoutingListeners' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf acceleratorArn
 
 instance Data.ToHeaders ListCustomRoutingListeners where
@@ -174,8 +174,8 @@ instance Data.ToJSON ListCustomRoutingListeners where
   toJSON ListCustomRoutingListeners' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ("AcceleratorArn" Data..= acceleratorArn)
           ]
@@ -189,11 +189,11 @@ instance Data.ToQuery ListCustomRoutingListeners where
 
 -- | /See:/ 'newListCustomRoutingListenersResponse' smart constructor.
 data ListCustomRoutingListenersResponse = ListCustomRoutingListenersResponse'
-  { -- | The token for the next set of results. You receive this token from a
+  { -- | The list of listeners for a custom routing accelerator.
+    listeners :: Prelude.Maybe [CustomRoutingListener],
+    -- | The token for the next set of results. You receive this token from a
     -- previous call.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of listeners for a custom routing accelerator.
-    listeners :: Prelude.Maybe [CustomRoutingListener],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -207,10 +207,10 @@ data ListCustomRoutingListenersResponse = ListCustomRoutingListenersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'listeners', 'listCustomRoutingListenersResponse_listeners' - The list of listeners for a custom routing accelerator.
+--
 -- 'nextToken', 'listCustomRoutingListenersResponse_nextToken' - The token for the next set of results. You receive this token from a
 -- previous call.
---
--- 'listeners', 'listCustomRoutingListenersResponse_listeners' - The list of listeners for a custom routing accelerator.
 --
 -- 'httpStatus', 'listCustomRoutingListenersResponse_httpStatus' - The response's http status code.
 newListCustomRoutingListenersResponse ::
@@ -219,20 +219,20 @@ newListCustomRoutingListenersResponse ::
   ListCustomRoutingListenersResponse
 newListCustomRoutingListenersResponse pHttpStatus_ =
   ListCustomRoutingListenersResponse'
-    { nextToken =
+    { listeners =
         Prelude.Nothing,
-      listeners = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of listeners for a custom routing accelerator.
+listCustomRoutingListenersResponse_listeners :: Lens.Lens' ListCustomRoutingListenersResponse (Prelude.Maybe [CustomRoutingListener])
+listCustomRoutingListenersResponse_listeners = Lens.lens (\ListCustomRoutingListenersResponse' {listeners} -> listeners) (\s@ListCustomRoutingListenersResponse' {} a -> s {listeners = a} :: ListCustomRoutingListenersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results. You receive this token from a
 -- previous call.
 listCustomRoutingListenersResponse_nextToken :: Lens.Lens' ListCustomRoutingListenersResponse (Prelude.Maybe Prelude.Text)
 listCustomRoutingListenersResponse_nextToken = Lens.lens (\ListCustomRoutingListenersResponse' {nextToken} -> nextToken) (\s@ListCustomRoutingListenersResponse' {} a -> s {nextToken = a} :: ListCustomRoutingListenersResponse)
-
--- | The list of listeners for a custom routing accelerator.
-listCustomRoutingListenersResponse_listeners :: Lens.Lens' ListCustomRoutingListenersResponse (Prelude.Maybe [CustomRoutingListener])
-listCustomRoutingListenersResponse_listeners = Lens.lens (\ListCustomRoutingListenersResponse' {listeners} -> listeners) (\s@ListCustomRoutingListenersResponse' {} a -> s {listeners = a} :: ListCustomRoutingListenersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listCustomRoutingListenersResponse_httpStatus :: Lens.Lens' ListCustomRoutingListenersResponse Prelude.Int
@@ -243,6 +243,6 @@ instance
     ListCustomRoutingListenersResponse
   where
   rnf ListCustomRoutingListenersResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf listeners
+    Prelude.rnf listeners
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

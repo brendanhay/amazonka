@@ -29,8 +29,8 @@ module Amazonka.GlobalAccelerator.ListEndpointGroups
     newListEndpointGroups,
 
     -- * Request Lenses
-    listEndpointGroups_nextToken,
     listEndpointGroups_maxResults,
+    listEndpointGroups_nextToken,
     listEndpointGroups_listenerArn,
 
     -- * Destructuring the Response
@@ -38,8 +38,8 @@ module Amazonka.GlobalAccelerator.ListEndpointGroups
     newListEndpointGroupsResponse,
 
     -- * Response Lenses
-    listEndpointGroupsResponse_nextToken,
     listEndpointGroupsResponse_endpointGroups,
+    listEndpointGroupsResponse_nextToken,
     listEndpointGroupsResponse_httpStatus,
   )
 where
@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEndpointGroups' smart constructor.
 data ListEndpointGroups = ListEndpointGroups'
-  { -- | The token for the next set of results. You receive this token from a
-    -- previous call.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The number of endpoint group objects that you want to return with this
+  { -- | The number of endpoint group objects that you want to return with this
     -- call. The default value is 10.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. You receive this token from a
+    -- previous call.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the listener.
     listenerArn :: Prelude.Text
   }
@@ -73,11 +73,11 @@ data ListEndpointGroups = ListEndpointGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEndpointGroups_nextToken' - The token for the next set of results. You receive this token from a
--- previous call.
---
 -- 'maxResults', 'listEndpointGroups_maxResults' - The number of endpoint group objects that you want to return with this
 -- call. The default value is 10.
+--
+-- 'nextToken', 'listEndpointGroups_nextToken' - The token for the next set of results. You receive this token from a
+-- previous call.
 --
 -- 'listenerArn', 'listEndpointGroups_listenerArn' - The Amazon Resource Name (ARN) of the listener.
 newListEndpointGroups ::
@@ -86,20 +86,20 @@ newListEndpointGroups ::
   ListEndpointGroups
 newListEndpointGroups pListenerArn_ =
   ListEndpointGroups'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       listenerArn = pListenerArn_
     }
-
--- | The token for the next set of results. You receive this token from a
--- previous call.
-listEndpointGroups_nextToken :: Lens.Lens' ListEndpointGroups (Prelude.Maybe Prelude.Text)
-listEndpointGroups_nextToken = Lens.lens (\ListEndpointGroups' {nextToken} -> nextToken) (\s@ListEndpointGroups' {} a -> s {nextToken = a} :: ListEndpointGroups)
 
 -- | The number of endpoint group objects that you want to return with this
 -- call. The default value is 10.
 listEndpointGroups_maxResults :: Lens.Lens' ListEndpointGroups (Prelude.Maybe Prelude.Natural)
 listEndpointGroups_maxResults = Lens.lens (\ListEndpointGroups' {maxResults} -> maxResults) (\s@ListEndpointGroups' {} a -> s {maxResults = a} :: ListEndpointGroups)
+
+-- | The token for the next set of results. You receive this token from a
+-- previous call.
+listEndpointGroups_nextToken :: Lens.Lens' ListEndpointGroups (Prelude.Maybe Prelude.Text)
+listEndpointGroups_nextToken = Lens.lens (\ListEndpointGroups' {nextToken} -> nextToken) (\s@ListEndpointGroups' {} a -> s {nextToken = a} :: ListEndpointGroups)
 
 -- | The Amazon Resource Name (ARN) of the listener.
 listEndpointGroups_listenerArn :: Lens.Lens' ListEndpointGroups Prelude.Text
@@ -137,21 +137,21 @@ instance Core.AWSRequest ListEndpointGroups where
     Response.receiveJSON
       ( \s h x ->
           ListEndpointGroupsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "EndpointGroups" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "EndpointGroups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListEndpointGroups where
   hashWithSalt _salt ListEndpointGroups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` listenerArn
 
 instance Prelude.NFData ListEndpointGroups where
   rnf ListEndpointGroups' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf listenerArn
 
 instance Data.ToHeaders ListEndpointGroups where
@@ -173,8 +173,8 @@ instance Data.ToJSON ListEndpointGroups where
   toJSON ListEndpointGroups' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("ListenerArn" Data..= listenerArn)
           ]
       )
@@ -187,11 +187,11 @@ instance Data.ToQuery ListEndpointGroups where
 
 -- | /See:/ 'newListEndpointGroupsResponse' smart constructor.
 data ListEndpointGroupsResponse = ListEndpointGroupsResponse'
-  { -- | The token for the next set of results. You receive this token from a
+  { -- | The list of the endpoint groups associated with a listener.
+    endpointGroups :: Prelude.Maybe [EndpointGroup],
+    -- | The token for the next set of results. You receive this token from a
     -- previous call.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of the endpoint groups associated with a listener.
-    endpointGroups :: Prelude.Maybe [EndpointGroup],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -205,10 +205,10 @@ data ListEndpointGroupsResponse = ListEndpointGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'endpointGroups', 'listEndpointGroupsResponse_endpointGroups' - The list of the endpoint groups associated with a listener.
+--
 -- 'nextToken', 'listEndpointGroupsResponse_nextToken' - The token for the next set of results. You receive this token from a
 -- previous call.
---
--- 'endpointGroups', 'listEndpointGroupsResponse_endpointGroups' - The list of the endpoint groups associated with a listener.
 --
 -- 'httpStatus', 'listEndpointGroupsResponse_httpStatus' - The response's http status code.
 newListEndpointGroupsResponse ::
@@ -217,20 +217,20 @@ newListEndpointGroupsResponse ::
   ListEndpointGroupsResponse
 newListEndpointGroupsResponse pHttpStatus_ =
   ListEndpointGroupsResponse'
-    { nextToken =
+    { endpointGroups =
         Prelude.Nothing,
-      endpointGroups = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of the endpoint groups associated with a listener.
+listEndpointGroupsResponse_endpointGroups :: Lens.Lens' ListEndpointGroupsResponse (Prelude.Maybe [EndpointGroup])
+listEndpointGroupsResponse_endpointGroups = Lens.lens (\ListEndpointGroupsResponse' {endpointGroups} -> endpointGroups) (\s@ListEndpointGroupsResponse' {} a -> s {endpointGroups = a} :: ListEndpointGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results. You receive this token from a
 -- previous call.
 listEndpointGroupsResponse_nextToken :: Lens.Lens' ListEndpointGroupsResponse (Prelude.Maybe Prelude.Text)
 listEndpointGroupsResponse_nextToken = Lens.lens (\ListEndpointGroupsResponse' {nextToken} -> nextToken) (\s@ListEndpointGroupsResponse' {} a -> s {nextToken = a} :: ListEndpointGroupsResponse)
-
--- | The list of the endpoint groups associated with a listener.
-listEndpointGroupsResponse_endpointGroups :: Lens.Lens' ListEndpointGroupsResponse (Prelude.Maybe [EndpointGroup])
-listEndpointGroupsResponse_endpointGroups = Lens.lens (\ListEndpointGroupsResponse' {endpointGroups} -> endpointGroups) (\s@ListEndpointGroupsResponse' {} a -> s {endpointGroups = a} :: ListEndpointGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listEndpointGroupsResponse_httpStatus :: Lens.Lens' ListEndpointGroupsResponse Prelude.Int
@@ -238,6 +238,6 @@ listEndpointGroupsResponse_httpStatus = Lens.lens (\ListEndpointGroupsResponse' 
 
 instance Prelude.NFData ListEndpointGroupsResponse where
   rnf ListEndpointGroupsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf endpointGroups
+    Prelude.rnf endpointGroups
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

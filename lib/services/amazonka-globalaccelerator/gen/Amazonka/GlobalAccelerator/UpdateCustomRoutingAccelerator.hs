@@ -27,9 +27,9 @@ module Amazonka.GlobalAccelerator.UpdateCustomRoutingAccelerator
     newUpdateCustomRoutingAccelerator,
 
     -- * Request Lenses
-    updateCustomRoutingAccelerator_name,
     updateCustomRoutingAccelerator_enabled,
     updateCustomRoutingAccelerator_ipAddressType,
+    updateCustomRoutingAccelerator_name,
     updateCustomRoutingAccelerator_acceleratorArn,
 
     -- * Destructuring the Response
@@ -52,11 +52,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateCustomRoutingAccelerator' smart constructor.
 data UpdateCustomRoutingAccelerator = UpdateCustomRoutingAccelerator'
-  { -- | The name of the accelerator. The name can have a maximum of 64
-    -- characters, must contain only alphanumeric characters, periods (.), or
-    -- hyphens (-), and must not begin or end with a hyphen or period.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether an accelerator is enabled. The value is true or false.
+  { -- | Indicates whether an accelerator is enabled. The value is true or false.
     -- The default value is true.
     --
     -- If the value is set to true, the accelerator cannot be deleted. If set
@@ -65,6 +61,10 @@ data UpdateCustomRoutingAccelerator = UpdateCustomRoutingAccelerator'
     -- | The IP address type that an accelerator supports. For a custom routing
     -- accelerator, the value must be IPV4.
     ipAddressType :: Prelude.Maybe IpAddressType,
+    -- | The name of the accelerator. The name can have a maximum of 64
+    -- characters, must contain only alphanumeric characters, periods (.), or
+    -- hyphens (-), and must not begin or end with a hyphen or period.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the accelerator to update.
     acceleratorArn :: Prelude.Text
   }
@@ -78,10 +78,6 @@ data UpdateCustomRoutingAccelerator = UpdateCustomRoutingAccelerator'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateCustomRoutingAccelerator_name' - The name of the accelerator. The name can have a maximum of 64
--- characters, must contain only alphanumeric characters, periods (.), or
--- hyphens (-), and must not begin or end with a hyphen or period.
---
 -- 'enabled', 'updateCustomRoutingAccelerator_enabled' - Indicates whether an accelerator is enabled. The value is true or false.
 -- The default value is true.
 --
@@ -91,6 +87,10 @@ data UpdateCustomRoutingAccelerator = UpdateCustomRoutingAccelerator'
 -- 'ipAddressType', 'updateCustomRoutingAccelerator_ipAddressType' - The IP address type that an accelerator supports. For a custom routing
 -- accelerator, the value must be IPV4.
 --
+-- 'name', 'updateCustomRoutingAccelerator_name' - The name of the accelerator. The name can have a maximum of 64
+-- characters, must contain only alphanumeric characters, periods (.), or
+-- hyphens (-), and must not begin or end with a hyphen or period.
+--
 -- 'acceleratorArn', 'updateCustomRoutingAccelerator_acceleratorArn' - The Amazon Resource Name (ARN) of the accelerator to update.
 newUpdateCustomRoutingAccelerator ::
   -- | 'acceleratorArn'
@@ -98,18 +98,12 @@ newUpdateCustomRoutingAccelerator ::
   UpdateCustomRoutingAccelerator
 newUpdateCustomRoutingAccelerator pAcceleratorArn_ =
   UpdateCustomRoutingAccelerator'
-    { name =
+    { enabled =
         Prelude.Nothing,
-      enabled = Prelude.Nothing,
       ipAddressType = Prelude.Nothing,
+      name = Prelude.Nothing,
       acceleratorArn = pAcceleratorArn_
     }
-
--- | The name of the accelerator. The name can have a maximum of 64
--- characters, must contain only alphanumeric characters, periods (.), or
--- hyphens (-), and must not begin or end with a hyphen or period.
-updateCustomRoutingAccelerator_name :: Lens.Lens' UpdateCustomRoutingAccelerator (Prelude.Maybe Prelude.Text)
-updateCustomRoutingAccelerator_name = Lens.lens (\UpdateCustomRoutingAccelerator' {name} -> name) (\s@UpdateCustomRoutingAccelerator' {} a -> s {name = a} :: UpdateCustomRoutingAccelerator)
 
 -- | Indicates whether an accelerator is enabled. The value is true or false.
 -- The default value is true.
@@ -123,6 +117,12 @@ updateCustomRoutingAccelerator_enabled = Lens.lens (\UpdateCustomRoutingAccelera
 -- accelerator, the value must be IPV4.
 updateCustomRoutingAccelerator_ipAddressType :: Lens.Lens' UpdateCustomRoutingAccelerator (Prelude.Maybe IpAddressType)
 updateCustomRoutingAccelerator_ipAddressType = Lens.lens (\UpdateCustomRoutingAccelerator' {ipAddressType} -> ipAddressType) (\s@UpdateCustomRoutingAccelerator' {} a -> s {ipAddressType = a} :: UpdateCustomRoutingAccelerator)
+
+-- | The name of the accelerator. The name can have a maximum of 64
+-- characters, must contain only alphanumeric characters, periods (.), or
+-- hyphens (-), and must not begin or end with a hyphen or period.
+updateCustomRoutingAccelerator_name :: Lens.Lens' UpdateCustomRoutingAccelerator (Prelude.Maybe Prelude.Text)
+updateCustomRoutingAccelerator_name = Lens.lens (\UpdateCustomRoutingAccelerator' {name} -> name) (\s@UpdateCustomRoutingAccelerator' {} a -> s {name = a} :: UpdateCustomRoutingAccelerator)
 
 -- | The Amazon Resource Name (ARN) of the accelerator to update.
 updateCustomRoutingAccelerator_acceleratorArn :: Lens.Lens' UpdateCustomRoutingAccelerator Prelude.Text
@@ -152,9 +152,9 @@ instance
   hashWithSalt
     _salt
     UpdateCustomRoutingAccelerator' {..} =
-      _salt `Prelude.hashWithSalt` name
-        `Prelude.hashWithSalt` enabled
+      _salt `Prelude.hashWithSalt` enabled
         `Prelude.hashWithSalt` ipAddressType
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` acceleratorArn
 
 instance
@@ -162,9 +162,9 @@ instance
     UpdateCustomRoutingAccelerator
   where
   rnf UpdateCustomRoutingAccelerator' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf ipAddressType
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf acceleratorArn
 
 instance
@@ -189,9 +189,9 @@ instance Data.ToJSON UpdateCustomRoutingAccelerator where
   toJSON UpdateCustomRoutingAccelerator' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
-            ("Enabled" Data..=) Prelude.<$> enabled,
+          [ ("Enabled" Data..=) Prelude.<$> enabled,
             ("IpAddressType" Data..=) Prelude.<$> ipAddressType,
+            ("Name" Data..=) Prelude.<$> name,
             Prelude.Just
               ("AcceleratorArn" Data..= acceleratorArn)
           ]

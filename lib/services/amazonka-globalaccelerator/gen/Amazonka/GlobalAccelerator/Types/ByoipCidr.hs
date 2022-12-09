@@ -85,11 +85,11 @@ import qualified Amazonka.Prelude as Prelude
 data ByoipCidr = ByoipCidr'
   { -- | The address range, in CIDR notation.
     cidr :: Prelude.Maybe Prelude.Text,
-    -- | The state of the address pool.
-    state :: Prelude.Maybe ByoipCidrState,
     -- | A history of status changes for an IP address range that you bring to
     -- Global Accelerator through bring your own IP address (BYOIP).
-    events :: Prelude.Maybe [ByoipCidrEvent]
+    events :: Prelude.Maybe [ByoipCidrEvent],
+    -- | The state of the address pool.
+    state :: Prelude.Maybe ByoipCidrState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -103,31 +103,31 @@ data ByoipCidr = ByoipCidr'
 --
 -- 'cidr', 'byoipCidr_cidr' - The address range, in CIDR notation.
 --
--- 'state', 'byoipCidr_state' - The state of the address pool.
---
 -- 'events', 'byoipCidr_events' - A history of status changes for an IP address range that you bring to
 -- Global Accelerator through bring your own IP address (BYOIP).
+--
+-- 'state', 'byoipCidr_state' - The state of the address pool.
 newByoipCidr ::
   ByoipCidr
 newByoipCidr =
   ByoipCidr'
     { cidr = Prelude.Nothing,
-      state = Prelude.Nothing,
-      events = Prelude.Nothing
+      events = Prelude.Nothing,
+      state = Prelude.Nothing
     }
 
 -- | The address range, in CIDR notation.
 byoipCidr_cidr :: Lens.Lens' ByoipCidr (Prelude.Maybe Prelude.Text)
 byoipCidr_cidr = Lens.lens (\ByoipCidr' {cidr} -> cidr) (\s@ByoipCidr' {} a -> s {cidr = a} :: ByoipCidr)
 
--- | The state of the address pool.
-byoipCidr_state :: Lens.Lens' ByoipCidr (Prelude.Maybe ByoipCidrState)
-byoipCidr_state = Lens.lens (\ByoipCidr' {state} -> state) (\s@ByoipCidr' {} a -> s {state = a} :: ByoipCidr)
-
 -- | A history of status changes for an IP address range that you bring to
 -- Global Accelerator through bring your own IP address (BYOIP).
 byoipCidr_events :: Lens.Lens' ByoipCidr (Prelude.Maybe [ByoipCidrEvent])
 byoipCidr_events = Lens.lens (\ByoipCidr' {events} -> events) (\s@ByoipCidr' {} a -> s {events = a} :: ByoipCidr) Prelude.. Lens.mapping Lens.coerced
+
+-- | The state of the address pool.
+byoipCidr_state :: Lens.Lens' ByoipCidr (Prelude.Maybe ByoipCidrState)
+byoipCidr_state = Lens.lens (\ByoipCidr' {state} -> state) (\s@ByoipCidr' {} a -> s {state = a} :: ByoipCidr)
 
 instance Data.FromJSON ByoipCidr where
   parseJSON =
@@ -136,18 +136,18 @@ instance Data.FromJSON ByoipCidr where
       ( \x ->
           ByoipCidr'
             Prelude.<$> (x Data..:? "Cidr")
-            Prelude.<*> (x Data..:? "State")
             Prelude.<*> (x Data..:? "Events" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "State")
       )
 
 instance Prelude.Hashable ByoipCidr where
   hashWithSalt _salt ByoipCidr' {..} =
     _salt `Prelude.hashWithSalt` cidr
-      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` events
+      `Prelude.hashWithSalt` state
 
 instance Prelude.NFData ByoipCidr where
   rnf ByoipCidr' {..} =
     Prelude.rnf cidr
-      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf events
+      `Prelude.seq` Prelude.rnf state

@@ -29,7 +29,23 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEndpointConfiguration' smart constructor.
 data EndpointConfiguration = EndpointConfiguration'
-  { -- | An ID for the endpoint. If the endpoint is a Network Load Balancer or
+  { -- | Indicates whether client IP address preservation is enabled for an
+    -- endpoint. The value is true or false. The default value is true for new
+    -- accelerators.
+    --
+    -- If the value is set to true, the client\'s IP address is preserved in
+    -- the @X-Forwarded-For@ request header as traffic travels to applications
+    -- on the endpoint fronted by the accelerator.
+    --
+    -- Client IP address preservation is supported, in specific Amazon Web
+    -- Services Regions, for endpoints that are Application Load Balancers and
+    -- Amazon EC2 instances.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html Preserve client IP addresses in Global Accelerator>
+    -- in the /Global Accelerator Developer Guide/.
+    clientIPPreservationEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | An ID for the endpoint. If the endpoint is a Network Load Balancer or
     -- Application Load Balancer, this is the Amazon Resource Name (ARN) of the
     -- resource. If the endpoint is an Elastic IP address, this is the Elastic
     -- IP address allocation ID. For Amazon EC2 instances, this is the EC2
@@ -47,23 +63,7 @@ data EndpointConfiguration = EndpointConfiguration'
     -- endpoint. For more information, see
     -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html Endpoint weights>
     -- in the /Global Accelerator Developer Guide/.
-    weight :: Prelude.Maybe Prelude.Natural,
-    -- | Indicates whether client IP address preservation is enabled for an
-    -- endpoint. The value is true or false. The default value is true for new
-    -- accelerators.
-    --
-    -- If the value is set to true, the client\'s IP address is preserved in
-    -- the @X-Forwarded-For@ request header as traffic travels to applications
-    -- on the endpoint fronted by the accelerator.
-    --
-    -- Client IP address preservation is supported, in specific Amazon Web
-    -- Services Regions, for endpoints that are Application Load Balancers and
-    -- Amazon EC2 instances.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html Preserve client IP addresses in Global Accelerator>
-    -- in the /Global Accelerator Developer Guide/.
-    clientIPPreservationEnabled :: Prelude.Maybe Prelude.Bool
+    weight :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,6 +74,22 @@ data EndpointConfiguration = EndpointConfiguration'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'clientIPPreservationEnabled', 'endpointConfiguration_clientIPPreservationEnabled' - Indicates whether client IP address preservation is enabled for an
+-- endpoint. The value is true or false. The default value is true for new
+-- accelerators.
+--
+-- If the value is set to true, the client\'s IP address is preserved in
+-- the @X-Forwarded-For@ request header as traffic travels to applications
+-- on the endpoint fronted by the accelerator.
+--
+-- Client IP address preservation is supported, in specific Amazon Web
+-- Services Regions, for endpoints that are Application Load Balancers and
+-- Amazon EC2 instances.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html Preserve client IP addresses in Global Accelerator>
+-- in the /Global Accelerator Developer Guide/.
 --
 -- 'endpointId', 'endpointConfiguration_endpointId' - An ID for the endpoint. If the endpoint is a Network Load Balancer or
 -- Application Load Balancer, this is the Amazon Resource Name (ARN) of the
@@ -93,8 +109,17 @@ data EndpointConfiguration = EndpointConfiguration'
 -- endpoint. For more information, see
 -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html Endpoint weights>
 -- in the /Global Accelerator Developer Guide/.
---
--- 'clientIPPreservationEnabled', 'endpointConfiguration_clientIPPreservationEnabled' - Indicates whether client IP address preservation is enabled for an
+newEndpointConfiguration ::
+  EndpointConfiguration
+newEndpointConfiguration =
+  EndpointConfiguration'
+    { clientIPPreservationEnabled =
+        Prelude.Nothing,
+      endpointId = Prelude.Nothing,
+      weight = Prelude.Nothing
+    }
+
+-- | Indicates whether client IP address preservation is enabled for an
 -- endpoint. The value is true or false. The default value is true for new
 -- accelerators.
 --
@@ -109,15 +134,8 @@ data EndpointConfiguration = EndpointConfiguration'
 -- For more information, see
 -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html Preserve client IP addresses in Global Accelerator>
 -- in the /Global Accelerator Developer Guide/.
-newEndpointConfiguration ::
-  EndpointConfiguration
-newEndpointConfiguration =
-  EndpointConfiguration'
-    { endpointId =
-        Prelude.Nothing,
-      weight = Prelude.Nothing,
-      clientIPPreservationEnabled = Prelude.Nothing
-    }
+endpointConfiguration_clientIPPreservationEnabled :: Lens.Lens' EndpointConfiguration (Prelude.Maybe Prelude.Bool)
+endpointConfiguration_clientIPPreservationEnabled = Lens.lens (\EndpointConfiguration' {clientIPPreservationEnabled} -> clientIPPreservationEnabled) (\s@EndpointConfiguration' {} a -> s {clientIPPreservationEnabled = a} :: EndpointConfiguration)
 
 -- | An ID for the endpoint. If the endpoint is a Network Load Balancer or
 -- Application Load Balancer, this is the Amazon Resource Name (ARN) of the
@@ -142,43 +160,26 @@ endpointConfiguration_endpointId = Lens.lens (\EndpointConfiguration' {endpointI
 endpointConfiguration_weight :: Lens.Lens' EndpointConfiguration (Prelude.Maybe Prelude.Natural)
 endpointConfiguration_weight = Lens.lens (\EndpointConfiguration' {weight} -> weight) (\s@EndpointConfiguration' {} a -> s {weight = a} :: EndpointConfiguration)
 
--- | Indicates whether client IP address preservation is enabled for an
--- endpoint. The value is true or false. The default value is true for new
--- accelerators.
---
--- If the value is set to true, the client\'s IP address is preserved in
--- the @X-Forwarded-For@ request header as traffic travels to applications
--- on the endpoint fronted by the accelerator.
---
--- Client IP address preservation is supported, in specific Amazon Web
--- Services Regions, for endpoints that are Application Load Balancers and
--- Amazon EC2 instances.
---
--- For more information, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html Preserve client IP addresses in Global Accelerator>
--- in the /Global Accelerator Developer Guide/.
-endpointConfiguration_clientIPPreservationEnabled :: Lens.Lens' EndpointConfiguration (Prelude.Maybe Prelude.Bool)
-endpointConfiguration_clientIPPreservationEnabled = Lens.lens (\EndpointConfiguration' {clientIPPreservationEnabled} -> clientIPPreservationEnabled) (\s@EndpointConfiguration' {} a -> s {clientIPPreservationEnabled = a} :: EndpointConfiguration)
-
 instance Prelude.Hashable EndpointConfiguration where
   hashWithSalt _salt EndpointConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` endpointId
-      `Prelude.hashWithSalt` weight
+    _salt
       `Prelude.hashWithSalt` clientIPPreservationEnabled
+      `Prelude.hashWithSalt` endpointId
+      `Prelude.hashWithSalt` weight
 
 instance Prelude.NFData EndpointConfiguration where
   rnf EndpointConfiguration' {..} =
-    Prelude.rnf endpointId
+    Prelude.rnf clientIPPreservationEnabled
+      `Prelude.seq` Prelude.rnf endpointId
       `Prelude.seq` Prelude.rnf weight
-      `Prelude.seq` Prelude.rnf clientIPPreservationEnabled
 
 instance Data.ToJSON EndpointConfiguration where
   toJSON EndpointConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("EndpointId" Data..=) Prelude.<$> endpointId,
-            ("Weight" Data..=) Prelude.<$> weight,
-            ("ClientIPPreservationEnabled" Data..=)
-              Prelude.<$> clientIPPreservationEnabled
+          [ ("ClientIPPreservationEnabled" Data..=)
+              Prelude.<$> clientIPPreservationEnabled,
+            ("EndpointId" Data..=) Prelude.<$> endpointId,
+            ("Weight" Data..=) Prelude.<$> weight
           ]
       )

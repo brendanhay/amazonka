@@ -85,35 +85,17 @@ module Amazonka.GlobalAccelerator
     -- * Errors
     -- $errors
 
-    -- ** InvalidArgumentException
-    _InvalidArgumentException,
+    -- ** AcceleratorNotDisabledException
+    _AcceleratorNotDisabledException,
 
-    -- ** ListenerNotFoundException
-    _ListenerNotFoundException,
-
-    -- ** EndpointAlreadyExistsException
-    _EndpointAlreadyExistsException,
+    -- ** AcceleratorNotFoundException
+    _AcceleratorNotFoundException,
 
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** AcceleratorNotDisabledException
-    _AcceleratorNotDisabledException,
-
     -- ** AssociatedEndpointGroupFoundException
     _AssociatedEndpointGroupFoundException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** EndpointGroupAlreadyExistsException
-    _EndpointGroupAlreadyExistsException,
 
     -- ** AssociatedListenerFoundException
     _AssociatedListenerFoundException,
@@ -121,23 +103,41 @@ module Amazonka.GlobalAccelerator
     -- ** ByoipCidrNotFoundException
     _ByoipCidrNotFoundException,
 
-    -- ** AcceleratorNotFoundException
-    _AcceleratorNotFoundException,
+    -- ** ConflictException
+    _ConflictException,
 
-    -- ** EndpointNotFoundException
-    _EndpointNotFoundException,
+    -- ** EndpointAlreadyExistsException
+    _EndpointAlreadyExistsException,
+
+    -- ** EndpointGroupAlreadyExistsException
+    _EndpointGroupAlreadyExistsException,
 
     -- ** EndpointGroupNotFoundException
     _EndpointGroupNotFoundException,
 
-    -- ** InternalServiceErrorException
-    _InternalServiceErrorException,
+    -- ** EndpointNotFoundException
+    _EndpointNotFoundException,
 
     -- ** IncorrectCidrStateException
     _IncorrectCidrStateException,
 
+    -- ** InternalServiceErrorException
+    _InternalServiceErrorException,
+
+    -- ** InvalidArgumentException
+    _InvalidArgumentException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
     -- ** InvalidPortRangeException
     _InvalidPortRangeException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** ListenerNotFoundException
+    _ListenerNotFoundException,
 
     -- ** TransactionInProgressException
     _TransactionInProgressException,

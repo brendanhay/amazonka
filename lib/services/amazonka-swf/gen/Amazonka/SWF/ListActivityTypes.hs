@@ -54,8 +54,8 @@ module Amazonka.SWF.ListActivityTypes
     newListActivityTypes,
 
     -- * Request Lenses
-    listActivityTypes_name,
     listActivityTypes_maximumPageSize,
+    listActivityTypes_name,
     listActivityTypes_nextPageToken,
     listActivityTypes_reverseOrder,
     listActivityTypes_domain,
@@ -82,11 +82,11 @@ import Amazonka.SWF.Types
 
 -- | /See:/ 'newListActivityTypes' smart constructor.
 data ListActivityTypes = ListActivityTypes'
-  { -- | If specified, only lists the activity types that have this name.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results that are returned per call. Use
+  { -- | The maximum number of results that are returned per call. Use
     -- @nextPageToken@ to obtain further pages of results.
     maximumPageSize :: Prelude.Maybe Prelude.Natural,
+    -- | If specified, only lists the activity types that have this name.
+    name :: Prelude.Maybe Prelude.Text,
     -- | If @NextPageToken@ is returned there are more results available. The
     -- value of @NextPageToken@ is a unique pagination token for each page.
     -- Make the call again using the returned token to retrieve the next page.
@@ -116,10 +116,10 @@ data ListActivityTypes = ListActivityTypes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'listActivityTypes_name' - If specified, only lists the activity types that have this name.
---
 -- 'maximumPageSize', 'listActivityTypes_maximumPageSize' - The maximum number of results that are returned per call. Use
 -- @nextPageToken@ to obtain further pages of results.
+--
+-- 'name', 'listActivityTypes_name' - If specified, only lists the activity types that have this name.
 --
 -- 'nextPageToken', 'listActivityTypes_nextPageToken' - If @NextPageToken@ is returned there are more results available. The
 -- value of @NextPageToken@ is a unique pagination token for each page.
@@ -146,22 +146,23 @@ newListActivityTypes ::
   ListActivityTypes
 newListActivityTypes pDomain_ pRegistrationStatus_ =
   ListActivityTypes'
-    { name = Prelude.Nothing,
-      maximumPageSize = Prelude.Nothing,
+    { maximumPageSize =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
       nextPageToken = Prelude.Nothing,
       reverseOrder = Prelude.Nothing,
       domain = pDomain_,
       registrationStatus = pRegistrationStatus_
     }
 
--- | If specified, only lists the activity types that have this name.
-listActivityTypes_name :: Lens.Lens' ListActivityTypes (Prelude.Maybe Prelude.Text)
-listActivityTypes_name = Lens.lens (\ListActivityTypes' {name} -> name) (\s@ListActivityTypes' {} a -> s {name = a} :: ListActivityTypes)
-
 -- | The maximum number of results that are returned per call. Use
 -- @nextPageToken@ to obtain further pages of results.
 listActivityTypes_maximumPageSize :: Lens.Lens' ListActivityTypes (Prelude.Maybe Prelude.Natural)
 listActivityTypes_maximumPageSize = Lens.lens (\ListActivityTypes' {maximumPageSize} -> maximumPageSize) (\s@ListActivityTypes' {} a -> s {maximumPageSize = a} :: ListActivityTypes)
+
+-- | If specified, only lists the activity types that have this name.
+listActivityTypes_name :: Lens.Lens' ListActivityTypes (Prelude.Maybe Prelude.Text)
+listActivityTypes_name = Lens.lens (\ListActivityTypes' {name} -> name) (\s@ListActivityTypes' {} a -> s {name = a} :: ListActivityTypes)
 
 -- | If @NextPageToken@ is returned there are more results available. The
 -- value of @NextPageToken@ is a unique pagination token for each page.
@@ -225,8 +226,8 @@ instance Core.AWSRequest ListActivityTypes where
 
 instance Prelude.Hashable ListActivityTypes where
   hashWithSalt _salt ListActivityTypes' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` maximumPageSize
+    _salt `Prelude.hashWithSalt` maximumPageSize
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextPageToken
       `Prelude.hashWithSalt` reverseOrder
       `Prelude.hashWithSalt` domain
@@ -234,8 +235,8 @@ instance Prelude.Hashable ListActivityTypes where
 
 instance Prelude.NFData ListActivityTypes where
   rnf ListActivityTypes' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf maximumPageSize
+    Prelude.rnf maximumPageSize
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf nextPageToken
       `Prelude.seq` Prelude.rnf reverseOrder
       `Prelude.seq` Prelude.rnf domain
@@ -260,9 +261,9 @@ instance Data.ToJSON ListActivityTypes where
   toJSON ListActivityTypes' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
-            ("maximumPageSize" Data..=)
+          [ ("maximumPageSize" Data..=)
               Prelude.<$> maximumPageSize,
+            ("name" Data..=) Prelude.<$> name,
             ("nextPageToken" Data..=) Prelude.<$> nextPageToken,
             ("reverseOrder" Data..=) Prelude.<$> reverseOrder,
             Prelude.Just ("domain" Data..= domain),

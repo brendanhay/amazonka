@@ -32,7 +32,19 @@ import Amazonka.SWF.Types.WorkflowType
 --
 -- /See:/ 'newStartChildWorkflowExecutionInitiatedEventAttributes' smart constructor.
 data StartChildWorkflowExecutionInitiatedEventAttributes = StartChildWorkflowExecutionInitiatedEventAttributes'
-  { -- | The IAM role to attach to the child workflow execution.
+  { -- | Data attached to the event that can be used by the decider in subsequent
+    -- decision tasks. This data isn\'t sent to the activity.
+    control :: Prelude.Maybe Prelude.Text,
+    -- | The maximum duration for the child workflow execution. If the workflow
+    -- execution isn\'t closed within this duration, it is timed out and
+    -- force-terminated.
+    --
+    -- The duration is specified in seconds, an integer greater than or equal
+    -- to @0@. You can use @NONE@ to specify unlimited duration.
+    executionStartToCloseTimeout :: Prelude.Maybe Prelude.Text,
+    -- | The inputs provided to the child workflow execution.
+    input :: Prelude.Maybe Prelude.Text,
+    -- | The IAM role to attach to the child workflow execution.
     lambdaRole :: Prelude.Maybe Prelude.Text,
     -- | The list of tags to associated with the child workflow execution.
     tagList :: Prelude.Maybe [Prelude.Text],
@@ -45,24 +57,12 @@ data StartChildWorkflowExecutionInitiatedEventAttributes = StartChildWorkflowExe
     -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
     -- in the /Amazon SWF Developer Guide/.
     taskPriority :: Prelude.Maybe Prelude.Text,
-    -- | The inputs provided to the child workflow execution.
-    input :: Prelude.Maybe Prelude.Text,
     -- | The maximum duration allowed for the decision tasks for this workflow
     -- execution.
     --
     -- The duration is specified in seconds, an integer greater than or equal
     -- to @0@. You can use @NONE@ to specify unlimited duration.
     taskStartToCloseTimeout :: Prelude.Maybe Prelude.Text,
-    -- | Data attached to the event that can be used by the decider in subsequent
-    -- decision tasks. This data isn\'t sent to the activity.
-    control :: Prelude.Maybe Prelude.Text,
-    -- | The maximum duration for the child workflow execution. If the workflow
-    -- execution isn\'t closed within this duration, it is timed out and
-    -- force-terminated.
-    --
-    -- The duration is specified in seconds, an integer greater than or equal
-    -- to @0@. You can use @NONE@ to specify unlimited duration.
-    executionStartToCloseTimeout :: Prelude.Maybe Prelude.Text,
     -- | The @workflowId@ of the child workflow execution.
     workflowId :: Prelude.Text,
     -- | The type of the child workflow execution.
@@ -102,6 +102,18 @@ data StartChildWorkflowExecutionInitiatedEventAttributes = StartChildWorkflowExe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'control', 'startChildWorkflowExecutionInitiatedEventAttributes_control' - Data attached to the event that can be used by the decider in subsequent
+-- decision tasks. This data isn\'t sent to the activity.
+--
+-- 'executionStartToCloseTimeout', 'startChildWorkflowExecutionInitiatedEventAttributes_executionStartToCloseTimeout' - The maximum duration for the child workflow execution. If the workflow
+-- execution isn\'t closed within this duration, it is timed out and
+-- force-terminated.
+--
+-- The duration is specified in seconds, an integer greater than or equal
+-- to @0@. You can use @NONE@ to specify unlimited duration.
+--
+-- 'input', 'startChildWorkflowExecutionInitiatedEventAttributes_input' - The inputs provided to the child workflow execution.
+--
 -- 'lambdaRole', 'startChildWorkflowExecutionInitiatedEventAttributes_lambdaRole' - The IAM role to attach to the child workflow execution.
 --
 -- 'tagList', 'startChildWorkflowExecutionInitiatedEventAttributes_tagList' - The list of tags to associated with the child workflow execution.
@@ -115,20 +127,8 @@ data StartChildWorkflowExecutionInitiatedEventAttributes = StartChildWorkflowExe
 -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
 -- in the /Amazon SWF Developer Guide/.
 --
--- 'input', 'startChildWorkflowExecutionInitiatedEventAttributes_input' - The inputs provided to the child workflow execution.
---
 -- 'taskStartToCloseTimeout', 'startChildWorkflowExecutionInitiatedEventAttributes_taskStartToCloseTimeout' - The maximum duration allowed for the decision tasks for this workflow
 -- execution.
---
--- The duration is specified in seconds, an integer greater than or equal
--- to @0@. You can use @NONE@ to specify unlimited duration.
---
--- 'control', 'startChildWorkflowExecutionInitiatedEventAttributes_control' - Data attached to the event that can be used by the decider in subsequent
--- decision tasks. This data isn\'t sent to the activity.
---
--- 'executionStartToCloseTimeout', 'startChildWorkflowExecutionInitiatedEventAttributes_executionStartToCloseTimeout' - The maximum duration for the child workflow execution. If the workflow
--- execution isn\'t closed within this duration, it is timed out and
--- force-terminated.
 --
 -- The duration is specified in seconds, an integer greater than or equal
 -- to @0@. You can use @NONE@ to specify unlimited duration.
@@ -179,19 +179,19 @@ newStartChildWorkflowExecutionInitiatedEventAttributes
   pDecisionTaskCompletedEventId_
   pChildPolicy_ =
     StartChildWorkflowExecutionInitiatedEventAttributes'
-      { lambdaRole =
+      { control =
+          Prelude.Nothing,
+        executionStartToCloseTimeout =
+          Prelude.Nothing,
+        input =
+          Prelude.Nothing,
+        lambdaRole =
           Prelude.Nothing,
         tagList =
           Prelude.Nothing,
         taskPriority =
           Prelude.Nothing,
-        input =
-          Prelude.Nothing,
         taskStartToCloseTimeout =
-          Prelude.Nothing,
-        control =
-          Prelude.Nothing,
-        executionStartToCloseTimeout =
           Prelude.Nothing,
         workflowId =
           pWorkflowId_,
@@ -203,6 +203,24 @@ newStartChildWorkflowExecutionInitiatedEventAttributes
         childPolicy =
           pChildPolicy_
       }
+
+-- | Data attached to the event that can be used by the decider in subsequent
+-- decision tasks. This data isn\'t sent to the activity.
+startChildWorkflowExecutionInitiatedEventAttributes_control :: Lens.Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Prelude.Maybe Prelude.Text)
+startChildWorkflowExecutionInitiatedEventAttributes_control = Lens.lens (\StartChildWorkflowExecutionInitiatedEventAttributes' {control} -> control) (\s@StartChildWorkflowExecutionInitiatedEventAttributes' {} a -> s {control = a} :: StartChildWorkflowExecutionInitiatedEventAttributes)
+
+-- | The maximum duration for the child workflow execution. If the workflow
+-- execution isn\'t closed within this duration, it is timed out and
+-- force-terminated.
+--
+-- The duration is specified in seconds, an integer greater than or equal
+-- to @0@. You can use @NONE@ to specify unlimited duration.
+startChildWorkflowExecutionInitiatedEventAttributes_executionStartToCloseTimeout :: Lens.Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Prelude.Maybe Prelude.Text)
+startChildWorkflowExecutionInitiatedEventAttributes_executionStartToCloseTimeout = Lens.lens (\StartChildWorkflowExecutionInitiatedEventAttributes' {executionStartToCloseTimeout} -> executionStartToCloseTimeout) (\s@StartChildWorkflowExecutionInitiatedEventAttributes' {} a -> s {executionStartToCloseTimeout = a} :: StartChildWorkflowExecutionInitiatedEventAttributes)
+
+-- | The inputs provided to the child workflow execution.
+startChildWorkflowExecutionInitiatedEventAttributes_input :: Lens.Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Prelude.Maybe Prelude.Text)
+startChildWorkflowExecutionInitiatedEventAttributes_input = Lens.lens (\StartChildWorkflowExecutionInitiatedEventAttributes' {input} -> input) (\s@StartChildWorkflowExecutionInitiatedEventAttributes' {} a -> s {input = a} :: StartChildWorkflowExecutionInitiatedEventAttributes)
 
 -- | The IAM role to attach to the child workflow execution.
 startChildWorkflowExecutionInitiatedEventAttributes_lambdaRole :: Lens.Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Prelude.Maybe Prelude.Text)
@@ -223,10 +241,6 @@ startChildWorkflowExecutionInitiatedEventAttributes_tagList = Lens.lens (\StartC
 startChildWorkflowExecutionInitiatedEventAttributes_taskPriority :: Lens.Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Prelude.Maybe Prelude.Text)
 startChildWorkflowExecutionInitiatedEventAttributes_taskPriority = Lens.lens (\StartChildWorkflowExecutionInitiatedEventAttributes' {taskPriority} -> taskPriority) (\s@StartChildWorkflowExecutionInitiatedEventAttributes' {} a -> s {taskPriority = a} :: StartChildWorkflowExecutionInitiatedEventAttributes)
 
--- | The inputs provided to the child workflow execution.
-startChildWorkflowExecutionInitiatedEventAttributes_input :: Lens.Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Prelude.Maybe Prelude.Text)
-startChildWorkflowExecutionInitiatedEventAttributes_input = Lens.lens (\StartChildWorkflowExecutionInitiatedEventAttributes' {input} -> input) (\s@StartChildWorkflowExecutionInitiatedEventAttributes' {} a -> s {input = a} :: StartChildWorkflowExecutionInitiatedEventAttributes)
-
 -- | The maximum duration allowed for the decision tasks for this workflow
 -- execution.
 --
@@ -234,20 +248,6 @@ startChildWorkflowExecutionInitiatedEventAttributes_input = Lens.lens (\StartChi
 -- to @0@. You can use @NONE@ to specify unlimited duration.
 startChildWorkflowExecutionInitiatedEventAttributes_taskStartToCloseTimeout :: Lens.Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Prelude.Maybe Prelude.Text)
 startChildWorkflowExecutionInitiatedEventAttributes_taskStartToCloseTimeout = Lens.lens (\StartChildWorkflowExecutionInitiatedEventAttributes' {taskStartToCloseTimeout} -> taskStartToCloseTimeout) (\s@StartChildWorkflowExecutionInitiatedEventAttributes' {} a -> s {taskStartToCloseTimeout = a} :: StartChildWorkflowExecutionInitiatedEventAttributes)
-
--- | Data attached to the event that can be used by the decider in subsequent
--- decision tasks. This data isn\'t sent to the activity.
-startChildWorkflowExecutionInitiatedEventAttributes_control :: Lens.Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Prelude.Maybe Prelude.Text)
-startChildWorkflowExecutionInitiatedEventAttributes_control = Lens.lens (\StartChildWorkflowExecutionInitiatedEventAttributes' {control} -> control) (\s@StartChildWorkflowExecutionInitiatedEventAttributes' {} a -> s {control = a} :: StartChildWorkflowExecutionInitiatedEventAttributes)
-
--- | The maximum duration for the child workflow execution. If the workflow
--- execution isn\'t closed within this duration, it is timed out and
--- force-terminated.
---
--- The duration is specified in seconds, an integer greater than or equal
--- to @0@. You can use @NONE@ to specify unlimited duration.
-startChildWorkflowExecutionInitiatedEventAttributes_executionStartToCloseTimeout :: Lens.Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Prelude.Maybe Prelude.Text)
-startChildWorkflowExecutionInitiatedEventAttributes_executionStartToCloseTimeout = Lens.lens (\StartChildWorkflowExecutionInitiatedEventAttributes' {executionStartToCloseTimeout} -> executionStartToCloseTimeout) (\s@StartChildWorkflowExecutionInitiatedEventAttributes' {} a -> s {executionStartToCloseTimeout = a} :: StartChildWorkflowExecutionInitiatedEventAttributes)
 
 -- | The @workflowId@ of the child workflow execution.
 startChildWorkflowExecutionInitiatedEventAttributes_workflowId :: Lens.Lens' StartChildWorkflowExecutionInitiatedEventAttributes Prelude.Text
@@ -296,13 +296,13 @@ instance
       "StartChildWorkflowExecutionInitiatedEventAttributes"
       ( \x ->
           StartChildWorkflowExecutionInitiatedEventAttributes'
-            Prelude.<$> (x Data..:? "lambdaRole")
+            Prelude.<$> (x Data..:? "control")
+              Prelude.<*> (x Data..:? "executionStartToCloseTimeout")
+              Prelude.<*> (x Data..:? "input")
+              Prelude.<*> (x Data..:? "lambdaRole")
               Prelude.<*> (x Data..:? "tagList" Data..!= Prelude.mempty)
               Prelude.<*> (x Data..:? "taskPriority")
-              Prelude.<*> (x Data..:? "input")
               Prelude.<*> (x Data..:? "taskStartToCloseTimeout")
-              Prelude.<*> (x Data..:? "control")
-              Prelude.<*> (x Data..:? "executionStartToCloseTimeout")
               Prelude.<*> (x Data..: "workflowId")
               Prelude.<*> (x Data..: "workflowType")
               Prelude.<*> (x Data..: "taskList")
@@ -317,13 +317,13 @@ instance
   hashWithSalt
     _salt
     StartChildWorkflowExecutionInitiatedEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` lambdaRole
+      _salt `Prelude.hashWithSalt` control
+        `Prelude.hashWithSalt` executionStartToCloseTimeout
+        `Prelude.hashWithSalt` input
+        `Prelude.hashWithSalt` lambdaRole
         `Prelude.hashWithSalt` tagList
         `Prelude.hashWithSalt` taskPriority
-        `Prelude.hashWithSalt` input
         `Prelude.hashWithSalt` taskStartToCloseTimeout
-        `Prelude.hashWithSalt` control
-        `Prelude.hashWithSalt` executionStartToCloseTimeout
         `Prelude.hashWithSalt` workflowId
         `Prelude.hashWithSalt` workflowType
         `Prelude.hashWithSalt` taskList
@@ -336,13 +336,13 @@ instance
   where
   rnf
     StartChildWorkflowExecutionInitiatedEventAttributes' {..} =
-      Prelude.rnf lambdaRole
+      Prelude.rnf control
+        `Prelude.seq` Prelude.rnf executionStartToCloseTimeout
+        `Prelude.seq` Prelude.rnf input
+        `Prelude.seq` Prelude.rnf lambdaRole
         `Prelude.seq` Prelude.rnf tagList
         `Prelude.seq` Prelude.rnf taskPriority
-        `Prelude.seq` Prelude.rnf input
         `Prelude.seq` Prelude.rnf taskStartToCloseTimeout
-        `Prelude.seq` Prelude.rnf control
-        `Prelude.seq` Prelude.rnf executionStartToCloseTimeout
         `Prelude.seq` Prelude.rnf workflowId
         `Prelude.seq` Prelude.rnf workflowType
         `Prelude.seq` Prelude.rnf taskList

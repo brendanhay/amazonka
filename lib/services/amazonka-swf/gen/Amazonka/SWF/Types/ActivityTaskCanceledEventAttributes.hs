@@ -28,13 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newActivityTaskCanceledEventAttributes' smart constructor.
 data ActivityTaskCanceledEventAttributes = ActivityTaskCanceledEventAttributes'
-  { -- | If set, contains the ID of the last @ActivityTaskCancelRequested@ event
+  { -- | Details of the cancellation.
+    details :: Prelude.Maybe Prelude.Text,
+    -- | If set, contains the ID of the last @ActivityTaskCancelRequested@ event
     -- recorded for this activity task. This information can be useful for
     -- diagnosing problems by tracing back the chain of events leading up to
     -- this event.
     latestCancelRequestedEventId :: Prelude.Maybe Prelude.Integer,
-    -- | Details of the cancellation.
-    details :: Prelude.Maybe Prelude.Text,
     -- | The ID of the @ActivityTaskScheduled@ event that was recorded when this
     -- activity task was scheduled. This information can be useful for
     -- diagnosing problems by tracing back the chain of events leading up to
@@ -55,12 +55,12 @@ data ActivityTaskCanceledEventAttributes = ActivityTaskCanceledEventAttributes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'details', 'activityTaskCanceledEventAttributes_details' - Details of the cancellation.
+--
 -- 'latestCancelRequestedEventId', 'activityTaskCanceledEventAttributes_latestCancelRequestedEventId' - If set, contains the ID of the last @ActivityTaskCancelRequested@ event
 -- recorded for this activity task. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
---
--- 'details', 'activityTaskCanceledEventAttributes_details' - Details of the cancellation.
 --
 -- 'scheduledEventId', 'activityTaskCanceledEventAttributes_scheduledEventId' - The ID of the @ActivityTaskScheduled@ event that was recorded when this
 -- activity task was scheduled. This information can be useful for
@@ -80,12 +80,17 @@ newActivityTaskCanceledEventAttributes
   pScheduledEventId_
   pStartedEventId_ =
     ActivityTaskCanceledEventAttributes'
-      { latestCancelRequestedEventId =
+      { details =
           Prelude.Nothing,
-        details = Prelude.Nothing,
+        latestCancelRequestedEventId =
+          Prelude.Nothing,
         scheduledEventId = pScheduledEventId_,
         startedEventId = pStartedEventId_
       }
+
+-- | Details of the cancellation.
+activityTaskCanceledEventAttributes_details :: Lens.Lens' ActivityTaskCanceledEventAttributes (Prelude.Maybe Prelude.Text)
+activityTaskCanceledEventAttributes_details = Lens.lens (\ActivityTaskCanceledEventAttributes' {details} -> details) (\s@ActivityTaskCanceledEventAttributes' {} a -> s {details = a} :: ActivityTaskCanceledEventAttributes)
 
 -- | If set, contains the ID of the last @ActivityTaskCancelRequested@ event
 -- recorded for this activity task. This information can be useful for
@@ -93,10 +98,6 @@ newActivityTaskCanceledEventAttributes
 -- this event.
 activityTaskCanceledEventAttributes_latestCancelRequestedEventId :: Lens.Lens' ActivityTaskCanceledEventAttributes (Prelude.Maybe Prelude.Integer)
 activityTaskCanceledEventAttributes_latestCancelRequestedEventId = Lens.lens (\ActivityTaskCanceledEventAttributes' {latestCancelRequestedEventId} -> latestCancelRequestedEventId) (\s@ActivityTaskCanceledEventAttributes' {} a -> s {latestCancelRequestedEventId = a} :: ActivityTaskCanceledEventAttributes)
-
--- | Details of the cancellation.
-activityTaskCanceledEventAttributes_details :: Lens.Lens' ActivityTaskCanceledEventAttributes (Prelude.Maybe Prelude.Text)
-activityTaskCanceledEventAttributes_details = Lens.lens (\ActivityTaskCanceledEventAttributes' {details} -> details) (\s@ActivityTaskCanceledEventAttributes' {} a -> s {details = a} :: ActivityTaskCanceledEventAttributes)
 
 -- | The ID of the @ActivityTaskScheduled@ event that was recorded when this
 -- activity task was scheduled. This information can be useful for
@@ -120,8 +121,8 @@ instance
       "ActivityTaskCanceledEventAttributes"
       ( \x ->
           ActivityTaskCanceledEventAttributes'
-            Prelude.<$> (x Data..:? "latestCancelRequestedEventId")
-            Prelude.<*> (x Data..:? "details")
+            Prelude.<$> (x Data..:? "details")
+            Prelude.<*> (x Data..:? "latestCancelRequestedEventId")
             Prelude.<*> (x Data..: "scheduledEventId")
             Prelude.<*> (x Data..: "startedEventId")
       )
@@ -133,9 +134,8 @@ instance
   hashWithSalt
     _salt
     ActivityTaskCanceledEventAttributes' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` details
         `Prelude.hashWithSalt` latestCancelRequestedEventId
-        `Prelude.hashWithSalt` details
         `Prelude.hashWithSalt` scheduledEventId
         `Prelude.hashWithSalt` startedEventId
 
@@ -144,7 +144,7 @@ instance
     ActivityTaskCanceledEventAttributes
   where
   rnf ActivityTaskCanceledEventAttributes' {..} =
-    Prelude.rnf latestCancelRequestedEventId
-      `Prelude.seq` Prelude.rnf details
+    Prelude.rnf details
+      `Prelude.seq` Prelude.rnf latestCancelRequestedEventId
       `Prelude.seq` Prelude.rnf scheduledEventId
       `Prelude.seq` Prelude.rnf startedEventId

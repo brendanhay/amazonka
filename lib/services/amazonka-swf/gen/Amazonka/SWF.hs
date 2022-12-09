@@ -36,29 +36,29 @@ module Amazonka.SWF
     -- * Errors
     -- $errors
 
-    -- ** TooManyTagsFault
-    _TooManyTagsFault,
+    -- ** DefaultUndefinedFault
+    _DefaultUndefinedFault,
 
     -- ** DomainAlreadyExistsFault
     _DomainAlreadyExistsFault,
 
-    -- ** OperationNotPermittedFault
-    _OperationNotPermittedFault,
-
-    -- ** TypeAlreadyExistsFault
-    _TypeAlreadyExistsFault,
+    -- ** DomainDeprecatedFault
+    _DomainDeprecatedFault,
 
     -- ** LimitExceededFault
     _LimitExceededFault,
 
+    -- ** OperationNotPermittedFault
+    _OperationNotPermittedFault,
+
+    -- ** TooManyTagsFault
+    _TooManyTagsFault,
+
+    -- ** TypeAlreadyExistsFault
+    _TypeAlreadyExistsFault,
+
     -- ** TypeDeprecatedFault
     _TypeDeprecatedFault,
-
-    -- ** DefaultUndefinedFault
-    _DefaultUndefinedFault,
-
-    -- ** DomainDeprecatedFault
-    _DomainDeprecatedFault,
 
     -- ** UnknownResourceFault
     _UnknownResourceFault,

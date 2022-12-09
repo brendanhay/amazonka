@@ -42,10 +42,10 @@ module Amazonka.SSOAdmin.Lens
     createInstanceAccessControlAttributeConfigurationResponse_httpStatus,
 
     -- ** CreatePermissionSet
-    createPermissionSet_tags,
     createPermissionSet_description,
-    createPermissionSet_sessionDuration,
     createPermissionSet_relayState,
+    createPermissionSet_sessionDuration,
+    createPermissionSet_tags,
     createPermissionSet_name,
     createPermissionSet_instanceArn,
     createPermissionSetResponse_permissionSet,
@@ -95,8 +95,8 @@ module Amazonka.SSOAdmin.Lens
     -- ** DescribeInstanceAccessControlAttributeConfiguration
     describeInstanceAccessControlAttributeConfiguration_instanceArn,
     describeInstanceAccessControlAttributeConfigurationResponse_instanceAccessControlAttributeConfiguration,
-    describeInstanceAccessControlAttributeConfigurationResponse_statusReason,
     describeInstanceAccessControlAttributeConfigurationResponse_status,
+    describeInstanceAccessControlAttributeConfigurationResponse_statusReason,
     describeInstanceAccessControlAttributeConfigurationResponse_httpStatus,
 
     -- ** DescribePermissionSet
@@ -136,37 +136,37 @@ module Amazonka.SSOAdmin.Lens
     getPermissionsBoundaryForPermissionSetResponse_httpStatus,
 
     -- ** ListAccountAssignmentCreationStatus
-    listAccountAssignmentCreationStatus_nextToken,
     listAccountAssignmentCreationStatus_filter,
     listAccountAssignmentCreationStatus_maxResults,
+    listAccountAssignmentCreationStatus_nextToken,
     listAccountAssignmentCreationStatus_instanceArn,
-    listAccountAssignmentCreationStatusResponse_nextToken,
     listAccountAssignmentCreationStatusResponse_accountAssignmentsCreationStatus,
+    listAccountAssignmentCreationStatusResponse_nextToken,
     listAccountAssignmentCreationStatusResponse_httpStatus,
 
     -- ** ListAccountAssignmentDeletionStatus
-    listAccountAssignmentDeletionStatus_nextToken,
     listAccountAssignmentDeletionStatus_filter,
     listAccountAssignmentDeletionStatus_maxResults,
+    listAccountAssignmentDeletionStatus_nextToken,
     listAccountAssignmentDeletionStatus_instanceArn,
-    listAccountAssignmentDeletionStatusResponse_nextToken,
     listAccountAssignmentDeletionStatusResponse_accountAssignmentsDeletionStatus,
+    listAccountAssignmentDeletionStatusResponse_nextToken,
     listAccountAssignmentDeletionStatusResponse_httpStatus,
 
     -- ** ListAccountAssignments
-    listAccountAssignments_nextToken,
     listAccountAssignments_maxResults,
+    listAccountAssignments_nextToken,
     listAccountAssignments_instanceArn,
     listAccountAssignments_accountId,
     listAccountAssignments_permissionSetArn,
-    listAccountAssignmentsResponse_nextToken,
     listAccountAssignmentsResponse_accountAssignments,
+    listAccountAssignmentsResponse_nextToken,
     listAccountAssignmentsResponse_httpStatus,
 
     -- ** ListAccountsForProvisionedPermissionSet
+    listAccountsForProvisionedPermissionSet_maxResults,
     listAccountsForProvisionedPermissionSet_nextToken,
     listAccountsForProvisionedPermissionSet_provisioningStatus,
-    listAccountsForProvisionedPermissionSet_maxResults,
     listAccountsForProvisionedPermissionSet_instanceArn,
     listAccountsForProvisionedPermissionSet_permissionSetArn,
     listAccountsForProvisionedPermissionSetResponse_accountIds,
@@ -174,51 +174,51 @@ module Amazonka.SSOAdmin.Lens
     listAccountsForProvisionedPermissionSetResponse_httpStatus,
 
     -- ** ListCustomerManagedPolicyReferencesInPermissionSet
-    listCustomerManagedPolicyReferencesInPermissionSet_nextToken,
     listCustomerManagedPolicyReferencesInPermissionSet_maxResults,
+    listCustomerManagedPolicyReferencesInPermissionSet_nextToken,
     listCustomerManagedPolicyReferencesInPermissionSet_instanceArn,
     listCustomerManagedPolicyReferencesInPermissionSet_permissionSetArn,
-    listCustomerManagedPolicyReferencesInPermissionSetResponse_nextToken,
     listCustomerManagedPolicyReferencesInPermissionSetResponse_customerManagedPolicyReferences,
+    listCustomerManagedPolicyReferencesInPermissionSetResponse_nextToken,
     listCustomerManagedPolicyReferencesInPermissionSetResponse_httpStatus,
 
     -- ** ListInstances
-    listInstances_nextToken,
     listInstances_maxResults,
+    listInstances_nextToken,
     listInstancesResponse_instances,
     listInstancesResponse_nextToken,
     listInstancesResponse_httpStatus,
 
     -- ** ListManagedPoliciesInPermissionSet
-    listManagedPoliciesInPermissionSet_nextToken,
     listManagedPoliciesInPermissionSet_maxResults,
+    listManagedPoliciesInPermissionSet_nextToken,
     listManagedPoliciesInPermissionSet_instanceArn,
     listManagedPoliciesInPermissionSet_permissionSetArn,
-    listManagedPoliciesInPermissionSetResponse_nextToken,
     listManagedPoliciesInPermissionSetResponse_attachedManagedPolicies,
+    listManagedPoliciesInPermissionSetResponse_nextToken,
     listManagedPoliciesInPermissionSetResponse_httpStatus,
 
     -- ** ListPermissionSetProvisioningStatus
-    listPermissionSetProvisioningStatus_nextToken,
     listPermissionSetProvisioningStatus_filter,
     listPermissionSetProvisioningStatus_maxResults,
+    listPermissionSetProvisioningStatus_nextToken,
     listPermissionSetProvisioningStatus_instanceArn,
     listPermissionSetProvisioningStatusResponse_nextToken,
     listPermissionSetProvisioningStatusResponse_permissionSetsProvisioningStatus,
     listPermissionSetProvisioningStatusResponse_httpStatus,
 
     -- ** ListPermissionSets
-    listPermissionSets_nextToken,
     listPermissionSets_maxResults,
+    listPermissionSets_nextToken,
     listPermissionSets_instanceArn,
     listPermissionSetsResponse_nextToken,
     listPermissionSetsResponse_permissionSets,
     listPermissionSetsResponse_httpStatus,
 
     -- ** ListPermissionSetsProvisionedToAccount
+    listPermissionSetsProvisionedToAccount_maxResults,
     listPermissionSetsProvisionedToAccount_nextToken,
     listPermissionSetsProvisionedToAccount_provisioningStatus,
-    listPermissionSetsProvisionedToAccount_maxResults,
     listPermissionSetsProvisionedToAccount_instanceArn,
     listPermissionSetsProvisionedToAccount_accountId,
     listPermissionSetsProvisionedToAccountResponse_nextToken,
@@ -229,8 +229,8 @@ module Amazonka.SSOAdmin.Lens
     listTagsForResource_nextToken,
     listTagsForResource_instanceArn,
     listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_nextToken,
+    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
 
     -- ** ProvisionPermissionSet
@@ -272,8 +272,8 @@ module Amazonka.SSOAdmin.Lens
 
     -- ** UpdatePermissionSet
     updatePermissionSet_description,
-    updatePermissionSet_sessionDuration,
     updatePermissionSet_relayState,
+    updatePermissionSet_sessionDuration,
     updatePermissionSet_instanceArn,
     updatePermissionSet_permissionSetArn,
     updatePermissionSetResponse_httpStatus,
@@ -288,30 +288,30 @@ module Amazonka.SSOAdmin.Lens
     accessControlAttributeValue_source,
 
     -- ** AccountAssignment
-    accountAssignment_principalId,
     accountAssignment_accountId,
     accountAssignment_permissionSetArn,
+    accountAssignment_principalId,
     accountAssignment_principalType,
 
     -- ** AccountAssignmentOperationStatus
-    accountAssignmentOperationStatus_principalId,
-    accountAssignmentOperationStatus_targetId,
-    accountAssignmentOperationStatus_requestId,
-    accountAssignmentOperationStatus_status,
-    accountAssignmentOperationStatus_targetType,
-    accountAssignmentOperationStatus_permissionSetArn,
-    accountAssignmentOperationStatus_principalType,
     accountAssignmentOperationStatus_createdDate,
     accountAssignmentOperationStatus_failureReason,
+    accountAssignmentOperationStatus_permissionSetArn,
+    accountAssignmentOperationStatus_principalId,
+    accountAssignmentOperationStatus_principalType,
+    accountAssignmentOperationStatus_requestId,
+    accountAssignmentOperationStatus_status,
+    accountAssignmentOperationStatus_targetId,
+    accountAssignmentOperationStatus_targetType,
 
     -- ** AccountAssignmentOperationStatusMetadata
+    accountAssignmentOperationStatusMetadata_createdDate,
     accountAssignmentOperationStatusMetadata_requestId,
     accountAssignmentOperationStatusMetadata_status,
-    accountAssignmentOperationStatusMetadata_createdDate,
 
     -- ** AttachedManagedPolicy
-    attachedManagedPolicy_name,
     attachedManagedPolicy_arn,
+    attachedManagedPolicy_name,
 
     -- ** CustomerManagedPolicyReference
     customerManagedPolicyReference_path,
@@ -321,36 +321,36 @@ module Amazonka.SSOAdmin.Lens
     instanceAccessControlAttributeConfiguration_accessControlAttributes,
 
     -- ** InstanceMetadata
-    instanceMetadata_instanceArn,
     instanceMetadata_identityStoreId,
+    instanceMetadata_instanceArn,
 
     -- ** OperationStatusFilter
     operationStatusFilter_status,
 
     -- ** PermissionSet
-    permissionSet_name,
-    permissionSet_description,
-    permissionSet_sessionDuration,
-    permissionSet_relayState,
-    permissionSet_permissionSetArn,
     permissionSet_createdDate,
+    permissionSet_description,
+    permissionSet_name,
+    permissionSet_permissionSetArn,
+    permissionSet_relayState,
+    permissionSet_sessionDuration,
 
     -- ** PermissionSetProvisioningStatus
-    permissionSetProvisioningStatus_requestId,
-    permissionSetProvisioningStatus_status,
     permissionSetProvisioningStatus_accountId,
-    permissionSetProvisioningStatus_permissionSetArn,
     permissionSetProvisioningStatus_createdDate,
     permissionSetProvisioningStatus_failureReason,
+    permissionSetProvisioningStatus_permissionSetArn,
+    permissionSetProvisioningStatus_requestId,
+    permissionSetProvisioningStatus_status,
 
     -- ** PermissionSetProvisioningStatusMetadata
+    permissionSetProvisioningStatusMetadata_createdDate,
     permissionSetProvisioningStatusMetadata_requestId,
     permissionSetProvisioningStatusMetadata_status,
-    permissionSetProvisioningStatusMetadata_createdDate,
 
     -- ** PermissionsBoundary
-    permissionsBoundary_managedPolicyArn,
     permissionsBoundary_customerManagedPolicyReference,
+    permissionsBoundary_managedPolicyArn,
 
     -- ** Tag
     tag_key,

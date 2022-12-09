@@ -30,9 +30,9 @@ module Amazonka.SSOAdmin.ListPermissionSetProvisioningStatus
     newListPermissionSetProvisioningStatus,
 
     -- * Request Lenses
-    listPermissionSetProvisioningStatus_nextToken,
     listPermissionSetProvisioningStatus_filter,
     listPermissionSetProvisioningStatus_maxResults,
+    listPermissionSetProvisioningStatus_nextToken,
     listPermissionSetProvisioningStatus_instanceArn,
 
     -- * Destructuring the Response
@@ -56,13 +56,13 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newListPermissionSetProvisioningStatus' smart constructor.
 data ListPermissionSetProvisioningStatus = ListPermissionSetProvisioningStatus'
-  { -- | The pagination token for the list API. Initially the value is null. Use
-    -- the output of previous API calls to make subsequent calls.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters results based on the passed attribute value.
+  { -- | Filters results based on the passed attribute value.
     filter' :: Prelude.Maybe OperationStatusFilter,
     -- | The maximum number of results to display for the assignment.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token for the list API. Initially the value is null. Use
+    -- the output of previous API calls to make subsequent calls.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the IAM Identity Center instance under which the operation
     -- will be executed. For more information about ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
@@ -79,12 +79,12 @@ data ListPermissionSetProvisioningStatus = ListPermissionSetProvisioningStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPermissionSetProvisioningStatus_nextToken' - The pagination token for the list API. Initially the value is null. Use
--- the output of previous API calls to make subsequent calls.
---
 -- 'filter'', 'listPermissionSetProvisioningStatus_filter' - Filters results based on the passed attribute value.
 --
 -- 'maxResults', 'listPermissionSetProvisioningStatus_maxResults' - The maximum number of results to display for the assignment.
+--
+-- 'nextToken', 'listPermissionSetProvisioningStatus_nextToken' - The pagination token for the list API. Initially the value is null. Use
+-- the output of previous API calls to make subsequent calls.
 --
 -- 'instanceArn', 'listPermissionSetProvisioningStatus_instanceArn' - The ARN of the IAM Identity Center instance under which the operation
 -- will be executed. For more information about ARNs, see
@@ -96,17 +96,12 @@ newListPermissionSetProvisioningStatus ::
   ListPermissionSetProvisioningStatus
 newListPermissionSetProvisioningStatus pInstanceArn_ =
   ListPermissionSetProvisioningStatus'
-    { nextToken =
+    { filter' =
         Prelude.Nothing,
-      filter' = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       instanceArn = pInstanceArn_
     }
-
--- | The pagination token for the list API. Initially the value is null. Use
--- the output of previous API calls to make subsequent calls.
-listPermissionSetProvisioningStatus_nextToken :: Lens.Lens' ListPermissionSetProvisioningStatus (Prelude.Maybe Prelude.Text)
-listPermissionSetProvisioningStatus_nextToken = Lens.lens (\ListPermissionSetProvisioningStatus' {nextToken} -> nextToken) (\s@ListPermissionSetProvisioningStatus' {} a -> s {nextToken = a} :: ListPermissionSetProvisioningStatus)
 
 -- | Filters results based on the passed attribute value.
 listPermissionSetProvisioningStatus_filter :: Lens.Lens' ListPermissionSetProvisioningStatus (Prelude.Maybe OperationStatusFilter)
@@ -115,6 +110,11 @@ listPermissionSetProvisioningStatus_filter = Lens.lens (\ListPermissionSetProvis
 -- | The maximum number of results to display for the assignment.
 listPermissionSetProvisioningStatus_maxResults :: Lens.Lens' ListPermissionSetProvisioningStatus (Prelude.Maybe Prelude.Natural)
 listPermissionSetProvisioningStatus_maxResults = Lens.lens (\ListPermissionSetProvisioningStatus' {maxResults} -> maxResults) (\s@ListPermissionSetProvisioningStatus' {} a -> s {maxResults = a} :: ListPermissionSetProvisioningStatus)
+
+-- | The pagination token for the list API. Initially the value is null. Use
+-- the output of previous API calls to make subsequent calls.
+listPermissionSetProvisioningStatus_nextToken :: Lens.Lens' ListPermissionSetProvisioningStatus (Prelude.Maybe Prelude.Text)
+listPermissionSetProvisioningStatus_nextToken = Lens.lens (\ListPermissionSetProvisioningStatus' {nextToken} -> nextToken) (\s@ListPermissionSetProvisioningStatus' {} a -> s {nextToken = a} :: ListPermissionSetProvisioningStatus)
 
 -- | The ARN of the IAM Identity Center instance under which the operation
 -- will be executed. For more information about ARNs, see
@@ -175,9 +175,9 @@ instance
   hashWithSalt
     _salt
     ListPermissionSetProvisioningStatus' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` filter'
+      _salt `Prelude.hashWithSalt` filter'
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` instanceArn
 
 instance
@@ -185,9 +185,9 @@ instance
     ListPermissionSetProvisioningStatus
   where
   rnf ListPermissionSetProvisioningStatus' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filter'
+    Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf instanceArn
 
 instance
@@ -215,9 +215,9 @@ instance
   toJSON ListPermissionSetProvisioningStatus' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("Filter" Data..=) Prelude.<$> filter',
+          [ ("Filter" Data..=) Prelude.<$> filter',
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("InstanceArn" Data..= instanceArn)
           ]
       )

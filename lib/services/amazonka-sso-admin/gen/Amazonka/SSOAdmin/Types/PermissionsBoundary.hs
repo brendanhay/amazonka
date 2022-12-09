@@ -42,13 +42,13 @@ import Amazonka.SSOAdmin.Types.CustomerManagedPolicyReference
 --
 -- /See:/ 'newPermissionsBoundary' smart constructor.
 data PermissionsBoundary = PermissionsBoundary'
-  { -- | The AWS managed policy ARN that you want to attach to a permission set
-    -- as a permissions boundary.
-    managedPolicyArn :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the name and path of a customer managed policy. You must have
+  { -- | Specifies the name and path of a customer managed policy. You must have
     -- an IAM policy that matches the name and path in each AWS account where
     -- you want to deploy your permission set.
-    customerManagedPolicyReference :: Prelude.Maybe CustomerManagedPolicyReference
+    customerManagedPolicyReference :: Prelude.Maybe CustomerManagedPolicyReference,
+    -- | The AWS managed policy ARN that you want to attach to a permission set
+    -- as a permissions boundary.
+    managedPolicyArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,25 +60,20 @@ data PermissionsBoundary = PermissionsBoundary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'managedPolicyArn', 'permissionsBoundary_managedPolicyArn' - The AWS managed policy ARN that you want to attach to a permission set
--- as a permissions boundary.
---
 -- 'customerManagedPolicyReference', 'permissionsBoundary_customerManagedPolicyReference' - Specifies the name and path of a customer managed policy. You must have
 -- an IAM policy that matches the name and path in each AWS account where
 -- you want to deploy your permission set.
+--
+-- 'managedPolicyArn', 'permissionsBoundary_managedPolicyArn' - The AWS managed policy ARN that you want to attach to a permission set
+-- as a permissions boundary.
 newPermissionsBoundary ::
   PermissionsBoundary
 newPermissionsBoundary =
   PermissionsBoundary'
-    { managedPolicyArn =
+    { customerManagedPolicyReference =
         Prelude.Nothing,
-      customerManagedPolicyReference = Prelude.Nothing
+      managedPolicyArn = Prelude.Nothing
     }
-
--- | The AWS managed policy ARN that you want to attach to a permission set
--- as a permissions boundary.
-permissionsBoundary_managedPolicyArn :: Lens.Lens' PermissionsBoundary (Prelude.Maybe Prelude.Text)
-permissionsBoundary_managedPolicyArn = Lens.lens (\PermissionsBoundary' {managedPolicyArn} -> managedPolicyArn) (\s@PermissionsBoundary' {} a -> s {managedPolicyArn = a} :: PermissionsBoundary)
 
 -- | Specifies the name and path of a customer managed policy. You must have
 -- an IAM policy that matches the name and path in each AWS account where
@@ -86,33 +81,39 @@ permissionsBoundary_managedPolicyArn = Lens.lens (\PermissionsBoundary' {managed
 permissionsBoundary_customerManagedPolicyReference :: Lens.Lens' PermissionsBoundary (Prelude.Maybe CustomerManagedPolicyReference)
 permissionsBoundary_customerManagedPolicyReference = Lens.lens (\PermissionsBoundary' {customerManagedPolicyReference} -> customerManagedPolicyReference) (\s@PermissionsBoundary' {} a -> s {customerManagedPolicyReference = a} :: PermissionsBoundary)
 
+-- | The AWS managed policy ARN that you want to attach to a permission set
+-- as a permissions boundary.
+permissionsBoundary_managedPolicyArn :: Lens.Lens' PermissionsBoundary (Prelude.Maybe Prelude.Text)
+permissionsBoundary_managedPolicyArn = Lens.lens (\PermissionsBoundary' {managedPolicyArn} -> managedPolicyArn) (\s@PermissionsBoundary' {} a -> s {managedPolicyArn = a} :: PermissionsBoundary)
+
 instance Data.FromJSON PermissionsBoundary where
   parseJSON =
     Data.withObject
       "PermissionsBoundary"
       ( \x ->
           PermissionsBoundary'
-            Prelude.<$> (x Data..:? "ManagedPolicyArn")
-            Prelude.<*> (x Data..:? "CustomerManagedPolicyReference")
+            Prelude.<$> (x Data..:? "CustomerManagedPolicyReference")
+            Prelude.<*> (x Data..:? "ManagedPolicyArn")
       )
 
 instance Prelude.Hashable PermissionsBoundary where
   hashWithSalt _salt PermissionsBoundary' {..} =
-    _salt `Prelude.hashWithSalt` managedPolicyArn
+    _salt
       `Prelude.hashWithSalt` customerManagedPolicyReference
+      `Prelude.hashWithSalt` managedPolicyArn
 
 instance Prelude.NFData PermissionsBoundary where
   rnf PermissionsBoundary' {..} =
-    Prelude.rnf managedPolicyArn
-      `Prelude.seq` Prelude.rnf customerManagedPolicyReference
+    Prelude.rnf customerManagedPolicyReference
+      `Prelude.seq` Prelude.rnf managedPolicyArn
 
 instance Data.ToJSON PermissionsBoundary where
   toJSON PermissionsBoundary' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ManagedPolicyArn" Data..=)
-              Prelude.<$> managedPolicyArn,
-            ("CustomerManagedPolicyReference" Data..=)
-              Prelude.<$> customerManagedPolicyReference
+          [ ("CustomerManagedPolicyReference" Data..=)
+              Prelude.<$> customerManagedPolicyReference,
+            ("ManagedPolicyArn" Data..=)
+              Prelude.<$> managedPolicyArn
           ]
       )

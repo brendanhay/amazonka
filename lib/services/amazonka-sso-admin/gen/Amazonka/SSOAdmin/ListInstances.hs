@@ -29,8 +29,8 @@ module Amazonka.SSOAdmin.ListInstances
     newListInstances,
 
     -- * Request Lenses
-    listInstances_nextToken,
     listInstances_maxResults,
+    listInstances_nextToken,
 
     -- * Destructuring the Response
     ListInstancesResponse (..),
@@ -53,11 +53,11 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newListInstances' smart constructor.
 data ListInstances = ListInstances'
-  { -- | The pagination token for the list API. Initially the value is null. Use
+  { -- | The maximum number of results to display for the instance.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token for the list API. Initially the value is null. Use
     -- the output of previous API calls to make subsequent calls.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to display for the instance.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,26 +69,26 @@ data ListInstances = ListInstances'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listInstances_maxResults' - The maximum number of results to display for the instance.
+--
 -- 'nextToken', 'listInstances_nextToken' - The pagination token for the list API. Initially the value is null. Use
 -- the output of previous API calls to make subsequent calls.
---
--- 'maxResults', 'listInstances_maxResults' - The maximum number of results to display for the instance.
 newListInstances ::
   ListInstances
 newListInstances =
   ListInstances'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of results to display for the instance.
+listInstances_maxResults :: Lens.Lens' ListInstances (Prelude.Maybe Prelude.Natural)
+listInstances_maxResults = Lens.lens (\ListInstances' {maxResults} -> maxResults) (\s@ListInstances' {} a -> s {maxResults = a} :: ListInstances)
 
 -- | The pagination token for the list API. Initially the value is null. Use
 -- the output of previous API calls to make subsequent calls.
 listInstances_nextToken :: Lens.Lens' ListInstances (Prelude.Maybe Prelude.Text)
 listInstances_nextToken = Lens.lens (\ListInstances' {nextToken} -> nextToken) (\s@ListInstances' {} a -> s {nextToken = a} :: ListInstances)
-
--- | The maximum number of results to display for the instance.
-listInstances_maxResults :: Lens.Lens' ListInstances (Prelude.Maybe Prelude.Natural)
-listInstances_maxResults = Lens.lens (\ListInstances' {maxResults} -> maxResults) (\s@ListInstances' {} a -> s {maxResults = a} :: ListInstances)
 
 instance Core.AWSPager ListInstances where
   page rq rs
@@ -126,13 +126,13 @@ instance Core.AWSRequest ListInstances where
 
 instance Prelude.Hashable ListInstances where
   hashWithSalt _salt ListInstances' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListInstances where
   rnf ListInstances' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListInstances where
   toHeaders =
@@ -153,8 +153,8 @@ instance Data.ToJSON ListInstances where
   toJSON ListInstances' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

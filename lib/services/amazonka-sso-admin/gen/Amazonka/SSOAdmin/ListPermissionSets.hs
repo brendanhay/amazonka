@@ -29,8 +29,8 @@ module Amazonka.SSOAdmin.ListPermissionSets
     newListPermissionSets,
 
     -- * Request Lenses
-    listPermissionSets_nextToken,
     listPermissionSets_maxResults,
+    listPermissionSets_nextToken,
     listPermissionSets_instanceArn,
 
     -- * Destructuring the Response
@@ -54,11 +54,11 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newListPermissionSets' smart constructor.
 data ListPermissionSets = ListPermissionSets'
-  { -- | The pagination token for the list API. Initially the value is null. Use
+  { -- | The maximum number of results to display for the assignment.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token for the list API. Initially the value is null. Use
     -- the output of previous API calls to make subsequent calls.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to display for the assignment.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of the IAM Identity Center instance under which the operation
     -- will be executed. For more information about ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
@@ -75,10 +75,10 @@ data ListPermissionSets = ListPermissionSets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listPermissionSets_maxResults' - The maximum number of results to display for the assignment.
+--
 -- 'nextToken', 'listPermissionSets_nextToken' - The pagination token for the list API. Initially the value is null. Use
 -- the output of previous API calls to make subsequent calls.
---
--- 'maxResults', 'listPermissionSets_maxResults' - The maximum number of results to display for the assignment.
 --
 -- 'instanceArn', 'listPermissionSets_instanceArn' - The ARN of the IAM Identity Center instance under which the operation
 -- will be executed. For more information about ARNs, see
@@ -90,19 +90,19 @@ newListPermissionSets ::
   ListPermissionSets
 newListPermissionSets pInstanceArn_ =
   ListPermissionSets'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       instanceArn = pInstanceArn_
     }
+
+-- | The maximum number of results to display for the assignment.
+listPermissionSets_maxResults :: Lens.Lens' ListPermissionSets (Prelude.Maybe Prelude.Natural)
+listPermissionSets_maxResults = Lens.lens (\ListPermissionSets' {maxResults} -> maxResults) (\s@ListPermissionSets' {} a -> s {maxResults = a} :: ListPermissionSets)
 
 -- | The pagination token for the list API. Initially the value is null. Use
 -- the output of previous API calls to make subsequent calls.
 listPermissionSets_nextToken :: Lens.Lens' ListPermissionSets (Prelude.Maybe Prelude.Text)
 listPermissionSets_nextToken = Lens.lens (\ListPermissionSets' {nextToken} -> nextToken) (\s@ListPermissionSets' {} a -> s {nextToken = a} :: ListPermissionSets)
-
--- | The maximum number of results to display for the assignment.
-listPermissionSets_maxResults :: Lens.Lens' ListPermissionSets (Prelude.Maybe Prelude.Natural)
-listPermissionSets_maxResults = Lens.lens (\ListPermissionSets' {maxResults} -> maxResults) (\s@ListPermissionSets' {} a -> s {maxResults = a} :: ListPermissionSets)
 
 -- | The ARN of the IAM Identity Center instance under which the operation
 -- will be executed. For more information about ARNs, see
@@ -150,14 +150,14 @@ instance Core.AWSRequest ListPermissionSets where
 
 instance Prelude.Hashable ListPermissionSets where
   hashWithSalt _salt ListPermissionSets' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceArn
 
 instance Prelude.NFData ListPermissionSets where
   rnf ListPermissionSets' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf instanceArn
 
 instance Data.ToHeaders ListPermissionSets where
@@ -179,8 +179,8 @@ instance Data.ToJSON ListPermissionSets where
   toJSON ListPermissionSets' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("InstanceArn" Data..= instanceArn)
           ]
       )

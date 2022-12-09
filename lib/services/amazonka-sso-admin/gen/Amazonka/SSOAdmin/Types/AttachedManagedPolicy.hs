@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAttachedManagedPolicy' smart constructor.
 data AttachedManagedPolicy = AttachedManagedPolicy'
-  { -- | The name of the AWS managed policy.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the AWS managed policy. For more information about ARNs, see
+  { -- | The ARN of the AWS managed policy. For more information about ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
     -- in the /AWS General Reference/.
-    arn :: Prelude.Maybe Prelude.Text
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the AWS managed policy.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,22 +45,18 @@ data AttachedManagedPolicy = AttachedManagedPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'attachedManagedPolicy_name' - The name of the AWS managed policy.
---
 -- 'arn', 'attachedManagedPolicy_arn' - The ARN of the AWS managed policy. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
 -- in the /AWS General Reference/.
+--
+-- 'name', 'attachedManagedPolicy_name' - The name of the AWS managed policy.
 newAttachedManagedPolicy ::
   AttachedManagedPolicy
 newAttachedManagedPolicy =
   AttachedManagedPolicy'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing
+    { arn = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of the AWS managed policy.
-attachedManagedPolicy_name :: Lens.Lens' AttachedManagedPolicy (Prelude.Maybe Prelude.Text)
-attachedManagedPolicy_name = Lens.lens (\AttachedManagedPolicy' {name} -> name) (\s@AttachedManagedPolicy' {} a -> s {name = a} :: AttachedManagedPolicy)
 
 -- | The ARN of the AWS managed policy. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
@@ -68,20 +64,24 @@ attachedManagedPolicy_name = Lens.lens (\AttachedManagedPolicy' {name} -> name) 
 attachedManagedPolicy_arn :: Lens.Lens' AttachedManagedPolicy (Prelude.Maybe Prelude.Text)
 attachedManagedPolicy_arn = Lens.lens (\AttachedManagedPolicy' {arn} -> arn) (\s@AttachedManagedPolicy' {} a -> s {arn = a} :: AttachedManagedPolicy)
 
+-- | The name of the AWS managed policy.
+attachedManagedPolicy_name :: Lens.Lens' AttachedManagedPolicy (Prelude.Maybe Prelude.Text)
+attachedManagedPolicy_name = Lens.lens (\AttachedManagedPolicy' {name} -> name) (\s@AttachedManagedPolicy' {} a -> s {name = a} :: AttachedManagedPolicy)
+
 instance Data.FromJSON AttachedManagedPolicy where
   parseJSON =
     Data.withObject
       "AttachedManagedPolicy"
       ( \x ->
           AttachedManagedPolicy'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn") Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable AttachedManagedPolicy where
   hashWithSalt _salt AttachedManagedPolicy' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData AttachedManagedPolicy where
   rnf AttachedManagedPolicy' {..} =
-    Prelude.rnf name `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf name

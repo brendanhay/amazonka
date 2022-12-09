@@ -30,8 +30,8 @@ module Amazonka.SSOAdmin.ListAccountAssignments
     newListAccountAssignments,
 
     -- * Request Lenses
-    listAccountAssignments_nextToken,
     listAccountAssignments_maxResults,
+    listAccountAssignments_nextToken,
     listAccountAssignments_instanceArn,
     listAccountAssignments_accountId,
     listAccountAssignments_permissionSetArn,
@@ -41,8 +41,8 @@ module Amazonka.SSOAdmin.ListAccountAssignments
     newListAccountAssignmentsResponse,
 
     -- * Response Lenses
-    listAccountAssignmentsResponse_nextToken,
     listAccountAssignmentsResponse_accountAssignments,
+    listAccountAssignmentsResponse_nextToken,
     listAccountAssignmentsResponse_httpStatus,
   )
 where
@@ -57,11 +57,11 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newListAccountAssignments' smart constructor.
 data ListAccountAssignments = ListAccountAssignments'
-  { -- | The pagination token for the list API. Initially the value is null. Use
+  { -- | The maximum number of results to display for the assignment.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token for the list API. Initially the value is null. Use
     -- the output of previous API calls to make subsequent calls.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to display for the assignment.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of the IAM Identity Center instance under which the operation
     -- will be executed. For more information about ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
@@ -82,10 +82,10 @@ data ListAccountAssignments = ListAccountAssignments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listAccountAssignments_maxResults' - The maximum number of results to display for the assignment.
+--
 -- 'nextToken', 'listAccountAssignments_nextToken' - The pagination token for the list API. Initially the value is null. Use
 -- the output of previous API calls to make subsequent calls.
---
--- 'maxResults', 'listAccountAssignments_maxResults' - The maximum number of results to display for the assignment.
 --
 -- 'instanceArn', 'listAccountAssignments_instanceArn' - The ARN of the IAM Identity Center instance under which the operation
 -- will be executed. For more information about ARNs, see
@@ -108,22 +108,22 @@ newListAccountAssignments
   pAccountId_
   pPermissionSetArn_ =
     ListAccountAssignments'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         instanceArn = pInstanceArn_,
         accountId = pAccountId_,
         permissionSetArn = pPermissionSetArn_
       }
 
+-- | The maximum number of results to display for the assignment.
+listAccountAssignments_maxResults :: Lens.Lens' ListAccountAssignments (Prelude.Maybe Prelude.Natural)
+listAccountAssignments_maxResults = Lens.lens (\ListAccountAssignments' {maxResults} -> maxResults) (\s@ListAccountAssignments' {} a -> s {maxResults = a} :: ListAccountAssignments)
+
 -- | The pagination token for the list API. Initially the value is null. Use
 -- the output of previous API calls to make subsequent calls.
 listAccountAssignments_nextToken :: Lens.Lens' ListAccountAssignments (Prelude.Maybe Prelude.Text)
 listAccountAssignments_nextToken = Lens.lens (\ListAccountAssignments' {nextToken} -> nextToken) (\s@ListAccountAssignments' {} a -> s {nextToken = a} :: ListAccountAssignments)
-
--- | The maximum number of results to display for the assignment.
-listAccountAssignments_maxResults :: Lens.Lens' ListAccountAssignments (Prelude.Maybe Prelude.Natural)
-listAccountAssignments_maxResults = Lens.lens (\ListAccountAssignments' {maxResults} -> maxResults) (\s@ListAccountAssignments' {} a -> s {maxResults = a} :: ListAccountAssignments)
 
 -- | The ARN of the IAM Identity Center instance under which the operation
 -- will be executed. For more information about ARNs, see
@@ -172,25 +172,25 @@ instance Core.AWSRequest ListAccountAssignments where
     Response.receiveJSON
       ( \s h x ->
           ListAccountAssignmentsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "AccountAssignments"
+            Prelude.<$> ( x Data..?> "AccountAssignments"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListAccountAssignments where
   hashWithSalt _salt ListAccountAssignments' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceArn
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` permissionSetArn
 
 instance Prelude.NFData ListAccountAssignments where
   rnf ListAccountAssignments' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf instanceArn
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf permissionSetArn
@@ -214,8 +214,8 @@ instance Data.ToJSON ListAccountAssignments where
   toJSON ListAccountAssignments' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("InstanceArn" Data..= instanceArn),
             Prelude.Just ("AccountId" Data..= accountId),
             Prelude.Just
@@ -231,12 +231,12 @@ instance Data.ToQuery ListAccountAssignments where
 
 -- | /See:/ 'newListAccountAssignmentsResponse' smart constructor.
 data ListAccountAssignmentsResponse = ListAccountAssignmentsResponse'
-  { -- | The pagination token for the list API. Initially the value is null. Use
-    -- the output of previous API calls to make subsequent calls.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of assignments that match the input AWS account and permission
+  { -- | The list of assignments that match the input AWS account and permission
     -- set.
     accountAssignments :: Prelude.Maybe [AccountAssignment],
+    -- | The pagination token for the list API. Initially the value is null. Use
+    -- the output of previous API calls to make subsequent calls.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -250,11 +250,11 @@ data ListAccountAssignmentsResponse = ListAccountAssignmentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAccountAssignmentsResponse_nextToken' - The pagination token for the list API. Initially the value is null. Use
--- the output of previous API calls to make subsequent calls.
---
 -- 'accountAssignments', 'listAccountAssignmentsResponse_accountAssignments' - The list of assignments that match the input AWS account and permission
 -- set.
+--
+-- 'nextToken', 'listAccountAssignmentsResponse_nextToken' - The pagination token for the list API. Initially the value is null. Use
+-- the output of previous API calls to make subsequent calls.
 --
 -- 'httpStatus', 'listAccountAssignmentsResponse_httpStatus' - The response's http status code.
 newListAccountAssignmentsResponse ::
@@ -263,21 +263,21 @@ newListAccountAssignmentsResponse ::
   ListAccountAssignmentsResponse
 newListAccountAssignmentsResponse pHttpStatus_ =
   ListAccountAssignmentsResponse'
-    { nextToken =
+    { accountAssignments =
         Prelude.Nothing,
-      accountAssignments = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The pagination token for the list API. Initially the value is null. Use
--- the output of previous API calls to make subsequent calls.
-listAccountAssignmentsResponse_nextToken :: Lens.Lens' ListAccountAssignmentsResponse (Prelude.Maybe Prelude.Text)
-listAccountAssignmentsResponse_nextToken = Lens.lens (\ListAccountAssignmentsResponse' {nextToken} -> nextToken) (\s@ListAccountAssignmentsResponse' {} a -> s {nextToken = a} :: ListAccountAssignmentsResponse)
 
 -- | The list of assignments that match the input AWS account and permission
 -- set.
 listAccountAssignmentsResponse_accountAssignments :: Lens.Lens' ListAccountAssignmentsResponse (Prelude.Maybe [AccountAssignment])
 listAccountAssignmentsResponse_accountAssignments = Lens.lens (\ListAccountAssignmentsResponse' {accountAssignments} -> accountAssignments) (\s@ListAccountAssignmentsResponse' {} a -> s {accountAssignments = a} :: ListAccountAssignmentsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pagination token for the list API. Initially the value is null. Use
+-- the output of previous API calls to make subsequent calls.
+listAccountAssignmentsResponse_nextToken :: Lens.Lens' ListAccountAssignmentsResponse (Prelude.Maybe Prelude.Text)
+listAccountAssignmentsResponse_nextToken = Lens.lens (\ListAccountAssignmentsResponse' {nextToken} -> nextToken) (\s@ListAccountAssignmentsResponse' {} a -> s {nextToken = a} :: ListAccountAssignmentsResponse)
 
 -- | The response's http status code.
 listAccountAssignmentsResponse_httpStatus :: Lens.Lens' ListAccountAssignmentsResponse Prelude.Int
@@ -288,6 +288,6 @@ instance
     ListAccountAssignmentsResponse
   where
   rnf ListAccountAssignmentsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf accountAssignments
+    Prelude.rnf accountAssignments
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

@@ -30,8 +30,8 @@ module Amazonka.SSOAdmin.ListCustomerManagedPolicyReferencesInPermissionSet
     newListCustomerManagedPolicyReferencesInPermissionSet,
 
     -- * Request Lenses
-    listCustomerManagedPolicyReferencesInPermissionSet_nextToken,
     listCustomerManagedPolicyReferencesInPermissionSet_maxResults,
+    listCustomerManagedPolicyReferencesInPermissionSet_nextToken,
     listCustomerManagedPolicyReferencesInPermissionSet_instanceArn,
     listCustomerManagedPolicyReferencesInPermissionSet_permissionSetArn,
 
@@ -40,8 +40,8 @@ module Amazonka.SSOAdmin.ListCustomerManagedPolicyReferencesInPermissionSet
     newListCustomerManagedPolicyReferencesInPermissionSetResponse,
 
     -- * Response Lenses
-    listCustomerManagedPolicyReferencesInPermissionSetResponse_nextToken,
     listCustomerManagedPolicyReferencesInPermissionSetResponse_customerManagedPolicyReferences,
+    listCustomerManagedPolicyReferencesInPermissionSetResponse_nextToken,
     listCustomerManagedPolicyReferencesInPermissionSetResponse_httpStatus,
   )
 where
@@ -56,11 +56,11 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newListCustomerManagedPolicyReferencesInPermissionSet' smart constructor.
 data ListCustomerManagedPolicyReferencesInPermissionSet = ListCustomerManagedPolicyReferencesInPermissionSet'
-  { -- | The pagination token for the list API. Initially the value is null. Use
+  { -- | The maximum number of results to display for the list call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token for the list API. Initially the value is null. Use
     -- the output of previous API calls to make subsequent calls.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to display for the list call.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of the IAM Identity Center instance under which the operation
     -- will be executed.
     instanceArn :: Prelude.Text,
@@ -77,10 +77,10 @@ data ListCustomerManagedPolicyReferencesInPermissionSet = ListCustomerManagedPol
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listCustomerManagedPolicyReferencesInPermissionSet_maxResults' - The maximum number of results to display for the list call.
+--
 -- 'nextToken', 'listCustomerManagedPolicyReferencesInPermissionSet_nextToken' - The pagination token for the list API. Initially the value is null. Use
 -- the output of previous API calls to make subsequent calls.
---
--- 'maxResults', 'listCustomerManagedPolicyReferencesInPermissionSet_maxResults' - The maximum number of results to display for the list call.
 --
 -- 'instanceArn', 'listCustomerManagedPolicyReferencesInPermissionSet_instanceArn' - The ARN of the IAM Identity Center instance under which the operation
 -- will be executed.
@@ -96,9 +96,9 @@ newListCustomerManagedPolicyReferencesInPermissionSet
   pInstanceArn_
   pPermissionSetArn_ =
     ListCustomerManagedPolicyReferencesInPermissionSet'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults =
+        nextToken =
           Prelude.Nothing,
         instanceArn =
           pInstanceArn_,
@@ -106,14 +106,14 @@ newListCustomerManagedPolicyReferencesInPermissionSet
           pPermissionSetArn_
       }
 
+-- | The maximum number of results to display for the list call.
+listCustomerManagedPolicyReferencesInPermissionSet_maxResults :: Lens.Lens' ListCustomerManagedPolicyReferencesInPermissionSet (Prelude.Maybe Prelude.Natural)
+listCustomerManagedPolicyReferencesInPermissionSet_maxResults = Lens.lens (\ListCustomerManagedPolicyReferencesInPermissionSet' {maxResults} -> maxResults) (\s@ListCustomerManagedPolicyReferencesInPermissionSet' {} a -> s {maxResults = a} :: ListCustomerManagedPolicyReferencesInPermissionSet)
+
 -- | The pagination token for the list API. Initially the value is null. Use
 -- the output of previous API calls to make subsequent calls.
 listCustomerManagedPolicyReferencesInPermissionSet_nextToken :: Lens.Lens' ListCustomerManagedPolicyReferencesInPermissionSet (Prelude.Maybe Prelude.Text)
 listCustomerManagedPolicyReferencesInPermissionSet_nextToken = Lens.lens (\ListCustomerManagedPolicyReferencesInPermissionSet' {nextToken} -> nextToken) (\s@ListCustomerManagedPolicyReferencesInPermissionSet' {} a -> s {nextToken = a} :: ListCustomerManagedPolicyReferencesInPermissionSet)
-
--- | The maximum number of results to display for the list call.
-listCustomerManagedPolicyReferencesInPermissionSet_maxResults :: Lens.Lens' ListCustomerManagedPolicyReferencesInPermissionSet (Prelude.Maybe Prelude.Natural)
-listCustomerManagedPolicyReferencesInPermissionSet_maxResults = Lens.lens (\ListCustomerManagedPolicyReferencesInPermissionSet' {maxResults} -> maxResults) (\s@ListCustomerManagedPolicyReferencesInPermissionSet' {} a -> s {maxResults = a} :: ListCustomerManagedPolicyReferencesInPermissionSet)
 
 -- | The ARN of the IAM Identity Center instance under which the operation
 -- will be executed.
@@ -163,10 +163,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListCustomerManagedPolicyReferencesInPermissionSetResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> ( x Data..?> "CustomerManagedPolicyReferences"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<$> ( x Data..?> "CustomerManagedPolicyReferences"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Data..?> "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,8 +177,8 @@ instance
   hashWithSalt
     _salt
     ListCustomerManagedPolicyReferencesInPermissionSet' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` instanceArn
         `Prelude.hashWithSalt` permissionSetArn
 
@@ -188,8 +188,8 @@ instance
   where
   rnf
     ListCustomerManagedPolicyReferencesInPermissionSet' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf maxResults
+      Prelude.rnf maxResults
+        `Prelude.seq` Prelude.rnf nextToken
         `Prelude.seq` Prelude.rnf instanceArn
         `Prelude.seq` Prelude.rnf permissionSetArn
 
@@ -219,8 +219,8 @@ instance
     ListCustomerManagedPolicyReferencesInPermissionSet' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("NextToken" Data..=) Prelude.<$> nextToken,
-              ("MaxResults" Data..=) Prelude.<$> maxResults,
+            [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+              ("NextToken" Data..=) Prelude.<$> nextToken,
               Prelude.Just ("InstanceArn" Data..= instanceArn),
               Prelude.Just
                 ("PermissionSetArn" Data..= permissionSetArn)
@@ -241,12 +241,12 @@ instance
 
 -- | /See:/ 'newListCustomerManagedPolicyReferencesInPermissionSetResponse' smart constructor.
 data ListCustomerManagedPolicyReferencesInPermissionSetResponse = ListCustomerManagedPolicyReferencesInPermissionSetResponse'
-  { -- | The pagination token for the list API. Initially the value is null. Use
-    -- the output of previous API calls to make subsequent calls.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the names and paths of the customer managed policies that you
+  { -- | Specifies the names and paths of the customer managed policies that you
     -- have attached to your permission set.
     customerManagedPolicyReferences :: Prelude.Maybe [CustomerManagedPolicyReference],
+    -- | The pagination token for the list API. Initially the value is null. Use
+    -- the output of previous API calls to make subsequent calls.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -260,11 +260,11 @@ data ListCustomerManagedPolicyReferencesInPermissionSetResponse = ListCustomerMa
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCustomerManagedPolicyReferencesInPermissionSetResponse_nextToken' - The pagination token for the list API. Initially the value is null. Use
--- the output of previous API calls to make subsequent calls.
---
 -- 'customerManagedPolicyReferences', 'listCustomerManagedPolicyReferencesInPermissionSetResponse_customerManagedPolicyReferences' - Specifies the names and paths of the customer managed policies that you
 -- have attached to your permission set.
+--
+-- 'nextToken', 'listCustomerManagedPolicyReferencesInPermissionSetResponse_nextToken' - The pagination token for the list API. Initially the value is null. Use
+-- the output of previous API calls to make subsequent calls.
 --
 -- 'httpStatus', 'listCustomerManagedPolicyReferencesInPermissionSetResponse_httpStatus' - The response's http status code.
 newListCustomerManagedPolicyReferencesInPermissionSetResponse ::
@@ -274,23 +274,23 @@ newListCustomerManagedPolicyReferencesInPermissionSetResponse ::
 newListCustomerManagedPolicyReferencesInPermissionSetResponse
   pHttpStatus_ =
     ListCustomerManagedPolicyReferencesInPermissionSetResponse'
-      { nextToken =
+      { customerManagedPolicyReferences =
           Prelude.Nothing,
-        customerManagedPolicyReferences =
+        nextToken =
           Prelude.Nothing,
         httpStatus =
           pHttpStatus_
       }
 
--- | The pagination token for the list API. Initially the value is null. Use
--- the output of previous API calls to make subsequent calls.
-listCustomerManagedPolicyReferencesInPermissionSetResponse_nextToken :: Lens.Lens' ListCustomerManagedPolicyReferencesInPermissionSetResponse (Prelude.Maybe Prelude.Text)
-listCustomerManagedPolicyReferencesInPermissionSetResponse_nextToken = Lens.lens (\ListCustomerManagedPolicyReferencesInPermissionSetResponse' {nextToken} -> nextToken) (\s@ListCustomerManagedPolicyReferencesInPermissionSetResponse' {} a -> s {nextToken = a} :: ListCustomerManagedPolicyReferencesInPermissionSetResponse)
-
 -- | Specifies the names and paths of the customer managed policies that you
 -- have attached to your permission set.
 listCustomerManagedPolicyReferencesInPermissionSetResponse_customerManagedPolicyReferences :: Lens.Lens' ListCustomerManagedPolicyReferencesInPermissionSetResponse (Prelude.Maybe [CustomerManagedPolicyReference])
 listCustomerManagedPolicyReferencesInPermissionSetResponse_customerManagedPolicyReferences = Lens.lens (\ListCustomerManagedPolicyReferencesInPermissionSetResponse' {customerManagedPolicyReferences} -> customerManagedPolicyReferences) (\s@ListCustomerManagedPolicyReferencesInPermissionSetResponse' {} a -> s {customerManagedPolicyReferences = a} :: ListCustomerManagedPolicyReferencesInPermissionSetResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pagination token for the list API. Initially the value is null. Use
+-- the output of previous API calls to make subsequent calls.
+listCustomerManagedPolicyReferencesInPermissionSetResponse_nextToken :: Lens.Lens' ListCustomerManagedPolicyReferencesInPermissionSetResponse (Prelude.Maybe Prelude.Text)
+listCustomerManagedPolicyReferencesInPermissionSetResponse_nextToken = Lens.lens (\ListCustomerManagedPolicyReferencesInPermissionSetResponse' {nextToken} -> nextToken) (\s@ListCustomerManagedPolicyReferencesInPermissionSetResponse' {} a -> s {nextToken = a} :: ListCustomerManagedPolicyReferencesInPermissionSetResponse)
 
 -- | The response's http status code.
 listCustomerManagedPolicyReferencesInPermissionSetResponse_httpStatus :: Lens.Lens' ListCustomerManagedPolicyReferencesInPermissionSetResponse Prelude.Int
@@ -302,6 +302,6 @@ instance
   where
   rnf
     ListCustomerManagedPolicyReferencesInPermissionSetResponse' {..} =
-      Prelude.rnf nextToken
-        `Prelude.seq` Prelude.rnf customerManagedPolicyReferences
+      Prelude.rnf customerManagedPolicyReferences
+        `Prelude.seq` Prelude.rnf nextToken
         `Prelude.seq` Prelude.rnf httpStatus

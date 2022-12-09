@@ -28,14 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceMetadata' smart constructor.
 data InstanceMetadata = InstanceMetadata'
-  { -- | The ARN of the IAM Identity Center instance under which the operation
+  { -- | The identifier of the identity store that is connected to the IAM
+    -- Identity Center instance.
+    identityStoreId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the IAM Identity Center instance under which the operation
     -- will be executed. For more information about ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
     -- in the /AWS General Reference/.
-    instanceArn :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the identity store that is connected to the IAM
-    -- Identity Center instance.
-    identityStoreId :: Prelude.Maybe Prelude.Text
+    instanceArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,20 +47,26 @@ data InstanceMetadata = InstanceMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'identityStoreId', 'instanceMetadata_identityStoreId' - The identifier of the identity store that is connected to the IAM
+-- Identity Center instance.
+--
 -- 'instanceArn', 'instanceMetadata_instanceArn' - The ARN of the IAM Identity Center instance under which the operation
 -- will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
 -- in the /AWS General Reference/.
---
--- 'identityStoreId', 'instanceMetadata_identityStoreId' - The identifier of the identity store that is connected to the IAM
--- Identity Center instance.
 newInstanceMetadata ::
   InstanceMetadata
 newInstanceMetadata =
   InstanceMetadata'
-    { instanceArn = Prelude.Nothing,
-      identityStoreId = Prelude.Nothing
+    { identityStoreId =
+        Prelude.Nothing,
+      instanceArn = Prelude.Nothing
     }
+
+-- | The identifier of the identity store that is connected to the IAM
+-- Identity Center instance.
+instanceMetadata_identityStoreId :: Lens.Lens' InstanceMetadata (Prelude.Maybe Prelude.Text)
+instanceMetadata_identityStoreId = Lens.lens (\InstanceMetadata' {identityStoreId} -> identityStoreId) (\s@InstanceMetadata' {} a -> s {identityStoreId = a} :: InstanceMetadata)
 
 -- | The ARN of the IAM Identity Center instance under which the operation
 -- will be executed. For more information about ARNs, see
@@ -69,27 +75,22 @@ newInstanceMetadata =
 instanceMetadata_instanceArn :: Lens.Lens' InstanceMetadata (Prelude.Maybe Prelude.Text)
 instanceMetadata_instanceArn = Lens.lens (\InstanceMetadata' {instanceArn} -> instanceArn) (\s@InstanceMetadata' {} a -> s {instanceArn = a} :: InstanceMetadata)
 
--- | The identifier of the identity store that is connected to the IAM
--- Identity Center instance.
-instanceMetadata_identityStoreId :: Lens.Lens' InstanceMetadata (Prelude.Maybe Prelude.Text)
-instanceMetadata_identityStoreId = Lens.lens (\InstanceMetadata' {identityStoreId} -> identityStoreId) (\s@InstanceMetadata' {} a -> s {identityStoreId = a} :: InstanceMetadata)
-
 instance Data.FromJSON InstanceMetadata where
   parseJSON =
     Data.withObject
       "InstanceMetadata"
       ( \x ->
           InstanceMetadata'
-            Prelude.<$> (x Data..:? "InstanceArn")
-            Prelude.<*> (x Data..:? "IdentityStoreId")
+            Prelude.<$> (x Data..:? "IdentityStoreId")
+            Prelude.<*> (x Data..:? "InstanceArn")
       )
 
 instance Prelude.Hashable InstanceMetadata where
   hashWithSalt _salt InstanceMetadata' {..} =
-    _salt `Prelude.hashWithSalt` instanceArn
-      `Prelude.hashWithSalt` identityStoreId
+    _salt `Prelude.hashWithSalt` identityStoreId
+      `Prelude.hashWithSalt` instanceArn
 
 instance Prelude.NFData InstanceMetadata where
   rnf InstanceMetadata' {..} =
-    Prelude.rnf instanceArn
-      `Prelude.seq` Prelude.rnf identityStoreId
+    Prelude.rnf identityStoreId
+      `Prelude.seq` Prelude.rnf instanceArn

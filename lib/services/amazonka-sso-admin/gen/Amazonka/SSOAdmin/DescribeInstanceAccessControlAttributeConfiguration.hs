@@ -41,8 +41,8 @@ module Amazonka.SSOAdmin.DescribeInstanceAccessControlAttributeConfiguration
 
     -- * Response Lenses
     describeInstanceAccessControlAttributeConfigurationResponse_instanceAccessControlAttributeConfiguration,
-    describeInstanceAccessControlAttributeConfigurationResponse_statusReason,
     describeInstanceAccessControlAttributeConfigurationResponse_status,
+    describeInstanceAccessControlAttributeConfigurationResponse_statusReason,
     describeInstanceAccessControlAttributeConfigurationResponse_httpStatus,
   )
 where
@@ -106,8 +106,8 @@ instance
             Prelude.<$> ( x
                             Data..?> "InstanceAccessControlAttributeConfiguration"
                         )
-              Prelude.<*> (x Data..?> "StatusReason")
               Prelude.<*> (x Data..?> "Status")
+              Prelude.<*> (x Data..?> "StatusReason")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,11 +174,11 @@ data DescribeInstanceAccessControlAttributeConfigurationResponse = DescribeInsta
   { -- | Gets the list of IAM Identity Center identity store attributes that have
     -- been added to your ABAC configuration.
     instanceAccessControlAttributeConfiguration :: Prelude.Maybe InstanceAccessControlAttributeConfiguration,
+    -- | The status of the attribute configuration process.
+    status :: Prelude.Maybe InstanceAccessControlAttributeConfigurationStatus,
     -- | Provides more details about the current status of the specified
     -- attribute.
     statusReason :: Prelude.Maybe Prelude.Text,
-    -- | The status of the attribute configuration process.
-    status :: Prelude.Maybe InstanceAccessControlAttributeConfigurationStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -195,10 +195,10 @@ data DescribeInstanceAccessControlAttributeConfigurationResponse = DescribeInsta
 -- 'instanceAccessControlAttributeConfiguration', 'describeInstanceAccessControlAttributeConfigurationResponse_instanceAccessControlAttributeConfiguration' - Gets the list of IAM Identity Center identity store attributes that have
 -- been added to your ABAC configuration.
 --
+-- 'status', 'describeInstanceAccessControlAttributeConfigurationResponse_status' - The status of the attribute configuration process.
+--
 -- 'statusReason', 'describeInstanceAccessControlAttributeConfigurationResponse_statusReason' - Provides more details about the current status of the specified
 -- attribute.
---
--- 'status', 'describeInstanceAccessControlAttributeConfigurationResponse_status' - The status of the attribute configuration process.
 --
 -- 'httpStatus', 'describeInstanceAccessControlAttributeConfigurationResponse_httpStatus' - The response's http status code.
 newDescribeInstanceAccessControlAttributeConfigurationResponse ::
@@ -210,9 +210,9 @@ newDescribeInstanceAccessControlAttributeConfigurationResponse
     DescribeInstanceAccessControlAttributeConfigurationResponse'
       { instanceAccessControlAttributeConfiguration =
           Prelude.Nothing,
-        statusReason =
-          Prelude.Nothing,
         status =
+          Prelude.Nothing,
+        statusReason =
           Prelude.Nothing,
         httpStatus =
           pHttpStatus_
@@ -223,14 +223,14 @@ newDescribeInstanceAccessControlAttributeConfigurationResponse
 describeInstanceAccessControlAttributeConfigurationResponse_instanceAccessControlAttributeConfiguration :: Lens.Lens' DescribeInstanceAccessControlAttributeConfigurationResponse (Prelude.Maybe InstanceAccessControlAttributeConfiguration)
 describeInstanceAccessControlAttributeConfigurationResponse_instanceAccessControlAttributeConfiguration = Lens.lens (\DescribeInstanceAccessControlAttributeConfigurationResponse' {instanceAccessControlAttributeConfiguration} -> instanceAccessControlAttributeConfiguration) (\s@DescribeInstanceAccessControlAttributeConfigurationResponse' {} a -> s {instanceAccessControlAttributeConfiguration = a} :: DescribeInstanceAccessControlAttributeConfigurationResponse)
 
+-- | The status of the attribute configuration process.
+describeInstanceAccessControlAttributeConfigurationResponse_status :: Lens.Lens' DescribeInstanceAccessControlAttributeConfigurationResponse (Prelude.Maybe InstanceAccessControlAttributeConfigurationStatus)
+describeInstanceAccessControlAttributeConfigurationResponse_status = Lens.lens (\DescribeInstanceAccessControlAttributeConfigurationResponse' {status} -> status) (\s@DescribeInstanceAccessControlAttributeConfigurationResponse' {} a -> s {status = a} :: DescribeInstanceAccessControlAttributeConfigurationResponse)
+
 -- | Provides more details about the current status of the specified
 -- attribute.
 describeInstanceAccessControlAttributeConfigurationResponse_statusReason :: Lens.Lens' DescribeInstanceAccessControlAttributeConfigurationResponse (Prelude.Maybe Prelude.Text)
 describeInstanceAccessControlAttributeConfigurationResponse_statusReason = Lens.lens (\DescribeInstanceAccessControlAttributeConfigurationResponse' {statusReason} -> statusReason) (\s@DescribeInstanceAccessControlAttributeConfigurationResponse' {} a -> s {statusReason = a} :: DescribeInstanceAccessControlAttributeConfigurationResponse)
-
--- | The status of the attribute configuration process.
-describeInstanceAccessControlAttributeConfigurationResponse_status :: Lens.Lens' DescribeInstanceAccessControlAttributeConfigurationResponse (Prelude.Maybe InstanceAccessControlAttributeConfigurationStatus)
-describeInstanceAccessControlAttributeConfigurationResponse_status = Lens.lens (\DescribeInstanceAccessControlAttributeConfigurationResponse' {status} -> status) (\s@DescribeInstanceAccessControlAttributeConfigurationResponse' {} a -> s {status = a} :: DescribeInstanceAccessControlAttributeConfigurationResponse)
 
 -- | The response's http status code.
 describeInstanceAccessControlAttributeConfigurationResponse_httpStatus :: Lens.Lens' DescribeInstanceAccessControlAttributeConfigurationResponse Prelude.Int
@@ -244,6 +244,6 @@ instance
     DescribeInstanceAccessControlAttributeConfigurationResponse' {..} =
       Prelude.rnf
         instanceAccessControlAttributeConfiguration
-        `Prelude.seq` Prelude.rnf statusReason
         `Prelude.seq` Prelude.rnf status
+        `Prelude.seq` Prelude.rnf statusReason
         `Prelude.seq` Prelude.rnf httpStatus

@@ -59,8 +59,8 @@ module Amazonka.Detective.CreateMembers
     newCreateMembers,
 
     -- * Request Lenses
-    createMembers_message,
     createMembers_disableEmailNotification,
+    createMembers_message,
     createMembers_graphArn,
     createMembers_accounts,
 
@@ -69,8 +69,8 @@ module Amazonka.Detective.CreateMembers
     newCreateMembersResponse,
 
     -- * Response Lenses
-    createMembersResponse_unprocessedAccounts,
     createMembersResponse_members,
+    createMembersResponse_unprocessedAccounts,
     createMembersResponse_httpStatus,
   )
 where
@@ -85,16 +85,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateMembers' smart constructor.
 data CreateMembers = CreateMembers'
-  { -- | Customized message text to include in the invitation email message to
-    -- the invited member accounts.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | if set to @true@, then the invited accounts do not receive email
+  { -- | if set to @true@, then the invited accounts do not receive email
     -- notifications. By default, this is set to @false@, and the invited
     -- accounts receive email notifications.
     --
     -- Organization accounts in the organization behavior graph do not receive
     -- email notifications.
     disableEmailNotification :: Prelude.Maybe Prelude.Bool,
+    -- | Customized message text to include in the invitation email message to
+    -- the invited member accounts.
+    message :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the behavior graph.
     graphArn :: Prelude.Text,
     -- | The list of Amazon Web Services accounts to invite or to enable. You can
@@ -114,15 +114,15 @@ data CreateMembers = CreateMembers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'createMembers_message' - Customized message text to include in the invitation email message to
--- the invited member accounts.
---
 -- 'disableEmailNotification', 'createMembers_disableEmailNotification' - if set to @true@, then the invited accounts do not receive email
 -- notifications. By default, this is set to @false@, and the invited
 -- accounts receive email notifications.
 --
 -- Organization accounts in the organization behavior graph do not receive
 -- email notifications.
+--
+-- 'message', 'createMembers_message' - Customized message text to include in the invitation email message to
+-- the invited member accounts.
 --
 -- 'graphArn', 'createMembers_graphArn' - The ARN of the behavior graph.
 --
@@ -139,16 +139,12 @@ newCreateMembers ::
   CreateMembers
 newCreateMembers pGraphArn_ pAccounts_ =
   CreateMembers'
-    { message = Prelude.Nothing,
-      disableEmailNotification = Prelude.Nothing,
+    { disableEmailNotification =
+        Prelude.Nothing,
+      message = Prelude.Nothing,
       graphArn = pGraphArn_,
       accounts = Lens.coerced Lens.# pAccounts_
     }
-
--- | Customized message text to include in the invitation email message to
--- the invited member accounts.
-createMembers_message :: Lens.Lens' CreateMembers (Prelude.Maybe Prelude.Text)
-createMembers_message = Lens.lens (\CreateMembers' {message} -> message) (\s@CreateMembers' {} a -> s {message = a} :: CreateMembers)
 
 -- | if set to @true@, then the invited accounts do not receive email
 -- notifications. By default, this is set to @false@, and the invited
@@ -158,6 +154,11 @@ createMembers_message = Lens.lens (\CreateMembers' {message} -> message) (\s@Cre
 -- email notifications.
 createMembers_disableEmailNotification :: Lens.Lens' CreateMembers (Prelude.Maybe Prelude.Bool)
 createMembers_disableEmailNotification = Lens.lens (\CreateMembers' {disableEmailNotification} -> disableEmailNotification) (\s@CreateMembers' {} a -> s {disableEmailNotification = a} :: CreateMembers)
+
+-- | Customized message text to include in the invitation email message to
+-- the invited member accounts.
+createMembers_message :: Lens.Lens' CreateMembers (Prelude.Maybe Prelude.Text)
+createMembers_message = Lens.lens (\CreateMembers' {message} -> message) (\s@CreateMembers' {} a -> s {message = a} :: CreateMembers)
 
 -- | The ARN of the behavior graph.
 createMembers_graphArn :: Lens.Lens' CreateMembers Prelude.Text
@@ -181,24 +182,25 @@ instance Core.AWSRequest CreateMembers where
     Response.receiveJSON
       ( \s h x ->
           CreateMembersResponse'
-            Prelude.<$> ( x Data..?> "UnprocessedAccounts"
+            Prelude.<$> (x Data..?> "Members" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Data..?> "UnprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Data..?> "Members" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateMembers where
   hashWithSalt _salt CreateMembers' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
       `Prelude.hashWithSalt` disableEmailNotification
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` graphArn
       `Prelude.hashWithSalt` accounts
 
 instance Prelude.NFData CreateMembers where
   rnf CreateMembers' {..} =
-    Prelude.rnf message
-      `Prelude.seq` Prelude.rnf disableEmailNotification
+    Prelude.rnf disableEmailNotification
+      `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf graphArn
       `Prelude.seq` Prelude.rnf accounts
 
@@ -217,9 +219,9 @@ instance Data.ToJSON CreateMembers where
   toJSON CreateMembers' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Message" Data..=) Prelude.<$> message,
-            ("DisableEmailNotification" Data..=)
+          [ ("DisableEmailNotification" Data..=)
               Prelude.<$> disableEmailNotification,
+            ("Message" Data..=) Prelude.<$> message,
             Prelude.Just ("GraphArn" Data..= graphArn),
             Prelude.Just ("Accounts" Data..= accounts)
           ]
@@ -233,16 +235,16 @@ instance Data.ToQuery CreateMembers where
 
 -- | /See:/ 'newCreateMembersResponse' smart constructor.
 data CreateMembersResponse = CreateMembersResponse'
-  { -- | The list of accounts for which Detective was unable to process the
-    -- invitation or enablement request. For each account, the list provides
-    -- the reason why the request could not be processed. The list includes
-    -- accounts that are already member accounts in the behavior graph.
-    unprocessedAccounts :: Prelude.Maybe [UnprocessedAccount],
-    -- | The set of member account invitation or enablement requests that
+  { -- | The set of member account invitation or enablement requests that
     -- Detective was able to process. This includes accounts that are being
     -- verified, that failed verification, and that passed verification and are
     -- being sent an invitation or are being enabled.
     members :: Prelude.Maybe [MemberDetail],
+    -- | The list of accounts for which Detective was unable to process the
+    -- invitation or enablement request. For each account, the list provides
+    -- the reason why the request could not be processed. The list includes
+    -- accounts that are already member accounts in the behavior graph.
+    unprocessedAccounts :: Prelude.Maybe [UnprocessedAccount],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -256,15 +258,15 @@ data CreateMembersResponse = CreateMembersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'unprocessedAccounts', 'createMembersResponse_unprocessedAccounts' - The list of accounts for which Detective was unable to process the
--- invitation or enablement request. For each account, the list provides
--- the reason why the request could not be processed. The list includes
--- accounts that are already member accounts in the behavior graph.
---
 -- 'members', 'createMembersResponse_members' - The set of member account invitation or enablement requests that
 -- Detective was able to process. This includes accounts that are being
 -- verified, that failed verification, and that passed verification and are
 -- being sent an invitation or are being enabled.
+--
+-- 'unprocessedAccounts', 'createMembersResponse_unprocessedAccounts' - The list of accounts for which Detective was unable to process the
+-- invitation or enablement request. For each account, the list provides
+-- the reason why the request could not be processed. The list includes
+-- accounts that are already member accounts in the behavior graph.
 --
 -- 'httpStatus', 'createMembersResponse_httpStatus' - The response's http status code.
 newCreateMembersResponse ::
@@ -273,18 +275,10 @@ newCreateMembersResponse ::
   CreateMembersResponse
 newCreateMembersResponse pHttpStatus_ =
   CreateMembersResponse'
-    { unprocessedAccounts =
-        Prelude.Nothing,
-      members = Prelude.Nothing,
+    { members = Prelude.Nothing,
+      unprocessedAccounts = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The list of accounts for which Detective was unable to process the
--- invitation or enablement request. For each account, the list provides
--- the reason why the request could not be processed. The list includes
--- accounts that are already member accounts in the behavior graph.
-createMembersResponse_unprocessedAccounts :: Lens.Lens' CreateMembersResponse (Prelude.Maybe [UnprocessedAccount])
-createMembersResponse_unprocessedAccounts = Lens.lens (\CreateMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@CreateMembersResponse' {} a -> s {unprocessedAccounts = a} :: CreateMembersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The set of member account invitation or enablement requests that
 -- Detective was able to process. This includes accounts that are being
@@ -293,12 +287,19 @@ createMembersResponse_unprocessedAccounts = Lens.lens (\CreateMembersResponse' {
 createMembersResponse_members :: Lens.Lens' CreateMembersResponse (Prelude.Maybe [MemberDetail])
 createMembersResponse_members = Lens.lens (\CreateMembersResponse' {members} -> members) (\s@CreateMembersResponse' {} a -> s {members = a} :: CreateMembersResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The list of accounts for which Detective was unable to process the
+-- invitation or enablement request. For each account, the list provides
+-- the reason why the request could not be processed. The list includes
+-- accounts that are already member accounts in the behavior graph.
+createMembersResponse_unprocessedAccounts :: Lens.Lens' CreateMembersResponse (Prelude.Maybe [UnprocessedAccount])
+createMembersResponse_unprocessedAccounts = Lens.lens (\CreateMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@CreateMembersResponse' {} a -> s {unprocessedAccounts = a} :: CreateMembersResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 createMembersResponse_httpStatus :: Lens.Lens' CreateMembersResponse Prelude.Int
 createMembersResponse_httpStatus = Lens.lens (\CreateMembersResponse' {httpStatus} -> httpStatus) (\s@CreateMembersResponse' {} a -> s {httpStatus = a} :: CreateMembersResponse)
 
 instance Prelude.NFData CreateMembersResponse where
   rnf CreateMembersResponse' {..} =
-    Prelude.rnf unprocessedAccounts
-      `Prelude.seq` Prelude.rnf members
+    Prelude.rnf members
+      `Prelude.seq` Prelude.rnf unprocessedAccounts
       `Prelude.seq` Prelude.rnf httpStatus

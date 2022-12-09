@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGraph' smart constructor.
 data Graph = Graph'
-  { -- | The date and time that the behavior graph was created. The value is an
+  { -- | The ARN of the behavior graph.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the behavior graph was created. The value is an
     -- ISO8601 formatted string. For example, @2021-08-18T16:35:56.284Z@.
-    createdTime :: Prelude.Maybe Data.POSIX,
-    -- | The ARN of the behavior graph.
-    arn :: Prelude.Maybe Prelude.Text
+    createdTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,26 +44,26 @@ data Graph = Graph'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'arn', 'graph_arn' - The ARN of the behavior graph.
+--
 -- 'createdTime', 'graph_createdTime' - The date and time that the behavior graph was created. The value is an
 -- ISO8601 formatted string. For example, @2021-08-18T16:35:56.284Z@.
---
--- 'arn', 'graph_arn' - The ARN of the behavior graph.
 newGraph ::
   Graph
 newGraph =
   Graph'
-    { createdTime = Prelude.Nothing,
-      arn = Prelude.Nothing
+    { arn = Prelude.Nothing,
+      createdTime = Prelude.Nothing
     }
+
+-- | The ARN of the behavior graph.
+graph_arn :: Lens.Lens' Graph (Prelude.Maybe Prelude.Text)
+graph_arn = Lens.lens (\Graph' {arn} -> arn) (\s@Graph' {} a -> s {arn = a} :: Graph)
 
 -- | The date and time that the behavior graph was created. The value is an
 -- ISO8601 formatted string. For example, @2021-08-18T16:35:56.284Z@.
 graph_createdTime :: Lens.Lens' Graph (Prelude.Maybe Prelude.UTCTime)
 graph_createdTime = Lens.lens (\Graph' {createdTime} -> createdTime) (\s@Graph' {} a -> s {createdTime = a} :: Graph) Prelude.. Lens.mapping Data._Time
-
--- | The ARN of the behavior graph.
-graph_arn :: Lens.Lens' Graph (Prelude.Maybe Prelude.Text)
-graph_arn = Lens.lens (\Graph' {arn} -> arn) (\s@Graph' {} a -> s {arn = a} :: Graph)
 
 instance Data.FromJSON Graph where
   parseJSON =
@@ -71,16 +71,16 @@ instance Data.FromJSON Graph where
       "Graph"
       ( \x ->
           Graph'
-            Prelude.<$> (x Data..:? "CreatedTime")
-            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "CreatedTime")
       )
 
 instance Prelude.Hashable Graph where
   hashWithSalt _salt Graph' {..} =
-    _salt `Prelude.hashWithSalt` createdTime
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdTime
 
 instance Prelude.NFData Graph where
   rnf Graph' {..} =
-    Prelude.rnf createdTime
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdTime

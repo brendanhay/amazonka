@@ -20,14 +20,14 @@ module Amazonka.Detective.Lens
     -- ** BatchGetGraphMemberDatasources
     batchGetGraphMemberDatasources_graphArn,
     batchGetGraphMemberDatasources_accountIds,
-    batchGetGraphMemberDatasourcesResponse_unprocessedAccounts,
     batchGetGraphMemberDatasourcesResponse_memberDatasources,
+    batchGetGraphMemberDatasourcesResponse_unprocessedAccounts,
     batchGetGraphMemberDatasourcesResponse_httpStatus,
 
     -- ** BatchGetMembershipDatasources
     batchGetMembershipDatasources_graphArns,
-    batchGetMembershipDatasourcesResponse_unprocessedGraphs,
     batchGetMembershipDatasourcesResponse_membershipDatasources,
+    batchGetMembershipDatasourcesResponse_unprocessedGraphs,
     batchGetMembershipDatasourcesResponse_httpStatus,
 
     -- ** CreateGraph
@@ -36,12 +36,12 @@ module Amazonka.Detective.Lens
     createGraphResponse_httpStatus,
 
     -- ** CreateMembers
-    createMembers_message,
     createMembers_disableEmailNotification,
+    createMembers_message,
     createMembers_graphArn,
     createMembers_accounts,
-    createMembersResponse_unprocessedAccounts,
     createMembersResponse_members,
+    createMembersResponse_unprocessedAccounts,
     createMembersResponse_httpStatus,
 
     -- ** DeleteGraph
@@ -70,45 +70,45 @@ module Amazonka.Detective.Lens
     -- ** GetMembers
     getMembers_graphArn,
     getMembers_accountIds,
-    getMembersResponse_unprocessedAccounts,
     getMembersResponse_memberDetails,
+    getMembersResponse_unprocessedAccounts,
     getMembersResponse_httpStatus,
 
     -- ** ListDatasourcePackages
-    listDatasourcePackages_nextToken,
     listDatasourcePackages_maxResults,
+    listDatasourcePackages_nextToken,
     listDatasourcePackages_graphArn,
     listDatasourcePackagesResponse_datasourcePackages,
     listDatasourcePackagesResponse_nextToken,
     listDatasourcePackagesResponse_httpStatus,
 
     -- ** ListGraphs
-    listGraphs_nextToken,
     listGraphs_maxResults,
-    listGraphsResponse_nextToken,
+    listGraphs_nextToken,
     listGraphsResponse_graphList,
+    listGraphsResponse_nextToken,
     listGraphsResponse_httpStatus,
 
     -- ** ListInvitations
-    listInvitations_nextToken,
     listInvitations_maxResults,
+    listInvitations_nextToken,
     listInvitationsResponse_invitations,
     listInvitationsResponse_nextToken,
     listInvitationsResponse_httpStatus,
 
     -- ** ListMembers
-    listMembers_nextToken,
     listMembers_maxResults,
+    listMembers_nextToken,
     listMembers_graphArn,
-    listMembersResponse_nextToken,
     listMembersResponse_memberDetails,
+    listMembersResponse_nextToken,
     listMembersResponse_httpStatus,
 
     -- ** ListOrganizationAdminAccounts
-    listOrganizationAdminAccounts_nextToken,
     listOrganizationAdminAccounts_maxResults,
-    listOrganizationAdminAccountsResponse_nextToken,
+    listOrganizationAdminAccounts_nextToken,
     listOrganizationAdminAccountsResponse_administrators,
+    listOrganizationAdminAccountsResponse_nextToken,
     listOrganizationAdminAccountsResponse_httpStatus,
 
     -- ** ListTagsForResource
@@ -148,9 +148,9 @@ module Amazonka.Detective.Lens
     account_emailAddress,
 
     -- ** Administrator
-    administrator_graphArn,
     administrator_accountId,
     administrator_delegationTime,
+    administrator_graphArn,
 
     -- ** DatasourcePackageIngestDetail
     datasourcePackageIngestDetail_datasourcePackageIngestState,
@@ -161,31 +161,31 @@ module Amazonka.Detective.Lens
     datasourcePackageUsageInfo_volumeUsageUpdateTime,
 
     -- ** Graph
-    graph_createdTime,
     graph_arn,
+    graph_createdTime,
 
     -- ** MemberDetail
-    memberDetail_percentOfGraphUtilization,
-    memberDetail_volumeUsageInBytes,
-    memberDetail_invitedTime,
-    memberDetail_graphArn,
-    memberDetail_administratorId,
-    memberDetail_disabledReason,
-    memberDetail_status,
-    memberDetail_volumeUsageByDatasourcePackage,
-    memberDetail_percentOfGraphUtilizationUpdatedTime,
     memberDetail_accountId,
-    memberDetail_volumeUsageUpdatedTime,
-    memberDetail_masterId,
-    memberDetail_invitationType,
-    memberDetail_emailAddress,
-    memberDetail_updatedTime,
+    memberDetail_administratorId,
     memberDetail_datasourcePackageIngestStates,
+    memberDetail_disabledReason,
+    memberDetail_emailAddress,
+    memberDetail_graphArn,
+    memberDetail_invitationType,
+    memberDetail_invitedTime,
+    memberDetail_masterId,
+    memberDetail_percentOfGraphUtilization,
+    memberDetail_percentOfGraphUtilizationUpdatedTime,
+    memberDetail_status,
+    memberDetail_updatedTime,
+    memberDetail_volumeUsageByDatasourcePackage,
+    memberDetail_volumeUsageInBytes,
+    memberDetail_volumeUsageUpdatedTime,
 
     -- ** MembershipDatasources
+    membershipDatasources_accountId,
     membershipDatasources_datasourcePackageIngestHistory,
     membershipDatasources_graphArn,
-    membershipDatasources_accountId,
 
     -- ** TimestampForCollection
     timestampForCollection_timestamp,

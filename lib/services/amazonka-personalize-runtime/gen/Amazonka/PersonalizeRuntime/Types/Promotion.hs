@@ -29,11 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPromotion' smart constructor.
 data Promotion = Promotion'
-  { -- | The name of the promotion.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The percentage of recommended items to apply the promotion to.
-    percentPromotedItems :: Prelude.Maybe Prelude.Natural,
-    -- | The Amazon Resource Name (ARN) of the filter used by the promotion. This
+  { -- | The Amazon Resource Name (ARN) of the filter used by the promotion. This
     -- filter defines the criteria for promoted items. For more information,
     -- see
     -- <https://docs.aws.amazon.com/personalize/latest/dg/promoting-items.html#promotion-filters Promotion filters>.
@@ -52,7 +48,11 @@ data Promotion = Promotion'
     --
     -- For more information on creating filters, see
     -- <https://docs.aws.amazon.com/personalize/latest/dg/filter.html Filtering recommendations and user segments>.
-    filterValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text))
+    filterValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text)),
+    -- | The name of the promotion.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The percentage of recommended items to apply the promotion to.
+    percentPromotedItems :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -63,10 +63,6 @@ data Promotion = Promotion'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'name', 'promotion_name' - The name of the promotion.
---
--- 'percentPromotedItems', 'promotion_percentPromotedItems' - The percentage of recommended items to apply the promotion to.
 --
 -- 'filterArn', 'promotion_filterArn' - The Amazon Resource Name (ARN) of the filter used by the promotion. This
 -- filter defines the criteria for promoted items. For more information,
@@ -87,23 +83,19 @@ data Promotion = Promotion'
 --
 -- For more information on creating filters, see
 -- <https://docs.aws.amazon.com/personalize/latest/dg/filter.html Filtering recommendations and user segments>.
+--
+-- 'name', 'promotion_name' - The name of the promotion.
+--
+-- 'percentPromotedItems', 'promotion_percentPromotedItems' - The percentage of recommended items to apply the promotion to.
 newPromotion ::
   Promotion
 newPromotion =
   Promotion'
-    { name = Prelude.Nothing,
-      percentPromotedItems = Prelude.Nothing,
-      filterArn = Prelude.Nothing,
-      filterValues = Prelude.Nothing
+    { filterArn = Prelude.Nothing,
+      filterValues = Prelude.Nothing,
+      name = Prelude.Nothing,
+      percentPromotedItems = Prelude.Nothing
     }
-
--- | The name of the promotion.
-promotion_name :: Lens.Lens' Promotion (Prelude.Maybe Prelude.Text)
-promotion_name = Lens.lens (\Promotion' {name} -> name) (\s@Promotion' {} a -> s {name = a} :: Promotion)
-
--- | The percentage of recommended items to apply the promotion to.
-promotion_percentPromotedItems :: Lens.Lens' Promotion (Prelude.Maybe Prelude.Natural)
-promotion_percentPromotedItems = Lens.lens (\Promotion' {percentPromotedItems} -> percentPromotedItems) (\s@Promotion' {} a -> s {percentPromotedItems = a} :: Promotion)
 
 -- | The Amazon Resource Name (ARN) of the filter used by the promotion. This
 -- filter defines the criteria for promoted items. For more information,
@@ -129,28 +121,36 @@ promotion_filterArn = Lens.lens (\Promotion' {filterArn} -> filterArn) (\s@Promo
 promotion_filterValues :: Lens.Lens' Promotion (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 promotion_filterValues = Lens.lens (\Promotion' {filterValues} -> filterValues) (\s@Promotion' {} a -> s {filterValues = a} :: Promotion) Prelude.. Lens.mapping Lens.coerced
 
+-- | The name of the promotion.
+promotion_name :: Lens.Lens' Promotion (Prelude.Maybe Prelude.Text)
+promotion_name = Lens.lens (\Promotion' {name} -> name) (\s@Promotion' {} a -> s {name = a} :: Promotion)
+
+-- | The percentage of recommended items to apply the promotion to.
+promotion_percentPromotedItems :: Lens.Lens' Promotion (Prelude.Maybe Prelude.Natural)
+promotion_percentPromotedItems = Lens.lens (\Promotion' {percentPromotedItems} -> percentPromotedItems) (\s@Promotion' {} a -> s {percentPromotedItems = a} :: Promotion)
+
 instance Prelude.Hashable Promotion where
   hashWithSalt _salt Promotion' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` percentPromotedItems
-      `Prelude.hashWithSalt` filterArn
+    _salt `Prelude.hashWithSalt` filterArn
       `Prelude.hashWithSalt` filterValues
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` percentPromotedItems
 
 instance Prelude.NFData Promotion where
   rnf Promotion' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf percentPromotedItems
-      `Prelude.seq` Prelude.rnf filterArn
+    Prelude.rnf filterArn
       `Prelude.seq` Prelude.rnf filterValues
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf percentPromotedItems
 
 instance Data.ToJSON Promotion where
   toJSON Promotion' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
+          [ ("filterArn" Data..=) Prelude.<$> filterArn,
+            ("filterValues" Data..=) Prelude.<$> filterValues,
+            ("name" Data..=) Prelude.<$> name,
             ("percentPromotedItems" Data..=)
-              Prelude.<$> percentPromotedItems,
-            ("filterArn" Data..=) Prelude.<$> filterArn,
-            ("filterValues" Data..=) Prelude.<$> filterValues
+              Prelude.<$> percentPromotedItems
           ]
       )

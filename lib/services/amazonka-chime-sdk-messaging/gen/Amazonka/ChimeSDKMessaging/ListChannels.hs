@@ -40,9 +40,9 @@ module Amazonka.ChimeSDKMessaging.ListChannels
     newListChannels,
 
     -- * Request Lenses
+    listChannels_maxResults,
     listChannels_nextToken,
     listChannels_privacy,
-    listChannels_maxResults,
     listChannels_appInstanceArn,
     listChannels_chimeBearer,
 
@@ -51,8 +51,8 @@ module Amazonka.ChimeSDKMessaging.ListChannels
     newListChannelsResponse,
 
     -- * Response Lenses
-    listChannelsResponse_nextToken,
     listChannelsResponse_channels,
+    listChannelsResponse_nextToken,
     listChannelsResponse_httpStatus,
   )
 where
@@ -67,15 +67,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListChannels' smart constructor.
 data ListChannels = ListChannels'
-  { -- | The token passed by previous API calls until all requested channels are
+  { -- | The maximum number of channels that you want to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token passed by previous API calls until all requested channels are
     -- returned.
     nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The privacy setting. @PUBLIC@ retrieves all the public channels.
     -- @PRIVATE@ retrieves private channels. Only an @AppInstanceAdmin@ can
     -- retrieve private channels.
     privacy :: Prelude.Maybe ChannelPrivacy,
-    -- | The maximum number of channels that you want to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of the @AppInstance@.
     appInstanceArn :: Prelude.Text,
     -- | The @AppInstanceUserArn@ of the user that makes the API call.
@@ -91,14 +91,14 @@ data ListChannels = ListChannels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listChannels_maxResults' - The maximum number of channels that you want to return.
+--
 -- 'nextToken', 'listChannels_nextToken' - The token passed by previous API calls until all requested channels are
 -- returned.
 --
 -- 'privacy', 'listChannels_privacy' - The privacy setting. @PUBLIC@ retrieves all the public channels.
 -- @PRIVATE@ retrieves private channels. Only an @AppInstanceAdmin@ can
 -- retrieve private channels.
---
--- 'maxResults', 'listChannels_maxResults' - The maximum number of channels that you want to return.
 --
 -- 'appInstanceArn', 'listChannels_appInstanceArn' - The ARN of the @AppInstance@.
 --
@@ -111,12 +111,16 @@ newListChannels ::
   ListChannels
 newListChannels pAppInstanceArn_ pChimeBearer_ =
   ListChannels'
-    { nextToken = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       privacy = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       appInstanceArn = pAppInstanceArn_,
       chimeBearer = pChimeBearer_
     }
+
+-- | The maximum number of channels that you want to return.
+listChannels_maxResults :: Lens.Lens' ListChannels (Prelude.Maybe Prelude.Natural)
+listChannels_maxResults = Lens.lens (\ListChannels' {maxResults} -> maxResults) (\s@ListChannels' {} a -> s {maxResults = a} :: ListChannels)
 
 -- | The token passed by previous API calls until all requested channels are
 -- returned.
@@ -128,10 +132,6 @@ listChannels_nextToken = Lens.lens (\ListChannels' {nextToken} -> nextToken) (\s
 -- retrieve private channels.
 listChannels_privacy :: Lens.Lens' ListChannels (Prelude.Maybe ChannelPrivacy)
 listChannels_privacy = Lens.lens (\ListChannels' {privacy} -> privacy) (\s@ListChannels' {} a -> s {privacy = a} :: ListChannels)
-
--- | The maximum number of channels that you want to return.
-listChannels_maxResults :: Lens.Lens' ListChannels (Prelude.Maybe Prelude.Natural)
-listChannels_maxResults = Lens.lens (\ListChannels' {maxResults} -> maxResults) (\s@ListChannels' {} a -> s {maxResults = a} :: ListChannels)
 
 -- | The ARN of the @AppInstance@.
 listChannels_appInstanceArn :: Lens.Lens' ListChannels Prelude.Text
@@ -149,24 +149,24 @@ instance Core.AWSRequest ListChannels where
     Response.receiveJSON
       ( \s h x ->
           ListChannelsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Channels" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Channels" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListChannels where
   hashWithSalt _salt ListChannels' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` privacy
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` appInstanceArn
       `Prelude.hashWithSalt` chimeBearer
 
 instance Prelude.NFData ListChannels where
   rnf ListChannels' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf privacy
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf appInstanceArn
       `Prelude.seq` Prelude.rnf chimeBearer
 
@@ -181,19 +181,19 @@ instance Data.ToPath ListChannels where
 instance Data.ToQuery ListChannels where
   toQuery ListChannels' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken,
         "privacy" Data.=: privacy,
-        "max-results" Data.=: maxResults,
         "app-instance-arn" Data.=: appInstanceArn
       ]
 
 -- | /See:/ 'newListChannelsResponse' smart constructor.
 data ListChannelsResponse = ListChannelsResponse'
-  { -- | The token returned from previous API requests until the number of
+  { -- | The information about each channel.
+    channels :: Prelude.Maybe [ChannelSummary],
+    -- | The token returned from previous API requests until the number of
     -- channels is reached.
     nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The information about each channel.
-    channels :: Prelude.Maybe [ChannelSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -207,10 +207,10 @@ data ListChannelsResponse = ListChannelsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'channels', 'listChannelsResponse_channels' - The information about each channel.
+--
 -- 'nextToken', 'listChannelsResponse_nextToken' - The token returned from previous API requests until the number of
 -- channels is reached.
---
--- 'channels', 'listChannelsResponse_channels' - The information about each channel.
 --
 -- 'httpStatus', 'listChannelsResponse_httpStatus' - The response's http status code.
 newListChannelsResponse ::
@@ -219,19 +219,19 @@ newListChannelsResponse ::
   ListChannelsResponse
 newListChannelsResponse pHttpStatus_ =
   ListChannelsResponse'
-    { nextToken = Prelude.Nothing,
-      channels = Prelude.Nothing,
+    { channels = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The information about each channel.
+listChannelsResponse_channels :: Lens.Lens' ListChannelsResponse (Prelude.Maybe [ChannelSummary])
+listChannelsResponse_channels = Lens.lens (\ListChannelsResponse' {channels} -> channels) (\s@ListChannelsResponse' {} a -> s {channels = a} :: ListChannelsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token returned from previous API requests until the number of
 -- channels is reached.
 listChannelsResponse_nextToken :: Lens.Lens' ListChannelsResponse (Prelude.Maybe Prelude.Text)
 listChannelsResponse_nextToken = Lens.lens (\ListChannelsResponse' {nextToken} -> nextToken) (\s@ListChannelsResponse' {} a -> s {nextToken = a} :: ListChannelsResponse) Prelude.. Lens.mapping Data._Sensitive
-
--- | The information about each channel.
-listChannelsResponse_channels :: Lens.Lens' ListChannelsResponse (Prelude.Maybe [ChannelSummary])
-listChannelsResponse_channels = Lens.lens (\ListChannelsResponse' {channels} -> channels) (\s@ListChannelsResponse' {} a -> s {channels = a} :: ListChannelsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listChannelsResponse_httpStatus :: Lens.Lens' ListChannelsResponse Prelude.Int
@@ -239,6 +239,6 @@ listChannelsResponse_httpStatus = Lens.lens (\ListChannelsResponse' {httpStatus}
 
 instance Prelude.NFData ListChannelsResponse where
   rnf ListChannelsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf channels
+    Prelude.rnf channels
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

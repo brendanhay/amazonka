@@ -30,17 +30,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChannelMessageCallback' smart constructor.
 data ChannelMessageCallback = ChannelMessageCallback'
-  { -- | The message metadata.
-    metadata :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The ID of the SubChannel.
-    subChannelId :: Prelude.Maybe Prelude.Text,
+  { -- | The message content.
+    content :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The attributes for the message, used for message filtering along with a
     -- @FilterRule@ defined in the @PushNotificationPreferences@.
     messageAttributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue),
+    -- | The message metadata.
+    metadata :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The push notification configuration of the message.
     pushNotification :: Prelude.Maybe PushNotificationConfiguration,
-    -- | The message content.
-    content :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The ID of the SubChannel.
+    subChannelId :: Prelude.Maybe Prelude.Text,
     -- | The message ID.
     messageId :: Prelude.Text
   }
@@ -54,16 +54,16 @@ data ChannelMessageCallback = ChannelMessageCallback'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metadata', 'channelMessageCallback_metadata' - The message metadata.
---
--- 'subChannelId', 'channelMessageCallback_subChannelId' - The ID of the SubChannel.
+-- 'content', 'channelMessageCallback_content' - The message content.
 --
 -- 'messageAttributes', 'channelMessageCallback_messageAttributes' - The attributes for the message, used for message filtering along with a
 -- @FilterRule@ defined in the @PushNotificationPreferences@.
 --
+-- 'metadata', 'channelMessageCallback_metadata' - The message metadata.
+--
 -- 'pushNotification', 'channelMessageCallback_pushNotification' - The push notification configuration of the message.
 --
--- 'content', 'channelMessageCallback_content' - The message content.
+-- 'subChannelId', 'channelMessageCallback_subChannelId' - The ID of the SubChannel.
 --
 -- 'messageId', 'channelMessageCallback_messageId' - The message ID.
 newChannelMessageCallback ::
@@ -72,34 +72,34 @@ newChannelMessageCallback ::
   ChannelMessageCallback
 newChannelMessageCallback pMessageId_ =
   ChannelMessageCallback'
-    { metadata = Prelude.Nothing,
-      subChannelId = Prelude.Nothing,
+    { content = Prelude.Nothing,
       messageAttributes = Prelude.Nothing,
+      metadata = Prelude.Nothing,
       pushNotification = Prelude.Nothing,
-      content = Prelude.Nothing,
+      subChannelId = Prelude.Nothing,
       messageId = pMessageId_
     }
 
--- | The message metadata.
-channelMessageCallback_metadata :: Lens.Lens' ChannelMessageCallback (Prelude.Maybe Prelude.Text)
-channelMessageCallback_metadata = Lens.lens (\ChannelMessageCallback' {metadata} -> metadata) (\s@ChannelMessageCallback' {} a -> s {metadata = a} :: ChannelMessageCallback) Prelude.. Lens.mapping Data._Sensitive
-
--- | The ID of the SubChannel.
-channelMessageCallback_subChannelId :: Lens.Lens' ChannelMessageCallback (Prelude.Maybe Prelude.Text)
-channelMessageCallback_subChannelId = Lens.lens (\ChannelMessageCallback' {subChannelId} -> subChannelId) (\s@ChannelMessageCallback' {} a -> s {subChannelId = a} :: ChannelMessageCallback)
+-- | The message content.
+channelMessageCallback_content :: Lens.Lens' ChannelMessageCallback (Prelude.Maybe Prelude.Text)
+channelMessageCallback_content = Lens.lens (\ChannelMessageCallback' {content} -> content) (\s@ChannelMessageCallback' {} a -> s {content = a} :: ChannelMessageCallback) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The attributes for the message, used for message filtering along with a
 -- @FilterRule@ defined in the @PushNotificationPreferences@.
 channelMessageCallback_messageAttributes :: Lens.Lens' ChannelMessageCallback (Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue))
 channelMessageCallback_messageAttributes = Lens.lens (\ChannelMessageCallback' {messageAttributes} -> messageAttributes) (\s@ChannelMessageCallback' {} a -> s {messageAttributes = a} :: ChannelMessageCallback) Prelude.. Lens.mapping Lens.coerced
 
+-- | The message metadata.
+channelMessageCallback_metadata :: Lens.Lens' ChannelMessageCallback (Prelude.Maybe Prelude.Text)
+channelMessageCallback_metadata = Lens.lens (\ChannelMessageCallback' {metadata} -> metadata) (\s@ChannelMessageCallback' {} a -> s {metadata = a} :: ChannelMessageCallback) Prelude.. Lens.mapping Data._Sensitive
+
 -- | The push notification configuration of the message.
 channelMessageCallback_pushNotification :: Lens.Lens' ChannelMessageCallback (Prelude.Maybe PushNotificationConfiguration)
 channelMessageCallback_pushNotification = Lens.lens (\ChannelMessageCallback' {pushNotification} -> pushNotification) (\s@ChannelMessageCallback' {} a -> s {pushNotification = a} :: ChannelMessageCallback)
 
--- | The message content.
-channelMessageCallback_content :: Lens.Lens' ChannelMessageCallback (Prelude.Maybe Prelude.Text)
-channelMessageCallback_content = Lens.lens (\ChannelMessageCallback' {content} -> content) (\s@ChannelMessageCallback' {} a -> s {content = a} :: ChannelMessageCallback) Prelude.. Lens.mapping Data._Sensitive
+-- | The ID of the SubChannel.
+channelMessageCallback_subChannelId :: Lens.Lens' ChannelMessageCallback (Prelude.Maybe Prelude.Text)
+channelMessageCallback_subChannelId = Lens.lens (\ChannelMessageCallback' {subChannelId} -> subChannelId) (\s@ChannelMessageCallback' {} a -> s {subChannelId = a} :: ChannelMessageCallback)
 
 -- | The message ID.
 channelMessageCallback_messageId :: Lens.Lens' ChannelMessageCallback Prelude.Text
@@ -107,33 +107,33 @@ channelMessageCallback_messageId = Lens.lens (\ChannelMessageCallback' {messageI
 
 instance Prelude.Hashable ChannelMessageCallback where
   hashWithSalt _salt ChannelMessageCallback' {..} =
-    _salt `Prelude.hashWithSalt` metadata
-      `Prelude.hashWithSalt` subChannelId
+    _salt `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` messageAttributes
+      `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` pushNotification
-      `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` subChannelId
       `Prelude.hashWithSalt` messageId
 
 instance Prelude.NFData ChannelMessageCallback where
   rnf ChannelMessageCallback' {..} =
-    Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf subChannelId
+    Prelude.rnf content
       `Prelude.seq` Prelude.rnf messageAttributes
+      `Prelude.seq` Prelude.rnf metadata
       `Prelude.seq` Prelude.rnf pushNotification
-      `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf subChannelId
       `Prelude.seq` Prelude.rnf messageId
 
 instance Data.ToJSON ChannelMessageCallback where
   toJSON ChannelMessageCallback' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Metadata" Data..=) Prelude.<$> metadata,
-            ("SubChannelId" Data..=) Prelude.<$> subChannelId,
+          [ ("Content" Data..=) Prelude.<$> content,
             ("MessageAttributes" Data..=)
               Prelude.<$> messageAttributes,
+            ("Metadata" Data..=) Prelude.<$> metadata,
             ("PushNotification" Data..=)
               Prelude.<$> pushNotification,
-            ("Content" Data..=) Prelude.<$> content,
+            ("SubChannelId" Data..=) Prelude.<$> subChannelId,
             Prelude.Just ("MessageId" Data..= messageId)
           ]
       )

@@ -20,13 +20,13 @@ module Amazonka.ChimeSDKMessaging.Lens
     associateChannelFlow_chimeBearer,
 
     -- ** BatchCreateChannelMembership
-    batchCreateChannelMembership_type,
     batchCreateChannelMembership_subChannelId,
+    batchCreateChannelMembership_type,
     batchCreateChannelMembership_channelArn,
     batchCreateChannelMembership_memberArns,
     batchCreateChannelMembership_chimeBearer,
-    batchCreateChannelMembershipResponse_errors,
     batchCreateChannelMembershipResponse_batchChannelMemberships,
+    batchCreateChannelMembershipResponse_errors,
     batchCreateChannelMembershipResponse_httpStatus,
 
     -- ** ChannelFlowCallback
@@ -34,19 +34,19 @@ module Amazonka.ChimeSDKMessaging.Lens
     channelFlowCallback_callbackId,
     channelFlowCallback_channelArn,
     channelFlowCallback_channelMessage,
-    channelFlowCallbackResponse_channelArn,
     channelFlowCallbackResponse_callbackId,
+    channelFlowCallbackResponse_channelArn,
     channelFlowCallbackResponse_httpStatus,
 
     -- ** CreateChannel
-    createChannel_tags,
-    createChannel_elasticChannelConfiguration,
-    createChannel_metadata,
-    createChannel_moderatorArns,
-    createChannel_memberArns,
-    createChannel_privacy,
     createChannel_channelId,
+    createChannel_elasticChannelConfiguration,
+    createChannel_memberArns,
+    createChannel_metadata,
     createChannel_mode,
+    createChannel_moderatorArns,
+    createChannel_privacy,
+    createChannel_tags,
     createChannel_appInstanceArn,
     createChannel_name,
     createChannel_clientRequestToken,
@@ -58,8 +58,8 @@ module Amazonka.ChimeSDKMessaging.Lens
     createChannelBan_channelArn,
     createChannelBan_memberArn,
     createChannelBan_chimeBearer,
-    createChannelBanResponse_member,
     createChannelBanResponse_channelArn,
+    createChannelBanResponse_member,
     createChannelBanResponse_httpStatus,
 
     -- ** CreateChannelFlow
@@ -77,9 +77,9 @@ module Amazonka.ChimeSDKMessaging.Lens
     createChannelMembership_memberArn,
     createChannelMembership_type,
     createChannelMembership_chimeBearer,
+    createChannelMembershipResponse_channelArn,
     createChannelMembershipResponse_member,
     createChannelMembershipResponse_subChannelId,
-    createChannelMembershipResponse_channelArn,
     createChannelMembershipResponse_httpStatus,
 
     -- ** CreateChannelModerator
@@ -176,9 +176,9 @@ module Amazonka.ChimeSDKMessaging.Lens
     getChannelMembershipPreferences_channelArn,
     getChannelMembershipPreferences_memberArn,
     getChannelMembershipPreferences_chimeBearer,
+    getChannelMembershipPreferencesResponse_channelArn,
     getChannelMembershipPreferencesResponse_member,
     getChannelMembershipPreferencesResponse_preferences,
-    getChannelMembershipPreferencesResponse_channelArn,
     getChannelMembershipPreferencesResponse_httpStatus,
 
     -- ** GetChannelMessage
@@ -202,103 +202,103 @@ module Amazonka.ChimeSDKMessaging.Lens
     getMessagingSessionEndpointResponse_httpStatus,
 
     -- ** ListChannelBans
-    listChannelBans_nextToken,
     listChannelBans_maxResults,
+    listChannelBans_nextToken,
     listChannelBans_channelArn,
     listChannelBans_chimeBearer,
-    listChannelBansResponse_nextToken,
-    listChannelBansResponse_channelBans,
     listChannelBansResponse_channelArn,
+    listChannelBansResponse_channelBans,
+    listChannelBansResponse_nextToken,
     listChannelBansResponse_httpStatus,
 
     -- ** ListChannelFlows
-    listChannelFlows_nextToken,
     listChannelFlows_maxResults,
+    listChannelFlows_nextToken,
     listChannelFlows_appInstanceArn,
     listChannelFlowsResponse_channelFlows,
     listChannelFlowsResponse_nextToken,
     listChannelFlowsResponse_httpStatus,
 
     -- ** ListChannelMemberships
-    listChannelMemberships_nextToken,
-    listChannelMemberships_type,
-    listChannelMemberships_subChannelId,
     listChannelMemberships_maxResults,
+    listChannelMemberships_nextToken,
+    listChannelMemberships_subChannelId,
+    listChannelMemberships_type,
     listChannelMemberships_channelArn,
     listChannelMemberships_chimeBearer,
-    listChannelMembershipsResponse_nextToken,
     listChannelMembershipsResponse_channelArn,
     listChannelMembershipsResponse_channelMemberships,
+    listChannelMembershipsResponse_nextToken,
     listChannelMembershipsResponse_httpStatus,
 
     -- ** ListChannelMembershipsForAppInstanceUser
-    listChannelMembershipsForAppInstanceUser_nextToken,
     listChannelMembershipsForAppInstanceUser_appInstanceUserArn,
     listChannelMembershipsForAppInstanceUser_maxResults,
+    listChannelMembershipsForAppInstanceUser_nextToken,
     listChannelMembershipsForAppInstanceUser_chimeBearer,
-    listChannelMembershipsForAppInstanceUserResponse_nextToken,
     listChannelMembershipsForAppInstanceUserResponse_channelMemberships,
+    listChannelMembershipsForAppInstanceUserResponse_nextToken,
     listChannelMembershipsForAppInstanceUserResponse_httpStatus,
 
     -- ** ListChannelMessages
-    listChannelMessages_sortOrder,
-    listChannelMessages_nextToken,
-    listChannelMessages_subChannelId,
-    listChannelMessages_notBefore,
     listChannelMessages_maxResults,
+    listChannelMessages_nextToken,
     listChannelMessages_notAfter,
+    listChannelMessages_notBefore,
+    listChannelMessages_sortOrder,
+    listChannelMessages_subChannelId,
     listChannelMessages_channelArn,
     listChannelMessages_chimeBearer,
-    listChannelMessagesResponse_nextToken,
-    listChannelMessagesResponse_subChannelId,
     listChannelMessagesResponse_channelArn,
     listChannelMessagesResponse_channelMessages,
+    listChannelMessagesResponse_nextToken,
+    listChannelMessagesResponse_subChannelId,
     listChannelMessagesResponse_httpStatus,
 
     -- ** ListChannelModerators
-    listChannelModerators_nextToken,
     listChannelModerators_maxResults,
+    listChannelModerators_nextToken,
     listChannelModerators_channelArn,
     listChannelModerators_chimeBearer,
-    listChannelModeratorsResponse_nextToken,
-    listChannelModeratorsResponse_channelModerators,
     listChannelModeratorsResponse_channelArn,
+    listChannelModeratorsResponse_channelModerators,
+    listChannelModeratorsResponse_nextToken,
     listChannelModeratorsResponse_httpStatus,
 
     -- ** ListChannels
+    listChannels_maxResults,
     listChannels_nextToken,
     listChannels_privacy,
-    listChannels_maxResults,
     listChannels_appInstanceArn,
     listChannels_chimeBearer,
-    listChannelsResponse_nextToken,
     listChannelsResponse_channels,
+    listChannelsResponse_nextToken,
     listChannelsResponse_httpStatus,
 
     -- ** ListChannelsAssociatedWithChannelFlow
-    listChannelsAssociatedWithChannelFlow_nextToken,
     listChannelsAssociatedWithChannelFlow_maxResults,
+    listChannelsAssociatedWithChannelFlow_nextToken,
     listChannelsAssociatedWithChannelFlow_channelFlowArn,
-    listChannelsAssociatedWithChannelFlowResponse_nextToken,
     listChannelsAssociatedWithChannelFlowResponse_channels,
+    listChannelsAssociatedWithChannelFlowResponse_nextToken,
     listChannelsAssociatedWithChannelFlowResponse_httpStatus,
 
     -- ** ListChannelsModeratedByAppInstanceUser
-    listChannelsModeratedByAppInstanceUser_nextToken,
     listChannelsModeratedByAppInstanceUser_appInstanceUserArn,
     listChannelsModeratedByAppInstanceUser_maxResults,
+    listChannelsModeratedByAppInstanceUser_nextToken,
     listChannelsModeratedByAppInstanceUser_chimeBearer,
-    listChannelsModeratedByAppInstanceUserResponse_nextToken,
     listChannelsModeratedByAppInstanceUserResponse_channels,
+    listChannelsModeratedByAppInstanceUserResponse_nextToken,
     listChannelsModeratedByAppInstanceUserResponse_httpStatus,
 
     -- ** ListSubChannels
-    listSubChannels_nextToken,
     listSubChannels_maxResults,
+    listSubChannels_nextToken,
     listSubChannels_channelArn,
     listSubChannels_chimeBearer,
-    listSubChannelsResponse_nextToken,
     listSubChannelsResponse_channelArn,
+    listSubChannelsResponse_nextToken,
     listSubChannelsResponse_subChannels,
     listSubChannelsResponse_httpStatus,
 
@@ -312,9 +312,9 @@ module Amazonka.ChimeSDKMessaging.Lens
     putChannelMembershipPreferences_memberArn,
     putChannelMembershipPreferences_chimeBearer,
     putChannelMembershipPreferences_preferences,
+    putChannelMembershipPreferencesResponse_channelArn,
     putChannelMembershipPreferencesResponse_member,
     putChannelMembershipPreferencesResponse_preferences,
-    putChannelMembershipPreferencesResponse_channelArn,
     putChannelMembershipPreferencesResponse_httpStatus,
 
     -- ** RedactChannelMessage
@@ -322,35 +322,35 @@ module Amazonka.ChimeSDKMessaging.Lens
     redactChannelMessage_channelArn,
     redactChannelMessage_messageId,
     redactChannelMessage_chimeBearer,
-    redactChannelMessageResponse_subChannelId,
     redactChannelMessageResponse_channelArn,
     redactChannelMessageResponse_messageId,
+    redactChannelMessageResponse_subChannelId,
     redactChannelMessageResponse_httpStatus,
 
     -- ** SearchChannels
-    searchChannels_nextToken,
     searchChannels_chimeBearer,
     searchChannels_maxResults,
+    searchChannels_nextToken,
     searchChannels_fields,
-    searchChannelsResponse_nextToken,
     searchChannelsResponse_channels,
+    searchChannelsResponse_nextToken,
     searchChannelsResponse_httpStatus,
 
     -- ** SendChannelMessage
-    sendChannelMessage_metadata,
-    sendChannelMessage_subChannelId,
     sendChannelMessage_messageAttributes,
+    sendChannelMessage_metadata,
     sendChannelMessage_pushNotification,
+    sendChannelMessage_subChannelId,
     sendChannelMessage_channelArn,
     sendChannelMessage_content,
     sendChannelMessage_type,
     sendChannelMessage_persistence,
     sendChannelMessage_clientRequestToken,
     sendChannelMessage_chimeBearer,
-    sendChannelMessageResponse_subChannelId,
     sendChannelMessageResponse_channelArn,
     sendChannelMessageResponse_messageId,
     sendChannelMessageResponse_status,
+    sendChannelMessageResponse_subChannelId,
     sendChannelMessageResponse_httpStatus,
 
     -- ** TagResource
@@ -362,9 +362,9 @@ module Amazonka.ChimeSDKMessaging.Lens
     untagResource_tagKeys,
 
     -- ** UpdateChannel
-    updateChannel_name,
     updateChannel_metadata,
     updateChannel_mode,
+    updateChannel_name,
     updateChannel_channelArn,
     updateChannel_chimeBearer,
     updateChannelResponse_channelArn,
@@ -378,98 +378,98 @@ module Amazonka.ChimeSDKMessaging.Lens
     updateChannelFlowResponse_httpStatus,
 
     -- ** UpdateChannelMessage
+    updateChannelMessage_content,
     updateChannelMessage_metadata,
     updateChannelMessage_subChannelId,
-    updateChannelMessage_content,
     updateChannelMessage_channelArn,
     updateChannelMessage_messageId,
     updateChannelMessage_chimeBearer,
-    updateChannelMessageResponse_subChannelId,
     updateChannelMessageResponse_channelArn,
     updateChannelMessageResponse_messageId,
     updateChannelMessageResponse_status,
+    updateChannelMessageResponse_subChannelId,
     updateChannelMessageResponse_httpStatus,
 
     -- ** UpdateChannelReadMarker
     updateChannelReadMarker_subChannelId,
     updateChannelReadMarker_channelArn,
     updateChannelReadMarker_chimeBearer,
-    updateChannelReadMarkerResponse_subChannelId,
     updateChannelReadMarkerResponse_channelArn,
+    updateChannelReadMarkerResponse_subChannelId,
     updateChannelReadMarkerResponse_httpStatus,
 
     -- * Types
 
     -- ** AppInstanceUserMembershipSummary
-    appInstanceUserMembershipSummary_type,
-    appInstanceUserMembershipSummary_subChannelId,
     appInstanceUserMembershipSummary_readMarkerTimestamp,
+    appInstanceUserMembershipSummary_subChannelId,
+    appInstanceUserMembershipSummary_type,
 
     -- ** BatchChannelMemberships
-    batchChannelMemberships_type,
-    batchChannelMemberships_members,
-    batchChannelMemberships_subChannelId,
     batchChannelMemberships_channelArn,
     batchChannelMemberships_invitedBy,
+    batchChannelMemberships_members,
+    batchChannelMemberships_subChannelId,
+    batchChannelMemberships_type,
 
     -- ** BatchCreateChannelMembershipError
-    batchCreateChannelMembershipError_memberArn,
-    batchCreateChannelMembershipError_errorMessage,
     batchCreateChannelMembershipError_errorCode,
+    batchCreateChannelMembershipError_errorMessage,
+    batchCreateChannelMembershipError_memberArn,
 
     -- ** Channel
-    channel_lastUpdatedTimestamp,
-    channel_lastMessageTimestamp,
-    channel_name,
-    channel_elasticChannelConfiguration,
-    channel_metadata,
-    channel_createdTimestamp,
     channel_channelArn,
-    channel_privacy,
-    channel_mode,
-    channel_createdBy,
     channel_channelFlowArn,
+    channel_createdBy,
+    channel_createdTimestamp,
+    channel_elasticChannelConfiguration,
+    channel_lastMessageTimestamp,
+    channel_lastUpdatedTimestamp,
+    channel_metadata,
+    channel_mode,
+    channel_name,
+    channel_privacy,
 
     -- ** ChannelAssociatedWithFlowSummary
-    channelAssociatedWithFlowSummary_name,
-    channelAssociatedWithFlowSummary_metadata,
     channelAssociatedWithFlowSummary_channelArn,
-    channelAssociatedWithFlowSummary_privacy,
+    channelAssociatedWithFlowSummary_metadata,
     channelAssociatedWithFlowSummary_mode,
+    channelAssociatedWithFlowSummary_name,
+    channelAssociatedWithFlowSummary_privacy,
 
     -- ** ChannelBan
-    channelBan_member,
-    channelBan_createdTimestamp,
     channelBan_channelArn,
     channelBan_createdBy,
+    channelBan_createdTimestamp,
+    channelBan_member,
 
     -- ** ChannelBanSummary
     channelBanSummary_member,
 
     -- ** ChannelFlow
+    channelFlow_channelFlowArn,
+    channelFlow_createdTimestamp,
     channelFlow_lastUpdatedTimestamp,
     channelFlow_name,
-    channelFlow_createdTimestamp,
     channelFlow_processors,
-    channelFlow_channelFlowArn,
 
     -- ** ChannelFlowSummary
+    channelFlowSummary_channelFlowArn,
     channelFlowSummary_name,
     channelFlowSummary_processors,
-    channelFlowSummary_channelFlowArn,
 
     -- ** ChannelMembership
+    channelMembership_channelArn,
+    channelMembership_createdTimestamp,
+    channelMembership_invitedBy,
     channelMembership_lastUpdatedTimestamp,
     channelMembership_member,
-    channelMembership_type,
-    channelMembership_createdTimestamp,
     channelMembership_subChannelId,
-    channelMembership_channelArn,
-    channelMembership_invitedBy,
+    channelMembership_type,
 
     -- ** ChannelMembershipForAppInstanceUserSummary
-    channelMembershipForAppInstanceUserSummary_channelSummary,
     channelMembershipForAppInstanceUserSummary_appInstanceUserMembershipSummary,
+    channelMembershipForAppInstanceUserSummary_channelSummary,
 
     -- ** ChannelMembershipPreferences
     channelMembershipPreferences_pushNotifications,
@@ -478,27 +478,27 @@ module Amazonka.ChimeSDKMessaging.Lens
     channelMembershipSummary_member,
 
     -- ** ChannelMessage
-    channelMessage_lastUpdatedTimestamp,
-    channelMessage_type,
-    channelMessage_metadata,
-    channelMessage_createdTimestamp,
-    channelMessage_subChannelId,
-    channelMessage_redacted,
     channelMessage_channelArn,
-    channelMessage_messageId,
-    channelMessage_status,
-    channelMessage_messageAttributes,
-    channelMessage_lastEditedTimestamp,
-    channelMessage_sender,
-    channelMessage_persistence,
     channelMessage_content,
+    channelMessage_createdTimestamp,
+    channelMessage_lastEditedTimestamp,
+    channelMessage_lastUpdatedTimestamp,
+    channelMessage_messageAttributes,
+    channelMessage_messageId,
+    channelMessage_metadata,
+    channelMessage_persistence,
+    channelMessage_redacted,
+    channelMessage_sender,
+    channelMessage_status,
+    channelMessage_subChannelId,
+    channelMessage_type,
 
     -- ** ChannelMessageCallback
-    channelMessageCallback_metadata,
-    channelMessageCallback_subChannelId,
-    channelMessageCallback_messageAttributes,
-    channelMessageCallback_pushNotification,
     channelMessageCallback_content,
+    channelMessageCallback_messageAttributes,
+    channelMessageCallback_metadata,
+    channelMessageCallback_pushNotification,
+    channelMessageCallback_subChannelId,
     channelMessageCallback_messageId,
 
     -- ** ChannelMessageStatusStructure
@@ -506,37 +506,37 @@ module Amazonka.ChimeSDKMessaging.Lens
     channelMessageStatusStructure_value,
 
     -- ** ChannelMessageSummary
-    channelMessageSummary_lastUpdatedTimestamp,
-    channelMessageSummary_type,
-    channelMessageSummary_metadata,
-    channelMessageSummary_createdTimestamp,
-    channelMessageSummary_redacted,
-    channelMessageSummary_messageId,
-    channelMessageSummary_status,
-    channelMessageSummary_messageAttributes,
-    channelMessageSummary_lastEditedTimestamp,
-    channelMessageSummary_sender,
     channelMessageSummary_content,
+    channelMessageSummary_createdTimestamp,
+    channelMessageSummary_lastEditedTimestamp,
+    channelMessageSummary_lastUpdatedTimestamp,
+    channelMessageSummary_messageAttributes,
+    channelMessageSummary_messageId,
+    channelMessageSummary_metadata,
+    channelMessageSummary_redacted,
+    channelMessageSummary_sender,
+    channelMessageSummary_status,
+    channelMessageSummary_type,
 
     -- ** ChannelModeratedByAppInstanceUserSummary
     channelModeratedByAppInstanceUserSummary_channelSummary,
 
     -- ** ChannelModerator
-    channelModerator_moderator,
-    channelModerator_createdTimestamp,
     channelModerator_channelArn,
     channelModerator_createdBy,
+    channelModerator_createdTimestamp,
+    channelModerator_moderator,
 
     -- ** ChannelModeratorSummary
     channelModeratorSummary_moderator,
 
     -- ** ChannelSummary
-    channelSummary_lastMessageTimestamp,
-    channelSummary_name,
-    channelSummary_metadata,
     channelSummary_channelArn,
-    channelSummary_privacy,
+    channelSummary_lastMessageTimestamp,
+    channelSummary_metadata,
     channelSummary_mode,
+    channelSummary_name,
+    channelSummary_privacy,
 
     -- ** ElasticChannelConfiguration
     elasticChannelConfiguration_maximumSubChannels,
@@ -544,8 +544,8 @@ module Amazonka.ChimeSDKMessaging.Lens
     elasticChannelConfiguration_minimumMembershipPercentage,
 
     -- ** Identity
-    identity_name,
     identity_arn,
+    identity_name,
 
     -- ** LambdaConfiguration
     lambdaConfiguration_resourceArn,
@@ -567,9 +567,9 @@ module Amazonka.ChimeSDKMessaging.Lens
     processorConfiguration_lambda,
 
     -- ** PushNotificationConfiguration
-    pushNotificationConfiguration_type,
     pushNotificationConfiguration_body,
     pushNotificationConfiguration_title,
+    pushNotificationConfiguration_type,
 
     -- ** PushNotificationPreferences
     pushNotificationPreferences_filterRule,

@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIdentity' smart constructor.
 data Identity = Identity'
-  { -- | The name in an Identity.
-    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The ARN in an Identity.
-    arn :: Prelude.Maybe Prelude.Text
+  { -- | The ARN in an Identity.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The name in an Identity.
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data Identity = Identity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'identity_name' - The name in an Identity.
---
 -- 'arn', 'identity_arn' - The ARN in an Identity.
+--
+-- 'name', 'identity_name' - The name in an Identity.
 newIdentity ::
   Identity
 newIdentity =
   Identity'
-    { name = Prelude.Nothing,
-      arn = Prelude.Nothing
+    { arn = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name in an Identity.
-identity_name :: Lens.Lens' Identity (Prelude.Maybe Prelude.Text)
-identity_name = Lens.lens (\Identity' {name} -> name) (\s@Identity' {} a -> s {name = a} :: Identity) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ARN in an Identity.
 identity_arn :: Lens.Lens' Identity (Prelude.Maybe Prelude.Text)
 identity_arn = Lens.lens (\Identity' {arn} -> arn) (\s@Identity' {} a -> s {arn = a} :: Identity)
+
+-- | The name in an Identity.
+identity_name :: Lens.Lens' Identity (Prelude.Maybe Prelude.Text)
+identity_name = Lens.lens (\Identity' {name} -> name) (\s@Identity' {} a -> s {name = a} :: Identity) Prelude.. Lens.mapping Data._Sensitive
 
 instance Data.FromJSON Identity where
   parseJSON =
@@ -68,14 +68,14 @@ instance Data.FromJSON Identity where
       "Identity"
       ( \x ->
           Identity'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn") Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable Identity where
   hashWithSalt _salt Identity' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData Identity where
   rnf Identity' {..} =
-    Prelude.rnf name `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn `Prelude.seq` Prelude.rnf name

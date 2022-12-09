@@ -46,8 +46,8 @@ module Amazonka.ChimeSDKMessaging.ChannelFlowCallback
     newChannelFlowCallbackResponse,
 
     -- * Response Lenses
-    channelFlowCallbackResponse_channelArn,
     channelFlowCallbackResponse_callbackId,
+    channelFlowCallbackResponse_channelArn,
     channelFlowCallbackResponse_httpStatus,
   )
 where
@@ -140,8 +140,8 @@ instance Core.AWSRequest ChannelFlowCallback where
     Response.receiveJSON
       ( \s h x ->
           ChannelFlowCallbackResponse'
-            Prelude.<$> (x Data..?> "ChannelArn")
-            Prelude.<*> (x Data..?> "CallbackId")
+            Prelude.<$> (x Data..?> "CallbackId")
+            Prelude.<*> (x Data..?> "ChannelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -186,10 +186,10 @@ instance Data.ToQuery ChannelFlowCallback where
 
 -- | /See:/ 'newChannelFlowCallbackResponse' smart constructor.
 data ChannelFlowCallbackResponse = ChannelFlowCallbackResponse'
-  { -- | The ARN of the channel.
-    channelArn :: Prelude.Maybe Prelude.Text,
-    -- | The call back ID passed in the request.
+  { -- | The call back ID passed in the request.
     callbackId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the channel.
+    channelArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -203,9 +203,9 @@ data ChannelFlowCallbackResponse = ChannelFlowCallbackResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'channelArn', 'channelFlowCallbackResponse_channelArn' - The ARN of the channel.
---
 -- 'callbackId', 'channelFlowCallbackResponse_callbackId' - The call back ID passed in the request.
+--
+-- 'channelArn', 'channelFlowCallbackResponse_channelArn' - The ARN of the channel.
 --
 -- 'httpStatus', 'channelFlowCallbackResponse_httpStatus' - The response's http status code.
 newChannelFlowCallbackResponse ::
@@ -214,19 +214,19 @@ newChannelFlowCallbackResponse ::
   ChannelFlowCallbackResponse
 newChannelFlowCallbackResponse pHttpStatus_ =
   ChannelFlowCallbackResponse'
-    { channelArn =
+    { callbackId =
         Prelude.Nothing,
-      callbackId = Prelude.Nothing,
+      channelArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARN of the channel.
-channelFlowCallbackResponse_channelArn :: Lens.Lens' ChannelFlowCallbackResponse (Prelude.Maybe Prelude.Text)
-channelFlowCallbackResponse_channelArn = Lens.lens (\ChannelFlowCallbackResponse' {channelArn} -> channelArn) (\s@ChannelFlowCallbackResponse' {} a -> s {channelArn = a} :: ChannelFlowCallbackResponse)
 
 -- | The call back ID passed in the request.
 channelFlowCallbackResponse_callbackId :: Lens.Lens' ChannelFlowCallbackResponse (Prelude.Maybe Prelude.Text)
 channelFlowCallbackResponse_callbackId = Lens.lens (\ChannelFlowCallbackResponse' {callbackId} -> callbackId) (\s@ChannelFlowCallbackResponse' {} a -> s {callbackId = a} :: ChannelFlowCallbackResponse)
+
+-- | The ARN of the channel.
+channelFlowCallbackResponse_channelArn :: Lens.Lens' ChannelFlowCallbackResponse (Prelude.Maybe Prelude.Text)
+channelFlowCallbackResponse_channelArn = Lens.lens (\ChannelFlowCallbackResponse' {channelArn} -> channelArn) (\s@ChannelFlowCallbackResponse' {} a -> s {channelArn = a} :: ChannelFlowCallbackResponse)
 
 -- | The response's http status code.
 channelFlowCallbackResponse_httpStatus :: Lens.Lens' ChannelFlowCallbackResponse Prelude.Int
@@ -234,6 +234,6 @@ channelFlowCallbackResponse_httpStatus = Lens.lens (\ChannelFlowCallbackResponse
 
 instance Prelude.NFData ChannelFlowCallbackResponse where
   rnf ChannelFlowCallbackResponse' {..} =
-    Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf callbackId
+    Prelude.rnf callbackId
+      `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf httpStatus

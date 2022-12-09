@@ -42,9 +42,9 @@ module Amazonka.ChimeSDKMessaging.GetChannelMembershipPreferences
     newGetChannelMembershipPreferencesResponse,
 
     -- * Response Lenses
+    getChannelMembershipPreferencesResponse_channelArn,
     getChannelMembershipPreferencesResponse_member,
     getChannelMembershipPreferencesResponse_preferences,
-    getChannelMembershipPreferencesResponse_channelArn,
     getChannelMembershipPreferencesResponse_httpStatus,
   )
 where
@@ -125,9 +125,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetChannelMembershipPreferencesResponse'
-            Prelude.<$> (x Data..?> "Member")
+            Prelude.<$> (x Data..?> "ChannelArn")
+            Prelude.<*> (x Data..?> "Member")
             Prelude.<*> (x Data..?> "Preferences")
-            Prelude.<*> (x Data..?> "ChannelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,12 +174,12 @@ instance Data.ToQuery GetChannelMembershipPreferences where
 
 -- | /See:/ 'newGetChannelMembershipPreferencesResponse' smart constructor.
 data GetChannelMembershipPreferencesResponse = GetChannelMembershipPreferencesResponse'
-  { -- | The details of a user.
+  { -- | The ARN of the channel.
+    channelArn :: Prelude.Maybe Prelude.Text,
+    -- | The details of a user.
     member :: Prelude.Maybe Identity,
     -- | The channel membership preferences for an @AppInstanceUser@ .
     preferences :: Prelude.Maybe ChannelMembershipPreferences,
-    -- | The ARN of the channel.
-    channelArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -193,11 +193,11 @@ data GetChannelMembershipPreferencesResponse = GetChannelMembershipPreferencesRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'channelArn', 'getChannelMembershipPreferencesResponse_channelArn' - The ARN of the channel.
+--
 -- 'member', 'getChannelMembershipPreferencesResponse_member' - The details of a user.
 --
 -- 'preferences', 'getChannelMembershipPreferencesResponse_preferences' - The channel membership preferences for an @AppInstanceUser@ .
---
--- 'channelArn', 'getChannelMembershipPreferencesResponse_channelArn' - The ARN of the channel.
 --
 -- 'httpStatus', 'getChannelMembershipPreferencesResponse_httpStatus' - The response's http status code.
 newGetChannelMembershipPreferencesResponse ::
@@ -207,12 +207,16 @@ newGetChannelMembershipPreferencesResponse ::
 newGetChannelMembershipPreferencesResponse
   pHttpStatus_ =
     GetChannelMembershipPreferencesResponse'
-      { member =
+      { channelArn =
           Prelude.Nothing,
+        member = Prelude.Nothing,
         preferences = Prelude.Nothing,
-        channelArn = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | The ARN of the channel.
+getChannelMembershipPreferencesResponse_channelArn :: Lens.Lens' GetChannelMembershipPreferencesResponse (Prelude.Maybe Prelude.Text)
+getChannelMembershipPreferencesResponse_channelArn = Lens.lens (\GetChannelMembershipPreferencesResponse' {channelArn} -> channelArn) (\s@GetChannelMembershipPreferencesResponse' {} a -> s {channelArn = a} :: GetChannelMembershipPreferencesResponse)
 
 -- | The details of a user.
 getChannelMembershipPreferencesResponse_member :: Lens.Lens' GetChannelMembershipPreferencesResponse (Prelude.Maybe Identity)
@@ -221,10 +225,6 @@ getChannelMembershipPreferencesResponse_member = Lens.lens (\GetChannelMembershi
 -- | The channel membership preferences for an @AppInstanceUser@ .
 getChannelMembershipPreferencesResponse_preferences :: Lens.Lens' GetChannelMembershipPreferencesResponse (Prelude.Maybe ChannelMembershipPreferences)
 getChannelMembershipPreferencesResponse_preferences = Lens.lens (\GetChannelMembershipPreferencesResponse' {preferences} -> preferences) (\s@GetChannelMembershipPreferencesResponse' {} a -> s {preferences = a} :: GetChannelMembershipPreferencesResponse)
-
--- | The ARN of the channel.
-getChannelMembershipPreferencesResponse_channelArn :: Lens.Lens' GetChannelMembershipPreferencesResponse (Prelude.Maybe Prelude.Text)
-getChannelMembershipPreferencesResponse_channelArn = Lens.lens (\GetChannelMembershipPreferencesResponse' {channelArn} -> channelArn) (\s@GetChannelMembershipPreferencesResponse' {} a -> s {channelArn = a} :: GetChannelMembershipPreferencesResponse)
 
 -- | The response's http status code.
 getChannelMembershipPreferencesResponse_httpStatus :: Lens.Lens' GetChannelMembershipPreferencesResponse Prelude.Int
@@ -235,7 +235,7 @@ instance
     GetChannelMembershipPreferencesResponse
   where
   rnf GetChannelMembershipPreferencesResponse' {..} =
-    Prelude.rnf member
+    Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf member
       `Prelude.seq` Prelude.rnf preferences
-      `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf httpStatus

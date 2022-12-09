@@ -42,9 +42,9 @@ module Amazonka.ChimeSDKMessaging.PutChannelMembershipPreferences
     newPutChannelMembershipPreferencesResponse,
 
     -- * Response Lenses
+    putChannelMembershipPreferencesResponse_channelArn,
     putChannelMembershipPreferencesResponse_member,
     putChannelMembershipPreferencesResponse_preferences,
-    putChannelMembershipPreferencesResponse_channelArn,
     putChannelMembershipPreferencesResponse_httpStatus,
   )
 where
@@ -137,9 +137,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           PutChannelMembershipPreferencesResponse'
-            Prelude.<$> (x Data..?> "Member")
+            Prelude.<$> (x Data..?> "ChannelArn")
+            Prelude.<*> (x Data..?> "Member")
             Prelude.<*> (x Data..?> "Preferences")
-            Prelude.<*> (x Data..?> "ChannelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -195,12 +195,12 @@ instance Data.ToQuery PutChannelMembershipPreferences where
 
 -- | /See:/ 'newPutChannelMembershipPreferencesResponse' smart constructor.
 data PutChannelMembershipPreferencesResponse = PutChannelMembershipPreferencesResponse'
-  { -- | The details of a user.
+  { -- | The ARN of the channel.
+    channelArn :: Prelude.Maybe Prelude.Text,
+    -- | The details of a user.
     member :: Prelude.Maybe Identity,
     -- | The ARN and metadata of the member being added.
     preferences :: Prelude.Maybe ChannelMembershipPreferences,
-    -- | The ARN of the channel.
-    channelArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -214,11 +214,11 @@ data PutChannelMembershipPreferencesResponse = PutChannelMembershipPreferencesRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'channelArn', 'putChannelMembershipPreferencesResponse_channelArn' - The ARN of the channel.
+--
 -- 'member', 'putChannelMembershipPreferencesResponse_member' - The details of a user.
 --
 -- 'preferences', 'putChannelMembershipPreferencesResponse_preferences' - The ARN and metadata of the member being added.
---
--- 'channelArn', 'putChannelMembershipPreferencesResponse_channelArn' - The ARN of the channel.
 --
 -- 'httpStatus', 'putChannelMembershipPreferencesResponse_httpStatus' - The response's http status code.
 newPutChannelMembershipPreferencesResponse ::
@@ -228,12 +228,16 @@ newPutChannelMembershipPreferencesResponse ::
 newPutChannelMembershipPreferencesResponse
   pHttpStatus_ =
     PutChannelMembershipPreferencesResponse'
-      { member =
+      { channelArn =
           Prelude.Nothing,
+        member = Prelude.Nothing,
         preferences = Prelude.Nothing,
-        channelArn = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | The ARN of the channel.
+putChannelMembershipPreferencesResponse_channelArn :: Lens.Lens' PutChannelMembershipPreferencesResponse (Prelude.Maybe Prelude.Text)
+putChannelMembershipPreferencesResponse_channelArn = Lens.lens (\PutChannelMembershipPreferencesResponse' {channelArn} -> channelArn) (\s@PutChannelMembershipPreferencesResponse' {} a -> s {channelArn = a} :: PutChannelMembershipPreferencesResponse)
 
 -- | The details of a user.
 putChannelMembershipPreferencesResponse_member :: Lens.Lens' PutChannelMembershipPreferencesResponse (Prelude.Maybe Identity)
@@ -242,10 +246,6 @@ putChannelMembershipPreferencesResponse_member = Lens.lens (\PutChannelMembershi
 -- | The ARN and metadata of the member being added.
 putChannelMembershipPreferencesResponse_preferences :: Lens.Lens' PutChannelMembershipPreferencesResponse (Prelude.Maybe ChannelMembershipPreferences)
 putChannelMembershipPreferencesResponse_preferences = Lens.lens (\PutChannelMembershipPreferencesResponse' {preferences} -> preferences) (\s@PutChannelMembershipPreferencesResponse' {} a -> s {preferences = a} :: PutChannelMembershipPreferencesResponse)
-
--- | The ARN of the channel.
-putChannelMembershipPreferencesResponse_channelArn :: Lens.Lens' PutChannelMembershipPreferencesResponse (Prelude.Maybe Prelude.Text)
-putChannelMembershipPreferencesResponse_channelArn = Lens.lens (\PutChannelMembershipPreferencesResponse' {channelArn} -> channelArn) (\s@PutChannelMembershipPreferencesResponse' {} a -> s {channelArn = a} :: PutChannelMembershipPreferencesResponse)
 
 -- | The response's http status code.
 putChannelMembershipPreferencesResponse_httpStatus :: Lens.Lens' PutChannelMembershipPreferencesResponse Prelude.Int
@@ -256,7 +256,7 @@ instance
     PutChannelMembershipPreferencesResponse
   where
   rnf PutChannelMembershipPreferencesResponse' {..} =
-    Prelude.rnf member
+    Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf member
       `Prelude.seq` Prelude.rnf preferences
-      `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf httpStatus

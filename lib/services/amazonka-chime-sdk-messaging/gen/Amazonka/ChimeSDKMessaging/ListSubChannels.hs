@@ -29,8 +29,8 @@ module Amazonka.ChimeSDKMessaging.ListSubChannels
     newListSubChannels,
 
     -- * Request Lenses
-    listSubChannels_nextToken,
     listSubChannels_maxResults,
+    listSubChannels_nextToken,
     listSubChannels_channelArn,
     listSubChannels_chimeBearer,
 
@@ -39,8 +39,8 @@ module Amazonka.ChimeSDKMessaging.ListSubChannels
     newListSubChannelsResponse,
 
     -- * Response Lenses
-    listSubChannelsResponse_nextToken,
     listSubChannelsResponse_channelArn,
+    listSubChannelsResponse_nextToken,
     listSubChannelsResponse_subChannels,
     listSubChannelsResponse_httpStatus,
   )
@@ -56,11 +56,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSubChannels' smart constructor.
 data ListSubChannels = ListSubChannels'
-  { -- | The token passed by previous API calls until all requested sub-channels
+  { -- | The maximum number of sub-channels that you want to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token passed by previous API calls until all requested sub-channels
     -- are returned.
     nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The maximum number of sub-channels that you want to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of elastic channel.
     channelArn :: Prelude.Text,
     -- | The @AppInstanceUserArn@ of the user making the API call.
@@ -76,10 +76,10 @@ data ListSubChannels = ListSubChannels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listSubChannels_maxResults' - The maximum number of sub-channels that you want to return.
+--
 -- 'nextToken', 'listSubChannels_nextToken' - The token passed by previous API calls until all requested sub-channels
 -- are returned.
---
--- 'maxResults', 'listSubChannels_maxResults' - The maximum number of sub-channels that you want to return.
 --
 -- 'channelArn', 'listSubChannels_channelArn' - The ARN of elastic channel.
 --
@@ -92,20 +92,20 @@ newListSubChannels ::
   ListSubChannels
 newListSubChannels pChannelArn_ pChimeBearer_ =
   ListSubChannels'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       channelArn = pChannelArn_,
       chimeBearer = pChimeBearer_
     }
+
+-- | The maximum number of sub-channels that you want to return.
+listSubChannels_maxResults :: Lens.Lens' ListSubChannels (Prelude.Maybe Prelude.Natural)
+listSubChannels_maxResults = Lens.lens (\ListSubChannels' {maxResults} -> maxResults) (\s@ListSubChannels' {} a -> s {maxResults = a} :: ListSubChannels)
 
 -- | The token passed by previous API calls until all requested sub-channels
 -- are returned.
 listSubChannels_nextToken :: Lens.Lens' ListSubChannels (Prelude.Maybe Prelude.Text)
 listSubChannels_nextToken = Lens.lens (\ListSubChannels' {nextToken} -> nextToken) (\s@ListSubChannels' {} a -> s {nextToken = a} :: ListSubChannels) Prelude.. Lens.mapping Data._Sensitive
-
--- | The maximum number of sub-channels that you want to return.
-listSubChannels_maxResults :: Lens.Lens' ListSubChannels (Prelude.Maybe Prelude.Natural)
-listSubChannels_maxResults = Lens.lens (\ListSubChannels' {maxResults} -> maxResults) (\s@ListSubChannels' {} a -> s {maxResults = a} :: ListSubChannels)
 
 -- | The ARN of elastic channel.
 listSubChannels_channelArn :: Lens.Lens' ListSubChannels Prelude.Text
@@ -125,23 +125,23 @@ instance Core.AWSRequest ListSubChannels where
     Response.receiveJSON
       ( \s h x ->
           ListSubChannelsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "ChannelArn")
+            Prelude.<$> (x Data..?> "ChannelArn")
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "SubChannels" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListSubChannels where
   hashWithSalt _salt ListSubChannels' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` chimeBearer
 
 instance Prelude.NFData ListSubChannels where
   rnf ListSubChannels' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf chimeBearer
 
@@ -158,17 +158,17 @@ instance Data.ToPath ListSubChannels where
 instance Data.ToQuery ListSubChannels where
   toQuery ListSubChannels' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "max-results" Data.=: maxResults
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListSubChannelsResponse' smart constructor.
 data ListSubChannelsResponse = ListSubChannelsResponse'
-  { -- | The token passed by previous API calls until all requested sub-channels
+  { -- | The ARN of elastic channel.
+    channelArn :: Prelude.Maybe Prelude.Text,
+    -- | The token passed by previous API calls until all requested sub-channels
     -- are returned.
     nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The ARN of elastic channel.
-    channelArn :: Prelude.Maybe Prelude.Text,
     -- | The information about each sub-channel.
     subChannels :: Prelude.Maybe [SubChannelSummary],
     -- | The response's http status code.
@@ -184,10 +184,10 @@ data ListSubChannelsResponse = ListSubChannelsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'channelArn', 'listSubChannelsResponse_channelArn' - The ARN of elastic channel.
+--
 -- 'nextToken', 'listSubChannelsResponse_nextToken' - The token passed by previous API calls until all requested sub-channels
 -- are returned.
---
--- 'channelArn', 'listSubChannelsResponse_channelArn' - The ARN of elastic channel.
 --
 -- 'subChannels', 'listSubChannelsResponse_subChannels' - The information about each sub-channel.
 --
@@ -198,21 +198,21 @@ newListSubChannelsResponse ::
   ListSubChannelsResponse
 newListSubChannelsResponse pHttpStatus_ =
   ListSubChannelsResponse'
-    { nextToken =
+    { channelArn =
         Prelude.Nothing,
-      channelArn = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       subChannels = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The ARN of elastic channel.
+listSubChannelsResponse_channelArn :: Lens.Lens' ListSubChannelsResponse (Prelude.Maybe Prelude.Text)
+listSubChannelsResponse_channelArn = Lens.lens (\ListSubChannelsResponse' {channelArn} -> channelArn) (\s@ListSubChannelsResponse' {} a -> s {channelArn = a} :: ListSubChannelsResponse)
 
 -- | The token passed by previous API calls until all requested sub-channels
 -- are returned.
 listSubChannelsResponse_nextToken :: Lens.Lens' ListSubChannelsResponse (Prelude.Maybe Prelude.Text)
 listSubChannelsResponse_nextToken = Lens.lens (\ListSubChannelsResponse' {nextToken} -> nextToken) (\s@ListSubChannelsResponse' {} a -> s {nextToken = a} :: ListSubChannelsResponse) Prelude.. Lens.mapping Data._Sensitive
-
--- | The ARN of elastic channel.
-listSubChannelsResponse_channelArn :: Lens.Lens' ListSubChannelsResponse (Prelude.Maybe Prelude.Text)
-listSubChannelsResponse_channelArn = Lens.lens (\ListSubChannelsResponse' {channelArn} -> channelArn) (\s@ListSubChannelsResponse' {} a -> s {channelArn = a} :: ListSubChannelsResponse)
 
 -- | The information about each sub-channel.
 listSubChannelsResponse_subChannels :: Lens.Lens' ListSubChannelsResponse (Prelude.Maybe [SubChannelSummary])
@@ -224,7 +224,7 @@ listSubChannelsResponse_httpStatus = Lens.lens (\ListSubChannelsResponse' {httpS
 
 instance Prelude.NFData ListSubChannelsResponse where
   rnf ListSubChannelsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf channelArn
+    Prelude.rnf channelArn
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf subChannels
       `Prelude.seq` Prelude.rnf httpStatus

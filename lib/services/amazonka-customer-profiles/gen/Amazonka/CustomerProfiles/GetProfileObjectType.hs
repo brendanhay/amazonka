@@ -35,16 +35,16 @@ module Amazonka.CustomerProfiles.GetProfileObjectType
     newGetProfileObjectTypeResponse,
 
     -- * Response Lenses
-    getProfileObjectTypeResponse_tags,
-    getProfileObjectTypeResponse_lastUpdatedAt,
-    getProfileObjectTypeResponse_fields,
-    getProfileObjectTypeResponse_templateId,
-    getProfileObjectTypeResponse_expirationDays,
-    getProfileObjectTypeResponse_sourceLastUpdatedTimestampFormat,
-    getProfileObjectTypeResponse_keys,
-    getProfileObjectTypeResponse_encryptionKey,
-    getProfileObjectTypeResponse_createdAt,
     getProfileObjectTypeResponse_allowProfileCreation,
+    getProfileObjectTypeResponse_createdAt,
+    getProfileObjectTypeResponse_encryptionKey,
+    getProfileObjectTypeResponse_expirationDays,
+    getProfileObjectTypeResponse_fields,
+    getProfileObjectTypeResponse_keys,
+    getProfileObjectTypeResponse_lastUpdatedAt,
+    getProfileObjectTypeResponse_sourceLastUpdatedTimestampFormat,
+    getProfileObjectTypeResponse_tags,
+    getProfileObjectTypeResponse_templateId,
     getProfileObjectTypeResponse_httpStatus,
     getProfileObjectTypeResponse_objectTypeName,
     getProfileObjectTypeResponse_description,
@@ -109,16 +109,16 @@ instance Core.AWSRequest GetProfileObjectType where
     Response.receiveJSON
       ( \s h x ->
           GetProfileObjectTypeResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "LastUpdatedAt")
-            Prelude.<*> (x Data..?> "Fields" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "TemplateId")
-            Prelude.<*> (x Data..?> "ExpirationDays")
-            Prelude.<*> (x Data..?> "SourceLastUpdatedTimestampFormat")
-            Prelude.<*> (x Data..?> "Keys" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "EncryptionKey")
+            Prelude.<$> (x Data..?> "AllowProfileCreation")
             Prelude.<*> (x Data..?> "CreatedAt")
-            Prelude.<*> (x Data..?> "AllowProfileCreation")
+            Prelude.<*> (x Data..?> "EncryptionKey")
+            Prelude.<*> (x Data..?> "ExpirationDays")
+            Prelude.<*> (x Data..?> "Fields" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Keys" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "LastUpdatedAt")
+            Prelude.<*> (x Data..?> "SourceLastUpdatedTimestampFormat")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "TemplateId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "ObjectTypeName")
             Prelude.<*> (x Data..:> "Description")
@@ -159,33 +159,33 @@ instance Data.ToQuery GetProfileObjectType where
 
 -- | /See:/ 'newGetProfileObjectTypeResponse' smart constructor.
 data GetProfileObjectTypeResponse = GetProfileObjectTypeResponse'
-  { -- | The tags used to organize, track, or control access for this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The timestamp of when the domain was most recently edited.
-    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
-    -- | A map of the name and ObjectType field.
-    fields :: Prelude.Maybe (Prelude.HashMap Prelude.Text ObjectTypeField),
-    -- | A unique identifier for the object template.
-    templateId :: Prelude.Maybe Prelude.Text,
-    -- | The number of days until the data in the object expires.
-    expirationDays :: Prelude.Maybe Prelude.Natural,
-    -- | The format of your @sourceLastUpdatedTimestamp@ that was previously set
-    -- up.
-    sourceLastUpdatedTimestampFormat :: Prelude.Maybe Prelude.Text,
-    -- | A list of unique keys that can be used to map data to the profile.
-    keys :: Prelude.Maybe (Prelude.HashMap Prelude.Text [ObjectTypeKey]),
-    -- | The customer-provided key to encrypt the profile object that will be
-    -- created in this profile object type.
-    encryptionKey :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp of when the domain was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
-    -- | Indicates whether a profile should be created when data is received if
+  { -- | Indicates whether a profile should be created when data is received if
     -- one doesn’t exist for an object of this type. The default is @FALSE@. If
     -- the AllowProfileCreation flag is set to @FALSE@, then the service tries
     -- to fetch a standard profile and associate this object with the profile.
     -- If it is set to @TRUE@, and if no match is found, then the service
     -- creates a new standard profile.
     allowProfileCreation :: Prelude.Maybe Prelude.Bool,
+    -- | The timestamp of when the domain was created.
+    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The customer-provided key to encrypt the profile object that will be
+    -- created in this profile object type.
+    encryptionKey :: Prelude.Maybe Prelude.Text,
+    -- | The number of days until the data in the object expires.
+    expirationDays :: Prelude.Maybe Prelude.Natural,
+    -- | A map of the name and ObjectType field.
+    fields :: Prelude.Maybe (Prelude.HashMap Prelude.Text ObjectTypeField),
+    -- | A list of unique keys that can be used to map data to the profile.
+    keys :: Prelude.Maybe (Prelude.HashMap Prelude.Text [ObjectTypeKey]),
+    -- | The timestamp of when the domain was most recently edited.
+    lastUpdatedAt :: Prelude.Maybe Data.POSIX,
+    -- | The format of your @sourceLastUpdatedTimestamp@ that was previously set
+    -- up.
+    sourceLastUpdatedTimestampFormat :: Prelude.Maybe Prelude.Text,
+    -- | The tags used to organize, track, or control access for this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A unique identifier for the object template.
+    templateId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The name of the profile object type.
@@ -203,32 +203,32 @@ data GetProfileObjectTypeResponse = GetProfileObjectTypeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'getProfileObjectTypeResponse_tags' - The tags used to organize, track, or control access for this resource.
---
--- 'lastUpdatedAt', 'getProfileObjectTypeResponse_lastUpdatedAt' - The timestamp of when the domain was most recently edited.
---
--- 'fields', 'getProfileObjectTypeResponse_fields' - A map of the name and ObjectType field.
---
--- 'templateId', 'getProfileObjectTypeResponse_templateId' - A unique identifier for the object template.
---
--- 'expirationDays', 'getProfileObjectTypeResponse_expirationDays' - The number of days until the data in the object expires.
---
--- 'sourceLastUpdatedTimestampFormat', 'getProfileObjectTypeResponse_sourceLastUpdatedTimestampFormat' - The format of your @sourceLastUpdatedTimestamp@ that was previously set
--- up.
---
--- 'keys', 'getProfileObjectTypeResponse_keys' - A list of unique keys that can be used to map data to the profile.
---
--- 'encryptionKey', 'getProfileObjectTypeResponse_encryptionKey' - The customer-provided key to encrypt the profile object that will be
--- created in this profile object type.
---
--- 'createdAt', 'getProfileObjectTypeResponse_createdAt' - The timestamp of when the domain was created.
---
 -- 'allowProfileCreation', 'getProfileObjectTypeResponse_allowProfileCreation' - Indicates whether a profile should be created when data is received if
 -- one doesn’t exist for an object of this type. The default is @FALSE@. If
 -- the AllowProfileCreation flag is set to @FALSE@, then the service tries
 -- to fetch a standard profile and associate this object with the profile.
 -- If it is set to @TRUE@, and if no match is found, then the service
 -- creates a new standard profile.
+--
+-- 'createdAt', 'getProfileObjectTypeResponse_createdAt' - The timestamp of when the domain was created.
+--
+-- 'encryptionKey', 'getProfileObjectTypeResponse_encryptionKey' - The customer-provided key to encrypt the profile object that will be
+-- created in this profile object type.
+--
+-- 'expirationDays', 'getProfileObjectTypeResponse_expirationDays' - The number of days until the data in the object expires.
+--
+-- 'fields', 'getProfileObjectTypeResponse_fields' - A map of the name and ObjectType field.
+--
+-- 'keys', 'getProfileObjectTypeResponse_keys' - A list of unique keys that can be used to map data to the profile.
+--
+-- 'lastUpdatedAt', 'getProfileObjectTypeResponse_lastUpdatedAt' - The timestamp of when the domain was most recently edited.
+--
+-- 'sourceLastUpdatedTimestampFormat', 'getProfileObjectTypeResponse_sourceLastUpdatedTimestampFormat' - The format of your @sourceLastUpdatedTimestamp@ that was previously set
+-- up.
+--
+-- 'tags', 'getProfileObjectTypeResponse_tags' - The tags used to organize, track, or control access for this resource.
+--
+-- 'templateId', 'getProfileObjectTypeResponse_templateId' - A unique identifier for the object template.
 --
 -- 'httpStatus', 'getProfileObjectTypeResponse_httpStatus' - The response's http status code.
 --
@@ -248,60 +248,22 @@ newGetProfileObjectTypeResponse
   pObjectTypeName_
   pDescription_ =
     GetProfileObjectTypeResponse'
-      { tags =
+      { allowProfileCreation =
           Prelude.Nothing,
-        lastUpdatedAt = Prelude.Nothing,
-        fields = Prelude.Nothing,
-        templateId = Prelude.Nothing,
+        createdAt = Prelude.Nothing,
+        encryptionKey = Prelude.Nothing,
         expirationDays = Prelude.Nothing,
+        fields = Prelude.Nothing,
+        keys = Prelude.Nothing,
+        lastUpdatedAt = Prelude.Nothing,
         sourceLastUpdatedTimestampFormat =
           Prelude.Nothing,
-        keys = Prelude.Nothing,
-        encryptionKey = Prelude.Nothing,
-        createdAt = Prelude.Nothing,
-        allowProfileCreation = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        templateId = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         objectTypeName = pObjectTypeName_,
         description = pDescription_
       }
-
--- | The tags used to organize, track, or control access for this resource.
-getProfileObjectTypeResponse_tags :: Lens.Lens' GetProfileObjectTypeResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getProfileObjectTypeResponse_tags = Lens.lens (\GetProfileObjectTypeResponse' {tags} -> tags) (\s@GetProfileObjectTypeResponse' {} a -> s {tags = a} :: GetProfileObjectTypeResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The timestamp of when the domain was most recently edited.
-getProfileObjectTypeResponse_lastUpdatedAt :: Lens.Lens' GetProfileObjectTypeResponse (Prelude.Maybe Prelude.UTCTime)
-getProfileObjectTypeResponse_lastUpdatedAt = Lens.lens (\GetProfileObjectTypeResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@GetProfileObjectTypeResponse' {} a -> s {lastUpdatedAt = a} :: GetProfileObjectTypeResponse) Prelude.. Lens.mapping Data._Time
-
--- | A map of the name and ObjectType field.
-getProfileObjectTypeResponse_fields :: Lens.Lens' GetProfileObjectTypeResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text ObjectTypeField))
-getProfileObjectTypeResponse_fields = Lens.lens (\GetProfileObjectTypeResponse' {fields} -> fields) (\s@GetProfileObjectTypeResponse' {} a -> s {fields = a} :: GetProfileObjectTypeResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | A unique identifier for the object template.
-getProfileObjectTypeResponse_templateId :: Lens.Lens' GetProfileObjectTypeResponse (Prelude.Maybe Prelude.Text)
-getProfileObjectTypeResponse_templateId = Lens.lens (\GetProfileObjectTypeResponse' {templateId} -> templateId) (\s@GetProfileObjectTypeResponse' {} a -> s {templateId = a} :: GetProfileObjectTypeResponse)
-
--- | The number of days until the data in the object expires.
-getProfileObjectTypeResponse_expirationDays :: Lens.Lens' GetProfileObjectTypeResponse (Prelude.Maybe Prelude.Natural)
-getProfileObjectTypeResponse_expirationDays = Lens.lens (\GetProfileObjectTypeResponse' {expirationDays} -> expirationDays) (\s@GetProfileObjectTypeResponse' {} a -> s {expirationDays = a} :: GetProfileObjectTypeResponse)
-
--- | The format of your @sourceLastUpdatedTimestamp@ that was previously set
--- up.
-getProfileObjectTypeResponse_sourceLastUpdatedTimestampFormat :: Lens.Lens' GetProfileObjectTypeResponse (Prelude.Maybe Prelude.Text)
-getProfileObjectTypeResponse_sourceLastUpdatedTimestampFormat = Lens.lens (\GetProfileObjectTypeResponse' {sourceLastUpdatedTimestampFormat} -> sourceLastUpdatedTimestampFormat) (\s@GetProfileObjectTypeResponse' {} a -> s {sourceLastUpdatedTimestampFormat = a} :: GetProfileObjectTypeResponse)
-
--- | A list of unique keys that can be used to map data to the profile.
-getProfileObjectTypeResponse_keys :: Lens.Lens' GetProfileObjectTypeResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text [ObjectTypeKey]))
-getProfileObjectTypeResponse_keys = Lens.lens (\GetProfileObjectTypeResponse' {keys} -> keys) (\s@GetProfileObjectTypeResponse' {} a -> s {keys = a} :: GetProfileObjectTypeResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The customer-provided key to encrypt the profile object that will be
--- created in this profile object type.
-getProfileObjectTypeResponse_encryptionKey :: Lens.Lens' GetProfileObjectTypeResponse (Prelude.Maybe Prelude.Text)
-getProfileObjectTypeResponse_encryptionKey = Lens.lens (\GetProfileObjectTypeResponse' {encryptionKey} -> encryptionKey) (\s@GetProfileObjectTypeResponse' {} a -> s {encryptionKey = a} :: GetProfileObjectTypeResponse)
-
--- | The timestamp of when the domain was created.
-getProfileObjectTypeResponse_createdAt :: Lens.Lens' GetProfileObjectTypeResponse (Prelude.Maybe Prelude.UTCTime)
-getProfileObjectTypeResponse_createdAt = Lens.lens (\GetProfileObjectTypeResponse' {createdAt} -> createdAt) (\s@GetProfileObjectTypeResponse' {} a -> s {createdAt = a} :: GetProfileObjectTypeResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Indicates whether a profile should be created when data is received if
 -- one doesn’t exist for an object of this type. The default is @FALSE@. If
@@ -311,6 +273,44 @@ getProfileObjectTypeResponse_createdAt = Lens.lens (\GetProfileObjectTypeRespons
 -- creates a new standard profile.
 getProfileObjectTypeResponse_allowProfileCreation :: Lens.Lens' GetProfileObjectTypeResponse (Prelude.Maybe Prelude.Bool)
 getProfileObjectTypeResponse_allowProfileCreation = Lens.lens (\GetProfileObjectTypeResponse' {allowProfileCreation} -> allowProfileCreation) (\s@GetProfileObjectTypeResponse' {} a -> s {allowProfileCreation = a} :: GetProfileObjectTypeResponse)
+
+-- | The timestamp of when the domain was created.
+getProfileObjectTypeResponse_createdAt :: Lens.Lens' GetProfileObjectTypeResponse (Prelude.Maybe Prelude.UTCTime)
+getProfileObjectTypeResponse_createdAt = Lens.lens (\GetProfileObjectTypeResponse' {createdAt} -> createdAt) (\s@GetProfileObjectTypeResponse' {} a -> s {createdAt = a} :: GetProfileObjectTypeResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The customer-provided key to encrypt the profile object that will be
+-- created in this profile object type.
+getProfileObjectTypeResponse_encryptionKey :: Lens.Lens' GetProfileObjectTypeResponse (Prelude.Maybe Prelude.Text)
+getProfileObjectTypeResponse_encryptionKey = Lens.lens (\GetProfileObjectTypeResponse' {encryptionKey} -> encryptionKey) (\s@GetProfileObjectTypeResponse' {} a -> s {encryptionKey = a} :: GetProfileObjectTypeResponse)
+
+-- | The number of days until the data in the object expires.
+getProfileObjectTypeResponse_expirationDays :: Lens.Lens' GetProfileObjectTypeResponse (Prelude.Maybe Prelude.Natural)
+getProfileObjectTypeResponse_expirationDays = Lens.lens (\GetProfileObjectTypeResponse' {expirationDays} -> expirationDays) (\s@GetProfileObjectTypeResponse' {} a -> s {expirationDays = a} :: GetProfileObjectTypeResponse)
+
+-- | A map of the name and ObjectType field.
+getProfileObjectTypeResponse_fields :: Lens.Lens' GetProfileObjectTypeResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text ObjectTypeField))
+getProfileObjectTypeResponse_fields = Lens.lens (\GetProfileObjectTypeResponse' {fields} -> fields) (\s@GetProfileObjectTypeResponse' {} a -> s {fields = a} :: GetProfileObjectTypeResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of unique keys that can be used to map data to the profile.
+getProfileObjectTypeResponse_keys :: Lens.Lens' GetProfileObjectTypeResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text [ObjectTypeKey]))
+getProfileObjectTypeResponse_keys = Lens.lens (\GetProfileObjectTypeResponse' {keys} -> keys) (\s@GetProfileObjectTypeResponse' {} a -> s {keys = a} :: GetProfileObjectTypeResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The timestamp of when the domain was most recently edited.
+getProfileObjectTypeResponse_lastUpdatedAt :: Lens.Lens' GetProfileObjectTypeResponse (Prelude.Maybe Prelude.UTCTime)
+getProfileObjectTypeResponse_lastUpdatedAt = Lens.lens (\GetProfileObjectTypeResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@GetProfileObjectTypeResponse' {} a -> s {lastUpdatedAt = a} :: GetProfileObjectTypeResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The format of your @sourceLastUpdatedTimestamp@ that was previously set
+-- up.
+getProfileObjectTypeResponse_sourceLastUpdatedTimestampFormat :: Lens.Lens' GetProfileObjectTypeResponse (Prelude.Maybe Prelude.Text)
+getProfileObjectTypeResponse_sourceLastUpdatedTimestampFormat = Lens.lens (\GetProfileObjectTypeResponse' {sourceLastUpdatedTimestampFormat} -> sourceLastUpdatedTimestampFormat) (\s@GetProfileObjectTypeResponse' {} a -> s {sourceLastUpdatedTimestampFormat = a} :: GetProfileObjectTypeResponse)
+
+-- | The tags used to organize, track, or control access for this resource.
+getProfileObjectTypeResponse_tags :: Lens.Lens' GetProfileObjectTypeResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getProfileObjectTypeResponse_tags = Lens.lens (\GetProfileObjectTypeResponse' {tags} -> tags) (\s@GetProfileObjectTypeResponse' {} a -> s {tags = a} :: GetProfileObjectTypeResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A unique identifier for the object template.
+getProfileObjectTypeResponse_templateId :: Lens.Lens' GetProfileObjectTypeResponse (Prelude.Maybe Prelude.Text)
+getProfileObjectTypeResponse_templateId = Lens.lens (\GetProfileObjectTypeResponse' {templateId} -> templateId) (\s@GetProfileObjectTypeResponse' {} a -> s {templateId = a} :: GetProfileObjectTypeResponse)
 
 -- | The response's http status code.
 getProfileObjectTypeResponse_httpStatus :: Lens.Lens' GetProfileObjectTypeResponse Prelude.Int
@@ -326,16 +326,16 @@ getProfileObjectTypeResponse_description = Lens.lens (\GetProfileObjectTypeRespo
 
 instance Prelude.NFData GetProfileObjectTypeResponse where
   rnf GetProfileObjectTypeResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf fields
-      `Prelude.seq` Prelude.rnf templateId
-      `Prelude.seq` Prelude.rnf expirationDays
-      `Prelude.seq` Prelude.rnf sourceLastUpdatedTimestampFormat
-      `Prelude.seq` Prelude.rnf keys
-      `Prelude.seq` Prelude.rnf encryptionKey
+    Prelude.rnf allowProfileCreation
       `Prelude.seq` Prelude.rnf createdAt
-      `Prelude.seq` Prelude.rnf allowProfileCreation
+      `Prelude.seq` Prelude.rnf encryptionKey
+      `Prelude.seq` Prelude.rnf expirationDays
+      `Prelude.seq` Prelude.rnf fields
+      `Prelude.seq` Prelude.rnf keys
+      `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf sourceLastUpdatedTimestampFormat
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf templateId
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf objectTypeName
       `Prelude.seq` Prelude.rnf description

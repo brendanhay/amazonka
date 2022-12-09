@@ -31,16 +31,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMatchingResponse' smart constructor.
 data MatchingResponse = MatchingResponse'
-  { -- | The day and time when do you want to start the Identity Resolution Job
-    -- every week.
-    jobSchedule :: Prelude.Maybe JobSchedule,
-    -- | Configuration information about the auto-merging process.
+  { -- | Configuration information about the auto-merging process.
     autoMerging :: Prelude.Maybe AutoMerging,
     -- | The flag that enables the matching process of duplicate profiles.
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | Configuration information for exporting Identity Resolution results, for
     -- example, to an S3 bucket.
-    exportingConfig :: Prelude.Maybe ExportingConfig
+    exportingConfig :: Prelude.Maybe ExportingConfig,
+    -- | The day and time when do you want to start the Identity Resolution Job
+    -- every week.
+    jobSchedule :: Prelude.Maybe JobSchedule
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,29 +52,24 @@ data MatchingResponse = MatchingResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobSchedule', 'matchingResponse_jobSchedule' - The day and time when do you want to start the Identity Resolution Job
--- every week.
---
 -- 'autoMerging', 'matchingResponse_autoMerging' - Configuration information about the auto-merging process.
 --
 -- 'enabled', 'matchingResponse_enabled' - The flag that enables the matching process of duplicate profiles.
 --
 -- 'exportingConfig', 'matchingResponse_exportingConfig' - Configuration information for exporting Identity Resolution results, for
 -- example, to an S3 bucket.
+--
+-- 'jobSchedule', 'matchingResponse_jobSchedule' - The day and time when do you want to start the Identity Resolution Job
+-- every week.
 newMatchingResponse ::
   MatchingResponse
 newMatchingResponse =
   MatchingResponse'
-    { jobSchedule = Prelude.Nothing,
-      autoMerging = Prelude.Nothing,
+    { autoMerging = Prelude.Nothing,
       enabled = Prelude.Nothing,
-      exportingConfig = Prelude.Nothing
+      exportingConfig = Prelude.Nothing,
+      jobSchedule = Prelude.Nothing
     }
-
--- | The day and time when do you want to start the Identity Resolution Job
--- every week.
-matchingResponse_jobSchedule :: Lens.Lens' MatchingResponse (Prelude.Maybe JobSchedule)
-matchingResponse_jobSchedule = Lens.lens (\MatchingResponse' {jobSchedule} -> jobSchedule) (\s@MatchingResponse' {} a -> s {jobSchedule = a} :: MatchingResponse)
 
 -- | Configuration information about the auto-merging process.
 matchingResponse_autoMerging :: Lens.Lens' MatchingResponse (Prelude.Maybe AutoMerging)
@@ -89,28 +84,33 @@ matchingResponse_enabled = Lens.lens (\MatchingResponse' {enabled} -> enabled) (
 matchingResponse_exportingConfig :: Lens.Lens' MatchingResponse (Prelude.Maybe ExportingConfig)
 matchingResponse_exportingConfig = Lens.lens (\MatchingResponse' {exportingConfig} -> exportingConfig) (\s@MatchingResponse' {} a -> s {exportingConfig = a} :: MatchingResponse)
 
+-- | The day and time when do you want to start the Identity Resolution Job
+-- every week.
+matchingResponse_jobSchedule :: Lens.Lens' MatchingResponse (Prelude.Maybe JobSchedule)
+matchingResponse_jobSchedule = Lens.lens (\MatchingResponse' {jobSchedule} -> jobSchedule) (\s@MatchingResponse' {} a -> s {jobSchedule = a} :: MatchingResponse)
+
 instance Data.FromJSON MatchingResponse where
   parseJSON =
     Data.withObject
       "MatchingResponse"
       ( \x ->
           MatchingResponse'
-            Prelude.<$> (x Data..:? "JobSchedule")
-            Prelude.<*> (x Data..:? "AutoMerging")
+            Prelude.<$> (x Data..:? "AutoMerging")
             Prelude.<*> (x Data..:? "Enabled")
             Prelude.<*> (x Data..:? "ExportingConfig")
+            Prelude.<*> (x Data..:? "JobSchedule")
       )
 
 instance Prelude.Hashable MatchingResponse where
   hashWithSalt _salt MatchingResponse' {..} =
-    _salt `Prelude.hashWithSalt` jobSchedule
-      `Prelude.hashWithSalt` autoMerging
+    _salt `Prelude.hashWithSalt` autoMerging
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` exportingConfig
+      `Prelude.hashWithSalt` jobSchedule
 
 instance Prelude.NFData MatchingResponse where
   rnf MatchingResponse' {..} =
-    Prelude.rnf jobSchedule
-      `Prelude.seq` Prelude.rnf autoMerging
+    Prelude.rnf autoMerging
       `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf exportingConfig
+      `Prelude.seq` Prelude.rnf jobSchedule

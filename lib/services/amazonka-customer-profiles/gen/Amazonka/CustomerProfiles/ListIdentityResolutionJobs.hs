@@ -28,8 +28,8 @@ module Amazonka.CustomerProfiles.ListIdentityResolutionJobs
     newListIdentityResolutionJobs,
 
     -- * Request Lenses
-    listIdentityResolutionJobs_nextToken,
     listIdentityResolutionJobs_maxResults,
+    listIdentityResolutionJobs_nextToken,
     listIdentityResolutionJobs_domainName,
 
     -- * Destructuring the Response
@@ -37,8 +37,8 @@ module Amazonka.CustomerProfiles.ListIdentityResolutionJobs
     newListIdentityResolutionJobsResponse,
 
     -- * Response Lenses
-    listIdentityResolutionJobsResponse_nextToken,
     listIdentityResolutionJobsResponse_identityResolutionJobsList,
+    listIdentityResolutionJobsResponse_nextToken,
     listIdentityResolutionJobsResponse_httpStatus,
   )
 where
@@ -53,12 +53,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListIdentityResolutionJobs' smart constructor.
 data ListIdentityResolutionJobs = ListIdentityResolutionJobs'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The maximum number of results to return per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The unique name of the domain.
     domainName :: Prelude.Text
   }
@@ -72,11 +72,11 @@ data ListIdentityResolutionJobs = ListIdentityResolutionJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listIdentityResolutionJobs_maxResults' - The maximum number of results to return per page.
+--
 -- 'nextToken', 'listIdentityResolutionJobs_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
---
--- 'maxResults', 'listIdentityResolutionJobs_maxResults' - The maximum number of results to return per page.
 --
 -- 'domainName', 'listIdentityResolutionJobs_domainName' - The unique name of the domain.
 newListIdentityResolutionJobs ::
@@ -85,21 +85,21 @@ newListIdentityResolutionJobs ::
   ListIdentityResolutionJobs
 newListIdentityResolutionJobs pDomainName_ =
   ListIdentityResolutionJobs'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       domainName = pDomainName_
     }
+
+-- | The maximum number of results to return per page.
+listIdentityResolutionJobs_maxResults :: Lens.Lens' ListIdentityResolutionJobs (Prelude.Maybe Prelude.Natural)
+listIdentityResolutionJobs_maxResults = Lens.lens (\ListIdentityResolutionJobs' {maxResults} -> maxResults) (\s@ListIdentityResolutionJobs' {} a -> s {maxResults = a} :: ListIdentityResolutionJobs)
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 listIdentityResolutionJobs_nextToken :: Lens.Lens' ListIdentityResolutionJobs (Prelude.Maybe Prelude.Text)
 listIdentityResolutionJobs_nextToken = Lens.lens (\ListIdentityResolutionJobs' {nextToken} -> nextToken) (\s@ListIdentityResolutionJobs' {} a -> s {nextToken = a} :: ListIdentityResolutionJobs)
-
--- | The maximum number of results to return per page.
-listIdentityResolutionJobs_maxResults :: Lens.Lens' ListIdentityResolutionJobs (Prelude.Maybe Prelude.Natural)
-listIdentityResolutionJobs_maxResults = Lens.lens (\ListIdentityResolutionJobs' {maxResults} -> maxResults) (\s@ListIdentityResolutionJobs' {} a -> s {maxResults = a} :: ListIdentityResolutionJobs)
 
 -- | The unique name of the domain.
 listIdentityResolutionJobs_domainName :: Lens.Lens' ListIdentityResolutionJobs Prelude.Text
@@ -115,23 +115,23 @@ instance Core.AWSRequest ListIdentityResolutionJobs where
     Response.receiveJSON
       ( \s h x ->
           ListIdentityResolutionJobsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "IdentityResolutionJobsList"
+            Prelude.<$> ( x Data..?> "IdentityResolutionJobsList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListIdentityResolutionJobs where
   hashWithSalt _salt ListIdentityResolutionJobs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData ListIdentityResolutionJobs where
   rnf ListIdentityResolutionJobs' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf domainName
 
 instance Data.ToHeaders ListIdentityResolutionJobs where
@@ -156,17 +156,17 @@ instance Data.ToPath ListIdentityResolutionJobs where
 instance Data.ToQuery ListIdentityResolutionJobs where
   toQuery ListIdentityResolutionJobs' {..} =
     Prelude.mconcat
-      [ "next-token" Data.=: nextToken,
-        "max-results" Data.=: maxResults
+      [ "max-results" Data.=: maxResults,
+        "next-token" Data.=: nextToken
       ]
 
 -- | /See:/ 'newListIdentityResolutionJobsResponse' smart constructor.
 data ListIdentityResolutionJobsResponse = ListIdentityResolutionJobsResponse'
-  { -- | If there are additional results, this is the token for the next set of
+  { -- | A list of Identity Resolution Jobs.
+    identityResolutionJobsList :: Prelude.Maybe [IdentityResolutionJob],
+    -- | If there are additional results, this is the token for the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of Identity Resolution Jobs.
-    identityResolutionJobsList :: Prelude.Maybe [IdentityResolutionJob],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -180,10 +180,10 @@ data ListIdentityResolutionJobsResponse = ListIdentityResolutionJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'identityResolutionJobsList', 'listIdentityResolutionJobsResponse_identityResolutionJobsList' - A list of Identity Resolution Jobs.
+--
 -- 'nextToken', 'listIdentityResolutionJobsResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
---
--- 'identityResolutionJobsList', 'listIdentityResolutionJobsResponse_identityResolutionJobsList' - A list of Identity Resolution Jobs.
 --
 -- 'httpStatus', 'listIdentityResolutionJobsResponse_httpStatus' - The response's http status code.
 newListIdentityResolutionJobsResponse ::
@@ -192,21 +192,20 @@ newListIdentityResolutionJobsResponse ::
   ListIdentityResolutionJobsResponse
 newListIdentityResolutionJobsResponse pHttpStatus_ =
   ListIdentityResolutionJobsResponse'
-    { nextToken =
+    { identityResolutionJobsList =
         Prelude.Nothing,
-      identityResolutionJobsList =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of Identity Resolution Jobs.
+listIdentityResolutionJobsResponse_identityResolutionJobsList :: Lens.Lens' ListIdentityResolutionJobsResponse (Prelude.Maybe [IdentityResolutionJob])
+listIdentityResolutionJobsResponse_identityResolutionJobsList = Lens.lens (\ListIdentityResolutionJobsResponse' {identityResolutionJobsList} -> identityResolutionJobsList) (\s@ListIdentityResolutionJobsResponse' {} a -> s {identityResolutionJobsList = a} :: ListIdentityResolutionJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
 listIdentityResolutionJobsResponse_nextToken :: Lens.Lens' ListIdentityResolutionJobsResponse (Prelude.Maybe Prelude.Text)
 listIdentityResolutionJobsResponse_nextToken = Lens.lens (\ListIdentityResolutionJobsResponse' {nextToken} -> nextToken) (\s@ListIdentityResolutionJobsResponse' {} a -> s {nextToken = a} :: ListIdentityResolutionJobsResponse)
-
--- | A list of Identity Resolution Jobs.
-listIdentityResolutionJobsResponse_identityResolutionJobsList :: Lens.Lens' ListIdentityResolutionJobsResponse (Prelude.Maybe [IdentityResolutionJob])
-listIdentityResolutionJobsResponse_identityResolutionJobsList = Lens.lens (\ListIdentityResolutionJobsResponse' {identityResolutionJobsList} -> identityResolutionJobsList) (\s@ListIdentityResolutionJobsResponse' {} a -> s {identityResolutionJobsList = a} :: ListIdentityResolutionJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listIdentityResolutionJobsResponse_httpStatus :: Lens.Lens' ListIdentityResolutionJobsResponse Prelude.Int
@@ -217,6 +216,6 @@ instance
     ListIdentityResolutionJobsResponse
   where
   rnf ListIdentityResolutionJobsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf identityResolutionJobsList
+    Prelude.rnf identityResolutionJobsList
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

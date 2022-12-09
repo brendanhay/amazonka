@@ -35,11 +35,11 @@ module Amazonka.CustomerProfiles.GetIntegration
     newGetIntegrationResponse,
 
     -- * Response Lenses
-    getIntegrationResponse_tags,
     getIntegrationResponse_isUnstructured,
-    getIntegrationResponse_objectTypeNames,
-    getIntegrationResponse_workflowId,
     getIntegrationResponse_objectTypeName,
+    getIntegrationResponse_objectTypeNames,
+    getIntegrationResponse_tags,
+    getIntegrationResponse_workflowId,
     getIntegrationResponse_httpStatus,
     getIntegrationResponse_domainName,
     getIntegrationResponse_uri,
@@ -106,13 +106,13 @@ instance Core.AWSRequest GetIntegration where
     Response.receiveJSON
       ( \s h x ->
           GetIntegrationResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "IsUnstructured")
+            Prelude.<$> (x Data..?> "IsUnstructured")
+            Prelude.<*> (x Data..?> "ObjectTypeName")
             Prelude.<*> ( x Data..?> "ObjectTypeNames"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "WorkflowId")
-            Prelude.<*> (x Data..?> "ObjectTypeName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "DomainName")
             Prelude.<*> (x Data..:> "Uri")
@@ -158,12 +158,12 @@ instance Data.ToQuery GetIntegration where
 
 -- | /See:/ 'newGetIntegrationResponse' smart constructor.
 data GetIntegrationResponse = GetIntegrationResponse'
-  { -- | The tags used to organize, track, or control access for this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Boolean to indicate if the Flow associated with the Integration is
+  { -- | Boolean to indicate if the Flow associated with the Integration is
     -- created via Appflow console or with ObjectTypeName equals _unstructured
     -- via API\/CLI in flowDefinition
     isUnstructured :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the profile object type.
+    objectTypeName :: Prelude.Maybe Prelude.Text,
     -- | A map in which each key is an event type from an external application
     -- such as Segment or Shopify, and each value is an @ObjectTypeName@
     -- (template) used to ingest the event. It supports the following event
@@ -172,10 +172,10 @@ data GetIntegrationResponse = GetIntegrationResponse'
     -- @ShopifyUpdateDraftOrders@, @ShopifyCreateOrders@, and
     -- @ShopifyUpdatedOrders@.
     objectTypeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The tags used to organize, track, or control access for this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Unique identifier for the workflow.
     workflowId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the profile object type.
-    objectTypeName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The unique name of the domain.
@@ -197,11 +197,11 @@ data GetIntegrationResponse = GetIntegrationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'getIntegrationResponse_tags' - The tags used to organize, track, or control access for this resource.
---
 -- 'isUnstructured', 'getIntegrationResponse_isUnstructured' - Boolean to indicate if the Flow associated with the Integration is
 -- created via Appflow console or with ObjectTypeName equals _unstructured
 -- via API\/CLI in flowDefinition
+--
+-- 'objectTypeName', 'getIntegrationResponse_objectTypeName' - The name of the profile object type.
 --
 -- 'objectTypeNames', 'getIntegrationResponse_objectTypeNames' - A map in which each key is an event type from an external application
 -- such as Segment or Shopify, and each value is an @ObjectTypeName@
@@ -211,9 +211,9 @@ data GetIntegrationResponse = GetIntegrationResponse'
 -- @ShopifyUpdateDraftOrders@, @ShopifyCreateOrders@, and
 -- @ShopifyUpdatedOrders@.
 --
--- 'workflowId', 'getIntegrationResponse_workflowId' - Unique identifier for the workflow.
+-- 'tags', 'getIntegrationResponse_tags' - The tags used to organize, track, or control access for this resource.
 --
--- 'objectTypeName', 'getIntegrationResponse_objectTypeName' - The name of the profile object type.
+-- 'workflowId', 'getIntegrationResponse_workflowId' - Unique identifier for the workflow.
 --
 -- 'httpStatus', 'getIntegrationResponse_httpStatus' - The response's http status code.
 --
@@ -243,11 +243,12 @@ newGetIntegrationResponse
   pCreatedAt_
   pLastUpdatedAt_ =
     GetIntegrationResponse'
-      { tags = Prelude.Nothing,
-        isUnstructured = Prelude.Nothing,
-        objectTypeNames = Prelude.Nothing,
-        workflowId = Prelude.Nothing,
+      { isUnstructured =
+          Prelude.Nothing,
         objectTypeName = Prelude.Nothing,
+        objectTypeNames = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        workflowId = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         domainName = pDomainName_,
         uri = pUri_,
@@ -255,15 +256,15 @@ newGetIntegrationResponse
         lastUpdatedAt = Data._Time Lens.# pLastUpdatedAt_
       }
 
--- | The tags used to organize, track, or control access for this resource.
-getIntegrationResponse_tags :: Lens.Lens' GetIntegrationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getIntegrationResponse_tags = Lens.lens (\GetIntegrationResponse' {tags} -> tags) (\s@GetIntegrationResponse' {} a -> s {tags = a} :: GetIntegrationResponse) Prelude.. Lens.mapping Lens.coerced
-
 -- | Boolean to indicate if the Flow associated with the Integration is
 -- created via Appflow console or with ObjectTypeName equals _unstructured
 -- via API\/CLI in flowDefinition
 getIntegrationResponse_isUnstructured :: Lens.Lens' GetIntegrationResponse (Prelude.Maybe Prelude.Bool)
 getIntegrationResponse_isUnstructured = Lens.lens (\GetIntegrationResponse' {isUnstructured} -> isUnstructured) (\s@GetIntegrationResponse' {} a -> s {isUnstructured = a} :: GetIntegrationResponse)
+
+-- | The name of the profile object type.
+getIntegrationResponse_objectTypeName :: Lens.Lens' GetIntegrationResponse (Prelude.Maybe Prelude.Text)
+getIntegrationResponse_objectTypeName = Lens.lens (\GetIntegrationResponse' {objectTypeName} -> objectTypeName) (\s@GetIntegrationResponse' {} a -> s {objectTypeName = a} :: GetIntegrationResponse)
 
 -- | A map in which each key is an event type from an external application
 -- such as Segment or Shopify, and each value is an @ObjectTypeName@
@@ -275,13 +276,13 @@ getIntegrationResponse_isUnstructured = Lens.lens (\GetIntegrationResponse' {isU
 getIntegrationResponse_objectTypeNames :: Lens.Lens' GetIntegrationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getIntegrationResponse_objectTypeNames = Lens.lens (\GetIntegrationResponse' {objectTypeNames} -> objectTypeNames) (\s@GetIntegrationResponse' {} a -> s {objectTypeNames = a} :: GetIntegrationResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The tags used to organize, track, or control access for this resource.
+getIntegrationResponse_tags :: Lens.Lens' GetIntegrationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getIntegrationResponse_tags = Lens.lens (\GetIntegrationResponse' {tags} -> tags) (\s@GetIntegrationResponse' {} a -> s {tags = a} :: GetIntegrationResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | Unique identifier for the workflow.
 getIntegrationResponse_workflowId :: Lens.Lens' GetIntegrationResponse (Prelude.Maybe Prelude.Text)
 getIntegrationResponse_workflowId = Lens.lens (\GetIntegrationResponse' {workflowId} -> workflowId) (\s@GetIntegrationResponse' {} a -> s {workflowId = a} :: GetIntegrationResponse)
-
--- | The name of the profile object type.
-getIntegrationResponse_objectTypeName :: Lens.Lens' GetIntegrationResponse (Prelude.Maybe Prelude.Text)
-getIntegrationResponse_objectTypeName = Lens.lens (\GetIntegrationResponse' {objectTypeName} -> objectTypeName) (\s@GetIntegrationResponse' {} a -> s {objectTypeName = a} :: GetIntegrationResponse)
 
 -- | The response's http status code.
 getIntegrationResponse_httpStatus :: Lens.Lens' GetIntegrationResponse Prelude.Int
@@ -305,11 +306,11 @@ getIntegrationResponse_lastUpdatedAt = Lens.lens (\GetIntegrationResponse' {last
 
 instance Prelude.NFData GetIntegrationResponse where
   rnf GetIntegrationResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf isUnstructured
-      `Prelude.seq` Prelude.rnf objectTypeNames
-      `Prelude.seq` Prelude.rnf workflowId
+    Prelude.rnf isUnstructured
       `Prelude.seq` Prelude.rnf objectTypeName
+      `Prelude.seq` Prelude.rnf objectTypeNames
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf workflowId
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf uri

@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAutoMerging' smart constructor.
 data AutoMerging = AutoMerging'
-  { -- | A list of matching attributes that represent matching criteria. If two
-    -- profiles meet at least one of the requirements in the matching
-    -- attributes list, they will be merged.
-    consolidation :: Prelude.Maybe Consolidation,
-    -- | How the auto-merging process should resolve conflicts between different
+  { -- | How the auto-merging process should resolve conflicts between different
     -- profiles. For example, if Profile A and Profile B have the same
     -- @FirstName@ and @LastName@ (and that is the matching criteria), which
     -- @EmailAddress@ should be used?
     conflictResolution :: Prelude.Maybe ConflictResolution,
+    -- | A list of matching attributes that represent matching criteria. If two
+    -- profiles meet at least one of the requirements in the matching
+    -- attributes list, they will be merged.
+    consolidation :: Prelude.Maybe Consolidation,
     -- | A number between 0 and 1 that represents the minimum confidence score
     -- required for profiles within a matching group to be merged during the
     -- auto-merge process. A higher score means higher similarity required to
@@ -57,14 +57,14 @@ data AutoMerging = AutoMerging'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'consolidation', 'autoMerging_consolidation' - A list of matching attributes that represent matching criteria. If two
--- profiles meet at least one of the requirements in the matching
--- attributes list, they will be merged.
---
 -- 'conflictResolution', 'autoMerging_conflictResolution' - How the auto-merging process should resolve conflicts between different
 -- profiles. For example, if Profile A and Profile B have the same
 -- @FirstName@ and @LastName@ (and that is the matching criteria), which
 -- @EmailAddress@ should be used?
+--
+-- 'consolidation', 'autoMerging_consolidation' - A list of matching attributes that represent matching criteria. If two
+-- profiles meet at least one of the requirements in the matching
+-- attributes list, they will be merged.
 --
 -- 'minAllowedConfidenceScoreForMerging', 'autoMerging_minAllowedConfidenceScoreForMerging' - A number between 0 and 1 that represents the minimum confidence score
 -- required for profiles within a matching group to be merged during the
@@ -78,18 +78,12 @@ newAutoMerging ::
   AutoMerging
 newAutoMerging pEnabled_ =
   AutoMerging'
-    { consolidation = Prelude.Nothing,
-      conflictResolution = Prelude.Nothing,
+    { conflictResolution = Prelude.Nothing,
+      consolidation = Prelude.Nothing,
       minAllowedConfidenceScoreForMerging =
         Prelude.Nothing,
       enabled = pEnabled_
     }
-
--- | A list of matching attributes that represent matching criteria. If two
--- profiles meet at least one of the requirements in the matching
--- attributes list, they will be merged.
-autoMerging_consolidation :: Lens.Lens' AutoMerging (Prelude.Maybe Consolidation)
-autoMerging_consolidation = Lens.lens (\AutoMerging' {consolidation} -> consolidation) (\s@AutoMerging' {} a -> s {consolidation = a} :: AutoMerging)
 
 -- | How the auto-merging process should resolve conflicts between different
 -- profiles. For example, if Profile A and Profile B have the same
@@ -97,6 +91,12 @@ autoMerging_consolidation = Lens.lens (\AutoMerging' {consolidation} -> consolid
 -- @EmailAddress@ should be used?
 autoMerging_conflictResolution :: Lens.Lens' AutoMerging (Prelude.Maybe ConflictResolution)
 autoMerging_conflictResolution = Lens.lens (\AutoMerging' {conflictResolution} -> conflictResolution) (\s@AutoMerging' {} a -> s {conflictResolution = a} :: AutoMerging)
+
+-- | A list of matching attributes that represent matching criteria. If two
+-- profiles meet at least one of the requirements in the matching
+-- attributes list, they will be merged.
+autoMerging_consolidation :: Lens.Lens' AutoMerging (Prelude.Maybe Consolidation)
+autoMerging_consolidation = Lens.lens (\AutoMerging' {consolidation} -> consolidation) (\s@AutoMerging' {} a -> s {consolidation = a} :: AutoMerging)
 
 -- | A number between 0 and 1 that represents the minimum confidence score
 -- required for profiles within a matching group to be merged during the
@@ -115,23 +115,23 @@ instance Data.FromJSON AutoMerging where
       "AutoMerging"
       ( \x ->
           AutoMerging'
-            Prelude.<$> (x Data..:? "Consolidation")
-            Prelude.<*> (x Data..:? "ConflictResolution")
+            Prelude.<$> (x Data..:? "ConflictResolution")
+            Prelude.<*> (x Data..:? "Consolidation")
             Prelude.<*> (x Data..:? "MinAllowedConfidenceScoreForMerging")
             Prelude.<*> (x Data..: "Enabled")
       )
 
 instance Prelude.Hashable AutoMerging where
   hashWithSalt _salt AutoMerging' {..} =
-    _salt `Prelude.hashWithSalt` consolidation
-      `Prelude.hashWithSalt` conflictResolution
+    _salt `Prelude.hashWithSalt` conflictResolution
+      `Prelude.hashWithSalt` consolidation
       `Prelude.hashWithSalt` minAllowedConfidenceScoreForMerging
       `Prelude.hashWithSalt` enabled
 
 instance Prelude.NFData AutoMerging where
   rnf AutoMerging' {..} =
-    Prelude.rnf consolidation
-      `Prelude.seq` Prelude.rnf conflictResolution
+    Prelude.rnf conflictResolution
+      `Prelude.seq` Prelude.rnf consolidation
       `Prelude.seq` Prelude.rnf minAllowedConfidenceScoreForMerging
       `Prelude.seq` Prelude.rnf enabled
 
@@ -139,9 +139,9 @@ instance Data.ToJSON AutoMerging where
   toJSON AutoMerging' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Consolidation" Data..=) Prelude.<$> consolidation,
-            ("ConflictResolution" Data..=)
+          [ ("ConflictResolution" Data..=)
               Prelude.<$> conflictResolution,
+            ("Consolidation" Data..=) Prelude.<$> consolidation,
             ("MinAllowedConfidenceScoreForMerging" Data..=)
               Prelude.<$> minAllowedConfidenceScoreForMerging,
             Prelude.Just ("Enabled" Data..= enabled)

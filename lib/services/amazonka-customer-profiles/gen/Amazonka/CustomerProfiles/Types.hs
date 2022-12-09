@@ -19,10 +19,10 @@ module Amazonka.CustomerProfiles.Types
 
     -- * Errors
     _AccessDeniedException,
+    _BadRequestException,
     _InternalServerException,
     _ResourceNotFoundException,
     _ThrottlingException,
-    _BadRequestException,
 
     -- * ConflictResolvingModel
     ConflictResolvingModel (..),
@@ -93,16 +93,16 @@ module Amazonka.CustomerProfiles.Types
     -- * Address
     Address (..),
     newAddress,
+    address_address1,
     address_address2,
-    address_postalCode,
+    address_address3,
+    address_address4,
+    address_city,
     address_country,
     address_county,
-    address_state,
+    address_postalCode,
     address_province,
-    address_address3,
-    address_city,
-    address_address4,
-    address_address1,
+    address_state,
 
     -- * AppflowIntegration
     AppflowIntegration (..),
@@ -139,8 +139,8 @@ module Amazonka.CustomerProfiles.Types
     -- * AutoMerging
     AutoMerging (..),
     newAutoMerging,
-    autoMerging_consolidation,
     autoMerging_conflictResolution,
+    autoMerging_consolidation,
     autoMerging_minAllowedConfidenceScoreForMerging,
     autoMerging_enabled,
 
@@ -159,11 +159,11 @@ module Amazonka.CustomerProfiles.Types
     -- * ConnectorOperator
     ConnectorOperator (..),
     newConnectorOperator,
-    connectorOperator_zendesk,
+    connectorOperator_marketo,
     connectorOperator_s3,
     connectorOperator_salesforce,
-    connectorOperator_marketo,
     connectorOperator_serviceNow,
+    connectorOperator_zendesk,
 
     -- * Consolidation
     Consolidation (..),
@@ -174,8 +174,8 @@ module Amazonka.CustomerProfiles.Types
     DomainStats (..),
     newDomainStats,
     domainStats_meteringProfileCount,
-    domainStats_profileCount,
     domainStats_objectCount,
+    domainStats_profileCount,
     domainStats_totalSize,
 
     -- * ExportingConfig
@@ -191,27 +191,27 @@ module Amazonka.CustomerProfiles.Types
     -- * FieldSourceProfileIds
     FieldSourceProfileIds (..),
     newFieldSourceProfileIds,
-    fieldSourceProfileIds_homePhoneNumber,
-    fieldSourceProfileIds_mailingAddress,
-    fieldSourceProfileIds_shippingAddress,
-    fieldSourceProfileIds_firstName,
-    fieldSourceProfileIds_businessPhoneNumber,
+    fieldSourceProfileIds_accountNumber,
+    fieldSourceProfileIds_additionalInformation,
+    fieldSourceProfileIds_address,
+    fieldSourceProfileIds_attributes,
+    fieldSourceProfileIds_billingAddress,
+    fieldSourceProfileIds_birthDate,
     fieldSourceProfileIds_businessEmailAddress,
     fieldSourceProfileIds_businessName,
-    fieldSourceProfileIds_personalEmailAddress,
-    fieldSourceProfileIds_billingAddress,
-    fieldSourceProfileIds_lastName,
-    fieldSourceProfileIds_birthDate,
-    fieldSourceProfileIds_address,
-    fieldSourceProfileIds_partyType,
-    fieldSourceProfileIds_gender,
-    fieldSourceProfileIds_mobilePhoneNumber,
-    fieldSourceProfileIds_middleName,
-    fieldSourceProfileIds_attributes,
-    fieldSourceProfileIds_phoneNumber,
-    fieldSourceProfileIds_additionalInformation,
+    fieldSourceProfileIds_businessPhoneNumber,
     fieldSourceProfileIds_emailAddress,
-    fieldSourceProfileIds_accountNumber,
+    fieldSourceProfileIds_firstName,
+    fieldSourceProfileIds_gender,
+    fieldSourceProfileIds_homePhoneNumber,
+    fieldSourceProfileIds_lastName,
+    fieldSourceProfileIds_mailingAddress,
+    fieldSourceProfileIds_middleName,
+    fieldSourceProfileIds_mobilePhoneNumber,
+    fieldSourceProfileIds_partyType,
+    fieldSourceProfileIds_personalEmailAddress,
+    fieldSourceProfileIds_phoneNumber,
+    fieldSourceProfileIds_shippingAddress,
 
     -- * FlowDefinition
     FlowDefinition (..),
@@ -232,14 +232,14 @@ module Amazonka.CustomerProfiles.Types
     -- * IdentityResolutionJob
     IdentityResolutionJob (..),
     newIdentityResolutionJob,
+    identityResolutionJob_domainName,
     identityResolutionJob_exportingLocation,
+    identityResolutionJob_jobEndTime,
+    identityResolutionJob_jobId,
+    identityResolutionJob_jobStartTime,
     identityResolutionJob_jobStats,
     identityResolutionJob_message,
-    identityResolutionJob_domainName,
-    identityResolutionJob_jobId,
     identityResolutionJob_status,
-    identityResolutionJob_jobStartTime,
-    identityResolutionJob_jobEndTime,
 
     -- * IncrementalPullConfig
     IncrementalPullConfig (..),
@@ -260,8 +260,8 @@ module Amazonka.CustomerProfiles.Types
     -- * JobStats
     JobStats (..),
     newJobStats,
-    jobStats_numberOfMergesDone,
     jobStats_numberOfMatchesFound,
+    jobStats_numberOfMergesDone,
     jobStats_numberOfProfilesReviewed,
 
     -- * ListDomainItem
@@ -275,11 +275,11 @@ module Amazonka.CustomerProfiles.Types
     -- * ListIntegrationItem
     ListIntegrationItem (..),
     newListIntegrationItem,
-    listIntegrationItem_tags,
     listIntegrationItem_isUnstructured,
-    listIntegrationItem_objectTypeNames,
-    listIntegrationItem_workflowId,
     listIntegrationItem_objectTypeName,
+    listIntegrationItem_objectTypeNames,
+    listIntegrationItem_tags,
+    listIntegrationItem_workflowId,
     listIntegrationItem_domainName,
     listIntegrationItem_uri,
     listIntegrationItem_createdAt,
@@ -288,9 +288,9 @@ module Amazonka.CustomerProfiles.Types
     -- * ListProfileObjectTypeItem
     ListProfileObjectTypeItem (..),
     newListProfileObjectTypeItem,
-    listProfileObjectTypeItem_tags,
-    listProfileObjectTypeItem_lastUpdatedAt,
     listProfileObjectTypeItem_createdAt,
+    listProfileObjectTypeItem_lastUpdatedAt,
+    listProfileObjectTypeItem_tags,
     listProfileObjectTypeItem_objectTypeName,
     listProfileObjectTypeItem_description,
 
@@ -298,15 +298,15 @@ module Amazonka.CustomerProfiles.Types
     ListProfileObjectTypeTemplateItem (..),
     newListProfileObjectTypeTemplateItem,
     listProfileObjectTypeTemplateItem_sourceName,
-    listProfileObjectTypeTemplateItem_templateId,
     listProfileObjectTypeTemplateItem_sourceObject,
+    listProfileObjectTypeTemplateItem_templateId,
 
     -- * ListProfileObjectsItem
     ListProfileObjectsItem (..),
     newListProfileObjectsItem,
     listProfileObjectsItem_object,
-    listProfileObjectsItem_profileObjectUniqueKey,
     listProfileObjectsItem_objectTypeName,
+    listProfileObjectsItem_profileObjectUniqueKey,
 
     -- * ListWorkflowsItem
     ListWorkflowsItem (..),
@@ -326,25 +326,25 @@ module Amazonka.CustomerProfiles.Types
     -- * MatchItem
     MatchItem (..),
     newMatchItem,
+    matchItem_confidenceScore,
     matchItem_matchId,
     matchItem_profileIds,
-    matchItem_confidenceScore,
 
     -- * MatchingRequest
     MatchingRequest (..),
     newMatchingRequest,
-    matchingRequest_jobSchedule,
     matchingRequest_autoMerging,
     matchingRequest_exportingConfig,
+    matchingRequest_jobSchedule,
     matchingRequest_enabled,
 
     -- * MatchingResponse
     MatchingResponse (..),
     newMatchingResponse,
-    matchingResponse_jobSchedule,
     matchingResponse_autoMerging,
     matchingResponse_enabled,
     matchingResponse_exportingConfig,
+    matchingResponse_jobSchedule,
 
     -- * ObjectFilter
     ObjectFilter (..),
@@ -355,9 +355,9 @@ module Amazonka.CustomerProfiles.Types
     -- * ObjectTypeField
     ObjectTypeField (..),
     newObjectTypeField,
-    objectTypeField_target,
-    objectTypeField_source,
     objectTypeField_contentType,
+    objectTypeField_source,
+    objectTypeField_target,
 
     -- * ObjectTypeKey
     ObjectTypeKey (..),
@@ -368,29 +368,29 @@ module Amazonka.CustomerProfiles.Types
     -- * Profile
     Profile (..),
     newProfile,
-    profile_homePhoneNumber,
-    profile_mailingAddress,
-    profile_shippingAddress,
-    profile_profileId,
-    profile_firstName,
-    profile_businessPhoneNumber,
+    profile_accountNumber,
+    profile_additionalInformation,
+    profile_address,
+    profile_attributes,
+    profile_billingAddress,
+    profile_birthDate,
     profile_businessEmailAddress,
     profile_businessName,
-    profile_personalEmailAddress,
-    profile_billingAddress,
-    profile_lastName,
-    profile_birthDate,
-    profile_address,
-    profile_partyType,
-    profile_gender,
-    profile_foundByItems,
-    profile_mobilePhoneNumber,
-    profile_middleName,
-    profile_attributes,
-    profile_phoneNumber,
-    profile_additionalInformation,
+    profile_businessPhoneNumber,
     profile_emailAddress,
-    profile_accountNumber,
+    profile_firstName,
+    profile_foundByItems,
+    profile_gender,
+    profile_homePhoneNumber,
+    profile_lastName,
+    profile_mailingAddress,
+    profile_middleName,
+    profile_mobilePhoneNumber,
+    profile_partyType,
+    profile_personalEmailAddress,
+    profile_phoneNumber,
+    profile_profileId,
+    profile_shippingAddress,
 
     -- * S3ExportingConfig
     S3ExportingConfig (..),
@@ -413,19 +413,19 @@ module Amazonka.CustomerProfiles.Types
     -- * SalesforceSourceProperties
     SalesforceSourceProperties (..),
     newSalesforceSourceProperties,
-    salesforceSourceProperties_includeDeletedRecords,
     salesforceSourceProperties_enableDynamicFieldUpdate,
+    salesforceSourceProperties_includeDeletedRecords,
     salesforceSourceProperties_object,
 
     -- * ScheduledTriggerProperties
     ScheduledTriggerProperties (..),
     newScheduledTriggerProperties,
+    scheduledTriggerProperties_dataPullMode,
+    scheduledTriggerProperties_firstExecutionFrom,
     scheduledTriggerProperties_scheduleEndTime,
+    scheduledTriggerProperties_scheduleOffset,
     scheduledTriggerProperties_scheduleStartTime,
     scheduledTriggerProperties_timezone,
-    scheduledTriggerProperties_scheduleOffset,
-    scheduledTriggerProperties_firstExecutionFrom,
-    scheduledTriggerProperties_dataPullMode,
     scheduledTriggerProperties_scheduleExpression,
 
     -- * ServiceNowSourceProperties
@@ -436,11 +436,11 @@ module Amazonka.CustomerProfiles.Types
     -- * SourceConnectorProperties
     SourceConnectorProperties (..),
     newSourceConnectorProperties,
-    sourceConnectorProperties_zendesk,
+    sourceConnectorProperties_marketo,
     sourceConnectorProperties_s3,
     sourceConnectorProperties_salesforce,
-    sourceConnectorProperties_marketo,
     sourceConnectorProperties_serviceNow,
+    sourceConnectorProperties_zendesk,
 
     -- * SourceFlowConfig
     SourceFlowConfig (..),
@@ -454,8 +454,8 @@ module Amazonka.CustomerProfiles.Types
     Task (..),
     newTask,
     task_connectorOperator,
-    task_taskProperties,
     task_destinationField,
+    task_taskProperties,
     task_sourceFields,
     task_taskType,
 
@@ -473,16 +473,16 @@ module Amazonka.CustomerProfiles.Types
     -- * UpdateAddress
     UpdateAddress (..),
     newUpdateAddress,
+    updateAddress_address1,
     updateAddress_address2,
-    updateAddress_postalCode,
+    updateAddress_address3,
+    updateAddress_address4,
+    updateAddress_city,
     updateAddress_country,
     updateAddress_county,
-    updateAddress_state,
+    updateAddress_postalCode,
     updateAddress_province,
-    updateAddress_address3,
-    updateAddress_city,
-    updateAddress_address4,
-    updateAddress_address1,
+    updateAddress_state,
 
     -- * WorkflowAttributes
     WorkflowAttributes (..),
@@ -608,28 +608,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -637,13 +631,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -651,6 +649,8 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
@@ -660,6 +660,14 @@ _AccessDeniedException =
     defaultService
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
+
+-- | The input you provided is invalid.
+_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
+  Core._MatchServiceError
+    defaultService
+    "BadRequestException"
+    Prelude.. Core.hasStatus 400
 
 -- | An internal service error occurred.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -684,11 +692,3 @@ _ThrottlingException =
     defaultService
     "ThrottlingException"
     Prelude.. Core.hasStatus 429
-
--- | The input you provided is invalid.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BadRequestException =
-  Core._MatchServiceError
-    defaultService
-    "BadRequestException"
-    Prelude.. Core.hasStatus 400

@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newListProfileObjectTypeItem' smart constructor.
 data ListProfileObjectTypeItem = ListProfileObjectTypeItem'
-  { -- | The tags used to organize, track, or control access for this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | The timestamp of when the domain was created.
+    createdAt :: Prelude.Maybe Data.POSIX,
     -- | The timestamp of when the domain was most recently edited.
     lastUpdatedAt :: Prelude.Maybe Data.POSIX,
-    -- | The timestamp of when the domain was created.
-    createdAt :: Prelude.Maybe Data.POSIX,
+    -- | The tags used to organize, track, or control access for this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the profile object type.
     objectTypeName :: Prelude.Text,
     -- | Description of the profile object type.
@@ -49,11 +49,11 @@ data ListProfileObjectTypeItem = ListProfileObjectTypeItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'listProfileObjectTypeItem_tags' - The tags used to organize, track, or control access for this resource.
+-- 'createdAt', 'listProfileObjectTypeItem_createdAt' - The timestamp of when the domain was created.
 --
 -- 'lastUpdatedAt', 'listProfileObjectTypeItem_lastUpdatedAt' - The timestamp of when the domain was most recently edited.
 --
--- 'createdAt', 'listProfileObjectTypeItem_createdAt' - The timestamp of when the domain was created.
+-- 'tags', 'listProfileObjectTypeItem_tags' - The tags used to organize, track, or control access for this resource.
 --
 -- 'objectTypeName', 'listProfileObjectTypeItem_objectTypeName' - The name of the profile object type.
 --
@@ -68,24 +68,25 @@ newListProfileObjectTypeItem
   pObjectTypeName_
   pDescription_ =
     ListProfileObjectTypeItem'
-      { tags = Prelude.Nothing,
+      { createdAt =
+          Prelude.Nothing,
         lastUpdatedAt = Prelude.Nothing,
-        createdAt = Prelude.Nothing,
+        tags = Prelude.Nothing,
         objectTypeName = pObjectTypeName_,
         description = pDescription_
       }
 
--- | The tags used to organize, track, or control access for this resource.
-listProfileObjectTypeItem_tags :: Lens.Lens' ListProfileObjectTypeItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-listProfileObjectTypeItem_tags = Lens.lens (\ListProfileObjectTypeItem' {tags} -> tags) (\s@ListProfileObjectTypeItem' {} a -> s {tags = a} :: ListProfileObjectTypeItem) Prelude.. Lens.mapping Lens.coerced
+-- | The timestamp of when the domain was created.
+listProfileObjectTypeItem_createdAt :: Lens.Lens' ListProfileObjectTypeItem (Prelude.Maybe Prelude.UTCTime)
+listProfileObjectTypeItem_createdAt = Lens.lens (\ListProfileObjectTypeItem' {createdAt} -> createdAt) (\s@ListProfileObjectTypeItem' {} a -> s {createdAt = a} :: ListProfileObjectTypeItem) Prelude.. Lens.mapping Data._Time
 
 -- | The timestamp of when the domain was most recently edited.
 listProfileObjectTypeItem_lastUpdatedAt :: Lens.Lens' ListProfileObjectTypeItem (Prelude.Maybe Prelude.UTCTime)
 listProfileObjectTypeItem_lastUpdatedAt = Lens.lens (\ListProfileObjectTypeItem' {lastUpdatedAt} -> lastUpdatedAt) (\s@ListProfileObjectTypeItem' {} a -> s {lastUpdatedAt = a} :: ListProfileObjectTypeItem) Prelude.. Lens.mapping Data._Time
 
--- | The timestamp of when the domain was created.
-listProfileObjectTypeItem_createdAt :: Lens.Lens' ListProfileObjectTypeItem (Prelude.Maybe Prelude.UTCTime)
-listProfileObjectTypeItem_createdAt = Lens.lens (\ListProfileObjectTypeItem' {createdAt} -> createdAt) (\s@ListProfileObjectTypeItem' {} a -> s {createdAt = a} :: ListProfileObjectTypeItem) Prelude.. Lens.mapping Data._Time
+-- | The tags used to organize, track, or control access for this resource.
+listProfileObjectTypeItem_tags :: Lens.Lens' ListProfileObjectTypeItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+listProfileObjectTypeItem_tags = Lens.lens (\ListProfileObjectTypeItem' {tags} -> tags) (\s@ListProfileObjectTypeItem' {} a -> s {tags = a} :: ListProfileObjectTypeItem) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the profile object type.
 listProfileObjectTypeItem_objectTypeName :: Lens.Lens' ListProfileObjectTypeItem Prelude.Text
@@ -101,25 +102,25 @@ instance Data.FromJSON ListProfileObjectTypeItem where
       "ListProfileObjectTypeItem"
       ( \x ->
           ListProfileObjectTypeItem'
-            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "CreatedAt")
             Prelude.<*> (x Data..:? "LastUpdatedAt")
-            Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "ObjectTypeName")
             Prelude.<*> (x Data..: "Description")
       )
 
 instance Prelude.Hashable ListProfileObjectTypeItem where
   hashWithSalt _salt ListProfileObjectTypeItem' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` lastUpdatedAt
-      `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` objectTypeName
       `Prelude.hashWithSalt` description
 
 instance Prelude.NFData ListProfileObjectTypeItem where
   rnf ListProfileObjectTypeItem' {..} =
-    Prelude.rnf tags
+    Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf lastUpdatedAt
-      `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf objectTypeName
       `Prelude.seq` Prelude.rnf description

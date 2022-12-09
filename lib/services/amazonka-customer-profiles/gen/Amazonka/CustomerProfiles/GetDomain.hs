@@ -34,12 +34,12 @@ module Amazonka.CustomerProfiles.GetDomain
     newGetDomainResponse,
 
     -- * Response Lenses
-    getDomainResponse_tags,
-    getDomainResponse_defaultExpirationDays,
-    getDomainResponse_stats,
-    getDomainResponse_matching,
     getDomainResponse_deadLetterQueueUrl,
     getDomainResponse_defaultEncryptionKey,
+    getDomainResponse_defaultExpirationDays,
+    getDomainResponse_matching,
+    getDomainResponse_stats,
+    getDomainResponse_tags,
     getDomainResponse_httpStatus,
     getDomainResponse_domainName,
     getDomainResponse_createdAt,
@@ -90,12 +90,12 @@ instance Core.AWSRequest GetDomain where
     Response.receiveJSON
       ( \s h x ->
           GetDomainResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "DefaultExpirationDays")
-            Prelude.<*> (x Data..?> "Stats")
-            Prelude.<*> (x Data..?> "Matching")
-            Prelude.<*> (x Data..?> "DeadLetterQueueUrl")
+            Prelude.<$> (x Data..?> "DeadLetterQueueUrl")
             Prelude.<*> (x Data..?> "DefaultEncryptionKey")
+            Prelude.<*> (x Data..?> "DefaultExpirationDays")
+            Prelude.<*> (x Data..?> "Matching")
+            Prelude.<*> (x Data..?> "Stats")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "DomainName")
             Prelude.<*> (x Data..:> "CreatedAt")
@@ -129,12 +129,15 @@ instance Data.ToQuery GetDomain where
 
 -- | /See:/ 'newGetDomainResponse' smart constructor.
 data GetDomainResponse = GetDomainResponse'
-  { -- | The tags used to organize, track, or control access for this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | The URL of the SQS dead letter queue, which is used for reporting errors
+    -- associated with ingesting data from third party applications.
+    deadLetterQueueUrl :: Prelude.Maybe Prelude.Text,
+    -- | The default encryption key, which is an AWS managed key, is used when no
+    -- specific type of encryption key is specified. It is used to encrypt all
+    -- data before it is placed in permanent or semi-permanent storage.
+    defaultEncryptionKey :: Prelude.Maybe Prelude.Text,
     -- | The default number of days until the data within the domain expires.
     defaultExpirationDays :: Prelude.Maybe Prelude.Natural,
-    -- | Usage-specific statistics about the domain.
-    stats :: Prelude.Maybe DomainStats,
     -- | The process of matching duplicate profiles. If @Matching@ = @true@,
     -- Amazon Connect Customer Profiles starts a weekly batch process called
     -- Identity Resolution Job. If you do not specify a date and time for
@@ -147,13 +150,10 @@ data GetDomainResponse = GetDomainResponse'
     -- @ExportingConfig@ in the @MatchingRequest@, you can download the results
     -- from S3.
     matching :: Prelude.Maybe MatchingResponse,
-    -- | The URL of the SQS dead letter queue, which is used for reporting errors
-    -- associated with ingesting data from third party applications.
-    deadLetterQueueUrl :: Prelude.Maybe Prelude.Text,
-    -- | The default encryption key, which is an AWS managed key, is used when no
-    -- specific type of encryption key is specified. It is used to encrypt all
-    -- data before it is placed in permanent or semi-permanent storage.
-    defaultEncryptionKey :: Prelude.Maybe Prelude.Text,
+    -- | Usage-specific statistics about the domain.
+    stats :: Prelude.Maybe DomainStats,
+    -- | The tags used to organize, track, or control access for this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The unique name of the domain.
@@ -173,11 +173,14 @@ data GetDomainResponse = GetDomainResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'getDomainResponse_tags' - The tags used to organize, track, or control access for this resource.
+-- 'deadLetterQueueUrl', 'getDomainResponse_deadLetterQueueUrl' - The URL of the SQS dead letter queue, which is used for reporting errors
+-- associated with ingesting data from third party applications.
+--
+-- 'defaultEncryptionKey', 'getDomainResponse_defaultEncryptionKey' - The default encryption key, which is an AWS managed key, is used when no
+-- specific type of encryption key is specified. It is used to encrypt all
+-- data before it is placed in permanent or semi-permanent storage.
 --
 -- 'defaultExpirationDays', 'getDomainResponse_defaultExpirationDays' - The default number of days until the data within the domain expires.
---
--- 'stats', 'getDomainResponse_stats' - Usage-specific statistics about the domain.
 --
 -- 'matching', 'getDomainResponse_matching' - The process of matching duplicate profiles. If @Matching@ = @true@,
 -- Amazon Connect Customer Profiles starts a weekly batch process called
@@ -191,12 +194,9 @@ data GetDomainResponse = GetDomainResponse'
 -- @ExportingConfig@ in the @MatchingRequest@, you can download the results
 -- from S3.
 --
--- 'deadLetterQueueUrl', 'getDomainResponse_deadLetterQueueUrl' - The URL of the SQS dead letter queue, which is used for reporting errors
--- associated with ingesting data from third party applications.
+-- 'stats', 'getDomainResponse_stats' - Usage-specific statistics about the domain.
 --
--- 'defaultEncryptionKey', 'getDomainResponse_defaultEncryptionKey' - The default encryption key, which is an AWS managed key, is used when no
--- specific type of encryption key is specified. It is used to encrypt all
--- data before it is placed in permanent or semi-permanent storage.
+-- 'tags', 'getDomainResponse_tags' - The tags used to organize, track, or control access for this resource.
 --
 -- 'httpStatus', 'getDomainResponse_httpStatus' - The response's http status code.
 --
@@ -221,29 +221,33 @@ newGetDomainResponse
   pCreatedAt_
   pLastUpdatedAt_ =
     GetDomainResponse'
-      { tags = Prelude.Nothing,
-        defaultExpirationDays = Prelude.Nothing,
-        stats = Prelude.Nothing,
-        matching = Prelude.Nothing,
-        deadLetterQueueUrl = Prelude.Nothing,
+      { deadLetterQueueUrl =
+          Prelude.Nothing,
         defaultEncryptionKey = Prelude.Nothing,
+        defaultExpirationDays = Prelude.Nothing,
+        matching = Prelude.Nothing,
+        stats = Prelude.Nothing,
+        tags = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         domainName = pDomainName_,
         createdAt = Data._Time Lens.# pCreatedAt_,
         lastUpdatedAt = Data._Time Lens.# pLastUpdatedAt_
       }
 
--- | The tags used to organize, track, or control access for this resource.
-getDomainResponse_tags :: Lens.Lens' GetDomainResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getDomainResponse_tags = Lens.lens (\GetDomainResponse' {tags} -> tags) (\s@GetDomainResponse' {} a -> s {tags = a} :: GetDomainResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The URL of the SQS dead letter queue, which is used for reporting errors
+-- associated with ingesting data from third party applications.
+getDomainResponse_deadLetterQueueUrl :: Lens.Lens' GetDomainResponse (Prelude.Maybe Prelude.Text)
+getDomainResponse_deadLetterQueueUrl = Lens.lens (\GetDomainResponse' {deadLetterQueueUrl} -> deadLetterQueueUrl) (\s@GetDomainResponse' {} a -> s {deadLetterQueueUrl = a} :: GetDomainResponse)
+
+-- | The default encryption key, which is an AWS managed key, is used when no
+-- specific type of encryption key is specified. It is used to encrypt all
+-- data before it is placed in permanent or semi-permanent storage.
+getDomainResponse_defaultEncryptionKey :: Lens.Lens' GetDomainResponse (Prelude.Maybe Prelude.Text)
+getDomainResponse_defaultEncryptionKey = Lens.lens (\GetDomainResponse' {defaultEncryptionKey} -> defaultEncryptionKey) (\s@GetDomainResponse' {} a -> s {defaultEncryptionKey = a} :: GetDomainResponse)
 
 -- | The default number of days until the data within the domain expires.
 getDomainResponse_defaultExpirationDays :: Lens.Lens' GetDomainResponse (Prelude.Maybe Prelude.Natural)
 getDomainResponse_defaultExpirationDays = Lens.lens (\GetDomainResponse' {defaultExpirationDays} -> defaultExpirationDays) (\s@GetDomainResponse' {} a -> s {defaultExpirationDays = a} :: GetDomainResponse)
-
--- | Usage-specific statistics about the domain.
-getDomainResponse_stats :: Lens.Lens' GetDomainResponse (Prelude.Maybe DomainStats)
-getDomainResponse_stats = Lens.lens (\GetDomainResponse' {stats} -> stats) (\s@GetDomainResponse' {} a -> s {stats = a} :: GetDomainResponse)
 
 -- | The process of matching duplicate profiles. If @Matching@ = @true@,
 -- Amazon Connect Customer Profiles starts a weekly batch process called
@@ -259,16 +263,13 @@ getDomainResponse_stats = Lens.lens (\GetDomainResponse' {stats} -> stats) (\s@G
 getDomainResponse_matching :: Lens.Lens' GetDomainResponse (Prelude.Maybe MatchingResponse)
 getDomainResponse_matching = Lens.lens (\GetDomainResponse' {matching} -> matching) (\s@GetDomainResponse' {} a -> s {matching = a} :: GetDomainResponse)
 
--- | The URL of the SQS dead letter queue, which is used for reporting errors
--- associated with ingesting data from third party applications.
-getDomainResponse_deadLetterQueueUrl :: Lens.Lens' GetDomainResponse (Prelude.Maybe Prelude.Text)
-getDomainResponse_deadLetterQueueUrl = Lens.lens (\GetDomainResponse' {deadLetterQueueUrl} -> deadLetterQueueUrl) (\s@GetDomainResponse' {} a -> s {deadLetterQueueUrl = a} :: GetDomainResponse)
+-- | Usage-specific statistics about the domain.
+getDomainResponse_stats :: Lens.Lens' GetDomainResponse (Prelude.Maybe DomainStats)
+getDomainResponse_stats = Lens.lens (\GetDomainResponse' {stats} -> stats) (\s@GetDomainResponse' {} a -> s {stats = a} :: GetDomainResponse)
 
--- | The default encryption key, which is an AWS managed key, is used when no
--- specific type of encryption key is specified. It is used to encrypt all
--- data before it is placed in permanent or semi-permanent storage.
-getDomainResponse_defaultEncryptionKey :: Lens.Lens' GetDomainResponse (Prelude.Maybe Prelude.Text)
-getDomainResponse_defaultEncryptionKey = Lens.lens (\GetDomainResponse' {defaultEncryptionKey} -> defaultEncryptionKey) (\s@GetDomainResponse' {} a -> s {defaultEncryptionKey = a} :: GetDomainResponse)
+-- | The tags used to organize, track, or control access for this resource.
+getDomainResponse_tags :: Lens.Lens' GetDomainResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getDomainResponse_tags = Lens.lens (\GetDomainResponse' {tags} -> tags) (\s@GetDomainResponse' {} a -> s {tags = a} :: GetDomainResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getDomainResponse_httpStatus :: Lens.Lens' GetDomainResponse Prelude.Int
@@ -288,12 +289,12 @@ getDomainResponse_lastUpdatedAt = Lens.lens (\GetDomainResponse' {lastUpdatedAt}
 
 instance Prelude.NFData GetDomainResponse where
   rnf GetDomainResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf defaultExpirationDays
-      `Prelude.seq` Prelude.rnf stats
-      `Prelude.seq` Prelude.rnf matching
-      `Prelude.seq` Prelude.rnf deadLetterQueueUrl
+    Prelude.rnf deadLetterQueueUrl
       `Prelude.seq` Prelude.rnf defaultEncryptionKey
+      `Prelude.seq` Prelude.rnf defaultExpirationDays
+      `Prelude.seq` Prelude.rnf matching
+      `Prelude.seq` Prelude.rnf stats
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf createdAt

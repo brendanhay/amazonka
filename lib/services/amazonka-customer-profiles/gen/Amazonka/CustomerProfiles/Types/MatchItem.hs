@@ -28,11 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMatchItem' smart constructor.
 data MatchItem = MatchItem'
-  { -- | The unique identifiers for this group of profiles that match.
-    matchId :: Prelude.Maybe Prelude.Text,
-    -- | A list of identifiers for profiles that match.
-    profileIds :: Prelude.Maybe [Prelude.Text],
-    -- | A number between 0 and 1, where a higher score means higher similarity.
+  { -- | A number between 0 and 1, where a higher score means higher similarity.
     -- Examining match confidence scores lets you distinguish between groups of
     -- similar records in which the system is highly confident (which you may
     -- decide to merge), groups of similar records about which the system is
@@ -40,7 +36,11 @@ data MatchItem = MatchItem'
     -- of similar records that the system deems to be unlikely (which you may
     -- decide to reject). Given confidence scores vary as per the data input,
     -- it should not be used an absolute measure of matching quality.
-    confidenceScore :: Prelude.Maybe Prelude.Double
+    confidenceScore :: Prelude.Maybe Prelude.Double,
+    -- | The unique identifiers for this group of profiles that match.
+    matchId :: Prelude.Maybe Prelude.Text,
+    -- | A list of identifiers for profiles that match.
+    profileIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,10 +52,6 @@ data MatchItem = MatchItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'matchId', 'matchItem_matchId' - The unique identifiers for this group of profiles that match.
---
--- 'profileIds', 'matchItem_profileIds' - A list of identifiers for profiles that match.
---
 -- 'confidenceScore', 'matchItem_confidenceScore' - A number between 0 and 1, where a higher score means higher similarity.
 -- Examining match confidence scores lets you distinguish between groups of
 -- similar records in which the system is highly confident (which you may
@@ -64,22 +60,18 @@ data MatchItem = MatchItem'
 -- of similar records that the system deems to be unlikely (which you may
 -- decide to reject). Given confidence scores vary as per the data input,
 -- it should not be used an absolute measure of matching quality.
+--
+-- 'matchId', 'matchItem_matchId' - The unique identifiers for this group of profiles that match.
+--
+-- 'profileIds', 'matchItem_profileIds' - A list of identifiers for profiles that match.
 newMatchItem ::
   MatchItem
 newMatchItem =
   MatchItem'
-    { matchId = Prelude.Nothing,
-      profileIds = Prelude.Nothing,
-      confidenceScore = Prelude.Nothing
+    { confidenceScore = Prelude.Nothing,
+      matchId = Prelude.Nothing,
+      profileIds = Prelude.Nothing
     }
-
--- | The unique identifiers for this group of profiles that match.
-matchItem_matchId :: Lens.Lens' MatchItem (Prelude.Maybe Prelude.Text)
-matchItem_matchId = Lens.lens (\MatchItem' {matchId} -> matchId) (\s@MatchItem' {} a -> s {matchId = a} :: MatchItem)
-
--- | A list of identifiers for profiles that match.
-matchItem_profileIds :: Lens.Lens' MatchItem (Prelude.Maybe [Prelude.Text])
-matchItem_profileIds = Lens.lens (\MatchItem' {profileIds} -> profileIds) (\s@MatchItem' {} a -> s {profileIds = a} :: MatchItem) Prelude.. Lens.mapping Lens.coerced
 
 -- | A number between 0 and 1, where a higher score means higher similarity.
 -- Examining match confidence scores lets you distinguish between groups of
@@ -92,25 +84,33 @@ matchItem_profileIds = Lens.lens (\MatchItem' {profileIds} -> profileIds) (\s@Ma
 matchItem_confidenceScore :: Lens.Lens' MatchItem (Prelude.Maybe Prelude.Double)
 matchItem_confidenceScore = Lens.lens (\MatchItem' {confidenceScore} -> confidenceScore) (\s@MatchItem' {} a -> s {confidenceScore = a} :: MatchItem)
 
+-- | The unique identifiers for this group of profiles that match.
+matchItem_matchId :: Lens.Lens' MatchItem (Prelude.Maybe Prelude.Text)
+matchItem_matchId = Lens.lens (\MatchItem' {matchId} -> matchId) (\s@MatchItem' {} a -> s {matchId = a} :: MatchItem)
+
+-- | A list of identifiers for profiles that match.
+matchItem_profileIds :: Lens.Lens' MatchItem (Prelude.Maybe [Prelude.Text])
+matchItem_profileIds = Lens.lens (\MatchItem' {profileIds} -> profileIds) (\s@MatchItem' {} a -> s {profileIds = a} :: MatchItem) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON MatchItem where
   parseJSON =
     Data.withObject
       "MatchItem"
       ( \x ->
           MatchItem'
-            Prelude.<$> (x Data..:? "MatchId")
+            Prelude.<$> (x Data..:? "ConfidenceScore")
+            Prelude.<*> (x Data..:? "MatchId")
             Prelude.<*> (x Data..:? "ProfileIds" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "ConfidenceScore")
       )
 
 instance Prelude.Hashable MatchItem where
   hashWithSalt _salt MatchItem' {..} =
-    _salt `Prelude.hashWithSalt` matchId
+    _salt `Prelude.hashWithSalt` confidenceScore
+      `Prelude.hashWithSalt` matchId
       `Prelude.hashWithSalt` profileIds
-      `Prelude.hashWithSalt` confidenceScore
 
 instance Prelude.NFData MatchItem where
   rnf MatchItem' {..} =
-    Prelude.rnf matchId
+    Prelude.rnf confidenceScore
+      `Prelude.seq` Prelude.rnf matchId
       `Prelude.seq` Prelude.rnf profileIds
-      `Prelude.seq` Prelude.rnf confidenceScore

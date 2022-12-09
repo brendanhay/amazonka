@@ -31,6 +31,9 @@ module Amazonka.CustomerProfiles
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** BadRequestException
+    _BadRequestException,
+
     -- ** InternalServerException
     _InternalServerException,
 
@@ -39,9 +42,6 @@ module Amazonka.CustomerProfiles
 
     -- ** ThrottlingException
     _ThrottlingException,
-
-    -- ** BadRequestException
-    _BadRequestException,
 
     -- * Waiters
     -- $waiters

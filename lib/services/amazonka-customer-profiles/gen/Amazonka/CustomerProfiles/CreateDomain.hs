@@ -43,10 +43,10 @@ module Amazonka.CustomerProfiles.CreateDomain
     newCreateDomain,
 
     -- * Request Lenses
-    createDomain_tags,
-    createDomain_matching,
     createDomain_deadLetterQueueUrl,
     createDomain_defaultEncryptionKey,
+    createDomain_matching,
+    createDomain_tags,
     createDomain_domainName,
     createDomain_defaultExpirationDays,
 
@@ -55,10 +55,10 @@ module Amazonka.CustomerProfiles.CreateDomain
     newCreateDomainResponse,
 
     -- * Response Lenses
-    createDomainResponse_tags,
-    createDomainResponse_matching,
     createDomainResponse_deadLetterQueueUrl,
     createDomainResponse_defaultEncryptionKey,
+    createDomainResponse_matching,
+    createDomainResponse_tags,
     createDomainResponse_httpStatus,
     createDomainResponse_domainName,
     createDomainResponse_defaultExpirationDays,
@@ -77,8 +77,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDomain' smart constructor.
 data CreateDomain = CreateDomain'
-  { -- | The tags used to organize, track, or control access for this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | The URL of the SQS dead letter queue, which is used for reporting errors
+    -- associated with ingesting data from third party applications. You must
+    -- set up a policy on the DeadLetterQueue for the SendMessage operation to
+    -- enable Amazon Connect Customer Profiles to send messages to the
+    -- DeadLetterQueue.
+    deadLetterQueueUrl :: Prelude.Maybe Prelude.Text,
+    -- | The default encryption key, which is an AWS managed key, is used when no
+    -- specific type of encryption key is specified. It is used to encrypt all
+    -- data before it is placed in permanent or semi-permanent storage.
+    defaultEncryptionKey :: Prelude.Maybe Prelude.Text,
     -- | The process of matching duplicate profiles. If @Matching@ = @true@,
     -- Amazon Connect Customer Profiles starts a weekly batch process called
     -- Identity Resolution Job. If you do not specify a date and time for
@@ -91,16 +99,8 @@ data CreateDomain = CreateDomain'
     -- @ExportingConfig@ in the @MatchingRequest@, you can download the results
     -- from S3.
     matching :: Prelude.Maybe MatchingRequest,
-    -- | The URL of the SQS dead letter queue, which is used for reporting errors
-    -- associated with ingesting data from third party applications. You must
-    -- set up a policy on the DeadLetterQueue for the SendMessage operation to
-    -- enable Amazon Connect Customer Profiles to send messages to the
-    -- DeadLetterQueue.
-    deadLetterQueueUrl :: Prelude.Maybe Prelude.Text,
-    -- | The default encryption key, which is an AWS managed key, is used when no
-    -- specific type of encryption key is specified. It is used to encrypt all
-    -- data before it is placed in permanent or semi-permanent storage.
-    defaultEncryptionKey :: Prelude.Maybe Prelude.Text,
+    -- | The tags used to organize, track, or control access for this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The unique name of the domain.
     domainName :: Prelude.Text,
     -- | The default number of days until the data within the domain expires.
@@ -116,7 +116,15 @@ data CreateDomain = CreateDomain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createDomain_tags' - The tags used to organize, track, or control access for this resource.
+-- 'deadLetterQueueUrl', 'createDomain_deadLetterQueueUrl' - The URL of the SQS dead letter queue, which is used for reporting errors
+-- associated with ingesting data from third party applications. You must
+-- set up a policy on the DeadLetterQueue for the SendMessage operation to
+-- enable Amazon Connect Customer Profiles to send messages to the
+-- DeadLetterQueue.
+--
+-- 'defaultEncryptionKey', 'createDomain_defaultEncryptionKey' - The default encryption key, which is an AWS managed key, is used when no
+-- specific type of encryption key is specified. It is used to encrypt all
+-- data before it is placed in permanent or semi-permanent storage.
 --
 -- 'matching', 'createDomain_matching' - The process of matching duplicate profiles. If @Matching@ = @true@,
 -- Amazon Connect Customer Profiles starts a weekly batch process called
@@ -130,15 +138,7 @@ data CreateDomain = CreateDomain'
 -- @ExportingConfig@ in the @MatchingRequest@, you can download the results
 -- from S3.
 --
--- 'deadLetterQueueUrl', 'createDomain_deadLetterQueueUrl' - The URL of the SQS dead letter queue, which is used for reporting errors
--- associated with ingesting data from third party applications. You must
--- set up a policy on the DeadLetterQueue for the SendMessage operation to
--- enable Amazon Connect Customer Profiles to send messages to the
--- DeadLetterQueue.
---
--- 'defaultEncryptionKey', 'createDomain_defaultEncryptionKey' - The default encryption key, which is an AWS managed key, is used when no
--- specific type of encryption key is specified. It is used to encrypt all
--- data before it is placed in permanent or semi-permanent storage.
+-- 'tags', 'createDomain_tags' - The tags used to organize, track, or control access for this resource.
 --
 -- 'domainName', 'createDomain_domainName' - The unique name of the domain.
 --
@@ -151,17 +151,27 @@ newCreateDomain ::
   CreateDomain
 newCreateDomain pDomainName_ pDefaultExpirationDays_ =
   CreateDomain'
-    { tags = Prelude.Nothing,
-      matching = Prelude.Nothing,
-      deadLetterQueueUrl = Prelude.Nothing,
+    { deadLetterQueueUrl = Prelude.Nothing,
       defaultEncryptionKey = Prelude.Nothing,
+      matching = Prelude.Nothing,
+      tags = Prelude.Nothing,
       domainName = pDomainName_,
       defaultExpirationDays = pDefaultExpirationDays_
     }
 
--- | The tags used to organize, track, or control access for this resource.
-createDomain_tags :: Lens.Lens' CreateDomain (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createDomain_tags = Lens.lens (\CreateDomain' {tags} -> tags) (\s@CreateDomain' {} a -> s {tags = a} :: CreateDomain) Prelude.. Lens.mapping Lens.coerced
+-- | The URL of the SQS dead letter queue, which is used for reporting errors
+-- associated with ingesting data from third party applications. You must
+-- set up a policy on the DeadLetterQueue for the SendMessage operation to
+-- enable Amazon Connect Customer Profiles to send messages to the
+-- DeadLetterQueue.
+createDomain_deadLetterQueueUrl :: Lens.Lens' CreateDomain (Prelude.Maybe Prelude.Text)
+createDomain_deadLetterQueueUrl = Lens.lens (\CreateDomain' {deadLetterQueueUrl} -> deadLetterQueueUrl) (\s@CreateDomain' {} a -> s {deadLetterQueueUrl = a} :: CreateDomain)
+
+-- | The default encryption key, which is an AWS managed key, is used when no
+-- specific type of encryption key is specified. It is used to encrypt all
+-- data before it is placed in permanent or semi-permanent storage.
+createDomain_defaultEncryptionKey :: Lens.Lens' CreateDomain (Prelude.Maybe Prelude.Text)
+createDomain_defaultEncryptionKey = Lens.lens (\CreateDomain' {defaultEncryptionKey} -> defaultEncryptionKey) (\s@CreateDomain' {} a -> s {defaultEncryptionKey = a} :: CreateDomain)
 
 -- | The process of matching duplicate profiles. If @Matching@ = @true@,
 -- Amazon Connect Customer Profiles starts a weekly batch process called
@@ -177,19 +187,9 @@ createDomain_tags = Lens.lens (\CreateDomain' {tags} -> tags) (\s@CreateDomain' 
 createDomain_matching :: Lens.Lens' CreateDomain (Prelude.Maybe MatchingRequest)
 createDomain_matching = Lens.lens (\CreateDomain' {matching} -> matching) (\s@CreateDomain' {} a -> s {matching = a} :: CreateDomain)
 
--- | The URL of the SQS dead letter queue, which is used for reporting errors
--- associated with ingesting data from third party applications. You must
--- set up a policy on the DeadLetterQueue for the SendMessage operation to
--- enable Amazon Connect Customer Profiles to send messages to the
--- DeadLetterQueue.
-createDomain_deadLetterQueueUrl :: Lens.Lens' CreateDomain (Prelude.Maybe Prelude.Text)
-createDomain_deadLetterQueueUrl = Lens.lens (\CreateDomain' {deadLetterQueueUrl} -> deadLetterQueueUrl) (\s@CreateDomain' {} a -> s {deadLetterQueueUrl = a} :: CreateDomain)
-
--- | The default encryption key, which is an AWS managed key, is used when no
--- specific type of encryption key is specified. It is used to encrypt all
--- data before it is placed in permanent or semi-permanent storage.
-createDomain_defaultEncryptionKey :: Lens.Lens' CreateDomain (Prelude.Maybe Prelude.Text)
-createDomain_defaultEncryptionKey = Lens.lens (\CreateDomain' {defaultEncryptionKey} -> defaultEncryptionKey) (\s@CreateDomain' {} a -> s {defaultEncryptionKey = a} :: CreateDomain)
+-- | The tags used to organize, track, or control access for this resource.
+createDomain_tags :: Lens.Lens' CreateDomain (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createDomain_tags = Lens.lens (\CreateDomain' {tags} -> tags) (\s@CreateDomain' {} a -> s {tags = a} :: CreateDomain) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique name of the domain.
 createDomain_domainName :: Lens.Lens' CreateDomain Prelude.Text
@@ -207,10 +207,10 @@ instance Core.AWSRequest CreateDomain where
     Response.receiveJSON
       ( \s h x ->
           CreateDomainResponse'
-            Prelude.<$> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "Matching")
-            Prelude.<*> (x Data..?> "DeadLetterQueueUrl")
+            Prelude.<$> (x Data..?> "DeadLetterQueueUrl")
             Prelude.<*> (x Data..?> "DefaultEncryptionKey")
+            Prelude.<*> (x Data..?> "Matching")
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "DomainName")
             Prelude.<*> (x Data..:> "DefaultExpirationDays")
@@ -220,19 +220,19 @@ instance Core.AWSRequest CreateDomain where
 
 instance Prelude.Hashable CreateDomain where
   hashWithSalt _salt CreateDomain' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` matching
-      `Prelude.hashWithSalt` deadLetterQueueUrl
+    _salt `Prelude.hashWithSalt` deadLetterQueueUrl
       `Prelude.hashWithSalt` defaultEncryptionKey
+      `Prelude.hashWithSalt` matching
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` defaultExpirationDays
 
 instance Prelude.NFData CreateDomain where
   rnf CreateDomain' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf matching
-      `Prelude.seq` Prelude.rnf deadLetterQueueUrl
+    Prelude.rnf deadLetterQueueUrl
       `Prelude.seq` Prelude.rnf defaultEncryptionKey
+      `Prelude.seq` Prelude.rnf matching
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf defaultExpirationDays
 
@@ -251,12 +251,12 @@ instance Data.ToJSON CreateDomain where
   toJSON CreateDomain' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Matching" Data..=) Prelude.<$> matching,
-            ("DeadLetterQueueUrl" Data..=)
+          [ ("DeadLetterQueueUrl" Data..=)
               Prelude.<$> deadLetterQueueUrl,
             ("DefaultEncryptionKey" Data..=)
               Prelude.<$> defaultEncryptionKey,
+            ("Matching" Data..=) Prelude.<$> matching,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ( "DefaultExpirationDays"
                   Data..= defaultExpirationDays
@@ -273,8 +273,13 @@ instance Data.ToQuery CreateDomain where
 
 -- | /See:/ 'newCreateDomainResponse' smart constructor.
 data CreateDomainResponse = CreateDomainResponse'
-  { -- | The tags used to organize, track, or control access for this resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | The URL of the SQS dead letter queue, which is used for reporting errors
+    -- associated with ingesting data from third party applications.
+    deadLetterQueueUrl :: Prelude.Maybe Prelude.Text,
+    -- | The default encryption key, which is an AWS managed key, is used when no
+    -- specific type of encryption key is specified. It is used to encrypt all
+    -- data before it is placed in permanent or semi-permanent storage.
+    defaultEncryptionKey :: Prelude.Maybe Prelude.Text,
     -- | The process of matching duplicate profiles. If @Matching@ = @true@,
     -- Amazon Connect Customer Profiles starts a weekly batch process called
     -- Identity Resolution Job. If you do not specify a date and time for
@@ -287,13 +292,8 @@ data CreateDomainResponse = CreateDomainResponse'
     -- @ExportingConfig@ in the @MatchingRequest@, you can download the results
     -- from S3.
     matching :: Prelude.Maybe MatchingResponse,
-    -- | The URL of the SQS dead letter queue, which is used for reporting errors
-    -- associated with ingesting data from third party applications.
-    deadLetterQueueUrl :: Prelude.Maybe Prelude.Text,
-    -- | The default encryption key, which is an AWS managed key, is used when no
-    -- specific type of encryption key is specified. It is used to encrypt all
-    -- data before it is placed in permanent or semi-permanent storage.
-    defaultEncryptionKey :: Prelude.Maybe Prelude.Text,
+    -- | The tags used to organize, track, or control access for this resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The unique name of the domain.
@@ -315,7 +315,12 @@ data CreateDomainResponse = CreateDomainResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createDomainResponse_tags' - The tags used to organize, track, or control access for this resource.
+-- 'deadLetterQueueUrl', 'createDomainResponse_deadLetterQueueUrl' - The URL of the SQS dead letter queue, which is used for reporting errors
+-- associated with ingesting data from third party applications.
+--
+-- 'defaultEncryptionKey', 'createDomainResponse_defaultEncryptionKey' - The default encryption key, which is an AWS managed key, is used when no
+-- specific type of encryption key is specified. It is used to encrypt all
+-- data before it is placed in permanent or semi-permanent storage.
 --
 -- 'matching', 'createDomainResponse_matching' - The process of matching duplicate profiles. If @Matching@ = @true@,
 -- Amazon Connect Customer Profiles starts a weekly batch process called
@@ -329,12 +334,7 @@ data CreateDomainResponse = CreateDomainResponse'
 -- @ExportingConfig@ in the @MatchingRequest@, you can download the results
 -- from S3.
 --
--- 'deadLetterQueueUrl', 'createDomainResponse_deadLetterQueueUrl' - The URL of the SQS dead letter queue, which is used for reporting errors
--- associated with ingesting data from third party applications.
---
--- 'defaultEncryptionKey', 'createDomainResponse_defaultEncryptionKey' - The default encryption key, which is an AWS managed key, is used when no
--- specific type of encryption key is specified. It is used to encrypt all
--- data before it is placed in permanent or semi-permanent storage.
+-- 'tags', 'createDomainResponse_tags' - The tags used to organize, track, or control access for this resource.
 --
 -- 'httpStatus', 'createDomainResponse_httpStatus' - The response's http status code.
 --
@@ -364,10 +364,11 @@ newCreateDomainResponse
   pCreatedAt_
   pLastUpdatedAt_ =
     CreateDomainResponse'
-      { tags = Prelude.Nothing,
-        matching = Prelude.Nothing,
-        deadLetterQueueUrl = Prelude.Nothing,
+      { deadLetterQueueUrl =
+          Prelude.Nothing,
         defaultEncryptionKey = Prelude.Nothing,
+        matching = Prelude.Nothing,
+        tags = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         domainName = pDomainName_,
         defaultExpirationDays = pDefaultExpirationDays_,
@@ -375,9 +376,16 @@ newCreateDomainResponse
         lastUpdatedAt = Data._Time Lens.# pLastUpdatedAt_
       }
 
--- | The tags used to organize, track, or control access for this resource.
-createDomainResponse_tags :: Lens.Lens' CreateDomainResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createDomainResponse_tags = Lens.lens (\CreateDomainResponse' {tags} -> tags) (\s@CreateDomainResponse' {} a -> s {tags = a} :: CreateDomainResponse) Prelude.. Lens.mapping Lens.coerced
+-- | The URL of the SQS dead letter queue, which is used for reporting errors
+-- associated with ingesting data from third party applications.
+createDomainResponse_deadLetterQueueUrl :: Lens.Lens' CreateDomainResponse (Prelude.Maybe Prelude.Text)
+createDomainResponse_deadLetterQueueUrl = Lens.lens (\CreateDomainResponse' {deadLetterQueueUrl} -> deadLetterQueueUrl) (\s@CreateDomainResponse' {} a -> s {deadLetterQueueUrl = a} :: CreateDomainResponse)
+
+-- | The default encryption key, which is an AWS managed key, is used when no
+-- specific type of encryption key is specified. It is used to encrypt all
+-- data before it is placed in permanent or semi-permanent storage.
+createDomainResponse_defaultEncryptionKey :: Lens.Lens' CreateDomainResponse (Prelude.Maybe Prelude.Text)
+createDomainResponse_defaultEncryptionKey = Lens.lens (\CreateDomainResponse' {defaultEncryptionKey} -> defaultEncryptionKey) (\s@CreateDomainResponse' {} a -> s {defaultEncryptionKey = a} :: CreateDomainResponse)
 
 -- | The process of matching duplicate profiles. If @Matching@ = @true@,
 -- Amazon Connect Customer Profiles starts a weekly batch process called
@@ -393,16 +401,9 @@ createDomainResponse_tags = Lens.lens (\CreateDomainResponse' {tags} -> tags) (\
 createDomainResponse_matching :: Lens.Lens' CreateDomainResponse (Prelude.Maybe MatchingResponse)
 createDomainResponse_matching = Lens.lens (\CreateDomainResponse' {matching} -> matching) (\s@CreateDomainResponse' {} a -> s {matching = a} :: CreateDomainResponse)
 
--- | The URL of the SQS dead letter queue, which is used for reporting errors
--- associated with ingesting data from third party applications.
-createDomainResponse_deadLetterQueueUrl :: Lens.Lens' CreateDomainResponse (Prelude.Maybe Prelude.Text)
-createDomainResponse_deadLetterQueueUrl = Lens.lens (\CreateDomainResponse' {deadLetterQueueUrl} -> deadLetterQueueUrl) (\s@CreateDomainResponse' {} a -> s {deadLetterQueueUrl = a} :: CreateDomainResponse)
-
--- | The default encryption key, which is an AWS managed key, is used when no
--- specific type of encryption key is specified. It is used to encrypt all
--- data before it is placed in permanent or semi-permanent storage.
-createDomainResponse_defaultEncryptionKey :: Lens.Lens' CreateDomainResponse (Prelude.Maybe Prelude.Text)
-createDomainResponse_defaultEncryptionKey = Lens.lens (\CreateDomainResponse' {defaultEncryptionKey} -> defaultEncryptionKey) (\s@CreateDomainResponse' {} a -> s {defaultEncryptionKey = a} :: CreateDomainResponse)
+-- | The tags used to organize, track, or control access for this resource.
+createDomainResponse_tags :: Lens.Lens' CreateDomainResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createDomainResponse_tags = Lens.lens (\CreateDomainResponse' {tags} -> tags) (\s@CreateDomainResponse' {} a -> s {tags = a} :: CreateDomainResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createDomainResponse_httpStatus :: Lens.Lens' CreateDomainResponse Prelude.Int
@@ -426,10 +427,10 @@ createDomainResponse_lastUpdatedAt = Lens.lens (\CreateDomainResponse' {lastUpda
 
 instance Prelude.NFData CreateDomainResponse where
   rnf CreateDomainResponse' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf matching
-      `Prelude.seq` Prelude.rnf deadLetterQueueUrl
+    Prelude.rnf deadLetterQueueUrl
       `Prelude.seq` Prelude.rnf defaultEncryptionKey
+      `Prelude.seq` Prelude.rnf matching
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf defaultExpirationDays

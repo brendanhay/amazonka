@@ -28,7 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAutoMLOutputDataConfig' smart constructor.
 data AutoMLOutputDataConfig = AutoMLOutputDataConfig'
-  { -- | The Amazon Web Services KMS encryption key ID.
+  { -- | The Key Management Service (KMS) encryption key ID.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 output path. Must be 128 characters or less.
     s3OutputPath :: Prelude.Text
@@ -43,7 +43,7 @@ data AutoMLOutputDataConfig = AutoMLOutputDataConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyId', 'autoMLOutputDataConfig_kmsKeyId' - The Amazon Web Services KMS encryption key ID.
+-- 'kmsKeyId', 'autoMLOutputDataConfig_kmsKeyId' - The Key Management Service (KMS) encryption key ID.
 --
 -- 's3OutputPath', 'autoMLOutputDataConfig_s3OutputPath' - The Amazon S3 output path. Must be 128 characters or less.
 newAutoMLOutputDataConfig ::
@@ -56,7 +56,7 @@ newAutoMLOutputDataConfig pS3OutputPath_ =
       s3OutputPath = pS3OutputPath_
     }
 
--- | The Amazon Web Services KMS encryption key ID.
+-- | The Key Management Service (KMS) encryption key ID.
 autoMLOutputDataConfig_kmsKeyId :: Lens.Lens' AutoMLOutputDataConfig (Prelude.Maybe Prelude.Text)
 autoMLOutputDataConfig_kmsKeyId = Lens.lens (\AutoMLOutputDataConfig' {kmsKeyId} -> kmsKeyId) (\s@AutoMLOutputDataConfig' {} a -> s {kmsKeyId = a} :: AutoMLOutputDataConfig)
 

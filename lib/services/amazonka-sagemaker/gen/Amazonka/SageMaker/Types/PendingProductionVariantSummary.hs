@@ -36,37 +36,37 @@ import Amazonka.SageMaker.Types.ProductionVariantStatus
 --
 -- /See:/ 'newPendingProductionVariantSummary' smart constructor.
 data PendingProductionVariantSummary = PendingProductionVariantSummary'
-  { -- | The serverless configuration requested for this deployment, as specified
-    -- in the endpoint configuration for the endpoint.
-    desiredServerlessConfig :: Prelude.Maybe ProductionVariantServerlessConfig,
-    -- | The requested weight for the variant in this deployment, as specified in
-    -- the endpoint configuration for the endpoint. The value is taken from the
-    -- request to the @ CreateEndpointConfig @ operation.
-    desiredWeight :: Prelude.Maybe Prelude.Double,
-    -- | The size of the Elastic Inference (EI) instance to use for the
+  { -- | The size of the Elastic Inference (EI) instance to use for the
     -- production variant. EI instances provide on-demand GPU computing for
     -- inference. For more information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker>.
     acceleratorType :: Prelude.Maybe ProductionVariantAcceleratorType,
+    -- | The number of instances associated with the variant.
+    currentInstanceCount :: Prelude.Maybe Prelude.Natural,
     -- | The serverless configuration for the endpoint.
     currentServerlessConfig :: Prelude.Maybe ProductionVariantServerlessConfig,
-    -- | The endpoint variant status which describes the current deployment stage
-    -- status or operational status.
-    variantStatus :: Prelude.Maybe [ProductionVariantStatus],
-    -- | The number of instances requested in this deployment, as specified in
-    -- the endpoint configuration for the endpoint. The value is taken from the
-    -- request to the @ CreateEndpointConfig @ operation.
-    desiredInstanceCount :: Prelude.Maybe Prelude.Natural,
-    -- | The type of instances associated with the variant.
-    instanceType :: Prelude.Maybe ProductionVariantInstanceType,
     -- | The weight associated with the variant.
     currentWeight :: Prelude.Maybe Prelude.Double,
     -- | An array of @DeployedImage@ objects that specify the Amazon EC2
     -- Container Registry paths of the inference images deployed on instances
     -- of this @ProductionVariant@.
     deployedImages :: Prelude.Maybe [DeployedImage],
-    -- | The number of instances associated with the variant.
-    currentInstanceCount :: Prelude.Maybe Prelude.Natural,
+    -- | The number of instances requested in this deployment, as specified in
+    -- the endpoint configuration for the endpoint. The value is taken from the
+    -- request to the @ CreateEndpointConfig @ operation.
+    desiredInstanceCount :: Prelude.Maybe Prelude.Natural,
+    -- | The serverless configuration requested for this deployment, as specified
+    -- in the endpoint configuration for the endpoint.
+    desiredServerlessConfig :: Prelude.Maybe ProductionVariantServerlessConfig,
+    -- | The requested weight for the variant in this deployment, as specified in
+    -- the endpoint configuration for the endpoint. The value is taken from the
+    -- request to the @ CreateEndpointConfig @ operation.
+    desiredWeight :: Prelude.Maybe Prelude.Double,
+    -- | The type of instances associated with the variant.
+    instanceType :: Prelude.Maybe ProductionVariantInstanceType,
+    -- | The endpoint variant status which describes the current deployment stage
+    -- status or operational status.
+    variantStatus :: Prelude.Maybe [ProductionVariantStatus],
     -- | The name of the variant.
     variantName :: Prelude.Text
   }
@@ -80,28 +80,14 @@ data PendingProductionVariantSummary = PendingProductionVariantSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'desiredServerlessConfig', 'pendingProductionVariantSummary_desiredServerlessConfig' - The serverless configuration requested for this deployment, as specified
--- in the endpoint configuration for the endpoint.
---
--- 'desiredWeight', 'pendingProductionVariantSummary_desiredWeight' - The requested weight for the variant in this deployment, as specified in
--- the endpoint configuration for the endpoint. The value is taken from the
--- request to the @ CreateEndpointConfig @ operation.
---
 -- 'acceleratorType', 'pendingProductionVariantSummary_acceleratorType' - The size of the Elastic Inference (EI) instance to use for the
 -- production variant. EI instances provide on-demand GPU computing for
 -- inference. For more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker>.
 --
+-- 'currentInstanceCount', 'pendingProductionVariantSummary_currentInstanceCount' - The number of instances associated with the variant.
+--
 -- 'currentServerlessConfig', 'pendingProductionVariantSummary_currentServerlessConfig' - The serverless configuration for the endpoint.
---
--- 'variantStatus', 'pendingProductionVariantSummary_variantStatus' - The endpoint variant status which describes the current deployment stage
--- status or operational status.
---
--- 'desiredInstanceCount', 'pendingProductionVariantSummary_desiredInstanceCount' - The number of instances requested in this deployment, as specified in
--- the endpoint configuration for the endpoint. The value is taken from the
--- request to the @ CreateEndpointConfig @ operation.
---
--- 'instanceType', 'pendingProductionVariantSummary_instanceType' - The type of instances associated with the variant.
 --
 -- 'currentWeight', 'pendingProductionVariantSummary_currentWeight' - The weight associated with the variant.
 --
@@ -109,7 +95,21 @@ data PendingProductionVariantSummary = PendingProductionVariantSummary'
 -- Container Registry paths of the inference images deployed on instances
 -- of this @ProductionVariant@.
 --
--- 'currentInstanceCount', 'pendingProductionVariantSummary_currentInstanceCount' - The number of instances associated with the variant.
+-- 'desiredInstanceCount', 'pendingProductionVariantSummary_desiredInstanceCount' - The number of instances requested in this deployment, as specified in
+-- the endpoint configuration for the endpoint. The value is taken from the
+-- request to the @ CreateEndpointConfig @ operation.
+--
+-- 'desiredServerlessConfig', 'pendingProductionVariantSummary_desiredServerlessConfig' - The serverless configuration requested for this deployment, as specified
+-- in the endpoint configuration for the endpoint.
+--
+-- 'desiredWeight', 'pendingProductionVariantSummary_desiredWeight' - The requested weight for the variant in this deployment, as specified in
+-- the endpoint configuration for the endpoint. The value is taken from the
+-- request to the @ CreateEndpointConfig @ operation.
+--
+-- 'instanceType', 'pendingProductionVariantSummary_instanceType' - The type of instances associated with the variant.
+--
+-- 'variantStatus', 'pendingProductionVariantSummary_variantStatus' - The endpoint variant status which describes the current deployment stage
+-- status or operational status.
 --
 -- 'variantName', 'pendingProductionVariantSummary_variantName' - The name of the variant.
 newPendingProductionVariantSummary ::
@@ -118,19 +118,50 @@ newPendingProductionVariantSummary ::
   PendingProductionVariantSummary
 newPendingProductionVariantSummary pVariantName_ =
   PendingProductionVariantSummary'
-    { desiredServerlessConfig =
+    { acceleratorType =
         Prelude.Nothing,
-      desiredWeight = Prelude.Nothing,
-      acceleratorType = Prelude.Nothing,
+      currentInstanceCount = Prelude.Nothing,
       currentServerlessConfig = Prelude.Nothing,
-      variantStatus = Prelude.Nothing,
-      desiredInstanceCount = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
       currentWeight = Prelude.Nothing,
       deployedImages = Prelude.Nothing,
-      currentInstanceCount = Prelude.Nothing,
+      desiredInstanceCount = Prelude.Nothing,
+      desiredServerlessConfig = Prelude.Nothing,
+      desiredWeight = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
+      variantStatus = Prelude.Nothing,
       variantName = pVariantName_
     }
+
+-- | The size of the Elastic Inference (EI) instance to use for the
+-- production variant. EI instances provide on-demand GPU computing for
+-- inference. For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker>.
+pendingProductionVariantSummary_acceleratorType :: Lens.Lens' PendingProductionVariantSummary (Prelude.Maybe ProductionVariantAcceleratorType)
+pendingProductionVariantSummary_acceleratorType = Lens.lens (\PendingProductionVariantSummary' {acceleratorType} -> acceleratorType) (\s@PendingProductionVariantSummary' {} a -> s {acceleratorType = a} :: PendingProductionVariantSummary)
+
+-- | The number of instances associated with the variant.
+pendingProductionVariantSummary_currentInstanceCount :: Lens.Lens' PendingProductionVariantSummary (Prelude.Maybe Prelude.Natural)
+pendingProductionVariantSummary_currentInstanceCount = Lens.lens (\PendingProductionVariantSummary' {currentInstanceCount} -> currentInstanceCount) (\s@PendingProductionVariantSummary' {} a -> s {currentInstanceCount = a} :: PendingProductionVariantSummary)
+
+-- | The serverless configuration for the endpoint.
+pendingProductionVariantSummary_currentServerlessConfig :: Lens.Lens' PendingProductionVariantSummary (Prelude.Maybe ProductionVariantServerlessConfig)
+pendingProductionVariantSummary_currentServerlessConfig = Lens.lens (\PendingProductionVariantSummary' {currentServerlessConfig} -> currentServerlessConfig) (\s@PendingProductionVariantSummary' {} a -> s {currentServerlessConfig = a} :: PendingProductionVariantSummary)
+
+-- | The weight associated with the variant.
+pendingProductionVariantSummary_currentWeight :: Lens.Lens' PendingProductionVariantSummary (Prelude.Maybe Prelude.Double)
+pendingProductionVariantSummary_currentWeight = Lens.lens (\PendingProductionVariantSummary' {currentWeight} -> currentWeight) (\s@PendingProductionVariantSummary' {} a -> s {currentWeight = a} :: PendingProductionVariantSummary)
+
+-- | An array of @DeployedImage@ objects that specify the Amazon EC2
+-- Container Registry paths of the inference images deployed on instances
+-- of this @ProductionVariant@.
+pendingProductionVariantSummary_deployedImages :: Lens.Lens' PendingProductionVariantSummary (Prelude.Maybe [DeployedImage])
+pendingProductionVariantSummary_deployedImages = Lens.lens (\PendingProductionVariantSummary' {deployedImages} -> deployedImages) (\s@PendingProductionVariantSummary' {} a -> s {deployedImages = a} :: PendingProductionVariantSummary) Prelude.. Lens.mapping Lens.coerced
+
+-- | The number of instances requested in this deployment, as specified in
+-- the endpoint configuration for the endpoint. The value is taken from the
+-- request to the @ CreateEndpointConfig @ operation.
+pendingProductionVariantSummary_desiredInstanceCount :: Lens.Lens' PendingProductionVariantSummary (Prelude.Maybe Prelude.Natural)
+pendingProductionVariantSummary_desiredInstanceCount = Lens.lens (\PendingProductionVariantSummary' {desiredInstanceCount} -> desiredInstanceCount) (\s@PendingProductionVariantSummary' {} a -> s {desiredInstanceCount = a} :: PendingProductionVariantSummary)
 
 -- | The serverless configuration requested for this deployment, as specified
 -- in the endpoint configuration for the endpoint.
@@ -143,45 +174,14 @@ pendingProductionVariantSummary_desiredServerlessConfig = Lens.lens (\PendingPro
 pendingProductionVariantSummary_desiredWeight :: Lens.Lens' PendingProductionVariantSummary (Prelude.Maybe Prelude.Double)
 pendingProductionVariantSummary_desiredWeight = Lens.lens (\PendingProductionVariantSummary' {desiredWeight} -> desiredWeight) (\s@PendingProductionVariantSummary' {} a -> s {desiredWeight = a} :: PendingProductionVariantSummary)
 
--- | The size of the Elastic Inference (EI) instance to use for the
--- production variant. EI instances provide on-demand GPU computing for
--- inference. For more information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker>.
-pendingProductionVariantSummary_acceleratorType :: Lens.Lens' PendingProductionVariantSummary (Prelude.Maybe ProductionVariantAcceleratorType)
-pendingProductionVariantSummary_acceleratorType = Lens.lens (\PendingProductionVariantSummary' {acceleratorType} -> acceleratorType) (\s@PendingProductionVariantSummary' {} a -> s {acceleratorType = a} :: PendingProductionVariantSummary)
-
--- | The serverless configuration for the endpoint.
-pendingProductionVariantSummary_currentServerlessConfig :: Lens.Lens' PendingProductionVariantSummary (Prelude.Maybe ProductionVariantServerlessConfig)
-pendingProductionVariantSummary_currentServerlessConfig = Lens.lens (\PendingProductionVariantSummary' {currentServerlessConfig} -> currentServerlessConfig) (\s@PendingProductionVariantSummary' {} a -> s {currentServerlessConfig = a} :: PendingProductionVariantSummary)
+-- | The type of instances associated with the variant.
+pendingProductionVariantSummary_instanceType :: Lens.Lens' PendingProductionVariantSummary (Prelude.Maybe ProductionVariantInstanceType)
+pendingProductionVariantSummary_instanceType = Lens.lens (\PendingProductionVariantSummary' {instanceType} -> instanceType) (\s@PendingProductionVariantSummary' {} a -> s {instanceType = a} :: PendingProductionVariantSummary)
 
 -- | The endpoint variant status which describes the current deployment stage
 -- status or operational status.
 pendingProductionVariantSummary_variantStatus :: Lens.Lens' PendingProductionVariantSummary (Prelude.Maybe [ProductionVariantStatus])
 pendingProductionVariantSummary_variantStatus = Lens.lens (\PendingProductionVariantSummary' {variantStatus} -> variantStatus) (\s@PendingProductionVariantSummary' {} a -> s {variantStatus = a} :: PendingProductionVariantSummary) Prelude.. Lens.mapping Lens.coerced
-
--- | The number of instances requested in this deployment, as specified in
--- the endpoint configuration for the endpoint. The value is taken from the
--- request to the @ CreateEndpointConfig @ operation.
-pendingProductionVariantSummary_desiredInstanceCount :: Lens.Lens' PendingProductionVariantSummary (Prelude.Maybe Prelude.Natural)
-pendingProductionVariantSummary_desiredInstanceCount = Lens.lens (\PendingProductionVariantSummary' {desiredInstanceCount} -> desiredInstanceCount) (\s@PendingProductionVariantSummary' {} a -> s {desiredInstanceCount = a} :: PendingProductionVariantSummary)
-
--- | The type of instances associated with the variant.
-pendingProductionVariantSummary_instanceType :: Lens.Lens' PendingProductionVariantSummary (Prelude.Maybe ProductionVariantInstanceType)
-pendingProductionVariantSummary_instanceType = Lens.lens (\PendingProductionVariantSummary' {instanceType} -> instanceType) (\s@PendingProductionVariantSummary' {} a -> s {instanceType = a} :: PendingProductionVariantSummary)
-
--- | The weight associated with the variant.
-pendingProductionVariantSummary_currentWeight :: Lens.Lens' PendingProductionVariantSummary (Prelude.Maybe Prelude.Double)
-pendingProductionVariantSummary_currentWeight = Lens.lens (\PendingProductionVariantSummary' {currentWeight} -> currentWeight) (\s@PendingProductionVariantSummary' {} a -> s {currentWeight = a} :: PendingProductionVariantSummary)
-
--- | An array of @DeployedImage@ objects that specify the Amazon EC2
--- Container Registry paths of the inference images deployed on instances
--- of this @ProductionVariant@.
-pendingProductionVariantSummary_deployedImages :: Lens.Lens' PendingProductionVariantSummary (Prelude.Maybe [DeployedImage])
-pendingProductionVariantSummary_deployedImages = Lens.lens (\PendingProductionVariantSummary' {deployedImages} -> deployedImages) (\s@PendingProductionVariantSummary' {} a -> s {deployedImages = a} :: PendingProductionVariantSummary) Prelude.. Lens.mapping Lens.coerced
-
--- | The number of instances associated with the variant.
-pendingProductionVariantSummary_currentInstanceCount :: Lens.Lens' PendingProductionVariantSummary (Prelude.Maybe Prelude.Natural)
-pendingProductionVariantSummary_currentInstanceCount = Lens.lens (\PendingProductionVariantSummary' {currentInstanceCount} -> currentInstanceCount) (\s@PendingProductionVariantSummary' {} a -> s {currentInstanceCount = a} :: PendingProductionVariantSummary)
 
 -- | The name of the variant.
 pendingProductionVariantSummary_variantName :: Lens.Lens' PendingProductionVariantSummary Prelude.Text
@@ -196,16 +196,16 @@ instance
       "PendingProductionVariantSummary"
       ( \x ->
           PendingProductionVariantSummary'
-            Prelude.<$> (x Data..:? "DesiredServerlessConfig")
-            Prelude.<*> (x Data..:? "DesiredWeight")
-            Prelude.<*> (x Data..:? "AcceleratorType")
+            Prelude.<$> (x Data..:? "AcceleratorType")
+            Prelude.<*> (x Data..:? "CurrentInstanceCount")
             Prelude.<*> (x Data..:? "CurrentServerlessConfig")
-            Prelude.<*> (x Data..:? "VariantStatus" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "DesiredInstanceCount")
-            Prelude.<*> (x Data..:? "InstanceType")
             Prelude.<*> (x Data..:? "CurrentWeight")
             Prelude.<*> (x Data..:? "DeployedImages" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "CurrentInstanceCount")
+            Prelude.<*> (x Data..:? "DesiredInstanceCount")
+            Prelude.<*> (x Data..:? "DesiredServerlessConfig")
+            Prelude.<*> (x Data..:? "DesiredWeight")
+            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "VariantStatus" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "VariantName")
       )
 
@@ -216,17 +216,16 @@ instance
   hashWithSalt
     _salt
     PendingProductionVariantSummary' {..} =
-      _salt
-        `Prelude.hashWithSalt` desiredServerlessConfig
-        `Prelude.hashWithSalt` desiredWeight
-        `Prelude.hashWithSalt` acceleratorType
+      _salt `Prelude.hashWithSalt` acceleratorType
+        `Prelude.hashWithSalt` currentInstanceCount
         `Prelude.hashWithSalt` currentServerlessConfig
-        `Prelude.hashWithSalt` variantStatus
-        `Prelude.hashWithSalt` desiredInstanceCount
-        `Prelude.hashWithSalt` instanceType
         `Prelude.hashWithSalt` currentWeight
         `Prelude.hashWithSalt` deployedImages
-        `Prelude.hashWithSalt` currentInstanceCount
+        `Prelude.hashWithSalt` desiredInstanceCount
+        `Prelude.hashWithSalt` desiredServerlessConfig
+        `Prelude.hashWithSalt` desiredWeight
+        `Prelude.hashWithSalt` instanceType
+        `Prelude.hashWithSalt` variantStatus
         `Prelude.hashWithSalt` variantName
 
 instance
@@ -234,14 +233,14 @@ instance
     PendingProductionVariantSummary
   where
   rnf PendingProductionVariantSummary' {..} =
-    Prelude.rnf desiredServerlessConfig
-      `Prelude.seq` Prelude.rnf desiredWeight
-      `Prelude.seq` Prelude.rnf acceleratorType
+    Prelude.rnf acceleratorType
+      `Prelude.seq` Prelude.rnf currentInstanceCount
       `Prelude.seq` Prelude.rnf currentServerlessConfig
-      `Prelude.seq` Prelude.rnf variantStatus
-      `Prelude.seq` Prelude.rnf desiredInstanceCount
-      `Prelude.seq` Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf currentWeight
       `Prelude.seq` Prelude.rnf deployedImages
-      `Prelude.seq` Prelude.rnf currentInstanceCount
+      `Prelude.seq` Prelude.rnf desiredInstanceCount
+      `Prelude.seq` Prelude.rnf desiredServerlessConfig
+      `Prelude.seq` Prelude.rnf desiredWeight
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf variantStatus
       `Prelude.seq` Prelude.rnf variantName

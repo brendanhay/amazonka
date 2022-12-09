@@ -37,11 +37,11 @@ data AdditionalInferenceSpecificationDefinition = AdditionalInferenceSpecificati
     description :: Prelude.Maybe Prelude.Text,
     -- | The supported MIME types for the input data.
     supportedContentTypes :: Prelude.Maybe [Prelude.Text],
-    -- | The supported MIME types for the output data.
-    supportedResponseMIMETypes :: Prelude.Maybe [Prelude.Text],
     -- | A list of the instance types that are used to generate inferences in
     -- real-time.
     supportedRealtimeInferenceInstanceTypes :: Prelude.Maybe [ProductionVariantInstanceType],
+    -- | The supported MIME types for the output data.
+    supportedResponseMIMETypes :: Prelude.Maybe [Prelude.Text],
     -- | A list of the instance types on which a transformation job can be run or
     -- on which an endpoint can be deployed.
     supportedTransformInstanceTypes :: Prelude.Maybe (Prelude.NonEmpty TransformInstanceType),
@@ -67,10 +67,10 @@ data AdditionalInferenceSpecificationDefinition = AdditionalInferenceSpecificati
 --
 -- 'supportedContentTypes', 'additionalInferenceSpecificationDefinition_supportedContentTypes' - The supported MIME types for the input data.
 --
--- 'supportedResponseMIMETypes', 'additionalInferenceSpecificationDefinition_supportedResponseMIMETypes' - The supported MIME types for the output data.
---
 -- 'supportedRealtimeInferenceInstanceTypes', 'additionalInferenceSpecificationDefinition_supportedRealtimeInferenceInstanceTypes' - A list of the instance types that are used to generate inferences in
 -- real-time.
+--
+-- 'supportedResponseMIMETypes', 'additionalInferenceSpecificationDefinition_supportedResponseMIMETypes' - The supported MIME types for the output data.
 --
 -- 'supportedTransformInstanceTypes', 'additionalInferenceSpecificationDefinition_supportedTransformInstanceTypes' - A list of the instance types on which a transformation job can be run or
 -- on which an endpoint can be deployed.
@@ -95,9 +95,9 @@ newAdditionalInferenceSpecificationDefinition
           Prelude.Nothing,
         supportedContentTypes =
           Prelude.Nothing,
-        supportedResponseMIMETypes =
-          Prelude.Nothing,
         supportedRealtimeInferenceInstanceTypes =
+          Prelude.Nothing,
+        supportedResponseMIMETypes =
           Prelude.Nothing,
         supportedTransformInstanceTypes =
           Prelude.Nothing,
@@ -115,14 +115,14 @@ additionalInferenceSpecificationDefinition_description = Lens.lens (\AdditionalI
 additionalInferenceSpecificationDefinition_supportedContentTypes :: Lens.Lens' AdditionalInferenceSpecificationDefinition (Prelude.Maybe [Prelude.Text])
 additionalInferenceSpecificationDefinition_supportedContentTypes = Lens.lens (\AdditionalInferenceSpecificationDefinition' {supportedContentTypes} -> supportedContentTypes) (\s@AdditionalInferenceSpecificationDefinition' {} a -> s {supportedContentTypes = a} :: AdditionalInferenceSpecificationDefinition) Prelude.. Lens.mapping Lens.coerced
 
--- | The supported MIME types for the output data.
-additionalInferenceSpecificationDefinition_supportedResponseMIMETypes :: Lens.Lens' AdditionalInferenceSpecificationDefinition (Prelude.Maybe [Prelude.Text])
-additionalInferenceSpecificationDefinition_supportedResponseMIMETypes = Lens.lens (\AdditionalInferenceSpecificationDefinition' {supportedResponseMIMETypes} -> supportedResponseMIMETypes) (\s@AdditionalInferenceSpecificationDefinition' {} a -> s {supportedResponseMIMETypes = a} :: AdditionalInferenceSpecificationDefinition) Prelude.. Lens.mapping Lens.coerced
-
 -- | A list of the instance types that are used to generate inferences in
 -- real-time.
 additionalInferenceSpecificationDefinition_supportedRealtimeInferenceInstanceTypes :: Lens.Lens' AdditionalInferenceSpecificationDefinition (Prelude.Maybe [ProductionVariantInstanceType])
 additionalInferenceSpecificationDefinition_supportedRealtimeInferenceInstanceTypes = Lens.lens (\AdditionalInferenceSpecificationDefinition' {supportedRealtimeInferenceInstanceTypes} -> supportedRealtimeInferenceInstanceTypes) (\s@AdditionalInferenceSpecificationDefinition' {} a -> s {supportedRealtimeInferenceInstanceTypes = a} :: AdditionalInferenceSpecificationDefinition) Prelude.. Lens.mapping Lens.coerced
+
+-- | The supported MIME types for the output data.
+additionalInferenceSpecificationDefinition_supportedResponseMIMETypes :: Lens.Lens' AdditionalInferenceSpecificationDefinition (Prelude.Maybe [Prelude.Text])
+additionalInferenceSpecificationDefinition_supportedResponseMIMETypes = Lens.lens (\AdditionalInferenceSpecificationDefinition' {supportedResponseMIMETypes} -> supportedResponseMIMETypes) (\s@AdditionalInferenceSpecificationDefinition' {} a -> s {supportedResponseMIMETypes = a} :: AdditionalInferenceSpecificationDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of the instance types on which a transformation job can be run or
 -- on which an endpoint can be deployed.
@@ -153,10 +153,10 @@ instance
               Prelude.<*> ( x Data..:? "SupportedContentTypes"
                               Data..!= Prelude.mempty
                           )
-              Prelude.<*> ( x Data..:? "SupportedResponseMIMETypes"
+              Prelude.<*> ( x Data..:? "SupportedRealtimeInferenceInstanceTypes"
                               Data..!= Prelude.mempty
                           )
-              Prelude.<*> ( x Data..:? "SupportedRealtimeInferenceInstanceTypes"
+              Prelude.<*> ( x Data..:? "SupportedResponseMIMETypes"
                               Data..!= Prelude.mempty
                           )
               Prelude.<*> (x Data..:? "SupportedTransformInstanceTypes")
@@ -173,8 +173,8 @@ instance
     AdditionalInferenceSpecificationDefinition' {..} =
       _salt `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` supportedContentTypes
-        `Prelude.hashWithSalt` supportedResponseMIMETypes
         `Prelude.hashWithSalt` supportedRealtimeInferenceInstanceTypes
+        `Prelude.hashWithSalt` supportedResponseMIMETypes
         `Prelude.hashWithSalt` supportedTransformInstanceTypes
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` containers
@@ -186,8 +186,8 @@ instance
   rnf AdditionalInferenceSpecificationDefinition' {..} =
     Prelude.rnf description
       `Prelude.seq` Prelude.rnf supportedContentTypes
-      `Prelude.seq` Prelude.rnf supportedResponseMIMETypes
       `Prelude.seq` Prelude.rnf supportedRealtimeInferenceInstanceTypes
+      `Prelude.seq` Prelude.rnf supportedResponseMIMETypes
       `Prelude.seq` Prelude.rnf supportedTransformInstanceTypes
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf containers
@@ -203,10 +203,10 @@ instance
             [ ("Description" Data..=) Prelude.<$> description,
               ("SupportedContentTypes" Data..=)
                 Prelude.<$> supportedContentTypes,
-              ("SupportedResponseMIMETypes" Data..=)
-                Prelude.<$> supportedResponseMIMETypes,
               ("SupportedRealtimeInferenceInstanceTypes" Data..=)
                 Prelude.<$> supportedRealtimeInferenceInstanceTypes,
+              ("SupportedResponseMIMETypes" Data..=)
+                Prelude.<$> supportedResponseMIMETypes,
               ("SupportedTransformInstanceTypes" Data..=)
                 Prelude.<$> supportedTransformInstanceTypes,
               Prelude.Just ("Name" Data..= name),

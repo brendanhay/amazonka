@@ -37,16 +37,16 @@ module Amazonka.SageMaker.DescribeFeatureGroup
     newDescribeFeatureGroupResponse,
 
     -- * Response Lenses
-    describeFeatureGroupResponse_roleArn,
     describeFeatureGroupResponse_description,
+    describeFeatureGroupResponse_failureReason,
+    describeFeatureGroupResponse_featureGroupStatus,
+    describeFeatureGroupResponse_lastModifiedTime,
+    describeFeatureGroupResponse_lastUpdateStatus,
+    describeFeatureGroupResponse_offlineStoreConfig,
     describeFeatureGroupResponse_offlineStoreStatus,
     describeFeatureGroupResponse_onlineStoreConfig,
-    describeFeatureGroupResponse_lastModifiedTime,
     describeFeatureGroupResponse_onlineStoreTotalSizeBytes,
-    describeFeatureGroupResponse_lastUpdateStatus,
-    describeFeatureGroupResponse_featureGroupStatus,
-    describeFeatureGroupResponse_offlineStoreConfig,
-    describeFeatureGroupResponse_failureReason,
+    describeFeatureGroupResponse_roleArn,
     describeFeatureGroupResponse_httpStatus,
     describeFeatureGroupResponse_featureGroupArn,
     describeFeatureGroupResponse_featureGroupName,
@@ -117,16 +117,16 @@ instance Core.AWSRequest DescribeFeatureGroup where
     Response.receiveJSON
       ( \s h x ->
           DescribeFeatureGroupResponse'
-            Prelude.<$> (x Data..?> "RoleArn")
-            Prelude.<*> (x Data..?> "Description")
+            Prelude.<$> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "FailureReason")
+            Prelude.<*> (x Data..?> "FeatureGroupStatus")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "LastUpdateStatus")
+            Prelude.<*> (x Data..?> "OfflineStoreConfig")
             Prelude.<*> (x Data..?> "OfflineStoreStatus")
             Prelude.<*> (x Data..?> "OnlineStoreConfig")
-            Prelude.<*> (x Data..?> "LastModifiedTime")
             Prelude.<*> (x Data..?> "OnlineStoreTotalSizeBytes")
-            Prelude.<*> (x Data..?> "LastUpdateStatus")
-            Prelude.<*> (x Data..?> "FeatureGroupStatus")
-            Prelude.<*> (x Data..?> "OfflineStoreConfig")
-            Prelude.<*> (x Data..?> "FailureReason")
+            Prelude.<*> (x Data..?> "RoleArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "FeatureGroupArn")
             Prelude.<*> (x Data..:> "FeatureGroupName")
@@ -180,29 +180,8 @@ instance Data.ToQuery DescribeFeatureGroup where
 
 -- | /See:/ 'newDescribeFeatureGroupResponse' smart constructor.
 data DescribeFeatureGroupResponse = DescribeFeatureGroupResponse'
-  { -- | The Amazon Resource Name (ARN) of the IAM execution role used to persist
-    -- data into the @OfflineStore@ if an @OfflineStoreConfig@ is provided.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | A free form description of the feature group.
+  { -- | A free form description of the feature group.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The status of the @OfflineStore@. Notifies you if replicating data into
-    -- the @OfflineStore@ has failed. Returns either: @Active@ or @Blocked@
-    offlineStoreStatus :: Prelude.Maybe OfflineStoreStatus,
-    -- | The configuration for the @OnlineStore@.
-    onlineStoreConfig :: Prelude.Maybe OnlineStoreConfig,
-    -- | A timestamp indicating when the feature group was last updated.
-    lastModifiedTime :: Prelude.Maybe Data.POSIX,
-    -- | The size of the @OnlineStore@ in bytes.
-    onlineStoreTotalSizeBytes :: Prelude.Maybe Prelude.Integer,
-    -- | A value indicating whether the update made to the feature group was
-    -- successful.
-    lastUpdateStatus :: Prelude.Maybe LastUpdateStatus,
-    -- | The status of the feature group.
-    featureGroupStatus :: Prelude.Maybe FeatureGroupStatus,
-    -- | The configuration of the @OfflineStore@, inducing the S3 location of the
-    -- @OfflineStore@, Amazon Web Services Glue or Amazon Web Services Hive
-    -- data catalogue configurations, and the security configuration.
-    offlineStoreConfig :: Prelude.Maybe OfflineStoreConfig,
     -- | The reason that the @FeatureGroup@ failed to be replicated in the
     -- @OfflineStore@. This is failure can occur because:
     --
@@ -210,6 +189,27 @@ data DescribeFeatureGroupResponse = DescribeFeatureGroupResponse'
     --
     -- -   The @FeatureGroup@ could not be deleted from the @OfflineStore@.
     failureReason :: Prelude.Maybe Prelude.Text,
+    -- | The status of the feature group.
+    featureGroupStatus :: Prelude.Maybe FeatureGroupStatus,
+    -- | A timestamp indicating when the feature group was last updated.
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
+    -- | A value indicating whether the update made to the feature group was
+    -- successful.
+    lastUpdateStatus :: Prelude.Maybe LastUpdateStatus,
+    -- | The configuration of the @OfflineStore@, inducing the S3 location of the
+    -- @OfflineStore@, Amazon Web Services Glue or Amazon Web Services Hive
+    -- data catalogue configurations, and the security configuration.
+    offlineStoreConfig :: Prelude.Maybe OfflineStoreConfig,
+    -- | The status of the @OfflineStore@. Notifies you if replicating data into
+    -- the @OfflineStore@ has failed. Returns either: @Active@ or @Blocked@
+    offlineStoreStatus :: Prelude.Maybe OfflineStoreStatus,
+    -- | The configuration for the @OnlineStore@.
+    onlineStoreConfig :: Prelude.Maybe OnlineStoreConfig,
+    -- | The size of the @OnlineStore@ in bytes.
+    onlineStoreTotalSizeBytes :: Prelude.Maybe Prelude.Integer,
+    -- | The Amazon Resource Name (ARN) of the IAM execution role used to persist
+    -- data into the @OfflineStore@ if an @OfflineStoreConfig@ is provided.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the @FeatureGroup@.
@@ -245,28 +245,7 @@ data DescribeFeatureGroupResponse = DescribeFeatureGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'describeFeatureGroupResponse_roleArn' - The Amazon Resource Name (ARN) of the IAM execution role used to persist
--- data into the @OfflineStore@ if an @OfflineStoreConfig@ is provided.
---
 -- 'description', 'describeFeatureGroupResponse_description' - A free form description of the feature group.
---
--- 'offlineStoreStatus', 'describeFeatureGroupResponse_offlineStoreStatus' - The status of the @OfflineStore@. Notifies you if replicating data into
--- the @OfflineStore@ has failed. Returns either: @Active@ or @Blocked@
---
--- 'onlineStoreConfig', 'describeFeatureGroupResponse_onlineStoreConfig' - The configuration for the @OnlineStore@.
---
--- 'lastModifiedTime', 'describeFeatureGroupResponse_lastModifiedTime' - A timestamp indicating when the feature group was last updated.
---
--- 'onlineStoreTotalSizeBytes', 'describeFeatureGroupResponse_onlineStoreTotalSizeBytes' - The size of the @OnlineStore@ in bytes.
---
--- 'lastUpdateStatus', 'describeFeatureGroupResponse_lastUpdateStatus' - A value indicating whether the update made to the feature group was
--- successful.
---
--- 'featureGroupStatus', 'describeFeatureGroupResponse_featureGroupStatus' - The status of the feature group.
---
--- 'offlineStoreConfig', 'describeFeatureGroupResponse_offlineStoreConfig' - The configuration of the @OfflineStore@, inducing the S3 location of the
--- @OfflineStore@, Amazon Web Services Glue or Amazon Web Services Hive
--- data catalogue configurations, and the security configuration.
 --
 -- 'failureReason', 'describeFeatureGroupResponse_failureReason' - The reason that the @FeatureGroup@ failed to be replicated in the
 -- @OfflineStore@. This is failure can occur because:
@@ -274,6 +253,27 @@ data DescribeFeatureGroupResponse = DescribeFeatureGroupResponse'
 -- -   The @FeatureGroup@ could not be created in the @OfflineStore@.
 --
 -- -   The @FeatureGroup@ could not be deleted from the @OfflineStore@.
+--
+-- 'featureGroupStatus', 'describeFeatureGroupResponse_featureGroupStatus' - The status of the feature group.
+--
+-- 'lastModifiedTime', 'describeFeatureGroupResponse_lastModifiedTime' - A timestamp indicating when the feature group was last updated.
+--
+-- 'lastUpdateStatus', 'describeFeatureGroupResponse_lastUpdateStatus' - A value indicating whether the update made to the feature group was
+-- successful.
+--
+-- 'offlineStoreConfig', 'describeFeatureGroupResponse_offlineStoreConfig' - The configuration of the @OfflineStore@, inducing the S3 location of the
+-- @OfflineStore@, Amazon Web Services Glue or Amazon Web Services Hive
+-- data catalogue configurations, and the security configuration.
+--
+-- 'offlineStoreStatus', 'describeFeatureGroupResponse_offlineStoreStatus' - The status of the @OfflineStore@. Notifies you if replicating data into
+-- the @OfflineStore@ has failed. Returns either: @Active@ or @Blocked@
+--
+-- 'onlineStoreConfig', 'describeFeatureGroupResponse_onlineStoreConfig' - The configuration for the @OnlineStore@.
+--
+-- 'onlineStoreTotalSizeBytes', 'describeFeatureGroupResponse_onlineStoreTotalSizeBytes' - The size of the @OnlineStore@ in bytes.
+--
+-- 'roleArn', 'describeFeatureGroupResponse_roleArn' - The Amazon Resource Name (ARN) of the IAM execution role used to persist
+-- data into the @OfflineStore@ if an @OfflineStoreConfig@ is provided.
 --
 -- 'httpStatus', 'describeFeatureGroupResponse_httpStatus' - The response's http status code.
 --
@@ -326,17 +326,17 @@ newDescribeFeatureGroupResponse
   pCreationTime_
   pNextToken_ =
     DescribeFeatureGroupResponse'
-      { roleArn =
+      { description =
           Prelude.Nothing,
-        description = Prelude.Nothing,
+        failureReason = Prelude.Nothing,
+        featureGroupStatus = Prelude.Nothing,
+        lastModifiedTime = Prelude.Nothing,
+        lastUpdateStatus = Prelude.Nothing,
+        offlineStoreConfig = Prelude.Nothing,
         offlineStoreStatus = Prelude.Nothing,
         onlineStoreConfig = Prelude.Nothing,
-        lastModifiedTime = Prelude.Nothing,
         onlineStoreTotalSizeBytes = Prelude.Nothing,
-        lastUpdateStatus = Prelude.Nothing,
-        featureGroupStatus = Prelude.Nothing,
-        offlineStoreConfig = Prelude.Nothing,
-        failureReason = Prelude.Nothing,
+        roleArn = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         featureGroupArn = pFeatureGroupArn_,
         featureGroupName = pFeatureGroupName_,
@@ -350,14 +350,37 @@ newDescribeFeatureGroupResponse
         nextToken = pNextToken_
       }
 
--- | The Amazon Resource Name (ARN) of the IAM execution role used to persist
--- data into the @OfflineStore@ if an @OfflineStoreConfig@ is provided.
-describeFeatureGroupResponse_roleArn :: Lens.Lens' DescribeFeatureGroupResponse (Prelude.Maybe Prelude.Text)
-describeFeatureGroupResponse_roleArn = Lens.lens (\DescribeFeatureGroupResponse' {roleArn} -> roleArn) (\s@DescribeFeatureGroupResponse' {} a -> s {roleArn = a} :: DescribeFeatureGroupResponse)
-
 -- | A free form description of the feature group.
 describeFeatureGroupResponse_description :: Lens.Lens' DescribeFeatureGroupResponse (Prelude.Maybe Prelude.Text)
 describeFeatureGroupResponse_description = Lens.lens (\DescribeFeatureGroupResponse' {description} -> description) (\s@DescribeFeatureGroupResponse' {} a -> s {description = a} :: DescribeFeatureGroupResponse)
+
+-- | The reason that the @FeatureGroup@ failed to be replicated in the
+-- @OfflineStore@. This is failure can occur because:
+--
+-- -   The @FeatureGroup@ could not be created in the @OfflineStore@.
+--
+-- -   The @FeatureGroup@ could not be deleted from the @OfflineStore@.
+describeFeatureGroupResponse_failureReason :: Lens.Lens' DescribeFeatureGroupResponse (Prelude.Maybe Prelude.Text)
+describeFeatureGroupResponse_failureReason = Lens.lens (\DescribeFeatureGroupResponse' {failureReason} -> failureReason) (\s@DescribeFeatureGroupResponse' {} a -> s {failureReason = a} :: DescribeFeatureGroupResponse)
+
+-- | The status of the feature group.
+describeFeatureGroupResponse_featureGroupStatus :: Lens.Lens' DescribeFeatureGroupResponse (Prelude.Maybe FeatureGroupStatus)
+describeFeatureGroupResponse_featureGroupStatus = Lens.lens (\DescribeFeatureGroupResponse' {featureGroupStatus} -> featureGroupStatus) (\s@DescribeFeatureGroupResponse' {} a -> s {featureGroupStatus = a} :: DescribeFeatureGroupResponse)
+
+-- | A timestamp indicating when the feature group was last updated.
+describeFeatureGroupResponse_lastModifiedTime :: Lens.Lens' DescribeFeatureGroupResponse (Prelude.Maybe Prelude.UTCTime)
+describeFeatureGroupResponse_lastModifiedTime = Lens.lens (\DescribeFeatureGroupResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeFeatureGroupResponse' {} a -> s {lastModifiedTime = a} :: DescribeFeatureGroupResponse) Prelude.. Lens.mapping Data._Time
+
+-- | A value indicating whether the update made to the feature group was
+-- successful.
+describeFeatureGroupResponse_lastUpdateStatus :: Lens.Lens' DescribeFeatureGroupResponse (Prelude.Maybe LastUpdateStatus)
+describeFeatureGroupResponse_lastUpdateStatus = Lens.lens (\DescribeFeatureGroupResponse' {lastUpdateStatus} -> lastUpdateStatus) (\s@DescribeFeatureGroupResponse' {} a -> s {lastUpdateStatus = a} :: DescribeFeatureGroupResponse)
+
+-- | The configuration of the @OfflineStore@, inducing the S3 location of the
+-- @OfflineStore@, Amazon Web Services Glue or Amazon Web Services Hive
+-- data catalogue configurations, and the security configuration.
+describeFeatureGroupResponse_offlineStoreConfig :: Lens.Lens' DescribeFeatureGroupResponse (Prelude.Maybe OfflineStoreConfig)
+describeFeatureGroupResponse_offlineStoreConfig = Lens.lens (\DescribeFeatureGroupResponse' {offlineStoreConfig} -> offlineStoreConfig) (\s@DescribeFeatureGroupResponse' {} a -> s {offlineStoreConfig = a} :: DescribeFeatureGroupResponse)
 
 -- | The status of the @OfflineStore@. Notifies you if replicating data into
 -- the @OfflineStore@ has failed. Returns either: @Active@ or @Blocked@
@@ -368,37 +391,14 @@ describeFeatureGroupResponse_offlineStoreStatus = Lens.lens (\DescribeFeatureGro
 describeFeatureGroupResponse_onlineStoreConfig :: Lens.Lens' DescribeFeatureGroupResponse (Prelude.Maybe OnlineStoreConfig)
 describeFeatureGroupResponse_onlineStoreConfig = Lens.lens (\DescribeFeatureGroupResponse' {onlineStoreConfig} -> onlineStoreConfig) (\s@DescribeFeatureGroupResponse' {} a -> s {onlineStoreConfig = a} :: DescribeFeatureGroupResponse)
 
--- | A timestamp indicating when the feature group was last updated.
-describeFeatureGroupResponse_lastModifiedTime :: Lens.Lens' DescribeFeatureGroupResponse (Prelude.Maybe Prelude.UTCTime)
-describeFeatureGroupResponse_lastModifiedTime = Lens.lens (\DescribeFeatureGroupResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeFeatureGroupResponse' {} a -> s {lastModifiedTime = a} :: DescribeFeatureGroupResponse) Prelude.. Lens.mapping Data._Time
-
 -- | The size of the @OnlineStore@ in bytes.
 describeFeatureGroupResponse_onlineStoreTotalSizeBytes :: Lens.Lens' DescribeFeatureGroupResponse (Prelude.Maybe Prelude.Integer)
 describeFeatureGroupResponse_onlineStoreTotalSizeBytes = Lens.lens (\DescribeFeatureGroupResponse' {onlineStoreTotalSizeBytes} -> onlineStoreTotalSizeBytes) (\s@DescribeFeatureGroupResponse' {} a -> s {onlineStoreTotalSizeBytes = a} :: DescribeFeatureGroupResponse)
 
--- | A value indicating whether the update made to the feature group was
--- successful.
-describeFeatureGroupResponse_lastUpdateStatus :: Lens.Lens' DescribeFeatureGroupResponse (Prelude.Maybe LastUpdateStatus)
-describeFeatureGroupResponse_lastUpdateStatus = Lens.lens (\DescribeFeatureGroupResponse' {lastUpdateStatus} -> lastUpdateStatus) (\s@DescribeFeatureGroupResponse' {} a -> s {lastUpdateStatus = a} :: DescribeFeatureGroupResponse)
-
--- | The status of the feature group.
-describeFeatureGroupResponse_featureGroupStatus :: Lens.Lens' DescribeFeatureGroupResponse (Prelude.Maybe FeatureGroupStatus)
-describeFeatureGroupResponse_featureGroupStatus = Lens.lens (\DescribeFeatureGroupResponse' {featureGroupStatus} -> featureGroupStatus) (\s@DescribeFeatureGroupResponse' {} a -> s {featureGroupStatus = a} :: DescribeFeatureGroupResponse)
-
--- | The configuration of the @OfflineStore@, inducing the S3 location of the
--- @OfflineStore@, Amazon Web Services Glue or Amazon Web Services Hive
--- data catalogue configurations, and the security configuration.
-describeFeatureGroupResponse_offlineStoreConfig :: Lens.Lens' DescribeFeatureGroupResponse (Prelude.Maybe OfflineStoreConfig)
-describeFeatureGroupResponse_offlineStoreConfig = Lens.lens (\DescribeFeatureGroupResponse' {offlineStoreConfig} -> offlineStoreConfig) (\s@DescribeFeatureGroupResponse' {} a -> s {offlineStoreConfig = a} :: DescribeFeatureGroupResponse)
-
--- | The reason that the @FeatureGroup@ failed to be replicated in the
--- @OfflineStore@. This is failure can occur because:
---
--- -   The @FeatureGroup@ could not be created in the @OfflineStore@.
---
--- -   The @FeatureGroup@ could not be deleted from the @OfflineStore@.
-describeFeatureGroupResponse_failureReason :: Lens.Lens' DescribeFeatureGroupResponse (Prelude.Maybe Prelude.Text)
-describeFeatureGroupResponse_failureReason = Lens.lens (\DescribeFeatureGroupResponse' {failureReason} -> failureReason) (\s@DescribeFeatureGroupResponse' {} a -> s {failureReason = a} :: DescribeFeatureGroupResponse)
+-- | The Amazon Resource Name (ARN) of the IAM execution role used to persist
+-- data into the @OfflineStore@ if an @OfflineStoreConfig@ is provided.
+describeFeatureGroupResponse_roleArn :: Lens.Lens' DescribeFeatureGroupResponse (Prelude.Maybe Prelude.Text)
+describeFeatureGroupResponse_roleArn = Lens.lens (\DescribeFeatureGroupResponse' {roleArn} -> roleArn) (\s@DescribeFeatureGroupResponse' {} a -> s {roleArn = a} :: DescribeFeatureGroupResponse)
 
 -- | The response's http status code.
 describeFeatureGroupResponse_httpStatus :: Lens.Lens' DescribeFeatureGroupResponse Prelude.Int
@@ -442,16 +442,16 @@ describeFeatureGroupResponse_nextToken = Lens.lens (\DescribeFeatureGroupRespons
 
 instance Prelude.NFData DescribeFeatureGroupResponse where
   rnf DescribeFeatureGroupResponse' {..} =
-    Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf featureGroupStatus
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf lastUpdateStatus
+      `Prelude.seq` Prelude.rnf offlineStoreConfig
       `Prelude.seq` Prelude.rnf offlineStoreStatus
       `Prelude.seq` Prelude.rnf onlineStoreConfig
-      `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf onlineStoreTotalSizeBytes
-      `Prelude.seq` Prelude.rnf lastUpdateStatus
-      `Prelude.seq` Prelude.rnf featureGroupStatus
-      `Prelude.seq` Prelude.rnf offlineStoreConfig
-      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf featureGroupArn
       `Prelude.seq` Prelude.rnf featureGroupName

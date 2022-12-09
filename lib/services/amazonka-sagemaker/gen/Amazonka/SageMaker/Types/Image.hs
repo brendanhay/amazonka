@@ -31,10 +31,10 @@ import Amazonka.SageMaker.Types.ImageStatus
 --
 -- /See:/ 'newImage' smart constructor.
 data Image = Image'
-  { -- | The name of the image as displayed.
-    displayName :: Prelude.Maybe Prelude.Text,
-    -- | The description of the image.
+  { -- | The description of the image.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the image as displayed.
+    displayName :: Prelude.Maybe Prelude.Text,
     -- | When a create, update, or delete operation fails, the reason for the
     -- failure.
     failureReason :: Prelude.Maybe Prelude.Text,
@@ -59,9 +59,9 @@ data Image = Image'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'displayName', 'image_displayName' - The name of the image as displayed.
---
 -- 'description', 'image_description' - The description of the image.
+--
+-- 'displayName', 'image_displayName' - The name of the image as displayed.
 --
 -- 'failureReason', 'image_failureReason' - When a create, update, or delete operation fails, the reason for the
 -- failure.
@@ -94,8 +94,8 @@ newImage
   pImageStatus_
   pLastModifiedTime_ =
     Image'
-      { displayName = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { description = Prelude.Nothing,
+        displayName = Prelude.Nothing,
         failureReason = Prelude.Nothing,
         creationTime = Data._Time Lens.# pCreationTime_,
         imageArn = pImageArn_,
@@ -105,13 +105,13 @@ newImage
           Data._Time Lens.# pLastModifiedTime_
       }
 
--- | The name of the image as displayed.
-image_displayName :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
-image_displayName = Lens.lens (\Image' {displayName} -> displayName) (\s@Image' {} a -> s {displayName = a} :: Image)
-
 -- | The description of the image.
 image_description :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_description = Lens.lens (\Image' {description} -> description) (\s@Image' {} a -> s {description = a} :: Image)
+
+-- | The name of the image as displayed.
+image_displayName :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
+image_displayName = Lens.lens (\Image' {displayName} -> displayName) (\s@Image' {} a -> s {displayName = a} :: Image)
 
 -- | When a create, update, or delete operation fails, the reason for the
 -- failure.
@@ -144,8 +144,8 @@ instance Data.FromJSON Image where
       "Image"
       ( \x ->
           Image'
-            Prelude.<$> (x Data..:? "DisplayName")
-            Prelude.<*> (x Data..:? "Description")
+            Prelude.<$> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "DisplayName")
             Prelude.<*> (x Data..:? "FailureReason")
             Prelude.<*> (x Data..: "CreationTime")
             Prelude.<*> (x Data..: "ImageArn")
@@ -156,8 +156,8 @@ instance Data.FromJSON Image where
 
 instance Prelude.Hashable Image where
   hashWithSalt _salt Image' {..} =
-    _salt `Prelude.hashWithSalt` displayName
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` imageArn
@@ -167,8 +167,8 @@ instance Prelude.Hashable Image where
 
 instance Prelude.NFData Image where
   rnf Image' {..} =
-    Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf failureReason
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf imageArn

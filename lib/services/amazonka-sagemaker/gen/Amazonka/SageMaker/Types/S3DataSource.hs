@@ -33,6 +33,9 @@ data S3DataSource = S3DataSource'
   { -- | A list of one or more attribute names to use that are found in a
     -- specified augmented manifest file.
     attributeNames :: Prelude.Maybe [Prelude.Text],
+    -- | A list of names of instance groups that get data from the S3 data
+    -- source.
+    instanceGroupNames :: Prelude.Maybe [Prelude.Text],
     -- | If you want SageMaker to replicate the entire dataset on each ML compute
     -- instance that is launched for model training, specify @FullyReplicated@.
     --
@@ -53,9 +56,6 @@ data S3DataSource = S3DataSource'
     -- copying training data to the ML storage volume (when @TrainingInputMode@
     -- is set to @File@), this copies 1\//n/ of the number of objects.
     s3DataDistributionType :: Prelude.Maybe S3DataDistribution,
-    -- | A list of names of instance groups that get data from the S3 data
-    -- source.
-    instanceGroupNames :: Prelude.Maybe [Prelude.Text],
     -- | If you choose @S3Prefix@, @S3Uri@ identifies a key name prefix.
     -- SageMaker uses all objects that match the specified key name prefix for
     -- model training.
@@ -129,6 +129,9 @@ data S3DataSource = S3DataSource'
 -- 'attributeNames', 's3DataSource_attributeNames' - A list of one or more attribute names to use that are found in a
 -- specified augmented manifest file.
 --
+-- 'instanceGroupNames', 's3DataSource_instanceGroupNames' - A list of names of instance groups that get data from the S3 data
+-- source.
+--
 -- 's3DataDistributionType', 's3DataSource_s3DataDistributionType' - If you want SageMaker to replicate the entire dataset on each ML compute
 -- instance that is launched for model training, specify @FullyReplicated@.
 --
@@ -148,9 +151,6 @@ data S3DataSource = S3DataSource'
 -- instances, you might choose @ShardedByS3Key@. If the algorithm requires
 -- copying training data to the ML storage volume (when @TrainingInputMode@
 -- is set to @File@), this copies 1\//n/ of the number of objects.
---
--- 'instanceGroupNames', 's3DataSource_instanceGroupNames' - A list of names of instance groups that get data from the S3 data
--- source.
 --
 -- 's3DataType', 's3DataSource_s3DataType' - If you choose @S3Prefix@, @S3Uri@ identifies a key name prefix.
 -- SageMaker uses all objects that match the specified key name prefix for
@@ -219,8 +219,8 @@ newS3DataSource ::
 newS3DataSource pS3DataType_ pS3Uri_ =
   S3DataSource'
     { attributeNames = Prelude.Nothing,
-      s3DataDistributionType = Prelude.Nothing,
       instanceGroupNames = Prelude.Nothing,
+      s3DataDistributionType = Prelude.Nothing,
       s3DataType = pS3DataType_,
       s3Uri = pS3Uri_
     }
@@ -229,6 +229,11 @@ newS3DataSource pS3DataType_ pS3Uri_ =
 -- specified augmented manifest file.
 s3DataSource_attributeNames :: Lens.Lens' S3DataSource (Prelude.Maybe [Prelude.Text])
 s3DataSource_attributeNames = Lens.lens (\S3DataSource' {attributeNames} -> attributeNames) (\s@S3DataSource' {} a -> s {attributeNames = a} :: S3DataSource) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of names of instance groups that get data from the S3 data
+-- source.
+s3DataSource_instanceGroupNames :: Lens.Lens' S3DataSource (Prelude.Maybe [Prelude.Text])
+s3DataSource_instanceGroupNames = Lens.lens (\S3DataSource' {instanceGroupNames} -> instanceGroupNames) (\s@S3DataSource' {} a -> s {instanceGroupNames = a} :: S3DataSource) Prelude.. Lens.mapping Lens.coerced
 
 -- | If you want SageMaker to replicate the entire dataset on each ML compute
 -- instance that is launched for model training, specify @FullyReplicated@.
@@ -251,11 +256,6 @@ s3DataSource_attributeNames = Lens.lens (\S3DataSource' {attributeNames} -> attr
 -- is set to @File@), this copies 1\//n/ of the number of objects.
 s3DataSource_s3DataDistributionType :: Lens.Lens' S3DataSource (Prelude.Maybe S3DataDistribution)
 s3DataSource_s3DataDistributionType = Lens.lens (\S3DataSource' {s3DataDistributionType} -> s3DataDistributionType) (\s@S3DataSource' {} a -> s {s3DataDistributionType = a} :: S3DataSource)
-
--- | A list of names of instance groups that get data from the S3 data
--- source.
-s3DataSource_instanceGroupNames :: Lens.Lens' S3DataSource (Prelude.Maybe [Prelude.Text])
-s3DataSource_instanceGroupNames = Lens.lens (\S3DataSource' {instanceGroupNames} -> instanceGroupNames) (\s@S3DataSource' {} a -> s {instanceGroupNames = a} :: S3DataSource) Prelude.. Lens.mapping Lens.coerced
 
 -- | If you choose @S3Prefix@, @S3Uri@ identifies a key name prefix.
 -- SageMaker uses all objects that match the specified key name prefix for
@@ -327,10 +327,10 @@ instance Data.FromJSON S3DataSource where
       ( \x ->
           S3DataSource'
             Prelude.<$> (x Data..:? "AttributeNames" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "S3DataDistributionType")
             Prelude.<*> ( x Data..:? "InstanceGroupNames"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "S3DataDistributionType")
             Prelude.<*> (x Data..: "S3DataType")
             Prelude.<*> (x Data..: "S3Uri")
       )
@@ -338,16 +338,16 @@ instance Data.FromJSON S3DataSource where
 instance Prelude.Hashable S3DataSource where
   hashWithSalt _salt S3DataSource' {..} =
     _salt `Prelude.hashWithSalt` attributeNames
-      `Prelude.hashWithSalt` s3DataDistributionType
       `Prelude.hashWithSalt` instanceGroupNames
+      `Prelude.hashWithSalt` s3DataDistributionType
       `Prelude.hashWithSalt` s3DataType
       `Prelude.hashWithSalt` s3Uri
 
 instance Prelude.NFData S3DataSource where
   rnf S3DataSource' {..} =
     Prelude.rnf attributeNames
-      `Prelude.seq` Prelude.rnf s3DataDistributionType
       `Prelude.seq` Prelude.rnf instanceGroupNames
+      `Prelude.seq` Prelude.rnf s3DataDistributionType
       `Prelude.seq` Prelude.rnf s3DataType
       `Prelude.seq` Prelude.rnf s3Uri
 
@@ -357,10 +357,10 @@ instance Data.ToJSON S3DataSource where
       ( Prelude.catMaybes
           [ ("AttributeNames" Data..=)
               Prelude.<$> attributeNames,
-            ("S3DataDistributionType" Data..=)
-              Prelude.<$> s3DataDistributionType,
             ("InstanceGroupNames" Data..=)
               Prelude.<$> instanceGroupNames,
+            ("S3DataDistributionType" Data..=)
+              Prelude.<$> s3DataDistributionType,
             Prelude.Just ("S3DataType" Data..= s3DataType),
             Prelude.Just ("S3Uri" Data..= s3Uri)
           ]

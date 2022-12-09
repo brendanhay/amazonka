@@ -33,18 +33,18 @@ import Amazonka.SageMaker.Types.DriftCheckModelQuality
 --
 -- /See:/ 'newDriftCheckBaselines' smart constructor.
 data DriftCheckBaselines = DriftCheckBaselines'
-  { -- | Represents the drift check model data quality baselines that can be used
-    -- when the model monitor is set using the model package.
-    modelDataQuality :: Prelude.Maybe DriftCheckModelDataQuality,
-    -- | Represents the drift check model quality baselines that can be used when
-    -- the model monitor is set using the model package.
-    modelQuality :: Prelude.Maybe DriftCheckModelQuality,
-    -- | Represents the drift check bias baselines that can be used when the
+  { -- | Represents the drift check bias baselines that can be used when the
     -- model monitor is set using the model package.
     bias :: Prelude.Maybe DriftCheckBias,
     -- | Represents the drift check explainability baselines that can be used
     -- when the model monitor is set using the model package.
-    explainability :: Prelude.Maybe DriftCheckExplainability
+    explainability :: Prelude.Maybe DriftCheckExplainability,
+    -- | Represents the drift check model data quality baselines that can be used
+    -- when the model monitor is set using the model package.
+    modelDataQuality :: Prelude.Maybe DriftCheckModelDataQuality,
+    -- | Represents the drift check model quality baselines that can be used when
+    -- the model monitor is set using the model package.
+    modelQuality :: Prelude.Maybe DriftCheckModelQuality
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,37 +56,26 @@ data DriftCheckBaselines = DriftCheckBaselines'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'modelDataQuality', 'driftCheckBaselines_modelDataQuality' - Represents the drift check model data quality baselines that can be used
--- when the model monitor is set using the model package.
---
--- 'modelQuality', 'driftCheckBaselines_modelQuality' - Represents the drift check model quality baselines that can be used when
--- the model monitor is set using the model package.
---
 -- 'bias', 'driftCheckBaselines_bias' - Represents the drift check bias baselines that can be used when the
 -- model monitor is set using the model package.
 --
 -- 'explainability', 'driftCheckBaselines_explainability' - Represents the drift check explainability baselines that can be used
 -- when the model monitor is set using the model package.
+--
+-- 'modelDataQuality', 'driftCheckBaselines_modelDataQuality' - Represents the drift check model data quality baselines that can be used
+-- when the model monitor is set using the model package.
+--
+-- 'modelQuality', 'driftCheckBaselines_modelQuality' - Represents the drift check model quality baselines that can be used when
+-- the model monitor is set using the model package.
 newDriftCheckBaselines ::
   DriftCheckBaselines
 newDriftCheckBaselines =
   DriftCheckBaselines'
-    { modelDataQuality =
-        Prelude.Nothing,
-      modelQuality = Prelude.Nothing,
-      bias = Prelude.Nothing,
-      explainability = Prelude.Nothing
+    { bias = Prelude.Nothing,
+      explainability = Prelude.Nothing,
+      modelDataQuality = Prelude.Nothing,
+      modelQuality = Prelude.Nothing
     }
-
--- | Represents the drift check model data quality baselines that can be used
--- when the model monitor is set using the model package.
-driftCheckBaselines_modelDataQuality :: Lens.Lens' DriftCheckBaselines (Prelude.Maybe DriftCheckModelDataQuality)
-driftCheckBaselines_modelDataQuality = Lens.lens (\DriftCheckBaselines' {modelDataQuality} -> modelDataQuality) (\s@DriftCheckBaselines' {} a -> s {modelDataQuality = a} :: DriftCheckBaselines)
-
--- | Represents the drift check model quality baselines that can be used when
--- the model monitor is set using the model package.
-driftCheckBaselines_modelQuality :: Lens.Lens' DriftCheckBaselines (Prelude.Maybe DriftCheckModelQuality)
-driftCheckBaselines_modelQuality = Lens.lens (\DriftCheckBaselines' {modelQuality} -> modelQuality) (\s@DriftCheckBaselines' {} a -> s {modelQuality = a} :: DriftCheckBaselines)
 
 -- | Represents the drift check bias baselines that can be used when the
 -- model monitor is set using the model package.
@@ -98,41 +87,51 @@ driftCheckBaselines_bias = Lens.lens (\DriftCheckBaselines' {bias} -> bias) (\s@
 driftCheckBaselines_explainability :: Lens.Lens' DriftCheckBaselines (Prelude.Maybe DriftCheckExplainability)
 driftCheckBaselines_explainability = Lens.lens (\DriftCheckBaselines' {explainability} -> explainability) (\s@DriftCheckBaselines' {} a -> s {explainability = a} :: DriftCheckBaselines)
 
+-- | Represents the drift check model data quality baselines that can be used
+-- when the model monitor is set using the model package.
+driftCheckBaselines_modelDataQuality :: Lens.Lens' DriftCheckBaselines (Prelude.Maybe DriftCheckModelDataQuality)
+driftCheckBaselines_modelDataQuality = Lens.lens (\DriftCheckBaselines' {modelDataQuality} -> modelDataQuality) (\s@DriftCheckBaselines' {} a -> s {modelDataQuality = a} :: DriftCheckBaselines)
+
+-- | Represents the drift check model quality baselines that can be used when
+-- the model monitor is set using the model package.
+driftCheckBaselines_modelQuality :: Lens.Lens' DriftCheckBaselines (Prelude.Maybe DriftCheckModelQuality)
+driftCheckBaselines_modelQuality = Lens.lens (\DriftCheckBaselines' {modelQuality} -> modelQuality) (\s@DriftCheckBaselines' {} a -> s {modelQuality = a} :: DriftCheckBaselines)
+
 instance Data.FromJSON DriftCheckBaselines where
   parseJSON =
     Data.withObject
       "DriftCheckBaselines"
       ( \x ->
           DriftCheckBaselines'
-            Prelude.<$> (x Data..:? "ModelDataQuality")
-            Prelude.<*> (x Data..:? "ModelQuality")
-            Prelude.<*> (x Data..:? "Bias")
+            Prelude.<$> (x Data..:? "Bias")
             Prelude.<*> (x Data..:? "Explainability")
+            Prelude.<*> (x Data..:? "ModelDataQuality")
+            Prelude.<*> (x Data..:? "ModelQuality")
       )
 
 instance Prelude.Hashable DriftCheckBaselines where
   hashWithSalt _salt DriftCheckBaselines' {..} =
-    _salt `Prelude.hashWithSalt` modelDataQuality
-      `Prelude.hashWithSalt` modelQuality
-      `Prelude.hashWithSalt` bias
+    _salt `Prelude.hashWithSalt` bias
       `Prelude.hashWithSalt` explainability
+      `Prelude.hashWithSalt` modelDataQuality
+      `Prelude.hashWithSalt` modelQuality
 
 instance Prelude.NFData DriftCheckBaselines where
   rnf DriftCheckBaselines' {..} =
-    Prelude.rnf modelDataQuality
-      `Prelude.seq` Prelude.rnf modelQuality
-      `Prelude.seq` Prelude.rnf bias
+    Prelude.rnf bias
       `Prelude.seq` Prelude.rnf explainability
+      `Prelude.seq` Prelude.rnf modelDataQuality
+      `Prelude.seq` Prelude.rnf modelQuality
 
 instance Data.ToJSON DriftCheckBaselines where
   toJSON DriftCheckBaselines' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ModelDataQuality" Data..=)
-              Prelude.<$> modelDataQuality,
-            ("ModelQuality" Data..=) Prelude.<$> modelQuality,
-            ("Bias" Data..=) Prelude.<$> bias,
+          [ ("Bias" Data..=) Prelude.<$> bias,
             ("Explainability" Data..=)
-              Prelude.<$> explainability
+              Prelude.<$> explainability,
+            ("ModelDataQuality" Data..=)
+              Prelude.<$> modelDataQuality,
+            ("ModelQuality" Data..=) Prelude.<$> modelQuality
           ]
       )

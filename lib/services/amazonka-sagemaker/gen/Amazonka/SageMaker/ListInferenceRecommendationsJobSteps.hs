@@ -32,9 +32,9 @@ module Amazonka.SageMaker.ListInferenceRecommendationsJobSteps
     newListInferenceRecommendationsJobSteps,
 
     -- * Request Lenses
+    listInferenceRecommendationsJobSteps_maxResults,
     listInferenceRecommendationsJobSteps_nextToken,
     listInferenceRecommendationsJobSteps_status,
-    listInferenceRecommendationsJobSteps_maxResults,
     listInferenceRecommendationsJobSteps_stepType,
     listInferenceRecommendationsJobSteps_jobName,
 
@@ -59,15 +59,15 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListInferenceRecommendationsJobSteps' smart constructor.
 data ListInferenceRecommendationsJobSteps = ListInferenceRecommendationsJobSteps'
-  { -- | A token that you can specify to return more results from the list.
+  { -- | The maximum number of results to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A token that you can specify to return more results from the list.
     -- Specify this field if you have a token that was returned from a previous
     -- request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A filter to return benchmarks of a specified status. If this field is
     -- left empty, then all benchmarks are returned.
     status :: Prelude.Maybe RecommendationJobStatus,
-    -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter to return details about the specified type of subtask.
     --
     -- @BENCHMARK@: Evaluate the performance of your model on different
@@ -86,14 +86,14 @@ data ListInferenceRecommendationsJobSteps = ListInferenceRecommendationsJobSteps
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listInferenceRecommendationsJobSteps_maxResults' - The maximum number of results to return.
+--
 -- 'nextToken', 'listInferenceRecommendationsJobSteps_nextToken' - A token that you can specify to return more results from the list.
 -- Specify this field if you have a token that was returned from a previous
 -- request.
 --
 -- 'status', 'listInferenceRecommendationsJobSteps_status' - A filter to return benchmarks of a specified status. If this field is
 -- left empty, then all benchmarks are returned.
---
--- 'maxResults', 'listInferenceRecommendationsJobSteps_maxResults' - The maximum number of results to return.
 --
 -- 'stepType', 'listInferenceRecommendationsJobSteps_stepType' - A filter to return details about the specified type of subtask.
 --
@@ -107,13 +107,17 @@ newListInferenceRecommendationsJobSteps ::
   ListInferenceRecommendationsJobSteps
 newListInferenceRecommendationsJobSteps pJobName_ =
   ListInferenceRecommendationsJobSteps'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       status = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       stepType = Prelude.Nothing,
       jobName = pJobName_
     }
+
+-- | The maximum number of results to return.
+listInferenceRecommendationsJobSteps_maxResults :: Lens.Lens' ListInferenceRecommendationsJobSteps (Prelude.Maybe Prelude.Natural)
+listInferenceRecommendationsJobSteps_maxResults = Lens.lens (\ListInferenceRecommendationsJobSteps' {maxResults} -> maxResults) (\s@ListInferenceRecommendationsJobSteps' {} a -> s {maxResults = a} :: ListInferenceRecommendationsJobSteps)
 
 -- | A token that you can specify to return more results from the list.
 -- Specify this field if you have a token that was returned from a previous
@@ -125,10 +129,6 @@ listInferenceRecommendationsJobSteps_nextToken = Lens.lens (\ListInferenceRecomm
 -- left empty, then all benchmarks are returned.
 listInferenceRecommendationsJobSteps_status :: Lens.Lens' ListInferenceRecommendationsJobSteps (Prelude.Maybe RecommendationJobStatus)
 listInferenceRecommendationsJobSteps_status = Lens.lens (\ListInferenceRecommendationsJobSteps' {status} -> status) (\s@ListInferenceRecommendationsJobSteps' {} a -> s {status = a} :: ListInferenceRecommendationsJobSteps)
-
--- | The maximum number of results to return.
-listInferenceRecommendationsJobSteps_maxResults :: Lens.Lens' ListInferenceRecommendationsJobSteps (Prelude.Maybe Prelude.Natural)
-listInferenceRecommendationsJobSteps_maxResults = Lens.lens (\ListInferenceRecommendationsJobSteps' {maxResults} -> maxResults) (\s@ListInferenceRecommendationsJobSteps' {} a -> s {maxResults = a} :: ListInferenceRecommendationsJobSteps)
 
 -- | A filter to return details about the specified type of subtask.
 --
@@ -191,9 +191,9 @@ instance
   hashWithSalt
     _salt
     ListInferenceRecommendationsJobSteps' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` status
-        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` stepType
         `Prelude.hashWithSalt` jobName
 
@@ -202,9 +202,9 @@ instance
     ListInferenceRecommendationsJobSteps
   where
   rnf ListInferenceRecommendationsJobSteps' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf stepType
       `Prelude.seq` Prelude.rnf jobName
 
@@ -233,9 +233,9 @@ instance
   toJSON ListInferenceRecommendationsJobSteps' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("Status" Data..=) Prelude.<$> status,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("StepType" Data..=) Prelude.<$> stepType,
             Prelude.Just ("JobName" Data..= jobName)
           ]

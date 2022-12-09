@@ -29,8 +29,8 @@ module Amazonka.SageMaker.ListDomains
     newListDomains,
 
     -- * Request Lenses
-    listDomains_nextToken,
     listDomains_maxResults,
+    listDomains_nextToken,
 
     -- * Destructuring the Response
     ListDomainsResponse (..),
@@ -53,11 +53,11 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListDomains' smart constructor.
 data ListDomains = ListDomains'
-  { -- | If the previous response was truncated, you will receive this token. Use
+  { -- | Returns a list up to a specified limit.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the previous response was truncated, you will receive this token. Use
     -- it in your next request to receive the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Returns a list up to a specified limit.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,26 +69,26 @@ data ListDomains = ListDomains'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listDomains_maxResults' - Returns a list up to a specified limit.
+--
 -- 'nextToken', 'listDomains_nextToken' - If the previous response was truncated, you will receive this token. Use
 -- it in your next request to receive the next set of results.
---
--- 'maxResults', 'listDomains_maxResults' - Returns a list up to a specified limit.
 newListDomains ::
   ListDomains
 newListDomains =
   ListDomains'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | Returns a list up to a specified limit.
+listDomains_maxResults :: Lens.Lens' ListDomains (Prelude.Maybe Prelude.Natural)
+listDomains_maxResults = Lens.lens (\ListDomains' {maxResults} -> maxResults) (\s@ListDomains' {} a -> s {maxResults = a} :: ListDomains)
 
 -- | If the previous response was truncated, you will receive this token. Use
 -- it in your next request to receive the next set of results.
 listDomains_nextToken :: Lens.Lens' ListDomains (Prelude.Maybe Prelude.Text)
 listDomains_nextToken = Lens.lens (\ListDomains' {nextToken} -> nextToken) (\s@ListDomains' {} a -> s {nextToken = a} :: ListDomains)
-
--- | Returns a list up to a specified limit.
-listDomains_maxResults :: Lens.Lens' ListDomains (Prelude.Maybe Prelude.Natural)
-listDomains_maxResults = Lens.lens (\ListDomains' {maxResults} -> maxResults) (\s@ListDomains' {} a -> s {maxResults = a} :: ListDomains)
 
 instance Core.AWSPager ListDomains where
   page rq rs
@@ -124,13 +124,13 @@ instance Core.AWSRequest ListDomains where
 
 instance Prelude.Hashable ListDomains where
   hashWithSalt _salt ListDomains' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListDomains where
   rnf ListDomains' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDomains where
   toHeaders =
@@ -149,8 +149,8 @@ instance Data.ToJSON ListDomains where
   toJSON ListDomains' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

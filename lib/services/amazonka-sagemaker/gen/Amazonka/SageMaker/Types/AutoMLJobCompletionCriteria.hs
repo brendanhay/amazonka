@@ -29,20 +29,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAutoMLJobCompletionCriteria' smart constructor.
 data AutoMLJobCompletionCriteria = AutoMLJobCompletionCriteria'
-  { -- | The maximum number of times a training job is allowed to run.
-    maxCandidates :: Prelude.Maybe Prelude.Natural,
-    -- | The maximum time, in seconds, that each training job executed inside
-    -- hyperparameter tuning is allowed to run as part of a hyperparameter
-    -- tuning job. For more information, see the used by the action.
-    maxRuntimePerTrainingJobInSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | The maximum runtime, in seconds, an AutoML job has to complete.
+  { -- | The maximum runtime, in seconds, an AutoML job has to complete.
     --
     -- If an AutoML job exceeds the maximum runtime, the job is stopped
     -- automatically and its processing is ended gracefully. The AutoML job
     -- identifies the best model whose training was completed and marks it as
     -- the best-performing model. Any unfinished steps of the job, such as
     -- automatic one-click Autopilot model deployment, will not be completed.
-    maxAutoMLJobRuntimeInSeconds :: Prelude.Maybe Prelude.Natural
+    maxAutoMLJobRuntimeInSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | The maximum number of times a training job is allowed to run.
+    maxCandidates :: Prelude.Maybe Prelude.Natural,
+    -- | The maximum time, in seconds, that each training job executed inside
+    -- hyperparameter tuning is allowed to run as part of a hyperparameter
+    -- tuning job. For more information, see the used by the action.
+    maxRuntimePerTrainingJobInSeconds :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,12 +54,6 @@ data AutoMLJobCompletionCriteria = AutoMLJobCompletionCriteria'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxCandidates', 'autoMLJobCompletionCriteria_maxCandidates' - The maximum number of times a training job is allowed to run.
---
--- 'maxRuntimePerTrainingJobInSeconds', 'autoMLJobCompletionCriteria_maxRuntimePerTrainingJobInSeconds' - The maximum time, in seconds, that each training job executed inside
--- hyperparameter tuning is allowed to run as part of a hyperparameter
--- tuning job. For more information, see the used by the action.
---
 -- 'maxAutoMLJobRuntimeInSeconds', 'autoMLJobCompletionCriteria_maxAutoMLJobRuntimeInSeconds' - The maximum runtime, in seconds, an AutoML job has to complete.
 --
 -- If an AutoML job exceeds the maximum runtime, the job is stopped
@@ -67,26 +61,22 @@ data AutoMLJobCompletionCriteria = AutoMLJobCompletionCriteria'
 -- identifies the best model whose training was completed and marks it as
 -- the best-performing model. Any unfinished steps of the job, such as
 -- automatic one-click Autopilot model deployment, will not be completed.
+--
+-- 'maxCandidates', 'autoMLJobCompletionCriteria_maxCandidates' - The maximum number of times a training job is allowed to run.
+--
+-- 'maxRuntimePerTrainingJobInSeconds', 'autoMLJobCompletionCriteria_maxRuntimePerTrainingJobInSeconds' - The maximum time, in seconds, that each training job executed inside
+-- hyperparameter tuning is allowed to run as part of a hyperparameter
+-- tuning job. For more information, see the used by the action.
 newAutoMLJobCompletionCriteria ::
   AutoMLJobCompletionCriteria
 newAutoMLJobCompletionCriteria =
   AutoMLJobCompletionCriteria'
-    { maxCandidates =
+    { maxAutoMLJobRuntimeInSeconds =
         Prelude.Nothing,
+      maxCandidates = Prelude.Nothing,
       maxRuntimePerTrainingJobInSeconds =
-        Prelude.Nothing,
-      maxAutoMLJobRuntimeInSeconds = Prelude.Nothing
+        Prelude.Nothing
     }
-
--- | The maximum number of times a training job is allowed to run.
-autoMLJobCompletionCriteria_maxCandidates :: Lens.Lens' AutoMLJobCompletionCriteria (Prelude.Maybe Prelude.Natural)
-autoMLJobCompletionCriteria_maxCandidates = Lens.lens (\AutoMLJobCompletionCriteria' {maxCandidates} -> maxCandidates) (\s@AutoMLJobCompletionCriteria' {} a -> s {maxCandidates = a} :: AutoMLJobCompletionCriteria)
-
--- | The maximum time, in seconds, that each training job executed inside
--- hyperparameter tuning is allowed to run as part of a hyperparameter
--- tuning job. For more information, see the used by the action.
-autoMLJobCompletionCriteria_maxRuntimePerTrainingJobInSeconds :: Lens.Lens' AutoMLJobCompletionCriteria (Prelude.Maybe Prelude.Natural)
-autoMLJobCompletionCriteria_maxRuntimePerTrainingJobInSeconds = Lens.lens (\AutoMLJobCompletionCriteria' {maxRuntimePerTrainingJobInSeconds} -> maxRuntimePerTrainingJobInSeconds) (\s@AutoMLJobCompletionCriteria' {} a -> s {maxRuntimePerTrainingJobInSeconds = a} :: AutoMLJobCompletionCriteria)
 
 -- | The maximum runtime, in seconds, an AutoML job has to complete.
 --
@@ -98,37 +88,48 @@ autoMLJobCompletionCriteria_maxRuntimePerTrainingJobInSeconds = Lens.lens (\Auto
 autoMLJobCompletionCriteria_maxAutoMLJobRuntimeInSeconds :: Lens.Lens' AutoMLJobCompletionCriteria (Prelude.Maybe Prelude.Natural)
 autoMLJobCompletionCriteria_maxAutoMLJobRuntimeInSeconds = Lens.lens (\AutoMLJobCompletionCriteria' {maxAutoMLJobRuntimeInSeconds} -> maxAutoMLJobRuntimeInSeconds) (\s@AutoMLJobCompletionCriteria' {} a -> s {maxAutoMLJobRuntimeInSeconds = a} :: AutoMLJobCompletionCriteria)
 
+-- | The maximum number of times a training job is allowed to run.
+autoMLJobCompletionCriteria_maxCandidates :: Lens.Lens' AutoMLJobCompletionCriteria (Prelude.Maybe Prelude.Natural)
+autoMLJobCompletionCriteria_maxCandidates = Lens.lens (\AutoMLJobCompletionCriteria' {maxCandidates} -> maxCandidates) (\s@AutoMLJobCompletionCriteria' {} a -> s {maxCandidates = a} :: AutoMLJobCompletionCriteria)
+
+-- | The maximum time, in seconds, that each training job executed inside
+-- hyperparameter tuning is allowed to run as part of a hyperparameter
+-- tuning job. For more information, see the used by the action.
+autoMLJobCompletionCriteria_maxRuntimePerTrainingJobInSeconds :: Lens.Lens' AutoMLJobCompletionCriteria (Prelude.Maybe Prelude.Natural)
+autoMLJobCompletionCriteria_maxRuntimePerTrainingJobInSeconds = Lens.lens (\AutoMLJobCompletionCriteria' {maxRuntimePerTrainingJobInSeconds} -> maxRuntimePerTrainingJobInSeconds) (\s@AutoMLJobCompletionCriteria' {} a -> s {maxRuntimePerTrainingJobInSeconds = a} :: AutoMLJobCompletionCriteria)
+
 instance Data.FromJSON AutoMLJobCompletionCriteria where
   parseJSON =
     Data.withObject
       "AutoMLJobCompletionCriteria"
       ( \x ->
           AutoMLJobCompletionCriteria'
-            Prelude.<$> (x Data..:? "MaxCandidates")
+            Prelude.<$> (x Data..:? "MaxAutoMLJobRuntimeInSeconds")
+            Prelude.<*> (x Data..:? "MaxCandidates")
             Prelude.<*> (x Data..:? "MaxRuntimePerTrainingJobInSeconds")
-            Prelude.<*> (x Data..:? "MaxAutoMLJobRuntimeInSeconds")
       )
 
 instance Prelude.Hashable AutoMLJobCompletionCriteria where
   hashWithSalt _salt AutoMLJobCompletionCriteria' {..} =
-    _salt `Prelude.hashWithSalt` maxCandidates
-      `Prelude.hashWithSalt` maxRuntimePerTrainingJobInSeconds
+    _salt
       `Prelude.hashWithSalt` maxAutoMLJobRuntimeInSeconds
+      `Prelude.hashWithSalt` maxCandidates
+      `Prelude.hashWithSalt` maxRuntimePerTrainingJobInSeconds
 
 instance Prelude.NFData AutoMLJobCompletionCriteria where
   rnf AutoMLJobCompletionCriteria' {..} =
-    Prelude.rnf maxCandidates
+    Prelude.rnf maxAutoMLJobRuntimeInSeconds
+      `Prelude.seq` Prelude.rnf maxCandidates
       `Prelude.seq` Prelude.rnf maxRuntimePerTrainingJobInSeconds
-      `Prelude.seq` Prelude.rnf maxAutoMLJobRuntimeInSeconds
 
 instance Data.ToJSON AutoMLJobCompletionCriteria where
   toJSON AutoMLJobCompletionCriteria' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MaxCandidates" Data..=) Prelude.<$> maxCandidates,
+          [ ("MaxAutoMLJobRuntimeInSeconds" Data..=)
+              Prelude.<$> maxAutoMLJobRuntimeInSeconds,
+            ("MaxCandidates" Data..=) Prelude.<$> maxCandidates,
             ("MaxRuntimePerTrainingJobInSeconds" Data..=)
-              Prelude.<$> maxRuntimePerTrainingJobInSeconds,
-            ("MaxAutoMLJobRuntimeInSeconds" Data..=)
-              Prelude.<$> maxAutoMLJobRuntimeInSeconds
+              Prelude.<$> maxRuntimePerTrainingJobInSeconds
           ]
       )

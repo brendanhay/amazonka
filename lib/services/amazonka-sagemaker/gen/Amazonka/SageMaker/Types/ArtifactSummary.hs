@@ -31,18 +31,18 @@ import Amazonka.SageMaker.Types.ArtifactSource
 --
 -- /See:/ 'newArtifactSummary' smart constructor.
 data ArtifactSummary = ArtifactSummary'
-  { -- | The name of the artifact.
+  { -- | The Amazon Resource Name (ARN) of the artifact.
+    artifactArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the artifact.
     artifactName :: Prelude.Maybe Prelude.Text,
     -- | The type of the artifact.
     artifactType :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the artifact.
-    artifactArn :: Prelude.Maybe Prelude.Text,
+    -- | When the artifact was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | When the artifact was last modified.
     lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The source of the artifact.
-    source :: Prelude.Maybe ArtifactSource,
-    -- | When the artifact was created.
-    creationTime :: Prelude.Maybe Data.POSIX
+    source :: Prelude.Maybe ArtifactSource
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,28 +54,32 @@ data ArtifactSummary = ArtifactSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'artifactArn', 'artifactSummary_artifactArn' - The Amazon Resource Name (ARN) of the artifact.
+--
 -- 'artifactName', 'artifactSummary_artifactName' - The name of the artifact.
 --
 -- 'artifactType', 'artifactSummary_artifactType' - The type of the artifact.
 --
--- 'artifactArn', 'artifactSummary_artifactArn' - The Amazon Resource Name (ARN) of the artifact.
+-- 'creationTime', 'artifactSummary_creationTime' - When the artifact was created.
 --
 -- 'lastModifiedTime', 'artifactSummary_lastModifiedTime' - When the artifact was last modified.
 --
 -- 'source', 'artifactSummary_source' - The source of the artifact.
---
--- 'creationTime', 'artifactSummary_creationTime' - When the artifact was created.
 newArtifactSummary ::
   ArtifactSummary
 newArtifactSummary =
   ArtifactSummary'
-    { artifactName = Prelude.Nothing,
+    { artifactArn = Prelude.Nothing,
+      artifactName = Prelude.Nothing,
       artifactType = Prelude.Nothing,
-      artifactArn = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
-      source = Prelude.Nothing,
-      creationTime = Prelude.Nothing
+      source = Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the artifact.
+artifactSummary_artifactArn :: Lens.Lens' ArtifactSummary (Prelude.Maybe Prelude.Text)
+artifactSummary_artifactArn = Lens.lens (\ArtifactSummary' {artifactArn} -> artifactArn) (\s@ArtifactSummary' {} a -> s {artifactArn = a} :: ArtifactSummary)
 
 -- | The name of the artifact.
 artifactSummary_artifactName :: Lens.Lens' ArtifactSummary (Prelude.Maybe Prelude.Text)
@@ -85,9 +89,9 @@ artifactSummary_artifactName = Lens.lens (\ArtifactSummary' {artifactName} -> ar
 artifactSummary_artifactType :: Lens.Lens' ArtifactSummary (Prelude.Maybe Prelude.Text)
 artifactSummary_artifactType = Lens.lens (\ArtifactSummary' {artifactType} -> artifactType) (\s@ArtifactSummary' {} a -> s {artifactType = a} :: ArtifactSummary)
 
--- | The Amazon Resource Name (ARN) of the artifact.
-artifactSummary_artifactArn :: Lens.Lens' ArtifactSummary (Prelude.Maybe Prelude.Text)
-artifactSummary_artifactArn = Lens.lens (\ArtifactSummary' {artifactArn} -> artifactArn) (\s@ArtifactSummary' {} a -> s {artifactArn = a} :: ArtifactSummary)
+-- | When the artifact was created.
+artifactSummary_creationTime :: Lens.Lens' ArtifactSummary (Prelude.Maybe Prelude.UTCTime)
+artifactSummary_creationTime = Lens.lens (\ArtifactSummary' {creationTime} -> creationTime) (\s@ArtifactSummary' {} a -> s {creationTime = a} :: ArtifactSummary) Prelude.. Lens.mapping Data._Time
 
 -- | When the artifact was last modified.
 artifactSummary_lastModifiedTime :: Lens.Lens' ArtifactSummary (Prelude.Maybe Prelude.UTCTime)
@@ -97,38 +101,34 @@ artifactSummary_lastModifiedTime = Lens.lens (\ArtifactSummary' {lastModifiedTim
 artifactSummary_source :: Lens.Lens' ArtifactSummary (Prelude.Maybe ArtifactSource)
 artifactSummary_source = Lens.lens (\ArtifactSummary' {source} -> source) (\s@ArtifactSummary' {} a -> s {source = a} :: ArtifactSummary)
 
--- | When the artifact was created.
-artifactSummary_creationTime :: Lens.Lens' ArtifactSummary (Prelude.Maybe Prelude.UTCTime)
-artifactSummary_creationTime = Lens.lens (\ArtifactSummary' {creationTime} -> creationTime) (\s@ArtifactSummary' {} a -> s {creationTime = a} :: ArtifactSummary) Prelude.. Lens.mapping Data._Time
-
 instance Data.FromJSON ArtifactSummary where
   parseJSON =
     Data.withObject
       "ArtifactSummary"
       ( \x ->
           ArtifactSummary'
-            Prelude.<$> (x Data..:? "ArtifactName")
+            Prelude.<$> (x Data..:? "ArtifactArn")
+            Prelude.<*> (x Data..:? "ArtifactName")
             Prelude.<*> (x Data..:? "ArtifactType")
-            Prelude.<*> (x Data..:? "ArtifactArn")
+            Prelude.<*> (x Data..:? "CreationTime")
             Prelude.<*> (x Data..:? "LastModifiedTime")
             Prelude.<*> (x Data..:? "Source")
-            Prelude.<*> (x Data..:? "CreationTime")
       )
 
 instance Prelude.Hashable ArtifactSummary where
   hashWithSalt _salt ArtifactSummary' {..} =
-    _salt `Prelude.hashWithSalt` artifactName
+    _salt `Prelude.hashWithSalt` artifactArn
+      `Prelude.hashWithSalt` artifactName
       `Prelude.hashWithSalt` artifactType
-      `Prelude.hashWithSalt` artifactArn
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` source
-      `Prelude.hashWithSalt` creationTime
 
 instance Prelude.NFData ArtifactSummary where
   rnf ArtifactSummary' {..} =
-    Prelude.rnf artifactName
+    Prelude.rnf artifactArn
+      `Prelude.seq` Prelude.rnf artifactName
       `Prelude.seq` Prelude.rnf artifactType
-      `Prelude.seq` Prelude.rnf artifactArn
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf creationTime

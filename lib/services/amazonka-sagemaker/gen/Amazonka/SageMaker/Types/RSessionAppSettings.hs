@@ -30,10 +30,10 @@ import Amazonka.SageMaker.Types.ResourceSpec
 --
 -- /See:/ 'newRSessionAppSettings' smart constructor.
 data RSessionAppSettings = RSessionAppSettings'
-  { defaultResourceSpec :: Prelude.Maybe ResourceSpec,
-    -- | A list of custom SageMaker images that are configured to run as a
+  { -- | A list of custom SageMaker images that are configured to run as a
     -- RSession app.
-    customImages :: Prelude.Maybe [CustomImage]
+    customImages :: Prelude.Maybe [CustomImage],
+    defaultResourceSpec :: Prelude.Maybe ResourceSpec
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,27 +45,27 @@ data RSessionAppSettings = RSessionAppSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'defaultResourceSpec', 'rSessionAppSettings_defaultResourceSpec' - Undocumented member.
---
 -- 'customImages', 'rSessionAppSettings_customImages' - A list of custom SageMaker images that are configured to run as a
 -- RSession app.
+--
+-- 'defaultResourceSpec', 'rSessionAppSettings_defaultResourceSpec' - Undocumented member.
 newRSessionAppSettings ::
   RSessionAppSettings
 newRSessionAppSettings =
   RSessionAppSettings'
-    { defaultResourceSpec =
+    { customImages =
         Prelude.Nothing,
-      customImages = Prelude.Nothing
+      defaultResourceSpec = Prelude.Nothing
     }
-
--- | Undocumented member.
-rSessionAppSettings_defaultResourceSpec :: Lens.Lens' RSessionAppSettings (Prelude.Maybe ResourceSpec)
-rSessionAppSettings_defaultResourceSpec = Lens.lens (\RSessionAppSettings' {defaultResourceSpec} -> defaultResourceSpec) (\s@RSessionAppSettings' {} a -> s {defaultResourceSpec = a} :: RSessionAppSettings)
 
 -- | A list of custom SageMaker images that are configured to run as a
 -- RSession app.
 rSessionAppSettings_customImages :: Lens.Lens' RSessionAppSettings (Prelude.Maybe [CustomImage])
 rSessionAppSettings_customImages = Lens.lens (\RSessionAppSettings' {customImages} -> customImages) (\s@RSessionAppSettings' {} a -> s {customImages = a} :: RSessionAppSettings) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+rSessionAppSettings_defaultResourceSpec :: Lens.Lens' RSessionAppSettings (Prelude.Maybe ResourceSpec)
+rSessionAppSettings_defaultResourceSpec = Lens.lens (\RSessionAppSettings' {defaultResourceSpec} -> defaultResourceSpec) (\s@RSessionAppSettings' {} a -> s {defaultResourceSpec = a} :: RSessionAppSettings)
 
 instance Data.FromJSON RSessionAppSettings where
   parseJSON =
@@ -73,26 +73,26 @@ instance Data.FromJSON RSessionAppSettings where
       "RSessionAppSettings"
       ( \x ->
           RSessionAppSettings'
-            Prelude.<$> (x Data..:? "DefaultResourceSpec")
-            Prelude.<*> (x Data..:? "CustomImages" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "CustomImages" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "DefaultResourceSpec")
       )
 
 instance Prelude.Hashable RSessionAppSettings where
   hashWithSalt _salt RSessionAppSettings' {..} =
-    _salt `Prelude.hashWithSalt` defaultResourceSpec
-      `Prelude.hashWithSalt` customImages
+    _salt `Prelude.hashWithSalt` customImages
+      `Prelude.hashWithSalt` defaultResourceSpec
 
 instance Prelude.NFData RSessionAppSettings where
   rnf RSessionAppSettings' {..} =
-    Prelude.rnf defaultResourceSpec
-      `Prelude.seq` Prelude.rnf customImages
+    Prelude.rnf customImages
+      `Prelude.seq` Prelude.rnf defaultResourceSpec
 
 instance Data.ToJSON RSessionAppSettings where
   toJSON RSessionAppSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DefaultResourceSpec" Data..=)
-              Prelude.<$> defaultResourceSpec,
-            ("CustomImages" Data..=) Prelude.<$> customImages
+          [ ("CustomImages" Data..=) Prelude.<$> customImages,
+            ("DefaultResourceSpec" Data..=)
+              Prelude.<$> defaultResourceSpec
           ]
       )

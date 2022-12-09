@@ -25,32 +25,38 @@ module Amazonka.SageMaker
     -- * Errors
     -- $errors
 
-    -- ** ResourceNotFound
-    _ResourceNotFound,
-
-    -- ** ResourceLimitExceeded
-    _ResourceLimitExceeded,
-
     -- ** ConflictException
     _ConflictException,
 
     -- ** ResourceInUse
     _ResourceInUse,
 
+    -- ** ResourceLimitExceeded
+    _ResourceLimitExceeded,
+
+    -- ** ResourceNotFound
+    _ResourceNotFound,
+
     -- * Waiters
     -- $waiters
-
-    -- ** EndpointInService
-    newEndpointInService,
-
-    -- ** NotebookInstanceStopped
-    newNotebookInstanceStopped,
 
     -- ** EndpointDeleted
     newEndpointDeleted,
 
+    -- ** EndpointInService
+    newEndpointInService,
+
     -- ** ImageCreated
     newImageCreated,
+
+    -- ** ImageDeleted
+    newImageDeleted,
+
+    -- ** ImageUpdated
+    newImageUpdated,
+
+    -- ** ImageVersionCreated
+    newImageVersionCreated,
 
     -- ** ImageVersionDeleted
     newImageVersionDeleted,
@@ -58,26 +64,20 @@ module Amazonka.SageMaker
     -- ** NotebookInstanceDeleted
     newNotebookInstanceDeleted,
 
-    -- ** TrainingJobCompletedOrStopped
-    newTrainingJobCompletedOrStopped,
-
     -- ** NotebookInstanceInService
     newNotebookInstanceInService,
 
-    -- ** ImageUpdated
-    newImageUpdated,
-
-    -- ** ImageDeleted
-    newImageDeleted,
-
-    -- ** ImageVersionCreated
-    newImageVersionCreated,
-
-    -- ** TransformJobCompletedOrStopped
-    newTransformJobCompletedOrStopped,
+    -- ** NotebookInstanceStopped
+    newNotebookInstanceStopped,
 
     -- ** ProcessingJobCompletedOrStopped
     newProcessingJobCompletedOrStopped,
+
+    -- ** TrainingJobCompletedOrStopped
+    newTrainingJobCompletedOrStopped,
+
+    -- ** TransformJobCompletedOrStopped
+    newTransformJobCompletedOrStopped,
 
     -- * Operations
     -- $operations
@@ -226,6 +226,12 @@ module Amazonka.SageMaker
     CreateFlowDefinitionResponse (CreateFlowDefinitionResponse'),
     newCreateFlowDefinitionResponse,
 
+    -- ** CreateHub
+    CreateHub (CreateHub'),
+    newCreateHub,
+    CreateHubResponse (CreateHubResponse'),
+    newCreateHubResponse,
+
     -- ** CreateHumanTaskUi
     CreateHumanTaskUi (CreateHumanTaskUi'),
     newCreateHumanTaskUi,
@@ -250,6 +256,12 @@ module Amazonka.SageMaker
     CreateImageVersionResponse (CreateImageVersionResponse'),
     newCreateImageVersionResponse,
 
+    -- ** CreateInferenceExperiment
+    CreateInferenceExperiment (CreateInferenceExperiment'),
+    newCreateInferenceExperiment,
+    CreateInferenceExperimentResponse (CreateInferenceExperimentResponse'),
+    newCreateInferenceExperimentResponse,
+
     -- ** CreateInferenceRecommendationsJob
     CreateInferenceRecommendationsJob (CreateInferenceRecommendationsJob'),
     newCreateInferenceRecommendationsJob,
@@ -273,6 +285,18 @@ module Amazonka.SageMaker
     newCreateModelBiasJobDefinition,
     CreateModelBiasJobDefinitionResponse (CreateModelBiasJobDefinitionResponse'),
     newCreateModelBiasJobDefinitionResponse,
+
+    -- ** CreateModelCard
+    CreateModelCard (CreateModelCard'),
+    newCreateModelCard,
+    CreateModelCardResponse (CreateModelCardResponse'),
+    newCreateModelCardResponse,
+
+    -- ** CreateModelCardExportJob
+    CreateModelCardExportJob (CreateModelCardExportJob'),
+    newCreateModelCardExportJob,
+    CreateModelCardExportJobResponse (CreateModelCardExportJobResponse'),
+    newCreateModelCardExportJobResponse,
 
     -- ** CreateModelExplainabilityJobDefinition
     CreateModelExplainabilityJobDefinition (CreateModelExplainabilityJobDefinition'),
@@ -345,6 +369,12 @@ module Amazonka.SageMaker
     newCreateProject,
     CreateProjectResponse (CreateProjectResponse'),
     newCreateProjectResponse,
+
+    -- ** CreateSpace
+    CreateSpace (CreateSpace'),
+    newCreateSpace,
+    CreateSpaceResponse (CreateSpaceResponse'),
+    newCreateSpaceResponse,
 
     -- ** CreateStudioLifecycleConfig
     CreateStudioLifecycleConfig (CreateStudioLifecycleConfig'),
@@ -502,6 +532,18 @@ module Amazonka.SageMaker
     DeleteFlowDefinitionResponse (DeleteFlowDefinitionResponse'),
     newDeleteFlowDefinitionResponse,
 
+    -- ** DeleteHub
+    DeleteHub (DeleteHub'),
+    newDeleteHub,
+    DeleteHubResponse (DeleteHubResponse'),
+    newDeleteHubResponse,
+
+    -- ** DeleteHubContent
+    DeleteHubContent (DeleteHubContent'),
+    newDeleteHubContent,
+    DeleteHubContentResponse (DeleteHubContentResponse'),
+    newDeleteHubContentResponse,
+
     -- ** DeleteHumanTaskUi
     DeleteHumanTaskUi (DeleteHumanTaskUi'),
     newDeleteHumanTaskUi,
@@ -520,6 +562,12 @@ module Amazonka.SageMaker
     DeleteImageVersionResponse (DeleteImageVersionResponse'),
     newDeleteImageVersionResponse,
 
+    -- ** DeleteInferenceExperiment
+    DeleteInferenceExperiment (DeleteInferenceExperiment'),
+    newDeleteInferenceExperiment,
+    DeleteInferenceExperimentResponse (DeleteInferenceExperimentResponse'),
+    newDeleteInferenceExperimentResponse,
+
     -- ** DeleteModel
     DeleteModel (DeleteModel'),
     newDeleteModel,
@@ -531,6 +579,12 @@ module Amazonka.SageMaker
     newDeleteModelBiasJobDefinition,
     DeleteModelBiasJobDefinitionResponse (DeleteModelBiasJobDefinitionResponse'),
     newDeleteModelBiasJobDefinitionResponse,
+
+    -- ** DeleteModelCard
+    DeleteModelCard (DeleteModelCard'),
+    newDeleteModelCard,
+    DeleteModelCardResponse (DeleteModelCardResponse'),
+    newDeleteModelCardResponse,
 
     -- ** DeleteModelExplainabilityJobDefinition
     DeleteModelExplainabilityJobDefinition (DeleteModelExplainabilityJobDefinition'),
@@ -591,6 +645,12 @@ module Amazonka.SageMaker
     newDeleteProject,
     DeleteProjectResponse (DeleteProjectResponse'),
     newDeleteProjectResponse,
+
+    -- ** DeleteSpace
+    DeleteSpace (DeleteSpace'),
+    newDeleteSpace,
+    DeleteSpaceResponse (DeleteSpaceResponse'),
+    newDeleteSpaceResponse,
 
     -- ** DeleteStudioLifecycleConfig
     DeleteStudioLifecycleConfig (DeleteStudioLifecycleConfig'),
@@ -766,6 +826,18 @@ module Amazonka.SageMaker
     DescribeFlowDefinitionResponse (DescribeFlowDefinitionResponse'),
     newDescribeFlowDefinitionResponse,
 
+    -- ** DescribeHub
+    DescribeHub (DescribeHub'),
+    newDescribeHub,
+    DescribeHubResponse (DescribeHubResponse'),
+    newDescribeHubResponse,
+
+    -- ** DescribeHubContent
+    DescribeHubContent (DescribeHubContent'),
+    newDescribeHubContent,
+    DescribeHubContentResponse (DescribeHubContentResponse'),
+    newDescribeHubContentResponse,
+
     -- ** DescribeHumanTaskUi
     DescribeHumanTaskUi (DescribeHumanTaskUi'),
     newDescribeHumanTaskUi,
@@ -789,6 +861,12 @@ module Amazonka.SageMaker
     newDescribeImageVersion,
     DescribeImageVersionResponse (DescribeImageVersionResponse'),
     newDescribeImageVersionResponse,
+
+    -- ** DescribeInferenceExperiment
+    DescribeInferenceExperiment (DescribeInferenceExperiment'),
+    newDescribeInferenceExperiment,
+    DescribeInferenceExperimentResponse (DescribeInferenceExperimentResponse'),
+    newDescribeInferenceExperimentResponse,
 
     -- ** DescribeInferenceRecommendationsJob
     DescribeInferenceRecommendationsJob (DescribeInferenceRecommendationsJob'),
@@ -819,6 +897,18 @@ module Amazonka.SageMaker
     newDescribeModelBiasJobDefinition,
     DescribeModelBiasJobDefinitionResponse (DescribeModelBiasJobDefinitionResponse'),
     newDescribeModelBiasJobDefinitionResponse,
+
+    -- ** DescribeModelCard
+    DescribeModelCard (DescribeModelCard'),
+    newDescribeModelCard,
+    DescribeModelCardResponse (DescribeModelCardResponse'),
+    newDescribeModelCardResponse,
+
+    -- ** DescribeModelCardExportJob
+    DescribeModelCardExportJob (DescribeModelCardExportJob'),
+    newDescribeModelCardExportJob,
+    DescribeModelCardExportJobResponse (DescribeModelCardExportJobResponse'),
+    newDescribeModelCardExportJobResponse,
 
     -- ** DescribeModelExplainabilityJobDefinition
     DescribeModelExplainabilityJobDefinition (DescribeModelExplainabilityJobDefinition'),
@@ -891,6 +981,12 @@ module Amazonka.SageMaker
     newDescribeProject,
     DescribeProjectResponse (DescribeProjectResponse'),
     newDescribeProjectResponse,
+
+    -- ** DescribeSpace
+    DescribeSpace (DescribeSpace'),
+    newDescribeSpace,
+    DescribeSpaceResponse (DescribeSpaceResponse'),
+    newDescribeSpaceResponse,
 
     -- ** DescribeStudioLifecycleConfig
     DescribeStudioLifecycleConfig (DescribeStudioLifecycleConfig'),
@@ -993,6 +1089,12 @@ module Amazonka.SageMaker
     newGetSearchSuggestions,
     GetSearchSuggestionsResponse (GetSearchSuggestionsResponse'),
     newGetSearchSuggestionsResponse,
+
+    -- ** ImportHubContent
+    ImportHubContent (ImportHubContent'),
+    newImportHubContent,
+    ImportHubContentResponse (ImportHubContentResponse'),
+    newImportHubContentResponse,
 
     -- ** ListActions (Paginated)
     ListActions (ListActions'),
@@ -1126,6 +1228,24 @@ module Amazonka.SageMaker
     ListFlowDefinitionsResponse (ListFlowDefinitionsResponse'),
     newListFlowDefinitionsResponse,
 
+    -- ** ListHubContentVersions
+    ListHubContentVersions (ListHubContentVersions'),
+    newListHubContentVersions,
+    ListHubContentVersionsResponse (ListHubContentVersionsResponse'),
+    newListHubContentVersionsResponse,
+
+    -- ** ListHubContents
+    ListHubContents (ListHubContents'),
+    newListHubContents,
+    ListHubContentsResponse (ListHubContentsResponse'),
+    newListHubContentsResponse,
+
+    -- ** ListHubs
+    ListHubs (ListHubs'),
+    newListHubs,
+    ListHubsResponse (ListHubsResponse'),
+    newListHubsResponse,
+
     -- ** ListHumanTaskUis (Paginated)
     ListHumanTaskUis (ListHumanTaskUis'),
     newListHumanTaskUis,
@@ -1149,6 +1269,12 @@ module Amazonka.SageMaker
     newListImages,
     ListImagesResponse (ListImagesResponse'),
     newListImagesResponse,
+
+    -- ** ListInferenceExperiments (Paginated)
+    ListInferenceExperiments (ListInferenceExperiments'),
+    newListInferenceExperiments,
+    ListInferenceExperimentsResponse (ListInferenceExperimentsResponse'),
+    newListInferenceExperimentsResponse,
 
     -- ** ListInferenceRecommendationsJobSteps (Paginated)
     ListInferenceRecommendationsJobSteps (ListInferenceRecommendationsJobSteps'),
@@ -1186,6 +1312,24 @@ module Amazonka.SageMaker
     ListModelBiasJobDefinitionsResponse (ListModelBiasJobDefinitionsResponse'),
     newListModelBiasJobDefinitionsResponse,
 
+    -- ** ListModelCardExportJobs (Paginated)
+    ListModelCardExportJobs (ListModelCardExportJobs'),
+    newListModelCardExportJobs,
+    ListModelCardExportJobsResponse (ListModelCardExportJobsResponse'),
+    newListModelCardExportJobsResponse,
+
+    -- ** ListModelCardVersions (Paginated)
+    ListModelCardVersions (ListModelCardVersions'),
+    newListModelCardVersions,
+    ListModelCardVersionsResponse (ListModelCardVersionsResponse'),
+    newListModelCardVersionsResponse,
+
+    -- ** ListModelCards (Paginated)
+    ListModelCards (ListModelCards'),
+    newListModelCards,
+    ListModelCardsResponse (ListModelCardsResponse'),
+    newListModelCardsResponse,
+
     -- ** ListModelExplainabilityJobDefinitions (Paginated)
     ListModelExplainabilityJobDefinitions (ListModelExplainabilityJobDefinitions'),
     newListModelExplainabilityJobDefinitions,
@@ -1221,6 +1365,18 @@ module Amazonka.SageMaker
     newListModels,
     ListModelsResponse (ListModelsResponse'),
     newListModelsResponse,
+
+    -- ** ListMonitoringAlertHistory (Paginated)
+    ListMonitoringAlertHistory (ListMonitoringAlertHistory'),
+    newListMonitoringAlertHistory,
+    ListMonitoringAlertHistoryResponse (ListMonitoringAlertHistoryResponse'),
+    newListMonitoringAlertHistoryResponse,
+
+    -- ** ListMonitoringAlerts (Paginated)
+    ListMonitoringAlerts (ListMonitoringAlerts'),
+    newListMonitoringAlerts,
+    ListMonitoringAlertsResponse (ListMonitoringAlertsResponse'),
+    newListMonitoringAlertsResponse,
 
     -- ** ListMonitoringExecutions (Paginated)
     ListMonitoringExecutions (ListMonitoringExecutions'),
@@ -1281,6 +1437,12 @@ module Amazonka.SageMaker
     newListProjects,
     ListProjectsResponse (ListProjectsResponse'),
     newListProjectsResponse,
+
+    -- ** ListSpaces (Paginated)
+    ListSpaces (ListSpaces'),
+    newListSpaces,
+    ListSpacesResponse (ListSpacesResponse'),
+    newListSpacesResponse,
 
     -- ** ListStageDevices (Paginated)
     ListStageDevices (ListStageDevices'),
@@ -1408,6 +1570,12 @@ module Amazonka.SageMaker
     StartEdgeDeploymentStageResponse (StartEdgeDeploymentStageResponse'),
     newStartEdgeDeploymentStageResponse,
 
+    -- ** StartInferenceExperiment
+    StartInferenceExperiment (StartInferenceExperiment'),
+    newStartInferenceExperiment,
+    StartInferenceExperimentResponse (StartInferenceExperimentResponse'),
+    newStartInferenceExperimentResponse,
+
     -- ** StartMonitoringSchedule
     StartMonitoringSchedule (StartMonitoringSchedule'),
     newStartMonitoringSchedule,
@@ -1455,6 +1623,12 @@ module Amazonka.SageMaker
     newStopHyperParameterTuningJob,
     StopHyperParameterTuningJobResponse (StopHyperParameterTuningJobResponse'),
     newStopHyperParameterTuningJobResponse,
+
+    -- ** StopInferenceExperiment
+    StopInferenceExperiment (StopInferenceExperiment'),
+    newStopInferenceExperiment,
+    StopInferenceExperimentResponse (StopInferenceExperimentResponse'),
+    newStopInferenceExperimentResponse,
 
     -- ** StopInferenceRecommendationsJob
     StopInferenceRecommendationsJob (StopInferenceRecommendationsJob'),
@@ -1582,17 +1756,41 @@ module Amazonka.SageMaker
     UpdateFeatureMetadataResponse (UpdateFeatureMetadataResponse'),
     newUpdateFeatureMetadataResponse,
 
+    -- ** UpdateHub
+    UpdateHub (UpdateHub'),
+    newUpdateHub,
+    UpdateHubResponse (UpdateHubResponse'),
+    newUpdateHubResponse,
+
     -- ** UpdateImage
     UpdateImage (UpdateImage'),
     newUpdateImage,
     UpdateImageResponse (UpdateImageResponse'),
     newUpdateImageResponse,
 
+    -- ** UpdateInferenceExperiment
+    UpdateInferenceExperiment (UpdateInferenceExperiment'),
+    newUpdateInferenceExperiment,
+    UpdateInferenceExperimentResponse (UpdateInferenceExperimentResponse'),
+    newUpdateInferenceExperimentResponse,
+
+    -- ** UpdateModelCard
+    UpdateModelCard (UpdateModelCard'),
+    newUpdateModelCard,
+    UpdateModelCardResponse (UpdateModelCardResponse'),
+    newUpdateModelCardResponse,
+
     -- ** UpdateModelPackage
     UpdateModelPackage (UpdateModelPackage'),
     newUpdateModelPackage,
     UpdateModelPackageResponse (UpdateModelPackageResponse'),
     newUpdateModelPackageResponse,
+
+    -- ** UpdateMonitoringAlert
+    UpdateMonitoringAlert (UpdateMonitoringAlert'),
+    newUpdateMonitoringAlert,
+    UpdateMonitoringAlertResponse (UpdateMonitoringAlertResponse'),
+    newUpdateMonitoringAlertResponse,
 
     -- ** UpdateMonitoringSchedule
     UpdateMonitoringSchedule (UpdateMonitoringSchedule'),
@@ -1629,6 +1827,12 @@ module Amazonka.SageMaker
     newUpdateProject,
     UpdateProjectResponse (UpdateProjectResponse'),
     newUpdateProjectResponse,
+
+    -- ** UpdateSpace
+    UpdateSpace (UpdateSpace'),
+    newUpdateSpace,
+    UpdateSpaceResponse (UpdateSpaceResponse'),
+    newUpdateSpaceResponse,
 
     -- ** UpdateTrainingJob
     UpdateTrainingJob (UpdateTrainingJob'),
@@ -1881,6 +2085,21 @@ module Amazonka.SageMaker
     -- ** Framework
     Framework (..),
 
+    -- ** HubContentSortBy
+    HubContentSortBy (..),
+
+    -- ** HubContentStatus
+    HubContentStatus (..),
+
+    -- ** HubContentType
+    HubContentType (..),
+
+    -- ** HubSortBy
+    HubSortBy (..),
+
+    -- ** HubStatus
+    HubStatus (..),
+
     -- ** HumanTaskUiStatus
     HumanTaskUiStatus (..),
 
@@ -1925,6 +2144,15 @@ module Amazonka.SageMaker
 
     -- ** InferenceExecutionMode
     InferenceExecutionMode (..),
+
+    -- ** InferenceExperimentStatus
+    InferenceExperimentStatus (..),
+
+    -- ** InferenceExperimentStopDesiredState
+    InferenceExperimentStopDesiredState (..),
+
+    -- ** InferenceExperimentType
+    InferenceExperimentType (..),
 
     -- ** InputMode
     InputMode (..),
@@ -1977,6 +2205,33 @@ module Amazonka.SageMaker
     -- ** ModelCacheSetting
     ModelCacheSetting (..),
 
+    -- ** ModelCardExportJobSortBy
+    ModelCardExportJobSortBy (..),
+
+    -- ** ModelCardExportJobSortOrder
+    ModelCardExportJobSortOrder (..),
+
+    -- ** ModelCardExportJobStatus
+    ModelCardExportJobStatus (..),
+
+    -- ** ModelCardProcessingStatus
+    ModelCardProcessingStatus (..),
+
+    -- ** ModelCardSortBy
+    ModelCardSortBy (..),
+
+    -- ** ModelCardSortOrder
+    ModelCardSortOrder (..),
+
+    -- ** ModelCardStatus
+    ModelCardStatus (..),
+
+    -- ** ModelCardVersionSortBy
+    ModelCardVersionSortBy (..),
+
+    -- ** ModelInfrastructureType
+    ModelInfrastructureType (..),
+
     -- ** ModelMetadataFilterType
     ModelMetadataFilterType (..),
 
@@ -1997,6 +2252,18 @@ module Amazonka.SageMaker
 
     -- ** ModelSortKey
     ModelSortKey (..),
+
+    -- ** ModelVariantAction
+    ModelVariantAction (..),
+
+    -- ** ModelVariantStatus
+    ModelVariantStatus (..),
+
+    -- ** MonitoringAlertHistorySortKey
+    MonitoringAlertHistorySortKey (..),
+
+    -- ** MonitoringAlertStatus
+    MonitoringAlertStatus (..),
 
     -- ** MonitoringExecutionSortKey
     MonitoringExecutionSortKey (..),
@@ -2172,6 +2439,9 @@ module Amazonka.SageMaker
     -- ** SortExperimentsBy
     SortExperimentsBy (..),
 
+    -- ** SortInferenceExperimentsBy
+    SortInferenceExperimentsBy (..),
+
     -- ** SortLineageGroupsBy
     SortLineageGroupsBy (..),
 
@@ -2190,6 +2460,12 @@ module Amazonka.SageMaker
     -- ** SortTrialsBy
     SortTrialsBy (..),
 
+    -- ** SpaceSortKey
+    SpaceSortKey (..),
+
+    -- ** SpaceStatus
+    SpaceStatus (..),
+
     -- ** SplitType
     SplitType (..),
 
@@ -2204,6 +2480,9 @@ module Amazonka.SageMaker
 
     -- ** StudioLifecycleConfigSortKey
     StudioLifecycleConfigSortKey (..),
+
+    -- ** TableFormat
+    TableFormat (..),
 
     -- ** TargetDevice
     TargetDevice (..),
@@ -2405,6 +2684,10 @@ module Amazonka.SageMaker
     AutoMLJobObjective (AutoMLJobObjective'),
     newAutoMLJobObjective,
 
+    -- ** AutoMLJobStepMetadata
+    AutoMLJobStepMetadata (AutoMLJobStepMetadata'),
+    newAutoMLJobStepMetadata,
+
     -- ** AutoMLJobSummary
     AutoMLJobSummary (AutoMLJobSummary'),
     newAutoMLJobSummary,
@@ -2533,6 +2816,10 @@ module Amazonka.SageMaker
     ClarifyTextConfig (ClarifyTextConfig'),
     newClarifyTextConfig,
 
+    -- ** CodeRepository
+    CodeRepository (CodeRepository'),
+    newCodeRepository,
+
     -- ** CodeRepositorySummary
     CodeRepositorySummary (CodeRepositorySummary'),
     newCodeRepositorySummary,
@@ -2628,6 +2915,10 @@ module Amazonka.SageMaker
     -- ** DebugRuleEvaluationStatus
     DebugRuleEvaluationStatus (DebugRuleEvaluationStatus'),
     newDebugRuleEvaluationStatus,
+
+    -- ** DefaultSpaceSettings
+    DefaultSpaceSettings (DefaultSpaceSettings'),
+    newDefaultSpaceSettings,
 
     -- ** DeployedImage
     DeployedImage (DeployedImage'),
@@ -2773,6 +3064,10 @@ module Amazonka.SageMaker
     EndpointInputConfiguration (EndpointInputConfiguration'),
     newEndpointInputConfiguration,
 
+    -- ** EndpointMetadata
+    EndpointMetadata (EndpointMetadata'),
+    newEndpointMetadata,
+
     -- ** EndpointOutputConfiguration
     EndpointOutputConfiguration (EndpointOutputConfiguration'),
     newEndpointOutputConfiguration,
@@ -2881,6 +3176,22 @@ module Amazonka.SageMaker
     GitConfigForUpdate (GitConfigForUpdate'),
     newGitConfigForUpdate,
 
+    -- ** HubContentDependency
+    HubContentDependency (HubContentDependency'),
+    newHubContentDependency,
+
+    -- ** HubContentInfo
+    HubContentInfo (HubContentInfo'),
+    newHubContentInfo,
+
+    -- ** HubInfo
+    HubInfo (HubInfo'),
+    newHubInfo,
+
+    -- ** HubS3StorageConfig
+    HubS3StorageConfig (HubS3StorageConfig'),
+    newHubS3StorageConfig,
+
     -- ** HumanLoopActivationConditionsConfig
     HumanLoopActivationConditionsConfig (HumanLoopActivationConditionsConfig'),
     newHumanLoopActivationConditionsConfig,
@@ -2972,6 +3283,18 @@ module Amazonka.SageMaker
     -- ** InferenceExecutionConfig
     InferenceExecutionConfig (InferenceExecutionConfig'),
     newInferenceExecutionConfig,
+
+    -- ** InferenceExperimentDataStorageConfig
+    InferenceExperimentDataStorageConfig (InferenceExperimentDataStorageConfig'),
+    newInferenceExperimentDataStorageConfig,
+
+    -- ** InferenceExperimentSchedule
+    InferenceExperimentSchedule (InferenceExperimentSchedule'),
+    newInferenceExperimentSchedule,
+
+    -- ** InferenceExperimentSummary
+    InferenceExperimentSummary (InferenceExperimentSummary'),
+    newInferenceExperimentSummary,
 
     -- ** InferenceMetrics
     InferenceMetrics (InferenceMetrics'),
@@ -3121,6 +3444,10 @@ module Amazonka.SageMaker
     MetricsSource (MetricsSource'),
     newMetricsSource,
 
+    -- ** Model
+    Model (Model'),
+    newModel,
+
     -- ** ModelArtifacts
     ModelArtifacts (ModelArtifacts'),
     newModelArtifacts,
@@ -3137,6 +3464,34 @@ module Amazonka.SageMaker
     ModelBiasJobInput (ModelBiasJobInput'),
     newModelBiasJobInput,
 
+    -- ** ModelCard
+    ModelCard (ModelCard'),
+    newModelCard,
+
+    -- ** ModelCardExportArtifacts
+    ModelCardExportArtifacts (ModelCardExportArtifacts'),
+    newModelCardExportArtifacts,
+
+    -- ** ModelCardExportJobSummary
+    ModelCardExportJobSummary (ModelCardExportJobSummary'),
+    newModelCardExportJobSummary,
+
+    -- ** ModelCardExportOutputConfig
+    ModelCardExportOutputConfig (ModelCardExportOutputConfig'),
+    newModelCardExportOutputConfig,
+
+    -- ** ModelCardSecurityConfig
+    ModelCardSecurityConfig (ModelCardSecurityConfig'),
+    newModelCardSecurityConfig,
+
+    -- ** ModelCardSummary
+    ModelCardSummary (ModelCardSummary'),
+    newModelCardSummary,
+
+    -- ** ModelCardVersionSummary
+    ModelCardVersionSummary (ModelCardVersionSummary'),
+    newModelCardVersionSummary,
+
     -- ** ModelClientConfig
     ModelClientConfig (ModelClientConfig'),
     newModelClientConfig,
@@ -3144,6 +3499,26 @@ module Amazonka.SageMaker
     -- ** ModelConfiguration
     ModelConfiguration (ModelConfiguration'),
     newModelConfiguration,
+
+    -- ** ModelDashboardEndpoint
+    ModelDashboardEndpoint (ModelDashboardEndpoint'),
+    newModelDashboardEndpoint,
+
+    -- ** ModelDashboardIndicatorAction
+    ModelDashboardIndicatorAction (ModelDashboardIndicatorAction'),
+    newModelDashboardIndicatorAction,
+
+    -- ** ModelDashboardModel
+    ModelDashboardModel (ModelDashboardModel'),
+    newModelDashboardModel,
+
+    -- ** ModelDashboardModelCard
+    ModelDashboardModelCard (ModelDashboardModelCard'),
+    newModelDashboardModelCard,
+
+    -- ** ModelDashboardMonitoringSchedule
+    ModelDashboardMonitoringSchedule (ModelDashboardMonitoringSchedule'),
+    newModelDashboardMonitoringSchedule,
 
     -- ** ModelDataQuality
     ModelDataQuality (ModelDataQuality'),
@@ -3172,6 +3547,10 @@ module Amazonka.SageMaker
     -- ** ModelExplainabilityJobInput
     ModelExplainabilityJobInput (ModelExplainabilityJobInput'),
     newModelExplainabilityJobInput,
+
+    -- ** ModelInfrastructureConfig
+    ModelInfrastructureConfig (ModelInfrastructureConfig'),
+    newModelInfrastructureConfig,
 
     -- ** ModelInput
     ModelInput (ModelInput'),
@@ -3256,6 +3635,26 @@ module Amazonka.SageMaker
     -- ** ModelSummary
     ModelSummary (ModelSummary'),
     newModelSummary,
+
+    -- ** ModelVariantConfig
+    ModelVariantConfig (ModelVariantConfig'),
+    newModelVariantConfig,
+
+    -- ** ModelVariantConfigSummary
+    ModelVariantConfigSummary (ModelVariantConfigSummary'),
+    newModelVariantConfigSummary,
+
+    -- ** MonitoringAlertActions
+    MonitoringAlertActions (MonitoringAlertActions'),
+    newMonitoringAlertActions,
+
+    -- ** MonitoringAlertHistorySummary
+    MonitoringAlertHistorySummary (MonitoringAlertHistorySummary'),
+    newMonitoringAlertHistorySummary,
+
+    -- ** MonitoringAlertSummary
+    MonitoringAlertSummary (MonitoringAlertSummary'),
+    newMonitoringAlertSummary,
 
     -- ** MonitoringAppSpecification
     MonitoringAppSpecification (MonitoringAppSpecification'),
@@ -3625,6 +4024,10 @@ module Amazonka.SageMaker
     RStudioServerProDomainSettingsForUpdate (RStudioServerProDomainSettingsForUpdate'),
     newRStudioServerProDomainSettingsForUpdate,
 
+    -- ** RealTimeInferenceConfig
+    RealTimeInferenceConfig (RealTimeInferenceConfig'),
+    newRealTimeInferenceConfig,
+
     -- ** RecommendationJobCompiledOutputConfig
     RecommendationJobCompiledOutputConfig (RecommendationJobCompiledOutputConfig'),
     newRecommendationJobCompiledOutputConfig,
@@ -3745,6 +4148,14 @@ module Amazonka.SageMaker
     ServiceCatalogProvisioningUpdateDetails (ServiceCatalogProvisioningUpdateDetails'),
     newServiceCatalogProvisioningUpdateDetails,
 
+    -- ** ShadowModeConfig
+    ShadowModeConfig (ShadowModeConfig'),
+    newShadowModeConfig,
+
+    -- ** ShadowModelVariantConfig
+    ShadowModelVariantConfig (ShadowModelVariantConfig'),
+    newShadowModelVariantConfig,
+
     -- ** SharingSettings
     SharingSettings (SharingSettings'),
     newSharingSettings,
@@ -3764,6 +4175,14 @@ module Amazonka.SageMaker
     -- ** SourceIpConfig
     SourceIpConfig (SourceIpConfig'),
     newSourceIpConfig,
+
+    -- ** SpaceDetails
+    SpaceDetails (SpaceDetails'),
+    newSpaceDetails,
+
+    -- ** SpaceSettings
+    SpaceSettings (SpaceSettings'),
+    newSpaceSettings,
 
     -- ** StoppingCondition
     StoppingCondition (StoppingCondition'),
@@ -4011,14 +4430,18 @@ import Amazonka.SageMaker.CreateEndpointConfig
 import Amazonka.SageMaker.CreateExperiment
 import Amazonka.SageMaker.CreateFeatureGroup
 import Amazonka.SageMaker.CreateFlowDefinition
+import Amazonka.SageMaker.CreateHub
 import Amazonka.SageMaker.CreateHumanTaskUi
 import Amazonka.SageMaker.CreateHyperParameterTuningJob
 import Amazonka.SageMaker.CreateImage
 import Amazonka.SageMaker.CreateImageVersion
+import Amazonka.SageMaker.CreateInferenceExperiment
 import Amazonka.SageMaker.CreateInferenceRecommendationsJob
 import Amazonka.SageMaker.CreateLabelingJob
 import Amazonka.SageMaker.CreateModel
 import Amazonka.SageMaker.CreateModelBiasJobDefinition
+import Amazonka.SageMaker.CreateModelCard
+import Amazonka.SageMaker.CreateModelCardExportJob
 import Amazonka.SageMaker.CreateModelExplainabilityJobDefinition
 import Amazonka.SageMaker.CreateModelPackage
 import Amazonka.SageMaker.CreateModelPackageGroup
@@ -4031,6 +4454,7 @@ import Amazonka.SageMaker.CreatePresignedDomainUrl
 import Amazonka.SageMaker.CreatePresignedNotebookInstanceUrl
 import Amazonka.SageMaker.CreateProcessingJob
 import Amazonka.SageMaker.CreateProject
+import Amazonka.SageMaker.CreateSpace
 import Amazonka.SageMaker.CreateStudioLifecycleConfig
 import Amazonka.SageMaker.CreateTrainingJob
 import Amazonka.SageMaker.CreateTransformJob
@@ -4057,11 +4481,15 @@ import Amazonka.SageMaker.DeleteEndpointConfig
 import Amazonka.SageMaker.DeleteExperiment
 import Amazonka.SageMaker.DeleteFeatureGroup
 import Amazonka.SageMaker.DeleteFlowDefinition
+import Amazonka.SageMaker.DeleteHub
+import Amazonka.SageMaker.DeleteHubContent
 import Amazonka.SageMaker.DeleteHumanTaskUi
 import Amazonka.SageMaker.DeleteImage
 import Amazonka.SageMaker.DeleteImageVersion
+import Amazonka.SageMaker.DeleteInferenceExperiment
 import Amazonka.SageMaker.DeleteModel
 import Amazonka.SageMaker.DeleteModelBiasJobDefinition
+import Amazonka.SageMaker.DeleteModelCard
 import Amazonka.SageMaker.DeleteModelExplainabilityJobDefinition
 import Amazonka.SageMaker.DeleteModelPackage
 import Amazonka.SageMaker.DeleteModelPackageGroup
@@ -4072,6 +4500,7 @@ import Amazonka.SageMaker.DeleteNotebookInstance
 import Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig
 import Amazonka.SageMaker.DeletePipeline
 import Amazonka.SageMaker.DeleteProject
+import Amazonka.SageMaker.DeleteSpace
 import Amazonka.SageMaker.DeleteStudioLifecycleConfig
 import Amazonka.SageMaker.DeleteTags
 import Amazonka.SageMaker.DeleteTrial
@@ -4101,15 +4530,20 @@ import Amazonka.SageMaker.DescribeExperiment
 import Amazonka.SageMaker.DescribeFeatureGroup
 import Amazonka.SageMaker.DescribeFeatureMetadata
 import Amazonka.SageMaker.DescribeFlowDefinition
+import Amazonka.SageMaker.DescribeHub
+import Amazonka.SageMaker.DescribeHubContent
 import Amazonka.SageMaker.DescribeHumanTaskUi
 import Amazonka.SageMaker.DescribeHyperParameterTuningJob
 import Amazonka.SageMaker.DescribeImage
 import Amazonka.SageMaker.DescribeImageVersion
+import Amazonka.SageMaker.DescribeInferenceExperiment
 import Amazonka.SageMaker.DescribeInferenceRecommendationsJob
 import Amazonka.SageMaker.DescribeLabelingJob
 import Amazonka.SageMaker.DescribeLineageGroup
 import Amazonka.SageMaker.DescribeModel
 import Amazonka.SageMaker.DescribeModelBiasJobDefinition
+import Amazonka.SageMaker.DescribeModelCard
+import Amazonka.SageMaker.DescribeModelCardExportJob
 import Amazonka.SageMaker.DescribeModelExplainabilityJobDefinition
 import Amazonka.SageMaker.DescribeModelPackage
 import Amazonka.SageMaker.DescribeModelPackageGroup
@@ -4122,6 +4556,7 @@ import Amazonka.SageMaker.DescribePipelineDefinitionForExecution
 import Amazonka.SageMaker.DescribePipelineExecution
 import Amazonka.SageMaker.DescribeProcessingJob
 import Amazonka.SageMaker.DescribeProject
+import Amazonka.SageMaker.DescribeSpace
 import Amazonka.SageMaker.DescribeStudioLifecycleConfig
 import Amazonka.SageMaker.DescribeSubscribedWorkteam
 import Amazonka.SageMaker.DescribeTrainingJob
@@ -4139,6 +4574,7 @@ import Amazonka.SageMaker.GetLineageGroupPolicy
 import Amazonka.SageMaker.GetModelPackageGroupPolicy
 import Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus
 import Amazonka.SageMaker.GetSearchSuggestions
+import Amazonka.SageMaker.ImportHubContent
 import Amazonka.SageMaker.Lens
 import Amazonka.SageMaker.ListActions
 import Amazonka.SageMaker.ListAlgorithms
@@ -4162,22 +4598,31 @@ import Amazonka.SageMaker.ListEndpoints
 import Amazonka.SageMaker.ListExperiments
 import Amazonka.SageMaker.ListFeatureGroups
 import Amazonka.SageMaker.ListFlowDefinitions
+import Amazonka.SageMaker.ListHubContentVersions
+import Amazonka.SageMaker.ListHubContents
+import Amazonka.SageMaker.ListHubs
 import Amazonka.SageMaker.ListHumanTaskUis
 import Amazonka.SageMaker.ListHyperParameterTuningJobs
 import Amazonka.SageMaker.ListImageVersions
 import Amazonka.SageMaker.ListImages
+import Amazonka.SageMaker.ListInferenceExperiments
 import Amazonka.SageMaker.ListInferenceRecommendationsJobSteps
 import Amazonka.SageMaker.ListInferenceRecommendationsJobs
 import Amazonka.SageMaker.ListLabelingJobs
 import Amazonka.SageMaker.ListLabelingJobsForWorkteam
 import Amazonka.SageMaker.ListLineageGroups
 import Amazonka.SageMaker.ListModelBiasJobDefinitions
+import Amazonka.SageMaker.ListModelCardExportJobs
+import Amazonka.SageMaker.ListModelCardVersions
+import Amazonka.SageMaker.ListModelCards
 import Amazonka.SageMaker.ListModelExplainabilityJobDefinitions
 import Amazonka.SageMaker.ListModelMetadata
 import Amazonka.SageMaker.ListModelPackageGroups
 import Amazonka.SageMaker.ListModelPackages
 import Amazonka.SageMaker.ListModelQualityJobDefinitions
 import Amazonka.SageMaker.ListModels
+import Amazonka.SageMaker.ListMonitoringAlertHistory
+import Amazonka.SageMaker.ListMonitoringAlerts
 import Amazonka.SageMaker.ListMonitoringExecutions
 import Amazonka.SageMaker.ListMonitoringSchedules
 import Amazonka.SageMaker.ListNotebookInstanceLifecycleConfigs
@@ -4188,6 +4633,7 @@ import Amazonka.SageMaker.ListPipelineParametersForExecution
 import Amazonka.SageMaker.ListPipelines
 import Amazonka.SageMaker.ListProcessingJobs
 import Amazonka.SageMaker.ListProjects
+import Amazonka.SageMaker.ListSpaces
 import Amazonka.SageMaker.ListStageDevices
 import Amazonka.SageMaker.ListStudioLifecycleConfigs
 import Amazonka.SageMaker.ListSubscribedWorkteams
@@ -4209,6 +4655,7 @@ import Amazonka.SageMaker.Search
 import Amazonka.SageMaker.SendPipelineExecutionStepFailure
 import Amazonka.SageMaker.SendPipelineExecutionStepSuccess
 import Amazonka.SageMaker.StartEdgeDeploymentStage
+import Amazonka.SageMaker.StartInferenceExperiment
 import Amazonka.SageMaker.StartMonitoringSchedule
 import Amazonka.SageMaker.StartNotebookInstance
 import Amazonka.SageMaker.StartPipelineExecution
@@ -4217,6 +4664,7 @@ import Amazonka.SageMaker.StopCompilationJob
 import Amazonka.SageMaker.StopEdgeDeploymentStage
 import Amazonka.SageMaker.StopEdgePackagingJob
 import Amazonka.SageMaker.StopHyperParameterTuningJob
+import Amazonka.SageMaker.StopInferenceExperiment
 import Amazonka.SageMaker.StopInferenceRecommendationsJob
 import Amazonka.SageMaker.StopLabelingJob
 import Amazonka.SageMaker.StopMonitoringSchedule
@@ -4239,14 +4687,19 @@ import Amazonka.SageMaker.UpdateEndpointWeightsAndCapacities
 import Amazonka.SageMaker.UpdateExperiment
 import Amazonka.SageMaker.UpdateFeatureGroup
 import Amazonka.SageMaker.UpdateFeatureMetadata
+import Amazonka.SageMaker.UpdateHub
 import Amazonka.SageMaker.UpdateImage
+import Amazonka.SageMaker.UpdateInferenceExperiment
+import Amazonka.SageMaker.UpdateModelCard
 import Amazonka.SageMaker.UpdateModelPackage
+import Amazonka.SageMaker.UpdateMonitoringAlert
 import Amazonka.SageMaker.UpdateMonitoringSchedule
 import Amazonka.SageMaker.UpdateNotebookInstance
 import Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig
 import Amazonka.SageMaker.UpdatePipeline
 import Amazonka.SageMaker.UpdatePipelineExecution
 import Amazonka.SageMaker.UpdateProject
+import Amazonka.SageMaker.UpdateSpace
 import Amazonka.SageMaker.UpdateTrainingJob
 import Amazonka.SageMaker.UpdateTrial
 import Amazonka.SageMaker.UpdateTrialComponent

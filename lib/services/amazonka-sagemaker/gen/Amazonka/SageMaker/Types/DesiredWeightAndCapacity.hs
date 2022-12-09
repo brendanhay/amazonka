@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDesiredWeightAndCapacity' smart constructor.
 data DesiredWeightAndCapacity = DesiredWeightAndCapacity'
-  { -- | The variant\'s weight.
-    desiredWeight :: Prelude.Maybe Prelude.Double,
-    -- | The variant\'s capacity.
+  { -- | The variant\'s capacity.
     desiredInstanceCount :: Prelude.Maybe Prelude.Natural,
+    -- | The variant\'s weight.
+    desiredWeight :: Prelude.Maybe Prelude.Double,
     -- | The name of the variant to update.
     variantName :: Prelude.Text
   }
@@ -45,9 +45,9 @@ data DesiredWeightAndCapacity = DesiredWeightAndCapacity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'desiredWeight', 'desiredWeightAndCapacity_desiredWeight' - The variant\'s weight.
---
 -- 'desiredInstanceCount', 'desiredWeightAndCapacity_desiredInstanceCount' - The variant\'s capacity.
+--
+-- 'desiredWeight', 'desiredWeightAndCapacity_desiredWeight' - The variant\'s weight.
 --
 -- 'variantName', 'desiredWeightAndCapacity_variantName' - The name of the variant to update.
 newDesiredWeightAndCapacity ::
@@ -56,19 +56,19 @@ newDesiredWeightAndCapacity ::
   DesiredWeightAndCapacity
 newDesiredWeightAndCapacity pVariantName_ =
   DesiredWeightAndCapacity'
-    { desiredWeight =
+    { desiredInstanceCount =
         Prelude.Nothing,
-      desiredInstanceCount = Prelude.Nothing,
+      desiredWeight = Prelude.Nothing,
       variantName = pVariantName_
     }
-
--- | The variant\'s weight.
-desiredWeightAndCapacity_desiredWeight :: Lens.Lens' DesiredWeightAndCapacity (Prelude.Maybe Prelude.Double)
-desiredWeightAndCapacity_desiredWeight = Lens.lens (\DesiredWeightAndCapacity' {desiredWeight} -> desiredWeight) (\s@DesiredWeightAndCapacity' {} a -> s {desiredWeight = a} :: DesiredWeightAndCapacity)
 
 -- | The variant\'s capacity.
 desiredWeightAndCapacity_desiredInstanceCount :: Lens.Lens' DesiredWeightAndCapacity (Prelude.Maybe Prelude.Natural)
 desiredWeightAndCapacity_desiredInstanceCount = Lens.lens (\DesiredWeightAndCapacity' {desiredInstanceCount} -> desiredInstanceCount) (\s@DesiredWeightAndCapacity' {} a -> s {desiredInstanceCount = a} :: DesiredWeightAndCapacity)
+
+-- | The variant\'s weight.
+desiredWeightAndCapacity_desiredWeight :: Lens.Lens' DesiredWeightAndCapacity (Prelude.Maybe Prelude.Double)
+desiredWeightAndCapacity_desiredWeight = Lens.lens (\DesiredWeightAndCapacity' {desiredWeight} -> desiredWeight) (\s@DesiredWeightAndCapacity' {} a -> s {desiredWeight = a} :: DesiredWeightAndCapacity)
 
 -- | The name of the variant to update.
 desiredWeightAndCapacity_variantName :: Lens.Lens' DesiredWeightAndCapacity Prelude.Text
@@ -76,23 +76,23 @@ desiredWeightAndCapacity_variantName = Lens.lens (\DesiredWeightAndCapacity' {va
 
 instance Prelude.Hashable DesiredWeightAndCapacity where
   hashWithSalt _salt DesiredWeightAndCapacity' {..} =
-    _salt `Prelude.hashWithSalt` desiredWeight
-      `Prelude.hashWithSalt` desiredInstanceCount
+    _salt `Prelude.hashWithSalt` desiredInstanceCount
+      `Prelude.hashWithSalt` desiredWeight
       `Prelude.hashWithSalt` variantName
 
 instance Prelude.NFData DesiredWeightAndCapacity where
   rnf DesiredWeightAndCapacity' {..} =
-    Prelude.rnf desiredWeight
-      `Prelude.seq` Prelude.rnf desiredInstanceCount
+    Prelude.rnf desiredInstanceCount
+      `Prelude.seq` Prelude.rnf desiredWeight
       `Prelude.seq` Prelude.rnf variantName
 
 instance Data.ToJSON DesiredWeightAndCapacity where
   toJSON DesiredWeightAndCapacity' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DesiredWeight" Data..=) Prelude.<$> desiredWeight,
-            ("DesiredInstanceCount" Data..=)
+          [ ("DesiredInstanceCount" Data..=)
               Prelude.<$> desiredInstanceCount,
+            ("DesiredWeight" Data..=) Prelude.<$> desiredWeight,
             Prelude.Just ("VariantName" Data..= variantName)
           ]
       )

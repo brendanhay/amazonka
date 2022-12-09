@@ -34,17 +34,17 @@ module Amazonka.SageMaker.DescribeArtifact
     newDescribeArtifactResponse,
 
     -- * Response Lenses
+    describeArtifactResponse_artifactArn,
     describeArtifactResponse_artifactName,
     describeArtifactResponse_artifactType,
-    describeArtifactResponse_metadataProperties,
-    describeArtifactResponse_properties,
-    describeArtifactResponse_artifactArn,
-    describeArtifactResponse_lastModifiedTime,
-    describeArtifactResponse_source,
-    describeArtifactResponse_lineageGroupArn,
+    describeArtifactResponse_createdBy,
     describeArtifactResponse_creationTime,
     describeArtifactResponse_lastModifiedBy,
-    describeArtifactResponse_createdBy,
+    describeArtifactResponse_lastModifiedTime,
+    describeArtifactResponse_lineageGroupArn,
+    describeArtifactResponse_metadataProperties,
+    describeArtifactResponse_properties,
+    describeArtifactResponse_source,
     describeArtifactResponse_httpStatus,
   )
 where
@@ -94,17 +94,17 @@ instance Core.AWSRequest DescribeArtifact where
     Response.receiveJSON
       ( \s h x ->
           DescribeArtifactResponse'
-            Prelude.<$> (x Data..?> "ArtifactName")
+            Prelude.<$> (x Data..?> "ArtifactArn")
+            Prelude.<*> (x Data..?> "ArtifactName")
             Prelude.<*> (x Data..?> "ArtifactType")
-            Prelude.<*> (x Data..?> "MetadataProperties")
-            Prelude.<*> (x Data..?> "Properties" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Data..?> "ArtifactArn")
-            Prelude.<*> (x Data..?> "LastModifiedTime")
-            Prelude.<*> (x Data..?> "Source")
-            Prelude.<*> (x Data..?> "LineageGroupArn")
+            Prelude.<*> (x Data..?> "CreatedBy")
             Prelude.<*> (x Data..?> "CreationTime")
             Prelude.<*> (x Data..?> "LastModifiedBy")
-            Prelude.<*> (x Data..?> "CreatedBy")
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "LineageGroupArn")
+            Prelude.<*> (x Data..?> "MetadataProperties")
+            Prelude.<*> (x Data..?> "Properties" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Source")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,25 +143,25 @@ instance Data.ToQuery DescribeArtifact where
 
 -- | /See:/ 'newDescribeArtifactResponse' smart constructor.
 data DescribeArtifactResponse = DescribeArtifactResponse'
-  { -- | The name of the artifact.
+  { -- | The Amazon Resource Name (ARN) of the artifact.
+    artifactArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the artifact.
     artifactName :: Prelude.Maybe Prelude.Text,
     -- | The type of the artifact.
     artifactType :: Prelude.Maybe Prelude.Text,
-    metadataProperties :: Prelude.Maybe MetadataProperties,
-    -- | A list of the artifact\'s properties.
-    properties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The Amazon Resource Name (ARN) of the artifact.
-    artifactArn :: Prelude.Maybe Prelude.Text,
-    -- | When the artifact was last modified.
-    lastModifiedTime :: Prelude.Maybe Data.POSIX,
-    -- | The source of the artifact.
-    source :: Prelude.Maybe ArtifactSource,
-    -- | The Amazon Resource Name (ARN) of the lineage group.
-    lineageGroupArn :: Prelude.Maybe Prelude.Text,
+    createdBy :: Prelude.Maybe UserContext,
     -- | When the artifact was created.
     creationTime :: Prelude.Maybe Data.POSIX,
     lastModifiedBy :: Prelude.Maybe UserContext,
-    createdBy :: Prelude.Maybe UserContext,
+    -- | When the artifact was last modified.
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
+    -- | The Amazon Resource Name (ARN) of the lineage group.
+    lineageGroupArn :: Prelude.Maybe Prelude.Text,
+    metadataProperties :: Prelude.Maybe MetadataProperties,
+    -- | A list of the artifact\'s properties.
+    properties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The source of the artifact.
+    source :: Prelude.Maybe ArtifactSource,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -175,27 +175,27 @@ data DescribeArtifactResponse = DescribeArtifactResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'artifactArn', 'describeArtifactResponse_artifactArn' - The Amazon Resource Name (ARN) of the artifact.
+--
 -- 'artifactName', 'describeArtifactResponse_artifactName' - The name of the artifact.
 --
 -- 'artifactType', 'describeArtifactResponse_artifactType' - The type of the artifact.
 --
--- 'metadataProperties', 'describeArtifactResponse_metadataProperties' - Undocumented member.
---
--- 'properties', 'describeArtifactResponse_properties' - A list of the artifact\'s properties.
---
--- 'artifactArn', 'describeArtifactResponse_artifactArn' - The Amazon Resource Name (ARN) of the artifact.
---
--- 'lastModifiedTime', 'describeArtifactResponse_lastModifiedTime' - When the artifact was last modified.
---
--- 'source', 'describeArtifactResponse_source' - The source of the artifact.
---
--- 'lineageGroupArn', 'describeArtifactResponse_lineageGroupArn' - The Amazon Resource Name (ARN) of the lineage group.
+-- 'createdBy', 'describeArtifactResponse_createdBy' - Undocumented member.
 --
 -- 'creationTime', 'describeArtifactResponse_creationTime' - When the artifact was created.
 --
 -- 'lastModifiedBy', 'describeArtifactResponse_lastModifiedBy' - Undocumented member.
 --
--- 'createdBy', 'describeArtifactResponse_createdBy' - Undocumented member.
+-- 'lastModifiedTime', 'describeArtifactResponse_lastModifiedTime' - When the artifact was last modified.
+--
+-- 'lineageGroupArn', 'describeArtifactResponse_lineageGroupArn' - The Amazon Resource Name (ARN) of the lineage group.
+--
+-- 'metadataProperties', 'describeArtifactResponse_metadataProperties' - Undocumented member.
+--
+-- 'properties', 'describeArtifactResponse_properties' - A list of the artifact\'s properties.
+--
+-- 'source', 'describeArtifactResponse_source' - The source of the artifact.
 --
 -- 'httpStatus', 'describeArtifactResponse_httpStatus' - The response's http status code.
 newDescribeArtifactResponse ::
@@ -204,20 +204,24 @@ newDescribeArtifactResponse ::
   DescribeArtifactResponse
 newDescribeArtifactResponse pHttpStatus_ =
   DescribeArtifactResponse'
-    { artifactName =
+    { artifactArn =
         Prelude.Nothing,
+      artifactName = Prelude.Nothing,
       artifactType = Prelude.Nothing,
-      metadataProperties = Prelude.Nothing,
-      properties = Prelude.Nothing,
-      artifactArn = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
-      source = Prelude.Nothing,
-      lineageGroupArn = Prelude.Nothing,
+      createdBy = Prelude.Nothing,
       creationTime = Prelude.Nothing,
       lastModifiedBy = Prelude.Nothing,
-      createdBy = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      lineageGroupArn = Prelude.Nothing,
+      metadataProperties = Prelude.Nothing,
+      properties = Prelude.Nothing,
+      source = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name (ARN) of the artifact.
+describeArtifactResponse_artifactArn :: Lens.Lens' DescribeArtifactResponse (Prelude.Maybe Prelude.Text)
+describeArtifactResponse_artifactArn = Lens.lens (\DescribeArtifactResponse' {artifactArn} -> artifactArn) (\s@DescribeArtifactResponse' {} a -> s {artifactArn = a} :: DescribeArtifactResponse)
 
 -- | The name of the artifact.
 describeArtifactResponse_artifactName :: Lens.Lens' DescribeArtifactResponse (Prelude.Maybe Prelude.Text)
@@ -228,28 +232,8 @@ describeArtifactResponse_artifactType :: Lens.Lens' DescribeArtifactResponse (Pr
 describeArtifactResponse_artifactType = Lens.lens (\DescribeArtifactResponse' {artifactType} -> artifactType) (\s@DescribeArtifactResponse' {} a -> s {artifactType = a} :: DescribeArtifactResponse)
 
 -- | Undocumented member.
-describeArtifactResponse_metadataProperties :: Lens.Lens' DescribeArtifactResponse (Prelude.Maybe MetadataProperties)
-describeArtifactResponse_metadataProperties = Lens.lens (\DescribeArtifactResponse' {metadataProperties} -> metadataProperties) (\s@DescribeArtifactResponse' {} a -> s {metadataProperties = a} :: DescribeArtifactResponse)
-
--- | A list of the artifact\'s properties.
-describeArtifactResponse_properties :: Lens.Lens' DescribeArtifactResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeArtifactResponse_properties = Lens.lens (\DescribeArtifactResponse' {properties} -> properties) (\s@DescribeArtifactResponse' {} a -> s {properties = a} :: DescribeArtifactResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The Amazon Resource Name (ARN) of the artifact.
-describeArtifactResponse_artifactArn :: Lens.Lens' DescribeArtifactResponse (Prelude.Maybe Prelude.Text)
-describeArtifactResponse_artifactArn = Lens.lens (\DescribeArtifactResponse' {artifactArn} -> artifactArn) (\s@DescribeArtifactResponse' {} a -> s {artifactArn = a} :: DescribeArtifactResponse)
-
--- | When the artifact was last modified.
-describeArtifactResponse_lastModifiedTime :: Lens.Lens' DescribeArtifactResponse (Prelude.Maybe Prelude.UTCTime)
-describeArtifactResponse_lastModifiedTime = Lens.lens (\DescribeArtifactResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeArtifactResponse' {} a -> s {lastModifiedTime = a} :: DescribeArtifactResponse) Prelude.. Lens.mapping Data._Time
-
--- | The source of the artifact.
-describeArtifactResponse_source :: Lens.Lens' DescribeArtifactResponse (Prelude.Maybe ArtifactSource)
-describeArtifactResponse_source = Lens.lens (\DescribeArtifactResponse' {source} -> source) (\s@DescribeArtifactResponse' {} a -> s {source = a} :: DescribeArtifactResponse)
-
--- | The Amazon Resource Name (ARN) of the lineage group.
-describeArtifactResponse_lineageGroupArn :: Lens.Lens' DescribeArtifactResponse (Prelude.Maybe Prelude.Text)
-describeArtifactResponse_lineageGroupArn = Lens.lens (\DescribeArtifactResponse' {lineageGroupArn} -> lineageGroupArn) (\s@DescribeArtifactResponse' {} a -> s {lineageGroupArn = a} :: DescribeArtifactResponse)
+describeArtifactResponse_createdBy :: Lens.Lens' DescribeArtifactResponse (Prelude.Maybe UserContext)
+describeArtifactResponse_createdBy = Lens.lens (\DescribeArtifactResponse' {createdBy} -> createdBy) (\s@DescribeArtifactResponse' {} a -> s {createdBy = a} :: DescribeArtifactResponse)
 
 -- | When the artifact was created.
 describeArtifactResponse_creationTime :: Lens.Lens' DescribeArtifactResponse (Prelude.Maybe Prelude.UTCTime)
@@ -259,9 +243,25 @@ describeArtifactResponse_creationTime = Lens.lens (\DescribeArtifactResponse' {c
 describeArtifactResponse_lastModifiedBy :: Lens.Lens' DescribeArtifactResponse (Prelude.Maybe UserContext)
 describeArtifactResponse_lastModifiedBy = Lens.lens (\DescribeArtifactResponse' {lastModifiedBy} -> lastModifiedBy) (\s@DescribeArtifactResponse' {} a -> s {lastModifiedBy = a} :: DescribeArtifactResponse)
 
+-- | When the artifact was last modified.
+describeArtifactResponse_lastModifiedTime :: Lens.Lens' DescribeArtifactResponse (Prelude.Maybe Prelude.UTCTime)
+describeArtifactResponse_lastModifiedTime = Lens.lens (\DescribeArtifactResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeArtifactResponse' {} a -> s {lastModifiedTime = a} :: DescribeArtifactResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The Amazon Resource Name (ARN) of the lineage group.
+describeArtifactResponse_lineageGroupArn :: Lens.Lens' DescribeArtifactResponse (Prelude.Maybe Prelude.Text)
+describeArtifactResponse_lineageGroupArn = Lens.lens (\DescribeArtifactResponse' {lineageGroupArn} -> lineageGroupArn) (\s@DescribeArtifactResponse' {} a -> s {lineageGroupArn = a} :: DescribeArtifactResponse)
+
 -- | Undocumented member.
-describeArtifactResponse_createdBy :: Lens.Lens' DescribeArtifactResponse (Prelude.Maybe UserContext)
-describeArtifactResponse_createdBy = Lens.lens (\DescribeArtifactResponse' {createdBy} -> createdBy) (\s@DescribeArtifactResponse' {} a -> s {createdBy = a} :: DescribeArtifactResponse)
+describeArtifactResponse_metadataProperties :: Lens.Lens' DescribeArtifactResponse (Prelude.Maybe MetadataProperties)
+describeArtifactResponse_metadataProperties = Lens.lens (\DescribeArtifactResponse' {metadataProperties} -> metadataProperties) (\s@DescribeArtifactResponse' {} a -> s {metadataProperties = a} :: DescribeArtifactResponse)
+
+-- | A list of the artifact\'s properties.
+describeArtifactResponse_properties :: Lens.Lens' DescribeArtifactResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeArtifactResponse_properties = Lens.lens (\DescribeArtifactResponse' {properties} -> properties) (\s@DescribeArtifactResponse' {} a -> s {properties = a} :: DescribeArtifactResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The source of the artifact.
+describeArtifactResponse_source :: Lens.Lens' DescribeArtifactResponse (Prelude.Maybe ArtifactSource)
+describeArtifactResponse_source = Lens.lens (\DescribeArtifactResponse' {source} -> source) (\s@DescribeArtifactResponse' {} a -> s {source = a} :: DescribeArtifactResponse)
 
 -- | The response's http status code.
 describeArtifactResponse_httpStatus :: Lens.Lens' DescribeArtifactResponse Prelude.Int
@@ -269,15 +269,15 @@ describeArtifactResponse_httpStatus = Lens.lens (\DescribeArtifactResponse' {htt
 
 instance Prelude.NFData DescribeArtifactResponse where
   rnf DescribeArtifactResponse' {..} =
-    Prelude.rnf artifactName
+    Prelude.rnf artifactArn
+      `Prelude.seq` Prelude.rnf artifactName
       `Prelude.seq` Prelude.rnf artifactType
-      `Prelude.seq` Prelude.rnf metadataProperties
-      `Prelude.seq` Prelude.rnf properties
-      `Prelude.seq` Prelude.rnf artifactArn
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf lineageGroupArn
+      `Prelude.seq` Prelude.rnf createdBy
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf lineageGroupArn
+      `Prelude.seq` Prelude.rnf metadataProperties
+      `Prelude.seq` Prelude.rnf properties
+      `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf httpStatus

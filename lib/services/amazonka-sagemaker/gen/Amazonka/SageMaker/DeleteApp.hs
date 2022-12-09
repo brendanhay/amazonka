@@ -27,8 +27,9 @@ module Amazonka.SageMaker.DeleteApp
     newDeleteApp,
 
     -- * Request Lenses
-    deleteApp_domainId,
+    deleteApp_spaceName,
     deleteApp_userProfileName,
+    deleteApp_domainId,
     deleteApp_appType,
     deleteApp_appName,
 
@@ -48,10 +49,12 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newDeleteApp' smart constructor.
 data DeleteApp = DeleteApp'
-  { -- | The domain ID.
-    domainId :: Prelude.Text,
+  { -- | The name of the space.
+    spaceName :: Prelude.Maybe Prelude.Text,
     -- | The user profile name.
-    userProfileName :: Prelude.Text,
+    userProfileName :: Prelude.Maybe Prelude.Text,
+    -- | The domain ID.
+    domainId :: Prelude.Text,
     -- | The type of app.
     appType :: AppType,
     -- | The name of the app.
@@ -67,9 +70,11 @@ data DeleteApp = DeleteApp'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainId', 'deleteApp_domainId' - The domain ID.
+-- 'spaceName', 'deleteApp_spaceName' - The name of the space.
 --
 -- 'userProfileName', 'deleteApp_userProfileName' - The user profile name.
+--
+-- 'domainId', 'deleteApp_domainId' - The domain ID.
 --
 -- 'appType', 'deleteApp_appType' - The type of app.
 --
@@ -77,32 +82,31 @@ data DeleteApp = DeleteApp'
 newDeleteApp ::
   -- | 'domainId'
   Prelude.Text ->
-  -- | 'userProfileName'
-  Prelude.Text ->
   -- | 'appType'
   AppType ->
   -- | 'appName'
   Prelude.Text ->
   DeleteApp
-newDeleteApp
-  pDomainId_
-  pUserProfileName_
-  pAppType_
-  pAppName_ =
-    DeleteApp'
-      { domainId = pDomainId_,
-        userProfileName = pUserProfileName_,
-        appType = pAppType_,
-        appName = pAppName_
-      }
+newDeleteApp pDomainId_ pAppType_ pAppName_ =
+  DeleteApp'
+    { spaceName = Prelude.Nothing,
+      userProfileName = Prelude.Nothing,
+      domainId = pDomainId_,
+      appType = pAppType_,
+      appName = pAppName_
+    }
+
+-- | The name of the space.
+deleteApp_spaceName :: Lens.Lens' DeleteApp (Prelude.Maybe Prelude.Text)
+deleteApp_spaceName = Lens.lens (\DeleteApp' {spaceName} -> spaceName) (\s@DeleteApp' {} a -> s {spaceName = a} :: DeleteApp)
+
+-- | The user profile name.
+deleteApp_userProfileName :: Lens.Lens' DeleteApp (Prelude.Maybe Prelude.Text)
+deleteApp_userProfileName = Lens.lens (\DeleteApp' {userProfileName} -> userProfileName) (\s@DeleteApp' {} a -> s {userProfileName = a} :: DeleteApp)
 
 -- | The domain ID.
 deleteApp_domainId :: Lens.Lens' DeleteApp Prelude.Text
 deleteApp_domainId = Lens.lens (\DeleteApp' {domainId} -> domainId) (\s@DeleteApp' {} a -> s {domainId = a} :: DeleteApp)
-
--- | The user profile name.
-deleteApp_userProfileName :: Lens.Lens' DeleteApp Prelude.Text
-deleteApp_userProfileName = Lens.lens (\DeleteApp' {userProfileName} -> userProfileName) (\s@DeleteApp' {} a -> s {userProfileName = a} :: DeleteApp)
 
 -- | The type of app.
 deleteApp_appType :: Lens.Lens' DeleteApp AppType
@@ -120,15 +124,17 @@ instance Core.AWSRequest DeleteApp where
 
 instance Prelude.Hashable DeleteApp where
   hashWithSalt _salt DeleteApp' {..} =
-    _salt `Prelude.hashWithSalt` domainId
+    _salt `Prelude.hashWithSalt` spaceName
       `Prelude.hashWithSalt` userProfileName
+      `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` appType
       `Prelude.hashWithSalt` appName
 
 instance Prelude.NFData DeleteApp where
   rnf DeleteApp' {..} =
-    Prelude.rnf domainId
+    Prelude.rnf spaceName
       `Prelude.seq` Prelude.rnf userProfileName
+      `Prelude.seq` Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf appType
       `Prelude.seq` Prelude.rnf appName
 
@@ -149,9 +155,10 @@ instance Data.ToJSON DeleteApp where
   toJSON DeleteApp' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DomainId" Data..= domainId),
-            Prelude.Just
-              ("UserProfileName" Data..= userProfileName),
+          [ ("SpaceName" Data..=) Prelude.<$> spaceName,
+            ("UserProfileName" Data..=)
+              Prelude.<$> userProfileName,
+            Prelude.Just ("DomainId" Data..= domainId),
             Prelude.Just ("AppType" Data..= appType),
             Prelude.Just ("AppName" Data..= appName)
           ]

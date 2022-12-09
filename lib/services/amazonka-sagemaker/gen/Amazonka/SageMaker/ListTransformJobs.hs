@@ -29,16 +29,16 @@ module Amazonka.SageMaker.ListTransformJobs
     newListTransformJobs,
 
     -- * Request Lenses
-    listTransformJobs_sortOrder,
-    listTransformJobs_nextToken,
-    listTransformJobs_lastModifiedTimeAfter,
-    listTransformJobs_nameContains,
-    listTransformJobs_lastModifiedTimeBefore,
-    listTransformJobs_creationTimeBefore,
-    listTransformJobs_sortBy,
-    listTransformJobs_maxResults,
-    listTransformJobs_statusEquals,
     listTransformJobs_creationTimeAfter,
+    listTransformJobs_creationTimeBefore,
+    listTransformJobs_lastModifiedTimeAfter,
+    listTransformJobs_lastModifiedTimeBefore,
+    listTransformJobs_maxResults,
+    listTransformJobs_nameContains,
+    listTransformJobs_nextToken,
+    listTransformJobs_sortBy,
+    listTransformJobs_sortOrder,
+    listTransformJobs_statusEquals,
 
     -- * Destructuring the Response
     ListTransformJobsResponse (..),
@@ -61,34 +61,34 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListTransformJobs' smart constructor.
 data ListTransformJobs = ListTransformJobs'
-  { -- | The sort order for results. The default is @Descending@.
-    sortOrder :: Prelude.Maybe SortOrder,
+  { -- | A filter that returns only transform jobs created after the specified
+    -- time.
+    creationTimeAfter :: Prelude.Maybe Data.POSIX,
+    -- | A filter that returns only transform jobs created before the specified
+    -- time.
+    creationTimeBefore :: Prelude.Maybe Data.POSIX,
+    -- | A filter that returns only transform jobs modified after the specified
+    -- time.
+    lastModifiedTimeAfter :: Prelude.Maybe Data.POSIX,
+    -- | A filter that returns only transform jobs modified before the specified
+    -- time.
+    lastModifiedTimeBefore :: Prelude.Maybe Data.POSIX,
+    -- | The maximum number of transform jobs to return in the response. The
+    -- default value is @10@.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A string in the transform job name. This filter returns only transform
+    -- jobs whose name contains the specified string.
+    nameContains :: Prelude.Maybe Prelude.Text,
     -- | If the result of the previous @ListTransformJobs@ request was truncated,
     -- the response includes a @NextToken@. To retrieve the next set of
     -- transform jobs, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A filter that returns only transform jobs modified after the specified
-    -- time.
-    lastModifiedTimeAfter :: Prelude.Maybe Data.POSIX,
-    -- | A string in the transform job name. This filter returns only transform
-    -- jobs whose name contains the specified string.
-    nameContains :: Prelude.Maybe Prelude.Text,
-    -- | A filter that returns only transform jobs modified before the specified
-    -- time.
-    lastModifiedTimeBefore :: Prelude.Maybe Data.POSIX,
-    -- | A filter that returns only transform jobs created before the specified
-    -- time.
-    creationTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | The field to sort results by. The default is @CreationTime@.
     sortBy :: Prelude.Maybe SortBy,
-    -- | The maximum number of transform jobs to return in the response. The
-    -- default value is @10@.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The sort order for results. The default is @Descending@.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | A filter that retrieves only transform jobs with a specific status.
-    statusEquals :: Prelude.Maybe TransformJobStatus,
-    -- | A filter that returns only transform jobs created after the specified
-    -- time.
-    creationTimeAfter :: Prelude.Maybe Data.POSIX
+    statusEquals :: Prelude.Maybe TransformJobStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -100,52 +100,79 @@ data ListTransformJobs = ListTransformJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listTransformJobs_sortOrder' - The sort order for results. The default is @Descending@.
---
--- 'nextToken', 'listTransformJobs_nextToken' - If the result of the previous @ListTransformJobs@ request was truncated,
--- the response includes a @NextToken@. To retrieve the next set of
--- transform jobs, use the token in the next request.
---
--- 'lastModifiedTimeAfter', 'listTransformJobs_lastModifiedTimeAfter' - A filter that returns only transform jobs modified after the specified
--- time.
---
--- 'nameContains', 'listTransformJobs_nameContains' - A string in the transform job name. This filter returns only transform
--- jobs whose name contains the specified string.
---
--- 'lastModifiedTimeBefore', 'listTransformJobs_lastModifiedTimeBefore' - A filter that returns only transform jobs modified before the specified
+-- 'creationTimeAfter', 'listTransformJobs_creationTimeAfter' - A filter that returns only transform jobs created after the specified
 -- time.
 --
 -- 'creationTimeBefore', 'listTransformJobs_creationTimeBefore' - A filter that returns only transform jobs created before the specified
 -- time.
 --
--- 'sortBy', 'listTransformJobs_sortBy' - The field to sort results by. The default is @CreationTime@.
+-- 'lastModifiedTimeAfter', 'listTransformJobs_lastModifiedTimeAfter' - A filter that returns only transform jobs modified after the specified
+-- time.
+--
+-- 'lastModifiedTimeBefore', 'listTransformJobs_lastModifiedTimeBefore' - A filter that returns only transform jobs modified before the specified
+-- time.
 --
 -- 'maxResults', 'listTransformJobs_maxResults' - The maximum number of transform jobs to return in the response. The
 -- default value is @10@.
 --
--- 'statusEquals', 'listTransformJobs_statusEquals' - A filter that retrieves only transform jobs with a specific status.
+-- 'nameContains', 'listTransformJobs_nameContains' - A string in the transform job name. This filter returns only transform
+-- jobs whose name contains the specified string.
 --
--- 'creationTimeAfter', 'listTransformJobs_creationTimeAfter' - A filter that returns only transform jobs created after the specified
--- time.
+-- 'nextToken', 'listTransformJobs_nextToken' - If the result of the previous @ListTransformJobs@ request was truncated,
+-- the response includes a @NextToken@. To retrieve the next set of
+-- transform jobs, use the token in the next request.
+--
+-- 'sortBy', 'listTransformJobs_sortBy' - The field to sort results by. The default is @CreationTime@.
+--
+-- 'sortOrder', 'listTransformJobs_sortOrder' - The sort order for results. The default is @Descending@.
+--
+-- 'statusEquals', 'listTransformJobs_statusEquals' - A filter that retrieves only transform jobs with a specific status.
 newListTransformJobs ::
   ListTransformJobs
 newListTransformJobs =
   ListTransformJobs'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      lastModifiedTimeAfter = Prelude.Nothing,
-      nameContains = Prelude.Nothing,
-      lastModifiedTimeBefore = Prelude.Nothing,
+    { creationTimeAfter =
+        Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
+      lastModifiedTimeAfter = Prelude.Nothing,
+      lastModifiedTimeBefore = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      statusEquals = Prelude.Nothing,
-      creationTimeAfter = Prelude.Nothing
+      nameContains = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
+      statusEquals = Prelude.Nothing
     }
 
--- | The sort order for results. The default is @Descending@.
-listTransformJobs_sortOrder :: Lens.Lens' ListTransformJobs (Prelude.Maybe SortOrder)
-listTransformJobs_sortOrder = Lens.lens (\ListTransformJobs' {sortOrder} -> sortOrder) (\s@ListTransformJobs' {} a -> s {sortOrder = a} :: ListTransformJobs)
+-- | A filter that returns only transform jobs created after the specified
+-- time.
+listTransformJobs_creationTimeAfter :: Lens.Lens' ListTransformJobs (Prelude.Maybe Prelude.UTCTime)
+listTransformJobs_creationTimeAfter = Lens.lens (\ListTransformJobs' {creationTimeAfter} -> creationTimeAfter) (\s@ListTransformJobs' {} a -> s {creationTimeAfter = a} :: ListTransformJobs) Prelude.. Lens.mapping Data._Time
+
+-- | A filter that returns only transform jobs created before the specified
+-- time.
+listTransformJobs_creationTimeBefore :: Lens.Lens' ListTransformJobs (Prelude.Maybe Prelude.UTCTime)
+listTransformJobs_creationTimeBefore = Lens.lens (\ListTransformJobs' {creationTimeBefore} -> creationTimeBefore) (\s@ListTransformJobs' {} a -> s {creationTimeBefore = a} :: ListTransformJobs) Prelude.. Lens.mapping Data._Time
+
+-- | A filter that returns only transform jobs modified after the specified
+-- time.
+listTransformJobs_lastModifiedTimeAfter :: Lens.Lens' ListTransformJobs (Prelude.Maybe Prelude.UTCTime)
+listTransformJobs_lastModifiedTimeAfter = Lens.lens (\ListTransformJobs' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListTransformJobs' {} a -> s {lastModifiedTimeAfter = a} :: ListTransformJobs) Prelude.. Lens.mapping Data._Time
+
+-- | A filter that returns only transform jobs modified before the specified
+-- time.
+listTransformJobs_lastModifiedTimeBefore :: Lens.Lens' ListTransformJobs (Prelude.Maybe Prelude.UTCTime)
+listTransformJobs_lastModifiedTimeBefore = Lens.lens (\ListTransformJobs' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListTransformJobs' {} a -> s {lastModifiedTimeBefore = a} :: ListTransformJobs) Prelude.. Lens.mapping Data._Time
+
+-- | The maximum number of transform jobs to return in the response. The
+-- default value is @10@.
+listTransformJobs_maxResults :: Lens.Lens' ListTransformJobs (Prelude.Maybe Prelude.Natural)
+listTransformJobs_maxResults = Lens.lens (\ListTransformJobs' {maxResults} -> maxResults) (\s@ListTransformJobs' {} a -> s {maxResults = a} :: ListTransformJobs)
+
+-- | A string in the transform job name. This filter returns only transform
+-- jobs whose name contains the specified string.
+listTransformJobs_nameContains :: Lens.Lens' ListTransformJobs (Prelude.Maybe Prelude.Text)
+listTransformJobs_nameContains = Lens.lens (\ListTransformJobs' {nameContains} -> nameContains) (\s@ListTransformJobs' {} a -> s {nameContains = a} :: ListTransformJobs)
 
 -- | If the result of the previous @ListTransformJobs@ request was truncated,
 -- the response includes a @NextToken@. To retrieve the next set of
@@ -153,43 +180,17 @@ listTransformJobs_sortOrder = Lens.lens (\ListTransformJobs' {sortOrder} -> sort
 listTransformJobs_nextToken :: Lens.Lens' ListTransformJobs (Prelude.Maybe Prelude.Text)
 listTransformJobs_nextToken = Lens.lens (\ListTransformJobs' {nextToken} -> nextToken) (\s@ListTransformJobs' {} a -> s {nextToken = a} :: ListTransformJobs)
 
--- | A filter that returns only transform jobs modified after the specified
--- time.
-listTransformJobs_lastModifiedTimeAfter :: Lens.Lens' ListTransformJobs (Prelude.Maybe Prelude.UTCTime)
-listTransformJobs_lastModifiedTimeAfter = Lens.lens (\ListTransformJobs' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListTransformJobs' {} a -> s {lastModifiedTimeAfter = a} :: ListTransformJobs) Prelude.. Lens.mapping Data._Time
-
--- | A string in the transform job name. This filter returns only transform
--- jobs whose name contains the specified string.
-listTransformJobs_nameContains :: Lens.Lens' ListTransformJobs (Prelude.Maybe Prelude.Text)
-listTransformJobs_nameContains = Lens.lens (\ListTransformJobs' {nameContains} -> nameContains) (\s@ListTransformJobs' {} a -> s {nameContains = a} :: ListTransformJobs)
-
--- | A filter that returns only transform jobs modified before the specified
--- time.
-listTransformJobs_lastModifiedTimeBefore :: Lens.Lens' ListTransformJobs (Prelude.Maybe Prelude.UTCTime)
-listTransformJobs_lastModifiedTimeBefore = Lens.lens (\ListTransformJobs' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListTransformJobs' {} a -> s {lastModifiedTimeBefore = a} :: ListTransformJobs) Prelude.. Lens.mapping Data._Time
-
--- | A filter that returns only transform jobs created before the specified
--- time.
-listTransformJobs_creationTimeBefore :: Lens.Lens' ListTransformJobs (Prelude.Maybe Prelude.UTCTime)
-listTransformJobs_creationTimeBefore = Lens.lens (\ListTransformJobs' {creationTimeBefore} -> creationTimeBefore) (\s@ListTransformJobs' {} a -> s {creationTimeBefore = a} :: ListTransformJobs) Prelude.. Lens.mapping Data._Time
-
 -- | The field to sort results by. The default is @CreationTime@.
 listTransformJobs_sortBy :: Lens.Lens' ListTransformJobs (Prelude.Maybe SortBy)
 listTransformJobs_sortBy = Lens.lens (\ListTransformJobs' {sortBy} -> sortBy) (\s@ListTransformJobs' {} a -> s {sortBy = a} :: ListTransformJobs)
 
--- | The maximum number of transform jobs to return in the response. The
--- default value is @10@.
-listTransformJobs_maxResults :: Lens.Lens' ListTransformJobs (Prelude.Maybe Prelude.Natural)
-listTransformJobs_maxResults = Lens.lens (\ListTransformJobs' {maxResults} -> maxResults) (\s@ListTransformJobs' {} a -> s {maxResults = a} :: ListTransformJobs)
+-- | The sort order for results. The default is @Descending@.
+listTransformJobs_sortOrder :: Lens.Lens' ListTransformJobs (Prelude.Maybe SortOrder)
+listTransformJobs_sortOrder = Lens.lens (\ListTransformJobs' {sortOrder} -> sortOrder) (\s@ListTransformJobs' {} a -> s {sortOrder = a} :: ListTransformJobs)
 
 -- | A filter that retrieves only transform jobs with a specific status.
 listTransformJobs_statusEquals :: Lens.Lens' ListTransformJobs (Prelude.Maybe TransformJobStatus)
 listTransformJobs_statusEquals = Lens.lens (\ListTransformJobs' {statusEquals} -> statusEquals) (\s@ListTransformJobs' {} a -> s {statusEquals = a} :: ListTransformJobs)
-
--- | A filter that returns only transform jobs created after the specified
--- time.
-listTransformJobs_creationTimeAfter :: Lens.Lens' ListTransformJobs (Prelude.Maybe Prelude.UTCTime)
-listTransformJobs_creationTimeAfter = Lens.lens (\ListTransformJobs' {creationTimeAfter} -> creationTimeAfter) (\s@ListTransformJobs' {} a -> s {creationTimeAfter = a} :: ListTransformJobs) Prelude.. Lens.mapping Data._Time
 
 instance Core.AWSPager ListTransformJobs where
   page rq rs
@@ -231,29 +232,29 @@ instance Core.AWSRequest ListTransformJobs where
 
 instance Prelude.Hashable ListTransformJobs where
   hashWithSalt _salt ListTransformJobs' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` lastModifiedTimeAfter
-      `Prelude.hashWithSalt` nameContains
-      `Prelude.hashWithSalt` lastModifiedTimeBefore
+    _salt `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
-      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` lastModifiedTimeAfter
+      `Prelude.hashWithSalt` lastModifiedTimeBefore
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nameContains
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` statusEquals
-      `Prelude.hashWithSalt` creationTimeAfter
 
 instance Prelude.NFData ListTransformJobs where
   rnf ListTransformJobs' {..} =
-    Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
+    Prelude.rnf creationTimeAfter
       `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
+      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf statusEquals
-      `Prelude.seq` Prelude.rnf creationTimeAfter
 
 instance Data.ToHeaders ListTransformJobs where
   toHeaders =
@@ -274,20 +275,20 @@ instance Data.ToJSON ListTransformJobs where
   toJSON ListTransformJobs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
-            ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("LastModifiedTimeAfter" Data..=)
-              Prelude.<$> lastModifiedTimeAfter,
-            ("NameContains" Data..=) Prelude.<$> nameContains,
-            ("LastModifiedTimeBefore" Data..=)
-              Prelude.<$> lastModifiedTimeBefore,
+          [ ("CreationTimeAfter" Data..=)
+              Prelude.<$> creationTimeAfter,
             ("CreationTimeBefore" Data..=)
               Prelude.<$> creationTimeBefore,
-            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("LastModifiedTimeAfter" Data..=)
+              Prelude.<$> lastModifiedTimeAfter,
+            ("LastModifiedTimeBefore" Data..=)
+              Prelude.<$> lastModifiedTimeBefore,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("StatusEquals" Data..=) Prelude.<$> statusEquals,
-            ("CreationTimeAfter" Data..=)
-              Prelude.<$> creationTimeAfter
+            ("NameContains" Data..=) Prelude.<$> nameContains,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("StatusEquals" Data..=) Prelude.<$> statusEquals
           ]
       )
 

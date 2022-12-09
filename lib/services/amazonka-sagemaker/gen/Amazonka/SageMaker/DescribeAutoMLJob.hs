@@ -34,18 +34,18 @@ module Amazonka.SageMaker.DescribeAutoMLJob
     newDescribeAutoMLJobResponse,
 
     -- * Response Lenses
-    describeAutoMLJobResponse_autoMLJobConfig,
     describeAutoMLJobResponse_autoMLJobArtifacts,
+    describeAutoMLJobResponse_autoMLJobConfig,
     describeAutoMLJobResponse_autoMLJobObjective,
-    describeAutoMLJobResponse_partialFailureReasons,
+    describeAutoMLJobResponse_bestCandidate,
     describeAutoMLJobResponse_endTime,
-    describeAutoMLJobResponse_resolvedAttributes,
+    describeAutoMLJobResponse_failureReason,
+    describeAutoMLJobResponse_generateCandidateDefinitionsOnly,
     describeAutoMLJobResponse_modelDeployConfig,
     describeAutoMLJobResponse_modelDeployResult,
+    describeAutoMLJobResponse_partialFailureReasons,
     describeAutoMLJobResponse_problemType,
-    describeAutoMLJobResponse_bestCandidate,
-    describeAutoMLJobResponse_generateCandidateDefinitionsOnly,
-    describeAutoMLJobResponse_failureReason,
+    describeAutoMLJobResponse_resolvedAttributes,
     describeAutoMLJobResponse_httpStatus,
     describeAutoMLJobResponse_autoMLJobName,
     describeAutoMLJobResponse_autoMLJobArn,
@@ -104,18 +104,18 @@ instance Core.AWSRequest DescribeAutoMLJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeAutoMLJobResponse'
-            Prelude.<$> (x Data..?> "AutoMLJobConfig")
-            Prelude.<*> (x Data..?> "AutoMLJobArtifacts")
+            Prelude.<$> (x Data..?> "AutoMLJobArtifacts")
+            Prelude.<*> (x Data..?> "AutoMLJobConfig")
             Prelude.<*> (x Data..?> "AutoMLJobObjective")
-            Prelude.<*> (x Data..?> "PartialFailureReasons")
+            Prelude.<*> (x Data..?> "BestCandidate")
             Prelude.<*> (x Data..?> "EndTime")
-            Prelude.<*> (x Data..?> "ResolvedAttributes")
+            Prelude.<*> (x Data..?> "FailureReason")
+            Prelude.<*> (x Data..?> "GenerateCandidateDefinitionsOnly")
             Prelude.<*> (x Data..?> "ModelDeployConfig")
             Prelude.<*> (x Data..?> "ModelDeployResult")
+            Prelude.<*> (x Data..?> "PartialFailureReasons")
             Prelude.<*> (x Data..?> "ProblemType")
-            Prelude.<*> (x Data..?> "BestCandidate")
-            Prelude.<*> (x Data..?> "GenerateCandidateDefinitionsOnly")
-            Prelude.<*> (x Data..?> "FailureReason")
+            Prelude.<*> (x Data..?> "ResolvedAttributes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "AutoMLJobName")
             Prelude.<*> (x Data..:> "AutoMLJobArn")
@@ -168,36 +168,36 @@ instance Data.ToQuery DescribeAutoMLJob where
 
 -- | /See:/ 'newDescribeAutoMLJobResponse' smart constructor.
 data DescribeAutoMLJobResponse = DescribeAutoMLJobResponse'
-  { -- | Returns the configuration for the AutoML job.
-    autoMLJobConfig :: Prelude.Maybe AutoMLJobConfig,
-    -- | Returns information on the job\'s artifacts found in
+  { -- | Returns information on the job\'s artifacts found in
     -- @AutoMLJobArtifacts@.
     autoMLJobArtifacts :: Prelude.Maybe AutoMLJobArtifacts,
+    -- | Returns the configuration for the AutoML job.
+    autoMLJobConfig :: Prelude.Maybe AutoMLJobConfig,
     -- | Returns the job\'s objective.
     autoMLJobObjective :: Prelude.Maybe AutoMLJobObjective,
-    -- | Returns a list of reasons for partial failures within an AutoML job.
-    partialFailureReasons :: Prelude.Maybe (Prelude.NonEmpty AutoMLPartialFailureReason),
+    -- | Returns the job\'s best @AutoMLCandidate@.
+    bestCandidate :: Prelude.Maybe AutoMLCandidate,
     -- | Returns the end time of the AutoML job.
     endTime :: Prelude.Maybe Data.POSIX,
-    -- | This contains @ProblemType@, @AutoMLJobObjective@, and
-    -- @CompletionCriteria@. If you do not provide these values, they are
-    -- auto-inferred. If you do provide them, the values used are the ones you
-    -- provide.
-    resolvedAttributes :: Prelude.Maybe ResolvedAttributes,
+    -- | Returns the failure reason for an AutoML job, when applicable.
+    failureReason :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the output for an AutoML job generates candidate
+    -- definitions only.
+    generateCandidateDefinitionsOnly :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether the model was deployed automatically to an endpoint
     -- and the name of that endpoint if deployed automatically.
     modelDeployConfig :: Prelude.Maybe ModelDeployConfig,
     -- | Provides information about endpoint for the model deployment.
     modelDeployResult :: Prelude.Maybe ModelDeployResult,
+    -- | Returns a list of reasons for partial failures within an AutoML job.
+    partialFailureReasons :: Prelude.Maybe (Prelude.NonEmpty AutoMLPartialFailureReason),
     -- | Returns the job\'s problem type.
     problemType :: Prelude.Maybe ProblemType,
-    -- | Returns the job\'s best @AutoMLCandidate@.
-    bestCandidate :: Prelude.Maybe AutoMLCandidate,
-    -- | Indicates whether the output for an AutoML job generates candidate
-    -- definitions only.
-    generateCandidateDefinitionsOnly :: Prelude.Maybe Prelude.Bool,
-    -- | Returns the failure reason for an AutoML job, when applicable.
-    failureReason :: Prelude.Maybe Prelude.Text,
+    -- | This contains @ProblemType@, @AutoMLJobObjective@, and
+    -- @CompletionCriteria@. If you do not provide these values, they are
+    -- auto-inferred. If you do provide them, the values used are the ones you
+    -- provide.
+    resolvedAttributes :: Prelude.Maybe ResolvedAttributes,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | Returns the name of the AutoML job.
@@ -208,9 +208,9 @@ data DescribeAutoMLJobResponse = DescribeAutoMLJobResponse'
     inputDataConfig :: Prelude.NonEmpty AutoMLChannel,
     -- | Returns the job\'s output data config.
     outputDataConfig :: AutoMLOutputDataConfig,
-    -- | The Amazon Resource Name (ARN) of the Amazon Web Services Identity and
-    -- Access Management (IAM) role that has read permission to the input data
-    -- location and write permission to the output data location in Amazon S3.
+    -- | The Amazon Resource Name (ARN) of the Identity and Access Management
+    -- (IAM) role that has read permission to the input data location and write
+    -- permission to the output data location in Amazon S3.
     roleArn :: Prelude.Text,
     -- | Returns the creation time of the AutoML job.
     creationTime :: Data.POSIX,
@@ -231,35 +231,35 @@ data DescribeAutoMLJobResponse = DescribeAutoMLJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'autoMLJobConfig', 'describeAutoMLJobResponse_autoMLJobConfig' - Returns the configuration for the AutoML job.
---
 -- 'autoMLJobArtifacts', 'describeAutoMLJobResponse_autoMLJobArtifacts' - Returns information on the job\'s artifacts found in
 -- @AutoMLJobArtifacts@.
 --
+-- 'autoMLJobConfig', 'describeAutoMLJobResponse_autoMLJobConfig' - Returns the configuration for the AutoML job.
+--
 -- 'autoMLJobObjective', 'describeAutoMLJobResponse_autoMLJobObjective' - Returns the job\'s objective.
 --
--- 'partialFailureReasons', 'describeAutoMLJobResponse_partialFailureReasons' - Returns a list of reasons for partial failures within an AutoML job.
+-- 'bestCandidate', 'describeAutoMLJobResponse_bestCandidate' - Returns the job\'s best @AutoMLCandidate@.
 --
 -- 'endTime', 'describeAutoMLJobResponse_endTime' - Returns the end time of the AutoML job.
 --
--- 'resolvedAttributes', 'describeAutoMLJobResponse_resolvedAttributes' - This contains @ProblemType@, @AutoMLJobObjective@, and
--- @CompletionCriteria@. If you do not provide these values, they are
--- auto-inferred. If you do provide them, the values used are the ones you
--- provide.
+-- 'failureReason', 'describeAutoMLJobResponse_failureReason' - Returns the failure reason for an AutoML job, when applicable.
+--
+-- 'generateCandidateDefinitionsOnly', 'describeAutoMLJobResponse_generateCandidateDefinitionsOnly' - Indicates whether the output for an AutoML job generates candidate
+-- definitions only.
 --
 -- 'modelDeployConfig', 'describeAutoMLJobResponse_modelDeployConfig' - Indicates whether the model was deployed automatically to an endpoint
 -- and the name of that endpoint if deployed automatically.
 --
 -- 'modelDeployResult', 'describeAutoMLJobResponse_modelDeployResult' - Provides information about endpoint for the model deployment.
 --
+-- 'partialFailureReasons', 'describeAutoMLJobResponse_partialFailureReasons' - Returns a list of reasons for partial failures within an AutoML job.
+--
 -- 'problemType', 'describeAutoMLJobResponse_problemType' - Returns the job\'s problem type.
 --
--- 'bestCandidate', 'describeAutoMLJobResponse_bestCandidate' - Returns the job\'s best @AutoMLCandidate@.
---
--- 'generateCandidateDefinitionsOnly', 'describeAutoMLJobResponse_generateCandidateDefinitionsOnly' - Indicates whether the output for an AutoML job generates candidate
--- definitions only.
---
--- 'failureReason', 'describeAutoMLJobResponse_failureReason' - Returns the failure reason for an AutoML job, when applicable.
+-- 'resolvedAttributes', 'describeAutoMLJobResponse_resolvedAttributes' - This contains @ProblemType@, @AutoMLJobObjective@, and
+-- @CompletionCriteria@. If you do not provide these values, they are
+-- auto-inferred. If you do provide them, the values used are the ones you
+-- provide.
 --
 -- 'httpStatus', 'describeAutoMLJobResponse_httpStatus' - The response's http status code.
 --
@@ -271,9 +271,9 @@ data DescribeAutoMLJobResponse = DescribeAutoMLJobResponse'
 --
 -- 'outputDataConfig', 'describeAutoMLJobResponse_outputDataConfig' - Returns the job\'s output data config.
 --
--- 'roleArn', 'describeAutoMLJobResponse_roleArn' - The Amazon Resource Name (ARN) of the Amazon Web Services Identity and
--- Access Management (IAM) role that has read permission to the input data
--- location and write permission to the output data location in Amazon S3.
+-- 'roleArn', 'describeAutoMLJobResponse_roleArn' - The Amazon Resource Name (ARN) of the Identity and Access Management
+-- (IAM) role that has read permission to the input data location and write
+-- permission to the output data location in Amazon S3.
 --
 -- 'creationTime', 'describeAutoMLJobResponse_creationTime' - Returns the creation time of the AutoML job.
 --
@@ -316,20 +316,20 @@ newDescribeAutoMLJobResponse
   pAutoMLJobStatus_
   pAutoMLJobSecondaryStatus_ =
     DescribeAutoMLJobResponse'
-      { autoMLJobConfig =
+      { autoMLJobArtifacts =
           Prelude.Nothing,
-        autoMLJobArtifacts = Prelude.Nothing,
+        autoMLJobConfig = Prelude.Nothing,
         autoMLJobObjective = Prelude.Nothing,
-        partialFailureReasons = Prelude.Nothing,
-        endTime = Prelude.Nothing,
-        resolvedAttributes = Prelude.Nothing,
-        modelDeployConfig = Prelude.Nothing,
-        modelDeployResult = Prelude.Nothing,
-        problemType = Prelude.Nothing,
         bestCandidate = Prelude.Nothing,
+        endTime = Prelude.Nothing,
+        failureReason = Prelude.Nothing,
         generateCandidateDefinitionsOnly =
           Prelude.Nothing,
-        failureReason = Prelude.Nothing,
+        modelDeployConfig = Prelude.Nothing,
+        modelDeployResult = Prelude.Nothing,
+        partialFailureReasons = Prelude.Nothing,
+        problemType = Prelude.Nothing,
+        resolvedAttributes = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         autoMLJobName = pAutoMLJobName_,
         autoMLJobArn = pAutoMLJobArn_,
@@ -345,33 +345,35 @@ newDescribeAutoMLJobResponse
           pAutoMLJobSecondaryStatus_
       }
 
--- | Returns the configuration for the AutoML job.
-describeAutoMLJobResponse_autoMLJobConfig :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe AutoMLJobConfig)
-describeAutoMLJobResponse_autoMLJobConfig = Lens.lens (\DescribeAutoMLJobResponse' {autoMLJobConfig} -> autoMLJobConfig) (\s@DescribeAutoMLJobResponse' {} a -> s {autoMLJobConfig = a} :: DescribeAutoMLJobResponse)
-
 -- | Returns information on the job\'s artifacts found in
 -- @AutoMLJobArtifacts@.
 describeAutoMLJobResponse_autoMLJobArtifacts :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe AutoMLJobArtifacts)
 describeAutoMLJobResponse_autoMLJobArtifacts = Lens.lens (\DescribeAutoMLJobResponse' {autoMLJobArtifacts} -> autoMLJobArtifacts) (\s@DescribeAutoMLJobResponse' {} a -> s {autoMLJobArtifacts = a} :: DescribeAutoMLJobResponse)
 
+-- | Returns the configuration for the AutoML job.
+describeAutoMLJobResponse_autoMLJobConfig :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe AutoMLJobConfig)
+describeAutoMLJobResponse_autoMLJobConfig = Lens.lens (\DescribeAutoMLJobResponse' {autoMLJobConfig} -> autoMLJobConfig) (\s@DescribeAutoMLJobResponse' {} a -> s {autoMLJobConfig = a} :: DescribeAutoMLJobResponse)
+
 -- | Returns the job\'s objective.
 describeAutoMLJobResponse_autoMLJobObjective :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe AutoMLJobObjective)
 describeAutoMLJobResponse_autoMLJobObjective = Lens.lens (\DescribeAutoMLJobResponse' {autoMLJobObjective} -> autoMLJobObjective) (\s@DescribeAutoMLJobResponse' {} a -> s {autoMLJobObjective = a} :: DescribeAutoMLJobResponse)
 
--- | Returns a list of reasons for partial failures within an AutoML job.
-describeAutoMLJobResponse_partialFailureReasons :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe (Prelude.NonEmpty AutoMLPartialFailureReason))
-describeAutoMLJobResponse_partialFailureReasons = Lens.lens (\DescribeAutoMLJobResponse' {partialFailureReasons} -> partialFailureReasons) (\s@DescribeAutoMLJobResponse' {} a -> s {partialFailureReasons = a} :: DescribeAutoMLJobResponse) Prelude.. Lens.mapping Lens.coerced
+-- | Returns the job\'s best @AutoMLCandidate@.
+describeAutoMLJobResponse_bestCandidate :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe AutoMLCandidate)
+describeAutoMLJobResponse_bestCandidate = Lens.lens (\DescribeAutoMLJobResponse' {bestCandidate} -> bestCandidate) (\s@DescribeAutoMLJobResponse' {} a -> s {bestCandidate = a} :: DescribeAutoMLJobResponse)
 
 -- | Returns the end time of the AutoML job.
 describeAutoMLJobResponse_endTime :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe Prelude.UTCTime)
 describeAutoMLJobResponse_endTime = Lens.lens (\DescribeAutoMLJobResponse' {endTime} -> endTime) (\s@DescribeAutoMLJobResponse' {} a -> s {endTime = a} :: DescribeAutoMLJobResponse) Prelude.. Lens.mapping Data._Time
 
--- | This contains @ProblemType@, @AutoMLJobObjective@, and
--- @CompletionCriteria@. If you do not provide these values, they are
--- auto-inferred. If you do provide them, the values used are the ones you
--- provide.
-describeAutoMLJobResponse_resolvedAttributes :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe ResolvedAttributes)
-describeAutoMLJobResponse_resolvedAttributes = Lens.lens (\DescribeAutoMLJobResponse' {resolvedAttributes} -> resolvedAttributes) (\s@DescribeAutoMLJobResponse' {} a -> s {resolvedAttributes = a} :: DescribeAutoMLJobResponse)
+-- | Returns the failure reason for an AutoML job, when applicable.
+describeAutoMLJobResponse_failureReason :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe Prelude.Text)
+describeAutoMLJobResponse_failureReason = Lens.lens (\DescribeAutoMLJobResponse' {failureReason} -> failureReason) (\s@DescribeAutoMLJobResponse' {} a -> s {failureReason = a} :: DescribeAutoMLJobResponse)
+
+-- | Indicates whether the output for an AutoML job generates candidate
+-- definitions only.
+describeAutoMLJobResponse_generateCandidateDefinitionsOnly :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe Prelude.Bool)
+describeAutoMLJobResponse_generateCandidateDefinitionsOnly = Lens.lens (\DescribeAutoMLJobResponse' {generateCandidateDefinitionsOnly} -> generateCandidateDefinitionsOnly) (\s@DescribeAutoMLJobResponse' {} a -> s {generateCandidateDefinitionsOnly = a} :: DescribeAutoMLJobResponse)
 
 -- | Indicates whether the model was deployed automatically to an endpoint
 -- and the name of that endpoint if deployed automatically.
@@ -382,22 +384,20 @@ describeAutoMLJobResponse_modelDeployConfig = Lens.lens (\DescribeAutoMLJobRespo
 describeAutoMLJobResponse_modelDeployResult :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe ModelDeployResult)
 describeAutoMLJobResponse_modelDeployResult = Lens.lens (\DescribeAutoMLJobResponse' {modelDeployResult} -> modelDeployResult) (\s@DescribeAutoMLJobResponse' {} a -> s {modelDeployResult = a} :: DescribeAutoMLJobResponse)
 
+-- | Returns a list of reasons for partial failures within an AutoML job.
+describeAutoMLJobResponse_partialFailureReasons :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe (Prelude.NonEmpty AutoMLPartialFailureReason))
+describeAutoMLJobResponse_partialFailureReasons = Lens.lens (\DescribeAutoMLJobResponse' {partialFailureReasons} -> partialFailureReasons) (\s@DescribeAutoMLJobResponse' {} a -> s {partialFailureReasons = a} :: DescribeAutoMLJobResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | Returns the job\'s problem type.
 describeAutoMLJobResponse_problemType :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe ProblemType)
 describeAutoMLJobResponse_problemType = Lens.lens (\DescribeAutoMLJobResponse' {problemType} -> problemType) (\s@DescribeAutoMLJobResponse' {} a -> s {problemType = a} :: DescribeAutoMLJobResponse)
 
--- | Returns the job\'s best @AutoMLCandidate@.
-describeAutoMLJobResponse_bestCandidate :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe AutoMLCandidate)
-describeAutoMLJobResponse_bestCandidate = Lens.lens (\DescribeAutoMLJobResponse' {bestCandidate} -> bestCandidate) (\s@DescribeAutoMLJobResponse' {} a -> s {bestCandidate = a} :: DescribeAutoMLJobResponse)
-
--- | Indicates whether the output for an AutoML job generates candidate
--- definitions only.
-describeAutoMLJobResponse_generateCandidateDefinitionsOnly :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe Prelude.Bool)
-describeAutoMLJobResponse_generateCandidateDefinitionsOnly = Lens.lens (\DescribeAutoMLJobResponse' {generateCandidateDefinitionsOnly} -> generateCandidateDefinitionsOnly) (\s@DescribeAutoMLJobResponse' {} a -> s {generateCandidateDefinitionsOnly = a} :: DescribeAutoMLJobResponse)
-
--- | Returns the failure reason for an AutoML job, when applicable.
-describeAutoMLJobResponse_failureReason :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe Prelude.Text)
-describeAutoMLJobResponse_failureReason = Lens.lens (\DescribeAutoMLJobResponse' {failureReason} -> failureReason) (\s@DescribeAutoMLJobResponse' {} a -> s {failureReason = a} :: DescribeAutoMLJobResponse)
+-- | This contains @ProblemType@, @AutoMLJobObjective@, and
+-- @CompletionCriteria@. If you do not provide these values, they are
+-- auto-inferred. If you do provide them, the values used are the ones you
+-- provide.
+describeAutoMLJobResponse_resolvedAttributes :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe ResolvedAttributes)
+describeAutoMLJobResponse_resolvedAttributes = Lens.lens (\DescribeAutoMLJobResponse' {resolvedAttributes} -> resolvedAttributes) (\s@DescribeAutoMLJobResponse' {} a -> s {resolvedAttributes = a} :: DescribeAutoMLJobResponse)
 
 -- | The response's http status code.
 describeAutoMLJobResponse_httpStatus :: Lens.Lens' DescribeAutoMLJobResponse Prelude.Int
@@ -419,9 +419,9 @@ describeAutoMLJobResponse_inputDataConfig = Lens.lens (\DescribeAutoMLJobRespons
 describeAutoMLJobResponse_outputDataConfig :: Lens.Lens' DescribeAutoMLJobResponse AutoMLOutputDataConfig
 describeAutoMLJobResponse_outputDataConfig = Lens.lens (\DescribeAutoMLJobResponse' {outputDataConfig} -> outputDataConfig) (\s@DescribeAutoMLJobResponse' {} a -> s {outputDataConfig = a} :: DescribeAutoMLJobResponse)
 
--- | The Amazon Resource Name (ARN) of the Amazon Web Services Identity and
--- Access Management (IAM) role that has read permission to the input data
--- location and write permission to the output data location in Amazon S3.
+-- | The Amazon Resource Name (ARN) of the Identity and Access Management
+-- (IAM) role that has read permission to the input data location and write
+-- permission to the output data location in Amazon S3.
 describeAutoMLJobResponse_roleArn :: Lens.Lens' DescribeAutoMLJobResponse Prelude.Text
 describeAutoMLJobResponse_roleArn = Lens.lens (\DescribeAutoMLJobResponse' {roleArn} -> roleArn) (\s@DescribeAutoMLJobResponse' {} a -> s {roleArn = a} :: DescribeAutoMLJobResponse)
 
@@ -443,18 +443,18 @@ describeAutoMLJobResponse_autoMLJobSecondaryStatus = Lens.lens (\DescribeAutoMLJ
 
 instance Prelude.NFData DescribeAutoMLJobResponse where
   rnf DescribeAutoMLJobResponse' {..} =
-    Prelude.rnf autoMLJobConfig
-      `Prelude.seq` Prelude.rnf autoMLJobArtifacts
+    Prelude.rnf autoMLJobArtifacts
+      `Prelude.seq` Prelude.rnf autoMLJobConfig
       `Prelude.seq` Prelude.rnf autoMLJobObjective
-      `Prelude.seq` Prelude.rnf partialFailureReasons
+      `Prelude.seq` Prelude.rnf bestCandidate
       `Prelude.seq` Prelude.rnf endTime
-      `Prelude.seq` Prelude.rnf resolvedAttributes
+      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf generateCandidateDefinitionsOnly
       `Prelude.seq` Prelude.rnf modelDeployConfig
       `Prelude.seq` Prelude.rnf modelDeployResult
+      `Prelude.seq` Prelude.rnf partialFailureReasons
       `Prelude.seq` Prelude.rnf problemType
-      `Prelude.seq` Prelude.rnf bestCandidate
-      `Prelude.seq` Prelude.rnf generateCandidateDefinitionsOnly
-      `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf resolvedAttributes
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf autoMLJobName
       `Prelude.seq` Prelude.rnf autoMLJobArn

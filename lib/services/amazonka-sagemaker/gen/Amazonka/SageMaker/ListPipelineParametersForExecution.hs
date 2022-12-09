@@ -29,8 +29,8 @@ module Amazonka.SageMaker.ListPipelineParametersForExecution
     newListPipelineParametersForExecution,
 
     -- * Request Lenses
-    listPipelineParametersForExecution_nextToken,
     listPipelineParametersForExecution_maxResults,
+    listPipelineParametersForExecution_nextToken,
     listPipelineParametersForExecution_pipelineExecutionArn,
 
     -- * Destructuring the Response
@@ -54,12 +54,12 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListPipelineParametersForExecution' smart constructor.
 data ListPipelineParametersForExecution = ListPipelineParametersForExecution'
-  { -- | If the result of the previous @ListPipelineParametersForExecution@
+  { -- | The maximum number of parameters to return in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If the result of the previous @ListPipelineParametersForExecution@
     -- request was truncated, the response includes a @NextToken@. To retrieve
     -- the next set of parameters, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of parameters to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the pipeline execution.
     pipelineExecutionArn :: Prelude.Text
   }
@@ -73,11 +73,11 @@ data ListPipelineParametersForExecution = ListPipelineParametersForExecution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listPipelineParametersForExecution_maxResults' - The maximum number of parameters to return in the response.
+--
 -- 'nextToken', 'listPipelineParametersForExecution_nextToken' - If the result of the previous @ListPipelineParametersForExecution@
 -- request was truncated, the response includes a @NextToken@. To retrieve
 -- the next set of parameters, use the token in the next request.
---
--- 'maxResults', 'listPipelineParametersForExecution_maxResults' - The maximum number of parameters to return in the response.
 --
 -- 'pipelineExecutionArn', 'listPipelineParametersForExecution_pipelineExecutionArn' - The Amazon Resource Name (ARN) of the pipeline execution.
 newListPipelineParametersForExecution ::
@@ -87,22 +87,22 @@ newListPipelineParametersForExecution ::
 newListPipelineParametersForExecution
   pPipelineExecutionArn_ =
     ListPipelineParametersForExecution'
-      { nextToken =
+      { maxResults =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         pipelineExecutionArn =
           pPipelineExecutionArn_
       }
+
+-- | The maximum number of parameters to return in the response.
+listPipelineParametersForExecution_maxResults :: Lens.Lens' ListPipelineParametersForExecution (Prelude.Maybe Prelude.Natural)
+listPipelineParametersForExecution_maxResults = Lens.lens (\ListPipelineParametersForExecution' {maxResults} -> maxResults) (\s@ListPipelineParametersForExecution' {} a -> s {maxResults = a} :: ListPipelineParametersForExecution)
 
 -- | If the result of the previous @ListPipelineParametersForExecution@
 -- request was truncated, the response includes a @NextToken@. To retrieve
 -- the next set of parameters, use the token in the next request.
 listPipelineParametersForExecution_nextToken :: Lens.Lens' ListPipelineParametersForExecution (Prelude.Maybe Prelude.Text)
 listPipelineParametersForExecution_nextToken = Lens.lens (\ListPipelineParametersForExecution' {nextToken} -> nextToken) (\s@ListPipelineParametersForExecution' {} a -> s {nextToken = a} :: ListPipelineParametersForExecution)
-
--- | The maximum number of parameters to return in the response.
-listPipelineParametersForExecution_maxResults :: Lens.Lens' ListPipelineParametersForExecution (Prelude.Maybe Prelude.Natural)
-listPipelineParametersForExecution_maxResults = Lens.lens (\ListPipelineParametersForExecution' {maxResults} -> maxResults) (\s@ListPipelineParametersForExecution' {} a -> s {maxResults = a} :: ListPipelineParametersForExecution)
 
 -- | The Amazon Resource Name (ARN) of the pipeline execution.
 listPipelineParametersForExecution_pipelineExecutionArn :: Lens.Lens' ListPipelineParametersForExecution Prelude.Text
@@ -160,8 +160,8 @@ instance
   hashWithSalt
     _salt
     ListPipelineParametersForExecution' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` pipelineExecutionArn
 
 instance
@@ -169,8 +169,8 @@ instance
     ListPipelineParametersForExecution
   where
   rnf ListPipelineParametersForExecution' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf pipelineExecutionArn
 
 instance
@@ -198,8 +198,8 @@ instance
   toJSON ListPipelineParametersForExecution' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ( "PipelineExecutionArn"
                   Data..= pipelineExecutionArn

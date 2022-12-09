@@ -31,15 +31,15 @@ import Amazonka.SageMaker.Types.ProcessingS3Input
 --
 -- /See:/ 'newProcessingInput' smart constructor.
 data ProcessingInput = ProcessingInput'
-  { -- | Configuration for downloading input data from Amazon S3 into the
-    -- processing container.
-    s3Input :: Prelude.Maybe ProcessingS3Input,
-    -- | Configuration for a Dataset Definition input.
-    datasetDefinition :: Prelude.Maybe DatasetDefinition,
-    -- | When @True@, input operations such as data download are managed natively
+  { -- | When @True@, input operations such as data download are managed natively
     -- by the processing job application. When @False@ (default), input
     -- operations are managed by Amazon SageMaker.
     appManaged :: Prelude.Maybe Prelude.Bool,
+    -- | Configuration for a Dataset Definition input.
+    datasetDefinition :: Prelude.Maybe DatasetDefinition,
+    -- | Configuration for downloading input data from Amazon S3 into the
+    -- processing container.
+    s3Input :: Prelude.Maybe ProcessingS3Input,
     -- | The name for the processing job input.
     inputName :: Prelude.Text
   }
@@ -53,14 +53,14 @@ data ProcessingInput = ProcessingInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3Input', 'processingInput_s3Input' - Configuration for downloading input data from Amazon S3 into the
--- processing container.
---
--- 'datasetDefinition', 'processingInput_datasetDefinition' - Configuration for a Dataset Definition input.
---
 -- 'appManaged', 'processingInput_appManaged' - When @True@, input operations such as data download are managed natively
 -- by the processing job application. When @False@ (default), input
 -- operations are managed by Amazon SageMaker.
+--
+-- 'datasetDefinition', 'processingInput_datasetDefinition' - Configuration for a Dataset Definition input.
+--
+-- 's3Input', 'processingInput_s3Input' - Configuration for downloading input data from Amazon S3 into the
+-- processing container.
 --
 -- 'inputName', 'processingInput_inputName' - The name for the processing job input.
 newProcessingInput ::
@@ -69,26 +69,26 @@ newProcessingInput ::
   ProcessingInput
 newProcessingInput pInputName_ =
   ProcessingInput'
-    { s3Input = Prelude.Nothing,
+    { appManaged = Prelude.Nothing,
       datasetDefinition = Prelude.Nothing,
-      appManaged = Prelude.Nothing,
+      s3Input = Prelude.Nothing,
       inputName = pInputName_
     }
-
--- | Configuration for downloading input data from Amazon S3 into the
--- processing container.
-processingInput_s3Input :: Lens.Lens' ProcessingInput (Prelude.Maybe ProcessingS3Input)
-processingInput_s3Input = Lens.lens (\ProcessingInput' {s3Input} -> s3Input) (\s@ProcessingInput' {} a -> s {s3Input = a} :: ProcessingInput)
-
--- | Configuration for a Dataset Definition input.
-processingInput_datasetDefinition :: Lens.Lens' ProcessingInput (Prelude.Maybe DatasetDefinition)
-processingInput_datasetDefinition = Lens.lens (\ProcessingInput' {datasetDefinition} -> datasetDefinition) (\s@ProcessingInput' {} a -> s {datasetDefinition = a} :: ProcessingInput)
 
 -- | When @True@, input operations such as data download are managed natively
 -- by the processing job application. When @False@ (default), input
 -- operations are managed by Amazon SageMaker.
 processingInput_appManaged :: Lens.Lens' ProcessingInput (Prelude.Maybe Prelude.Bool)
 processingInput_appManaged = Lens.lens (\ProcessingInput' {appManaged} -> appManaged) (\s@ProcessingInput' {} a -> s {appManaged = a} :: ProcessingInput)
+
+-- | Configuration for a Dataset Definition input.
+processingInput_datasetDefinition :: Lens.Lens' ProcessingInput (Prelude.Maybe DatasetDefinition)
+processingInput_datasetDefinition = Lens.lens (\ProcessingInput' {datasetDefinition} -> datasetDefinition) (\s@ProcessingInput' {} a -> s {datasetDefinition = a} :: ProcessingInput)
+
+-- | Configuration for downloading input data from Amazon S3 into the
+-- processing container.
+processingInput_s3Input :: Lens.Lens' ProcessingInput (Prelude.Maybe ProcessingS3Input)
+processingInput_s3Input = Lens.lens (\ProcessingInput' {s3Input} -> s3Input) (\s@ProcessingInput' {} a -> s {s3Input = a} :: ProcessingInput)
 
 -- | The name for the processing job input.
 processingInput_inputName :: Lens.Lens' ProcessingInput Prelude.Text
@@ -100,34 +100,34 @@ instance Data.FromJSON ProcessingInput where
       "ProcessingInput"
       ( \x ->
           ProcessingInput'
-            Prelude.<$> (x Data..:? "S3Input")
+            Prelude.<$> (x Data..:? "AppManaged")
             Prelude.<*> (x Data..:? "DatasetDefinition")
-            Prelude.<*> (x Data..:? "AppManaged")
+            Prelude.<*> (x Data..:? "S3Input")
             Prelude.<*> (x Data..: "InputName")
       )
 
 instance Prelude.Hashable ProcessingInput where
   hashWithSalt _salt ProcessingInput' {..} =
-    _salt `Prelude.hashWithSalt` s3Input
+    _salt `Prelude.hashWithSalt` appManaged
       `Prelude.hashWithSalt` datasetDefinition
-      `Prelude.hashWithSalt` appManaged
+      `Prelude.hashWithSalt` s3Input
       `Prelude.hashWithSalt` inputName
 
 instance Prelude.NFData ProcessingInput where
   rnf ProcessingInput' {..} =
-    Prelude.rnf s3Input
+    Prelude.rnf appManaged
       `Prelude.seq` Prelude.rnf datasetDefinition
-      `Prelude.seq` Prelude.rnf appManaged
+      `Prelude.seq` Prelude.rnf s3Input
       `Prelude.seq` Prelude.rnf inputName
 
 instance Data.ToJSON ProcessingInput where
   toJSON ProcessingInput' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("S3Input" Data..=) Prelude.<$> s3Input,
+          [ ("AppManaged" Data..=) Prelude.<$> appManaged,
             ("DatasetDefinition" Data..=)
               Prelude.<$> datasetDefinition,
-            ("AppManaged" Data..=) Prelude.<$> appManaged,
+            ("S3Input" Data..=) Prelude.<$> s3Input,
             Prelude.Just ("InputName" Data..= inputName)
           ]
       )

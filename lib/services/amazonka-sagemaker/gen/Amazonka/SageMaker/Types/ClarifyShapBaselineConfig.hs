@@ -41,7 +41,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newClarifyShapBaselineConfig' smart constructor.
 data ClarifyShapBaselineConfig = ClarifyShapBaselineConfig'
-  { -- | The inline SHAP baseline data in string format. @ShapBaseline@ can have
+  { -- | The MIME type of the baseline data. Choose from @\'text\/csv\'@ or
+    -- @\'application\/jsonlines\'@. Defaults to @\'text\/csv\'@.
+    mimeType :: Prelude.Maybe Prelude.Text,
+    -- | The inline SHAP baseline data in string format. @ShapBaseline@ can have
     -- one or multiple records to be used as the baseline dataset. The format
     -- of the SHAP baseline file should be the same format as the training
     -- dataset. For example, if the training dataset is in CSV format and each
@@ -64,10 +67,7 @@ data ClarifyShapBaselineConfig = ClarifyShapBaselineConfig'
     -- information about setting up endpoints with Amazon Virtual Private
     -- Cloud, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html Give SageMaker access to Resources in your Amazon Virtual Private Cloud>.
-    shapBaselineUri :: Prelude.Maybe Prelude.Text,
-    -- | The MIME type of the baseline data. Choose from @\'text\/csv\'@ or
-    -- @\'application\/jsonlines\'@. Defaults to @\'text\/csv\'@.
-    mimeType :: Prelude.Maybe Prelude.Text
+    shapBaselineUri :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,6 +78,9 @@ data ClarifyShapBaselineConfig = ClarifyShapBaselineConfig'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'mimeType', 'clarifyShapBaselineConfig_mimeType' - The MIME type of the baseline data. Choose from @\'text\/csv\'@ or
+-- @\'application\/jsonlines\'@. Defaults to @\'text\/csv\'@.
 --
 -- 'shapBaseline', 'clarifyShapBaselineConfig_shapBaseline' - The inline SHAP baseline data in string format. @ShapBaseline@ can have
 -- one or multiple records to be used as the baseline dataset. The format
@@ -102,18 +105,20 @@ data ClarifyShapBaselineConfig = ClarifyShapBaselineConfig'
 -- information about setting up endpoints with Amazon Virtual Private
 -- Cloud, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html Give SageMaker access to Resources in your Amazon Virtual Private Cloud>.
---
--- 'mimeType', 'clarifyShapBaselineConfig_mimeType' - The MIME type of the baseline data. Choose from @\'text\/csv\'@ or
--- @\'application\/jsonlines\'@. Defaults to @\'text\/csv\'@.
 newClarifyShapBaselineConfig ::
   ClarifyShapBaselineConfig
 newClarifyShapBaselineConfig =
   ClarifyShapBaselineConfig'
-    { shapBaseline =
+    { mimeType =
         Prelude.Nothing,
-      shapBaselineUri = Prelude.Nothing,
-      mimeType = Prelude.Nothing
+      shapBaseline = Prelude.Nothing,
+      shapBaselineUri = Prelude.Nothing
     }
+
+-- | The MIME type of the baseline data. Choose from @\'text\/csv\'@ or
+-- @\'application\/jsonlines\'@. Defaults to @\'text\/csv\'@.
+clarifyShapBaselineConfig_mimeType :: Lens.Lens' ClarifyShapBaselineConfig (Prelude.Maybe Prelude.Text)
+clarifyShapBaselineConfig_mimeType = Lens.lens (\ClarifyShapBaselineConfig' {mimeType} -> mimeType) (\s@ClarifyShapBaselineConfig' {} a -> s {mimeType = a} :: ClarifyShapBaselineConfig)
 
 -- | The inline SHAP baseline data in string format. @ShapBaseline@ can have
 -- one or multiple records to be used as the baseline dataset. The format
@@ -143,41 +148,36 @@ clarifyShapBaselineConfig_shapBaseline = Lens.lens (\ClarifyShapBaselineConfig' 
 clarifyShapBaselineConfig_shapBaselineUri :: Lens.Lens' ClarifyShapBaselineConfig (Prelude.Maybe Prelude.Text)
 clarifyShapBaselineConfig_shapBaselineUri = Lens.lens (\ClarifyShapBaselineConfig' {shapBaselineUri} -> shapBaselineUri) (\s@ClarifyShapBaselineConfig' {} a -> s {shapBaselineUri = a} :: ClarifyShapBaselineConfig)
 
--- | The MIME type of the baseline data. Choose from @\'text\/csv\'@ or
--- @\'application\/jsonlines\'@. Defaults to @\'text\/csv\'@.
-clarifyShapBaselineConfig_mimeType :: Lens.Lens' ClarifyShapBaselineConfig (Prelude.Maybe Prelude.Text)
-clarifyShapBaselineConfig_mimeType = Lens.lens (\ClarifyShapBaselineConfig' {mimeType} -> mimeType) (\s@ClarifyShapBaselineConfig' {} a -> s {mimeType = a} :: ClarifyShapBaselineConfig)
-
 instance Data.FromJSON ClarifyShapBaselineConfig where
   parseJSON =
     Data.withObject
       "ClarifyShapBaselineConfig"
       ( \x ->
           ClarifyShapBaselineConfig'
-            Prelude.<$> (x Data..:? "ShapBaseline")
+            Prelude.<$> (x Data..:? "MimeType")
+            Prelude.<*> (x Data..:? "ShapBaseline")
             Prelude.<*> (x Data..:? "ShapBaselineUri")
-            Prelude.<*> (x Data..:? "MimeType")
       )
 
 instance Prelude.Hashable ClarifyShapBaselineConfig where
   hashWithSalt _salt ClarifyShapBaselineConfig' {..} =
-    _salt `Prelude.hashWithSalt` shapBaseline
+    _salt `Prelude.hashWithSalt` mimeType
+      `Prelude.hashWithSalt` shapBaseline
       `Prelude.hashWithSalt` shapBaselineUri
-      `Prelude.hashWithSalt` mimeType
 
 instance Prelude.NFData ClarifyShapBaselineConfig where
   rnf ClarifyShapBaselineConfig' {..} =
-    Prelude.rnf shapBaseline
+    Prelude.rnf mimeType
+      `Prelude.seq` Prelude.rnf shapBaseline
       `Prelude.seq` Prelude.rnf shapBaselineUri
-      `Prelude.seq` Prelude.rnf mimeType
 
 instance Data.ToJSON ClarifyShapBaselineConfig where
   toJSON ClarifyShapBaselineConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ShapBaseline" Data..=) Prelude.<$> shapBaseline,
+          [ ("MimeType" Data..=) Prelude.<$> mimeType,
+            ("ShapBaseline" Data..=) Prelude.<$> shapBaseline,
             ("ShapBaselineUri" Data..=)
-              Prelude.<$> shapBaselineUri,
-            ("MimeType" Data..=) Prelude.<$> mimeType
+              Prelude.<$> shapBaselineUri
           ]
       )

@@ -40,9 +40,6 @@ data HumanTaskConfig = HumanTaskConfig'
     -- | The price that you pay for each task performed by an Amazon Mechanical
     -- Turk worker.
     publicWorkforceTaskPrice :: Prelude.Maybe PublicWorkforceTaskPrice,
-    -- | Keywords used to describe the task so that workers on Amazon Mechanical
-    -- Turk can discover the task.
-    taskKeywords :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The length of time that a task remains available for labeling by human
     -- workers. The default and maximum values for this parameter depend on the
     -- type of workforce you use.
@@ -54,6 +51,9 @@ data HumanTaskConfig = HumanTaskConfig'
     --     days (2592,000 seconds) for non-AL mode. For most users, the maximum
     --     is also 30 days.
     taskAvailabilityLifetimeInSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | Keywords used to describe the task so that workers on Amazon Mechanical
+    -- Turk can discover the task.
+    taskKeywords :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the work team assigned to complete the
     -- tasks.
     workteamArn :: Prelude.Text,
@@ -757,9 +757,6 @@ data HumanTaskConfig = HumanTaskConfig'
 -- 'publicWorkforceTaskPrice', 'humanTaskConfig_publicWorkforceTaskPrice' - The price that you pay for each task performed by an Amazon Mechanical
 -- Turk worker.
 --
--- 'taskKeywords', 'humanTaskConfig_taskKeywords' - Keywords used to describe the task so that workers on Amazon Mechanical
--- Turk can discover the task.
---
 -- 'taskAvailabilityLifetimeInSeconds', 'humanTaskConfig_taskAvailabilityLifetimeInSeconds' - The length of time that a task remains available for labeling by human
 -- workers. The default and maximum values for this parameter depend on the
 -- type of workforce you use.
@@ -770,6 +767,9 @@ data HumanTaskConfig = HumanTaskConfig'
 -- -   If you choose a private or vendor workforce, the default value is 30
 --     days (2592,000 seconds) for non-AL mode. For most users, the maximum
 --     is also 30 days.
+--
+-- 'taskKeywords', 'humanTaskConfig_taskKeywords' - Keywords used to describe the task so that workers on Amazon Mechanical
+-- Turk can discover the task.
 --
 -- 'workteamArn', 'humanTaskConfig_workteamArn' - The Amazon Resource Name (ARN) of the work team assigned to complete the
 -- tasks.
@@ -1484,8 +1484,8 @@ newHumanTaskConfig
       { maxConcurrentTaskCount =
           Prelude.Nothing,
         publicWorkforceTaskPrice = Prelude.Nothing,
-        taskKeywords = Prelude.Nothing,
         taskAvailabilityLifetimeInSeconds = Prelude.Nothing,
+        taskKeywords = Prelude.Nothing,
         workteamArn = pWorkteamArn_,
         uiConfig = pUiConfig_,
         preHumanTaskLambdaArn = pPreHumanTaskLambdaArn_,
@@ -1511,11 +1511,6 @@ humanTaskConfig_maxConcurrentTaskCount = Lens.lens (\HumanTaskConfig' {maxConcur
 humanTaskConfig_publicWorkforceTaskPrice :: Lens.Lens' HumanTaskConfig (Prelude.Maybe PublicWorkforceTaskPrice)
 humanTaskConfig_publicWorkforceTaskPrice = Lens.lens (\HumanTaskConfig' {publicWorkforceTaskPrice} -> publicWorkforceTaskPrice) (\s@HumanTaskConfig' {} a -> s {publicWorkforceTaskPrice = a} :: HumanTaskConfig)
 
--- | Keywords used to describe the task so that workers on Amazon Mechanical
--- Turk can discover the task.
-humanTaskConfig_taskKeywords :: Lens.Lens' HumanTaskConfig (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-humanTaskConfig_taskKeywords = Lens.lens (\HumanTaskConfig' {taskKeywords} -> taskKeywords) (\s@HumanTaskConfig' {} a -> s {taskKeywords = a} :: HumanTaskConfig) Prelude.. Lens.mapping Lens.coerced
-
 -- | The length of time that a task remains available for labeling by human
 -- workers. The default and maximum values for this parameter depend on the
 -- type of workforce you use.
@@ -1528,6 +1523,11 @@ humanTaskConfig_taskKeywords = Lens.lens (\HumanTaskConfig' {taskKeywords} -> ta
 --     is also 30 days.
 humanTaskConfig_taskAvailabilityLifetimeInSeconds :: Lens.Lens' HumanTaskConfig (Prelude.Maybe Prelude.Natural)
 humanTaskConfig_taskAvailabilityLifetimeInSeconds = Lens.lens (\HumanTaskConfig' {taskAvailabilityLifetimeInSeconds} -> taskAvailabilityLifetimeInSeconds) (\s@HumanTaskConfig' {} a -> s {taskAvailabilityLifetimeInSeconds = a} :: HumanTaskConfig)
+
+-- | Keywords used to describe the task so that workers on Amazon Mechanical
+-- Turk can discover the task.
+humanTaskConfig_taskKeywords :: Lens.Lens' HumanTaskConfig (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+humanTaskConfig_taskKeywords = Lens.lens (\HumanTaskConfig' {taskKeywords} -> taskKeywords) (\s@HumanTaskConfig' {} a -> s {taskKeywords = a} :: HumanTaskConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the work team assigned to complete the
 -- tasks.
@@ -2236,8 +2236,8 @@ instance Data.FromJSON HumanTaskConfig where
           HumanTaskConfig'
             Prelude.<$> (x Data..:? "MaxConcurrentTaskCount")
             Prelude.<*> (x Data..:? "PublicWorkforceTaskPrice")
-            Prelude.<*> (x Data..:? "TaskKeywords")
             Prelude.<*> (x Data..:? "TaskAvailabilityLifetimeInSeconds")
+            Prelude.<*> (x Data..:? "TaskKeywords")
             Prelude.<*> (x Data..: "WorkteamArn")
             Prelude.<*> (x Data..: "UiConfig")
             Prelude.<*> (x Data..: "PreHumanTaskLambdaArn")
@@ -2252,8 +2252,8 @@ instance Prelude.Hashable HumanTaskConfig where
   hashWithSalt _salt HumanTaskConfig' {..} =
     _salt `Prelude.hashWithSalt` maxConcurrentTaskCount
       `Prelude.hashWithSalt` publicWorkforceTaskPrice
-      `Prelude.hashWithSalt` taskKeywords
       `Prelude.hashWithSalt` taskAvailabilityLifetimeInSeconds
+      `Prelude.hashWithSalt` taskKeywords
       `Prelude.hashWithSalt` workteamArn
       `Prelude.hashWithSalt` uiConfig
       `Prelude.hashWithSalt` preHumanTaskLambdaArn
@@ -2267,8 +2267,8 @@ instance Prelude.NFData HumanTaskConfig where
   rnf HumanTaskConfig' {..} =
     Prelude.rnf maxConcurrentTaskCount
       `Prelude.seq` Prelude.rnf publicWorkforceTaskPrice
-      `Prelude.seq` Prelude.rnf taskKeywords
       `Prelude.seq` Prelude.rnf taskAvailabilityLifetimeInSeconds
+      `Prelude.seq` Prelude.rnf taskKeywords
       `Prelude.seq` Prelude.rnf workteamArn
       `Prelude.seq` Prelude.rnf uiConfig
       `Prelude.seq` Prelude.rnf preHumanTaskLambdaArn
@@ -2286,9 +2286,9 @@ instance Data.ToJSON HumanTaskConfig where
               Prelude.<$> maxConcurrentTaskCount,
             ("PublicWorkforceTaskPrice" Data..=)
               Prelude.<$> publicWorkforceTaskPrice,
-            ("TaskKeywords" Data..=) Prelude.<$> taskKeywords,
             ("TaskAvailabilityLifetimeInSeconds" Data..=)
               Prelude.<$> taskAvailabilityLifetimeInSeconds,
+            ("TaskKeywords" Data..=) Prelude.<$> taskKeywords,
             Prelude.Just ("WorkteamArn" Data..= workteamArn),
             Prelude.Just ("UiConfig" Data..= uiConfig),
             Prelude.Just

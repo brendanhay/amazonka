@@ -29,8 +29,8 @@ module Amazonka.SageMaker.CreateAppImageConfig
     newCreateAppImageConfig,
 
     -- * Request Lenses
-    createAppImageConfig_tags,
     createAppImageConfig_kernelGatewayImageConfig,
+    createAppImageConfig_tags,
     createAppImageConfig_appImageConfigName,
 
     -- * Destructuring the Response
@@ -53,13 +53,13 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateAppImageConfig' smart constructor.
 data CreateAppImageConfig = CreateAppImageConfig'
-  { -- | A list of tags to apply to the AppImageConfig.
-    tags :: Prelude.Maybe [Tag],
-    -- | The KernelGatewayImageConfig. You can only specify one image kernel in
+  { -- | The KernelGatewayImageConfig. You can only specify one image kernel in
     -- the AppImageConfig API. This kernel will be shown to users before the
     -- image starts. Once the image runs, all kernels are visible in
     -- JupyterLab.
     kernelGatewayImageConfig :: Prelude.Maybe KernelGatewayImageConfig,
+    -- | A list of tags to apply to the AppImageConfig.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the AppImageConfig. Must be unique to your account.
     appImageConfigName :: Prelude.Text
   }
@@ -73,12 +73,12 @@ data CreateAppImageConfig = CreateAppImageConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createAppImageConfig_tags' - A list of tags to apply to the AppImageConfig.
---
 -- 'kernelGatewayImageConfig', 'createAppImageConfig_kernelGatewayImageConfig' - The KernelGatewayImageConfig. You can only specify one image kernel in
 -- the AppImageConfig API. This kernel will be shown to users before the
 -- image starts. Once the image runs, all kernels are visible in
 -- JupyterLab.
+--
+-- 'tags', 'createAppImageConfig_tags' - A list of tags to apply to the AppImageConfig.
 --
 -- 'appImageConfigName', 'createAppImageConfig_appImageConfigName' - The name of the AppImageConfig. Must be unique to your account.
 newCreateAppImageConfig ::
@@ -87,14 +87,11 @@ newCreateAppImageConfig ::
   CreateAppImageConfig
 newCreateAppImageConfig pAppImageConfigName_ =
   CreateAppImageConfig'
-    { tags = Prelude.Nothing,
-      kernelGatewayImageConfig = Prelude.Nothing,
+    { kernelGatewayImageConfig =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       appImageConfigName = pAppImageConfigName_
     }
-
--- | A list of tags to apply to the AppImageConfig.
-createAppImageConfig_tags :: Lens.Lens' CreateAppImageConfig (Prelude.Maybe [Tag])
-createAppImageConfig_tags = Lens.lens (\CreateAppImageConfig' {tags} -> tags) (\s@CreateAppImageConfig' {} a -> s {tags = a} :: CreateAppImageConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The KernelGatewayImageConfig. You can only specify one image kernel in
 -- the AppImageConfig API. This kernel will be shown to users before the
@@ -102,6 +99,10 @@ createAppImageConfig_tags = Lens.lens (\CreateAppImageConfig' {tags} -> tags) (\
 -- JupyterLab.
 createAppImageConfig_kernelGatewayImageConfig :: Lens.Lens' CreateAppImageConfig (Prelude.Maybe KernelGatewayImageConfig)
 createAppImageConfig_kernelGatewayImageConfig = Lens.lens (\CreateAppImageConfig' {kernelGatewayImageConfig} -> kernelGatewayImageConfig) (\s@CreateAppImageConfig' {} a -> s {kernelGatewayImageConfig = a} :: CreateAppImageConfig)
+
+-- | A list of tags to apply to the AppImageConfig.
+createAppImageConfig_tags :: Lens.Lens' CreateAppImageConfig (Prelude.Maybe [Tag])
+createAppImageConfig_tags = Lens.lens (\CreateAppImageConfig' {tags} -> tags) (\s@CreateAppImageConfig' {} a -> s {tags = a} :: CreateAppImageConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the AppImageConfig. Must be unique to your account.
 createAppImageConfig_appImageConfigName :: Lens.Lens' CreateAppImageConfig Prelude.Text
@@ -123,14 +124,15 @@ instance Core.AWSRequest CreateAppImageConfig where
 
 instance Prelude.Hashable CreateAppImageConfig where
   hashWithSalt _salt CreateAppImageConfig' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
       `Prelude.hashWithSalt` kernelGatewayImageConfig
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` appImageConfigName
 
 instance Prelude.NFData CreateAppImageConfig where
   rnf CreateAppImageConfig' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf kernelGatewayImageConfig
+    Prelude.rnf kernelGatewayImageConfig
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf appImageConfigName
 
 instance Data.ToHeaders CreateAppImageConfig where
@@ -152,9 +154,9 @@ instance Data.ToJSON CreateAppImageConfig where
   toJSON CreateAppImageConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("KernelGatewayImageConfig" Data..=)
+          [ ("KernelGatewayImageConfig" Data..=)
               Prelude.<$> kernelGatewayImageConfig,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("AppImageConfigName" Data..= appImageConfigName)
           ]

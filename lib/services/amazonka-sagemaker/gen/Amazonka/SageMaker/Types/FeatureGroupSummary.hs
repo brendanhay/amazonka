@@ -31,12 +31,12 @@ import Amazonka.SageMaker.Types.OfflineStoreStatus
 --
 -- /See:/ 'newFeatureGroupSummary' smart constructor.
 data FeatureGroupSummary = FeatureGroupSummary'
-  { -- | Notifies you if replicating data into the @OfflineStore@ has failed.
-    -- Returns either: @Active@ or @Blocked@.
-    offlineStoreStatus :: Prelude.Maybe OfflineStoreStatus,
-    -- | The status of a FeatureGroup. The status can be any of the following:
+  { -- | The status of a FeatureGroup. The status can be any of the following:
     -- @Creating@, @Created@, @CreateFail@, @Deleting@ or @DetailFail@.
     featureGroupStatus :: Prelude.Maybe FeatureGroupStatus,
+    -- | Notifies you if replicating data into the @OfflineStore@ has failed.
+    -- Returns either: @Active@ or @Blocked@.
+    offlineStoreStatus :: Prelude.Maybe OfflineStoreStatus,
     -- | The name of @FeatureGroup@.
     featureGroupName :: Prelude.Text,
     -- | Unique identifier for the @FeatureGroup@.
@@ -54,11 +54,11 @@ data FeatureGroupSummary = FeatureGroupSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'offlineStoreStatus', 'featureGroupSummary_offlineStoreStatus' - Notifies you if replicating data into the @OfflineStore@ has failed.
--- Returns either: @Active@ or @Blocked@.
---
 -- 'featureGroupStatus', 'featureGroupSummary_featureGroupStatus' - The status of a FeatureGroup. The status can be any of the following:
 -- @Creating@, @Created@, @CreateFail@, @Deleting@ or @DetailFail@.
+--
+-- 'offlineStoreStatus', 'featureGroupSummary_offlineStoreStatus' - Notifies you if replicating data into the @OfflineStore@ has failed.
+-- Returns either: @Active@ or @Blocked@.
 --
 -- 'featureGroupName', 'featureGroupSummary_featureGroupName' - The name of @FeatureGroup@.
 --
@@ -78,23 +78,23 @@ newFeatureGroupSummary
   pFeatureGroupArn_
   pCreationTime_ =
     FeatureGroupSummary'
-      { offlineStoreStatus =
+      { featureGroupStatus =
           Prelude.Nothing,
-        featureGroupStatus = Prelude.Nothing,
+        offlineStoreStatus = Prelude.Nothing,
         featureGroupName = pFeatureGroupName_,
         featureGroupArn = pFeatureGroupArn_,
         creationTime = Data._Time Lens.# pCreationTime_
       }
 
--- | Notifies you if replicating data into the @OfflineStore@ has failed.
--- Returns either: @Active@ or @Blocked@.
-featureGroupSummary_offlineStoreStatus :: Lens.Lens' FeatureGroupSummary (Prelude.Maybe OfflineStoreStatus)
-featureGroupSummary_offlineStoreStatus = Lens.lens (\FeatureGroupSummary' {offlineStoreStatus} -> offlineStoreStatus) (\s@FeatureGroupSummary' {} a -> s {offlineStoreStatus = a} :: FeatureGroupSummary)
-
 -- | The status of a FeatureGroup. The status can be any of the following:
 -- @Creating@, @Created@, @CreateFail@, @Deleting@ or @DetailFail@.
 featureGroupSummary_featureGroupStatus :: Lens.Lens' FeatureGroupSummary (Prelude.Maybe FeatureGroupStatus)
 featureGroupSummary_featureGroupStatus = Lens.lens (\FeatureGroupSummary' {featureGroupStatus} -> featureGroupStatus) (\s@FeatureGroupSummary' {} a -> s {featureGroupStatus = a} :: FeatureGroupSummary)
+
+-- | Notifies you if replicating data into the @OfflineStore@ has failed.
+-- Returns either: @Active@ or @Blocked@.
+featureGroupSummary_offlineStoreStatus :: Lens.Lens' FeatureGroupSummary (Prelude.Maybe OfflineStoreStatus)
+featureGroupSummary_offlineStoreStatus = Lens.lens (\FeatureGroupSummary' {offlineStoreStatus} -> offlineStoreStatus) (\s@FeatureGroupSummary' {} a -> s {offlineStoreStatus = a} :: FeatureGroupSummary)
 
 -- | The name of @FeatureGroup@.
 featureGroupSummary_featureGroupName :: Lens.Lens' FeatureGroupSummary Prelude.Text
@@ -114,8 +114,8 @@ instance Data.FromJSON FeatureGroupSummary where
       "FeatureGroupSummary"
       ( \x ->
           FeatureGroupSummary'
-            Prelude.<$> (x Data..:? "OfflineStoreStatus")
-            Prelude.<*> (x Data..:? "FeatureGroupStatus")
+            Prelude.<$> (x Data..:? "FeatureGroupStatus")
+            Prelude.<*> (x Data..:? "OfflineStoreStatus")
             Prelude.<*> (x Data..: "FeatureGroupName")
             Prelude.<*> (x Data..: "FeatureGroupArn")
             Prelude.<*> (x Data..: "CreationTime")
@@ -123,16 +123,16 @@ instance Data.FromJSON FeatureGroupSummary where
 
 instance Prelude.Hashable FeatureGroupSummary where
   hashWithSalt _salt FeatureGroupSummary' {..} =
-    _salt `Prelude.hashWithSalt` offlineStoreStatus
-      `Prelude.hashWithSalt` featureGroupStatus
+    _salt `Prelude.hashWithSalt` featureGroupStatus
+      `Prelude.hashWithSalt` offlineStoreStatus
       `Prelude.hashWithSalt` featureGroupName
       `Prelude.hashWithSalt` featureGroupArn
       `Prelude.hashWithSalt` creationTime
 
 instance Prelude.NFData FeatureGroupSummary where
   rnf FeatureGroupSummary' {..} =
-    Prelude.rnf offlineStoreStatus
-      `Prelude.seq` Prelude.rnf featureGroupStatus
+    Prelude.rnf featureGroupStatus
+      `Prelude.seq` Prelude.rnf offlineStoreStatus
       `Prelude.seq` Prelude.rnf featureGroupName
       `Prelude.seq` Prelude.rnf featureGroupArn
       `Prelude.seq` Prelude.rnf creationTime

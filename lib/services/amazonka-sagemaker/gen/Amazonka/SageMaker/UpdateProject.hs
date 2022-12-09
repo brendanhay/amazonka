@@ -34,9 +34,9 @@ module Amazonka.SageMaker.UpdateProject
     newUpdateProject,
 
     -- * Request Lenses
-    updateProject_tags,
     updateProject_projectDescription,
     updateProject_serviceCatalogProvisioningUpdateDetails,
+    updateProject_tags,
     updateProject_projectName,
 
     -- * Destructuring the Response
@@ -59,15 +59,7 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newUpdateProject' smart constructor.
 data UpdateProject = UpdateProject'
-  { -- | An array of key-value pairs. You can use tags to categorize your Amazon
-    -- Web Services resources in different ways, for example, by purpose,
-    -- owner, or environment. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
-    -- In addition, the project must have tag update constraints set in order
-    -- to include this parameter in the request. For more information, see
-    -- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/constraints-resourceupdate.html Amazon Web Services Service Catalog Tag Update Constraints>.
-    tags :: Prelude.Maybe [Tag],
-    -- | The description for the project.
+  { -- | The description for the project.
     projectDescription :: Prelude.Maybe Prelude.Text,
     -- | The product ID and provisioning artifact ID to provision a service
     -- catalog. The provisioning artifact ID will default to the latest
@@ -75,6 +67,14 @@ data UpdateProject = UpdateProject'
     -- provisioning artifact ID. For more information, see
     -- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html What is Amazon Web Services Service Catalog>.
     serviceCatalogProvisioningUpdateDetails :: Prelude.Maybe ServiceCatalogProvisioningUpdateDetails,
+    -- | An array of key-value pairs. You can use tags to categorize your Amazon
+    -- Web Services resources in different ways, for example, by purpose,
+    -- owner, or environment. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
+    -- In addition, the project must have tag update constraints set in order
+    -- to include this parameter in the request. For more information, see
+    -- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/constraints-resourceupdate.html Amazon Web Services Service Catalog Tag Update Constraints>.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the project.
     projectName :: Prelude.Text
   }
@@ -88,14 +88,6 @@ data UpdateProject = UpdateProject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'updateProject_tags' - An array of key-value pairs. You can use tags to categorize your Amazon
--- Web Services resources in different ways, for example, by purpose,
--- owner, or environment. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
--- In addition, the project must have tag update constraints set in order
--- to include this parameter in the request. For more information, see
--- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/constraints-resourceupdate.html Amazon Web Services Service Catalog Tag Update Constraints>.
---
 -- 'projectDescription', 'updateProject_projectDescription' - The description for the project.
 --
 -- 'serviceCatalogProvisioningUpdateDetails', 'updateProject_serviceCatalogProvisioningUpdateDetails' - The product ID and provisioning artifact ID to provision a service
@@ -104,6 +96,14 @@ data UpdateProject = UpdateProject'
 -- provisioning artifact ID. For more information, see
 -- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html What is Amazon Web Services Service Catalog>.
 --
+-- 'tags', 'updateProject_tags' - An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
+-- In addition, the project must have tag update constraints set in order
+-- to include this parameter in the request. For more information, see
+-- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/constraints-resourceupdate.html Amazon Web Services Service Catalog Tag Update Constraints>.
+--
 -- 'projectName', 'updateProject_projectName' - The name of the project.
 newUpdateProject ::
   -- | 'projectName'
@@ -111,22 +111,13 @@ newUpdateProject ::
   UpdateProject
 newUpdateProject pProjectName_ =
   UpdateProject'
-    { tags = Prelude.Nothing,
-      projectDescription = Prelude.Nothing,
+    { projectDescription =
+        Prelude.Nothing,
       serviceCatalogProvisioningUpdateDetails =
         Prelude.Nothing,
+      tags = Prelude.Nothing,
       projectName = pProjectName_
     }
-
--- | An array of key-value pairs. You can use tags to categorize your Amazon
--- Web Services resources in different ways, for example, by purpose,
--- owner, or environment. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
--- In addition, the project must have tag update constraints set in order
--- to include this parameter in the request. For more information, see
--- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/constraints-resourceupdate.html Amazon Web Services Service Catalog Tag Update Constraints>.
-updateProject_tags :: Lens.Lens' UpdateProject (Prelude.Maybe [Tag])
-updateProject_tags = Lens.lens (\UpdateProject' {tags} -> tags) (\s@UpdateProject' {} a -> s {tags = a} :: UpdateProject) Prelude.. Lens.mapping Lens.coerced
 
 -- | The description for the project.
 updateProject_projectDescription :: Lens.Lens' UpdateProject (Prelude.Maybe Prelude.Text)
@@ -139,6 +130,16 @@ updateProject_projectDescription = Lens.lens (\UpdateProject' {projectDescriptio
 -- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html What is Amazon Web Services Service Catalog>.
 updateProject_serviceCatalogProvisioningUpdateDetails :: Lens.Lens' UpdateProject (Prelude.Maybe ServiceCatalogProvisioningUpdateDetails)
 updateProject_serviceCatalogProvisioningUpdateDetails = Lens.lens (\UpdateProject' {serviceCatalogProvisioningUpdateDetails} -> serviceCatalogProvisioningUpdateDetails) (\s@UpdateProject' {} a -> s {serviceCatalogProvisioningUpdateDetails = a} :: UpdateProject)
+
+-- | An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
+-- In addition, the project must have tag update constraints set in order
+-- to include this parameter in the request. For more information, see
+-- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/constraints-resourceupdate.html Amazon Web Services Service Catalog Tag Update Constraints>.
+updateProject_tags :: Lens.Lens' UpdateProject (Prelude.Maybe [Tag])
+updateProject_tags = Lens.lens (\UpdateProject' {tags} -> tags) (\s@UpdateProject' {} a -> s {tags = a} :: UpdateProject) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the project.
 updateProject_projectName :: Lens.Lens' UpdateProject Prelude.Text
@@ -160,16 +161,16 @@ instance Core.AWSRequest UpdateProject where
 
 instance Prelude.Hashable UpdateProject where
   hashWithSalt _salt UpdateProject' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` projectDescription
+    _salt `Prelude.hashWithSalt` projectDescription
       `Prelude.hashWithSalt` serviceCatalogProvisioningUpdateDetails
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` projectName
 
 instance Prelude.NFData UpdateProject where
   rnf UpdateProject' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf projectDescription
+    Prelude.rnf projectDescription
       `Prelude.seq` Prelude.rnf serviceCatalogProvisioningUpdateDetails
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf projectName
 
 instance Data.ToHeaders UpdateProject where
@@ -189,11 +190,11 @@ instance Data.ToJSON UpdateProject where
   toJSON UpdateProject' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("ProjectDescription" Data..=)
+          [ ("ProjectDescription" Data..=)
               Prelude.<$> projectDescription,
             ("ServiceCatalogProvisioningUpdateDetails" Data..=)
               Prelude.<$> serviceCatalogProvisioningUpdateDetails,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("ProjectName" Data..= projectName)
           ]
       )

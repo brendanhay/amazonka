@@ -68,14 +68,18 @@ library
     Amazonka.SageMaker.CreateExperiment
     Amazonka.SageMaker.CreateFeatureGroup
     Amazonka.SageMaker.CreateFlowDefinition
+    Amazonka.SageMaker.CreateHub
     Amazonka.SageMaker.CreateHumanTaskUi
     Amazonka.SageMaker.CreateHyperParameterTuningJob
     Amazonka.SageMaker.CreateImage
     Amazonka.SageMaker.CreateImageVersion
+    Amazonka.SageMaker.CreateInferenceExperiment
     Amazonka.SageMaker.CreateInferenceRecommendationsJob
     Amazonka.SageMaker.CreateLabelingJob
     Amazonka.SageMaker.CreateModel
     Amazonka.SageMaker.CreateModelBiasJobDefinition
+    Amazonka.SageMaker.CreateModelCard
+    Amazonka.SageMaker.CreateModelCardExportJob
     Amazonka.SageMaker.CreateModelExplainabilityJobDefinition
     Amazonka.SageMaker.CreateModelPackage
     Amazonka.SageMaker.CreateModelPackageGroup
@@ -88,6 +92,7 @@ library
     Amazonka.SageMaker.CreatePresignedNotebookInstanceUrl
     Amazonka.SageMaker.CreateProcessingJob
     Amazonka.SageMaker.CreateProject
+    Amazonka.SageMaker.CreateSpace
     Amazonka.SageMaker.CreateStudioLifecycleConfig
     Amazonka.SageMaker.CreateTrainingJob
     Amazonka.SageMaker.CreateTransformJob
@@ -114,11 +119,15 @@ library
     Amazonka.SageMaker.DeleteExperiment
     Amazonka.SageMaker.DeleteFeatureGroup
     Amazonka.SageMaker.DeleteFlowDefinition
+    Amazonka.SageMaker.DeleteHub
+    Amazonka.SageMaker.DeleteHubContent
     Amazonka.SageMaker.DeleteHumanTaskUi
     Amazonka.SageMaker.DeleteImage
     Amazonka.SageMaker.DeleteImageVersion
+    Amazonka.SageMaker.DeleteInferenceExperiment
     Amazonka.SageMaker.DeleteModel
     Amazonka.SageMaker.DeleteModelBiasJobDefinition
+    Amazonka.SageMaker.DeleteModelCard
     Amazonka.SageMaker.DeleteModelExplainabilityJobDefinition
     Amazonka.SageMaker.DeleteModelPackage
     Amazonka.SageMaker.DeleteModelPackageGroup
@@ -129,6 +138,7 @@ library
     Amazonka.SageMaker.DeleteNotebookInstanceLifecycleConfig
     Amazonka.SageMaker.DeletePipeline
     Amazonka.SageMaker.DeleteProject
+    Amazonka.SageMaker.DeleteSpace
     Amazonka.SageMaker.DeleteStudioLifecycleConfig
     Amazonka.SageMaker.DeleteTags
     Amazonka.SageMaker.DeleteTrial
@@ -158,15 +168,20 @@ library
     Amazonka.SageMaker.DescribeFeatureGroup
     Amazonka.SageMaker.DescribeFeatureMetadata
     Amazonka.SageMaker.DescribeFlowDefinition
+    Amazonka.SageMaker.DescribeHub
+    Amazonka.SageMaker.DescribeHubContent
     Amazonka.SageMaker.DescribeHumanTaskUi
     Amazonka.SageMaker.DescribeHyperParameterTuningJob
     Amazonka.SageMaker.DescribeImage
     Amazonka.SageMaker.DescribeImageVersion
+    Amazonka.SageMaker.DescribeInferenceExperiment
     Amazonka.SageMaker.DescribeInferenceRecommendationsJob
     Amazonka.SageMaker.DescribeLabelingJob
     Amazonka.SageMaker.DescribeLineageGroup
     Amazonka.SageMaker.DescribeModel
     Amazonka.SageMaker.DescribeModelBiasJobDefinition
+    Amazonka.SageMaker.DescribeModelCard
+    Amazonka.SageMaker.DescribeModelCardExportJob
     Amazonka.SageMaker.DescribeModelExplainabilityJobDefinition
     Amazonka.SageMaker.DescribeModelPackage
     Amazonka.SageMaker.DescribeModelPackageGroup
@@ -179,6 +194,7 @@ library
     Amazonka.SageMaker.DescribePipelineExecution
     Amazonka.SageMaker.DescribeProcessingJob
     Amazonka.SageMaker.DescribeProject
+    Amazonka.SageMaker.DescribeSpace
     Amazonka.SageMaker.DescribeStudioLifecycleConfig
     Amazonka.SageMaker.DescribeSubscribedWorkteam
     Amazonka.SageMaker.DescribeTrainingJob
@@ -196,6 +212,7 @@ library
     Amazonka.SageMaker.GetModelPackageGroupPolicy
     Amazonka.SageMaker.GetSagemakerServicecatalogPortfolioStatus
     Amazonka.SageMaker.GetSearchSuggestions
+    Amazonka.SageMaker.ImportHubContent
     Amazonka.SageMaker.Lens
     Amazonka.SageMaker.ListActions
     Amazonka.SageMaker.ListAlgorithms
@@ -219,22 +236,31 @@ library
     Amazonka.SageMaker.ListExperiments
     Amazonka.SageMaker.ListFeatureGroups
     Amazonka.SageMaker.ListFlowDefinitions
+    Amazonka.SageMaker.ListHubContents
+    Amazonka.SageMaker.ListHubContentVersions
+    Amazonka.SageMaker.ListHubs
     Amazonka.SageMaker.ListHumanTaskUis
     Amazonka.SageMaker.ListHyperParameterTuningJobs
     Amazonka.SageMaker.ListImages
     Amazonka.SageMaker.ListImageVersions
+    Amazonka.SageMaker.ListInferenceExperiments
     Amazonka.SageMaker.ListInferenceRecommendationsJobs
     Amazonka.SageMaker.ListInferenceRecommendationsJobSteps
     Amazonka.SageMaker.ListLabelingJobs
     Amazonka.SageMaker.ListLabelingJobsForWorkteam
     Amazonka.SageMaker.ListLineageGroups
     Amazonka.SageMaker.ListModelBiasJobDefinitions
+    Amazonka.SageMaker.ListModelCardExportJobs
+    Amazonka.SageMaker.ListModelCards
+    Amazonka.SageMaker.ListModelCardVersions
     Amazonka.SageMaker.ListModelExplainabilityJobDefinitions
     Amazonka.SageMaker.ListModelMetadata
     Amazonka.SageMaker.ListModelPackageGroups
     Amazonka.SageMaker.ListModelPackages
     Amazonka.SageMaker.ListModelQualityJobDefinitions
     Amazonka.SageMaker.ListModels
+    Amazonka.SageMaker.ListMonitoringAlertHistory
+    Amazonka.SageMaker.ListMonitoringAlerts
     Amazonka.SageMaker.ListMonitoringExecutions
     Amazonka.SageMaker.ListMonitoringSchedules
     Amazonka.SageMaker.ListNotebookInstanceLifecycleConfigs
@@ -245,6 +271,7 @@ library
     Amazonka.SageMaker.ListPipelines
     Amazonka.SageMaker.ListProcessingJobs
     Amazonka.SageMaker.ListProjects
+    Amazonka.SageMaker.ListSpaces
     Amazonka.SageMaker.ListStageDevices
     Amazonka.SageMaker.ListStudioLifecycleConfigs
     Amazonka.SageMaker.ListSubscribedWorkteams
@@ -266,6 +293,7 @@ library
     Amazonka.SageMaker.SendPipelineExecutionStepFailure
     Amazonka.SageMaker.SendPipelineExecutionStepSuccess
     Amazonka.SageMaker.StartEdgeDeploymentStage
+    Amazonka.SageMaker.StartInferenceExperiment
     Amazonka.SageMaker.StartMonitoringSchedule
     Amazonka.SageMaker.StartNotebookInstance
     Amazonka.SageMaker.StartPipelineExecution
@@ -274,6 +302,7 @@ library
     Amazonka.SageMaker.StopEdgeDeploymentStage
     Amazonka.SageMaker.StopEdgePackagingJob
     Amazonka.SageMaker.StopHyperParameterTuningJob
+    Amazonka.SageMaker.StopInferenceExperiment
     Amazonka.SageMaker.StopInferenceRecommendationsJob
     Amazonka.SageMaker.StopLabelingJob
     Amazonka.SageMaker.StopMonitoringSchedule
@@ -338,6 +367,7 @@ library
     Amazonka.SageMaker.Types.AutoMLJobObjectiveType
     Amazonka.SageMaker.Types.AutoMLJobSecondaryStatus
     Amazonka.SageMaker.Types.AutoMLJobStatus
+    Amazonka.SageMaker.Types.AutoMLJobStepMetadata
     Amazonka.SageMaker.Types.AutoMLJobSummary
     Amazonka.SageMaker.Types.AutoMLMetricEnum
     Amazonka.SageMaker.Types.AutoMLMetricExtendedEnum
@@ -388,6 +418,7 @@ library
     Amazonka.SageMaker.Types.ClarifyTextConfig
     Amazonka.SageMaker.Types.ClarifyTextGranularity
     Amazonka.SageMaker.Types.ClarifyTextLanguage
+    Amazonka.SageMaker.Types.CodeRepository
     Amazonka.SageMaker.Types.CodeRepositorySortBy
     Amazonka.SageMaker.Types.CodeRepositorySortOrder
     Amazonka.SageMaker.Types.CodeRepositorySummary
@@ -420,6 +451,7 @@ library
     Amazonka.SageMaker.Types.DebugHookConfig
     Amazonka.SageMaker.Types.DebugRuleConfiguration
     Amazonka.SageMaker.Types.DebugRuleEvaluationStatus
+    Amazonka.SageMaker.Types.DefaultSpaceSettings
     Amazonka.SageMaker.Types.DeployedImage
     Amazonka.SageMaker.Types.DeploymentConfig
     Amazonka.SageMaker.Types.DeploymentStage
@@ -467,6 +499,7 @@ library
     Amazonka.SageMaker.Types.EndpointInfo
     Amazonka.SageMaker.Types.EndpointInput
     Amazonka.SageMaker.Types.EndpointInputConfiguration
+    Amazonka.SageMaker.Types.EndpointMetadata
     Amazonka.SageMaker.Types.EndpointOutputConfiguration
     Amazonka.SageMaker.Types.EndpointPerformance
     Amazonka.SageMaker.Types.EndpointSortKey
@@ -508,6 +541,15 @@ library
     Amazonka.SageMaker.Types.Framework
     Amazonka.SageMaker.Types.GitConfig
     Amazonka.SageMaker.Types.GitConfigForUpdate
+    Amazonka.SageMaker.Types.HubContentDependency
+    Amazonka.SageMaker.Types.HubContentInfo
+    Amazonka.SageMaker.Types.HubContentSortBy
+    Amazonka.SageMaker.Types.HubContentStatus
+    Amazonka.SageMaker.Types.HubContentType
+    Amazonka.SageMaker.Types.HubInfo
+    Amazonka.SageMaker.Types.HubS3StorageConfig
+    Amazonka.SageMaker.Types.HubSortBy
+    Amazonka.SageMaker.Types.HubStatus
     Amazonka.SageMaker.Types.HumanLoopActivationConditionsConfig
     Amazonka.SageMaker.Types.HumanLoopActivationConfig
     Amazonka.SageMaker.Types.HumanLoopConfig
@@ -546,6 +588,12 @@ library
     Amazonka.SageMaker.Types.ImageVersionStatus
     Amazonka.SageMaker.Types.InferenceExecutionConfig
     Amazonka.SageMaker.Types.InferenceExecutionMode
+    Amazonka.SageMaker.Types.InferenceExperimentDataStorageConfig
+    Amazonka.SageMaker.Types.InferenceExperimentSchedule
+    Amazonka.SageMaker.Types.InferenceExperimentStatus
+    Amazonka.SageMaker.Types.InferenceExperimentStopDesiredState
+    Amazonka.SageMaker.Types.InferenceExperimentSummary
+    Amazonka.SageMaker.Types.InferenceExperimentType
     Amazonka.SageMaker.Types.InferenceMetrics
     Amazonka.SageMaker.Types.InferenceRecommendation
     Amazonka.SageMaker.Types.InferenceRecommendationsJob
@@ -598,14 +646,35 @@ library
     Amazonka.SageMaker.Types.MetricDefinition
     Amazonka.SageMaker.Types.MetricSetSource
     Amazonka.SageMaker.Types.MetricsSource
+    Amazonka.SageMaker.Types.Model
     Amazonka.SageMaker.Types.ModelApprovalStatus
     Amazonka.SageMaker.Types.ModelArtifacts
     Amazonka.SageMaker.Types.ModelBiasAppSpecification
     Amazonka.SageMaker.Types.ModelBiasBaselineConfig
     Amazonka.SageMaker.Types.ModelBiasJobInput
     Amazonka.SageMaker.Types.ModelCacheSetting
+    Amazonka.SageMaker.Types.ModelCard
+    Amazonka.SageMaker.Types.ModelCardExportArtifacts
+    Amazonka.SageMaker.Types.ModelCardExportJobSortBy
+    Amazonka.SageMaker.Types.ModelCardExportJobSortOrder
+    Amazonka.SageMaker.Types.ModelCardExportJobStatus
+    Amazonka.SageMaker.Types.ModelCardExportJobSummary
+    Amazonka.SageMaker.Types.ModelCardExportOutputConfig
+    Amazonka.SageMaker.Types.ModelCardProcessingStatus
+    Amazonka.SageMaker.Types.ModelCardSecurityConfig
+    Amazonka.SageMaker.Types.ModelCardSortBy
+    Amazonka.SageMaker.Types.ModelCardSortOrder
+    Amazonka.SageMaker.Types.ModelCardStatus
+    Amazonka.SageMaker.Types.ModelCardSummary
+    Amazonka.SageMaker.Types.ModelCardVersionSortBy
+    Amazonka.SageMaker.Types.ModelCardVersionSummary
     Amazonka.SageMaker.Types.ModelClientConfig
     Amazonka.SageMaker.Types.ModelConfiguration
+    Amazonka.SageMaker.Types.ModelDashboardEndpoint
+    Amazonka.SageMaker.Types.ModelDashboardIndicatorAction
+    Amazonka.SageMaker.Types.ModelDashboardModel
+    Amazonka.SageMaker.Types.ModelDashboardModelCard
+    Amazonka.SageMaker.Types.ModelDashboardMonitoringSchedule
     Amazonka.SageMaker.Types.ModelDataQuality
     Amazonka.SageMaker.Types.ModelDeployConfig
     Amazonka.SageMaker.Types.ModelDeployResult
@@ -613,6 +682,8 @@ library
     Amazonka.SageMaker.Types.ModelExplainabilityAppSpecification
     Amazonka.SageMaker.Types.ModelExplainabilityBaselineConfig
     Amazonka.SageMaker.Types.ModelExplainabilityJobInput
+    Amazonka.SageMaker.Types.ModelInfrastructureConfig
+    Amazonka.SageMaker.Types.ModelInfrastructureType
     Amazonka.SageMaker.Types.ModelInput
     Amazonka.SageMaker.Types.ModelLatencyThreshold
     Amazonka.SageMaker.Types.ModelMetadataFilter
@@ -641,6 +712,15 @@ library
     Amazonka.SageMaker.Types.ModelSortKey
     Amazonka.SageMaker.Types.ModelStepMetadata
     Amazonka.SageMaker.Types.ModelSummary
+    Amazonka.SageMaker.Types.ModelVariantAction
+    Amazonka.SageMaker.Types.ModelVariantConfig
+    Amazonka.SageMaker.Types.ModelVariantConfigSummary
+    Amazonka.SageMaker.Types.ModelVariantStatus
+    Amazonka.SageMaker.Types.MonitoringAlertActions
+    Amazonka.SageMaker.Types.MonitoringAlertHistorySortKey
+    Amazonka.SageMaker.Types.MonitoringAlertHistorySummary
+    Amazonka.SageMaker.Types.MonitoringAlertStatus
+    Amazonka.SageMaker.Types.MonitoringAlertSummary
     Amazonka.SageMaker.Types.MonitoringAppSpecification
     Amazonka.SageMaker.Types.MonitoringBaselineConfig
     Amazonka.SageMaker.Types.MonitoringClusterConfig
@@ -762,6 +842,7 @@ library
     Amazonka.SageMaker.Types.PublicWorkforceTaskPrice
     Amazonka.SageMaker.Types.QualityCheckStepMetadata
     Amazonka.SageMaker.Types.QueryFilters
+    Amazonka.SageMaker.Types.RealTimeInferenceConfig
     Amazonka.SageMaker.Types.RecommendationJobCompiledOutputConfig
     Amazonka.SageMaker.Types.RecommendationJobContainerConfig
     Amazonka.SageMaker.Types.RecommendationJobInferenceBenchmark
@@ -815,6 +896,8 @@ library
     Amazonka.SageMaker.Types.ServiceCatalogProvisionedProductDetails
     Amazonka.SageMaker.Types.ServiceCatalogProvisioningDetails
     Amazonka.SageMaker.Types.ServiceCatalogProvisioningUpdateDetails
+    Amazonka.SageMaker.Types.ShadowModeConfig
+    Amazonka.SageMaker.Types.ShadowModelVariantConfig
     Amazonka.SageMaker.Types.SharingSettings
     Amazonka.SageMaker.Types.ShuffleConfig
     Amazonka.SageMaker.Types.SortActionsBy
@@ -823,6 +906,7 @@ library
     Amazonka.SageMaker.Types.SortBy
     Amazonka.SageMaker.Types.SortContextsBy
     Amazonka.SageMaker.Types.SortExperimentsBy
+    Amazonka.SageMaker.Types.SortInferenceExperimentsBy
     Amazonka.SageMaker.Types.SortLineageGroupsBy
     Amazonka.SageMaker.Types.SortOrder
     Amazonka.SageMaker.Types.SortPipelineExecutionsBy
@@ -832,6 +916,10 @@ library
     Amazonka.SageMaker.Types.SourceAlgorithm
     Amazonka.SageMaker.Types.SourceAlgorithmSpecification
     Amazonka.SageMaker.Types.SourceIpConfig
+    Amazonka.SageMaker.Types.SpaceDetails
+    Amazonka.SageMaker.Types.SpaceSettings
+    Amazonka.SageMaker.Types.SpaceSortKey
+    Amazonka.SageMaker.Types.SpaceStatus
     Amazonka.SageMaker.Types.SplitType
     Amazonka.SageMaker.Types.StageStatus
     Amazonka.SageMaker.Types.StepStatus
@@ -841,6 +929,7 @@ library
     Amazonka.SageMaker.Types.StudioLifecycleConfigSortKey
     Amazonka.SageMaker.Types.SubscribedWorkteam
     Amazonka.SageMaker.Types.SuggestionQuery
+    Amazonka.SageMaker.Types.TableFormat
     Amazonka.SageMaker.Types.Tag
     Amazonka.SageMaker.Types.TargetDevice
     Amazonka.SageMaker.Types.TargetPlatform
@@ -925,14 +1014,19 @@ library
     Amazonka.SageMaker.UpdateExperiment
     Amazonka.SageMaker.UpdateFeatureGroup
     Amazonka.SageMaker.UpdateFeatureMetadata
+    Amazonka.SageMaker.UpdateHub
     Amazonka.SageMaker.UpdateImage
+    Amazonka.SageMaker.UpdateInferenceExperiment
+    Amazonka.SageMaker.UpdateModelCard
     Amazonka.SageMaker.UpdateModelPackage
+    Amazonka.SageMaker.UpdateMonitoringAlert
     Amazonka.SageMaker.UpdateMonitoringSchedule
     Amazonka.SageMaker.UpdateNotebookInstance
     Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig
     Amazonka.SageMaker.UpdatePipeline
     Amazonka.SageMaker.UpdatePipelineExecution
     Amazonka.SageMaker.UpdateProject
+    Amazonka.SageMaker.UpdateSpace
     Amazonka.SageMaker.UpdateTrainingJob
     Amazonka.SageMaker.UpdateTrial
     Amazonka.SageMaker.UpdateTrialComponent

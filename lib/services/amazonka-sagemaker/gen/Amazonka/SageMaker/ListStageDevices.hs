@@ -30,9 +30,9 @@ module Amazonka.SageMaker.ListStageDevices
     newListStageDevices,
 
     -- * Request Lenses
-    listStageDevices_nextToken,
     listStageDevices_excludeDevicesDeployedInOtherStage,
     listStageDevices_maxResults,
+    listStageDevices_nextToken,
     listStageDevices_edgeDeploymentPlanName,
     listStageDevices_stageName,
 
@@ -57,13 +57,13 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListStageDevices' smart constructor.
 data ListStageDevices = ListStageDevices'
-  { -- | The response from the last list when returning a list large enough to
-    -- neeed tokening.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Toggle for excluding devices deployed in other stages.
+  { -- | Toggle for excluding devices deployed in other stages.
     excludeDevicesDeployedInOtherStage :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of requests to select.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The response from the last list when returning a list large enough to
+    -- neeed tokening.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the edge deployment plan.
     edgeDeploymentPlanName :: Prelude.Text,
     -- | The name of the stage in the deployment.
@@ -79,12 +79,12 @@ data ListStageDevices = ListStageDevices'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listStageDevices_nextToken' - The response from the last list when returning a list large enough to
--- neeed tokening.
---
 -- 'excludeDevicesDeployedInOtherStage', 'listStageDevices_excludeDevicesDeployedInOtherStage' - Toggle for excluding devices deployed in other stages.
 --
 -- 'maxResults', 'listStageDevices_maxResults' - The maximum number of requests to select.
+--
+-- 'nextToken', 'listStageDevices_nextToken' - The response from the last list when returning a list large enough to
+-- neeed tokening.
 --
 -- 'edgeDeploymentPlanName', 'listStageDevices_edgeDeploymentPlanName' - The name of the edge deployment plan.
 --
@@ -99,17 +99,13 @@ newListStageDevices
   pEdgeDeploymentPlanName_
   pStageName_ =
     ListStageDevices'
-      { nextToken = Prelude.Nothing,
-        excludeDevicesDeployedInOtherStage = Prelude.Nothing,
+      { excludeDevicesDeployedInOtherStage =
+          Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         edgeDeploymentPlanName = pEdgeDeploymentPlanName_,
         stageName = pStageName_
       }
-
--- | The response from the last list when returning a list large enough to
--- neeed tokening.
-listStageDevices_nextToken :: Lens.Lens' ListStageDevices (Prelude.Maybe Prelude.Text)
-listStageDevices_nextToken = Lens.lens (\ListStageDevices' {nextToken} -> nextToken) (\s@ListStageDevices' {} a -> s {nextToken = a} :: ListStageDevices)
 
 -- | Toggle for excluding devices deployed in other stages.
 listStageDevices_excludeDevicesDeployedInOtherStage :: Lens.Lens' ListStageDevices (Prelude.Maybe Prelude.Bool)
@@ -118,6 +114,11 @@ listStageDevices_excludeDevicesDeployedInOtherStage = Lens.lens (\ListStageDevic
 -- | The maximum number of requests to select.
 listStageDevices_maxResults :: Lens.Lens' ListStageDevices (Prelude.Maybe Prelude.Int)
 listStageDevices_maxResults = Lens.lens (\ListStageDevices' {maxResults} -> maxResults) (\s@ListStageDevices' {} a -> s {maxResults = a} :: ListStageDevices)
+
+-- | The response from the last list when returning a list large enough to
+-- neeed tokening.
+listStageDevices_nextToken :: Lens.Lens' ListStageDevices (Prelude.Maybe Prelude.Text)
+listStageDevices_nextToken = Lens.lens (\ListStageDevices' {nextToken} -> nextToken) (\s@ListStageDevices' {} a -> s {nextToken = a} :: ListStageDevices)
 
 -- | The name of the edge deployment plan.
 listStageDevices_edgeDeploymentPlanName :: Lens.Lens' ListStageDevices Prelude.Text
@@ -167,17 +168,18 @@ instance Core.AWSRequest ListStageDevices where
 
 instance Prelude.Hashable ListStageDevices where
   hashWithSalt _salt ListStageDevices' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
       `Prelude.hashWithSalt` excludeDevicesDeployedInOtherStage
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` edgeDeploymentPlanName
       `Prelude.hashWithSalt` stageName
 
 instance Prelude.NFData ListStageDevices where
   rnf ListStageDevices' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf excludeDevicesDeployedInOtherStage
+    Prelude.rnf excludeDevicesDeployedInOtherStage
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf edgeDeploymentPlanName
       `Prelude.seq` Prelude.rnf stageName
 
@@ -198,10 +200,10 @@ instance Data.ToJSON ListStageDevices where
   toJSON ListStageDevices' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("ExcludeDevicesDeployedInOtherStage" Data..=)
+          [ ("ExcludeDevicesDeployedInOtherStage" Data..=)
               Prelude.<$> excludeDevicesDeployedInOtherStage,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just
               ( "EdgeDeploymentPlanName"
                   Data..= edgeDeploymentPlanName

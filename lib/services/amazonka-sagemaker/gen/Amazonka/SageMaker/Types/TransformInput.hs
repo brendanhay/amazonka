@@ -32,7 +32,15 @@ import Amazonka.SageMaker.Types.TransformDataSource
 --
 -- /See:/ 'newTransformInput' smart constructor.
 data TransformInput = TransformInput'
-  { -- | The method to use to split the transform job\'s data files into smaller
+  { -- | If your transform data is compressed, specify the compression type.
+    -- Amazon SageMaker automatically decompresses the data for the transform
+    -- job accordingly. The default value is @None@.
+    compressionType :: Prelude.Maybe CompressionType,
+    -- | The multipurpose internet mail extension (MIME) type of the data. Amazon
+    -- SageMaker uses the MIME type with each http call to transfer data to the
+    -- transform job.
+    contentType :: Prelude.Maybe Prelude.Text,
+    -- | The method to use to split the transform job\'s data files into smaller
     -- batches. Splitting is necessary when the total size of each object is
     -- too large to fit in a single request. You can also use data splitting to
     -- improve performance by processing multiple concurrent mini-batches. The
@@ -66,14 +74,6 @@ data TransformInput = TransformInput'
     -- <https://www.tensorflow.org/guide/data#consuming_tfrecord_data Consuming TFRecord data>
     -- in the TensorFlow documentation.
     splitType :: Prelude.Maybe SplitType,
-    -- | If your transform data is compressed, specify the compression type.
-    -- Amazon SageMaker automatically decompresses the data for the transform
-    -- job accordingly. The default value is @None@.
-    compressionType :: Prelude.Maybe CompressionType,
-    -- | The multipurpose internet mail extension (MIME) type of the data. Amazon
-    -- SageMaker uses the MIME type with each http call to transfer data to the
-    -- transform job.
-    contentType :: Prelude.Maybe Prelude.Text,
     -- | Describes the location of the channel data, which is, the S3 location of
     -- the input data that the model can consume.
     dataSource :: TransformDataSource
@@ -87,6 +87,14 @@ data TransformInput = TransformInput'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'compressionType', 'transformInput_compressionType' - If your transform data is compressed, specify the compression type.
+-- Amazon SageMaker automatically decompresses the data for the transform
+-- job accordingly. The default value is @None@.
+--
+-- 'contentType', 'transformInput_contentType' - The multipurpose internet mail extension (MIME) type of the data. Amazon
+-- SageMaker uses the MIME type with each http call to transfer data to the
+-- transform job.
 --
 -- 'splitType', 'transformInput_splitType' - The method to use to split the transform job\'s data files into smaller
 -- batches. Splitting is necessary when the total size of each object is
@@ -122,14 +130,6 @@ data TransformInput = TransformInput'
 -- <https://www.tensorflow.org/guide/data#consuming_tfrecord_data Consuming TFRecord data>
 -- in the TensorFlow documentation.
 --
--- 'compressionType', 'transformInput_compressionType' - If your transform data is compressed, specify the compression type.
--- Amazon SageMaker automatically decompresses the data for the transform
--- job accordingly. The default value is @None@.
---
--- 'contentType', 'transformInput_contentType' - The multipurpose internet mail extension (MIME) type of the data. Amazon
--- SageMaker uses the MIME type with each http call to transfer data to the
--- transform job.
---
 -- 'dataSource', 'transformInput_dataSource' - Describes the location of the channel data, which is, the S3 location of
 -- the input data that the model can consume.
 newTransformInput ::
@@ -138,11 +138,23 @@ newTransformInput ::
   TransformInput
 newTransformInput pDataSource_ =
   TransformInput'
-    { splitType = Prelude.Nothing,
-      compressionType = Prelude.Nothing,
+    { compressionType = Prelude.Nothing,
       contentType = Prelude.Nothing,
+      splitType = Prelude.Nothing,
       dataSource = pDataSource_
     }
+
+-- | If your transform data is compressed, specify the compression type.
+-- Amazon SageMaker automatically decompresses the data for the transform
+-- job accordingly. The default value is @None@.
+transformInput_compressionType :: Lens.Lens' TransformInput (Prelude.Maybe CompressionType)
+transformInput_compressionType = Lens.lens (\TransformInput' {compressionType} -> compressionType) (\s@TransformInput' {} a -> s {compressionType = a} :: TransformInput)
+
+-- | The multipurpose internet mail extension (MIME) type of the data. Amazon
+-- SageMaker uses the MIME type with each http call to transfer data to the
+-- transform job.
+transformInput_contentType :: Lens.Lens' TransformInput (Prelude.Maybe Prelude.Text)
+transformInput_contentType = Lens.lens (\TransformInput' {contentType} -> contentType) (\s@TransformInput' {} a -> s {contentType = a} :: TransformInput)
 
 -- | The method to use to split the transform job\'s data files into smaller
 -- batches. Splitting is necessary when the total size of each object is
@@ -180,18 +192,6 @@ newTransformInput pDataSource_ =
 transformInput_splitType :: Lens.Lens' TransformInput (Prelude.Maybe SplitType)
 transformInput_splitType = Lens.lens (\TransformInput' {splitType} -> splitType) (\s@TransformInput' {} a -> s {splitType = a} :: TransformInput)
 
--- | If your transform data is compressed, specify the compression type.
--- Amazon SageMaker automatically decompresses the data for the transform
--- job accordingly. The default value is @None@.
-transformInput_compressionType :: Lens.Lens' TransformInput (Prelude.Maybe CompressionType)
-transformInput_compressionType = Lens.lens (\TransformInput' {compressionType} -> compressionType) (\s@TransformInput' {} a -> s {compressionType = a} :: TransformInput)
-
--- | The multipurpose internet mail extension (MIME) type of the data. Amazon
--- SageMaker uses the MIME type with each http call to transfer data to the
--- transform job.
-transformInput_contentType :: Lens.Lens' TransformInput (Prelude.Maybe Prelude.Text)
-transformInput_contentType = Lens.lens (\TransformInput' {contentType} -> contentType) (\s@TransformInput' {} a -> s {contentType = a} :: TransformInput)
-
 -- | Describes the location of the channel data, which is, the S3 location of
 -- the input data that the model can consume.
 transformInput_dataSource :: Lens.Lens' TransformInput TransformDataSource
@@ -203,34 +203,34 @@ instance Data.FromJSON TransformInput where
       "TransformInput"
       ( \x ->
           TransformInput'
-            Prelude.<$> (x Data..:? "SplitType")
-            Prelude.<*> (x Data..:? "CompressionType")
+            Prelude.<$> (x Data..:? "CompressionType")
             Prelude.<*> (x Data..:? "ContentType")
+            Prelude.<*> (x Data..:? "SplitType")
             Prelude.<*> (x Data..: "DataSource")
       )
 
 instance Prelude.Hashable TransformInput where
   hashWithSalt _salt TransformInput' {..} =
-    _salt `Prelude.hashWithSalt` splitType
-      `Prelude.hashWithSalt` compressionType
+    _salt `Prelude.hashWithSalt` compressionType
       `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` splitType
       `Prelude.hashWithSalt` dataSource
 
 instance Prelude.NFData TransformInput where
   rnf TransformInput' {..} =
-    Prelude.rnf splitType
-      `Prelude.seq` Prelude.rnf compressionType
+    Prelude.rnf compressionType
       `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf splitType
       `Prelude.seq` Prelude.rnf dataSource
 
 instance Data.ToJSON TransformInput where
   toJSON TransformInput' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SplitType" Data..=) Prelude.<$> splitType,
-            ("CompressionType" Data..=)
+          [ ("CompressionType" Data..=)
               Prelude.<$> compressionType,
             ("ContentType" Data..=) Prelude.<$> contentType,
+            ("SplitType" Data..=) Prelude.<$> splitType,
             Prelude.Just ("DataSource" Data..= dataSource)
           ]
       )

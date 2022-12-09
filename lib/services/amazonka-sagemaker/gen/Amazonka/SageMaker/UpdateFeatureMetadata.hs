@@ -27,9 +27,9 @@ module Amazonka.SageMaker.UpdateFeatureMetadata
     newUpdateFeatureMetadata,
 
     -- * Request Lenses
-    updateFeatureMetadata_parameterRemovals,
     updateFeatureMetadata_description,
     updateFeatureMetadata_parameterAdditions,
+    updateFeatureMetadata_parameterRemovals,
     updateFeatureMetadata_featureGroupName,
     updateFeatureMetadata_featureName,
 
@@ -49,14 +49,14 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newUpdateFeatureMetadata' smart constructor.
 data UpdateFeatureMetadata = UpdateFeatureMetadata'
-  { -- | A list of parameter keys that you can specify to remove parameters that
-    -- describe your feature.
-    parameterRemovals :: Prelude.Maybe [Prelude.Text],
-    -- | A description that you can write to better describe the feature.
+  { -- | A description that you can write to better describe the feature.
     description :: Prelude.Maybe Prelude.Text,
     -- | A list of key-value pairs that you can add to better describe the
     -- feature.
     parameterAdditions :: Prelude.Maybe [FeatureParameter],
+    -- | A list of parameter keys that you can specify to remove parameters that
+    -- describe your feature.
+    parameterRemovals :: Prelude.Maybe [Prelude.Text],
     -- | The name of the feature group containing the feature that you\'re
     -- updating.
     featureGroupName :: Prelude.Text,
@@ -73,13 +73,13 @@ data UpdateFeatureMetadata = UpdateFeatureMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parameterRemovals', 'updateFeatureMetadata_parameterRemovals' - A list of parameter keys that you can specify to remove parameters that
--- describe your feature.
---
 -- 'description', 'updateFeatureMetadata_description' - A description that you can write to better describe the feature.
 --
 -- 'parameterAdditions', 'updateFeatureMetadata_parameterAdditions' - A list of key-value pairs that you can add to better describe the
 -- feature.
+--
+-- 'parameterRemovals', 'updateFeatureMetadata_parameterRemovals' - A list of parameter keys that you can specify to remove parameters that
+-- describe your feature.
 --
 -- 'featureGroupName', 'updateFeatureMetadata_featureGroupName' - The name of the feature group containing the feature that you\'re
 -- updating.
@@ -95,18 +95,13 @@ newUpdateFeatureMetadata
   pFeatureGroupName_
   pFeatureName_ =
     UpdateFeatureMetadata'
-      { parameterRemovals =
+      { description =
           Prelude.Nothing,
-        description = Prelude.Nothing,
         parameterAdditions = Prelude.Nothing,
+        parameterRemovals = Prelude.Nothing,
         featureGroupName = pFeatureGroupName_,
         featureName = pFeatureName_
       }
-
--- | A list of parameter keys that you can specify to remove parameters that
--- describe your feature.
-updateFeatureMetadata_parameterRemovals :: Lens.Lens' UpdateFeatureMetadata (Prelude.Maybe [Prelude.Text])
-updateFeatureMetadata_parameterRemovals = Lens.lens (\UpdateFeatureMetadata' {parameterRemovals} -> parameterRemovals) (\s@UpdateFeatureMetadata' {} a -> s {parameterRemovals = a} :: UpdateFeatureMetadata) Prelude.. Lens.mapping Lens.coerced
 
 -- | A description that you can write to better describe the feature.
 updateFeatureMetadata_description :: Lens.Lens' UpdateFeatureMetadata (Prelude.Maybe Prelude.Text)
@@ -116,6 +111,11 @@ updateFeatureMetadata_description = Lens.lens (\UpdateFeatureMetadata' {descript
 -- feature.
 updateFeatureMetadata_parameterAdditions :: Lens.Lens' UpdateFeatureMetadata (Prelude.Maybe [FeatureParameter])
 updateFeatureMetadata_parameterAdditions = Lens.lens (\UpdateFeatureMetadata' {parameterAdditions} -> parameterAdditions) (\s@UpdateFeatureMetadata' {} a -> s {parameterAdditions = a} :: UpdateFeatureMetadata) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of parameter keys that you can specify to remove parameters that
+-- describe your feature.
+updateFeatureMetadata_parameterRemovals :: Lens.Lens' UpdateFeatureMetadata (Prelude.Maybe [Prelude.Text])
+updateFeatureMetadata_parameterRemovals = Lens.lens (\UpdateFeatureMetadata' {parameterRemovals} -> parameterRemovals) (\s@UpdateFeatureMetadata' {} a -> s {parameterRemovals = a} :: UpdateFeatureMetadata) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the feature group containing the feature that you\'re
 -- updating.
@@ -137,17 +137,17 @@ instance Core.AWSRequest UpdateFeatureMetadata where
 
 instance Prelude.Hashable UpdateFeatureMetadata where
   hashWithSalt _salt UpdateFeatureMetadata' {..} =
-    _salt `Prelude.hashWithSalt` parameterRemovals
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` parameterAdditions
+      `Prelude.hashWithSalt` parameterRemovals
       `Prelude.hashWithSalt` featureGroupName
       `Prelude.hashWithSalt` featureName
 
 instance Prelude.NFData UpdateFeatureMetadata where
   rnf UpdateFeatureMetadata' {..} =
-    Prelude.rnf parameterRemovals
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf parameterAdditions
+      `Prelude.seq` Prelude.rnf parameterRemovals
       `Prelude.seq` Prelude.rnf featureGroupName
       `Prelude.seq` Prelude.rnf featureName
 
@@ -170,11 +170,11 @@ instance Data.ToJSON UpdateFeatureMetadata where
   toJSON UpdateFeatureMetadata' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ParameterRemovals" Data..=)
-              Prelude.<$> parameterRemovals,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
             ("ParameterAdditions" Data..=)
               Prelude.<$> parameterAdditions,
+            ("ParameterRemovals" Data..=)
+              Prelude.<$> parameterRemovals,
             Prelude.Just
               ("FeatureGroupName" Data..= featureGroupName),
             Prelude.Just ("FeatureName" Data..= featureName)

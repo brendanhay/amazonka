@@ -35,12 +35,12 @@ module Amazonka.SageMaker.DescribeInferenceRecommendationsJob
     newDescribeInferenceRecommendationsJobResponse,
 
     -- * Response Lenses
-    describeInferenceRecommendationsJobResponse_endpointPerformances,
-    describeInferenceRecommendationsJobResponse_inferenceRecommendations,
-    describeInferenceRecommendationsJobResponse_stoppingConditions,
     describeInferenceRecommendationsJobResponse_completionTime,
+    describeInferenceRecommendationsJobResponse_endpointPerformances,
     describeInferenceRecommendationsJobResponse_failureReason,
+    describeInferenceRecommendationsJobResponse_inferenceRecommendations,
     describeInferenceRecommendationsJobResponse_jobDescription,
+    describeInferenceRecommendationsJobResponse_stoppingConditions,
     describeInferenceRecommendationsJobResponse_httpStatus,
     describeInferenceRecommendationsJobResponse_jobName,
     describeInferenceRecommendationsJobResponse_jobType,
@@ -107,14 +107,14 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeInferenceRecommendationsJobResponse'
-            Prelude.<$> ( x Data..?> "EndpointPerformances"
-                            Core..!@ Prelude.mempty
-                        )
-              Prelude.<*> (x Data..?> "InferenceRecommendations")
-              Prelude.<*> (x Data..?> "StoppingConditions")
-              Prelude.<*> (x Data..?> "CompletionTime")
+            Prelude.<$> (x Data..?> "CompletionTime")
+              Prelude.<*> ( x Data..?> "EndpointPerformances"
+                              Core..!@ Prelude.mempty
+                          )
               Prelude.<*> (x Data..?> "FailureReason")
+              Prelude.<*> (x Data..?> "InferenceRecommendations")
               Prelude.<*> (x Data..?> "JobDescription")
+              Prelude.<*> (x Data..?> "StoppingConditions")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
               Prelude.<*> (x Data..:> "JobName")
               Prelude.<*> (x Data..:> "JobType")
@@ -184,19 +184,19 @@ instance
 
 -- | /See:/ 'newDescribeInferenceRecommendationsJobResponse' smart constructor.
 data DescribeInferenceRecommendationsJobResponse = DescribeInferenceRecommendationsJobResponse'
-  { -- | The performance results from running an Inference Recommender job on an
+  { -- | A timestamp that shows when the job completed.
+    completionTime :: Prelude.Maybe Data.POSIX,
+    -- | The performance results from running an Inference Recommender job on an
     -- existing endpoint.
     endpointPerformances :: Prelude.Maybe [EndpointPerformance],
-    -- | The recommendations made by Inference Recommender.
-    inferenceRecommendations :: Prelude.Maybe (Prelude.NonEmpty InferenceRecommendation),
-    -- | The stopping conditions that you provided when you initiated the job.
-    stoppingConditions :: Prelude.Maybe RecommendationJobStoppingConditions,
-    -- | A timestamp that shows when the job completed.
-    completionTime :: Prelude.Maybe Data.POSIX,
     -- | If the job fails, provides information why the job failed.
     failureReason :: Prelude.Maybe Prelude.Text,
+    -- | The recommendations made by Inference Recommender.
+    inferenceRecommendations :: Prelude.Maybe (Prelude.NonEmpty InferenceRecommendation),
     -- | The job description that you provided when you initiated the job.
     jobDescription :: Prelude.Maybe Prelude.Text,
+    -- | The stopping conditions that you provided when you initiated the job.
+    stoppingConditions :: Prelude.Maybe RecommendationJobStoppingConditions,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The name of the job. The name must be unique within an Amazon Web
@@ -230,18 +230,18 @@ data DescribeInferenceRecommendationsJobResponse = DescribeInferenceRecommendati
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'completionTime', 'describeInferenceRecommendationsJobResponse_completionTime' - A timestamp that shows when the job completed.
+--
 -- 'endpointPerformances', 'describeInferenceRecommendationsJobResponse_endpointPerformances' - The performance results from running an Inference Recommender job on an
 -- existing endpoint.
 --
--- 'inferenceRecommendations', 'describeInferenceRecommendationsJobResponse_inferenceRecommendations' - The recommendations made by Inference Recommender.
---
--- 'stoppingConditions', 'describeInferenceRecommendationsJobResponse_stoppingConditions' - The stopping conditions that you provided when you initiated the job.
---
--- 'completionTime', 'describeInferenceRecommendationsJobResponse_completionTime' - A timestamp that shows when the job completed.
---
 -- 'failureReason', 'describeInferenceRecommendationsJobResponse_failureReason' - If the job fails, provides information why the job failed.
 --
+-- 'inferenceRecommendations', 'describeInferenceRecommendationsJobResponse_inferenceRecommendations' - The recommendations made by Inference Recommender.
+--
 -- 'jobDescription', 'describeInferenceRecommendationsJobResponse_jobDescription' - The job description that you provided when you initiated the job.
+--
+-- 'stoppingConditions', 'describeInferenceRecommendationsJobResponse_stoppingConditions' - The stopping conditions that you provided when you initiated the job.
 --
 -- 'httpStatus', 'describeInferenceRecommendationsJobResponse_httpStatus' - The response's http status code.
 --
@@ -295,17 +295,17 @@ newDescribeInferenceRecommendationsJobResponse
   pLastModifiedTime_
   pInputConfig_ =
     DescribeInferenceRecommendationsJobResponse'
-      { endpointPerformances =
+      { completionTime =
           Prelude.Nothing,
-        inferenceRecommendations =
-          Prelude.Nothing,
-        stoppingConditions =
-          Prelude.Nothing,
-        completionTime =
+        endpointPerformances =
           Prelude.Nothing,
         failureReason =
           Prelude.Nothing,
+        inferenceRecommendations =
+          Prelude.Nothing,
         jobDescription =
+          Prelude.Nothing,
+        stoppingConditions =
           Prelude.Nothing,
         httpStatus = pHttpStatus_,
         jobName = pJobName_,
@@ -322,30 +322,30 @@ newDescribeInferenceRecommendationsJobResponse
         inputConfig = pInputConfig_
       }
 
+-- | A timestamp that shows when the job completed.
+describeInferenceRecommendationsJobResponse_completionTime :: Lens.Lens' DescribeInferenceRecommendationsJobResponse (Prelude.Maybe Prelude.UTCTime)
+describeInferenceRecommendationsJobResponse_completionTime = Lens.lens (\DescribeInferenceRecommendationsJobResponse' {completionTime} -> completionTime) (\s@DescribeInferenceRecommendationsJobResponse' {} a -> s {completionTime = a} :: DescribeInferenceRecommendationsJobResponse) Prelude.. Lens.mapping Data._Time
+
 -- | The performance results from running an Inference Recommender job on an
 -- existing endpoint.
 describeInferenceRecommendationsJobResponse_endpointPerformances :: Lens.Lens' DescribeInferenceRecommendationsJobResponse (Prelude.Maybe [EndpointPerformance])
 describeInferenceRecommendationsJobResponse_endpointPerformances = Lens.lens (\DescribeInferenceRecommendationsJobResponse' {endpointPerformances} -> endpointPerformances) (\s@DescribeInferenceRecommendationsJobResponse' {} a -> s {endpointPerformances = a} :: DescribeInferenceRecommendationsJobResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The recommendations made by Inference Recommender.
-describeInferenceRecommendationsJobResponse_inferenceRecommendations :: Lens.Lens' DescribeInferenceRecommendationsJobResponse (Prelude.Maybe (Prelude.NonEmpty InferenceRecommendation))
-describeInferenceRecommendationsJobResponse_inferenceRecommendations = Lens.lens (\DescribeInferenceRecommendationsJobResponse' {inferenceRecommendations} -> inferenceRecommendations) (\s@DescribeInferenceRecommendationsJobResponse' {} a -> s {inferenceRecommendations = a} :: DescribeInferenceRecommendationsJobResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The stopping conditions that you provided when you initiated the job.
-describeInferenceRecommendationsJobResponse_stoppingConditions :: Lens.Lens' DescribeInferenceRecommendationsJobResponse (Prelude.Maybe RecommendationJobStoppingConditions)
-describeInferenceRecommendationsJobResponse_stoppingConditions = Lens.lens (\DescribeInferenceRecommendationsJobResponse' {stoppingConditions} -> stoppingConditions) (\s@DescribeInferenceRecommendationsJobResponse' {} a -> s {stoppingConditions = a} :: DescribeInferenceRecommendationsJobResponse)
-
--- | A timestamp that shows when the job completed.
-describeInferenceRecommendationsJobResponse_completionTime :: Lens.Lens' DescribeInferenceRecommendationsJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeInferenceRecommendationsJobResponse_completionTime = Lens.lens (\DescribeInferenceRecommendationsJobResponse' {completionTime} -> completionTime) (\s@DescribeInferenceRecommendationsJobResponse' {} a -> s {completionTime = a} :: DescribeInferenceRecommendationsJobResponse) Prelude.. Lens.mapping Data._Time
-
 -- | If the job fails, provides information why the job failed.
 describeInferenceRecommendationsJobResponse_failureReason :: Lens.Lens' DescribeInferenceRecommendationsJobResponse (Prelude.Maybe Prelude.Text)
 describeInferenceRecommendationsJobResponse_failureReason = Lens.lens (\DescribeInferenceRecommendationsJobResponse' {failureReason} -> failureReason) (\s@DescribeInferenceRecommendationsJobResponse' {} a -> s {failureReason = a} :: DescribeInferenceRecommendationsJobResponse)
 
+-- | The recommendations made by Inference Recommender.
+describeInferenceRecommendationsJobResponse_inferenceRecommendations :: Lens.Lens' DescribeInferenceRecommendationsJobResponse (Prelude.Maybe (Prelude.NonEmpty InferenceRecommendation))
+describeInferenceRecommendationsJobResponse_inferenceRecommendations = Lens.lens (\DescribeInferenceRecommendationsJobResponse' {inferenceRecommendations} -> inferenceRecommendations) (\s@DescribeInferenceRecommendationsJobResponse' {} a -> s {inferenceRecommendations = a} :: DescribeInferenceRecommendationsJobResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The job description that you provided when you initiated the job.
 describeInferenceRecommendationsJobResponse_jobDescription :: Lens.Lens' DescribeInferenceRecommendationsJobResponse (Prelude.Maybe Prelude.Text)
 describeInferenceRecommendationsJobResponse_jobDescription = Lens.lens (\DescribeInferenceRecommendationsJobResponse' {jobDescription} -> jobDescription) (\s@DescribeInferenceRecommendationsJobResponse' {} a -> s {jobDescription = a} :: DescribeInferenceRecommendationsJobResponse)
+
+-- | The stopping conditions that you provided when you initiated the job.
+describeInferenceRecommendationsJobResponse_stoppingConditions :: Lens.Lens' DescribeInferenceRecommendationsJobResponse (Prelude.Maybe RecommendationJobStoppingConditions)
+describeInferenceRecommendationsJobResponse_stoppingConditions = Lens.lens (\DescribeInferenceRecommendationsJobResponse' {stoppingConditions} -> stoppingConditions) (\s@DescribeInferenceRecommendationsJobResponse' {} a -> s {stoppingConditions = a} :: DescribeInferenceRecommendationsJobResponse)
 
 -- | The response's http status code.
 describeInferenceRecommendationsJobResponse_httpStatus :: Lens.Lens' DescribeInferenceRecommendationsJobResponse Prelude.Int
@@ -392,12 +392,12 @@ instance
     DescribeInferenceRecommendationsJobResponse
   where
   rnf DescribeInferenceRecommendationsJobResponse' {..} =
-    Prelude.rnf endpointPerformances
-      `Prelude.seq` Prelude.rnf inferenceRecommendations
-      `Prelude.seq` Prelude.rnf stoppingConditions
-      `Prelude.seq` Prelude.rnf completionTime
+    Prelude.rnf completionTime
+      `Prelude.seq` Prelude.rnf endpointPerformances
       `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf inferenceRecommendations
       `Prelude.seq` Prelude.rnf jobDescription
+      `Prelude.seq` Prelude.rnf stoppingConditions
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf jobName
       `Prelude.seq` Prelude.rnf jobType

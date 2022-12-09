@@ -33,19 +33,7 @@ import Amazonka.SageMaker.Types.ProcessingS3InputMode
 --
 -- /See:/ 'newProcessingS3Input' smart constructor.
 data ProcessingS3Input = ProcessingS3Input'
-  { -- | Whether to use @File@ or @Pipe@ input mode. In File mode, Amazon
-    -- SageMaker copies the data from the input source onto the local ML
-    -- storage volume before starting your processing container. This is the
-    -- most commonly used input mode. In @Pipe@ mode, Amazon SageMaker streams
-    -- input data from the source directly to your processing container into
-    -- named pipes without using the ML storage volume.
-    s3InputMode :: Prelude.Maybe ProcessingS3InputMode,
-    -- | Whether to distribute the data from Amazon S3 to all processing
-    -- instances with @FullyReplicated@, or whether the data from Amazon S3 is
-    -- shared by Amazon S3 key, downloading one shard of data to each
-    -- processing instance.
-    s3DataDistributionType :: Prelude.Maybe ProcessingS3DataDistributionType,
-    -- | The local path in your container where you want Amazon SageMaker to
+  { -- | The local path in your container where you want Amazon SageMaker to
     -- write input data to. @LocalPath@ is an absolute path to the input data
     -- and must begin with @\/opt\/ml\/processing\/@. @LocalPath@ is a required
     -- parameter when @AppManaged@ is @False@ (default).
@@ -56,6 +44,18 @@ data ProcessingS3Input = ProcessingS3Input'
     -- input data from the source directly to your container without using the
     -- EBS volume.
     s3CompressionType :: Prelude.Maybe ProcessingS3CompressionType,
+    -- | Whether to distribute the data from Amazon S3 to all processing
+    -- instances with @FullyReplicated@, or whether the data from Amazon S3 is
+    -- shared by Amazon S3 key, downloading one shard of data to each
+    -- processing instance.
+    s3DataDistributionType :: Prelude.Maybe ProcessingS3DataDistributionType,
+    -- | Whether to use @File@ or @Pipe@ input mode. In File mode, Amazon
+    -- SageMaker copies the data from the input source onto the local ML
+    -- storage volume before starting your processing container. This is the
+    -- most commonly used input mode. In @Pipe@ mode, Amazon SageMaker streams
+    -- input data from the source directly to your processing container into
+    -- named pipes without using the ML storage volume.
+    s3InputMode :: Prelude.Maybe ProcessingS3InputMode,
     -- | The URI of the Amazon S3 prefix Amazon SageMaker downloads data required
     -- to run a processing job.
     s3Uri :: Prelude.Text,
@@ -77,18 +77,6 @@ data ProcessingS3Input = ProcessingS3Input'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3InputMode', 'processingS3Input_s3InputMode' - Whether to use @File@ or @Pipe@ input mode. In File mode, Amazon
--- SageMaker copies the data from the input source onto the local ML
--- storage volume before starting your processing container. This is the
--- most commonly used input mode. In @Pipe@ mode, Amazon SageMaker streams
--- input data from the source directly to your processing container into
--- named pipes without using the ML storage volume.
---
--- 's3DataDistributionType', 'processingS3Input_s3DataDistributionType' - Whether to distribute the data from Amazon S3 to all processing
--- instances with @FullyReplicated@, or whether the data from Amazon S3 is
--- shared by Amazon S3 key, downloading one shard of data to each
--- processing instance.
---
 -- 'localPath', 'processingS3Input_localPath' - The local path in your container where you want Amazon SageMaker to
 -- write input data to. @LocalPath@ is an absolute path to the input data
 -- and must begin with @\/opt\/ml\/processing\/@. @LocalPath@ is a required
@@ -99,6 +87,18 @@ data ProcessingS3Input = ProcessingS3Input'
 -- specified as the @S3InputMode@. In @Pipe@ mode, Amazon SageMaker streams
 -- input data from the source directly to your container without using the
 -- EBS volume.
+--
+-- 's3DataDistributionType', 'processingS3Input_s3DataDistributionType' - Whether to distribute the data from Amazon S3 to all processing
+-- instances with @FullyReplicated@, or whether the data from Amazon S3 is
+-- shared by Amazon S3 key, downloading one shard of data to each
+-- processing instance.
+--
+-- 's3InputMode', 'processingS3Input_s3InputMode' - Whether to use @File@ or @Pipe@ input mode. In File mode, Amazon
+-- SageMaker copies the data from the input source onto the local ML
+-- storage volume before starting your processing container. This is the
+-- most commonly used input mode. In @Pipe@ mode, Amazon SageMaker streams
+-- input data from the source directly to your processing container into
+-- named pipes without using the ML storage volume.
 --
 -- 's3Uri', 'processingS3Input_s3Uri' - The URI of the Amazon S3 prefix Amazon SageMaker downloads data required
 -- to run a processing job.
@@ -117,29 +117,13 @@ newProcessingS3Input ::
   ProcessingS3Input
 newProcessingS3Input pS3Uri_ pS3DataType_ =
   ProcessingS3Input'
-    { s3InputMode = Prelude.Nothing,
-      s3DataDistributionType = Prelude.Nothing,
-      localPath = Prelude.Nothing,
+    { localPath = Prelude.Nothing,
       s3CompressionType = Prelude.Nothing,
+      s3DataDistributionType = Prelude.Nothing,
+      s3InputMode = Prelude.Nothing,
       s3Uri = pS3Uri_,
       s3DataType = pS3DataType_
     }
-
--- | Whether to use @File@ or @Pipe@ input mode. In File mode, Amazon
--- SageMaker copies the data from the input source onto the local ML
--- storage volume before starting your processing container. This is the
--- most commonly used input mode. In @Pipe@ mode, Amazon SageMaker streams
--- input data from the source directly to your processing container into
--- named pipes without using the ML storage volume.
-processingS3Input_s3InputMode :: Lens.Lens' ProcessingS3Input (Prelude.Maybe ProcessingS3InputMode)
-processingS3Input_s3InputMode = Lens.lens (\ProcessingS3Input' {s3InputMode} -> s3InputMode) (\s@ProcessingS3Input' {} a -> s {s3InputMode = a} :: ProcessingS3Input)
-
--- | Whether to distribute the data from Amazon S3 to all processing
--- instances with @FullyReplicated@, or whether the data from Amazon S3 is
--- shared by Amazon S3 key, downloading one shard of data to each
--- processing instance.
-processingS3Input_s3DataDistributionType :: Lens.Lens' ProcessingS3Input (Prelude.Maybe ProcessingS3DataDistributionType)
-processingS3Input_s3DataDistributionType = Lens.lens (\ProcessingS3Input' {s3DataDistributionType} -> s3DataDistributionType) (\s@ProcessingS3Input' {} a -> s {s3DataDistributionType = a} :: ProcessingS3Input)
 
 -- | The local path in your container where you want Amazon SageMaker to
 -- write input data to. @LocalPath@ is an absolute path to the input data
@@ -155,6 +139,22 @@ processingS3Input_localPath = Lens.lens (\ProcessingS3Input' {localPath} -> loca
 -- EBS volume.
 processingS3Input_s3CompressionType :: Lens.Lens' ProcessingS3Input (Prelude.Maybe ProcessingS3CompressionType)
 processingS3Input_s3CompressionType = Lens.lens (\ProcessingS3Input' {s3CompressionType} -> s3CompressionType) (\s@ProcessingS3Input' {} a -> s {s3CompressionType = a} :: ProcessingS3Input)
+
+-- | Whether to distribute the data from Amazon S3 to all processing
+-- instances with @FullyReplicated@, or whether the data from Amazon S3 is
+-- shared by Amazon S3 key, downloading one shard of data to each
+-- processing instance.
+processingS3Input_s3DataDistributionType :: Lens.Lens' ProcessingS3Input (Prelude.Maybe ProcessingS3DataDistributionType)
+processingS3Input_s3DataDistributionType = Lens.lens (\ProcessingS3Input' {s3DataDistributionType} -> s3DataDistributionType) (\s@ProcessingS3Input' {} a -> s {s3DataDistributionType = a} :: ProcessingS3Input)
+
+-- | Whether to use @File@ or @Pipe@ input mode. In File mode, Amazon
+-- SageMaker copies the data from the input source onto the local ML
+-- storage volume before starting your processing container. This is the
+-- most commonly used input mode. In @Pipe@ mode, Amazon SageMaker streams
+-- input data from the source directly to your processing container into
+-- named pipes without using the ML storage volume.
+processingS3Input_s3InputMode :: Lens.Lens' ProcessingS3Input (Prelude.Maybe ProcessingS3InputMode)
+processingS3Input_s3InputMode = Lens.lens (\ProcessingS3Input' {s3InputMode} -> s3InputMode) (\s@ProcessingS3Input' {} a -> s {s3InputMode = a} :: ProcessingS3Input)
 
 -- | The URI of the Amazon S3 prefix Amazon SageMaker downloads data required
 -- to run a processing job.
@@ -176,29 +176,29 @@ instance Data.FromJSON ProcessingS3Input where
       "ProcessingS3Input"
       ( \x ->
           ProcessingS3Input'
-            Prelude.<$> (x Data..:? "S3InputMode")
-            Prelude.<*> (x Data..:? "S3DataDistributionType")
-            Prelude.<*> (x Data..:? "LocalPath")
+            Prelude.<$> (x Data..:? "LocalPath")
             Prelude.<*> (x Data..:? "S3CompressionType")
+            Prelude.<*> (x Data..:? "S3DataDistributionType")
+            Prelude.<*> (x Data..:? "S3InputMode")
             Prelude.<*> (x Data..: "S3Uri")
             Prelude.<*> (x Data..: "S3DataType")
       )
 
 instance Prelude.Hashable ProcessingS3Input where
   hashWithSalt _salt ProcessingS3Input' {..} =
-    _salt `Prelude.hashWithSalt` s3InputMode
-      `Prelude.hashWithSalt` s3DataDistributionType
-      `Prelude.hashWithSalt` localPath
+    _salt `Prelude.hashWithSalt` localPath
       `Prelude.hashWithSalt` s3CompressionType
+      `Prelude.hashWithSalt` s3DataDistributionType
+      `Prelude.hashWithSalt` s3InputMode
       `Prelude.hashWithSalt` s3Uri
       `Prelude.hashWithSalt` s3DataType
 
 instance Prelude.NFData ProcessingS3Input where
   rnf ProcessingS3Input' {..} =
-    Prelude.rnf s3InputMode
-      `Prelude.seq` Prelude.rnf s3DataDistributionType
-      `Prelude.seq` Prelude.rnf localPath
+    Prelude.rnf localPath
       `Prelude.seq` Prelude.rnf s3CompressionType
+      `Prelude.seq` Prelude.rnf s3DataDistributionType
+      `Prelude.seq` Prelude.rnf s3InputMode
       `Prelude.seq` Prelude.rnf s3Uri
       `Prelude.seq` Prelude.rnf s3DataType
 
@@ -206,12 +206,12 @@ instance Data.ToJSON ProcessingS3Input where
   toJSON ProcessingS3Input' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("S3InputMode" Data..=) Prelude.<$> s3InputMode,
-            ("S3DataDistributionType" Data..=)
-              Prelude.<$> s3DataDistributionType,
-            ("LocalPath" Data..=) Prelude.<$> localPath,
+          [ ("LocalPath" Data..=) Prelude.<$> localPath,
             ("S3CompressionType" Data..=)
               Prelude.<$> s3CompressionType,
+            ("S3DataDistributionType" Data..=)
+              Prelude.<$> s3DataDistributionType,
+            ("S3InputMode" Data..=) Prelude.<$> s3InputMode,
             Prelude.Just ("S3Uri" Data..= s3Uri),
             Prelude.Just ("S3DataType" Data..= s3DataType)
           ]

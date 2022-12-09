@@ -31,8 +31,8 @@ module Amazonka.SageMaker.CreateWorkteam
     newCreateWorkteam,
 
     -- * Request Lenses
-    createWorkteam_tags,
     createWorkteam_notificationConfiguration,
+    createWorkteam_tags,
     createWorkteam_workforceName,
     createWorkteam_workteamName,
     createWorkteam_memberDefinitions,
@@ -58,7 +58,10 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateWorkteam' smart constructor.
 data CreateWorkteam = CreateWorkteam'
-  { -- | An array of key-value pairs.
+  { -- | Configures notification of workers regarding available or expiring work
+    -- items.
+    notificationConfiguration :: Prelude.Maybe NotificationConfiguration,
+    -- | An array of key-value pairs.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html Resource Tag>
@@ -66,9 +69,6 @@ data CreateWorkteam = CreateWorkteam'
     -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags>
     -- in the /Amazon Web Services Billing and Cost Management User Guide/.
     tags :: Prelude.Maybe [Tag],
-    -- | Configures notification of workers regarding available or expiring work
-    -- items.
-    notificationConfiguration :: Prelude.Maybe NotificationConfiguration,
     -- | The name of the workforce.
     workforceName :: Prelude.Maybe Prelude.Text,
     -- | The name of the work team. Use this name to identify the work team.
@@ -108,6 +108,9 @@ data CreateWorkteam = CreateWorkteam'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'notificationConfiguration', 'createWorkteam_notificationConfiguration' - Configures notification of workers regarding available or expiring work
+-- items.
+--
 -- 'tags', 'createWorkteam_tags' - An array of key-value pairs.
 --
 -- For more information, see
@@ -115,9 +118,6 @@ data CreateWorkteam = CreateWorkteam'
 -- and
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags>
 -- in the /Amazon Web Services Billing and Cost Management User Guide/.
---
--- 'notificationConfiguration', 'createWorkteam_notificationConfiguration' - Configures notification of workers regarding available or expiring work
--- items.
 --
 -- 'workforceName', 'createWorkteam_workforceName' - The name of the workforce.
 --
@@ -159,14 +159,20 @@ newCreateWorkteam
   pMemberDefinitions_
   pDescription_ =
     CreateWorkteam'
-      { tags = Prelude.Nothing,
-        notificationConfiguration = Prelude.Nothing,
+      { notificationConfiguration =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         workforceName = Prelude.Nothing,
         workteamName = pWorkteamName_,
         memberDefinitions =
           Lens.coerced Lens.# pMemberDefinitions_,
         description = pDescription_
       }
+
+-- | Configures notification of workers regarding available or expiring work
+-- items.
+createWorkteam_notificationConfiguration :: Lens.Lens' CreateWorkteam (Prelude.Maybe NotificationConfiguration)
+createWorkteam_notificationConfiguration = Lens.lens (\CreateWorkteam' {notificationConfiguration} -> notificationConfiguration) (\s@CreateWorkteam' {} a -> s {notificationConfiguration = a} :: CreateWorkteam)
 
 -- | An array of key-value pairs.
 --
@@ -177,11 +183,6 @@ newCreateWorkteam
 -- in the /Amazon Web Services Billing and Cost Management User Guide/.
 createWorkteam_tags :: Lens.Lens' CreateWorkteam (Prelude.Maybe [Tag])
 createWorkteam_tags = Lens.lens (\CreateWorkteam' {tags} -> tags) (\s@CreateWorkteam' {} a -> s {tags = a} :: CreateWorkteam) Prelude.. Lens.mapping Lens.coerced
-
--- | Configures notification of workers regarding available or expiring work
--- items.
-createWorkteam_notificationConfiguration :: Lens.Lens' CreateWorkteam (Prelude.Maybe NotificationConfiguration)
-createWorkteam_notificationConfiguration = Lens.lens (\CreateWorkteam' {notificationConfiguration} -> notificationConfiguration) (\s@CreateWorkteam' {} a -> s {notificationConfiguration = a} :: CreateWorkteam)
 
 -- | The name of the workforce.
 createWorkteam_workforceName :: Lens.Lens' CreateWorkteam (Prelude.Maybe Prelude.Text)
@@ -235,8 +236,9 @@ instance Core.AWSRequest CreateWorkteam where
 
 instance Prelude.Hashable CreateWorkteam where
   hashWithSalt _salt CreateWorkteam' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
       `Prelude.hashWithSalt` notificationConfiguration
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` workforceName
       `Prelude.hashWithSalt` workteamName
       `Prelude.hashWithSalt` memberDefinitions
@@ -244,8 +246,8 @@ instance Prelude.Hashable CreateWorkteam where
 
 instance Prelude.NFData CreateWorkteam where
   rnf CreateWorkteam' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf notificationConfiguration
+    Prelude.rnf notificationConfiguration
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf workforceName
       `Prelude.seq` Prelude.rnf workteamName
       `Prelude.seq` Prelude.rnf memberDefinitions
@@ -268,9 +270,9 @@ instance Data.ToJSON CreateWorkteam where
   toJSON CreateWorkteam' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("NotificationConfiguration" Data..=)
+          [ ("NotificationConfiguration" Data..=)
               Prelude.<$> notificationConfiguration,
+            ("Tags" Data..=) Prelude.<$> tags,
             ("WorkforceName" Data..=) Prelude.<$> workforceName,
             Prelude.Just ("WorkteamName" Data..= workteamName),
             Prelude.Just

@@ -31,26 +31,26 @@ import Amazonka.SageMaker.Types.UserContext
 --
 -- /See:/ 'newExperiment' smart constructor.
 data Experiment = Experiment'
-  { -- | The list of tags that are associated with the experiment. You can use
-    -- Search API to search on the tags.
-    tags :: Prelude.Maybe [Tag],
+  { -- | Who created the experiment.
+    createdBy :: Prelude.Maybe UserContext,
+    -- | When the experiment was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The description of the experiment.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the experiment as displayed. If @DisplayName@ isn\'t
     -- specified, @ExperimentName@ is displayed.
     displayName :: Prelude.Maybe Prelude.Text,
-    -- | The description of the experiment.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the experiment.
+    experimentArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the experiment.
+    experimentName :: Prelude.Maybe Prelude.Text,
+    lastModifiedBy :: Prelude.Maybe UserContext,
     -- | When the experiment was last modified.
     lastModifiedTime :: Prelude.Maybe Data.POSIX,
     source :: Prelude.Maybe ExperimentSource,
-    -- | The Amazon Resource Name (ARN) of the experiment.
-    experimentArn :: Prelude.Maybe Prelude.Text,
-    -- | When the experiment was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
-    lastModifiedBy :: Prelude.Maybe UserContext,
-    -- | Who created the experiment.
-    createdBy :: Prelude.Maybe UserContext,
-    -- | The name of the experiment.
-    experimentName :: Prelude.Maybe Prelude.Text
+    -- | The list of tags that are associated with the experiment. You can use
+    -- Search API to search on the tags.
+    tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,56 +62,71 @@ data Experiment = Experiment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'experiment_tags' - The list of tags that are associated with the experiment. You can use
--- Search API to search on the tags.
+-- 'createdBy', 'experiment_createdBy' - Who created the experiment.
+--
+-- 'creationTime', 'experiment_creationTime' - When the experiment was created.
+--
+-- 'description', 'experiment_description' - The description of the experiment.
 --
 -- 'displayName', 'experiment_displayName' - The name of the experiment as displayed. If @DisplayName@ isn\'t
 -- specified, @ExperimentName@ is displayed.
 --
--- 'description', 'experiment_description' - The description of the experiment.
+-- 'experimentArn', 'experiment_experimentArn' - The Amazon Resource Name (ARN) of the experiment.
+--
+-- 'experimentName', 'experiment_experimentName' - The name of the experiment.
+--
+-- 'lastModifiedBy', 'experiment_lastModifiedBy' - Undocumented member.
 --
 -- 'lastModifiedTime', 'experiment_lastModifiedTime' - When the experiment was last modified.
 --
 -- 'source', 'experiment_source' - Undocumented member.
 --
--- 'experimentArn', 'experiment_experimentArn' - The Amazon Resource Name (ARN) of the experiment.
---
--- 'creationTime', 'experiment_creationTime' - When the experiment was created.
---
--- 'lastModifiedBy', 'experiment_lastModifiedBy' - Undocumented member.
---
--- 'createdBy', 'experiment_createdBy' - Who created the experiment.
---
--- 'experimentName', 'experiment_experimentName' - The name of the experiment.
+-- 'tags', 'experiment_tags' - The list of tags that are associated with the experiment. You can use
+-- Search API to search on the tags.
 newExperiment ::
   Experiment
 newExperiment =
   Experiment'
-    { tags = Prelude.Nothing,
-      displayName = Prelude.Nothing,
+    { createdBy = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       description = Prelude.Nothing,
+      displayName = Prelude.Nothing,
+      experimentArn = Prelude.Nothing,
+      experimentName = Prelude.Nothing,
+      lastModifiedBy = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
       source = Prelude.Nothing,
-      experimentArn = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      lastModifiedBy = Prelude.Nothing,
-      createdBy = Prelude.Nothing,
-      experimentName = Prelude.Nothing
+      tags = Prelude.Nothing
     }
 
--- | The list of tags that are associated with the experiment. You can use
--- Search API to search on the tags.
-experiment_tags :: Lens.Lens' Experiment (Prelude.Maybe [Tag])
-experiment_tags = Lens.lens (\Experiment' {tags} -> tags) (\s@Experiment' {} a -> s {tags = a} :: Experiment) Prelude.. Lens.mapping Lens.coerced
+-- | Who created the experiment.
+experiment_createdBy :: Lens.Lens' Experiment (Prelude.Maybe UserContext)
+experiment_createdBy = Lens.lens (\Experiment' {createdBy} -> createdBy) (\s@Experiment' {} a -> s {createdBy = a} :: Experiment)
+
+-- | When the experiment was created.
+experiment_creationTime :: Lens.Lens' Experiment (Prelude.Maybe Prelude.UTCTime)
+experiment_creationTime = Lens.lens (\Experiment' {creationTime} -> creationTime) (\s@Experiment' {} a -> s {creationTime = a} :: Experiment) Prelude.. Lens.mapping Data._Time
+
+-- | The description of the experiment.
+experiment_description :: Lens.Lens' Experiment (Prelude.Maybe Prelude.Text)
+experiment_description = Lens.lens (\Experiment' {description} -> description) (\s@Experiment' {} a -> s {description = a} :: Experiment)
 
 -- | The name of the experiment as displayed. If @DisplayName@ isn\'t
 -- specified, @ExperimentName@ is displayed.
 experiment_displayName :: Lens.Lens' Experiment (Prelude.Maybe Prelude.Text)
 experiment_displayName = Lens.lens (\Experiment' {displayName} -> displayName) (\s@Experiment' {} a -> s {displayName = a} :: Experiment)
 
--- | The description of the experiment.
-experiment_description :: Lens.Lens' Experiment (Prelude.Maybe Prelude.Text)
-experiment_description = Lens.lens (\Experiment' {description} -> description) (\s@Experiment' {} a -> s {description = a} :: Experiment)
+-- | The Amazon Resource Name (ARN) of the experiment.
+experiment_experimentArn :: Lens.Lens' Experiment (Prelude.Maybe Prelude.Text)
+experiment_experimentArn = Lens.lens (\Experiment' {experimentArn} -> experimentArn) (\s@Experiment' {} a -> s {experimentArn = a} :: Experiment)
+
+-- | The name of the experiment.
+experiment_experimentName :: Lens.Lens' Experiment (Prelude.Maybe Prelude.Text)
+experiment_experimentName = Lens.lens (\Experiment' {experimentName} -> experimentName) (\s@Experiment' {} a -> s {experimentName = a} :: Experiment)
+
+-- | Undocumented member.
+experiment_lastModifiedBy :: Lens.Lens' Experiment (Prelude.Maybe UserContext)
+experiment_lastModifiedBy = Lens.lens (\Experiment' {lastModifiedBy} -> lastModifiedBy) (\s@Experiment' {} a -> s {lastModifiedBy = a} :: Experiment)
 
 -- | When the experiment was last modified.
 experiment_lastModifiedTime :: Lens.Lens' Experiment (Prelude.Maybe Prelude.UTCTime)
@@ -121,25 +136,10 @@ experiment_lastModifiedTime = Lens.lens (\Experiment' {lastModifiedTime} -> last
 experiment_source :: Lens.Lens' Experiment (Prelude.Maybe ExperimentSource)
 experiment_source = Lens.lens (\Experiment' {source} -> source) (\s@Experiment' {} a -> s {source = a} :: Experiment)
 
--- | The Amazon Resource Name (ARN) of the experiment.
-experiment_experimentArn :: Lens.Lens' Experiment (Prelude.Maybe Prelude.Text)
-experiment_experimentArn = Lens.lens (\Experiment' {experimentArn} -> experimentArn) (\s@Experiment' {} a -> s {experimentArn = a} :: Experiment)
-
--- | When the experiment was created.
-experiment_creationTime :: Lens.Lens' Experiment (Prelude.Maybe Prelude.UTCTime)
-experiment_creationTime = Lens.lens (\Experiment' {creationTime} -> creationTime) (\s@Experiment' {} a -> s {creationTime = a} :: Experiment) Prelude.. Lens.mapping Data._Time
-
--- | Undocumented member.
-experiment_lastModifiedBy :: Lens.Lens' Experiment (Prelude.Maybe UserContext)
-experiment_lastModifiedBy = Lens.lens (\Experiment' {lastModifiedBy} -> lastModifiedBy) (\s@Experiment' {} a -> s {lastModifiedBy = a} :: Experiment)
-
--- | Who created the experiment.
-experiment_createdBy :: Lens.Lens' Experiment (Prelude.Maybe UserContext)
-experiment_createdBy = Lens.lens (\Experiment' {createdBy} -> createdBy) (\s@Experiment' {} a -> s {createdBy = a} :: Experiment)
-
--- | The name of the experiment.
-experiment_experimentName :: Lens.Lens' Experiment (Prelude.Maybe Prelude.Text)
-experiment_experimentName = Lens.lens (\Experiment' {experimentName} -> experimentName) (\s@Experiment' {} a -> s {experimentName = a} :: Experiment)
+-- | The list of tags that are associated with the experiment. You can use
+-- Search API to search on the tags.
+experiment_tags :: Lens.Lens' Experiment (Prelude.Maybe [Tag])
+experiment_tags = Lens.lens (\Experiment' {tags} -> tags) (\s@Experiment' {} a -> s {tags = a} :: Experiment) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON Experiment where
   parseJSON =
@@ -147,40 +147,40 @@ instance Data.FromJSON Experiment where
       "Experiment"
       ( \x ->
           Experiment'
-            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "DisplayName")
+            Prelude.<$> (x Data..:? "CreatedBy")
+            Prelude.<*> (x Data..:? "CreationTime")
             Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "DisplayName")
+            Prelude.<*> (x Data..:? "ExperimentArn")
+            Prelude.<*> (x Data..:? "ExperimentName")
+            Prelude.<*> (x Data..:? "LastModifiedBy")
             Prelude.<*> (x Data..:? "LastModifiedTime")
             Prelude.<*> (x Data..:? "Source")
-            Prelude.<*> (x Data..:? "ExperimentArn")
-            Prelude.<*> (x Data..:? "CreationTime")
-            Prelude.<*> (x Data..:? "LastModifiedBy")
-            Prelude.<*> (x Data..:? "CreatedBy")
-            Prelude.<*> (x Data..:? "ExperimentName")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Experiment where
   hashWithSalt _salt Experiment' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` displayName
+    _salt `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` experimentArn
+      `Prelude.hashWithSalt` experimentName
+      `Prelude.hashWithSalt` lastModifiedBy
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` source
-      `Prelude.hashWithSalt` experimentArn
-      `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` lastModifiedBy
-      `Prelude.hashWithSalt` createdBy
-      `Prelude.hashWithSalt` experimentName
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData Experiment where
   rnf Experiment' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf displayName
+    Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf experimentArn
+      `Prelude.seq` Prelude.rnf experimentName
+      `Prelude.seq` Prelude.rnf lastModifiedBy
       `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf source
-      `Prelude.seq` Prelude.rnf experimentArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf createdBy
-      `Prelude.seq` Prelude.rnf experimentName
+      `Prelude.seq` Prelude.rnf tags

@@ -29,18 +29,18 @@ import Amazonka.SageMaker.Types.DeviceDeploymentStatus
 --
 -- /See:/ 'newDeviceDeploymentSummary' smart constructor.
 data DeviceDeploymentSummary = DeviceDeploymentSummary'
-  { -- | The deployment status of the device.
+  { -- | The name of the deployed stage.
+    deployedStageName :: Prelude.Maybe Prelude.Text,
+    -- | The time when the deployment on the device started.
+    deploymentStartTime :: Prelude.Maybe Data.POSIX,
+    -- | The description of the device.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The deployment status of the device.
     deviceDeploymentStatus :: Prelude.Maybe DeviceDeploymentStatus,
     -- | The detailed error message for the deployoment status result.
     deviceDeploymentStatusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The name of the deployed stage.
-    deployedStageName :: Prelude.Maybe Prelude.Text,
     -- | The name of the fleet to which the device belongs to.
     deviceFleetName :: Prelude.Maybe Prelude.Text,
-    -- | The description of the device.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The time when the deployment on the device started.
-    deploymentStartTime :: Prelude.Maybe Data.POSIX,
     -- | The ARN of the edge deployment plan.
     edgeDeploymentPlanArn :: Prelude.Text,
     -- | The name of the edge deployment plan.
@@ -62,17 +62,17 @@ data DeviceDeploymentSummary = DeviceDeploymentSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deployedStageName', 'deviceDeploymentSummary_deployedStageName' - The name of the deployed stage.
+--
+-- 'deploymentStartTime', 'deviceDeploymentSummary_deploymentStartTime' - The time when the deployment on the device started.
+--
+-- 'description', 'deviceDeploymentSummary_description' - The description of the device.
+--
 -- 'deviceDeploymentStatus', 'deviceDeploymentSummary_deviceDeploymentStatus' - The deployment status of the device.
 --
 -- 'deviceDeploymentStatusMessage', 'deviceDeploymentSummary_deviceDeploymentStatusMessage' - The detailed error message for the deployoment status result.
 --
--- 'deployedStageName', 'deviceDeploymentSummary_deployedStageName' - The name of the deployed stage.
---
 -- 'deviceFleetName', 'deviceDeploymentSummary_deviceFleetName' - The name of the fleet to which the device belongs to.
---
--- 'description', 'deviceDeploymentSummary_description' - The description of the device.
---
--- 'deploymentStartTime', 'deviceDeploymentSummary_deploymentStartTime' - The time when the deployment on the device started.
 --
 -- 'edgeDeploymentPlanArn', 'deviceDeploymentSummary_edgeDeploymentPlanArn' - The ARN of the edge deployment plan.
 --
@@ -102,19 +102,31 @@ newDeviceDeploymentSummary
   pDeviceName_
   pDeviceArn_ =
     DeviceDeploymentSummary'
-      { deviceDeploymentStatus =
+      { deployedStageName =
           Prelude.Nothing,
-        deviceDeploymentStatusMessage = Prelude.Nothing,
-        deployedStageName = Prelude.Nothing,
-        deviceFleetName = Prelude.Nothing,
-        description = Prelude.Nothing,
         deploymentStartTime = Prelude.Nothing,
+        description = Prelude.Nothing,
+        deviceDeploymentStatus = Prelude.Nothing,
+        deviceDeploymentStatusMessage = Prelude.Nothing,
+        deviceFleetName = Prelude.Nothing,
         edgeDeploymentPlanArn = pEdgeDeploymentPlanArn_,
         edgeDeploymentPlanName = pEdgeDeploymentPlanName_,
         stageName = pStageName_,
         deviceName = pDeviceName_,
         deviceArn = pDeviceArn_
       }
+
+-- | The name of the deployed stage.
+deviceDeploymentSummary_deployedStageName :: Lens.Lens' DeviceDeploymentSummary (Prelude.Maybe Prelude.Text)
+deviceDeploymentSummary_deployedStageName = Lens.lens (\DeviceDeploymentSummary' {deployedStageName} -> deployedStageName) (\s@DeviceDeploymentSummary' {} a -> s {deployedStageName = a} :: DeviceDeploymentSummary)
+
+-- | The time when the deployment on the device started.
+deviceDeploymentSummary_deploymentStartTime :: Lens.Lens' DeviceDeploymentSummary (Prelude.Maybe Prelude.UTCTime)
+deviceDeploymentSummary_deploymentStartTime = Lens.lens (\DeviceDeploymentSummary' {deploymentStartTime} -> deploymentStartTime) (\s@DeviceDeploymentSummary' {} a -> s {deploymentStartTime = a} :: DeviceDeploymentSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The description of the device.
+deviceDeploymentSummary_description :: Lens.Lens' DeviceDeploymentSummary (Prelude.Maybe Prelude.Text)
+deviceDeploymentSummary_description = Lens.lens (\DeviceDeploymentSummary' {description} -> description) (\s@DeviceDeploymentSummary' {} a -> s {description = a} :: DeviceDeploymentSummary)
 
 -- | The deployment status of the device.
 deviceDeploymentSummary_deviceDeploymentStatus :: Lens.Lens' DeviceDeploymentSummary (Prelude.Maybe DeviceDeploymentStatus)
@@ -124,21 +136,9 @@ deviceDeploymentSummary_deviceDeploymentStatus = Lens.lens (\DeviceDeploymentSum
 deviceDeploymentSummary_deviceDeploymentStatusMessage :: Lens.Lens' DeviceDeploymentSummary (Prelude.Maybe Prelude.Text)
 deviceDeploymentSummary_deviceDeploymentStatusMessage = Lens.lens (\DeviceDeploymentSummary' {deviceDeploymentStatusMessage} -> deviceDeploymentStatusMessage) (\s@DeviceDeploymentSummary' {} a -> s {deviceDeploymentStatusMessage = a} :: DeviceDeploymentSummary)
 
--- | The name of the deployed stage.
-deviceDeploymentSummary_deployedStageName :: Lens.Lens' DeviceDeploymentSummary (Prelude.Maybe Prelude.Text)
-deviceDeploymentSummary_deployedStageName = Lens.lens (\DeviceDeploymentSummary' {deployedStageName} -> deployedStageName) (\s@DeviceDeploymentSummary' {} a -> s {deployedStageName = a} :: DeviceDeploymentSummary)
-
 -- | The name of the fleet to which the device belongs to.
 deviceDeploymentSummary_deviceFleetName :: Lens.Lens' DeviceDeploymentSummary (Prelude.Maybe Prelude.Text)
 deviceDeploymentSummary_deviceFleetName = Lens.lens (\DeviceDeploymentSummary' {deviceFleetName} -> deviceFleetName) (\s@DeviceDeploymentSummary' {} a -> s {deviceFleetName = a} :: DeviceDeploymentSummary)
-
--- | The description of the device.
-deviceDeploymentSummary_description :: Lens.Lens' DeviceDeploymentSummary (Prelude.Maybe Prelude.Text)
-deviceDeploymentSummary_description = Lens.lens (\DeviceDeploymentSummary' {description} -> description) (\s@DeviceDeploymentSummary' {} a -> s {description = a} :: DeviceDeploymentSummary)
-
--- | The time when the deployment on the device started.
-deviceDeploymentSummary_deploymentStartTime :: Lens.Lens' DeviceDeploymentSummary (Prelude.Maybe Prelude.UTCTime)
-deviceDeploymentSummary_deploymentStartTime = Lens.lens (\DeviceDeploymentSummary' {deploymentStartTime} -> deploymentStartTime) (\s@DeviceDeploymentSummary' {} a -> s {deploymentStartTime = a} :: DeviceDeploymentSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The ARN of the edge deployment plan.
 deviceDeploymentSummary_edgeDeploymentPlanArn :: Lens.Lens' DeviceDeploymentSummary Prelude.Text
@@ -166,12 +166,12 @@ instance Data.FromJSON DeviceDeploymentSummary where
       "DeviceDeploymentSummary"
       ( \x ->
           DeviceDeploymentSummary'
-            Prelude.<$> (x Data..:? "DeviceDeploymentStatus")
-            Prelude.<*> (x Data..:? "DeviceDeploymentStatusMessage")
-            Prelude.<*> (x Data..:? "DeployedStageName")
-            Prelude.<*> (x Data..:? "DeviceFleetName")
-            Prelude.<*> (x Data..:? "Description")
+            Prelude.<$> (x Data..:? "DeployedStageName")
             Prelude.<*> (x Data..:? "DeploymentStartTime")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "DeviceDeploymentStatus")
+            Prelude.<*> (x Data..:? "DeviceDeploymentStatusMessage")
+            Prelude.<*> (x Data..:? "DeviceFleetName")
             Prelude.<*> (x Data..: "EdgeDeploymentPlanArn")
             Prelude.<*> (x Data..: "EdgeDeploymentPlanName")
             Prelude.<*> (x Data..: "StageName")
@@ -181,12 +181,12 @@ instance Data.FromJSON DeviceDeploymentSummary where
 
 instance Prelude.Hashable DeviceDeploymentSummary where
   hashWithSalt _salt DeviceDeploymentSummary' {..} =
-    _salt `Prelude.hashWithSalt` deviceDeploymentStatus
-      `Prelude.hashWithSalt` deviceDeploymentStatusMessage
-      `Prelude.hashWithSalt` deployedStageName
-      `Prelude.hashWithSalt` deviceFleetName
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` deployedStageName
       `Prelude.hashWithSalt` deploymentStartTime
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` deviceDeploymentStatus
+      `Prelude.hashWithSalt` deviceDeploymentStatusMessage
+      `Prelude.hashWithSalt` deviceFleetName
       `Prelude.hashWithSalt` edgeDeploymentPlanArn
       `Prelude.hashWithSalt` edgeDeploymentPlanName
       `Prelude.hashWithSalt` stageName
@@ -195,12 +195,12 @@ instance Prelude.Hashable DeviceDeploymentSummary where
 
 instance Prelude.NFData DeviceDeploymentSummary where
   rnf DeviceDeploymentSummary' {..} =
-    Prelude.rnf deviceDeploymentStatus
-      `Prelude.seq` Prelude.rnf deviceDeploymentStatusMessage
-      `Prelude.seq` Prelude.rnf deployedStageName
-      `Prelude.seq` Prelude.rnf deviceFleetName
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf deployedStageName
       `Prelude.seq` Prelude.rnf deploymentStartTime
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf deviceDeploymentStatus
+      `Prelude.seq` Prelude.rnf deviceDeploymentStatusMessage
+      `Prelude.seq` Prelude.rnf deviceFleetName
       `Prelude.seq` Prelude.rnf edgeDeploymentPlanArn
       `Prelude.seq` Prelude.rnf edgeDeploymentPlanName
       `Prelude.seq` Prelude.rnf stageName

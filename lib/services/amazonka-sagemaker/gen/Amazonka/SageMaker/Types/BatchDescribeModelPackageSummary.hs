@@ -31,12 +31,12 @@ import Amazonka.SageMaker.Types.ModelPackageStatus
 --
 -- /See:/ 'newBatchDescribeModelPackageSummary' smart constructor.
 data BatchDescribeModelPackageSummary = BatchDescribeModelPackageSummary'
-  { -- | The version number of a versioned model.
-    modelPackageVersion :: Prelude.Maybe Prelude.Natural,
-    -- | The approval status of the model.
+  { -- | The approval status of the model.
     modelApprovalStatus :: Prelude.Maybe ModelApprovalStatus,
     -- | The description of the model package.
     modelPackageDescription :: Prelude.Maybe Prelude.Text,
+    -- | The version number of a versioned model.
+    modelPackageVersion :: Prelude.Maybe Prelude.Natural,
     -- | The group name for the model package
     modelPackageGroupName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the model package.
@@ -57,11 +57,11 @@ data BatchDescribeModelPackageSummary = BatchDescribeModelPackageSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'modelPackageVersion', 'batchDescribeModelPackageSummary_modelPackageVersion' - The version number of a versioned model.
---
 -- 'modelApprovalStatus', 'batchDescribeModelPackageSummary_modelApprovalStatus' - The approval status of the model.
 --
 -- 'modelPackageDescription', 'batchDescribeModelPackageSummary_modelPackageDescription' - The description of the model package.
+--
+-- 'modelPackageVersion', 'batchDescribeModelPackageSummary_modelPackageVersion' - The version number of a versioned model.
 --
 -- 'modelPackageGroupName', 'batchDescribeModelPackageSummary_modelPackageGroupName' - The group name for the model package
 --
@@ -91,10 +91,10 @@ newBatchDescribeModelPackageSummary
   pInferenceSpecification_
   pModelPackageStatus_ =
     BatchDescribeModelPackageSummary'
-      { modelPackageVersion =
+      { modelApprovalStatus =
           Prelude.Nothing,
-        modelApprovalStatus = Prelude.Nothing,
         modelPackageDescription = Prelude.Nothing,
+        modelPackageVersion = Prelude.Nothing,
         modelPackageGroupName =
           pModelPackageGroupName_,
         modelPackageArn = pModelPackageArn_,
@@ -105,10 +105,6 @@ newBatchDescribeModelPackageSummary
         modelPackageStatus = pModelPackageStatus_
       }
 
--- | The version number of a versioned model.
-batchDescribeModelPackageSummary_modelPackageVersion :: Lens.Lens' BatchDescribeModelPackageSummary (Prelude.Maybe Prelude.Natural)
-batchDescribeModelPackageSummary_modelPackageVersion = Lens.lens (\BatchDescribeModelPackageSummary' {modelPackageVersion} -> modelPackageVersion) (\s@BatchDescribeModelPackageSummary' {} a -> s {modelPackageVersion = a} :: BatchDescribeModelPackageSummary)
-
 -- | The approval status of the model.
 batchDescribeModelPackageSummary_modelApprovalStatus :: Lens.Lens' BatchDescribeModelPackageSummary (Prelude.Maybe ModelApprovalStatus)
 batchDescribeModelPackageSummary_modelApprovalStatus = Lens.lens (\BatchDescribeModelPackageSummary' {modelApprovalStatus} -> modelApprovalStatus) (\s@BatchDescribeModelPackageSummary' {} a -> s {modelApprovalStatus = a} :: BatchDescribeModelPackageSummary)
@@ -116,6 +112,10 @@ batchDescribeModelPackageSummary_modelApprovalStatus = Lens.lens (\BatchDescribe
 -- | The description of the model package.
 batchDescribeModelPackageSummary_modelPackageDescription :: Lens.Lens' BatchDescribeModelPackageSummary (Prelude.Maybe Prelude.Text)
 batchDescribeModelPackageSummary_modelPackageDescription = Lens.lens (\BatchDescribeModelPackageSummary' {modelPackageDescription} -> modelPackageDescription) (\s@BatchDescribeModelPackageSummary' {} a -> s {modelPackageDescription = a} :: BatchDescribeModelPackageSummary)
+
+-- | The version number of a versioned model.
+batchDescribeModelPackageSummary_modelPackageVersion :: Lens.Lens' BatchDescribeModelPackageSummary (Prelude.Maybe Prelude.Natural)
+batchDescribeModelPackageSummary_modelPackageVersion = Lens.lens (\BatchDescribeModelPackageSummary' {modelPackageVersion} -> modelPackageVersion) (\s@BatchDescribeModelPackageSummary' {} a -> s {modelPackageVersion = a} :: BatchDescribeModelPackageSummary)
 
 -- | The group name for the model package
 batchDescribeModelPackageSummary_modelPackageGroupName :: Lens.Lens' BatchDescribeModelPackageSummary Prelude.Text
@@ -146,9 +146,9 @@ instance
       "BatchDescribeModelPackageSummary"
       ( \x ->
           BatchDescribeModelPackageSummary'
-            Prelude.<$> (x Data..:? "ModelPackageVersion")
-            Prelude.<*> (x Data..:? "ModelApprovalStatus")
+            Prelude.<$> (x Data..:? "ModelApprovalStatus")
             Prelude.<*> (x Data..:? "ModelPackageDescription")
+            Prelude.<*> (x Data..:? "ModelPackageVersion")
             Prelude.<*> (x Data..: "ModelPackageGroupName")
             Prelude.<*> (x Data..: "ModelPackageArn")
             Prelude.<*> (x Data..: "CreationTime")
@@ -163,9 +163,9 @@ instance
   hashWithSalt
     _salt
     BatchDescribeModelPackageSummary' {..} =
-      _salt `Prelude.hashWithSalt` modelPackageVersion
-        `Prelude.hashWithSalt` modelApprovalStatus
+      _salt `Prelude.hashWithSalt` modelApprovalStatus
         `Prelude.hashWithSalt` modelPackageDescription
+        `Prelude.hashWithSalt` modelPackageVersion
         `Prelude.hashWithSalt` modelPackageGroupName
         `Prelude.hashWithSalt` modelPackageArn
         `Prelude.hashWithSalt` creationTime
@@ -177,9 +177,9 @@ instance
     BatchDescribeModelPackageSummary
   where
   rnf BatchDescribeModelPackageSummary' {..} =
-    Prelude.rnf modelPackageVersion
-      `Prelude.seq` Prelude.rnf modelApprovalStatus
+    Prelude.rnf modelApprovalStatus
       `Prelude.seq` Prelude.rnf modelPackageDescription
+      `Prelude.seq` Prelude.rnf modelPackageVersion
       `Prelude.seq` Prelude.rnf modelPackageGroupName
       `Prelude.seq` Prelude.rnf modelPackageArn
       `Prelude.seq` Prelude.rnf creationTime

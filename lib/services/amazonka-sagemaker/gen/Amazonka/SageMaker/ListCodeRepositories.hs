@@ -29,15 +29,15 @@ module Amazonka.SageMaker.ListCodeRepositories
     newListCodeRepositories,
 
     -- * Request Lenses
-    listCodeRepositories_sortOrder,
-    listCodeRepositories_nextToken,
-    listCodeRepositories_lastModifiedTimeAfter,
-    listCodeRepositories_nameContains,
-    listCodeRepositories_lastModifiedTimeBefore,
-    listCodeRepositories_creationTimeBefore,
-    listCodeRepositories_sortBy,
-    listCodeRepositories_maxResults,
     listCodeRepositories_creationTimeAfter,
+    listCodeRepositories_creationTimeBefore,
+    listCodeRepositories_lastModifiedTimeAfter,
+    listCodeRepositories_lastModifiedTimeBefore,
+    listCodeRepositories_maxResults,
+    listCodeRepositories_nameContains,
+    listCodeRepositories_nextToken,
+    listCodeRepositories_sortBy,
+    listCodeRepositories_sortOrder,
 
     -- * Destructuring the Response
     ListCodeRepositoriesResponse (..),
@@ -60,31 +60,31 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListCodeRepositories' smart constructor.
 data ListCodeRepositories = ListCodeRepositories'
-  { -- | The sort order for results. The default is @Ascending@.
-    sortOrder :: Prelude.Maybe CodeRepositorySortOrder,
+  { -- | A filter that returns only Git repositories that were created after the
+    -- specified time.
+    creationTimeAfter :: Prelude.Maybe Data.POSIX,
+    -- | A filter that returns only Git repositories that were created before the
+    -- specified time.
+    creationTimeBefore :: Prelude.Maybe Data.POSIX,
+    -- | A filter that returns only Git repositories that were last modified
+    -- after the specified time.
+    lastModifiedTimeAfter :: Prelude.Maybe Data.POSIX,
+    -- | A filter that returns only Git repositories that were last modified
+    -- before the specified time.
+    lastModifiedTimeBefore :: Prelude.Maybe Data.POSIX,
+    -- | The maximum number of Git repositories to return in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A string in the Git repositories name. This filter returns only
+    -- repositories whose name contains the specified string.
+    nameContains :: Prelude.Maybe Prelude.Text,
     -- | If the result of a @ListCodeRepositoriesOutput@ request was truncated,
     -- the response includes a @NextToken@. To get the next set of Git
     -- repositories, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A filter that returns only Git repositories that were last modified
-    -- after the specified time.
-    lastModifiedTimeAfter :: Prelude.Maybe Data.POSIX,
-    -- | A string in the Git repositories name. This filter returns only
-    -- repositories whose name contains the specified string.
-    nameContains :: Prelude.Maybe Prelude.Text,
-    -- | A filter that returns only Git repositories that were last modified
-    -- before the specified time.
-    lastModifiedTimeBefore :: Prelude.Maybe Data.POSIX,
-    -- | A filter that returns only Git repositories that were created before the
-    -- specified time.
-    creationTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | The field to sort results by. The default is @Name@.
     sortBy :: Prelude.Maybe CodeRepositorySortBy,
-    -- | The maximum number of Git repositories to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | A filter that returns only Git repositories that were created after the
-    -- specified time.
-    creationTimeAfter :: Prelude.Maybe Data.POSIX
+    -- | The sort order for results. The default is @Ascending@.
+    sortOrder :: Prelude.Maybe CodeRepositorySortOrder
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -96,48 +96,74 @@ data ListCodeRepositories = ListCodeRepositories'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listCodeRepositories_sortOrder' - The sort order for results. The default is @Ascending@.
+-- 'creationTimeAfter', 'listCodeRepositories_creationTimeAfter' - A filter that returns only Git repositories that were created after the
+-- specified time.
+--
+-- 'creationTimeBefore', 'listCodeRepositories_creationTimeBefore' - A filter that returns only Git repositories that were created before the
+-- specified time.
+--
+-- 'lastModifiedTimeAfter', 'listCodeRepositories_lastModifiedTimeAfter' - A filter that returns only Git repositories that were last modified
+-- after the specified time.
+--
+-- 'lastModifiedTimeBefore', 'listCodeRepositories_lastModifiedTimeBefore' - A filter that returns only Git repositories that were last modified
+-- before the specified time.
+--
+-- 'maxResults', 'listCodeRepositories_maxResults' - The maximum number of Git repositories to return in the response.
+--
+-- 'nameContains', 'listCodeRepositories_nameContains' - A string in the Git repositories name. This filter returns only
+-- repositories whose name contains the specified string.
 --
 -- 'nextToken', 'listCodeRepositories_nextToken' - If the result of a @ListCodeRepositoriesOutput@ request was truncated,
 -- the response includes a @NextToken@. To get the next set of Git
 -- repositories, use the token in the next request.
 --
--- 'lastModifiedTimeAfter', 'listCodeRepositories_lastModifiedTimeAfter' - A filter that returns only Git repositories that were last modified
--- after the specified time.
---
--- 'nameContains', 'listCodeRepositories_nameContains' - A string in the Git repositories name. This filter returns only
--- repositories whose name contains the specified string.
---
--- 'lastModifiedTimeBefore', 'listCodeRepositories_lastModifiedTimeBefore' - A filter that returns only Git repositories that were last modified
--- before the specified time.
---
--- 'creationTimeBefore', 'listCodeRepositories_creationTimeBefore' - A filter that returns only Git repositories that were created before the
--- specified time.
---
 -- 'sortBy', 'listCodeRepositories_sortBy' - The field to sort results by. The default is @Name@.
 --
--- 'maxResults', 'listCodeRepositories_maxResults' - The maximum number of Git repositories to return in the response.
---
--- 'creationTimeAfter', 'listCodeRepositories_creationTimeAfter' - A filter that returns only Git repositories that were created after the
--- specified time.
+-- 'sortOrder', 'listCodeRepositories_sortOrder' - The sort order for results. The default is @Ascending@.
 newListCodeRepositories ::
   ListCodeRepositories
 newListCodeRepositories =
   ListCodeRepositories'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      lastModifiedTimeAfter = Prelude.Nothing,
-      nameContains = Prelude.Nothing,
-      lastModifiedTimeBefore = Prelude.Nothing,
+    { creationTimeAfter =
+        Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
+      lastModifiedTimeAfter = Prelude.Nothing,
+      lastModifiedTimeBefore = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      creationTimeAfter = Prelude.Nothing
+      nameContains = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      sortOrder = Prelude.Nothing
     }
 
--- | The sort order for results. The default is @Ascending@.
-listCodeRepositories_sortOrder :: Lens.Lens' ListCodeRepositories (Prelude.Maybe CodeRepositorySortOrder)
-listCodeRepositories_sortOrder = Lens.lens (\ListCodeRepositories' {sortOrder} -> sortOrder) (\s@ListCodeRepositories' {} a -> s {sortOrder = a} :: ListCodeRepositories)
+-- | A filter that returns only Git repositories that were created after the
+-- specified time.
+listCodeRepositories_creationTimeAfter :: Lens.Lens' ListCodeRepositories (Prelude.Maybe Prelude.UTCTime)
+listCodeRepositories_creationTimeAfter = Lens.lens (\ListCodeRepositories' {creationTimeAfter} -> creationTimeAfter) (\s@ListCodeRepositories' {} a -> s {creationTimeAfter = a} :: ListCodeRepositories) Prelude.. Lens.mapping Data._Time
+
+-- | A filter that returns only Git repositories that were created before the
+-- specified time.
+listCodeRepositories_creationTimeBefore :: Lens.Lens' ListCodeRepositories (Prelude.Maybe Prelude.UTCTime)
+listCodeRepositories_creationTimeBefore = Lens.lens (\ListCodeRepositories' {creationTimeBefore} -> creationTimeBefore) (\s@ListCodeRepositories' {} a -> s {creationTimeBefore = a} :: ListCodeRepositories) Prelude.. Lens.mapping Data._Time
+
+-- | A filter that returns only Git repositories that were last modified
+-- after the specified time.
+listCodeRepositories_lastModifiedTimeAfter :: Lens.Lens' ListCodeRepositories (Prelude.Maybe Prelude.UTCTime)
+listCodeRepositories_lastModifiedTimeAfter = Lens.lens (\ListCodeRepositories' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListCodeRepositories' {} a -> s {lastModifiedTimeAfter = a} :: ListCodeRepositories) Prelude.. Lens.mapping Data._Time
+
+-- | A filter that returns only Git repositories that were last modified
+-- before the specified time.
+listCodeRepositories_lastModifiedTimeBefore :: Lens.Lens' ListCodeRepositories (Prelude.Maybe Prelude.UTCTime)
+listCodeRepositories_lastModifiedTimeBefore = Lens.lens (\ListCodeRepositories' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListCodeRepositories' {} a -> s {lastModifiedTimeBefore = a} :: ListCodeRepositories) Prelude.. Lens.mapping Data._Time
+
+-- | The maximum number of Git repositories to return in the response.
+listCodeRepositories_maxResults :: Lens.Lens' ListCodeRepositories (Prelude.Maybe Prelude.Natural)
+listCodeRepositories_maxResults = Lens.lens (\ListCodeRepositories' {maxResults} -> maxResults) (\s@ListCodeRepositories' {} a -> s {maxResults = a} :: ListCodeRepositories)
+
+-- | A string in the Git repositories name. This filter returns only
+-- repositories whose name contains the specified string.
+listCodeRepositories_nameContains :: Lens.Lens' ListCodeRepositories (Prelude.Maybe Prelude.Text)
+listCodeRepositories_nameContains = Lens.lens (\ListCodeRepositories' {nameContains} -> nameContains) (\s@ListCodeRepositories' {} a -> s {nameContains = a} :: ListCodeRepositories)
 
 -- | If the result of a @ListCodeRepositoriesOutput@ request was truncated,
 -- the response includes a @NextToken@. To get the next set of Git
@@ -145,38 +171,13 @@ listCodeRepositories_sortOrder = Lens.lens (\ListCodeRepositories' {sortOrder} -
 listCodeRepositories_nextToken :: Lens.Lens' ListCodeRepositories (Prelude.Maybe Prelude.Text)
 listCodeRepositories_nextToken = Lens.lens (\ListCodeRepositories' {nextToken} -> nextToken) (\s@ListCodeRepositories' {} a -> s {nextToken = a} :: ListCodeRepositories)
 
--- | A filter that returns only Git repositories that were last modified
--- after the specified time.
-listCodeRepositories_lastModifiedTimeAfter :: Lens.Lens' ListCodeRepositories (Prelude.Maybe Prelude.UTCTime)
-listCodeRepositories_lastModifiedTimeAfter = Lens.lens (\ListCodeRepositories' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListCodeRepositories' {} a -> s {lastModifiedTimeAfter = a} :: ListCodeRepositories) Prelude.. Lens.mapping Data._Time
-
--- | A string in the Git repositories name. This filter returns only
--- repositories whose name contains the specified string.
-listCodeRepositories_nameContains :: Lens.Lens' ListCodeRepositories (Prelude.Maybe Prelude.Text)
-listCodeRepositories_nameContains = Lens.lens (\ListCodeRepositories' {nameContains} -> nameContains) (\s@ListCodeRepositories' {} a -> s {nameContains = a} :: ListCodeRepositories)
-
--- | A filter that returns only Git repositories that were last modified
--- before the specified time.
-listCodeRepositories_lastModifiedTimeBefore :: Lens.Lens' ListCodeRepositories (Prelude.Maybe Prelude.UTCTime)
-listCodeRepositories_lastModifiedTimeBefore = Lens.lens (\ListCodeRepositories' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListCodeRepositories' {} a -> s {lastModifiedTimeBefore = a} :: ListCodeRepositories) Prelude.. Lens.mapping Data._Time
-
--- | A filter that returns only Git repositories that were created before the
--- specified time.
-listCodeRepositories_creationTimeBefore :: Lens.Lens' ListCodeRepositories (Prelude.Maybe Prelude.UTCTime)
-listCodeRepositories_creationTimeBefore = Lens.lens (\ListCodeRepositories' {creationTimeBefore} -> creationTimeBefore) (\s@ListCodeRepositories' {} a -> s {creationTimeBefore = a} :: ListCodeRepositories) Prelude.. Lens.mapping Data._Time
-
 -- | The field to sort results by. The default is @Name@.
 listCodeRepositories_sortBy :: Lens.Lens' ListCodeRepositories (Prelude.Maybe CodeRepositorySortBy)
 listCodeRepositories_sortBy = Lens.lens (\ListCodeRepositories' {sortBy} -> sortBy) (\s@ListCodeRepositories' {} a -> s {sortBy = a} :: ListCodeRepositories)
 
--- | The maximum number of Git repositories to return in the response.
-listCodeRepositories_maxResults :: Lens.Lens' ListCodeRepositories (Prelude.Maybe Prelude.Natural)
-listCodeRepositories_maxResults = Lens.lens (\ListCodeRepositories' {maxResults} -> maxResults) (\s@ListCodeRepositories' {} a -> s {maxResults = a} :: ListCodeRepositories)
-
--- | A filter that returns only Git repositories that were created after the
--- specified time.
-listCodeRepositories_creationTimeAfter :: Lens.Lens' ListCodeRepositories (Prelude.Maybe Prelude.UTCTime)
-listCodeRepositories_creationTimeAfter = Lens.lens (\ListCodeRepositories' {creationTimeAfter} -> creationTimeAfter) (\s@ListCodeRepositories' {} a -> s {creationTimeAfter = a} :: ListCodeRepositories) Prelude.. Lens.mapping Data._Time
+-- | The sort order for results. The default is @Ascending@.
+listCodeRepositories_sortOrder :: Lens.Lens' ListCodeRepositories (Prelude.Maybe CodeRepositorySortOrder)
+listCodeRepositories_sortOrder = Lens.lens (\ListCodeRepositories' {sortOrder} -> sortOrder) (\s@ListCodeRepositories' {} a -> s {sortOrder = a} :: ListCodeRepositories)
 
 instance Core.AWSPager ListCodeRepositories where
   page rq rs
@@ -218,27 +219,27 @@ instance Core.AWSRequest ListCodeRepositories where
 
 instance Prelude.Hashable ListCodeRepositories where
   hashWithSalt _salt ListCodeRepositories' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` lastModifiedTimeAfter
-      `Prelude.hashWithSalt` nameContains
-      `Prelude.hashWithSalt` lastModifiedTimeBefore
+    _salt `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
-      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` lastModifiedTimeAfter
+      `Prelude.hashWithSalt` lastModifiedTimeBefore
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` nameContains
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` sortOrder
 
 instance Prelude.NFData ListCodeRepositories where
   rnf ListCodeRepositories' {..} =
-    Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
+    Prelude.rnf creationTimeAfter
       `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
+      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListCodeRepositories where
   toHeaders =
@@ -259,19 +260,19 @@ instance Data.ToJSON ListCodeRepositories where
   toJSON ListCodeRepositories' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
-            ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("LastModifiedTimeAfter" Data..=)
-              Prelude.<$> lastModifiedTimeAfter,
-            ("NameContains" Data..=) Prelude.<$> nameContains,
-            ("LastModifiedTimeBefore" Data..=)
-              Prelude.<$> lastModifiedTimeBefore,
+          [ ("CreationTimeAfter" Data..=)
+              Prelude.<$> creationTimeAfter,
             ("CreationTimeBefore" Data..=)
               Prelude.<$> creationTimeBefore,
-            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("LastModifiedTimeAfter" Data..=)
+              Prelude.<$> lastModifiedTimeAfter,
+            ("LastModifiedTimeBefore" Data..=)
+              Prelude.<$> lastModifiedTimeBefore,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("CreationTimeAfter" Data..=)
-              Prelude.<$> creationTimeAfter
+            ("NameContains" Data..=) Prelude.<$> nameContains,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("SortOrder" Data..=) Prelude.<$> sortOrder
           ]
       )
 

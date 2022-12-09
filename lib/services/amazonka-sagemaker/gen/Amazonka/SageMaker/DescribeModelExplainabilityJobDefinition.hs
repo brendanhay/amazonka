@@ -34,8 +34,8 @@ module Amazonka.SageMaker.DescribeModelExplainabilityJobDefinition
     newDescribeModelExplainabilityJobDefinitionResponse,
 
     -- * Response Lenses
-    describeModelExplainabilityJobDefinitionResponse_networkConfig,
     describeModelExplainabilityJobDefinitionResponse_modelExplainabilityBaselineConfig,
+    describeModelExplainabilityJobDefinitionResponse_networkConfig,
     describeModelExplainabilityJobDefinitionResponse_stoppingCondition,
     describeModelExplainabilityJobDefinitionResponse_httpStatus,
     describeModelExplainabilityJobDefinitionResponse_jobDefinitionArn,
@@ -108,8 +108,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeModelExplainabilityJobDefinitionResponse'
-            Prelude.<$> (x Data..?> "NetworkConfig")
-              Prelude.<*> (x Data..?> "ModelExplainabilityBaselineConfig")
+            Prelude.<$> (x Data..?> "ModelExplainabilityBaselineConfig")
+              Prelude.<*> (x Data..?> "NetworkConfig")
               Prelude.<*> (x Data..?> "StoppingCondition")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
               Prelude.<*> (x Data..:> "JobDefinitionArn")
@@ -182,10 +182,10 @@ instance
 
 -- | /See:/ 'newDescribeModelExplainabilityJobDefinitionResponse' smart constructor.
 data DescribeModelExplainabilityJobDefinitionResponse = DescribeModelExplainabilityJobDefinitionResponse'
-  { -- | Networking options for a model explainability job.
-    networkConfig :: Prelude.Maybe MonitoringNetworkConfig,
-    -- | The baseline configuration for a model explainability job.
+  { -- | The baseline configuration for a model explainability job.
     modelExplainabilityBaselineConfig :: Prelude.Maybe ModelExplainabilityBaselineConfig,
+    -- | Networking options for a model explainability job.
+    networkConfig :: Prelude.Maybe MonitoringNetworkConfig,
     stoppingCondition :: Prelude.Maybe MonitoringStoppingCondition,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -218,9 +218,9 @@ data DescribeModelExplainabilityJobDefinitionResponse = DescribeModelExplainabil
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'networkConfig', 'describeModelExplainabilityJobDefinitionResponse_networkConfig' - Networking options for a model explainability job.
---
 -- 'modelExplainabilityBaselineConfig', 'describeModelExplainabilityJobDefinitionResponse_modelExplainabilityBaselineConfig' - The baseline configuration for a model explainability job.
+--
+-- 'networkConfig', 'describeModelExplainabilityJobDefinitionResponse_networkConfig' - Networking options for a model explainability job.
 --
 -- 'stoppingCondition', 'describeModelExplainabilityJobDefinitionResponse_stoppingCondition' - Undocumented member.
 --
@@ -276,9 +276,9 @@ newDescribeModelExplainabilityJobDefinitionResponse
   pJobResources_
   pRoleArn_ =
     DescribeModelExplainabilityJobDefinitionResponse'
-      { networkConfig =
+      { modelExplainabilityBaselineConfig =
           Prelude.Nothing,
-        modelExplainabilityBaselineConfig =
+        networkConfig =
           Prelude.Nothing,
         stoppingCondition =
           Prelude.Nothing,
@@ -301,13 +301,13 @@ newDescribeModelExplainabilityJobDefinitionResponse
         roleArn = pRoleArn_
       }
 
--- | Networking options for a model explainability job.
-describeModelExplainabilityJobDefinitionResponse_networkConfig :: Lens.Lens' DescribeModelExplainabilityJobDefinitionResponse (Prelude.Maybe MonitoringNetworkConfig)
-describeModelExplainabilityJobDefinitionResponse_networkConfig = Lens.lens (\DescribeModelExplainabilityJobDefinitionResponse' {networkConfig} -> networkConfig) (\s@DescribeModelExplainabilityJobDefinitionResponse' {} a -> s {networkConfig = a} :: DescribeModelExplainabilityJobDefinitionResponse)
-
 -- | The baseline configuration for a model explainability job.
 describeModelExplainabilityJobDefinitionResponse_modelExplainabilityBaselineConfig :: Lens.Lens' DescribeModelExplainabilityJobDefinitionResponse (Prelude.Maybe ModelExplainabilityBaselineConfig)
 describeModelExplainabilityJobDefinitionResponse_modelExplainabilityBaselineConfig = Lens.lens (\DescribeModelExplainabilityJobDefinitionResponse' {modelExplainabilityBaselineConfig} -> modelExplainabilityBaselineConfig) (\s@DescribeModelExplainabilityJobDefinitionResponse' {} a -> s {modelExplainabilityBaselineConfig = a} :: DescribeModelExplainabilityJobDefinitionResponse)
+
+-- | Networking options for a model explainability job.
+describeModelExplainabilityJobDefinitionResponse_networkConfig :: Lens.Lens' DescribeModelExplainabilityJobDefinitionResponse (Prelude.Maybe MonitoringNetworkConfig)
+describeModelExplainabilityJobDefinitionResponse_networkConfig = Lens.lens (\DescribeModelExplainabilityJobDefinitionResponse' {networkConfig} -> networkConfig) (\s@DescribeModelExplainabilityJobDefinitionResponse' {} a -> s {networkConfig = a} :: DescribeModelExplainabilityJobDefinitionResponse)
 
 -- | Undocumented member.
 describeModelExplainabilityJobDefinitionResponse_stoppingCondition :: Lens.Lens' DescribeModelExplainabilityJobDefinitionResponse (Prelude.Maybe MonitoringStoppingCondition)
@@ -359,8 +359,8 @@ instance
   where
   rnf
     DescribeModelExplainabilityJobDefinitionResponse' {..} =
-      Prelude.rnf networkConfig
-        `Prelude.seq` Prelude.rnf modelExplainabilityBaselineConfig
+      Prelude.rnf modelExplainabilityBaselineConfig
+        `Prelude.seq` Prelude.rnf networkConfig
         `Prelude.seq` Prelude.rnf stoppingCondition
         `Prelude.seq` Prelude.rnf httpStatus
         `Prelude.seq` Prelude.rnf jobDefinitionArn

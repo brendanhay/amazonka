@@ -32,12 +32,12 @@ data Edge = Edge'
   { -- | The type of the Association(Edge) between the source and destination.
     -- For example @ContributedTo@, @Produced@, or @DerivedFrom@.
     associationType :: Prelude.Maybe AssociationEdgeType,
-    -- | The Amazon Resource Name (ARN) of the source lineage entity of the
-    -- directed edge.
-    sourceArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the destination lineage entity of the
     -- directed edge.
-    destinationArn :: Prelude.Maybe Prelude.Text
+    destinationArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the source lineage entity of the
+    -- directed edge.
+    sourceArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,18 +52,18 @@ data Edge = Edge'
 -- 'associationType', 'edge_associationType' - The type of the Association(Edge) between the source and destination.
 -- For example @ContributedTo@, @Produced@, or @DerivedFrom@.
 --
--- 'sourceArn', 'edge_sourceArn' - The Amazon Resource Name (ARN) of the source lineage entity of the
+-- 'destinationArn', 'edge_destinationArn' - The Amazon Resource Name (ARN) of the destination lineage entity of the
 -- directed edge.
 --
--- 'destinationArn', 'edge_destinationArn' - The Amazon Resource Name (ARN) of the destination lineage entity of the
+-- 'sourceArn', 'edge_sourceArn' - The Amazon Resource Name (ARN) of the source lineage entity of the
 -- directed edge.
 newEdge ::
   Edge
 newEdge =
   Edge'
     { associationType = Prelude.Nothing,
-      sourceArn = Prelude.Nothing,
-      destinationArn = Prelude.Nothing
+      destinationArn = Prelude.Nothing,
+      sourceArn = Prelude.Nothing
     }
 
 -- | The type of the Association(Edge) between the source and destination.
@@ -71,15 +71,15 @@ newEdge =
 edge_associationType :: Lens.Lens' Edge (Prelude.Maybe AssociationEdgeType)
 edge_associationType = Lens.lens (\Edge' {associationType} -> associationType) (\s@Edge' {} a -> s {associationType = a} :: Edge)
 
--- | The Amazon Resource Name (ARN) of the source lineage entity of the
--- directed edge.
-edge_sourceArn :: Lens.Lens' Edge (Prelude.Maybe Prelude.Text)
-edge_sourceArn = Lens.lens (\Edge' {sourceArn} -> sourceArn) (\s@Edge' {} a -> s {sourceArn = a} :: Edge)
-
 -- | The Amazon Resource Name (ARN) of the destination lineage entity of the
 -- directed edge.
 edge_destinationArn :: Lens.Lens' Edge (Prelude.Maybe Prelude.Text)
 edge_destinationArn = Lens.lens (\Edge' {destinationArn} -> destinationArn) (\s@Edge' {} a -> s {destinationArn = a} :: Edge)
+
+-- | The Amazon Resource Name (ARN) of the source lineage entity of the
+-- directed edge.
+edge_sourceArn :: Lens.Lens' Edge (Prelude.Maybe Prelude.Text)
+edge_sourceArn = Lens.lens (\Edge' {sourceArn} -> sourceArn) (\s@Edge' {} a -> s {sourceArn = a} :: Edge)
 
 instance Data.FromJSON Edge where
   parseJSON =
@@ -88,18 +88,18 @@ instance Data.FromJSON Edge where
       ( \x ->
           Edge'
             Prelude.<$> (x Data..:? "AssociationType")
-            Prelude.<*> (x Data..:? "SourceArn")
             Prelude.<*> (x Data..:? "DestinationArn")
+            Prelude.<*> (x Data..:? "SourceArn")
       )
 
 instance Prelude.Hashable Edge where
   hashWithSalt _salt Edge' {..} =
     _salt `Prelude.hashWithSalt` associationType
-      `Prelude.hashWithSalt` sourceArn
       `Prelude.hashWithSalt` destinationArn
+      `Prelude.hashWithSalt` sourceArn
 
 instance Prelude.NFData Edge where
   rnf Edge' {..} =
     Prelude.rnf associationType
-      `Prelude.seq` Prelude.rnf sourceArn
       `Prelude.seq` Prelude.rnf destinationArn
+      `Prelude.seq` Prelude.rnf sourceArn

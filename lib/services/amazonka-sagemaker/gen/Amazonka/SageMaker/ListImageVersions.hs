@@ -30,14 +30,14 @@ module Amazonka.SageMaker.ListImageVersions
     newListImageVersions,
 
     -- * Request Lenses
-    listImageVersions_sortOrder,
-    listImageVersions_nextToken,
+    listImageVersions_creationTimeAfter,
+    listImageVersions_creationTimeBefore,
     listImageVersions_lastModifiedTimeAfter,
     listImageVersions_lastModifiedTimeBefore,
-    listImageVersions_creationTimeBefore,
-    listImageVersions_sortBy,
     listImageVersions_maxResults,
-    listImageVersions_creationTimeAfter,
+    listImageVersions_nextToken,
+    listImageVersions_sortBy,
+    listImageVersions_sortOrder,
     listImageVersions_imageName,
 
     -- * Destructuring the Response
@@ -61,29 +61,29 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListImageVersions' smart constructor.
 data ListImageVersions = ListImageVersions'
-  { -- | The sort order. The default value is @DESCENDING@.
-    sortOrder :: Prelude.Maybe ImageVersionSortOrder,
-    -- | If the previous call to @ListImageVersions@ didn\'t return the full set
-    -- of versions, the call returns a token for getting the next set of
-    -- versions.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | A filter that returns only versions created on or after the specified
+    -- time.
+    creationTimeAfter :: Prelude.Maybe Data.POSIX,
+    -- | A filter that returns only versions created on or before the specified
+    -- time.
+    creationTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | A filter that returns only versions modified on or after the specified
     -- time.
     lastModifiedTimeAfter :: Prelude.Maybe Data.POSIX,
     -- | A filter that returns only versions modified on or before the specified
     -- time.
     lastModifiedTimeBefore :: Prelude.Maybe Data.POSIX,
-    -- | A filter that returns only versions created on or before the specified
-    -- time.
-    creationTimeBefore :: Prelude.Maybe Data.POSIX,
-    -- | The property used to sort results. The default value is @CREATION_TIME@.
-    sortBy :: Prelude.Maybe ImageVersionSortBy,
     -- | The maximum number of versions to return in the response. The default
     -- value is 10.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | A filter that returns only versions created on or after the specified
-    -- time.
-    creationTimeAfter :: Prelude.Maybe Data.POSIX,
+    -- | If the previous call to @ListImageVersions@ didn\'t return the full set
+    -- of versions, the call returns a token for getting the next set of
+    -- versions.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The property used to sort results. The default value is @CREATION_TIME@.
+    sortBy :: Prelude.Maybe ImageVersionSortBy,
+    -- | The sort order. The default value is @DESCENDING@.
+    sortOrder :: Prelude.Maybe ImageVersionSortOrder,
     -- | The name of the image to list the versions of.
     imageName :: Prelude.Text
   }
@@ -97,11 +97,11 @@ data ListImageVersions = ListImageVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listImageVersions_sortOrder' - The sort order. The default value is @DESCENDING@.
+-- 'creationTimeAfter', 'listImageVersions_creationTimeAfter' - A filter that returns only versions created on or after the specified
+-- time.
 --
--- 'nextToken', 'listImageVersions_nextToken' - If the previous call to @ListImageVersions@ didn\'t return the full set
--- of versions, the call returns a token for getting the next set of
--- versions.
+-- 'creationTimeBefore', 'listImageVersions_creationTimeBefore' - A filter that returns only versions created on or before the specified
+-- time.
 --
 -- 'lastModifiedTimeAfter', 'listImageVersions_lastModifiedTimeAfter' - A filter that returns only versions modified on or after the specified
 -- time.
@@ -109,16 +109,16 @@ data ListImageVersions = ListImageVersions'
 -- 'lastModifiedTimeBefore', 'listImageVersions_lastModifiedTimeBefore' - A filter that returns only versions modified on or before the specified
 -- time.
 --
--- 'creationTimeBefore', 'listImageVersions_creationTimeBefore' - A filter that returns only versions created on or before the specified
--- time.
---
--- 'sortBy', 'listImageVersions_sortBy' - The property used to sort results. The default value is @CREATION_TIME@.
---
 -- 'maxResults', 'listImageVersions_maxResults' - The maximum number of versions to return in the response. The default
 -- value is 10.
 --
--- 'creationTimeAfter', 'listImageVersions_creationTimeAfter' - A filter that returns only versions created on or after the specified
--- time.
+-- 'nextToken', 'listImageVersions_nextToken' - If the previous call to @ListImageVersions@ didn\'t return the full set
+-- of versions, the call returns a token for getting the next set of
+-- versions.
+--
+-- 'sortBy', 'listImageVersions_sortBy' - The property used to sort results. The default value is @CREATION_TIME@.
+--
+-- 'sortOrder', 'listImageVersions_sortOrder' - The sort order. The default value is @DESCENDING@.
 --
 -- 'imageName', 'listImageVersions_imageName' - The name of the image to list the versions of.
 newListImageVersions ::
@@ -127,26 +127,27 @@ newListImageVersions ::
   ListImageVersions
 newListImageVersions pImageName_ =
   ListImageVersions'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { creationTimeAfter =
+        Prelude.Nothing,
+      creationTimeBefore = Prelude.Nothing,
       lastModifiedTimeAfter = Prelude.Nothing,
       lastModifiedTimeBefore = Prelude.Nothing,
-      creationTimeBefore = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      creationTimeAfter = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       imageName = pImageName_
     }
 
--- | The sort order. The default value is @DESCENDING@.
-listImageVersions_sortOrder :: Lens.Lens' ListImageVersions (Prelude.Maybe ImageVersionSortOrder)
-listImageVersions_sortOrder = Lens.lens (\ListImageVersions' {sortOrder} -> sortOrder) (\s@ListImageVersions' {} a -> s {sortOrder = a} :: ListImageVersions)
+-- | A filter that returns only versions created on or after the specified
+-- time.
+listImageVersions_creationTimeAfter :: Lens.Lens' ListImageVersions (Prelude.Maybe Prelude.UTCTime)
+listImageVersions_creationTimeAfter = Lens.lens (\ListImageVersions' {creationTimeAfter} -> creationTimeAfter) (\s@ListImageVersions' {} a -> s {creationTimeAfter = a} :: ListImageVersions) Prelude.. Lens.mapping Data._Time
 
--- | If the previous call to @ListImageVersions@ didn\'t return the full set
--- of versions, the call returns a token for getting the next set of
--- versions.
-listImageVersions_nextToken :: Lens.Lens' ListImageVersions (Prelude.Maybe Prelude.Text)
-listImageVersions_nextToken = Lens.lens (\ListImageVersions' {nextToken} -> nextToken) (\s@ListImageVersions' {} a -> s {nextToken = a} :: ListImageVersions)
+-- | A filter that returns only versions created on or before the specified
+-- time.
+listImageVersions_creationTimeBefore :: Lens.Lens' ListImageVersions (Prelude.Maybe Prelude.UTCTime)
+listImageVersions_creationTimeBefore = Lens.lens (\ListImageVersions' {creationTimeBefore} -> creationTimeBefore) (\s@ListImageVersions' {} a -> s {creationTimeBefore = a} :: ListImageVersions) Prelude.. Lens.mapping Data._Time
 
 -- | A filter that returns only versions modified on or after the specified
 -- time.
@@ -158,24 +159,24 @@ listImageVersions_lastModifiedTimeAfter = Lens.lens (\ListImageVersions' {lastMo
 listImageVersions_lastModifiedTimeBefore :: Lens.Lens' ListImageVersions (Prelude.Maybe Prelude.UTCTime)
 listImageVersions_lastModifiedTimeBefore = Lens.lens (\ListImageVersions' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListImageVersions' {} a -> s {lastModifiedTimeBefore = a} :: ListImageVersions) Prelude.. Lens.mapping Data._Time
 
--- | A filter that returns only versions created on or before the specified
--- time.
-listImageVersions_creationTimeBefore :: Lens.Lens' ListImageVersions (Prelude.Maybe Prelude.UTCTime)
-listImageVersions_creationTimeBefore = Lens.lens (\ListImageVersions' {creationTimeBefore} -> creationTimeBefore) (\s@ListImageVersions' {} a -> s {creationTimeBefore = a} :: ListImageVersions) Prelude.. Lens.mapping Data._Time
-
--- | The property used to sort results. The default value is @CREATION_TIME@.
-listImageVersions_sortBy :: Lens.Lens' ListImageVersions (Prelude.Maybe ImageVersionSortBy)
-listImageVersions_sortBy = Lens.lens (\ListImageVersions' {sortBy} -> sortBy) (\s@ListImageVersions' {} a -> s {sortBy = a} :: ListImageVersions)
-
 -- | The maximum number of versions to return in the response. The default
 -- value is 10.
 listImageVersions_maxResults :: Lens.Lens' ListImageVersions (Prelude.Maybe Prelude.Natural)
 listImageVersions_maxResults = Lens.lens (\ListImageVersions' {maxResults} -> maxResults) (\s@ListImageVersions' {} a -> s {maxResults = a} :: ListImageVersions)
 
--- | A filter that returns only versions created on or after the specified
--- time.
-listImageVersions_creationTimeAfter :: Lens.Lens' ListImageVersions (Prelude.Maybe Prelude.UTCTime)
-listImageVersions_creationTimeAfter = Lens.lens (\ListImageVersions' {creationTimeAfter} -> creationTimeAfter) (\s@ListImageVersions' {} a -> s {creationTimeAfter = a} :: ListImageVersions) Prelude.. Lens.mapping Data._Time
+-- | If the previous call to @ListImageVersions@ didn\'t return the full set
+-- of versions, the call returns a token for getting the next set of
+-- versions.
+listImageVersions_nextToken :: Lens.Lens' ListImageVersions (Prelude.Maybe Prelude.Text)
+listImageVersions_nextToken = Lens.lens (\ListImageVersions' {nextToken} -> nextToken) (\s@ListImageVersions' {} a -> s {nextToken = a} :: ListImageVersions)
+
+-- | The property used to sort results. The default value is @CREATION_TIME@.
+listImageVersions_sortBy :: Lens.Lens' ListImageVersions (Prelude.Maybe ImageVersionSortBy)
+listImageVersions_sortBy = Lens.lens (\ListImageVersions' {sortBy} -> sortBy) (\s@ListImageVersions' {} a -> s {sortBy = a} :: ListImageVersions)
+
+-- | The sort order. The default value is @DESCENDING@.
+listImageVersions_sortOrder :: Lens.Lens' ListImageVersions (Prelude.Maybe ImageVersionSortOrder)
+listImageVersions_sortOrder = Lens.lens (\ListImageVersions' {sortOrder} -> sortOrder) (\s@ListImageVersions' {} a -> s {sortOrder = a} :: ListImageVersions)
 
 -- | The name of the image to list the versions of.
 listImageVersions_imageName :: Lens.Lens' ListImageVersions Prelude.Text
@@ -220,26 +221,26 @@ instance Core.AWSRequest ListImageVersions where
 
 instance Prelude.Hashable ListImageVersions where
   hashWithSalt _salt ListImageVersions' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` lastModifiedTimeAfter
       `Prelude.hashWithSalt` lastModifiedTimeBefore
-      `Prelude.hashWithSalt` creationTimeBefore
-      `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` imageName
 
 instance Prelude.NFData ListImageVersions where
   rnf ListImageVersions' {..} =
-    Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf nextToken
+    Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf creationTimeBefore
       `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
       `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
-      `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf sortBy
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf imageName
 
 instance Data.ToHeaders ListImageVersions where
@@ -261,18 +262,18 @@ instance Data.ToJSON ListImageVersions where
   toJSON ListImageVersions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
-            ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("CreationTimeAfter" Data..=)
+              Prelude.<$> creationTimeAfter,
+            ("CreationTimeBefore" Data..=)
+              Prelude.<$> creationTimeBefore,
             ("LastModifiedTimeAfter" Data..=)
               Prelude.<$> lastModifiedTimeAfter,
             ("LastModifiedTimeBefore" Data..=)
               Prelude.<$> lastModifiedTimeBefore,
-            ("CreationTimeBefore" Data..=)
-              Prelude.<$> creationTimeBefore,
-            ("SortBy" Data..=) Prelude.<$> sortBy,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("CreationTimeAfter" Data..=)
-              Prelude.<$> creationTimeAfter,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("SortOrder" Data..=) Prelude.<$> sortOrder,
             Prelude.Just ("ImageName" Data..= imageName)
           ]
       )

@@ -31,10 +31,10 @@ import Amazonka.SageMaker.Types.ProvisioningParameter
 --
 -- /See:/ 'newServiceCatalogProvisioningUpdateDetails' smart constructor.
 data ServiceCatalogProvisioningUpdateDetails = ServiceCatalogProvisioningUpdateDetails'
-  { -- | A list of key value pairs that you specify when you provision a product.
-    provisioningParameters :: Prelude.Maybe [ProvisioningParameter],
-    -- | The ID of the provisioning artifact.
-    provisioningArtifactId :: Prelude.Maybe Prelude.Text
+  { -- | The ID of the provisioning artifact.
+    provisioningArtifactId :: Prelude.Maybe Prelude.Text,
+    -- | A list of key value pairs that you specify when you provision a product.
+    provisioningParameters :: Prelude.Maybe [ProvisioningParameter]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,26 +46,26 @@ data ServiceCatalogProvisioningUpdateDetails = ServiceCatalogProvisioningUpdateD
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'provisioningParameters', 'serviceCatalogProvisioningUpdateDetails_provisioningParameters' - A list of key value pairs that you specify when you provision a product.
---
 -- 'provisioningArtifactId', 'serviceCatalogProvisioningUpdateDetails_provisioningArtifactId' - The ID of the provisioning artifact.
+--
+-- 'provisioningParameters', 'serviceCatalogProvisioningUpdateDetails_provisioningParameters' - A list of key value pairs that you specify when you provision a product.
 newServiceCatalogProvisioningUpdateDetails ::
   ServiceCatalogProvisioningUpdateDetails
 newServiceCatalogProvisioningUpdateDetails =
   ServiceCatalogProvisioningUpdateDetails'
-    { provisioningParameters =
+    { provisioningArtifactId =
         Prelude.Nothing,
-      provisioningArtifactId =
+      provisioningParameters =
         Prelude.Nothing
     }
-
--- | A list of key value pairs that you specify when you provision a product.
-serviceCatalogProvisioningUpdateDetails_provisioningParameters :: Lens.Lens' ServiceCatalogProvisioningUpdateDetails (Prelude.Maybe [ProvisioningParameter])
-serviceCatalogProvisioningUpdateDetails_provisioningParameters = Lens.lens (\ServiceCatalogProvisioningUpdateDetails' {provisioningParameters} -> provisioningParameters) (\s@ServiceCatalogProvisioningUpdateDetails' {} a -> s {provisioningParameters = a} :: ServiceCatalogProvisioningUpdateDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the provisioning artifact.
 serviceCatalogProvisioningUpdateDetails_provisioningArtifactId :: Lens.Lens' ServiceCatalogProvisioningUpdateDetails (Prelude.Maybe Prelude.Text)
 serviceCatalogProvisioningUpdateDetails_provisioningArtifactId = Lens.lens (\ServiceCatalogProvisioningUpdateDetails' {provisioningArtifactId} -> provisioningArtifactId) (\s@ServiceCatalogProvisioningUpdateDetails' {} a -> s {provisioningArtifactId = a} :: ServiceCatalogProvisioningUpdateDetails)
+
+-- | A list of key value pairs that you specify when you provision a product.
+serviceCatalogProvisioningUpdateDetails_provisioningParameters :: Lens.Lens' ServiceCatalogProvisioningUpdateDetails (Prelude.Maybe [ProvisioningParameter])
+serviceCatalogProvisioningUpdateDetails_provisioningParameters = Lens.lens (\ServiceCatalogProvisioningUpdateDetails' {provisioningParameters} -> provisioningParameters) (\s@ServiceCatalogProvisioningUpdateDetails' {} a -> s {provisioningParameters = a} :: ServiceCatalogProvisioningUpdateDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Prelude.Hashable
@@ -74,16 +74,16 @@ instance
   hashWithSalt
     _salt
     ServiceCatalogProvisioningUpdateDetails' {..} =
-      _salt `Prelude.hashWithSalt` provisioningParameters
-        `Prelude.hashWithSalt` provisioningArtifactId
+      _salt `Prelude.hashWithSalt` provisioningArtifactId
+        `Prelude.hashWithSalt` provisioningParameters
 
 instance
   Prelude.NFData
     ServiceCatalogProvisioningUpdateDetails
   where
   rnf ServiceCatalogProvisioningUpdateDetails' {..} =
-    Prelude.rnf provisioningParameters
-      `Prelude.seq` Prelude.rnf provisioningArtifactId
+    Prelude.rnf provisioningArtifactId
+      `Prelude.seq` Prelude.rnf provisioningParameters
 
 instance
   Data.ToJSON
@@ -92,9 +92,9 @@ instance
   toJSON ServiceCatalogProvisioningUpdateDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ProvisioningParameters" Data..=)
-              Prelude.<$> provisioningParameters,
-            ("ProvisioningArtifactId" Data..=)
-              Prelude.<$> provisioningArtifactId
+          [ ("ProvisioningArtifactId" Data..=)
+              Prelude.<$> provisioningArtifactId,
+            ("ProvisioningParameters" Data..=)
+              Prelude.<$> provisioningParameters
           ]
       )

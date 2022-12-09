@@ -24,8 +24,8 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Configuration of storage locations for the Debugger TensorBoard output
--- data.
+-- | Configuration of storage locations for the Amazon SageMaker Debugger
+-- TensorBoard output data.
 --
 -- /See:/ 'newTensorBoardOutputConfig' smart constructor.
 data TensorBoardOutputConfig = TensorBoardOutputConfig'

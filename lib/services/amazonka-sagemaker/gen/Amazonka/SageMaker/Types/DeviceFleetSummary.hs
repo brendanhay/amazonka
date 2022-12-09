@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeviceFleetSummary' smart constructor.
 data DeviceFleetSummary = DeviceFleetSummary'
-  { -- | Timestamp of when the device fleet was last updated.
-    lastModifiedTime :: Prelude.Maybe Data.POSIX,
-    -- | Timestamp of when the device fleet was created.
+  { -- | Timestamp of when the device fleet was created.
     creationTime :: Prelude.Maybe Data.POSIX,
+    -- | Timestamp of when the device fleet was last updated.
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | Amazon Resource Name (ARN) of the device fleet.
     deviceFleetArn :: Prelude.Text,
     -- | Name of the device fleet.
@@ -47,9 +47,9 @@ data DeviceFleetSummary = DeviceFleetSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastModifiedTime', 'deviceFleetSummary_lastModifiedTime' - Timestamp of when the device fleet was last updated.
---
 -- 'creationTime', 'deviceFleetSummary_creationTime' - Timestamp of when the device fleet was created.
+--
+-- 'lastModifiedTime', 'deviceFleetSummary_lastModifiedTime' - Timestamp of when the device fleet was last updated.
 --
 -- 'deviceFleetArn', 'deviceFleetSummary_deviceFleetArn' - Amazon Resource Name (ARN) of the device fleet.
 --
@@ -64,20 +64,19 @@ newDeviceFleetSummary
   pDeviceFleetArn_
   pDeviceFleetName_ =
     DeviceFleetSummary'
-      { lastModifiedTime =
-          Prelude.Nothing,
-        creationTime = Prelude.Nothing,
+      { creationTime = Prelude.Nothing,
+        lastModifiedTime = Prelude.Nothing,
         deviceFleetArn = pDeviceFleetArn_,
         deviceFleetName = pDeviceFleetName_
       }
 
--- | Timestamp of when the device fleet was last updated.
-deviceFleetSummary_lastModifiedTime :: Lens.Lens' DeviceFleetSummary (Prelude.Maybe Prelude.UTCTime)
-deviceFleetSummary_lastModifiedTime = Lens.lens (\DeviceFleetSummary' {lastModifiedTime} -> lastModifiedTime) (\s@DeviceFleetSummary' {} a -> s {lastModifiedTime = a} :: DeviceFleetSummary) Prelude.. Lens.mapping Data._Time
-
 -- | Timestamp of when the device fleet was created.
 deviceFleetSummary_creationTime :: Lens.Lens' DeviceFleetSummary (Prelude.Maybe Prelude.UTCTime)
 deviceFleetSummary_creationTime = Lens.lens (\DeviceFleetSummary' {creationTime} -> creationTime) (\s@DeviceFleetSummary' {} a -> s {creationTime = a} :: DeviceFleetSummary) Prelude.. Lens.mapping Data._Time
+
+-- | Timestamp of when the device fleet was last updated.
+deviceFleetSummary_lastModifiedTime :: Lens.Lens' DeviceFleetSummary (Prelude.Maybe Prelude.UTCTime)
+deviceFleetSummary_lastModifiedTime = Lens.lens (\DeviceFleetSummary' {lastModifiedTime} -> lastModifiedTime) (\s@DeviceFleetSummary' {} a -> s {lastModifiedTime = a} :: DeviceFleetSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Amazon Resource Name (ARN) of the device fleet.
 deviceFleetSummary_deviceFleetArn :: Lens.Lens' DeviceFleetSummary Prelude.Text
@@ -93,22 +92,22 @@ instance Data.FromJSON DeviceFleetSummary where
       "DeviceFleetSummary"
       ( \x ->
           DeviceFleetSummary'
-            Prelude.<$> (x Data..:? "LastModifiedTime")
-            Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<$> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
             Prelude.<*> (x Data..: "DeviceFleetArn")
             Prelude.<*> (x Data..: "DeviceFleetName")
       )
 
 instance Prelude.Hashable DeviceFleetSummary where
   hashWithSalt _salt DeviceFleetSummary' {..} =
-    _salt `Prelude.hashWithSalt` lastModifiedTime
-      `Prelude.hashWithSalt` creationTime
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` deviceFleetArn
       `Prelude.hashWithSalt` deviceFleetName
 
 instance Prelude.NFData DeviceFleetSummary where
   rnf DeviceFleetSummary' {..} =
-    Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf creationTime
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf deviceFleetArn
       `Prelude.seq` Prelude.rnf deviceFleetName

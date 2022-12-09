@@ -34,6 +34,9 @@ data DataCaptureConfig = DataCaptureConfig'
     -- are specified SageMaker will by default base64 encode when capturing the
     -- data.
     captureContentTypeHeader :: Prelude.Maybe CaptureContentTypeHeader,
+    -- | Whether data capture should be enabled or disabled (defaults to
+    -- enabled).
+    enableCapture :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of a Amazon Web Services Key Management
     -- Service key that SageMaker uses to encrypt data on the storage volume
     -- attached to the ML compute instance that hosts the endpoint.
@@ -50,9 +53,6 @@ data DataCaptureConfig = DataCaptureConfig'
     -- -   Alias name ARN:
     --     @arn:aws:kms:us-west-2:111122223333:alias\/ExampleAlias@
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | Whether data capture should be enabled or disabled (defaults to
-    -- enabled).
-    enableCapture :: Prelude.Maybe Prelude.Bool,
     -- | The percentage of requests SageMaker will capture. A lower value is
     -- recommended for Endpoints with high traffic.
     initialSamplingPercentage :: Prelude.Natural,
@@ -76,6 +76,9 @@ data DataCaptureConfig = DataCaptureConfig'
 -- are specified SageMaker will by default base64 encode when capturing the
 -- data.
 --
+-- 'enableCapture', 'dataCaptureConfig_enableCapture' - Whether data capture should be enabled or disabled (defaults to
+-- enabled).
+--
 -- 'kmsKeyId', 'dataCaptureConfig_kmsKeyId' - The Amazon Resource Name (ARN) of a Amazon Web Services Key Management
 -- Service key that SageMaker uses to encrypt data on the storage volume
 -- attached to the ML compute instance that hosts the endpoint.
@@ -91,9 +94,6 @@ data DataCaptureConfig = DataCaptureConfig'
 --
 -- -   Alias name ARN:
 --     @arn:aws:kms:us-west-2:111122223333:alias\/ExampleAlias@
---
--- 'enableCapture', 'dataCaptureConfig_enableCapture' - Whether data capture should be enabled or disabled (defaults to
--- enabled).
 --
 -- 'initialSamplingPercentage', 'dataCaptureConfig_initialSamplingPercentage' - The percentage of requests SageMaker will capture. A lower value is
 -- recommended for Endpoints with high traffic.
@@ -117,8 +117,8 @@ newDataCaptureConfig
     DataCaptureConfig'
       { captureContentTypeHeader =
           Prelude.Nothing,
-        kmsKeyId = Prelude.Nothing,
         enableCapture = Prelude.Nothing,
+        kmsKeyId = Prelude.Nothing,
         initialSamplingPercentage =
           pInitialSamplingPercentage_,
         destinationS3Uri = pDestinationS3Uri_,
@@ -131,6 +131,11 @@ newDataCaptureConfig
 -- data.
 dataCaptureConfig_captureContentTypeHeader :: Lens.Lens' DataCaptureConfig (Prelude.Maybe CaptureContentTypeHeader)
 dataCaptureConfig_captureContentTypeHeader = Lens.lens (\DataCaptureConfig' {captureContentTypeHeader} -> captureContentTypeHeader) (\s@DataCaptureConfig' {} a -> s {captureContentTypeHeader = a} :: DataCaptureConfig)
+
+-- | Whether data capture should be enabled or disabled (defaults to
+-- enabled).
+dataCaptureConfig_enableCapture :: Lens.Lens' DataCaptureConfig (Prelude.Maybe Prelude.Bool)
+dataCaptureConfig_enableCapture = Lens.lens (\DataCaptureConfig' {enableCapture} -> enableCapture) (\s@DataCaptureConfig' {} a -> s {enableCapture = a} :: DataCaptureConfig)
 
 -- | The Amazon Resource Name (ARN) of a Amazon Web Services Key Management
 -- Service key that SageMaker uses to encrypt data on the storage volume
@@ -149,11 +154,6 @@ dataCaptureConfig_captureContentTypeHeader = Lens.lens (\DataCaptureConfig' {cap
 --     @arn:aws:kms:us-west-2:111122223333:alias\/ExampleAlias@
 dataCaptureConfig_kmsKeyId :: Lens.Lens' DataCaptureConfig (Prelude.Maybe Prelude.Text)
 dataCaptureConfig_kmsKeyId = Lens.lens (\DataCaptureConfig' {kmsKeyId} -> kmsKeyId) (\s@DataCaptureConfig' {} a -> s {kmsKeyId = a} :: DataCaptureConfig)
-
--- | Whether data capture should be enabled or disabled (defaults to
--- enabled).
-dataCaptureConfig_enableCapture :: Lens.Lens' DataCaptureConfig (Prelude.Maybe Prelude.Bool)
-dataCaptureConfig_enableCapture = Lens.lens (\DataCaptureConfig' {enableCapture} -> enableCapture) (\s@DataCaptureConfig' {} a -> s {enableCapture = a} :: DataCaptureConfig)
 
 -- | The percentage of requests SageMaker will capture. A lower value is
 -- recommended for Endpoints with high traffic.
@@ -176,8 +176,8 @@ instance Data.FromJSON DataCaptureConfig where
       ( \x ->
           DataCaptureConfig'
             Prelude.<$> (x Data..:? "CaptureContentTypeHeader")
-            Prelude.<*> (x Data..:? "KmsKeyId")
             Prelude.<*> (x Data..:? "EnableCapture")
+            Prelude.<*> (x Data..:? "KmsKeyId")
             Prelude.<*> (x Data..: "InitialSamplingPercentage")
             Prelude.<*> (x Data..: "DestinationS3Uri")
             Prelude.<*> (x Data..: "CaptureOptions")
@@ -187,8 +187,8 @@ instance Prelude.Hashable DataCaptureConfig where
   hashWithSalt _salt DataCaptureConfig' {..} =
     _salt
       `Prelude.hashWithSalt` captureContentTypeHeader
-      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` enableCapture
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` initialSamplingPercentage
       `Prelude.hashWithSalt` destinationS3Uri
       `Prelude.hashWithSalt` captureOptions
@@ -196,8 +196,8 @@ instance Prelude.Hashable DataCaptureConfig where
 instance Prelude.NFData DataCaptureConfig where
   rnf DataCaptureConfig' {..} =
     Prelude.rnf captureContentTypeHeader
-      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf enableCapture
+      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf initialSamplingPercentage
       `Prelude.seq` Prelude.rnf destinationS3Uri
       `Prelude.seq` Prelude.rnf captureOptions
@@ -208,8 +208,8 @@ instance Data.ToJSON DataCaptureConfig where
       ( Prelude.catMaybes
           [ ("CaptureContentTypeHeader" Data..=)
               Prelude.<$> captureContentTypeHeader,
-            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
             ("EnableCapture" Data..=) Prelude.<$> enableCapture,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
             Prelude.Just
               ( "InitialSamplingPercentage"
                   Data..= initialSamplingPercentage

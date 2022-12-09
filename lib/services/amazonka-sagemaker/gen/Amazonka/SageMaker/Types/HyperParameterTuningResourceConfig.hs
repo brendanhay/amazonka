@@ -38,7 +38,31 @@ import Amazonka.SageMaker.Types.TrainingInstanceType
 --
 -- /See:/ 'newHyperParameterTuningResourceConfig' smart constructor.
 data HyperParameterTuningResourceConfig = HyperParameterTuningResourceConfig'
-  { -- | A key used by Amazon Web Services Key Management Service to encrypt data
+  { -- | The strategy that determines the order of preference for resources
+    -- specified in @InstanceConfigs@ used in hyperparameter optimization.
+    allocationStrategy :: Prelude.Maybe HyperParameterTuningAllocationStrategy,
+    -- | A list containing the configuration(s) for one or more resources for
+    -- processing hyperparameter jobs. These resources include compute
+    -- instances and storage volumes to use in model training jobs launched by
+    -- hyperparameter tuning jobs. The @AllocationStrategy@ controls the order
+    -- in which multiple configurations provided in @InstanceConfigs@ are used.
+    --
+    -- If you only want to use a single instance configuration inside the
+    -- @HyperParameterTuningResourceConfig@ API, do not provide a value for
+    -- @InstanceConfigs@. Instead, use @InstanceType@, @VolumeSizeInGB@ and
+    -- @InstanceCount@. If you use @InstanceConfigs@, do not provide values for
+    -- @InstanceType@, @VolumeSizeInGB@ or @InstanceCount@.
+    instanceConfigs :: Prelude.Maybe (Prelude.NonEmpty HyperParameterTuningInstanceConfig),
+    -- | The number of compute instances of type @InstanceType@ to use. For
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/data-parallel-use-api.html distributed training>,
+    -- select a value greater than 1.
+    instanceCount :: Prelude.Maybe Prelude.Natural,
+    -- | The instance type used to run hyperparameter optimization tuning jobs.
+    -- See
+    -- <https://docs.aws.amazon.com/notebooks-available-instance-types.html descriptions of instance types>
+    -- for more information.
+    instanceType :: Prelude.Maybe TrainingInstanceType,
+    -- | A key used by Amazon Web Services Key Management Service to encrypt data
     -- on the storage volume attached to the compute instances used to run the
     -- training job. You can use either of the following formats to specify a
     -- key.
@@ -62,30 +86,6 @@ data HyperParameterTuningResourceConfig = HyperParameterTuningResourceConfig'
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security-kms-permissions.html KMS encryption>
     -- for more information.
     volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The instance type used to run hyperparameter optimization tuning jobs.
-    -- See
-    -- <https://docs.aws.amazon.com/notebooks-available-instance-types.html descriptions of instance types>
-    -- for more information.
-    instanceType :: Prelude.Maybe TrainingInstanceType,
-    -- | The strategy that determines the order of preference for resources
-    -- specified in @InstanceConfigs@ used in hyperparameter optimization.
-    allocationStrategy :: Prelude.Maybe HyperParameterTuningAllocationStrategy,
-    -- | The number of compute instances of type @InstanceType@ to use. For
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/data-parallel-use-api.html distributed training>,
-    -- select a value greater than 1.
-    instanceCount :: Prelude.Maybe Prelude.Natural,
-    -- | A list containing the configuration(s) for one or more resources for
-    -- processing hyperparameter jobs. These resources include compute
-    -- instances and storage volumes to use in model training jobs launched by
-    -- hyperparameter tuning jobs. The @AllocationStrategy@ controls the order
-    -- in which multiple configurations provided in @InstanceConfigs@ are used.
-    --
-    -- If you only want to use a single instance configuration inside the
-    -- @HyperParameterTuningResourceConfig@ API, do not provide a value for
-    -- @InstanceConfigs@. Instead, use @InstanceType@, @VolumeSizeInGB@ and
-    -- @InstanceCount@. If you use @InstanceConfigs@, do not provide values for
-    -- @InstanceType@, @VolumeSizeInGB@ or @InstanceCount@.
-    instanceConfigs :: Prelude.Maybe (Prelude.NonEmpty HyperParameterTuningInstanceConfig),
     -- | The volume size in GB for the storage volume to be used in processing
     -- hyperparameter optimization jobs (optional). These volumes store model
     -- artifacts, incremental states and optionally, scratch space for training
@@ -113,6 +113,30 @@ data HyperParameterTuningResourceConfig = HyperParameterTuningResourceConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'allocationStrategy', 'hyperParameterTuningResourceConfig_allocationStrategy' - The strategy that determines the order of preference for resources
+-- specified in @InstanceConfigs@ used in hyperparameter optimization.
+--
+-- 'instanceConfigs', 'hyperParameterTuningResourceConfig_instanceConfigs' - A list containing the configuration(s) for one or more resources for
+-- processing hyperparameter jobs. These resources include compute
+-- instances and storage volumes to use in model training jobs launched by
+-- hyperparameter tuning jobs. The @AllocationStrategy@ controls the order
+-- in which multiple configurations provided in @InstanceConfigs@ are used.
+--
+-- If you only want to use a single instance configuration inside the
+-- @HyperParameterTuningResourceConfig@ API, do not provide a value for
+-- @InstanceConfigs@. Instead, use @InstanceType@, @VolumeSizeInGB@ and
+-- @InstanceCount@. If you use @InstanceConfigs@, do not provide values for
+-- @InstanceType@, @VolumeSizeInGB@ or @InstanceCount@.
+--
+-- 'instanceCount', 'hyperParameterTuningResourceConfig_instanceCount' - The number of compute instances of type @InstanceType@ to use. For
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/data-parallel-use-api.html distributed training>,
+-- select a value greater than 1.
+--
+-- 'instanceType', 'hyperParameterTuningResourceConfig_instanceType' - The instance type used to run hyperparameter optimization tuning jobs.
+-- See
+-- <https://docs.aws.amazon.com/notebooks-available-instance-types.html descriptions of instance types>
+-- for more information.
+--
 -- 'volumeKmsKeyId', 'hyperParameterTuningResourceConfig_volumeKmsKeyId' - A key used by Amazon Web Services Key Management Service to encrypt data
 -- on the storage volume attached to the compute instances used to run the
 -- training job. You can use either of the following formats to specify a
@@ -137,30 +161,6 @@ data HyperParameterTuningResourceConfig = HyperParameterTuningResourceConfig'
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security-kms-permissions.html KMS encryption>
 -- for more information.
 --
--- 'instanceType', 'hyperParameterTuningResourceConfig_instanceType' - The instance type used to run hyperparameter optimization tuning jobs.
--- See
--- <https://docs.aws.amazon.com/notebooks-available-instance-types.html descriptions of instance types>
--- for more information.
---
--- 'allocationStrategy', 'hyperParameterTuningResourceConfig_allocationStrategy' - The strategy that determines the order of preference for resources
--- specified in @InstanceConfigs@ used in hyperparameter optimization.
---
--- 'instanceCount', 'hyperParameterTuningResourceConfig_instanceCount' - The number of compute instances of type @InstanceType@ to use. For
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/data-parallel-use-api.html distributed training>,
--- select a value greater than 1.
---
--- 'instanceConfigs', 'hyperParameterTuningResourceConfig_instanceConfigs' - A list containing the configuration(s) for one or more resources for
--- processing hyperparameter jobs. These resources include compute
--- instances and storage volumes to use in model training jobs launched by
--- hyperparameter tuning jobs. The @AllocationStrategy@ controls the order
--- in which multiple configurations provided in @InstanceConfigs@ are used.
---
--- If you only want to use a single instance configuration inside the
--- @HyperParameterTuningResourceConfig@ API, do not provide a value for
--- @InstanceConfigs@. Instead, use @InstanceType@, @VolumeSizeInGB@ and
--- @InstanceCount@. If you use @InstanceConfigs@, do not provide values for
--- @InstanceType@, @VolumeSizeInGB@ or @InstanceCount@.
---
 -- 'volumeSizeInGB', 'hyperParameterTuningResourceConfig_volumeSizeInGB' - The volume size in GB for the storage volume to be used in processing
 -- hyperparameter optimization jobs (optional). These volumes store model
 -- artifacts, incremental states and optionally, scratch space for training
@@ -180,14 +180,46 @@ newHyperParameterTuningResourceConfig ::
   HyperParameterTuningResourceConfig
 newHyperParameterTuningResourceConfig =
   HyperParameterTuningResourceConfig'
-    { volumeKmsKeyId =
+    { allocationStrategy =
         Prelude.Nothing,
-      instanceType = Prelude.Nothing,
-      allocationStrategy = Prelude.Nothing,
-      instanceCount = Prelude.Nothing,
       instanceConfigs = Prelude.Nothing,
+      instanceCount = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
+      volumeKmsKeyId = Prelude.Nothing,
       volumeSizeInGB = Prelude.Nothing
     }
+
+-- | The strategy that determines the order of preference for resources
+-- specified in @InstanceConfigs@ used in hyperparameter optimization.
+hyperParameterTuningResourceConfig_allocationStrategy :: Lens.Lens' HyperParameterTuningResourceConfig (Prelude.Maybe HyperParameterTuningAllocationStrategy)
+hyperParameterTuningResourceConfig_allocationStrategy = Lens.lens (\HyperParameterTuningResourceConfig' {allocationStrategy} -> allocationStrategy) (\s@HyperParameterTuningResourceConfig' {} a -> s {allocationStrategy = a} :: HyperParameterTuningResourceConfig)
+
+-- | A list containing the configuration(s) for one or more resources for
+-- processing hyperparameter jobs. These resources include compute
+-- instances and storage volumes to use in model training jobs launched by
+-- hyperparameter tuning jobs. The @AllocationStrategy@ controls the order
+-- in which multiple configurations provided in @InstanceConfigs@ are used.
+--
+-- If you only want to use a single instance configuration inside the
+-- @HyperParameterTuningResourceConfig@ API, do not provide a value for
+-- @InstanceConfigs@. Instead, use @InstanceType@, @VolumeSizeInGB@ and
+-- @InstanceCount@. If you use @InstanceConfigs@, do not provide values for
+-- @InstanceType@, @VolumeSizeInGB@ or @InstanceCount@.
+hyperParameterTuningResourceConfig_instanceConfigs :: Lens.Lens' HyperParameterTuningResourceConfig (Prelude.Maybe (Prelude.NonEmpty HyperParameterTuningInstanceConfig))
+hyperParameterTuningResourceConfig_instanceConfigs = Lens.lens (\HyperParameterTuningResourceConfig' {instanceConfigs} -> instanceConfigs) (\s@HyperParameterTuningResourceConfig' {} a -> s {instanceConfigs = a} :: HyperParameterTuningResourceConfig) Prelude.. Lens.mapping Lens.coerced
+
+-- | The number of compute instances of type @InstanceType@ to use. For
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/data-parallel-use-api.html distributed training>,
+-- select a value greater than 1.
+hyperParameterTuningResourceConfig_instanceCount :: Lens.Lens' HyperParameterTuningResourceConfig (Prelude.Maybe Prelude.Natural)
+hyperParameterTuningResourceConfig_instanceCount = Lens.lens (\HyperParameterTuningResourceConfig' {instanceCount} -> instanceCount) (\s@HyperParameterTuningResourceConfig' {} a -> s {instanceCount = a} :: HyperParameterTuningResourceConfig)
+
+-- | The instance type used to run hyperparameter optimization tuning jobs.
+-- See
+-- <https://docs.aws.amazon.com/notebooks-available-instance-types.html descriptions of instance types>
+-- for more information.
+hyperParameterTuningResourceConfig_instanceType :: Lens.Lens' HyperParameterTuningResourceConfig (Prelude.Maybe TrainingInstanceType)
+hyperParameterTuningResourceConfig_instanceType = Lens.lens (\HyperParameterTuningResourceConfig' {instanceType} -> instanceType) (\s@HyperParameterTuningResourceConfig' {} a -> s {instanceType = a} :: HyperParameterTuningResourceConfig)
 
 -- | A key used by Amazon Web Services Key Management Service to encrypt data
 -- on the storage volume attached to the compute instances used to run the
@@ -214,38 +246,6 @@ newHyperParameterTuningResourceConfig =
 -- for more information.
 hyperParameterTuningResourceConfig_volumeKmsKeyId :: Lens.Lens' HyperParameterTuningResourceConfig (Prelude.Maybe Prelude.Text)
 hyperParameterTuningResourceConfig_volumeKmsKeyId = Lens.lens (\HyperParameterTuningResourceConfig' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@HyperParameterTuningResourceConfig' {} a -> s {volumeKmsKeyId = a} :: HyperParameterTuningResourceConfig)
-
--- | The instance type used to run hyperparameter optimization tuning jobs.
--- See
--- <https://docs.aws.amazon.com/notebooks-available-instance-types.html descriptions of instance types>
--- for more information.
-hyperParameterTuningResourceConfig_instanceType :: Lens.Lens' HyperParameterTuningResourceConfig (Prelude.Maybe TrainingInstanceType)
-hyperParameterTuningResourceConfig_instanceType = Lens.lens (\HyperParameterTuningResourceConfig' {instanceType} -> instanceType) (\s@HyperParameterTuningResourceConfig' {} a -> s {instanceType = a} :: HyperParameterTuningResourceConfig)
-
--- | The strategy that determines the order of preference for resources
--- specified in @InstanceConfigs@ used in hyperparameter optimization.
-hyperParameterTuningResourceConfig_allocationStrategy :: Lens.Lens' HyperParameterTuningResourceConfig (Prelude.Maybe HyperParameterTuningAllocationStrategy)
-hyperParameterTuningResourceConfig_allocationStrategy = Lens.lens (\HyperParameterTuningResourceConfig' {allocationStrategy} -> allocationStrategy) (\s@HyperParameterTuningResourceConfig' {} a -> s {allocationStrategy = a} :: HyperParameterTuningResourceConfig)
-
--- | The number of compute instances of type @InstanceType@ to use. For
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/data-parallel-use-api.html distributed training>,
--- select a value greater than 1.
-hyperParameterTuningResourceConfig_instanceCount :: Lens.Lens' HyperParameterTuningResourceConfig (Prelude.Maybe Prelude.Natural)
-hyperParameterTuningResourceConfig_instanceCount = Lens.lens (\HyperParameterTuningResourceConfig' {instanceCount} -> instanceCount) (\s@HyperParameterTuningResourceConfig' {} a -> s {instanceCount = a} :: HyperParameterTuningResourceConfig)
-
--- | A list containing the configuration(s) for one or more resources for
--- processing hyperparameter jobs. These resources include compute
--- instances and storage volumes to use in model training jobs launched by
--- hyperparameter tuning jobs. The @AllocationStrategy@ controls the order
--- in which multiple configurations provided in @InstanceConfigs@ are used.
---
--- If you only want to use a single instance configuration inside the
--- @HyperParameterTuningResourceConfig@ API, do not provide a value for
--- @InstanceConfigs@. Instead, use @InstanceType@, @VolumeSizeInGB@ and
--- @InstanceCount@. If you use @InstanceConfigs@, do not provide values for
--- @InstanceType@, @VolumeSizeInGB@ or @InstanceCount@.
-hyperParameterTuningResourceConfig_instanceConfigs :: Lens.Lens' HyperParameterTuningResourceConfig (Prelude.Maybe (Prelude.NonEmpty HyperParameterTuningInstanceConfig))
-hyperParameterTuningResourceConfig_instanceConfigs = Lens.lens (\HyperParameterTuningResourceConfig' {instanceConfigs} -> instanceConfigs) (\s@HyperParameterTuningResourceConfig' {} a -> s {instanceConfigs = a} :: HyperParameterTuningResourceConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The volume size in GB for the storage volume to be used in processing
 -- hyperparameter optimization jobs (optional). These volumes store model
@@ -274,11 +274,11 @@ instance
       "HyperParameterTuningResourceConfig"
       ( \x ->
           HyperParameterTuningResourceConfig'
-            Prelude.<$> (x Data..:? "VolumeKmsKeyId")
-            Prelude.<*> (x Data..:? "InstanceType")
-            Prelude.<*> (x Data..:? "AllocationStrategy")
-            Prelude.<*> (x Data..:? "InstanceCount")
+            Prelude.<$> (x Data..:? "AllocationStrategy")
             Prelude.<*> (x Data..:? "InstanceConfigs")
+            Prelude.<*> (x Data..:? "InstanceCount")
+            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "VolumeKmsKeyId")
             Prelude.<*> (x Data..:? "VolumeSizeInGB")
       )
 
@@ -289,11 +289,11 @@ instance
   hashWithSalt
     _salt
     HyperParameterTuningResourceConfig' {..} =
-      _salt `Prelude.hashWithSalt` volumeKmsKeyId
-        `Prelude.hashWithSalt` instanceType
-        `Prelude.hashWithSalt` allocationStrategy
-        `Prelude.hashWithSalt` instanceCount
+      _salt `Prelude.hashWithSalt` allocationStrategy
         `Prelude.hashWithSalt` instanceConfigs
+        `Prelude.hashWithSalt` instanceCount
+        `Prelude.hashWithSalt` instanceType
+        `Prelude.hashWithSalt` volumeKmsKeyId
         `Prelude.hashWithSalt` volumeSizeInGB
 
 instance
@@ -301,11 +301,11 @@ instance
     HyperParameterTuningResourceConfig
   where
   rnf HyperParameterTuningResourceConfig' {..} =
-    Prelude.rnf volumeKmsKeyId
-      `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf allocationStrategy
-      `Prelude.seq` Prelude.rnf instanceCount
+    Prelude.rnf allocationStrategy
       `Prelude.seq` Prelude.rnf instanceConfigs
+      `Prelude.seq` Prelude.rnf instanceCount
+      `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf volumeKmsKeyId
       `Prelude.seq` Prelude.rnf volumeSizeInGB
 
 instance
@@ -315,14 +315,14 @@ instance
   toJSON HyperParameterTuningResourceConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("VolumeKmsKeyId" Data..=)
-              Prelude.<$> volumeKmsKeyId,
-            ("InstanceType" Data..=) Prelude.<$> instanceType,
-            ("AllocationStrategy" Data..=)
+          [ ("AllocationStrategy" Data..=)
               Prelude.<$> allocationStrategy,
-            ("InstanceCount" Data..=) Prelude.<$> instanceCount,
             ("InstanceConfigs" Data..=)
               Prelude.<$> instanceConfigs,
+            ("InstanceCount" Data..=) Prelude.<$> instanceCount,
+            ("InstanceType" Data..=) Prelude.<$> instanceType,
+            ("VolumeKmsKeyId" Data..=)
+              Prelude.<$> volumeKmsKeyId,
             ("VolumeSizeInGB" Data..=)
               Prelude.<$> volumeSizeInGB
           ]

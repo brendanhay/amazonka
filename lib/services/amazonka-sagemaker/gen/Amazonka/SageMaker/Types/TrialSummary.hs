@@ -30,18 +30,18 @@ import Amazonka.SageMaker.Types.TrialSource
 --
 -- /See:/ 'newTrialSummary' smart constructor.
 data TrialSummary = TrialSummary'
-  { -- | The name of the trial as displayed. If @DisplayName@ isn\'t specified,
+  { -- | When the trial was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The name of the trial as displayed. If @DisplayName@ isn\'t specified,
     -- @TrialName@ is displayed.
     displayName :: Prelude.Maybe Prelude.Text,
     -- | When the trial was last modified.
     lastModifiedTime :: Prelude.Maybe Data.POSIX,
+    -- | The Amazon Resource Name (ARN) of the trial.
+    trialArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the trial.
     trialName :: Prelude.Maybe Prelude.Text,
-    -- | When the trial was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
-    trialSource :: Prelude.Maybe TrialSource,
-    -- | The Amazon Resource Name (ARN) of the trial.
-    trialArn :: Prelude.Maybe Prelude.Text
+    trialSource :: Prelude.Maybe TrialSource
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,29 +53,33 @@ data TrialSummary = TrialSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'creationTime', 'trialSummary_creationTime' - When the trial was created.
+--
 -- 'displayName', 'trialSummary_displayName' - The name of the trial as displayed. If @DisplayName@ isn\'t specified,
 -- @TrialName@ is displayed.
 --
 -- 'lastModifiedTime', 'trialSummary_lastModifiedTime' - When the trial was last modified.
 --
+-- 'trialArn', 'trialSummary_trialArn' - The Amazon Resource Name (ARN) of the trial.
+--
 -- 'trialName', 'trialSummary_trialName' - The name of the trial.
 --
--- 'creationTime', 'trialSummary_creationTime' - When the trial was created.
---
 -- 'trialSource', 'trialSummary_trialSource' - Undocumented member.
---
--- 'trialArn', 'trialSummary_trialArn' - The Amazon Resource Name (ARN) of the trial.
 newTrialSummary ::
   TrialSummary
 newTrialSummary =
   TrialSummary'
-    { displayName = Prelude.Nothing,
+    { creationTime = Prelude.Nothing,
+      displayName = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
+      trialArn = Prelude.Nothing,
       trialName = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      trialSource = Prelude.Nothing,
-      trialArn = Prelude.Nothing
+      trialSource = Prelude.Nothing
     }
+
+-- | When the trial was created.
+trialSummary_creationTime :: Lens.Lens' TrialSummary (Prelude.Maybe Prelude.UTCTime)
+trialSummary_creationTime = Lens.lens (\TrialSummary' {creationTime} -> creationTime) (\s@TrialSummary' {} a -> s {creationTime = a} :: TrialSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The name of the trial as displayed. If @DisplayName@ isn\'t specified,
 -- @TrialName@ is displayed.
@@ -86,21 +90,17 @@ trialSummary_displayName = Lens.lens (\TrialSummary' {displayName} -> displayNam
 trialSummary_lastModifiedTime :: Lens.Lens' TrialSummary (Prelude.Maybe Prelude.UTCTime)
 trialSummary_lastModifiedTime = Lens.lens (\TrialSummary' {lastModifiedTime} -> lastModifiedTime) (\s@TrialSummary' {} a -> s {lastModifiedTime = a} :: TrialSummary) Prelude.. Lens.mapping Data._Time
 
+-- | The Amazon Resource Name (ARN) of the trial.
+trialSummary_trialArn :: Lens.Lens' TrialSummary (Prelude.Maybe Prelude.Text)
+trialSummary_trialArn = Lens.lens (\TrialSummary' {trialArn} -> trialArn) (\s@TrialSummary' {} a -> s {trialArn = a} :: TrialSummary)
+
 -- | The name of the trial.
 trialSummary_trialName :: Lens.Lens' TrialSummary (Prelude.Maybe Prelude.Text)
 trialSummary_trialName = Lens.lens (\TrialSummary' {trialName} -> trialName) (\s@TrialSummary' {} a -> s {trialName = a} :: TrialSummary)
 
--- | When the trial was created.
-trialSummary_creationTime :: Lens.Lens' TrialSummary (Prelude.Maybe Prelude.UTCTime)
-trialSummary_creationTime = Lens.lens (\TrialSummary' {creationTime} -> creationTime) (\s@TrialSummary' {} a -> s {creationTime = a} :: TrialSummary) Prelude.. Lens.mapping Data._Time
-
 -- | Undocumented member.
 trialSummary_trialSource :: Lens.Lens' TrialSummary (Prelude.Maybe TrialSource)
 trialSummary_trialSource = Lens.lens (\TrialSummary' {trialSource} -> trialSource) (\s@TrialSummary' {} a -> s {trialSource = a} :: TrialSummary)
-
--- | The Amazon Resource Name (ARN) of the trial.
-trialSummary_trialArn :: Lens.Lens' TrialSummary (Prelude.Maybe Prelude.Text)
-trialSummary_trialArn = Lens.lens (\TrialSummary' {trialArn} -> trialArn) (\s@TrialSummary' {} a -> s {trialArn = a} :: TrialSummary)
 
 instance Data.FromJSON TrialSummary where
   parseJSON =
@@ -108,28 +108,28 @@ instance Data.FromJSON TrialSummary where
       "TrialSummary"
       ( \x ->
           TrialSummary'
-            Prelude.<$> (x Data..:? "DisplayName")
+            Prelude.<$> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "DisplayName")
             Prelude.<*> (x Data..:? "LastModifiedTime")
-            Prelude.<*> (x Data..:? "TrialName")
-            Prelude.<*> (x Data..:? "CreationTime")
-            Prelude.<*> (x Data..:? "TrialSource")
             Prelude.<*> (x Data..:? "TrialArn")
+            Prelude.<*> (x Data..:? "TrialName")
+            Prelude.<*> (x Data..:? "TrialSource")
       )
 
 instance Prelude.Hashable TrialSummary where
   hashWithSalt _salt TrialSummary' {..} =
-    _salt `Prelude.hashWithSalt` displayName
+    _salt `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` lastModifiedTime
-      `Prelude.hashWithSalt` trialName
-      `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` trialSource
       `Prelude.hashWithSalt` trialArn
+      `Prelude.hashWithSalt` trialName
+      `Prelude.hashWithSalt` trialSource
 
 instance Prelude.NFData TrialSummary where
   rnf TrialSummary' {..} =
-    Prelude.rnf displayName
+    Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf trialName
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf trialSource
       `Prelude.seq` Prelude.rnf trialArn
+      `Prelude.seq` Prelude.rnf trialName
+      `Prelude.seq` Prelude.rnf trialSource

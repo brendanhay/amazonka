@@ -29,11 +29,11 @@ import Amazonka.SageMaker.Types.OutputParameter
 --
 -- /See:/ 'newLambdaStepMetadata' smart constructor.
 data LambdaStepMetadata = LambdaStepMetadata'
-  { -- | A list of the output parameters of the Lambda step.
-    outputParameters :: Prelude.Maybe [OutputParameter],
-    -- | The Amazon Resource Name (ARN) of the Lambda function that was run by
+  { -- | The Amazon Resource Name (ARN) of the Lambda function that was run by
     -- this step execution.
-    arn :: Prelude.Maybe Prelude.Text
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | A list of the output parameters of the Lambda step.
+    outputParameters :: Prelude.Maybe [OutputParameter]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,27 +45,26 @@ data LambdaStepMetadata = LambdaStepMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outputParameters', 'lambdaStepMetadata_outputParameters' - A list of the output parameters of the Lambda step.
---
 -- 'arn', 'lambdaStepMetadata_arn' - The Amazon Resource Name (ARN) of the Lambda function that was run by
 -- this step execution.
+--
+-- 'outputParameters', 'lambdaStepMetadata_outputParameters' - A list of the output parameters of the Lambda step.
 newLambdaStepMetadata ::
   LambdaStepMetadata
 newLambdaStepMetadata =
   LambdaStepMetadata'
-    { outputParameters =
-        Prelude.Nothing,
-      arn = Prelude.Nothing
+    { arn = Prelude.Nothing,
+      outputParameters = Prelude.Nothing
     }
-
--- | A list of the output parameters of the Lambda step.
-lambdaStepMetadata_outputParameters :: Lens.Lens' LambdaStepMetadata (Prelude.Maybe [OutputParameter])
-lambdaStepMetadata_outputParameters = Lens.lens (\LambdaStepMetadata' {outputParameters} -> outputParameters) (\s@LambdaStepMetadata' {} a -> s {outputParameters = a} :: LambdaStepMetadata) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the Lambda function that was run by
 -- this step execution.
 lambdaStepMetadata_arn :: Lens.Lens' LambdaStepMetadata (Prelude.Maybe Prelude.Text)
 lambdaStepMetadata_arn = Lens.lens (\LambdaStepMetadata' {arn} -> arn) (\s@LambdaStepMetadata' {} a -> s {arn = a} :: LambdaStepMetadata)
+
+-- | A list of the output parameters of the Lambda step.
+lambdaStepMetadata_outputParameters :: Lens.Lens' LambdaStepMetadata (Prelude.Maybe [OutputParameter])
+lambdaStepMetadata_outputParameters = Lens.lens (\LambdaStepMetadata' {outputParameters} -> outputParameters) (\s@LambdaStepMetadata' {} a -> s {outputParameters = a} :: LambdaStepMetadata) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON LambdaStepMetadata where
   parseJSON =
@@ -73,18 +72,18 @@ instance Data.FromJSON LambdaStepMetadata where
       "LambdaStepMetadata"
       ( \x ->
           LambdaStepMetadata'
-            Prelude.<$> ( x Data..:? "OutputParameters"
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> ( x Data..:? "OutputParameters"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "Arn")
       )
 
 instance Prelude.Hashable LambdaStepMetadata where
   hashWithSalt _salt LambdaStepMetadata' {..} =
-    _salt `Prelude.hashWithSalt` outputParameters
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` outputParameters
 
 instance Prelude.NFData LambdaStepMetadata where
   rnf LambdaStepMetadata' {..} =
-    Prelude.rnf outputParameters
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf outputParameters

@@ -28,8 +28,8 @@ module Amazonka.SageMaker.CreateEdgeDeploymentPlan
     newCreateEdgeDeploymentPlan,
 
     -- * Request Lenses
-    createEdgeDeploymentPlan_tags,
     createEdgeDeploymentPlan_stages,
+    createEdgeDeploymentPlan_tags,
     createEdgeDeploymentPlan_edgeDeploymentPlanName,
     createEdgeDeploymentPlan_modelConfigs,
     createEdgeDeploymentPlan_deviceFleetName,
@@ -54,11 +54,11 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateEdgeDeploymentPlan' smart constructor.
 data CreateEdgeDeploymentPlan = CreateEdgeDeploymentPlan'
-  { -- | List of tags with which to tag the edge deployment plan.
-    tags :: Prelude.Maybe [Tag],
-    -- | List of stages of the edge deployment plan. The number of stages is
+  { -- | List of stages of the edge deployment plan. The number of stages is
     -- limited to 10 per deployment.
     stages :: Prelude.Maybe [DeploymentStage],
+    -- | List of tags with which to tag the edge deployment plan.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the edge deployment plan.
     edgeDeploymentPlanName :: Prelude.Text,
     -- | List of models associated with the edge deployment plan.
@@ -76,10 +76,10 @@ data CreateEdgeDeploymentPlan = CreateEdgeDeploymentPlan'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createEdgeDeploymentPlan_tags' - List of tags with which to tag the edge deployment plan.
---
 -- 'stages', 'createEdgeDeploymentPlan_stages' - List of stages of the edge deployment plan. The number of stages is
 -- limited to 10 per deployment.
+--
+-- 'tags', 'createEdgeDeploymentPlan_tags' - List of tags with which to tag the edge deployment plan.
 --
 -- 'edgeDeploymentPlanName', 'createEdgeDeploymentPlan_edgeDeploymentPlanName' - The name of the edge deployment plan.
 --
@@ -96,21 +96,21 @@ newCreateEdgeDeploymentPlan
   pEdgeDeploymentPlanName_
   pDeviceFleetName_ =
     CreateEdgeDeploymentPlan'
-      { tags = Prelude.Nothing,
-        stages = Prelude.Nothing,
+      { stages = Prelude.Nothing,
+        tags = Prelude.Nothing,
         edgeDeploymentPlanName = pEdgeDeploymentPlanName_,
         modelConfigs = Prelude.mempty,
         deviceFleetName = pDeviceFleetName_
       }
 
--- | List of tags with which to tag the edge deployment plan.
-createEdgeDeploymentPlan_tags :: Lens.Lens' CreateEdgeDeploymentPlan (Prelude.Maybe [Tag])
-createEdgeDeploymentPlan_tags = Lens.lens (\CreateEdgeDeploymentPlan' {tags} -> tags) (\s@CreateEdgeDeploymentPlan' {} a -> s {tags = a} :: CreateEdgeDeploymentPlan) Prelude.. Lens.mapping Lens.coerced
-
 -- | List of stages of the edge deployment plan. The number of stages is
 -- limited to 10 per deployment.
 createEdgeDeploymentPlan_stages :: Lens.Lens' CreateEdgeDeploymentPlan (Prelude.Maybe [DeploymentStage])
 createEdgeDeploymentPlan_stages = Lens.lens (\CreateEdgeDeploymentPlan' {stages} -> stages) (\s@CreateEdgeDeploymentPlan' {} a -> s {stages = a} :: CreateEdgeDeploymentPlan) Prelude.. Lens.mapping Lens.coerced
+
+-- | List of tags with which to tag the edge deployment plan.
+createEdgeDeploymentPlan_tags :: Lens.Lens' CreateEdgeDeploymentPlan (Prelude.Maybe [Tag])
+createEdgeDeploymentPlan_tags = Lens.lens (\CreateEdgeDeploymentPlan' {tags} -> tags) (\s@CreateEdgeDeploymentPlan' {} a -> s {tags = a} :: CreateEdgeDeploymentPlan) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the edge deployment plan.
 createEdgeDeploymentPlan_edgeDeploymentPlanName :: Lens.Lens' CreateEdgeDeploymentPlan Prelude.Text
@@ -140,16 +140,16 @@ instance Core.AWSRequest CreateEdgeDeploymentPlan where
 
 instance Prelude.Hashable CreateEdgeDeploymentPlan where
   hashWithSalt _salt CreateEdgeDeploymentPlan' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` stages
+    _salt `Prelude.hashWithSalt` stages
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` edgeDeploymentPlanName
       `Prelude.hashWithSalt` modelConfigs
       `Prelude.hashWithSalt` deviceFleetName
 
 instance Prelude.NFData CreateEdgeDeploymentPlan where
   rnf CreateEdgeDeploymentPlan' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf stages
+    Prelude.rnf stages
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf edgeDeploymentPlanName
       `Prelude.seq` Prelude.rnf modelConfigs
       `Prelude.seq` Prelude.rnf deviceFleetName
@@ -173,8 +173,8 @@ instance Data.ToJSON CreateEdgeDeploymentPlan where
   toJSON CreateEdgeDeploymentPlan' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Stages" Data..=) Prelude.<$> stages,
+          [ ("Stages" Data..=) Prelude.<$> stages,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ( "EdgeDeploymentPlanName"
                   Data..= edgeDeploymentPlanName

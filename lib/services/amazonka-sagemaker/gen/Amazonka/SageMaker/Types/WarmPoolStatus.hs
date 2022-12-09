@@ -29,9 +29,7 @@ import Amazonka.SageMaker.Types.WarmPoolResourceStatus
 --
 -- /See:/ 'newWarmPoolStatus' smart constructor.
 data WarmPoolStatus = WarmPoolStatus'
-  { -- | The name of the matching training job that reused the warm pool.
-    reusedByJob :: Prelude.Maybe Prelude.Text,
-    -- | The billable time in seconds used by the warm pool. Billable time refers
+  { -- | The billable time in seconds used by the warm pool. Billable time refers
     -- to the absolute wall-clock time.
     --
     -- Multiply @ResourceRetainedBillableTimeInSeconds@ by the number of
@@ -40,6 +38,8 @@ data WarmPoolStatus = WarmPoolStatus'
     -- formula is as follows:
     -- @ResourceRetainedBillableTimeInSeconds * InstanceCount@.
     resourceRetainedBillableTimeInSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | The name of the matching training job that reused the warm pool.
+    reusedByJob :: Prelude.Maybe Prelude.Text,
     -- | The status of the warm pool.
     --
     -- -   @InUse@: The warm pool is in use for the training job.
@@ -65,8 +65,6 @@ data WarmPoolStatus = WarmPoolStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reusedByJob', 'warmPoolStatus_reusedByJob' - The name of the matching training job that reused the warm pool.
---
 -- 'resourceRetainedBillableTimeInSeconds', 'warmPoolStatus_resourceRetainedBillableTimeInSeconds' - The billable time in seconds used by the warm pool. Billable time refers
 -- to the absolute wall-clock time.
 --
@@ -75,6 +73,8 @@ data WarmPoolStatus = WarmPoolStatus'
 -- compute time SageMaker bills you if you run warm pool training. The
 -- formula is as follows:
 -- @ResourceRetainedBillableTimeInSeconds * InstanceCount@.
+--
+-- 'reusedByJob', 'warmPoolStatus_reusedByJob' - The name of the matching training job that reused the warm pool.
 --
 -- 'status', 'warmPoolStatus_status' - The status of the warm pool.
 --
@@ -95,15 +95,11 @@ newWarmPoolStatus ::
   WarmPoolStatus
 newWarmPoolStatus pStatus_ =
   WarmPoolStatus'
-    { reusedByJob = Prelude.Nothing,
-      resourceRetainedBillableTimeInSeconds =
+    { resourceRetainedBillableTimeInSeconds =
         Prelude.Nothing,
+      reusedByJob = Prelude.Nothing,
       status = pStatus_
     }
-
--- | The name of the matching training job that reused the warm pool.
-warmPoolStatus_reusedByJob :: Lens.Lens' WarmPoolStatus (Prelude.Maybe Prelude.Text)
-warmPoolStatus_reusedByJob = Lens.lens (\WarmPoolStatus' {reusedByJob} -> reusedByJob) (\s@WarmPoolStatus' {} a -> s {reusedByJob = a} :: WarmPoolStatus)
 
 -- | The billable time in seconds used by the warm pool. Billable time refers
 -- to the absolute wall-clock time.
@@ -115,6 +111,10 @@ warmPoolStatus_reusedByJob = Lens.lens (\WarmPoolStatus' {reusedByJob} -> reused
 -- @ResourceRetainedBillableTimeInSeconds * InstanceCount@.
 warmPoolStatus_resourceRetainedBillableTimeInSeconds :: Lens.Lens' WarmPoolStatus (Prelude.Maybe Prelude.Natural)
 warmPoolStatus_resourceRetainedBillableTimeInSeconds = Lens.lens (\WarmPoolStatus' {resourceRetainedBillableTimeInSeconds} -> resourceRetainedBillableTimeInSeconds) (\s@WarmPoolStatus' {} a -> s {resourceRetainedBillableTimeInSeconds = a} :: WarmPoolStatus)
+
+-- | The name of the matching training job that reused the warm pool.
+warmPoolStatus_reusedByJob :: Lens.Lens' WarmPoolStatus (Prelude.Maybe Prelude.Text)
+warmPoolStatus_reusedByJob = Lens.lens (\WarmPoolStatus' {reusedByJob} -> reusedByJob) (\s@WarmPoolStatus' {} a -> s {reusedByJob = a} :: WarmPoolStatus)
 
 -- | The status of the warm pool.
 --
@@ -138,19 +138,20 @@ instance Data.FromJSON WarmPoolStatus where
       "WarmPoolStatus"
       ( \x ->
           WarmPoolStatus'
-            Prelude.<$> (x Data..:? "ReusedByJob")
-            Prelude.<*> (x Data..:? "ResourceRetainedBillableTimeInSeconds")
+            Prelude.<$> (x Data..:? "ResourceRetainedBillableTimeInSeconds")
+            Prelude.<*> (x Data..:? "ReusedByJob")
             Prelude.<*> (x Data..: "Status")
       )
 
 instance Prelude.Hashable WarmPoolStatus where
   hashWithSalt _salt WarmPoolStatus' {..} =
-    _salt `Prelude.hashWithSalt` reusedByJob
+    _salt
       `Prelude.hashWithSalt` resourceRetainedBillableTimeInSeconds
+      `Prelude.hashWithSalt` reusedByJob
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData WarmPoolStatus where
   rnf WarmPoolStatus' {..} =
-    Prelude.rnf reusedByJob
-      `Prelude.seq` Prelude.rnf resourceRetainedBillableTimeInSeconds
+    Prelude.rnf resourceRetainedBillableTimeInSeconds
+      `Prelude.seq` Prelude.rnf reusedByJob
       `Prelude.seq` Prelude.rnf status

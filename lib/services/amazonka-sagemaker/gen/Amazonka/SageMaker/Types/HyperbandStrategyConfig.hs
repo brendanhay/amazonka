@@ -34,12 +34,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHyperbandStrategyConfig' smart constructor.
 data HyperbandStrategyConfig = HyperbandStrategyConfig'
-  { -- | The minimum number of resources (such as epochs) that can be used by a
-    -- training job launched by a hyperparameter tuning job. If the value for
-    -- @MinResource@ has not been reached, the training job will not be stopped
-    -- by @Hyperband@.
-    minResource :: Prelude.Maybe Prelude.Natural,
-    -- | The maximum number of resources (such as epochs) that can be used by a
+  { -- | The maximum number of resources (such as epochs) that can be used by a
     -- training job launched by a hyperparameter tuning job. Once a job reaches
     -- the @MaxResource@ value, it is stopped. If a value for @MaxResource@ is
     -- not provided, and @Hyperband@ is selected as the hyperparameter tuning
@@ -68,7 +63,12 @@ data HyperbandStrategyConfig = HyperbandStrategyConfig'
     -- across the individual nodes in a training job. If multiple nodes are
     -- publishing duplicate or incorrect metrics, training jobs may make an
     -- incorrect stopping decision and stop the job prematurely.
-    maxResource :: Prelude.Maybe Prelude.Natural
+    maxResource :: Prelude.Maybe Prelude.Natural,
+    -- | The minimum number of resources (such as epochs) that can be used by a
+    -- training job launched by a hyperparameter tuning job. If the value for
+    -- @MinResource@ has not been reached, the training job will not be stopped
+    -- by @Hyperband@.
+    minResource :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,11 +79,6 @@ data HyperbandStrategyConfig = HyperbandStrategyConfig'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'minResource', 'hyperbandStrategyConfig_minResource' - The minimum number of resources (such as epochs) that can be used by a
--- training job launched by a hyperparameter tuning job. If the value for
--- @MinResource@ has not been reached, the training job will not be stopped
--- by @Hyperband@.
 --
 -- 'maxResource', 'hyperbandStrategyConfig_maxResource' - The maximum number of resources (such as epochs) that can be used by a
 -- training job launched by a hyperparameter tuning job. Once a job reaches
@@ -114,21 +109,19 @@ data HyperbandStrategyConfig = HyperbandStrategyConfig'
 -- across the individual nodes in a training job. If multiple nodes are
 -- publishing duplicate or incorrect metrics, training jobs may make an
 -- incorrect stopping decision and stop the job prematurely.
+--
+-- 'minResource', 'hyperbandStrategyConfig_minResource' - The minimum number of resources (such as epochs) that can be used by a
+-- training job launched by a hyperparameter tuning job. If the value for
+-- @MinResource@ has not been reached, the training job will not be stopped
+-- by @Hyperband@.
 newHyperbandStrategyConfig ::
   HyperbandStrategyConfig
 newHyperbandStrategyConfig =
   HyperbandStrategyConfig'
-    { minResource =
+    { maxResource =
         Prelude.Nothing,
-      maxResource = Prelude.Nothing
+      minResource = Prelude.Nothing
     }
-
--- | The minimum number of resources (such as epochs) that can be used by a
--- training job launched by a hyperparameter tuning job. If the value for
--- @MinResource@ has not been reached, the training job will not be stopped
--- by @Hyperband@.
-hyperbandStrategyConfig_minResource :: Lens.Lens' HyperbandStrategyConfig (Prelude.Maybe Prelude.Natural)
-hyperbandStrategyConfig_minResource = Lens.lens (\HyperbandStrategyConfig' {minResource} -> minResource) (\s@HyperbandStrategyConfig' {} a -> s {minResource = a} :: HyperbandStrategyConfig)
 
 -- | The maximum number of resources (such as epochs) that can be used by a
 -- training job launched by a hyperparameter tuning job. Once a job reaches
@@ -162,31 +155,38 @@ hyperbandStrategyConfig_minResource = Lens.lens (\HyperbandStrategyConfig' {minR
 hyperbandStrategyConfig_maxResource :: Lens.Lens' HyperbandStrategyConfig (Prelude.Maybe Prelude.Natural)
 hyperbandStrategyConfig_maxResource = Lens.lens (\HyperbandStrategyConfig' {maxResource} -> maxResource) (\s@HyperbandStrategyConfig' {} a -> s {maxResource = a} :: HyperbandStrategyConfig)
 
+-- | The minimum number of resources (such as epochs) that can be used by a
+-- training job launched by a hyperparameter tuning job. If the value for
+-- @MinResource@ has not been reached, the training job will not be stopped
+-- by @Hyperband@.
+hyperbandStrategyConfig_minResource :: Lens.Lens' HyperbandStrategyConfig (Prelude.Maybe Prelude.Natural)
+hyperbandStrategyConfig_minResource = Lens.lens (\HyperbandStrategyConfig' {minResource} -> minResource) (\s@HyperbandStrategyConfig' {} a -> s {minResource = a} :: HyperbandStrategyConfig)
+
 instance Data.FromJSON HyperbandStrategyConfig where
   parseJSON =
     Data.withObject
       "HyperbandStrategyConfig"
       ( \x ->
           HyperbandStrategyConfig'
-            Prelude.<$> (x Data..:? "MinResource")
-            Prelude.<*> (x Data..:? "MaxResource")
+            Prelude.<$> (x Data..:? "MaxResource")
+            Prelude.<*> (x Data..:? "MinResource")
       )
 
 instance Prelude.Hashable HyperbandStrategyConfig where
   hashWithSalt _salt HyperbandStrategyConfig' {..} =
-    _salt `Prelude.hashWithSalt` minResource
-      `Prelude.hashWithSalt` maxResource
+    _salt `Prelude.hashWithSalt` maxResource
+      `Prelude.hashWithSalt` minResource
 
 instance Prelude.NFData HyperbandStrategyConfig where
   rnf HyperbandStrategyConfig' {..} =
-    Prelude.rnf minResource
-      `Prelude.seq` Prelude.rnf maxResource
+    Prelude.rnf maxResource
+      `Prelude.seq` Prelude.rnf minResource
 
 instance Data.ToJSON HyperbandStrategyConfig where
   toJSON HyperbandStrategyConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MinResource" Data..=) Prelude.<$> minResource,
-            ("MaxResource" Data..=) Prelude.<$> maxResource
+          [ ("MaxResource" Data..=) Prelude.<$> maxResource,
+            ("MinResource" Data..=) Prelude.<$> minResource
           ]
       )

@@ -39,11 +39,11 @@ module Amazonka.SageMaker.DescribeCompilationJob
 
     -- * Response Lenses
     describeCompilationJobResponse_compilationEndTime,
-    describeCompilationJobResponse_inferenceImage,
-    describeCompilationJobResponse_vpcConfig,
-    describeCompilationJobResponse_modelDigests,
     describeCompilationJobResponse_compilationStartTime,
+    describeCompilationJobResponse_inferenceImage,
+    describeCompilationJobResponse_modelDigests,
     describeCompilationJobResponse_modelPackageVersionArn,
+    describeCompilationJobResponse_vpcConfig,
     describeCompilationJobResponse_httpStatus,
     describeCompilationJobResponse_compilationJobName,
     describeCompilationJobResponse_compilationJobArn,
@@ -108,11 +108,11 @@ instance Core.AWSRequest DescribeCompilationJob where
       ( \s h x ->
           DescribeCompilationJobResponse'
             Prelude.<$> (x Data..?> "CompilationEndTime")
-            Prelude.<*> (x Data..?> "InferenceImage")
-            Prelude.<*> (x Data..?> "VpcConfig")
-            Prelude.<*> (x Data..?> "ModelDigests")
             Prelude.<*> (x Data..?> "CompilationStartTime")
+            Prelude.<*> (x Data..?> "InferenceImage")
+            Prelude.<*> (x Data..?> "ModelDigests")
             Prelude.<*> (x Data..?> "ModelPackageVersionArn")
+            Prelude.<*> (x Data..?> "VpcConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "CompilationJobName")
             Prelude.<*> (x Data..:> "CompilationJobArn")
@@ -172,17 +172,6 @@ data DescribeCompilationJobResponse = DescribeCompilationJobResponse'
     -- artifacts have finished uploading. For a failed job, this is when Amazon
     -- SageMaker detected that the job failed.
     compilationEndTime :: Prelude.Maybe Data.POSIX,
-    -- | The inference image to use when compiling a model. Specify an image only
-    -- if the target device is a cloud instance.
-    inferenceImage :: Prelude.Maybe Prelude.Text,
-    -- | A VpcConfig object that specifies the VPC that you want your compilation
-    -- job to connect to. Control access to your models by configuring the VPC.
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html Protect Compilation Jobs by Using an Amazon Virtual Private Cloud>.
-    vpcConfig :: Prelude.Maybe NeoVpcConfig,
-    -- | Provides a BLAKE2 hash value that identifies the compiled model
-    -- artifacts in Amazon S3.
-    modelDigests :: Prelude.Maybe ModelDigests,
     -- | The time when the model compilation job started the @CompilationJob@
     -- instances.
     --
@@ -192,9 +181,20 @@ data DescribeCompilationJobResponse = DescribeCompilationJobResponse'
     -- because it takes time to download the compilation job, which depends on
     -- the size of the compilation job container.
     compilationStartTime :: Prelude.Maybe Data.POSIX,
+    -- | The inference image to use when compiling a model. Specify an image only
+    -- if the target device is a cloud instance.
+    inferenceImage :: Prelude.Maybe Prelude.Text,
+    -- | Provides a BLAKE2 hash value that identifies the compiled model
+    -- artifacts in Amazon S3.
+    modelDigests :: Prelude.Maybe ModelDigests,
     -- | The Amazon Resource Name (ARN) of the versioned model package that was
     -- provided to SageMaker Neo when you initiated a compilation job.
     modelPackageVersionArn :: Prelude.Maybe Prelude.Text,
+    -- | A VpcConfig object that specifies the VPC that you want your compilation
+    -- job to connect to. Control access to your models by configuring the VPC.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html Protect Compilation Jobs by Using an Amazon Virtual Private Cloud>.
+    vpcConfig :: Prelude.Maybe NeoVpcConfig,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The name of the model compilation job.
@@ -242,17 +242,6 @@ data DescribeCompilationJobResponse = DescribeCompilationJobResponse'
 -- artifacts have finished uploading. For a failed job, this is when Amazon
 -- SageMaker detected that the job failed.
 --
--- 'inferenceImage', 'describeCompilationJobResponse_inferenceImage' - The inference image to use when compiling a model. Specify an image only
--- if the target device is a cloud instance.
---
--- 'vpcConfig', 'describeCompilationJobResponse_vpcConfig' - A VpcConfig object that specifies the VPC that you want your compilation
--- job to connect to. Control access to your models by configuring the VPC.
--- For more information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html Protect Compilation Jobs by Using an Amazon Virtual Private Cloud>.
---
--- 'modelDigests', 'describeCompilationJobResponse_modelDigests' - Provides a BLAKE2 hash value that identifies the compiled model
--- artifacts in Amazon S3.
---
 -- 'compilationStartTime', 'describeCompilationJobResponse_compilationStartTime' - The time when the model compilation job started the @CompilationJob@
 -- instances.
 --
@@ -262,8 +251,19 @@ data DescribeCompilationJobResponse = DescribeCompilationJobResponse'
 -- because it takes time to download the compilation job, which depends on
 -- the size of the compilation job container.
 --
+-- 'inferenceImage', 'describeCompilationJobResponse_inferenceImage' - The inference image to use when compiling a model. Specify an image only
+-- if the target device is a cloud instance.
+--
+-- 'modelDigests', 'describeCompilationJobResponse_modelDigests' - Provides a BLAKE2 hash value that identifies the compiled model
+-- artifacts in Amazon S3.
+--
 -- 'modelPackageVersionArn', 'describeCompilationJobResponse_modelPackageVersionArn' - The Amazon Resource Name (ARN) of the versioned model package that was
 -- provided to SageMaker Neo when you initiated a compilation job.
+--
+-- 'vpcConfig', 'describeCompilationJobResponse_vpcConfig' - A VpcConfig object that specifies the VPC that you want your compilation
+-- job to connect to. Control access to your models by configuring the VPC.
+-- For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html Protect Compilation Jobs by Using an Amazon Virtual Private Cloud>.
 --
 -- 'httpStatus', 'describeCompilationJobResponse_httpStatus' - The response's http status code.
 --
@@ -337,11 +337,11 @@ newDescribeCompilationJobResponse
     DescribeCompilationJobResponse'
       { compilationEndTime =
           Prelude.Nothing,
-        inferenceImage = Prelude.Nothing,
-        vpcConfig = Prelude.Nothing,
-        modelDigests = Prelude.Nothing,
         compilationStartTime = Prelude.Nothing,
+        inferenceImage = Prelude.Nothing,
+        modelDigests = Prelude.Nothing,
         modelPackageVersionArn = Prelude.Nothing,
+        vpcConfig = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         compilationJobName = pCompilationJobName_,
         compilationJobArn = pCompilationJobArn_,
@@ -366,23 +366,6 @@ newDescribeCompilationJobResponse
 describeCompilationJobResponse_compilationEndTime :: Lens.Lens' DescribeCompilationJobResponse (Prelude.Maybe Prelude.UTCTime)
 describeCompilationJobResponse_compilationEndTime = Lens.lens (\DescribeCompilationJobResponse' {compilationEndTime} -> compilationEndTime) (\s@DescribeCompilationJobResponse' {} a -> s {compilationEndTime = a} :: DescribeCompilationJobResponse) Prelude.. Lens.mapping Data._Time
 
--- | The inference image to use when compiling a model. Specify an image only
--- if the target device is a cloud instance.
-describeCompilationJobResponse_inferenceImage :: Lens.Lens' DescribeCompilationJobResponse (Prelude.Maybe Prelude.Text)
-describeCompilationJobResponse_inferenceImage = Lens.lens (\DescribeCompilationJobResponse' {inferenceImage} -> inferenceImage) (\s@DescribeCompilationJobResponse' {} a -> s {inferenceImage = a} :: DescribeCompilationJobResponse)
-
--- | A VpcConfig object that specifies the VPC that you want your compilation
--- job to connect to. Control access to your models by configuring the VPC.
--- For more information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html Protect Compilation Jobs by Using an Amazon Virtual Private Cloud>.
-describeCompilationJobResponse_vpcConfig :: Lens.Lens' DescribeCompilationJobResponse (Prelude.Maybe NeoVpcConfig)
-describeCompilationJobResponse_vpcConfig = Lens.lens (\DescribeCompilationJobResponse' {vpcConfig} -> vpcConfig) (\s@DescribeCompilationJobResponse' {} a -> s {vpcConfig = a} :: DescribeCompilationJobResponse)
-
--- | Provides a BLAKE2 hash value that identifies the compiled model
--- artifacts in Amazon S3.
-describeCompilationJobResponse_modelDigests :: Lens.Lens' DescribeCompilationJobResponse (Prelude.Maybe ModelDigests)
-describeCompilationJobResponse_modelDigests = Lens.lens (\DescribeCompilationJobResponse' {modelDigests} -> modelDigests) (\s@DescribeCompilationJobResponse' {} a -> s {modelDigests = a} :: DescribeCompilationJobResponse)
-
 -- | The time when the model compilation job started the @CompilationJob@
 -- instances.
 --
@@ -394,10 +377,27 @@ describeCompilationJobResponse_modelDigests = Lens.lens (\DescribeCompilationJob
 describeCompilationJobResponse_compilationStartTime :: Lens.Lens' DescribeCompilationJobResponse (Prelude.Maybe Prelude.UTCTime)
 describeCompilationJobResponse_compilationStartTime = Lens.lens (\DescribeCompilationJobResponse' {compilationStartTime} -> compilationStartTime) (\s@DescribeCompilationJobResponse' {} a -> s {compilationStartTime = a} :: DescribeCompilationJobResponse) Prelude.. Lens.mapping Data._Time
 
+-- | The inference image to use when compiling a model. Specify an image only
+-- if the target device is a cloud instance.
+describeCompilationJobResponse_inferenceImage :: Lens.Lens' DescribeCompilationJobResponse (Prelude.Maybe Prelude.Text)
+describeCompilationJobResponse_inferenceImage = Lens.lens (\DescribeCompilationJobResponse' {inferenceImage} -> inferenceImage) (\s@DescribeCompilationJobResponse' {} a -> s {inferenceImage = a} :: DescribeCompilationJobResponse)
+
+-- | Provides a BLAKE2 hash value that identifies the compiled model
+-- artifacts in Amazon S3.
+describeCompilationJobResponse_modelDigests :: Lens.Lens' DescribeCompilationJobResponse (Prelude.Maybe ModelDigests)
+describeCompilationJobResponse_modelDigests = Lens.lens (\DescribeCompilationJobResponse' {modelDigests} -> modelDigests) (\s@DescribeCompilationJobResponse' {} a -> s {modelDigests = a} :: DescribeCompilationJobResponse)
+
 -- | The Amazon Resource Name (ARN) of the versioned model package that was
 -- provided to SageMaker Neo when you initiated a compilation job.
 describeCompilationJobResponse_modelPackageVersionArn :: Lens.Lens' DescribeCompilationJobResponse (Prelude.Maybe Prelude.Text)
 describeCompilationJobResponse_modelPackageVersionArn = Lens.lens (\DescribeCompilationJobResponse' {modelPackageVersionArn} -> modelPackageVersionArn) (\s@DescribeCompilationJobResponse' {} a -> s {modelPackageVersionArn = a} :: DescribeCompilationJobResponse)
+
+-- | A VpcConfig object that specifies the VPC that you want your compilation
+-- job to connect to. Control access to your models by configuring the VPC.
+-- For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html Protect Compilation Jobs by Using an Amazon Virtual Private Cloud>.
+describeCompilationJobResponse_vpcConfig :: Lens.Lens' DescribeCompilationJobResponse (Prelude.Maybe NeoVpcConfig)
+describeCompilationJobResponse_vpcConfig = Lens.lens (\DescribeCompilationJobResponse' {vpcConfig} -> vpcConfig) (\s@DescribeCompilationJobResponse' {} a -> s {vpcConfig = a} :: DescribeCompilationJobResponse)
 
 -- | The response's http status code.
 describeCompilationJobResponse_httpStatus :: Lens.Lens' DescribeCompilationJobResponse Prelude.Int
@@ -460,11 +460,11 @@ instance
   where
   rnf DescribeCompilationJobResponse' {..} =
     Prelude.rnf compilationEndTime
-      `Prelude.seq` Prelude.rnf inferenceImage
-      `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf modelDigests
       `Prelude.seq` Prelude.rnf compilationStartTime
+      `Prelude.seq` Prelude.rnf inferenceImage
+      `Prelude.seq` Prelude.rnf modelDigests
       `Prelude.seq` Prelude.rnf modelPackageVersionArn
+      `Prelude.seq` Prelude.rnf vpcConfig
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf compilationJobName
       `Prelude.seq` Prelude.rnf compilationJobArn

@@ -36,15 +36,15 @@ import Amazonka.SageMaker.Types.CompressionType
 --
 -- /See:/ 'newAutoMLChannel' smart constructor.
 data AutoMLChannel = AutoMLChannel'
-  { -- | You can use @Gzip@ or @None@. The default value is @None@.
-    compressionType :: Prelude.Maybe CompressionType,
-    -- | The channel type (optional) is an @enum@ string. The default value is
+  { -- | The channel type (optional) is an @enum@ string. The default value is
     -- @training@. Channels for training and validation must share the same
     -- @ContentType@ and @TargetAttributeName@. For information on specifying
     -- training and validation channel types, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-data-sources-training-or-validation How to specify training and validation datasets>
     -- .
     channelType :: Prelude.Maybe AutoMLChannelType,
+    -- | You can use @Gzip@ or @None@. The default value is @None@.
+    compressionType :: Prelude.Maybe CompressionType,
     -- | The content type of the data from the input source. You can use
     -- @text\/csv;header=present@ or @x-application\/vnd.amazon+parquet@. The
     -- default value is @text\/csv;header=present@.
@@ -65,14 +65,14 @@ data AutoMLChannel = AutoMLChannel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'compressionType', 'autoMLChannel_compressionType' - You can use @Gzip@ or @None@. The default value is @None@.
---
 -- 'channelType', 'autoMLChannel_channelType' - The channel type (optional) is an @enum@ string. The default value is
 -- @training@. Channels for training and validation must share the same
 -- @ContentType@ and @TargetAttributeName@. For information on specifying
 -- training and validation channel types, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-data-sources-training-or-validation How to specify training and validation datasets>
 -- .
+--
+-- 'compressionType', 'autoMLChannel_compressionType' - You can use @Gzip@ or @None@. The default value is @None@.
 --
 -- 'contentType', 'autoMLChannel_contentType' - The content type of the data from the input source. You can use
 -- @text\/csv;header=present@ or @x-application\/vnd.amazon+parquet@. The
@@ -90,16 +90,12 @@ newAutoMLChannel ::
   AutoMLChannel
 newAutoMLChannel pDataSource_ pTargetAttributeName_ =
   AutoMLChannel'
-    { compressionType = Prelude.Nothing,
-      channelType = Prelude.Nothing,
+    { channelType = Prelude.Nothing,
+      compressionType = Prelude.Nothing,
       contentType = Prelude.Nothing,
       dataSource = pDataSource_,
       targetAttributeName = pTargetAttributeName_
     }
-
--- | You can use @Gzip@ or @None@. The default value is @None@.
-autoMLChannel_compressionType :: Lens.Lens' AutoMLChannel (Prelude.Maybe CompressionType)
-autoMLChannel_compressionType = Lens.lens (\AutoMLChannel' {compressionType} -> compressionType) (\s@AutoMLChannel' {} a -> s {compressionType = a} :: AutoMLChannel)
 
 -- | The channel type (optional) is an @enum@ string. The default value is
 -- @training@. Channels for training and validation must share the same
@@ -109,6 +105,10 @@ autoMLChannel_compressionType = Lens.lens (\AutoMLChannel' {compressionType} -> 
 -- .
 autoMLChannel_channelType :: Lens.Lens' AutoMLChannel (Prelude.Maybe AutoMLChannelType)
 autoMLChannel_channelType = Lens.lens (\AutoMLChannel' {channelType} -> channelType) (\s@AutoMLChannel' {} a -> s {channelType = a} :: AutoMLChannel)
+
+-- | You can use @Gzip@ or @None@. The default value is @None@.
+autoMLChannel_compressionType :: Lens.Lens' AutoMLChannel (Prelude.Maybe CompressionType)
+autoMLChannel_compressionType = Lens.lens (\AutoMLChannel' {compressionType} -> compressionType) (\s@AutoMLChannel' {} a -> s {compressionType = a} :: AutoMLChannel)
 
 -- | The content type of the data from the input source. You can use
 -- @text\/csv;header=present@ or @x-application\/vnd.amazon+parquet@. The
@@ -131,8 +131,8 @@ instance Data.FromJSON AutoMLChannel where
       "AutoMLChannel"
       ( \x ->
           AutoMLChannel'
-            Prelude.<$> (x Data..:? "CompressionType")
-            Prelude.<*> (x Data..:? "ChannelType")
+            Prelude.<$> (x Data..:? "ChannelType")
+            Prelude.<*> (x Data..:? "CompressionType")
             Prelude.<*> (x Data..:? "ContentType")
             Prelude.<*> (x Data..: "DataSource")
             Prelude.<*> (x Data..: "TargetAttributeName")
@@ -140,16 +140,16 @@ instance Data.FromJSON AutoMLChannel where
 
 instance Prelude.Hashable AutoMLChannel where
   hashWithSalt _salt AutoMLChannel' {..} =
-    _salt `Prelude.hashWithSalt` compressionType
-      `Prelude.hashWithSalt` channelType
+    _salt `Prelude.hashWithSalt` channelType
+      `Prelude.hashWithSalt` compressionType
       `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` dataSource
       `Prelude.hashWithSalt` targetAttributeName
 
 instance Prelude.NFData AutoMLChannel where
   rnf AutoMLChannel' {..} =
-    Prelude.rnf compressionType
-      `Prelude.seq` Prelude.rnf channelType
+    Prelude.rnf channelType
+      `Prelude.seq` Prelude.rnf compressionType
       `Prelude.seq` Prelude.rnf contentType
       `Prelude.seq` Prelude.rnf dataSource
       `Prelude.seq` Prelude.rnf targetAttributeName
@@ -158,9 +158,9 @@ instance Data.ToJSON AutoMLChannel where
   toJSON AutoMLChannel' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("CompressionType" Data..=)
+          [ ("ChannelType" Data..=) Prelude.<$> channelType,
+            ("CompressionType" Data..=)
               Prelude.<$> compressionType,
-            ("ChannelType" Data..=) Prelude.<$> channelType,
             ("ContentType" Data..=) Prelude.<$> contentType,
             Prelude.Just ("DataSource" Data..= dataSource),
             Prelude.Just

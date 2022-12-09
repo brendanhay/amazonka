@@ -34,8 +34,8 @@ module Amazonka.SageMaker.DescribeDataQualityJobDefinition
     newDescribeDataQualityJobDefinitionResponse,
 
     -- * Response Lenses
-    describeDataQualityJobDefinitionResponse_networkConfig,
     describeDataQualityJobDefinitionResponse_dataQualityBaselineConfig,
+    describeDataQualityJobDefinitionResponse_networkConfig,
     describeDataQualityJobDefinitionResponse_stoppingCondition,
     describeDataQualityJobDefinitionResponse_httpStatus,
     describeDataQualityJobDefinitionResponse_jobDefinitionArn,
@@ -101,8 +101,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeDataQualityJobDefinitionResponse'
-            Prelude.<$> (x Data..?> "NetworkConfig")
-            Prelude.<*> (x Data..?> "DataQualityBaselineConfig")
+            Prelude.<$> (x Data..?> "DataQualityBaselineConfig")
+            Prelude.<*> (x Data..?> "NetworkConfig")
             Prelude.<*> (x Data..?> "StoppingCondition")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "JobDefinitionArn")
@@ -169,11 +169,11 @@ instance
 
 -- | /See:/ 'newDescribeDataQualityJobDefinitionResponse' smart constructor.
 data DescribeDataQualityJobDefinitionResponse = DescribeDataQualityJobDefinitionResponse'
-  { -- | The networking configuration for the data quality monitoring job.
-    networkConfig :: Prelude.Maybe MonitoringNetworkConfig,
-    -- | The constraints and baselines for the data quality monitoring job
+  { -- | The constraints and baselines for the data quality monitoring job
     -- definition.
     dataQualityBaselineConfig :: Prelude.Maybe DataQualityBaselineConfig,
+    -- | The networking configuration for the data quality monitoring job.
+    networkConfig :: Prelude.Maybe MonitoringNetworkConfig,
     stoppingCondition :: Prelude.Maybe MonitoringStoppingCondition,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -206,10 +206,10 @@ data DescribeDataQualityJobDefinitionResponse = DescribeDataQualityJobDefinition
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'networkConfig', 'describeDataQualityJobDefinitionResponse_networkConfig' - The networking configuration for the data quality monitoring job.
---
 -- 'dataQualityBaselineConfig', 'describeDataQualityJobDefinitionResponse_dataQualityBaselineConfig' - The constraints and baselines for the data quality monitoring job
 -- definition.
+--
+-- 'networkConfig', 'describeDataQualityJobDefinitionResponse_networkConfig' - The networking configuration for the data quality monitoring job.
 --
 -- 'stoppingCondition', 'describeDataQualityJobDefinitionResponse_stoppingCondition' - Undocumented member.
 --
@@ -265,10 +265,9 @@ newDescribeDataQualityJobDefinitionResponse
   pJobResources_
   pRoleArn_ =
     DescribeDataQualityJobDefinitionResponse'
-      { networkConfig =
+      { dataQualityBaselineConfig =
           Prelude.Nothing,
-        dataQualityBaselineConfig =
-          Prelude.Nothing,
+        networkConfig = Prelude.Nothing,
         stoppingCondition =
           Prelude.Nothing,
         httpStatus = pHttpStatus_,
@@ -289,14 +288,14 @@ newDescribeDataQualityJobDefinitionResponse
         roleArn = pRoleArn_
       }
 
--- | The networking configuration for the data quality monitoring job.
-describeDataQualityJobDefinitionResponse_networkConfig :: Lens.Lens' DescribeDataQualityJobDefinitionResponse (Prelude.Maybe MonitoringNetworkConfig)
-describeDataQualityJobDefinitionResponse_networkConfig = Lens.lens (\DescribeDataQualityJobDefinitionResponse' {networkConfig} -> networkConfig) (\s@DescribeDataQualityJobDefinitionResponse' {} a -> s {networkConfig = a} :: DescribeDataQualityJobDefinitionResponse)
-
 -- | The constraints and baselines for the data quality monitoring job
 -- definition.
 describeDataQualityJobDefinitionResponse_dataQualityBaselineConfig :: Lens.Lens' DescribeDataQualityJobDefinitionResponse (Prelude.Maybe DataQualityBaselineConfig)
 describeDataQualityJobDefinitionResponse_dataQualityBaselineConfig = Lens.lens (\DescribeDataQualityJobDefinitionResponse' {dataQualityBaselineConfig} -> dataQualityBaselineConfig) (\s@DescribeDataQualityJobDefinitionResponse' {} a -> s {dataQualityBaselineConfig = a} :: DescribeDataQualityJobDefinitionResponse)
+
+-- | The networking configuration for the data quality monitoring job.
+describeDataQualityJobDefinitionResponse_networkConfig :: Lens.Lens' DescribeDataQualityJobDefinitionResponse (Prelude.Maybe MonitoringNetworkConfig)
+describeDataQualityJobDefinitionResponse_networkConfig = Lens.lens (\DescribeDataQualityJobDefinitionResponse' {networkConfig} -> networkConfig) (\s@DescribeDataQualityJobDefinitionResponse' {} a -> s {networkConfig = a} :: DescribeDataQualityJobDefinitionResponse)
 
 -- | Undocumented member.
 describeDataQualityJobDefinitionResponse_stoppingCondition :: Lens.Lens' DescribeDataQualityJobDefinitionResponse (Prelude.Maybe MonitoringStoppingCondition)
@@ -347,8 +346,8 @@ instance
     DescribeDataQualityJobDefinitionResponse
   where
   rnf DescribeDataQualityJobDefinitionResponse' {..} =
-    Prelude.rnf networkConfig
-      `Prelude.seq` Prelude.rnf dataQualityBaselineConfig
+    Prelude.rnf dataQualityBaselineConfig
+      `Prelude.seq` Prelude.rnf networkConfig
       `Prelude.seq` Prelude.rnf stoppingCondition
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf jobDefinitionArn

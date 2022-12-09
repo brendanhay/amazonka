@@ -29,12 +29,12 @@ import Amazonka.SageMaker.Types.LabelCountersForWorkteam
 --
 -- /See:/ 'newLabelingJobForWorkteamSummary' smart constructor.
 data LabelingJobForWorkteamSummary = LabelingJobForWorkteamSummary'
-  { -- | The configured number of workers per data object.
-    numberOfHumanWorkersPerDataObject :: Prelude.Maybe Prelude.Natural,
+  { -- | Provides information about the progress of a labeling job.
+    labelCounters :: Prelude.Maybe LabelCountersForWorkteam,
     -- | The name of the labeling job that the work team is assigned to.
     labelingJobName :: Prelude.Maybe Prelude.Text,
-    -- | Provides information about the progress of a labeling job.
-    labelCounters :: Prelude.Maybe LabelCountersForWorkteam,
+    -- | The configured number of workers per data object.
+    numberOfHumanWorkersPerDataObject :: Prelude.Maybe Prelude.Natural,
     -- | A unique identifier for a labeling job. You can use this to refer to a
     -- specific labeling job.
     jobReferenceCode :: Prelude.Text,
@@ -54,11 +54,11 @@ data LabelingJobForWorkteamSummary = LabelingJobForWorkteamSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'numberOfHumanWorkersPerDataObject', 'labelingJobForWorkteamSummary_numberOfHumanWorkersPerDataObject' - The configured number of workers per data object.
+-- 'labelCounters', 'labelingJobForWorkteamSummary_labelCounters' - Provides information about the progress of a labeling job.
 --
 -- 'labelingJobName', 'labelingJobForWorkteamSummary_labelingJobName' - The name of the labeling job that the work team is assigned to.
 --
--- 'labelCounters', 'labelingJobForWorkteamSummary_labelCounters' - Provides information about the progress of a labeling job.
+-- 'numberOfHumanWorkersPerDataObject', 'labelingJobForWorkteamSummary_numberOfHumanWorkersPerDataObject' - The configured number of workers per data object.
 --
 -- 'jobReferenceCode', 'labelingJobForWorkteamSummary_jobReferenceCode' - A unique identifier for a labeling job. You can use this to refer to a
 -- specific labeling job.
@@ -80,10 +80,11 @@ newLabelingJobForWorkteamSummary
   pWorkRequesterAccountId_
   pCreationTime_ =
     LabelingJobForWorkteamSummary'
-      { numberOfHumanWorkersPerDataObject =
+      { labelCounters =
           Prelude.Nothing,
         labelingJobName = Prelude.Nothing,
-        labelCounters = Prelude.Nothing,
+        numberOfHumanWorkersPerDataObject =
+          Prelude.Nothing,
         jobReferenceCode = pJobReferenceCode_,
         workRequesterAccountId =
           pWorkRequesterAccountId_,
@@ -91,17 +92,17 @@ newLabelingJobForWorkteamSummary
           Data._Time Lens.# pCreationTime_
       }
 
--- | The configured number of workers per data object.
-labelingJobForWorkteamSummary_numberOfHumanWorkersPerDataObject :: Lens.Lens' LabelingJobForWorkteamSummary (Prelude.Maybe Prelude.Natural)
-labelingJobForWorkteamSummary_numberOfHumanWorkersPerDataObject = Lens.lens (\LabelingJobForWorkteamSummary' {numberOfHumanWorkersPerDataObject} -> numberOfHumanWorkersPerDataObject) (\s@LabelingJobForWorkteamSummary' {} a -> s {numberOfHumanWorkersPerDataObject = a} :: LabelingJobForWorkteamSummary)
+-- | Provides information about the progress of a labeling job.
+labelingJobForWorkteamSummary_labelCounters :: Lens.Lens' LabelingJobForWorkteamSummary (Prelude.Maybe LabelCountersForWorkteam)
+labelingJobForWorkteamSummary_labelCounters = Lens.lens (\LabelingJobForWorkteamSummary' {labelCounters} -> labelCounters) (\s@LabelingJobForWorkteamSummary' {} a -> s {labelCounters = a} :: LabelingJobForWorkteamSummary)
 
 -- | The name of the labeling job that the work team is assigned to.
 labelingJobForWorkteamSummary_labelingJobName :: Lens.Lens' LabelingJobForWorkteamSummary (Prelude.Maybe Prelude.Text)
 labelingJobForWorkteamSummary_labelingJobName = Lens.lens (\LabelingJobForWorkteamSummary' {labelingJobName} -> labelingJobName) (\s@LabelingJobForWorkteamSummary' {} a -> s {labelingJobName = a} :: LabelingJobForWorkteamSummary)
 
--- | Provides information about the progress of a labeling job.
-labelingJobForWorkteamSummary_labelCounters :: Lens.Lens' LabelingJobForWorkteamSummary (Prelude.Maybe LabelCountersForWorkteam)
-labelingJobForWorkteamSummary_labelCounters = Lens.lens (\LabelingJobForWorkteamSummary' {labelCounters} -> labelCounters) (\s@LabelingJobForWorkteamSummary' {} a -> s {labelCounters = a} :: LabelingJobForWorkteamSummary)
+-- | The configured number of workers per data object.
+labelingJobForWorkteamSummary_numberOfHumanWorkersPerDataObject :: Lens.Lens' LabelingJobForWorkteamSummary (Prelude.Maybe Prelude.Natural)
+labelingJobForWorkteamSummary_numberOfHumanWorkersPerDataObject = Lens.lens (\LabelingJobForWorkteamSummary' {numberOfHumanWorkersPerDataObject} -> numberOfHumanWorkersPerDataObject) (\s@LabelingJobForWorkteamSummary' {} a -> s {numberOfHumanWorkersPerDataObject = a} :: LabelingJobForWorkteamSummary)
 
 -- | A unique identifier for a labeling job. You can use this to refer to a
 -- specific labeling job.
@@ -123,9 +124,9 @@ instance Data.FromJSON LabelingJobForWorkteamSummary where
       "LabelingJobForWorkteamSummary"
       ( \x ->
           LabelingJobForWorkteamSummary'
-            Prelude.<$> (x Data..:? "NumberOfHumanWorkersPerDataObject")
+            Prelude.<$> (x Data..:? "LabelCounters")
             Prelude.<*> (x Data..:? "LabelingJobName")
-            Prelude.<*> (x Data..:? "LabelCounters")
+            Prelude.<*> (x Data..:? "NumberOfHumanWorkersPerDataObject")
             Prelude.<*> (x Data..: "JobReferenceCode")
             Prelude.<*> (x Data..: "WorkRequesterAccountId")
             Prelude.<*> (x Data..: "CreationTime")
@@ -136,19 +137,18 @@ instance
     LabelingJobForWorkteamSummary
   where
   hashWithSalt _salt LabelingJobForWorkteamSummary' {..} =
-    _salt
-      `Prelude.hashWithSalt` numberOfHumanWorkersPerDataObject
+    _salt `Prelude.hashWithSalt` labelCounters
       `Prelude.hashWithSalt` labelingJobName
-      `Prelude.hashWithSalt` labelCounters
+      `Prelude.hashWithSalt` numberOfHumanWorkersPerDataObject
       `Prelude.hashWithSalt` jobReferenceCode
       `Prelude.hashWithSalt` workRequesterAccountId
       `Prelude.hashWithSalt` creationTime
 
 instance Prelude.NFData LabelingJobForWorkteamSummary where
   rnf LabelingJobForWorkteamSummary' {..} =
-    Prelude.rnf numberOfHumanWorkersPerDataObject
+    Prelude.rnf labelCounters
       `Prelude.seq` Prelude.rnf labelingJobName
-      `Prelude.seq` Prelude.rnf labelCounters
+      `Prelude.seq` Prelude.rnf numberOfHumanWorkersPerDataObject
       `Prelude.seq` Prelude.rnf jobReferenceCode
       `Prelude.seq` Prelude.rnf workRequesterAccountId
       `Prelude.seq` Prelude.rnf creationTime

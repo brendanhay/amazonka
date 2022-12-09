@@ -29,14 +29,14 @@ module Amazonka.SageMaker.ListModelExplainabilityJobDefinitions
     newListModelExplainabilityJobDefinitions,
 
     -- * Request Lenses
-    listModelExplainabilityJobDefinitions_sortOrder,
-    listModelExplainabilityJobDefinitions_nextToken,
-    listModelExplainabilityJobDefinitions_endpointName,
-    listModelExplainabilityJobDefinitions_nameContains,
-    listModelExplainabilityJobDefinitions_creationTimeBefore,
-    listModelExplainabilityJobDefinitions_sortBy,
-    listModelExplainabilityJobDefinitions_maxResults,
     listModelExplainabilityJobDefinitions_creationTimeAfter,
+    listModelExplainabilityJobDefinitions_creationTimeBefore,
+    listModelExplainabilityJobDefinitions_endpointName,
+    listModelExplainabilityJobDefinitions_maxResults,
+    listModelExplainabilityJobDefinitions_nameContains,
+    listModelExplainabilityJobDefinitions_nextToken,
+    listModelExplainabilityJobDefinitions_sortBy,
+    listModelExplainabilityJobDefinitions_sortOrder,
 
     -- * Destructuring the Response
     ListModelExplainabilityJobDefinitionsResponse (..),
@@ -59,29 +59,29 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListModelExplainabilityJobDefinitions' smart constructor.
 data ListModelExplainabilityJobDefinitions = ListModelExplainabilityJobDefinitions'
-  { -- | Whether to sort the results in @Ascending@ or @Descending@ order. The
-    -- default is @Descending@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | The token returned if the response is truncated. To retrieve the next
-    -- set of job executions, use it in the next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Name of the endpoint to monitor for model explainability.
-    endpointName :: Prelude.Maybe Prelude.Text,
-    -- | Filter for model explainability jobs whose name contains a specified
-    -- string.
-    nameContains :: Prelude.Maybe Prelude.Text,
+  { -- | A filter that returns only model explainability jobs created after a
+    -- specified time.
+    creationTimeAfter :: Prelude.Maybe Data.POSIX,
     -- | A filter that returns only model explainability jobs created before a
     -- specified time.
     creationTimeBefore :: Prelude.Maybe Data.POSIX,
-    -- | Whether to sort results by the @Name@ or @CreationTime@ field. The
-    -- default is @CreationTime@.
-    sortBy :: Prelude.Maybe MonitoringJobDefinitionSortKey,
+    -- | Name of the endpoint to monitor for model explainability.
+    endpointName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of jobs to return in the response. The default value
     -- is 10.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | A filter that returns only model explainability jobs created after a
-    -- specified time.
-    creationTimeAfter :: Prelude.Maybe Data.POSIX
+    -- | Filter for model explainability jobs whose name contains a specified
+    -- string.
+    nameContains :: Prelude.Maybe Prelude.Text,
+    -- | The token returned if the response is truncated. To retrieve the next
+    -- set of job executions, use it in the next request.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Whether to sort results by the @Name@ or @CreationTime@ field. The
+    -- default is @CreationTime@.
+    sortBy :: Prelude.Maybe MonitoringJobDefinitionSortKey,
+    -- | Whether to sort the results in @Ascending@ or @Descending@ order. The
+    -- default is @Descending@.
+    sortOrder :: Prelude.Maybe SortOrder
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,81 +93,81 @@ data ListModelExplainabilityJobDefinitions = ListModelExplainabilityJobDefinitio
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listModelExplainabilityJobDefinitions_sortOrder' - Whether to sort the results in @Ascending@ or @Descending@ order. The
--- default is @Descending@.
---
--- 'nextToken', 'listModelExplainabilityJobDefinitions_nextToken' - The token returned if the response is truncated. To retrieve the next
--- set of job executions, use it in the next request.
---
--- 'endpointName', 'listModelExplainabilityJobDefinitions_endpointName' - Name of the endpoint to monitor for model explainability.
---
--- 'nameContains', 'listModelExplainabilityJobDefinitions_nameContains' - Filter for model explainability jobs whose name contains a specified
--- string.
+-- 'creationTimeAfter', 'listModelExplainabilityJobDefinitions_creationTimeAfter' - A filter that returns only model explainability jobs created after a
+-- specified time.
 --
 -- 'creationTimeBefore', 'listModelExplainabilityJobDefinitions_creationTimeBefore' - A filter that returns only model explainability jobs created before a
 -- specified time.
 --
--- 'sortBy', 'listModelExplainabilityJobDefinitions_sortBy' - Whether to sort results by the @Name@ or @CreationTime@ field. The
--- default is @CreationTime@.
+-- 'endpointName', 'listModelExplainabilityJobDefinitions_endpointName' - Name of the endpoint to monitor for model explainability.
 --
 -- 'maxResults', 'listModelExplainabilityJobDefinitions_maxResults' - The maximum number of jobs to return in the response. The default value
 -- is 10.
 --
--- 'creationTimeAfter', 'listModelExplainabilityJobDefinitions_creationTimeAfter' - A filter that returns only model explainability jobs created after a
--- specified time.
+-- 'nameContains', 'listModelExplainabilityJobDefinitions_nameContains' - Filter for model explainability jobs whose name contains a specified
+-- string.
+--
+-- 'nextToken', 'listModelExplainabilityJobDefinitions_nextToken' - The token returned if the response is truncated. To retrieve the next
+-- set of job executions, use it in the next request.
+--
+-- 'sortBy', 'listModelExplainabilityJobDefinitions_sortBy' - Whether to sort results by the @Name@ or @CreationTime@ field. The
+-- default is @CreationTime@.
+--
+-- 'sortOrder', 'listModelExplainabilityJobDefinitions_sortOrder' - Whether to sort the results in @Ascending@ or @Descending@ order. The
+-- default is @Descending@.
 newListModelExplainabilityJobDefinitions ::
   ListModelExplainabilityJobDefinitions
 newListModelExplainabilityJobDefinitions =
   ListModelExplainabilityJobDefinitions'
-    { sortOrder =
+    { creationTimeAfter =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      endpointName = Prelude.Nothing,
-      nameContains = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
+      endpointName = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      creationTimeAfter = Prelude.Nothing
+      nameContains = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      sortOrder = Prelude.Nothing
     }
 
--- | Whether to sort the results in @Ascending@ or @Descending@ order. The
--- default is @Descending@.
-listModelExplainabilityJobDefinitions_sortOrder :: Lens.Lens' ListModelExplainabilityJobDefinitions (Prelude.Maybe SortOrder)
-listModelExplainabilityJobDefinitions_sortOrder = Lens.lens (\ListModelExplainabilityJobDefinitions' {sortOrder} -> sortOrder) (\s@ListModelExplainabilityJobDefinitions' {} a -> s {sortOrder = a} :: ListModelExplainabilityJobDefinitions)
-
--- | The token returned if the response is truncated. To retrieve the next
--- set of job executions, use it in the next request.
-listModelExplainabilityJobDefinitions_nextToken :: Lens.Lens' ListModelExplainabilityJobDefinitions (Prelude.Maybe Prelude.Text)
-listModelExplainabilityJobDefinitions_nextToken = Lens.lens (\ListModelExplainabilityJobDefinitions' {nextToken} -> nextToken) (\s@ListModelExplainabilityJobDefinitions' {} a -> s {nextToken = a} :: ListModelExplainabilityJobDefinitions)
-
--- | Name of the endpoint to monitor for model explainability.
-listModelExplainabilityJobDefinitions_endpointName :: Lens.Lens' ListModelExplainabilityJobDefinitions (Prelude.Maybe Prelude.Text)
-listModelExplainabilityJobDefinitions_endpointName = Lens.lens (\ListModelExplainabilityJobDefinitions' {endpointName} -> endpointName) (\s@ListModelExplainabilityJobDefinitions' {} a -> s {endpointName = a} :: ListModelExplainabilityJobDefinitions)
-
--- | Filter for model explainability jobs whose name contains a specified
--- string.
-listModelExplainabilityJobDefinitions_nameContains :: Lens.Lens' ListModelExplainabilityJobDefinitions (Prelude.Maybe Prelude.Text)
-listModelExplainabilityJobDefinitions_nameContains = Lens.lens (\ListModelExplainabilityJobDefinitions' {nameContains} -> nameContains) (\s@ListModelExplainabilityJobDefinitions' {} a -> s {nameContains = a} :: ListModelExplainabilityJobDefinitions)
+-- | A filter that returns only model explainability jobs created after a
+-- specified time.
+listModelExplainabilityJobDefinitions_creationTimeAfter :: Lens.Lens' ListModelExplainabilityJobDefinitions (Prelude.Maybe Prelude.UTCTime)
+listModelExplainabilityJobDefinitions_creationTimeAfter = Lens.lens (\ListModelExplainabilityJobDefinitions' {creationTimeAfter} -> creationTimeAfter) (\s@ListModelExplainabilityJobDefinitions' {} a -> s {creationTimeAfter = a} :: ListModelExplainabilityJobDefinitions) Prelude.. Lens.mapping Data._Time
 
 -- | A filter that returns only model explainability jobs created before a
 -- specified time.
 listModelExplainabilityJobDefinitions_creationTimeBefore :: Lens.Lens' ListModelExplainabilityJobDefinitions (Prelude.Maybe Prelude.UTCTime)
 listModelExplainabilityJobDefinitions_creationTimeBefore = Lens.lens (\ListModelExplainabilityJobDefinitions' {creationTimeBefore} -> creationTimeBefore) (\s@ListModelExplainabilityJobDefinitions' {} a -> s {creationTimeBefore = a} :: ListModelExplainabilityJobDefinitions) Prelude.. Lens.mapping Data._Time
 
--- | Whether to sort results by the @Name@ or @CreationTime@ field. The
--- default is @CreationTime@.
-listModelExplainabilityJobDefinitions_sortBy :: Lens.Lens' ListModelExplainabilityJobDefinitions (Prelude.Maybe MonitoringJobDefinitionSortKey)
-listModelExplainabilityJobDefinitions_sortBy = Lens.lens (\ListModelExplainabilityJobDefinitions' {sortBy} -> sortBy) (\s@ListModelExplainabilityJobDefinitions' {} a -> s {sortBy = a} :: ListModelExplainabilityJobDefinitions)
+-- | Name of the endpoint to monitor for model explainability.
+listModelExplainabilityJobDefinitions_endpointName :: Lens.Lens' ListModelExplainabilityJobDefinitions (Prelude.Maybe Prelude.Text)
+listModelExplainabilityJobDefinitions_endpointName = Lens.lens (\ListModelExplainabilityJobDefinitions' {endpointName} -> endpointName) (\s@ListModelExplainabilityJobDefinitions' {} a -> s {endpointName = a} :: ListModelExplainabilityJobDefinitions)
 
 -- | The maximum number of jobs to return in the response. The default value
 -- is 10.
 listModelExplainabilityJobDefinitions_maxResults :: Lens.Lens' ListModelExplainabilityJobDefinitions (Prelude.Maybe Prelude.Natural)
 listModelExplainabilityJobDefinitions_maxResults = Lens.lens (\ListModelExplainabilityJobDefinitions' {maxResults} -> maxResults) (\s@ListModelExplainabilityJobDefinitions' {} a -> s {maxResults = a} :: ListModelExplainabilityJobDefinitions)
 
--- | A filter that returns only model explainability jobs created after a
--- specified time.
-listModelExplainabilityJobDefinitions_creationTimeAfter :: Lens.Lens' ListModelExplainabilityJobDefinitions (Prelude.Maybe Prelude.UTCTime)
-listModelExplainabilityJobDefinitions_creationTimeAfter = Lens.lens (\ListModelExplainabilityJobDefinitions' {creationTimeAfter} -> creationTimeAfter) (\s@ListModelExplainabilityJobDefinitions' {} a -> s {creationTimeAfter = a} :: ListModelExplainabilityJobDefinitions) Prelude.. Lens.mapping Data._Time
+-- | Filter for model explainability jobs whose name contains a specified
+-- string.
+listModelExplainabilityJobDefinitions_nameContains :: Lens.Lens' ListModelExplainabilityJobDefinitions (Prelude.Maybe Prelude.Text)
+listModelExplainabilityJobDefinitions_nameContains = Lens.lens (\ListModelExplainabilityJobDefinitions' {nameContains} -> nameContains) (\s@ListModelExplainabilityJobDefinitions' {} a -> s {nameContains = a} :: ListModelExplainabilityJobDefinitions)
+
+-- | The token returned if the response is truncated. To retrieve the next
+-- set of job executions, use it in the next request.
+listModelExplainabilityJobDefinitions_nextToken :: Lens.Lens' ListModelExplainabilityJobDefinitions (Prelude.Maybe Prelude.Text)
+listModelExplainabilityJobDefinitions_nextToken = Lens.lens (\ListModelExplainabilityJobDefinitions' {nextToken} -> nextToken) (\s@ListModelExplainabilityJobDefinitions' {} a -> s {nextToken = a} :: ListModelExplainabilityJobDefinitions)
+
+-- | Whether to sort results by the @Name@ or @CreationTime@ field. The
+-- default is @CreationTime@.
+listModelExplainabilityJobDefinitions_sortBy :: Lens.Lens' ListModelExplainabilityJobDefinitions (Prelude.Maybe MonitoringJobDefinitionSortKey)
+listModelExplainabilityJobDefinitions_sortBy = Lens.lens (\ListModelExplainabilityJobDefinitions' {sortBy} -> sortBy) (\s@ListModelExplainabilityJobDefinitions' {} a -> s {sortBy = a} :: ListModelExplainabilityJobDefinitions)
+
+-- | Whether to sort the results in @Ascending@ or @Descending@ order. The
+-- default is @Descending@.
+listModelExplainabilityJobDefinitions_sortOrder :: Lens.Lens' ListModelExplainabilityJobDefinitions (Prelude.Maybe SortOrder)
+listModelExplainabilityJobDefinitions_sortOrder = Lens.lens (\ListModelExplainabilityJobDefinitions' {sortOrder} -> sortOrder) (\s@ListModelExplainabilityJobDefinitions' {} a -> s {sortOrder = a} :: ListModelExplainabilityJobDefinitions)
 
 instance
   Core.AWSPager
@@ -221,28 +221,28 @@ instance
   hashWithSalt
     _salt
     ListModelExplainabilityJobDefinitions' {..} =
-      _salt `Prelude.hashWithSalt` sortOrder
-        `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` endpointName
-        `Prelude.hashWithSalt` nameContains
+      _salt `Prelude.hashWithSalt` creationTimeAfter
         `Prelude.hashWithSalt` creationTimeBefore
-        `Prelude.hashWithSalt` sortBy
+        `Prelude.hashWithSalt` endpointName
         `Prelude.hashWithSalt` maxResults
-        `Prelude.hashWithSalt` creationTimeAfter
+        `Prelude.hashWithSalt` nameContains
+        `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` sortBy
+        `Prelude.hashWithSalt` sortOrder
 
 instance
   Prelude.NFData
     ListModelExplainabilityJobDefinitions
   where
   rnf ListModelExplainabilityJobDefinitions' {..} =
-    Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf nameContains
+    Prelude.rnf creationTimeAfter
       `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf endpointName
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance
   Data.ToHeaders
@@ -269,16 +269,16 @@ instance
   toJSON ListModelExplainabilityJobDefinitions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
-            ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("EndpointName" Data..=) Prelude.<$> endpointName,
-            ("NameContains" Data..=) Prelude.<$> nameContains,
+          [ ("CreationTimeAfter" Data..=)
+              Prelude.<$> creationTimeAfter,
             ("CreationTimeBefore" Data..=)
               Prelude.<$> creationTimeBefore,
-            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("EndpointName" Data..=) Prelude.<$> endpointName,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("CreationTimeAfter" Data..=)
-              Prelude.<$> creationTimeAfter
+            ("NameContains" Data..=) Prelude.<$> nameContains,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("SortOrder" Data..=) Prelude.<$> sortOrder
           ]
       )
 

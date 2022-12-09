@@ -34,8 +34,8 @@ module Amazonka.SageMaker.GetLineageGroupPolicy
     newGetLineageGroupPolicyResponse,
 
     -- * Response Lenses
-    getLineageGroupPolicyResponse_resourcePolicy,
     getLineageGroupPolicyResponse_lineageGroupArn,
+    getLineageGroupPolicyResponse_resourcePolicy,
     getLineageGroupPolicyResponse_httpStatus,
   )
 where
@@ -88,8 +88,8 @@ instance Core.AWSRequest GetLineageGroupPolicy where
     Response.receiveJSON
       ( \s h x ->
           GetLineageGroupPolicyResponse'
-            Prelude.<$> (x Data..?> "ResourcePolicy")
-            Prelude.<*> (x Data..?> "LineageGroupArn")
+            Prelude.<$> (x Data..?> "LineageGroupArn")
+            Prelude.<*> (x Data..?> "ResourcePolicy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,11 +133,11 @@ instance Data.ToQuery GetLineageGroupPolicy where
 
 -- | /See:/ 'newGetLineageGroupPolicyResponse' smart constructor.
 data GetLineageGroupPolicyResponse = GetLineageGroupPolicyResponse'
-  { -- | The resource policy that gives access to the lineage group in another
+  { -- | The Amazon Resource Name (ARN) of the lineage group.
+    lineageGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | The resource policy that gives access to the lineage group in another
     -- account.
     resourcePolicy :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the lineage group.
-    lineageGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -151,10 +151,10 @@ data GetLineageGroupPolicyResponse = GetLineageGroupPolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lineageGroupArn', 'getLineageGroupPolicyResponse_lineageGroupArn' - The Amazon Resource Name (ARN) of the lineage group.
+--
 -- 'resourcePolicy', 'getLineageGroupPolicyResponse_resourcePolicy' - The resource policy that gives access to the lineage group in another
 -- account.
---
--- 'lineageGroupArn', 'getLineageGroupPolicyResponse_lineageGroupArn' - The Amazon Resource Name (ARN) of the lineage group.
 --
 -- 'httpStatus', 'getLineageGroupPolicyResponse_httpStatus' - The response's http status code.
 newGetLineageGroupPolicyResponse ::
@@ -163,20 +163,20 @@ newGetLineageGroupPolicyResponse ::
   GetLineageGroupPolicyResponse
 newGetLineageGroupPolicyResponse pHttpStatus_ =
   GetLineageGroupPolicyResponse'
-    { resourcePolicy =
+    { lineageGroupArn =
         Prelude.Nothing,
-      lineageGroupArn = Prelude.Nothing,
+      resourcePolicy = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Amazon Resource Name (ARN) of the lineage group.
+getLineageGroupPolicyResponse_lineageGroupArn :: Lens.Lens' GetLineageGroupPolicyResponse (Prelude.Maybe Prelude.Text)
+getLineageGroupPolicyResponse_lineageGroupArn = Lens.lens (\GetLineageGroupPolicyResponse' {lineageGroupArn} -> lineageGroupArn) (\s@GetLineageGroupPolicyResponse' {} a -> s {lineageGroupArn = a} :: GetLineageGroupPolicyResponse)
 
 -- | The resource policy that gives access to the lineage group in another
 -- account.
 getLineageGroupPolicyResponse_resourcePolicy :: Lens.Lens' GetLineageGroupPolicyResponse (Prelude.Maybe Prelude.Text)
 getLineageGroupPolicyResponse_resourcePolicy = Lens.lens (\GetLineageGroupPolicyResponse' {resourcePolicy} -> resourcePolicy) (\s@GetLineageGroupPolicyResponse' {} a -> s {resourcePolicy = a} :: GetLineageGroupPolicyResponse)
-
--- | The Amazon Resource Name (ARN) of the lineage group.
-getLineageGroupPolicyResponse_lineageGroupArn :: Lens.Lens' GetLineageGroupPolicyResponse (Prelude.Maybe Prelude.Text)
-getLineageGroupPolicyResponse_lineageGroupArn = Lens.lens (\GetLineageGroupPolicyResponse' {lineageGroupArn} -> lineageGroupArn) (\s@GetLineageGroupPolicyResponse' {} a -> s {lineageGroupArn = a} :: GetLineageGroupPolicyResponse)
 
 -- | The response's http status code.
 getLineageGroupPolicyResponse_httpStatus :: Lens.Lens' GetLineageGroupPolicyResponse Prelude.Int
@@ -184,6 +184,6 @@ getLineageGroupPolicyResponse_httpStatus = Lens.lens (\GetLineageGroupPolicyResp
 
 instance Prelude.NFData GetLineageGroupPolicyResponse where
   rnf GetLineageGroupPolicyResponse' {..} =
-    Prelude.rnf resourcePolicy
-      `Prelude.seq` Prelude.rnf lineageGroupArn
+    Prelude.rnf lineageGroupArn
+      `Prelude.seq` Prelude.rnf resourcePolicy
       `Prelude.seq` Prelude.rnf httpStatus

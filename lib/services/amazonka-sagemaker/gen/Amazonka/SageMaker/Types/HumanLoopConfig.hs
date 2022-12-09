@@ -30,15 +30,15 @@ import Amazonka.SageMaker.Types.PublicWorkforceTaskPrice
 -- /See:/ 'newHumanLoopConfig' smart constructor.
 data HumanLoopConfig = HumanLoopConfig'
   { publicWorkforceTaskPrice :: Prelude.Maybe PublicWorkforceTaskPrice,
+    -- | The length of time that a task remains available for review by human
+    -- workers.
+    taskAvailabilityLifetimeInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | Keywords used to describe the task so that workers can discover the
     -- task.
     taskKeywords :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The amount of time that a worker has to complete a task. The default
     -- value is 3,600 seconds (1 hour).
     taskTimeLimitInSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | The length of time that a task remains available for review by human
-    -- workers.
-    taskAvailabilityLifetimeInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | Amazon Resource Name (ARN) of a team of workers. To learn more about the
     -- types of workforces and work teams you can create and use with Amazon
     -- A2I, see
@@ -78,14 +78,14 @@ data HumanLoopConfig = HumanLoopConfig'
 --
 -- 'publicWorkforceTaskPrice', 'humanLoopConfig_publicWorkforceTaskPrice' - Undocumented member.
 --
+-- 'taskAvailabilityLifetimeInSeconds', 'humanLoopConfig_taskAvailabilityLifetimeInSeconds' - The length of time that a task remains available for review by human
+-- workers.
+--
 -- 'taskKeywords', 'humanLoopConfig_taskKeywords' - Keywords used to describe the task so that workers can discover the
 -- task.
 --
 -- 'taskTimeLimitInSeconds', 'humanLoopConfig_taskTimeLimitInSeconds' - The amount of time that a worker has to complete a task. The default
 -- value is 3,600 seconds (1 hour).
---
--- 'taskAvailabilityLifetimeInSeconds', 'humanLoopConfig_taskAvailabilityLifetimeInSeconds' - The length of time that a task remains available for review by human
--- workers.
 --
 -- 'workteamArn', 'humanLoopConfig_workteamArn' - Amazon Resource Name (ARN) of a team of workers. To learn more about the
 -- types of workforces and work teams you can create and use with Amazon
@@ -133,9 +133,9 @@ newHumanLoopConfig
     HumanLoopConfig'
       { publicWorkforceTaskPrice =
           Prelude.Nothing,
+        taskAvailabilityLifetimeInSeconds = Prelude.Nothing,
         taskKeywords = Prelude.Nothing,
         taskTimeLimitInSeconds = Prelude.Nothing,
-        taskAvailabilityLifetimeInSeconds = Prelude.Nothing,
         workteamArn = pWorkteamArn_,
         humanTaskUiArn = pHumanTaskUiArn_,
         taskTitle = pTaskTitle_,
@@ -147,6 +147,11 @@ newHumanLoopConfig
 humanLoopConfig_publicWorkforceTaskPrice :: Lens.Lens' HumanLoopConfig (Prelude.Maybe PublicWorkforceTaskPrice)
 humanLoopConfig_publicWorkforceTaskPrice = Lens.lens (\HumanLoopConfig' {publicWorkforceTaskPrice} -> publicWorkforceTaskPrice) (\s@HumanLoopConfig' {} a -> s {publicWorkforceTaskPrice = a} :: HumanLoopConfig)
 
+-- | The length of time that a task remains available for review by human
+-- workers.
+humanLoopConfig_taskAvailabilityLifetimeInSeconds :: Lens.Lens' HumanLoopConfig (Prelude.Maybe Prelude.Natural)
+humanLoopConfig_taskAvailabilityLifetimeInSeconds = Lens.lens (\HumanLoopConfig' {taskAvailabilityLifetimeInSeconds} -> taskAvailabilityLifetimeInSeconds) (\s@HumanLoopConfig' {} a -> s {taskAvailabilityLifetimeInSeconds = a} :: HumanLoopConfig)
+
 -- | Keywords used to describe the task so that workers can discover the
 -- task.
 humanLoopConfig_taskKeywords :: Lens.Lens' HumanLoopConfig (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
@@ -156,11 +161,6 @@ humanLoopConfig_taskKeywords = Lens.lens (\HumanLoopConfig' {taskKeywords} -> ta
 -- value is 3,600 seconds (1 hour).
 humanLoopConfig_taskTimeLimitInSeconds :: Lens.Lens' HumanLoopConfig (Prelude.Maybe Prelude.Natural)
 humanLoopConfig_taskTimeLimitInSeconds = Lens.lens (\HumanLoopConfig' {taskTimeLimitInSeconds} -> taskTimeLimitInSeconds) (\s@HumanLoopConfig' {} a -> s {taskTimeLimitInSeconds = a} :: HumanLoopConfig)
-
--- | The length of time that a task remains available for review by human
--- workers.
-humanLoopConfig_taskAvailabilityLifetimeInSeconds :: Lens.Lens' HumanLoopConfig (Prelude.Maybe Prelude.Natural)
-humanLoopConfig_taskAvailabilityLifetimeInSeconds = Lens.lens (\HumanLoopConfig' {taskAvailabilityLifetimeInSeconds} -> taskAvailabilityLifetimeInSeconds) (\s@HumanLoopConfig' {} a -> s {taskAvailabilityLifetimeInSeconds = a} :: HumanLoopConfig)
 
 -- | Amazon Resource Name (ARN) of a team of workers. To learn more about the
 -- types of workforces and work teams you can create and use with Amazon
@@ -205,9 +205,9 @@ instance Data.FromJSON HumanLoopConfig where
       ( \x ->
           HumanLoopConfig'
             Prelude.<$> (x Data..:? "PublicWorkforceTaskPrice")
+            Prelude.<*> (x Data..:? "TaskAvailabilityLifetimeInSeconds")
             Prelude.<*> (x Data..:? "TaskKeywords")
             Prelude.<*> (x Data..:? "TaskTimeLimitInSeconds")
-            Prelude.<*> (x Data..:? "TaskAvailabilityLifetimeInSeconds")
             Prelude.<*> (x Data..: "WorkteamArn")
             Prelude.<*> (x Data..: "HumanTaskUiArn")
             Prelude.<*> (x Data..: "TaskTitle")
@@ -219,9 +219,9 @@ instance Prelude.Hashable HumanLoopConfig where
   hashWithSalt _salt HumanLoopConfig' {..} =
     _salt
       `Prelude.hashWithSalt` publicWorkforceTaskPrice
+      `Prelude.hashWithSalt` taskAvailabilityLifetimeInSeconds
       `Prelude.hashWithSalt` taskKeywords
       `Prelude.hashWithSalt` taskTimeLimitInSeconds
-      `Prelude.hashWithSalt` taskAvailabilityLifetimeInSeconds
       `Prelude.hashWithSalt` workteamArn
       `Prelude.hashWithSalt` humanTaskUiArn
       `Prelude.hashWithSalt` taskTitle
@@ -231,9 +231,9 @@ instance Prelude.Hashable HumanLoopConfig where
 instance Prelude.NFData HumanLoopConfig where
   rnf HumanLoopConfig' {..} =
     Prelude.rnf publicWorkforceTaskPrice
+      `Prelude.seq` Prelude.rnf taskAvailabilityLifetimeInSeconds
       `Prelude.seq` Prelude.rnf taskKeywords
       `Prelude.seq` Prelude.rnf taskTimeLimitInSeconds
-      `Prelude.seq` Prelude.rnf taskAvailabilityLifetimeInSeconds
       `Prelude.seq` Prelude.rnf workteamArn
       `Prelude.seq` Prelude.rnf humanTaskUiArn
       `Prelude.seq` Prelude.rnf taskTitle
@@ -246,11 +246,11 @@ instance Data.ToJSON HumanLoopConfig where
       ( Prelude.catMaybes
           [ ("PublicWorkforceTaskPrice" Data..=)
               Prelude.<$> publicWorkforceTaskPrice,
+            ("TaskAvailabilityLifetimeInSeconds" Data..=)
+              Prelude.<$> taskAvailabilityLifetimeInSeconds,
             ("TaskKeywords" Data..=) Prelude.<$> taskKeywords,
             ("TaskTimeLimitInSeconds" Data..=)
               Prelude.<$> taskTimeLimitInSeconds,
-            ("TaskAvailabilityLifetimeInSeconds" Data..=)
-              Prelude.<$> taskAvailabilityLifetimeInSeconds,
             Prelude.Just ("WorkteamArn" Data..= workteamArn),
             Prelude.Just
               ("HumanTaskUiArn" Data..= humanTaskUiArn),

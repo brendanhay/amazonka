@@ -31,10 +31,10 @@ import Amazonka.SageMaker.Types.RecommendationMetrics
 --
 -- /See:/ 'newRecommendationJobInferenceBenchmark' smart constructor.
 data RecommendationJobInferenceBenchmark = RecommendationJobInferenceBenchmark'
-  { metrics :: Prelude.Maybe RecommendationMetrics,
-    endpointConfiguration :: Prelude.Maybe EndpointOutputConfiguration,
+  { endpointConfiguration :: Prelude.Maybe EndpointOutputConfiguration,
     -- | The reason why a benchmark failed.
     failureReason :: Prelude.Maybe Prelude.Text,
+    metrics :: Prelude.Maybe RecommendationMetrics,
     modelConfiguration :: ModelConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,11 +47,11 @@ data RecommendationJobInferenceBenchmark = RecommendationJobInferenceBenchmark'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metrics', 'recommendationJobInferenceBenchmark_metrics' - Undocumented member.
---
 -- 'endpointConfiguration', 'recommendationJobInferenceBenchmark_endpointConfiguration' - Undocumented member.
 --
 -- 'failureReason', 'recommendationJobInferenceBenchmark_failureReason' - The reason why a benchmark failed.
+--
+-- 'metrics', 'recommendationJobInferenceBenchmark_metrics' - Undocumented member.
 --
 -- 'modelConfiguration', 'recommendationJobInferenceBenchmark_modelConfiguration' - Undocumented member.
 newRecommendationJobInferenceBenchmark ::
@@ -61,18 +61,13 @@ newRecommendationJobInferenceBenchmark ::
 newRecommendationJobInferenceBenchmark
   pModelConfiguration_ =
     RecommendationJobInferenceBenchmark'
-      { metrics =
-          Prelude.Nothing,
-        endpointConfiguration =
+      { endpointConfiguration =
           Prelude.Nothing,
         failureReason = Prelude.Nothing,
+        metrics = Prelude.Nothing,
         modelConfiguration =
           pModelConfiguration_
       }
-
--- | Undocumented member.
-recommendationJobInferenceBenchmark_metrics :: Lens.Lens' RecommendationJobInferenceBenchmark (Prelude.Maybe RecommendationMetrics)
-recommendationJobInferenceBenchmark_metrics = Lens.lens (\RecommendationJobInferenceBenchmark' {metrics} -> metrics) (\s@RecommendationJobInferenceBenchmark' {} a -> s {metrics = a} :: RecommendationJobInferenceBenchmark)
 
 -- | Undocumented member.
 recommendationJobInferenceBenchmark_endpointConfiguration :: Lens.Lens' RecommendationJobInferenceBenchmark (Prelude.Maybe EndpointOutputConfiguration)
@@ -81,6 +76,10 @@ recommendationJobInferenceBenchmark_endpointConfiguration = Lens.lens (\Recommen
 -- | The reason why a benchmark failed.
 recommendationJobInferenceBenchmark_failureReason :: Lens.Lens' RecommendationJobInferenceBenchmark (Prelude.Maybe Prelude.Text)
 recommendationJobInferenceBenchmark_failureReason = Lens.lens (\RecommendationJobInferenceBenchmark' {failureReason} -> failureReason) (\s@RecommendationJobInferenceBenchmark' {} a -> s {failureReason = a} :: RecommendationJobInferenceBenchmark)
+
+-- | Undocumented member.
+recommendationJobInferenceBenchmark_metrics :: Lens.Lens' RecommendationJobInferenceBenchmark (Prelude.Maybe RecommendationMetrics)
+recommendationJobInferenceBenchmark_metrics = Lens.lens (\RecommendationJobInferenceBenchmark' {metrics} -> metrics) (\s@RecommendationJobInferenceBenchmark' {} a -> s {metrics = a} :: RecommendationJobInferenceBenchmark)
 
 -- | Undocumented member.
 recommendationJobInferenceBenchmark_modelConfiguration :: Lens.Lens' RecommendationJobInferenceBenchmark ModelConfiguration
@@ -95,9 +94,9 @@ instance
       "RecommendationJobInferenceBenchmark"
       ( \x ->
           RecommendationJobInferenceBenchmark'
-            Prelude.<$> (x Data..:? "Metrics")
-            Prelude.<*> (x Data..:? "EndpointConfiguration")
+            Prelude.<$> (x Data..:? "EndpointConfiguration")
             Prelude.<*> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..:? "Metrics")
             Prelude.<*> (x Data..: "ModelConfiguration")
       )
 
@@ -108,9 +107,9 @@ instance
   hashWithSalt
     _salt
     RecommendationJobInferenceBenchmark' {..} =
-      _salt `Prelude.hashWithSalt` metrics
-        `Prelude.hashWithSalt` endpointConfiguration
+      _salt `Prelude.hashWithSalt` endpointConfiguration
         `Prelude.hashWithSalt` failureReason
+        `Prelude.hashWithSalt` metrics
         `Prelude.hashWithSalt` modelConfiguration
 
 instance
@@ -118,7 +117,7 @@ instance
     RecommendationJobInferenceBenchmark
   where
   rnf RecommendationJobInferenceBenchmark' {..} =
-    Prelude.rnf metrics
-      `Prelude.seq` Prelude.rnf endpointConfiguration
+    Prelude.rnf endpointConfiguration
       `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf metrics
       `Prelude.seq` Prelude.rnf modelConfiguration

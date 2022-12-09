@@ -40,8 +40,8 @@ module Amazonka.SageMaker.AddAssociation
     newAddAssociationResponse,
 
     -- * Response Lenses
-    addAssociationResponse_sourceArn,
     addAssociationResponse_destinationArn,
+    addAssociationResponse_sourceArn,
     addAssociationResponse_httpStatus,
   )
 where
@@ -158,8 +158,8 @@ instance Core.AWSRequest AddAssociation where
     Response.receiveJSON
       ( \s h x ->
           AddAssociationResponse'
-            Prelude.<$> (x Data..?> "SourceArn")
-            Prelude.<*> (x Data..?> "DestinationArn")
+            Prelude.<$> (x Data..?> "DestinationArn")
+            Prelude.<*> (x Data..?> "SourceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -208,10 +208,10 @@ instance Data.ToQuery AddAssociation where
 
 -- | /See:/ 'newAddAssociationResponse' smart constructor.
 data AddAssociationResponse = AddAssociationResponse'
-  { -- | The ARN of the source.
-    sourceArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the destination.
+  { -- | The Amazon Resource Name (ARN) of the destination.
     destinationArn :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the source.
+    sourceArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -225,9 +225,9 @@ data AddAssociationResponse = AddAssociationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceArn', 'addAssociationResponse_sourceArn' - The ARN of the source.
---
 -- 'destinationArn', 'addAssociationResponse_destinationArn' - The Amazon Resource Name (ARN) of the destination.
+--
+-- 'sourceArn', 'addAssociationResponse_sourceArn' - The ARN of the source.
 --
 -- 'httpStatus', 'addAssociationResponse_httpStatus' - The response's http status code.
 newAddAssociationResponse ::
@@ -236,19 +236,19 @@ newAddAssociationResponse ::
   AddAssociationResponse
 newAddAssociationResponse pHttpStatus_ =
   AddAssociationResponse'
-    { sourceArn =
+    { destinationArn =
         Prelude.Nothing,
-      destinationArn = Prelude.Nothing,
+      sourceArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARN of the source.
-addAssociationResponse_sourceArn :: Lens.Lens' AddAssociationResponse (Prelude.Maybe Prelude.Text)
-addAssociationResponse_sourceArn = Lens.lens (\AddAssociationResponse' {sourceArn} -> sourceArn) (\s@AddAssociationResponse' {} a -> s {sourceArn = a} :: AddAssociationResponse)
 
 -- | The Amazon Resource Name (ARN) of the destination.
 addAssociationResponse_destinationArn :: Lens.Lens' AddAssociationResponse (Prelude.Maybe Prelude.Text)
 addAssociationResponse_destinationArn = Lens.lens (\AddAssociationResponse' {destinationArn} -> destinationArn) (\s@AddAssociationResponse' {} a -> s {destinationArn = a} :: AddAssociationResponse)
+
+-- | The ARN of the source.
+addAssociationResponse_sourceArn :: Lens.Lens' AddAssociationResponse (Prelude.Maybe Prelude.Text)
+addAssociationResponse_sourceArn = Lens.lens (\AddAssociationResponse' {sourceArn} -> sourceArn) (\s@AddAssociationResponse' {} a -> s {sourceArn = a} :: AddAssociationResponse)
 
 -- | The response's http status code.
 addAssociationResponse_httpStatus :: Lens.Lens' AddAssociationResponse Prelude.Int
@@ -256,6 +256,6 @@ addAssociationResponse_httpStatus = Lens.lens (\AddAssociationResponse' {httpSta
 
 instance Prelude.NFData AddAssociationResponse where
   rnf AddAssociationResponse' {..} =
-    Prelude.rnf sourceArn
-      `Prelude.seq` Prelude.rnf destinationArn
+    Prelude.rnf destinationArn
+      `Prelude.seq` Prelude.rnf sourceArn
       `Prelude.seq` Prelude.rnf httpStatus

@@ -31,9 +31,9 @@ import Amazonka.SageMaker.Types.MonitoringGroundTruthS3Input
 --
 -- /See:/ 'newModelBiasJobInput' smart constructor.
 data ModelBiasJobInput = ModelBiasJobInput'
-  { endpointInput :: Prelude.Maybe EndpointInput,
-    -- | Input object for the batch transform job.
+  { -- | Input object for the batch transform job.
     batchTransformInput :: Prelude.Maybe BatchTransformInput,
+    endpointInput :: Prelude.Maybe EndpointInput,
     -- | Location of ground truth labels to use in model bias job.
     groundTruthS3Input :: MonitoringGroundTruthS3Input
   }
@@ -47,9 +47,9 @@ data ModelBiasJobInput = ModelBiasJobInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'endpointInput', 'modelBiasJobInput_endpointInput' - Undocumented member.
---
 -- 'batchTransformInput', 'modelBiasJobInput_batchTransformInput' - Input object for the batch transform job.
+--
+-- 'endpointInput', 'modelBiasJobInput_endpointInput' - Undocumented member.
 --
 -- 'groundTruthS3Input', 'modelBiasJobInput_groundTruthS3Input' - Location of ground truth labels to use in model bias job.
 newModelBiasJobInput ::
@@ -58,18 +58,19 @@ newModelBiasJobInput ::
   ModelBiasJobInput
 newModelBiasJobInput pGroundTruthS3Input_ =
   ModelBiasJobInput'
-    { endpointInput = Prelude.Nothing,
-      batchTransformInput = Prelude.Nothing,
+    { batchTransformInput =
+        Prelude.Nothing,
+      endpointInput = Prelude.Nothing,
       groundTruthS3Input = pGroundTruthS3Input_
     }
-
--- | Undocumented member.
-modelBiasJobInput_endpointInput :: Lens.Lens' ModelBiasJobInput (Prelude.Maybe EndpointInput)
-modelBiasJobInput_endpointInput = Lens.lens (\ModelBiasJobInput' {endpointInput} -> endpointInput) (\s@ModelBiasJobInput' {} a -> s {endpointInput = a} :: ModelBiasJobInput)
 
 -- | Input object for the batch transform job.
 modelBiasJobInput_batchTransformInput :: Lens.Lens' ModelBiasJobInput (Prelude.Maybe BatchTransformInput)
 modelBiasJobInput_batchTransformInput = Lens.lens (\ModelBiasJobInput' {batchTransformInput} -> batchTransformInput) (\s@ModelBiasJobInput' {} a -> s {batchTransformInput = a} :: ModelBiasJobInput)
+
+-- | Undocumented member.
+modelBiasJobInput_endpointInput :: Lens.Lens' ModelBiasJobInput (Prelude.Maybe EndpointInput)
+modelBiasJobInput_endpointInput = Lens.lens (\ModelBiasJobInput' {endpointInput} -> endpointInput) (\s@ModelBiasJobInput' {} a -> s {endpointInput = a} :: ModelBiasJobInput)
 
 -- | Location of ground truth labels to use in model bias job.
 modelBiasJobInput_groundTruthS3Input :: Lens.Lens' ModelBiasJobInput MonitoringGroundTruthS3Input
@@ -81,30 +82,30 @@ instance Data.FromJSON ModelBiasJobInput where
       "ModelBiasJobInput"
       ( \x ->
           ModelBiasJobInput'
-            Prelude.<$> (x Data..:? "EndpointInput")
-            Prelude.<*> (x Data..:? "BatchTransformInput")
+            Prelude.<$> (x Data..:? "BatchTransformInput")
+            Prelude.<*> (x Data..:? "EndpointInput")
             Prelude.<*> (x Data..: "GroundTruthS3Input")
       )
 
 instance Prelude.Hashable ModelBiasJobInput where
   hashWithSalt _salt ModelBiasJobInput' {..} =
-    _salt `Prelude.hashWithSalt` endpointInput
-      `Prelude.hashWithSalt` batchTransformInput
+    _salt `Prelude.hashWithSalt` batchTransformInput
+      `Prelude.hashWithSalt` endpointInput
       `Prelude.hashWithSalt` groundTruthS3Input
 
 instance Prelude.NFData ModelBiasJobInput where
   rnf ModelBiasJobInput' {..} =
-    Prelude.rnf endpointInput
-      `Prelude.seq` Prelude.rnf batchTransformInput
+    Prelude.rnf batchTransformInput
+      `Prelude.seq` Prelude.rnf endpointInput
       `Prelude.seq` Prelude.rnf groundTruthS3Input
 
 instance Data.ToJSON ModelBiasJobInput where
   toJSON ModelBiasJobInput' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("EndpointInput" Data..=) Prelude.<$> endpointInput,
-            ("BatchTransformInput" Data..=)
+          [ ("BatchTransformInput" Data..=)
               Prelude.<$> batchTransformInput,
+            ("EndpointInput" Data..=) Prelude.<$> endpointInput,
             Prelude.Just
               ("GroundTruthS3Input" Data..= groundTruthS3Input)
           ]

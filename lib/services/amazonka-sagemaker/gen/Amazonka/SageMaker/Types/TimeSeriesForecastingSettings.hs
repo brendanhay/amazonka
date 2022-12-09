@@ -29,10 +29,7 @@ import Amazonka.SageMaker.Types.FeatureStatus
 --
 -- /See:/ 'newTimeSeriesForecastingSettings' smart constructor.
 data TimeSeriesForecastingSettings = TimeSeriesForecastingSettings'
-  { -- | Describes whether time series forecasting is enabled or disabled in the
-    -- Canvas app.
-    status :: Prelude.Maybe FeatureStatus,
-    -- | The IAM role that Canvas passes to Amazon Forecast for time series
+  { -- | The IAM role that Canvas passes to Amazon Forecast for time series
     -- forecasting. By default, Canvas uses the execution role specified in the
     -- @UserProfile@ that launches the Canvas app. If an execution role is not
     -- specified in the @UserProfile@, Canvas uses the execution role specified
@@ -41,7 +38,10 @@ data TimeSeriesForecastingSettings = TimeSeriesForecastingSettings'
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol-canvas.html#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess AmazonSageMakerCanvasForecastAccess>
     -- policy attached and @forecast.amazonaws.com@ added in the trust
     -- relationship as a service principal.
-    amazonForecastRoleArn :: Prelude.Maybe Prelude.Text
+    amazonForecastRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | Describes whether time series forecasting is enabled or disabled in the
+    -- Canvas app.
+    status :: Prelude.Maybe FeatureStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,9 +53,6 @@ data TimeSeriesForecastingSettings = TimeSeriesForecastingSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'timeSeriesForecastingSettings_status' - Describes whether time series forecasting is enabled or disabled in the
--- Canvas app.
---
 -- 'amazonForecastRoleArn', 'timeSeriesForecastingSettings_amazonForecastRoleArn' - The IAM role that Canvas passes to Amazon Forecast for time series
 -- forecasting. By default, Canvas uses the execution role specified in the
 -- @UserProfile@ that launches the Canvas app. If an execution role is not
@@ -65,19 +62,17 @@ data TimeSeriesForecastingSettings = TimeSeriesForecastingSettings'
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol-canvas.html#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess AmazonSageMakerCanvasForecastAccess>
 -- policy attached and @forecast.amazonaws.com@ added in the trust
 -- relationship as a service principal.
+--
+-- 'status', 'timeSeriesForecastingSettings_status' - Describes whether time series forecasting is enabled or disabled in the
+-- Canvas app.
 newTimeSeriesForecastingSettings ::
   TimeSeriesForecastingSettings
 newTimeSeriesForecastingSettings =
   TimeSeriesForecastingSettings'
-    { status =
+    { amazonForecastRoleArn =
         Prelude.Nothing,
-      amazonForecastRoleArn = Prelude.Nothing
+      status = Prelude.Nothing
     }
-
--- | Describes whether time series forecasting is enabled or disabled in the
--- Canvas app.
-timeSeriesForecastingSettings_status :: Lens.Lens' TimeSeriesForecastingSettings (Prelude.Maybe FeatureStatus)
-timeSeriesForecastingSettings_status = Lens.lens (\TimeSeriesForecastingSettings' {status} -> status) (\s@TimeSeriesForecastingSettings' {} a -> s {status = a} :: TimeSeriesForecastingSettings)
 
 -- | The IAM role that Canvas passes to Amazon Forecast for time series
 -- forecasting. By default, Canvas uses the execution role specified in the
@@ -91,14 +86,19 @@ timeSeriesForecastingSettings_status = Lens.lens (\TimeSeriesForecastingSettings
 timeSeriesForecastingSettings_amazonForecastRoleArn :: Lens.Lens' TimeSeriesForecastingSettings (Prelude.Maybe Prelude.Text)
 timeSeriesForecastingSettings_amazonForecastRoleArn = Lens.lens (\TimeSeriesForecastingSettings' {amazonForecastRoleArn} -> amazonForecastRoleArn) (\s@TimeSeriesForecastingSettings' {} a -> s {amazonForecastRoleArn = a} :: TimeSeriesForecastingSettings)
 
+-- | Describes whether time series forecasting is enabled or disabled in the
+-- Canvas app.
+timeSeriesForecastingSettings_status :: Lens.Lens' TimeSeriesForecastingSettings (Prelude.Maybe FeatureStatus)
+timeSeriesForecastingSettings_status = Lens.lens (\TimeSeriesForecastingSettings' {status} -> status) (\s@TimeSeriesForecastingSettings' {} a -> s {status = a} :: TimeSeriesForecastingSettings)
+
 instance Data.FromJSON TimeSeriesForecastingSettings where
   parseJSON =
     Data.withObject
       "TimeSeriesForecastingSettings"
       ( \x ->
           TimeSeriesForecastingSettings'
-            Prelude.<$> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "AmazonForecastRoleArn")
+            Prelude.<$> (x Data..:? "AmazonForecastRoleArn")
+            Prelude.<*> (x Data..:? "Status")
       )
 
 instance
@@ -106,20 +106,20 @@ instance
     TimeSeriesForecastingSettings
   where
   hashWithSalt _salt TimeSeriesForecastingSettings' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` amazonForecastRoleArn
+    _salt `Prelude.hashWithSalt` amazonForecastRoleArn
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData TimeSeriesForecastingSettings where
   rnf TimeSeriesForecastingSettings' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf amazonForecastRoleArn
+    Prelude.rnf amazonForecastRoleArn
+      `Prelude.seq` Prelude.rnf status
 
 instance Data.ToJSON TimeSeriesForecastingSettings where
   toJSON TimeSeriesForecastingSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Status" Data..=) Prelude.<$> status,
-            ("AmazonForecastRoleArn" Data..=)
-              Prelude.<$> amazonForecastRoleArn
+          [ ("AmazonForecastRoleArn" Data..=)
+              Prelude.<$> amazonForecastRoleArn,
+            ("Status" Data..=) Prelude.<$> status
           ]
       )

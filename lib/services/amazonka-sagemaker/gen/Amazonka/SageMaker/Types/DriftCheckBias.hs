@@ -31,12 +31,12 @@ import Amazonka.SageMaker.Types.MetricsSource
 --
 -- /See:/ 'newDriftCheckBias' smart constructor.
 data DriftCheckBias = DriftCheckBias'
-  { -- | The post-training constraints.
+  { -- | The bias config file for a model.
+    configFile :: Prelude.Maybe FileSource,
+    -- | The post-training constraints.
     postTrainingConstraints :: Prelude.Maybe MetricsSource,
     -- | The pre-training constraints.
-    preTrainingConstraints :: Prelude.Maybe MetricsSource,
-    -- | The bias config file for a model.
-    configFile :: Prelude.Maybe FileSource
+    preTrainingConstraints :: Prelude.Maybe MetricsSource
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,20 +48,23 @@ data DriftCheckBias = DriftCheckBias'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'configFile', 'driftCheckBias_configFile' - The bias config file for a model.
+--
 -- 'postTrainingConstraints', 'driftCheckBias_postTrainingConstraints' - The post-training constraints.
 --
 -- 'preTrainingConstraints', 'driftCheckBias_preTrainingConstraints' - The pre-training constraints.
---
--- 'configFile', 'driftCheckBias_configFile' - The bias config file for a model.
 newDriftCheckBias ::
   DriftCheckBias
 newDriftCheckBias =
   DriftCheckBias'
-    { postTrainingConstraints =
-        Prelude.Nothing,
-      preTrainingConstraints = Prelude.Nothing,
-      configFile = Prelude.Nothing
+    { configFile = Prelude.Nothing,
+      postTrainingConstraints = Prelude.Nothing,
+      preTrainingConstraints = Prelude.Nothing
     }
+
+-- | The bias config file for a model.
+driftCheckBias_configFile :: Lens.Lens' DriftCheckBias (Prelude.Maybe FileSource)
+driftCheckBias_configFile = Lens.lens (\DriftCheckBias' {configFile} -> configFile) (\s@DriftCheckBias' {} a -> s {configFile = a} :: DriftCheckBias)
 
 -- | The post-training constraints.
 driftCheckBias_postTrainingConstraints :: Lens.Lens' DriftCheckBias (Prelude.Maybe MetricsSource)
@@ -71,42 +74,37 @@ driftCheckBias_postTrainingConstraints = Lens.lens (\DriftCheckBias' {postTraini
 driftCheckBias_preTrainingConstraints :: Lens.Lens' DriftCheckBias (Prelude.Maybe MetricsSource)
 driftCheckBias_preTrainingConstraints = Lens.lens (\DriftCheckBias' {preTrainingConstraints} -> preTrainingConstraints) (\s@DriftCheckBias' {} a -> s {preTrainingConstraints = a} :: DriftCheckBias)
 
--- | The bias config file for a model.
-driftCheckBias_configFile :: Lens.Lens' DriftCheckBias (Prelude.Maybe FileSource)
-driftCheckBias_configFile = Lens.lens (\DriftCheckBias' {configFile} -> configFile) (\s@DriftCheckBias' {} a -> s {configFile = a} :: DriftCheckBias)
-
 instance Data.FromJSON DriftCheckBias where
   parseJSON =
     Data.withObject
       "DriftCheckBias"
       ( \x ->
           DriftCheckBias'
-            Prelude.<$> (x Data..:? "PostTrainingConstraints")
+            Prelude.<$> (x Data..:? "ConfigFile")
+            Prelude.<*> (x Data..:? "PostTrainingConstraints")
             Prelude.<*> (x Data..:? "PreTrainingConstraints")
-            Prelude.<*> (x Data..:? "ConfigFile")
       )
 
 instance Prelude.Hashable DriftCheckBias where
   hashWithSalt _salt DriftCheckBias' {..} =
-    _salt
+    _salt `Prelude.hashWithSalt` configFile
       `Prelude.hashWithSalt` postTrainingConstraints
       `Prelude.hashWithSalt` preTrainingConstraints
-      `Prelude.hashWithSalt` configFile
 
 instance Prelude.NFData DriftCheckBias where
   rnf DriftCheckBias' {..} =
-    Prelude.rnf postTrainingConstraints
+    Prelude.rnf configFile
+      `Prelude.seq` Prelude.rnf postTrainingConstraints
       `Prelude.seq` Prelude.rnf preTrainingConstraints
-      `Prelude.seq` Prelude.rnf configFile
 
 instance Data.ToJSON DriftCheckBias where
   toJSON DriftCheckBias' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PostTrainingConstraints" Data..=)
+          [ ("ConfigFile" Data..=) Prelude.<$> configFile,
+            ("PostTrainingConstraints" Data..=)
               Prelude.<$> postTrainingConstraints,
             ("PreTrainingConstraints" Data..=)
-              Prelude.<$> preTrainingConstraints,
-            ("ConfigFile" Data..=) Prelude.<$> configFile
+              Prelude.<$> preTrainingConstraints
           ]
       )

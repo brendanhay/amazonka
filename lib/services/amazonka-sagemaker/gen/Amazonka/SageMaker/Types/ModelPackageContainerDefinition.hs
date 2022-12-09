@@ -29,12 +29,19 @@ import Amazonka.SageMaker.Types.ModelInput
 --
 -- /See:/ 'newModelPackageContainerDefinition' smart constructor.
 data ModelPackageContainerDefinition = ModelPackageContainerDefinition'
-  { -- | The environment variables to set in the Docker container. Each key and
+  { -- | The DNS host name for the Docker container.
+    containerHostname :: Prelude.Maybe Prelude.Text,
+    -- | The environment variables to set in the Docker container. Each key and
     -- value in the @Environment@ string to string map can have length of up to
     -- 1024. We support up to 16 entries in the map.
     environment :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The DNS host name for the Docker container.
-    containerHostname :: Prelude.Maybe Prelude.Text,
+    -- | The machine learning framework of the model package container image.
+    framework :: Prelude.Maybe Prelude.Text,
+    -- | The framework version of the Model Package Container Image.
+    frameworkVersion :: Prelude.Maybe Prelude.Text,
+    -- | An MD5 hash of the training algorithm that identifies the Docker image
+    -- used for training.
+    imageDigest :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 path where the model artifacts, which result from model
     -- training, are stored. This path must point to a single @gzip@ compressed
     -- tar archive (@.tar.gz@ suffix).
@@ -44,19 +51,12 @@ data ModelPackageContainerDefinition = ModelPackageContainerDefinition'
     modelDataUrl :: Prelude.Maybe Prelude.Text,
     -- | A structure with Model Input details.
     modelInput :: Prelude.Maybe ModelInput,
-    -- | The Amazon Web Services Marketplace product ID of the model package.
-    productId :: Prelude.Maybe Prelude.Text,
     -- | The name of a pre-trained machine learning benchmarked by Amazon
     -- SageMaker Inference Recommender model that matches your model. You can
     -- find a list of benchmarked models by calling @ListModelMetadata@.
     nearestModelName :: Prelude.Maybe Prelude.Text,
-    -- | The framework version of the Model Package Container Image.
-    frameworkVersion :: Prelude.Maybe Prelude.Text,
-    -- | An MD5 hash of the training algorithm that identifies the Docker image
-    -- used for training.
-    imageDigest :: Prelude.Maybe Prelude.Text,
-    -- | The machine learning framework of the model package container image.
-    framework :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services Marketplace product ID of the model package.
+    productId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon EC2 Container Registry (Amazon ECR) path where inference code
     -- is stored.
     --
@@ -78,11 +78,18 @@ data ModelPackageContainerDefinition = ModelPackageContainerDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'containerHostname', 'modelPackageContainerDefinition_containerHostname' - The DNS host name for the Docker container.
+--
 -- 'environment', 'modelPackageContainerDefinition_environment' - The environment variables to set in the Docker container. Each key and
 -- value in the @Environment@ string to string map can have length of up to
 -- 1024. We support up to 16 entries in the map.
 --
--- 'containerHostname', 'modelPackageContainerDefinition_containerHostname' - The DNS host name for the Docker container.
+-- 'framework', 'modelPackageContainerDefinition_framework' - The machine learning framework of the model package container image.
+--
+-- 'frameworkVersion', 'modelPackageContainerDefinition_frameworkVersion' - The framework version of the Model Package Container Image.
+--
+-- 'imageDigest', 'modelPackageContainerDefinition_imageDigest' - An MD5 hash of the training algorithm that identifies the Docker image
+-- used for training.
 --
 -- 'modelDataUrl', 'modelPackageContainerDefinition_modelDataUrl' - The Amazon S3 path where the model artifacts, which result from model
 -- training, are stored. This path must point to a single @gzip@ compressed
@@ -93,18 +100,11 @@ data ModelPackageContainerDefinition = ModelPackageContainerDefinition'
 --
 -- 'modelInput', 'modelPackageContainerDefinition_modelInput' - A structure with Model Input details.
 --
--- 'productId', 'modelPackageContainerDefinition_productId' - The Amazon Web Services Marketplace product ID of the model package.
---
 -- 'nearestModelName', 'modelPackageContainerDefinition_nearestModelName' - The name of a pre-trained machine learning benchmarked by Amazon
 -- SageMaker Inference Recommender model that matches your model. You can
 -- find a list of benchmarked models by calling @ListModelMetadata@.
 --
--- 'frameworkVersion', 'modelPackageContainerDefinition_frameworkVersion' - The framework version of the Model Package Container Image.
---
--- 'imageDigest', 'modelPackageContainerDefinition_imageDigest' - An MD5 hash of the training algorithm that identifies the Docker image
--- used for training.
---
--- 'framework', 'modelPackageContainerDefinition_framework' - The machine learning framework of the model package container image.
+-- 'productId', 'modelPackageContainerDefinition_productId' - The Amazon Web Services Marketplace product ID of the model package.
 --
 -- 'image', 'modelPackageContainerDefinition_image' - The Amazon EC2 Container Registry (Amazon ECR) path where inference code
 -- is stored.
@@ -121,18 +121,22 @@ newModelPackageContainerDefinition ::
   ModelPackageContainerDefinition
 newModelPackageContainerDefinition pImage_ =
   ModelPackageContainerDefinition'
-    { environment =
+    { containerHostname =
         Prelude.Nothing,
-      containerHostname = Prelude.Nothing,
-      modelDataUrl = Prelude.Nothing,
-      modelInput = Prelude.Nothing,
-      productId = Prelude.Nothing,
-      nearestModelName = Prelude.Nothing,
+      environment = Prelude.Nothing,
+      framework = Prelude.Nothing,
       frameworkVersion = Prelude.Nothing,
       imageDigest = Prelude.Nothing,
-      framework = Prelude.Nothing,
+      modelDataUrl = Prelude.Nothing,
+      modelInput = Prelude.Nothing,
+      nearestModelName = Prelude.Nothing,
+      productId = Prelude.Nothing,
       image = pImage_
     }
+
+-- | The DNS host name for the Docker container.
+modelPackageContainerDefinition_containerHostname :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe Prelude.Text)
+modelPackageContainerDefinition_containerHostname = Lens.lens (\ModelPackageContainerDefinition' {containerHostname} -> containerHostname) (\s@ModelPackageContainerDefinition' {} a -> s {containerHostname = a} :: ModelPackageContainerDefinition)
 
 -- | The environment variables to set in the Docker container. Each key and
 -- value in the @Environment@ string to string map can have length of up to
@@ -140,9 +144,18 @@ newModelPackageContainerDefinition pImage_ =
 modelPackageContainerDefinition_environment :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 modelPackageContainerDefinition_environment = Lens.lens (\ModelPackageContainerDefinition' {environment} -> environment) (\s@ModelPackageContainerDefinition' {} a -> s {environment = a} :: ModelPackageContainerDefinition) Prelude.. Lens.mapping Lens.coerced
 
--- | The DNS host name for the Docker container.
-modelPackageContainerDefinition_containerHostname :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe Prelude.Text)
-modelPackageContainerDefinition_containerHostname = Lens.lens (\ModelPackageContainerDefinition' {containerHostname} -> containerHostname) (\s@ModelPackageContainerDefinition' {} a -> s {containerHostname = a} :: ModelPackageContainerDefinition)
+-- | The machine learning framework of the model package container image.
+modelPackageContainerDefinition_framework :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe Prelude.Text)
+modelPackageContainerDefinition_framework = Lens.lens (\ModelPackageContainerDefinition' {framework} -> framework) (\s@ModelPackageContainerDefinition' {} a -> s {framework = a} :: ModelPackageContainerDefinition)
+
+-- | The framework version of the Model Package Container Image.
+modelPackageContainerDefinition_frameworkVersion :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe Prelude.Text)
+modelPackageContainerDefinition_frameworkVersion = Lens.lens (\ModelPackageContainerDefinition' {frameworkVersion} -> frameworkVersion) (\s@ModelPackageContainerDefinition' {} a -> s {frameworkVersion = a} :: ModelPackageContainerDefinition)
+
+-- | An MD5 hash of the training algorithm that identifies the Docker image
+-- used for training.
+modelPackageContainerDefinition_imageDigest :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe Prelude.Text)
+modelPackageContainerDefinition_imageDigest = Lens.lens (\ModelPackageContainerDefinition' {imageDigest} -> imageDigest) (\s@ModelPackageContainerDefinition' {} a -> s {imageDigest = a} :: ModelPackageContainerDefinition)
 
 -- | The Amazon S3 path where the model artifacts, which result from model
 -- training, are stored. This path must point to a single @gzip@ compressed
@@ -157,28 +170,15 @@ modelPackageContainerDefinition_modelDataUrl = Lens.lens (\ModelPackageContainer
 modelPackageContainerDefinition_modelInput :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe ModelInput)
 modelPackageContainerDefinition_modelInput = Lens.lens (\ModelPackageContainerDefinition' {modelInput} -> modelInput) (\s@ModelPackageContainerDefinition' {} a -> s {modelInput = a} :: ModelPackageContainerDefinition)
 
--- | The Amazon Web Services Marketplace product ID of the model package.
-modelPackageContainerDefinition_productId :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe Prelude.Text)
-modelPackageContainerDefinition_productId = Lens.lens (\ModelPackageContainerDefinition' {productId} -> productId) (\s@ModelPackageContainerDefinition' {} a -> s {productId = a} :: ModelPackageContainerDefinition)
-
 -- | The name of a pre-trained machine learning benchmarked by Amazon
 -- SageMaker Inference Recommender model that matches your model. You can
 -- find a list of benchmarked models by calling @ListModelMetadata@.
 modelPackageContainerDefinition_nearestModelName :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe Prelude.Text)
 modelPackageContainerDefinition_nearestModelName = Lens.lens (\ModelPackageContainerDefinition' {nearestModelName} -> nearestModelName) (\s@ModelPackageContainerDefinition' {} a -> s {nearestModelName = a} :: ModelPackageContainerDefinition)
 
--- | The framework version of the Model Package Container Image.
-modelPackageContainerDefinition_frameworkVersion :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe Prelude.Text)
-modelPackageContainerDefinition_frameworkVersion = Lens.lens (\ModelPackageContainerDefinition' {frameworkVersion} -> frameworkVersion) (\s@ModelPackageContainerDefinition' {} a -> s {frameworkVersion = a} :: ModelPackageContainerDefinition)
-
--- | An MD5 hash of the training algorithm that identifies the Docker image
--- used for training.
-modelPackageContainerDefinition_imageDigest :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe Prelude.Text)
-modelPackageContainerDefinition_imageDigest = Lens.lens (\ModelPackageContainerDefinition' {imageDigest} -> imageDigest) (\s@ModelPackageContainerDefinition' {} a -> s {imageDigest = a} :: ModelPackageContainerDefinition)
-
--- | The machine learning framework of the model package container image.
-modelPackageContainerDefinition_framework :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe Prelude.Text)
-modelPackageContainerDefinition_framework = Lens.lens (\ModelPackageContainerDefinition' {framework} -> framework) (\s@ModelPackageContainerDefinition' {} a -> s {framework = a} :: ModelPackageContainerDefinition)
+-- | The Amazon Web Services Marketplace product ID of the model package.
+modelPackageContainerDefinition_productId :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe Prelude.Text)
+modelPackageContainerDefinition_productId = Lens.lens (\ModelPackageContainerDefinition' {productId} -> productId) (\s@ModelPackageContainerDefinition' {} a -> s {productId = a} :: ModelPackageContainerDefinition)
 
 -- | The Amazon EC2 Container Registry (Amazon ECR) path where inference code
 -- is stored.
@@ -201,15 +201,15 @@ instance
       "ModelPackageContainerDefinition"
       ( \x ->
           ModelPackageContainerDefinition'
-            Prelude.<$> (x Data..:? "Environment" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "ContainerHostname")
-            Prelude.<*> (x Data..:? "ModelDataUrl")
-            Prelude.<*> (x Data..:? "ModelInput")
-            Prelude.<*> (x Data..:? "ProductId")
-            Prelude.<*> (x Data..:? "NearestModelName")
+            Prelude.<$> (x Data..:? "ContainerHostname")
+            Prelude.<*> (x Data..:? "Environment" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Framework")
             Prelude.<*> (x Data..:? "FrameworkVersion")
             Prelude.<*> (x Data..:? "ImageDigest")
-            Prelude.<*> (x Data..:? "Framework")
+            Prelude.<*> (x Data..:? "ModelDataUrl")
+            Prelude.<*> (x Data..:? "ModelInput")
+            Prelude.<*> (x Data..:? "NearestModelName")
+            Prelude.<*> (x Data..:? "ProductId")
             Prelude.<*> (x Data..: "Image")
       )
 
@@ -220,15 +220,15 @@ instance
   hashWithSalt
     _salt
     ModelPackageContainerDefinition' {..} =
-      _salt `Prelude.hashWithSalt` environment
-        `Prelude.hashWithSalt` containerHostname
-        `Prelude.hashWithSalt` modelDataUrl
-        `Prelude.hashWithSalt` modelInput
-        `Prelude.hashWithSalt` productId
-        `Prelude.hashWithSalt` nearestModelName
+      _salt `Prelude.hashWithSalt` containerHostname
+        `Prelude.hashWithSalt` environment
+        `Prelude.hashWithSalt` framework
         `Prelude.hashWithSalt` frameworkVersion
         `Prelude.hashWithSalt` imageDigest
-        `Prelude.hashWithSalt` framework
+        `Prelude.hashWithSalt` modelDataUrl
+        `Prelude.hashWithSalt` modelInput
+        `Prelude.hashWithSalt` nearestModelName
+        `Prelude.hashWithSalt` productId
         `Prelude.hashWithSalt` image
 
 instance
@@ -236,33 +236,33 @@ instance
     ModelPackageContainerDefinition
   where
   rnf ModelPackageContainerDefinition' {..} =
-    Prelude.rnf environment
-      `Prelude.seq` Prelude.rnf containerHostname
-      `Prelude.seq` Prelude.rnf modelDataUrl
-      `Prelude.seq` Prelude.rnf modelInput
-      `Prelude.seq` Prelude.rnf productId
-      `Prelude.seq` Prelude.rnf nearestModelName
+    Prelude.rnf containerHostname
+      `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf framework
       `Prelude.seq` Prelude.rnf frameworkVersion
       `Prelude.seq` Prelude.rnf imageDigest
-      `Prelude.seq` Prelude.rnf framework
+      `Prelude.seq` Prelude.rnf modelDataUrl
+      `Prelude.seq` Prelude.rnf modelInput
+      `Prelude.seq` Prelude.rnf nearestModelName
+      `Prelude.seq` Prelude.rnf productId
       `Prelude.seq` Prelude.rnf image
 
 instance Data.ToJSON ModelPackageContainerDefinition where
   toJSON ModelPackageContainerDefinition' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Environment" Data..=) Prelude.<$> environment,
-            ("ContainerHostname" Data..=)
+          [ ("ContainerHostname" Data..=)
               Prelude.<$> containerHostname,
-            ("ModelDataUrl" Data..=) Prelude.<$> modelDataUrl,
-            ("ModelInput" Data..=) Prelude.<$> modelInput,
-            ("ProductId" Data..=) Prelude.<$> productId,
-            ("NearestModelName" Data..=)
-              Prelude.<$> nearestModelName,
+            ("Environment" Data..=) Prelude.<$> environment,
+            ("Framework" Data..=) Prelude.<$> framework,
             ("FrameworkVersion" Data..=)
               Prelude.<$> frameworkVersion,
             ("ImageDigest" Data..=) Prelude.<$> imageDigest,
-            ("Framework" Data..=) Prelude.<$> framework,
+            ("ModelDataUrl" Data..=) Prelude.<$> modelDataUrl,
+            ("ModelInput" Data..=) Prelude.<$> modelInput,
+            ("NearestModelName" Data..=)
+              Prelude.<$> nearestModelName,
+            ("ProductId" Data..=) Prelude.<$> productId,
             Prelude.Just ("Image" Data..= image)
           ]
       )

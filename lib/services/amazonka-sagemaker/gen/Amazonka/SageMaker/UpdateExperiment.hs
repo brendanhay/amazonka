@@ -28,8 +28,8 @@ module Amazonka.SageMaker.UpdateExperiment
     newUpdateExperiment,
 
     -- * Request Lenses
-    updateExperiment_displayName,
     updateExperiment_description,
+    updateExperiment_displayName,
     updateExperiment_experimentName,
 
     -- * Destructuring the Response
@@ -52,12 +52,12 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newUpdateExperiment' smart constructor.
 data UpdateExperiment = UpdateExperiment'
-  { -- | The name of the experiment as displayed. The name doesn\'t need to be
+  { -- | The description of the experiment.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the experiment as displayed. The name doesn\'t need to be
     -- unique. If @DisplayName@ isn\'t specified, @ExperimentName@ is
     -- displayed.
     displayName :: Prelude.Maybe Prelude.Text,
-    -- | The description of the experiment.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the experiment to update.
     experimentName :: Prelude.Text
   }
@@ -71,11 +71,11 @@ data UpdateExperiment = UpdateExperiment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'updateExperiment_description' - The description of the experiment.
+--
 -- 'displayName', 'updateExperiment_displayName' - The name of the experiment as displayed. The name doesn\'t need to be
 -- unique. If @DisplayName@ isn\'t specified, @ExperimentName@ is
 -- displayed.
---
--- 'description', 'updateExperiment_description' - The description of the experiment.
 --
 -- 'experimentName', 'updateExperiment_experimentName' - The name of the experiment to update.
 newUpdateExperiment ::
@@ -84,20 +84,20 @@ newUpdateExperiment ::
   UpdateExperiment
 newUpdateExperiment pExperimentName_ =
   UpdateExperiment'
-    { displayName = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      displayName = Prelude.Nothing,
       experimentName = pExperimentName_
     }
+
+-- | The description of the experiment.
+updateExperiment_description :: Lens.Lens' UpdateExperiment (Prelude.Maybe Prelude.Text)
+updateExperiment_description = Lens.lens (\UpdateExperiment' {description} -> description) (\s@UpdateExperiment' {} a -> s {description = a} :: UpdateExperiment)
 
 -- | The name of the experiment as displayed. The name doesn\'t need to be
 -- unique. If @DisplayName@ isn\'t specified, @ExperimentName@ is
 -- displayed.
 updateExperiment_displayName :: Lens.Lens' UpdateExperiment (Prelude.Maybe Prelude.Text)
 updateExperiment_displayName = Lens.lens (\UpdateExperiment' {displayName} -> displayName) (\s@UpdateExperiment' {} a -> s {displayName = a} :: UpdateExperiment)
-
--- | The description of the experiment.
-updateExperiment_description :: Lens.Lens' UpdateExperiment (Prelude.Maybe Prelude.Text)
-updateExperiment_description = Lens.lens (\UpdateExperiment' {description} -> description) (\s@UpdateExperiment' {} a -> s {description = a} :: UpdateExperiment)
 
 -- | The name of the experiment to update.
 updateExperiment_experimentName :: Lens.Lens' UpdateExperiment Prelude.Text
@@ -119,14 +119,14 @@ instance Core.AWSRequest UpdateExperiment where
 
 instance Prelude.Hashable UpdateExperiment where
   hashWithSalt _salt UpdateExperiment' {..} =
-    _salt `Prelude.hashWithSalt` displayName
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` experimentName
 
 instance Prelude.NFData UpdateExperiment where
   rnf UpdateExperiment' {..} =
-    Prelude.rnf displayName
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf experimentName
 
 instance Data.ToHeaders UpdateExperiment where
@@ -146,8 +146,8 @@ instance Data.ToJSON UpdateExperiment where
   toJSON UpdateExperiment' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DisplayName" Data..=) Prelude.<$> displayName,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("DisplayName" Data..=) Prelude.<$> displayName,
             Prelude.Just
               ("ExperimentName" Data..= experimentName)
           ]

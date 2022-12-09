@@ -99,6 +99,9 @@ import Test.Tasty
 --         , requestCreateFlowDefinition $
 --             newCreateFlowDefinition
 --
+--         , requestCreateHub $
+--             newCreateHub
+--
 --         , requestCreateHumanTaskUi $
 --             newCreateHumanTaskUi
 --
@@ -111,6 +114,9 @@ import Test.Tasty
 --         , requestCreateImageVersion $
 --             newCreateImageVersion
 --
+--         , requestCreateInferenceExperiment $
+--             newCreateInferenceExperiment
+--
 --         , requestCreateInferenceRecommendationsJob $
 --             newCreateInferenceRecommendationsJob
 --
@@ -122,6 +128,12 @@ import Test.Tasty
 --
 --         , requestCreateModelBiasJobDefinition $
 --             newCreateModelBiasJobDefinition
+--
+--         , requestCreateModelCard $
+--             newCreateModelCard
+--
+--         , requestCreateModelCardExportJob $
+--             newCreateModelCardExportJob
 --
 --         , requestCreateModelExplainabilityJobDefinition $
 --             newCreateModelExplainabilityJobDefinition
@@ -158,6 +170,9 @@ import Test.Tasty
 --
 --         , requestCreateProject $
 --             newCreateProject
+--
+--         , requestCreateSpace $
+--             newCreateSpace
 --
 --         , requestCreateStudioLifecycleConfig $
 --             newCreateStudioLifecycleConfig
@@ -237,6 +252,12 @@ import Test.Tasty
 --         , requestDeleteFlowDefinition $
 --             newDeleteFlowDefinition
 --
+--         , requestDeleteHub $
+--             newDeleteHub
+--
+--         , requestDeleteHubContent $
+--             newDeleteHubContent
+--
 --         , requestDeleteHumanTaskUi $
 --             newDeleteHumanTaskUi
 --
@@ -246,11 +267,17 @@ import Test.Tasty
 --         , requestDeleteImageVersion $
 --             newDeleteImageVersion
 --
+--         , requestDeleteInferenceExperiment $
+--             newDeleteInferenceExperiment
+--
 --         , requestDeleteModel $
 --             newDeleteModel
 --
 --         , requestDeleteModelBiasJobDefinition $
 --             newDeleteModelBiasJobDefinition
+--
+--         , requestDeleteModelCard $
+--             newDeleteModelCard
 --
 --         , requestDeleteModelExplainabilityJobDefinition $
 --             newDeleteModelExplainabilityJobDefinition
@@ -281,6 +308,9 @@ import Test.Tasty
 --
 --         , requestDeleteProject $
 --             newDeleteProject
+--
+--         , requestDeleteSpace $
+--             newDeleteSpace
 --
 --         , requestDeleteStudioLifecycleConfig $
 --             newDeleteStudioLifecycleConfig
@@ -369,6 +399,12 @@ import Test.Tasty
 --         , requestDescribeFlowDefinition $
 --             newDescribeFlowDefinition
 --
+--         , requestDescribeHub $
+--             newDescribeHub
+--
+--         , requestDescribeHubContent $
+--             newDescribeHubContent
+--
 --         , requestDescribeHumanTaskUi $
 --             newDescribeHumanTaskUi
 --
@@ -380,6 +416,9 @@ import Test.Tasty
 --
 --         , requestDescribeImageVersion $
 --             newDescribeImageVersion
+--
+--         , requestDescribeInferenceExperiment $
+--             newDescribeInferenceExperiment
 --
 --         , requestDescribeInferenceRecommendationsJob $
 --             newDescribeInferenceRecommendationsJob
@@ -395,6 +434,12 @@ import Test.Tasty
 --
 --         , requestDescribeModelBiasJobDefinition $
 --             newDescribeModelBiasJobDefinition
+--
+--         , requestDescribeModelCard $
+--             newDescribeModelCard
+--
+--         , requestDescribeModelCardExportJob $
+--             newDescribeModelCardExportJob
 --
 --         , requestDescribeModelExplainabilityJobDefinition $
 --             newDescribeModelExplainabilityJobDefinition
@@ -431,6 +476,9 @@ import Test.Tasty
 --
 --         , requestDescribeProject $
 --             newDescribeProject
+--
+--         , requestDescribeSpace $
+--             newDescribeSpace
 --
 --         , requestDescribeStudioLifecycleConfig $
 --             newDescribeStudioLifecycleConfig
@@ -482,6 +530,9 @@ import Test.Tasty
 --
 --         , requestGetSearchSuggestions $
 --             newGetSearchSuggestions
+--
+--         , requestImportHubContent $
+--             newImportHubContent
 --
 --         , requestListActions $
 --             newListActions
@@ -549,6 +600,15 @@ import Test.Tasty
 --         , requestListFlowDefinitions $
 --             newListFlowDefinitions
 --
+--         , requestListHubContentVersions $
+--             newListHubContentVersions
+--
+--         , requestListHubContents $
+--             newListHubContents
+--
+--         , requestListHubs $
+--             newListHubs
+--
 --         , requestListHumanTaskUis $
 --             newListHumanTaskUis
 --
@@ -560,6 +620,9 @@ import Test.Tasty
 --
 --         , requestListImages $
 --             newListImages
+--
+--         , requestListInferenceExperiments $
+--             newListInferenceExperiments
 --
 --         , requestListInferenceRecommendationsJobSteps $
 --             newListInferenceRecommendationsJobSteps
@@ -579,6 +642,15 @@ import Test.Tasty
 --         , requestListModelBiasJobDefinitions $
 --             newListModelBiasJobDefinitions
 --
+--         , requestListModelCardExportJobs $
+--             newListModelCardExportJobs
+--
+--         , requestListModelCardVersions $
+--             newListModelCardVersions
+--
+--         , requestListModelCards $
+--             newListModelCards
+--
 --         , requestListModelExplainabilityJobDefinitions $
 --             newListModelExplainabilityJobDefinitions
 --
@@ -596,6 +668,12 @@ import Test.Tasty
 --
 --         , requestListModels $
 --             newListModels
+--
+--         , requestListMonitoringAlertHistory $
+--             newListMonitoringAlertHistory
+--
+--         , requestListMonitoringAlerts $
+--             newListMonitoringAlerts
 --
 --         , requestListMonitoringExecutions $
 --             newListMonitoringExecutions
@@ -626,6 +704,9 @@ import Test.Tasty
 --
 --         , requestListProjects $
 --             newListProjects
+--
+--         , requestListSpaces $
+--             newListSpaces
 --
 --         , requestListStageDevices $
 --             newListStageDevices
@@ -690,6 +771,9 @@ import Test.Tasty
 --         , requestStartEdgeDeploymentStage $
 --             newStartEdgeDeploymentStage
 --
+--         , requestStartInferenceExperiment $
+--             newStartInferenceExperiment
+--
 --         , requestStartMonitoringSchedule $
 --             newStartMonitoringSchedule
 --
@@ -713,6 +797,9 @@ import Test.Tasty
 --
 --         , requestStopHyperParameterTuningJob $
 --             newStopHyperParameterTuningJob
+--
+--         , requestStopInferenceExperiment $
+--             newStopInferenceExperiment
 --
 --         , requestStopInferenceRecommendationsJob $
 --             newStopInferenceRecommendationsJob
@@ -777,11 +864,23 @@ import Test.Tasty
 --         , requestUpdateFeatureMetadata $
 --             newUpdateFeatureMetadata
 --
+--         , requestUpdateHub $
+--             newUpdateHub
+--
 --         , requestUpdateImage $
 --             newUpdateImage
 --
+--         , requestUpdateInferenceExperiment $
+--             newUpdateInferenceExperiment
+--
+--         , requestUpdateModelCard $
+--             newUpdateModelCard
+--
 --         , requestUpdateModelPackage $
 --             newUpdateModelPackage
+--
+--         , requestUpdateMonitoringAlert $
+--             newUpdateMonitoringAlert
 --
 --         , requestUpdateMonitoringSchedule $
 --             newUpdateMonitoringSchedule
@@ -800,6 +899,9 @@ import Test.Tasty
 --
 --         , requestUpdateProject $
 --             newUpdateProject
+--
+--         , requestUpdateSpace $
+--             newUpdateSpace
 --
 --         , requestUpdateTrainingJob $
 --             newUpdateTrainingJob
@@ -894,6 +996,9 @@ import Test.Tasty
 --         , responseCreateFlowDefinition $
 --             newCreateFlowDefinitionResponse
 --
+--         , responseCreateHub $
+--             newCreateHubResponse
+--
 --         , responseCreateHumanTaskUi $
 --             newCreateHumanTaskUiResponse
 --
@@ -906,6 +1011,9 @@ import Test.Tasty
 --         , responseCreateImageVersion $
 --             newCreateImageVersionResponse
 --
+--         , responseCreateInferenceExperiment $
+--             newCreateInferenceExperimentResponse
+--
 --         , responseCreateInferenceRecommendationsJob $
 --             newCreateInferenceRecommendationsJobResponse
 --
@@ -917,6 +1025,12 @@ import Test.Tasty
 --
 --         , responseCreateModelBiasJobDefinition $
 --             newCreateModelBiasJobDefinitionResponse
+--
+--         , responseCreateModelCard $
+--             newCreateModelCardResponse
+--
+--         , responseCreateModelCardExportJob $
+--             newCreateModelCardExportJobResponse
 --
 --         , responseCreateModelExplainabilityJobDefinition $
 --             newCreateModelExplainabilityJobDefinitionResponse
@@ -953,6 +1067,9 @@ import Test.Tasty
 --
 --         , responseCreateProject $
 --             newCreateProjectResponse
+--
+--         , responseCreateSpace $
+--             newCreateSpaceResponse
 --
 --         , responseCreateStudioLifecycleConfig $
 --             newCreateStudioLifecycleConfigResponse
@@ -1032,6 +1149,12 @@ import Test.Tasty
 --         , responseDeleteFlowDefinition $
 --             newDeleteFlowDefinitionResponse
 --
+--         , responseDeleteHub $
+--             newDeleteHubResponse
+--
+--         , responseDeleteHubContent $
+--             newDeleteHubContentResponse
+--
 --         , responseDeleteHumanTaskUi $
 --             newDeleteHumanTaskUiResponse
 --
@@ -1041,11 +1164,17 @@ import Test.Tasty
 --         , responseDeleteImageVersion $
 --             newDeleteImageVersionResponse
 --
+--         , responseDeleteInferenceExperiment $
+--             newDeleteInferenceExperimentResponse
+--
 --         , responseDeleteModel $
 --             newDeleteModelResponse
 --
 --         , responseDeleteModelBiasJobDefinition $
 --             newDeleteModelBiasJobDefinitionResponse
+--
+--         , responseDeleteModelCard $
+--             newDeleteModelCardResponse
 --
 --         , responseDeleteModelExplainabilityJobDefinition $
 --             newDeleteModelExplainabilityJobDefinitionResponse
@@ -1076,6 +1205,9 @@ import Test.Tasty
 --
 --         , responseDeleteProject $
 --             newDeleteProjectResponse
+--
+--         , responseDeleteSpace $
+--             newDeleteSpaceResponse
 --
 --         , responseDeleteStudioLifecycleConfig $
 --             newDeleteStudioLifecycleConfigResponse
@@ -1164,6 +1296,12 @@ import Test.Tasty
 --         , responseDescribeFlowDefinition $
 --             newDescribeFlowDefinitionResponse
 --
+--         , responseDescribeHub $
+--             newDescribeHubResponse
+--
+--         , responseDescribeHubContent $
+--             newDescribeHubContentResponse
+--
 --         , responseDescribeHumanTaskUi $
 --             newDescribeHumanTaskUiResponse
 --
@@ -1175,6 +1313,9 @@ import Test.Tasty
 --
 --         , responseDescribeImageVersion $
 --             newDescribeImageVersionResponse
+--
+--         , responseDescribeInferenceExperiment $
+--             newDescribeInferenceExperimentResponse
 --
 --         , responseDescribeInferenceRecommendationsJob $
 --             newDescribeInferenceRecommendationsJobResponse
@@ -1190,6 +1331,12 @@ import Test.Tasty
 --
 --         , responseDescribeModelBiasJobDefinition $
 --             newDescribeModelBiasJobDefinitionResponse
+--
+--         , responseDescribeModelCard $
+--             newDescribeModelCardResponse
+--
+--         , responseDescribeModelCardExportJob $
+--             newDescribeModelCardExportJobResponse
 --
 --         , responseDescribeModelExplainabilityJobDefinition $
 --             newDescribeModelExplainabilityJobDefinitionResponse
@@ -1226,6 +1373,9 @@ import Test.Tasty
 --
 --         , responseDescribeProject $
 --             newDescribeProjectResponse
+--
+--         , responseDescribeSpace $
+--             newDescribeSpaceResponse
 --
 --         , responseDescribeStudioLifecycleConfig $
 --             newDescribeStudioLifecycleConfigResponse
@@ -1277,6 +1427,9 @@ import Test.Tasty
 --
 --         , responseGetSearchSuggestions $
 --             newGetSearchSuggestionsResponse
+--
+--         , responseImportHubContent $
+--             newImportHubContentResponse
 --
 --         , responseListActions $
 --             newListActionsResponse
@@ -1344,6 +1497,15 @@ import Test.Tasty
 --         , responseListFlowDefinitions $
 --             newListFlowDefinitionsResponse
 --
+--         , responseListHubContentVersions $
+--             newListHubContentVersionsResponse
+--
+--         , responseListHubContents $
+--             newListHubContentsResponse
+--
+--         , responseListHubs $
+--             newListHubsResponse
+--
 --         , responseListHumanTaskUis $
 --             newListHumanTaskUisResponse
 --
@@ -1355,6 +1517,9 @@ import Test.Tasty
 --
 --         , responseListImages $
 --             newListImagesResponse
+--
+--         , responseListInferenceExperiments $
+--             newListInferenceExperimentsResponse
 --
 --         , responseListInferenceRecommendationsJobSteps $
 --             newListInferenceRecommendationsJobStepsResponse
@@ -1374,6 +1539,15 @@ import Test.Tasty
 --         , responseListModelBiasJobDefinitions $
 --             newListModelBiasJobDefinitionsResponse
 --
+--         , responseListModelCardExportJobs $
+--             newListModelCardExportJobsResponse
+--
+--         , responseListModelCardVersions $
+--             newListModelCardVersionsResponse
+--
+--         , responseListModelCards $
+--             newListModelCardsResponse
+--
 --         , responseListModelExplainabilityJobDefinitions $
 --             newListModelExplainabilityJobDefinitionsResponse
 --
@@ -1391,6 +1565,12 @@ import Test.Tasty
 --
 --         , responseListModels $
 --             newListModelsResponse
+--
+--         , responseListMonitoringAlertHistory $
+--             newListMonitoringAlertHistoryResponse
+--
+--         , responseListMonitoringAlerts $
+--             newListMonitoringAlertsResponse
 --
 --         , responseListMonitoringExecutions $
 --             newListMonitoringExecutionsResponse
@@ -1421,6 +1601,9 @@ import Test.Tasty
 --
 --         , responseListProjects $
 --             newListProjectsResponse
+--
+--         , responseListSpaces $
+--             newListSpacesResponse
 --
 --         , responseListStageDevices $
 --             newListStageDevicesResponse
@@ -1485,6 +1668,9 @@ import Test.Tasty
 --         , responseStartEdgeDeploymentStage $
 --             newStartEdgeDeploymentStageResponse
 --
+--         , responseStartInferenceExperiment $
+--             newStartInferenceExperimentResponse
+--
 --         , responseStartMonitoringSchedule $
 --             newStartMonitoringScheduleResponse
 --
@@ -1508,6 +1694,9 @@ import Test.Tasty
 --
 --         , responseStopHyperParameterTuningJob $
 --             newStopHyperParameterTuningJobResponse
+--
+--         , responseStopInferenceExperiment $
+--             newStopInferenceExperimentResponse
 --
 --         , responseStopInferenceRecommendationsJob $
 --             newStopInferenceRecommendationsJobResponse
@@ -1572,11 +1761,23 @@ import Test.Tasty
 --         , responseUpdateFeatureMetadata $
 --             newUpdateFeatureMetadataResponse
 --
+--         , responseUpdateHub $
+--             newUpdateHubResponse
+--
 --         , responseUpdateImage $
 --             newUpdateImageResponse
 --
+--         , responseUpdateInferenceExperiment $
+--             newUpdateInferenceExperimentResponse
+--
+--         , responseUpdateModelCard $
+--             newUpdateModelCardResponse
+--
 --         , responseUpdateModelPackage $
 --             newUpdateModelPackageResponse
+--
+--         , responseUpdateMonitoringAlert $
+--             newUpdateMonitoringAlertResponse
 --
 --         , responseUpdateMonitoringSchedule $
 --             newUpdateMonitoringScheduleResponse
@@ -1595,6 +1796,9 @@ import Test.Tasty
 --
 --         , responseUpdateProject $
 --             newUpdateProjectResponse
+--
+--         , responseUpdateSpace $
+--             newUpdateSpaceResponse
 --
 --         , responseUpdateTrainingJob $
 --             newUpdateTrainingJobResponse
@@ -1763,6 +1967,12 @@ requestCreateFlowDefinition =
     "CreateFlowDefinition"
     "fixture/CreateFlowDefinition.yaml"
 
+requestCreateHub :: CreateHub -> TestTree
+requestCreateHub =
+  req
+    "CreateHub"
+    "fixture/CreateHub.yaml"
+
 requestCreateHumanTaskUi :: CreateHumanTaskUi -> TestTree
 requestCreateHumanTaskUi =
   req
@@ -1787,6 +1997,12 @@ requestCreateImageVersion =
     "CreateImageVersion"
     "fixture/CreateImageVersion.yaml"
 
+requestCreateInferenceExperiment :: CreateInferenceExperiment -> TestTree
+requestCreateInferenceExperiment =
+  req
+    "CreateInferenceExperiment"
+    "fixture/CreateInferenceExperiment.yaml"
+
 requestCreateInferenceRecommendationsJob :: CreateInferenceRecommendationsJob -> TestTree
 requestCreateInferenceRecommendationsJob =
   req
@@ -1810,6 +2026,18 @@ requestCreateModelBiasJobDefinition =
   req
     "CreateModelBiasJobDefinition"
     "fixture/CreateModelBiasJobDefinition.yaml"
+
+requestCreateModelCard :: CreateModelCard -> TestTree
+requestCreateModelCard =
+  req
+    "CreateModelCard"
+    "fixture/CreateModelCard.yaml"
+
+requestCreateModelCardExportJob :: CreateModelCardExportJob -> TestTree
+requestCreateModelCardExportJob =
+  req
+    "CreateModelCardExportJob"
+    "fixture/CreateModelCardExportJob.yaml"
 
 requestCreateModelExplainabilityJobDefinition :: CreateModelExplainabilityJobDefinition -> TestTree
 requestCreateModelExplainabilityJobDefinition =
@@ -1882,6 +2110,12 @@ requestCreateProject =
   req
     "CreateProject"
     "fixture/CreateProject.yaml"
+
+requestCreateSpace :: CreateSpace -> TestTree
+requestCreateSpace =
+  req
+    "CreateSpace"
+    "fixture/CreateSpace.yaml"
 
 requestCreateStudioLifecycleConfig :: CreateStudioLifecycleConfig -> TestTree
 requestCreateStudioLifecycleConfig =
@@ -2039,6 +2273,18 @@ requestDeleteFlowDefinition =
     "DeleteFlowDefinition"
     "fixture/DeleteFlowDefinition.yaml"
 
+requestDeleteHub :: DeleteHub -> TestTree
+requestDeleteHub =
+  req
+    "DeleteHub"
+    "fixture/DeleteHub.yaml"
+
+requestDeleteHubContent :: DeleteHubContent -> TestTree
+requestDeleteHubContent =
+  req
+    "DeleteHubContent"
+    "fixture/DeleteHubContent.yaml"
+
 requestDeleteHumanTaskUi :: DeleteHumanTaskUi -> TestTree
 requestDeleteHumanTaskUi =
   req
@@ -2057,6 +2303,12 @@ requestDeleteImageVersion =
     "DeleteImageVersion"
     "fixture/DeleteImageVersion.yaml"
 
+requestDeleteInferenceExperiment :: DeleteInferenceExperiment -> TestTree
+requestDeleteInferenceExperiment =
+  req
+    "DeleteInferenceExperiment"
+    "fixture/DeleteInferenceExperiment.yaml"
+
 requestDeleteModel :: DeleteModel -> TestTree
 requestDeleteModel =
   req
@@ -2068,6 +2320,12 @@ requestDeleteModelBiasJobDefinition =
   req
     "DeleteModelBiasJobDefinition"
     "fixture/DeleteModelBiasJobDefinition.yaml"
+
+requestDeleteModelCard :: DeleteModelCard -> TestTree
+requestDeleteModelCard =
+  req
+    "DeleteModelCard"
+    "fixture/DeleteModelCard.yaml"
 
 requestDeleteModelExplainabilityJobDefinition :: DeleteModelExplainabilityJobDefinition -> TestTree
 requestDeleteModelExplainabilityJobDefinition =
@@ -2128,6 +2386,12 @@ requestDeleteProject =
   req
     "DeleteProject"
     "fixture/DeleteProject.yaml"
+
+requestDeleteSpace :: DeleteSpace -> TestTree
+requestDeleteSpace =
+  req
+    "DeleteSpace"
+    "fixture/DeleteSpace.yaml"
 
 requestDeleteStudioLifecycleConfig :: DeleteStudioLifecycleConfig -> TestTree
 requestDeleteStudioLifecycleConfig =
@@ -2303,6 +2567,18 @@ requestDescribeFlowDefinition =
     "DescribeFlowDefinition"
     "fixture/DescribeFlowDefinition.yaml"
 
+requestDescribeHub :: DescribeHub -> TestTree
+requestDescribeHub =
+  req
+    "DescribeHub"
+    "fixture/DescribeHub.yaml"
+
+requestDescribeHubContent :: DescribeHubContent -> TestTree
+requestDescribeHubContent =
+  req
+    "DescribeHubContent"
+    "fixture/DescribeHubContent.yaml"
+
 requestDescribeHumanTaskUi :: DescribeHumanTaskUi -> TestTree
 requestDescribeHumanTaskUi =
   req
@@ -2326,6 +2602,12 @@ requestDescribeImageVersion =
   req
     "DescribeImageVersion"
     "fixture/DescribeImageVersion.yaml"
+
+requestDescribeInferenceExperiment :: DescribeInferenceExperiment -> TestTree
+requestDescribeInferenceExperiment =
+  req
+    "DescribeInferenceExperiment"
+    "fixture/DescribeInferenceExperiment.yaml"
 
 requestDescribeInferenceRecommendationsJob :: DescribeInferenceRecommendationsJob -> TestTree
 requestDescribeInferenceRecommendationsJob =
@@ -2356,6 +2638,18 @@ requestDescribeModelBiasJobDefinition =
   req
     "DescribeModelBiasJobDefinition"
     "fixture/DescribeModelBiasJobDefinition.yaml"
+
+requestDescribeModelCard :: DescribeModelCard -> TestTree
+requestDescribeModelCard =
+  req
+    "DescribeModelCard"
+    "fixture/DescribeModelCard.yaml"
+
+requestDescribeModelCardExportJob :: DescribeModelCardExportJob -> TestTree
+requestDescribeModelCardExportJob =
+  req
+    "DescribeModelCardExportJob"
+    "fixture/DescribeModelCardExportJob.yaml"
 
 requestDescribeModelExplainabilityJobDefinition :: DescribeModelExplainabilityJobDefinition -> TestTree
 requestDescribeModelExplainabilityJobDefinition =
@@ -2428,6 +2722,12 @@ requestDescribeProject =
   req
     "DescribeProject"
     "fixture/DescribeProject.yaml"
+
+requestDescribeSpace :: DescribeSpace -> TestTree
+requestDescribeSpace =
+  req
+    "DescribeSpace"
+    "fixture/DescribeSpace.yaml"
 
 requestDescribeStudioLifecycleConfig :: DescribeStudioLifecycleConfig -> TestTree
 requestDescribeStudioLifecycleConfig =
@@ -2530,6 +2830,12 @@ requestGetSearchSuggestions =
   req
     "GetSearchSuggestions"
     "fixture/GetSearchSuggestions.yaml"
+
+requestImportHubContent :: ImportHubContent -> TestTree
+requestImportHubContent =
+  req
+    "ImportHubContent"
+    "fixture/ImportHubContent.yaml"
 
 requestListActions :: ListActions -> TestTree
 requestListActions =
@@ -2663,6 +2969,24 @@ requestListFlowDefinitions =
     "ListFlowDefinitions"
     "fixture/ListFlowDefinitions.yaml"
 
+requestListHubContentVersions :: ListHubContentVersions -> TestTree
+requestListHubContentVersions =
+  req
+    "ListHubContentVersions"
+    "fixture/ListHubContentVersions.yaml"
+
+requestListHubContents :: ListHubContents -> TestTree
+requestListHubContents =
+  req
+    "ListHubContents"
+    "fixture/ListHubContents.yaml"
+
+requestListHubs :: ListHubs -> TestTree
+requestListHubs =
+  req
+    "ListHubs"
+    "fixture/ListHubs.yaml"
+
 requestListHumanTaskUis :: ListHumanTaskUis -> TestTree
 requestListHumanTaskUis =
   req
@@ -2686,6 +3010,12 @@ requestListImages =
   req
     "ListImages"
     "fixture/ListImages.yaml"
+
+requestListInferenceExperiments :: ListInferenceExperiments -> TestTree
+requestListInferenceExperiments =
+  req
+    "ListInferenceExperiments"
+    "fixture/ListInferenceExperiments.yaml"
 
 requestListInferenceRecommendationsJobSteps :: ListInferenceRecommendationsJobSteps -> TestTree
 requestListInferenceRecommendationsJobSteps =
@@ -2723,6 +3053,24 @@ requestListModelBiasJobDefinitions =
     "ListModelBiasJobDefinitions"
     "fixture/ListModelBiasJobDefinitions.yaml"
 
+requestListModelCardExportJobs :: ListModelCardExportJobs -> TestTree
+requestListModelCardExportJobs =
+  req
+    "ListModelCardExportJobs"
+    "fixture/ListModelCardExportJobs.yaml"
+
+requestListModelCardVersions :: ListModelCardVersions -> TestTree
+requestListModelCardVersions =
+  req
+    "ListModelCardVersions"
+    "fixture/ListModelCardVersions.yaml"
+
+requestListModelCards :: ListModelCards -> TestTree
+requestListModelCards =
+  req
+    "ListModelCards"
+    "fixture/ListModelCards.yaml"
+
 requestListModelExplainabilityJobDefinitions :: ListModelExplainabilityJobDefinitions -> TestTree
 requestListModelExplainabilityJobDefinitions =
   req
@@ -2758,6 +3106,18 @@ requestListModels =
   req
     "ListModels"
     "fixture/ListModels.yaml"
+
+requestListMonitoringAlertHistory :: ListMonitoringAlertHistory -> TestTree
+requestListMonitoringAlertHistory =
+  req
+    "ListMonitoringAlertHistory"
+    "fixture/ListMonitoringAlertHistory.yaml"
+
+requestListMonitoringAlerts :: ListMonitoringAlerts -> TestTree
+requestListMonitoringAlerts =
+  req
+    "ListMonitoringAlerts"
+    "fixture/ListMonitoringAlerts.yaml"
 
 requestListMonitoringExecutions :: ListMonitoringExecutions -> TestTree
 requestListMonitoringExecutions =
@@ -2818,6 +3178,12 @@ requestListProjects =
   req
     "ListProjects"
     "fixture/ListProjects.yaml"
+
+requestListSpaces :: ListSpaces -> TestTree
+requestListSpaces =
+  req
+    "ListSpaces"
+    "fixture/ListSpaces.yaml"
 
 requestListStageDevices :: ListStageDevices -> TestTree
 requestListStageDevices =
@@ -2945,6 +3311,12 @@ requestStartEdgeDeploymentStage =
     "StartEdgeDeploymentStage"
     "fixture/StartEdgeDeploymentStage.yaml"
 
+requestStartInferenceExperiment :: StartInferenceExperiment -> TestTree
+requestStartInferenceExperiment =
+  req
+    "StartInferenceExperiment"
+    "fixture/StartInferenceExperiment.yaml"
+
 requestStartMonitoringSchedule :: StartMonitoringSchedule -> TestTree
 requestStartMonitoringSchedule =
   req
@@ -2992,6 +3364,12 @@ requestStopHyperParameterTuningJob =
   req
     "StopHyperParameterTuningJob"
     "fixture/StopHyperParameterTuningJob.yaml"
+
+requestStopInferenceExperiment :: StopInferenceExperiment -> TestTree
+requestStopInferenceExperiment =
+  req
+    "StopInferenceExperiment"
+    "fixture/StopInferenceExperiment.yaml"
 
 requestStopInferenceRecommendationsJob :: StopInferenceRecommendationsJob -> TestTree
 requestStopInferenceRecommendationsJob =
@@ -3119,17 +3497,41 @@ requestUpdateFeatureMetadata =
     "UpdateFeatureMetadata"
     "fixture/UpdateFeatureMetadata.yaml"
 
+requestUpdateHub :: UpdateHub -> TestTree
+requestUpdateHub =
+  req
+    "UpdateHub"
+    "fixture/UpdateHub.yaml"
+
 requestUpdateImage :: UpdateImage -> TestTree
 requestUpdateImage =
   req
     "UpdateImage"
     "fixture/UpdateImage.yaml"
 
+requestUpdateInferenceExperiment :: UpdateInferenceExperiment -> TestTree
+requestUpdateInferenceExperiment =
+  req
+    "UpdateInferenceExperiment"
+    "fixture/UpdateInferenceExperiment.yaml"
+
+requestUpdateModelCard :: UpdateModelCard -> TestTree
+requestUpdateModelCard =
+  req
+    "UpdateModelCard"
+    "fixture/UpdateModelCard.yaml"
+
 requestUpdateModelPackage :: UpdateModelPackage -> TestTree
 requestUpdateModelPackage =
   req
     "UpdateModelPackage"
     "fixture/UpdateModelPackage.yaml"
+
+requestUpdateMonitoringAlert :: UpdateMonitoringAlert -> TestTree
+requestUpdateMonitoringAlert =
+  req
+    "UpdateMonitoringAlert"
+    "fixture/UpdateMonitoringAlert.yaml"
 
 requestUpdateMonitoringSchedule :: UpdateMonitoringSchedule -> TestTree
 requestUpdateMonitoringSchedule =
@@ -3166,6 +3568,12 @@ requestUpdateProject =
   req
     "UpdateProject"
     "fixture/UpdateProject.yaml"
+
+requestUpdateSpace :: UpdateSpace -> TestTree
+requestUpdateSpace =
+  req
+    "UpdateSpace"
+    "fixture/UpdateSpace.yaml"
 
 requestUpdateTrainingJob :: UpdateTrainingJob -> TestTree
 requestUpdateTrainingJob =
@@ -3397,6 +3805,14 @@ responseCreateFlowDefinition =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateFlowDefinition)
 
+responseCreateHub :: CreateHubResponse -> TestTree
+responseCreateHub =
+  res
+    "CreateHubResponse"
+    "fixture/CreateHubResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateHub)
+
 responseCreateHumanTaskUi :: CreateHumanTaskUiResponse -> TestTree
 responseCreateHumanTaskUi =
   res
@@ -3429,6 +3845,14 @@ responseCreateImageVersion =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateImageVersion)
 
+responseCreateInferenceExperiment :: CreateInferenceExperimentResponse -> TestTree
+responseCreateInferenceExperiment =
+  res
+    "CreateInferenceExperimentResponse"
+    "fixture/CreateInferenceExperimentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateInferenceExperiment)
+
 responseCreateInferenceRecommendationsJob :: CreateInferenceRecommendationsJobResponse -> TestTree
 responseCreateInferenceRecommendationsJob =
   res
@@ -3460,6 +3884,22 @@ responseCreateModelBiasJobDefinition =
     "fixture/CreateModelBiasJobDefinitionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateModelBiasJobDefinition)
+
+responseCreateModelCard :: CreateModelCardResponse -> TestTree
+responseCreateModelCard =
+  res
+    "CreateModelCardResponse"
+    "fixture/CreateModelCardResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateModelCard)
+
+responseCreateModelCardExportJob :: CreateModelCardExportJobResponse -> TestTree
+responseCreateModelCardExportJob =
+  res
+    "CreateModelCardExportJobResponse"
+    "fixture/CreateModelCardExportJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateModelCardExportJob)
 
 responseCreateModelExplainabilityJobDefinition :: CreateModelExplainabilityJobDefinitionResponse -> TestTree
 responseCreateModelExplainabilityJobDefinition =
@@ -3556,6 +3996,14 @@ responseCreateProject =
     "fixture/CreateProjectResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateProject)
+
+responseCreateSpace :: CreateSpaceResponse -> TestTree
+responseCreateSpace =
+  res
+    "CreateSpaceResponse"
+    "fixture/CreateSpaceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateSpace)
 
 responseCreateStudioLifecycleConfig :: CreateStudioLifecycleConfigResponse -> TestTree
 responseCreateStudioLifecycleConfig =
@@ -3765,6 +4213,22 @@ responseDeleteFlowDefinition =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteFlowDefinition)
 
+responseDeleteHub :: DeleteHubResponse -> TestTree
+responseDeleteHub =
+  res
+    "DeleteHubResponse"
+    "fixture/DeleteHubResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteHub)
+
+responseDeleteHubContent :: DeleteHubContentResponse -> TestTree
+responseDeleteHubContent =
+  res
+    "DeleteHubContentResponse"
+    "fixture/DeleteHubContentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteHubContent)
+
 responseDeleteHumanTaskUi :: DeleteHumanTaskUiResponse -> TestTree
 responseDeleteHumanTaskUi =
   res
@@ -3789,6 +4253,14 @@ responseDeleteImageVersion =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteImageVersion)
 
+responseDeleteInferenceExperiment :: DeleteInferenceExperimentResponse -> TestTree
+responseDeleteInferenceExperiment =
+  res
+    "DeleteInferenceExperimentResponse"
+    "fixture/DeleteInferenceExperimentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteInferenceExperiment)
+
 responseDeleteModel :: DeleteModelResponse -> TestTree
 responseDeleteModel =
   res
@@ -3804,6 +4276,14 @@ responseDeleteModelBiasJobDefinition =
     "fixture/DeleteModelBiasJobDefinitionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteModelBiasJobDefinition)
+
+responseDeleteModelCard :: DeleteModelCardResponse -> TestTree
+responseDeleteModelCard =
+  res
+    "DeleteModelCardResponse"
+    "fixture/DeleteModelCardResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteModelCard)
 
 responseDeleteModelExplainabilityJobDefinition :: DeleteModelExplainabilityJobDefinitionResponse -> TestTree
 responseDeleteModelExplainabilityJobDefinition =
@@ -3884,6 +4364,14 @@ responseDeleteProject =
     "fixture/DeleteProjectResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteProject)
+
+responseDeleteSpace :: DeleteSpaceResponse -> TestTree
+responseDeleteSpace =
+  res
+    "DeleteSpaceResponse"
+    "fixture/DeleteSpaceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteSpace)
 
 responseDeleteStudioLifecycleConfig :: DeleteStudioLifecycleConfigResponse -> TestTree
 responseDeleteStudioLifecycleConfig =
@@ -4117,6 +4605,22 @@ responseDescribeFlowDefinition =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeFlowDefinition)
 
+responseDescribeHub :: DescribeHubResponse -> TestTree
+responseDescribeHub =
+  res
+    "DescribeHubResponse"
+    "fixture/DescribeHubResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeHub)
+
+responseDescribeHubContent :: DescribeHubContentResponse -> TestTree
+responseDescribeHubContent =
+  res
+    "DescribeHubContentResponse"
+    "fixture/DescribeHubContentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeHubContent)
+
 responseDescribeHumanTaskUi :: DescribeHumanTaskUiResponse -> TestTree
 responseDescribeHumanTaskUi =
   res
@@ -4148,6 +4652,14 @@ responseDescribeImageVersion =
     "fixture/DescribeImageVersionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeImageVersion)
+
+responseDescribeInferenceExperiment :: DescribeInferenceExperimentResponse -> TestTree
+responseDescribeInferenceExperiment =
+  res
+    "DescribeInferenceExperimentResponse"
+    "fixture/DescribeInferenceExperimentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeInferenceExperiment)
 
 responseDescribeInferenceRecommendationsJob :: DescribeInferenceRecommendationsJobResponse -> TestTree
 responseDescribeInferenceRecommendationsJob =
@@ -4188,6 +4700,22 @@ responseDescribeModelBiasJobDefinition =
     "fixture/DescribeModelBiasJobDefinitionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeModelBiasJobDefinition)
+
+responseDescribeModelCard :: DescribeModelCardResponse -> TestTree
+responseDescribeModelCard =
+  res
+    "DescribeModelCardResponse"
+    "fixture/DescribeModelCardResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeModelCard)
+
+responseDescribeModelCardExportJob :: DescribeModelCardExportJobResponse -> TestTree
+responseDescribeModelCardExportJob =
+  res
+    "DescribeModelCardExportJobResponse"
+    "fixture/DescribeModelCardExportJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeModelCardExportJob)
 
 responseDescribeModelExplainabilityJobDefinition :: DescribeModelExplainabilityJobDefinitionResponse -> TestTree
 responseDescribeModelExplainabilityJobDefinition =
@@ -4284,6 +4812,14 @@ responseDescribeProject =
     "fixture/DescribeProjectResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeProject)
+
+responseDescribeSpace :: DescribeSpaceResponse -> TestTree
+responseDescribeSpace =
+  res
+    "DescribeSpaceResponse"
+    "fixture/DescribeSpaceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeSpace)
 
 responseDescribeStudioLifecycleConfig :: DescribeStudioLifecycleConfigResponse -> TestTree
 responseDescribeStudioLifecycleConfig =
@@ -4420,6 +4956,14 @@ responseGetSearchSuggestions =
     "fixture/GetSearchSuggestionsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetSearchSuggestions)
+
+responseImportHubContent :: ImportHubContentResponse -> TestTree
+responseImportHubContent =
+  res
+    "ImportHubContentResponse"
+    "fixture/ImportHubContentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ImportHubContent)
 
 responseListActions :: ListActionsResponse -> TestTree
 responseListActions =
@@ -4597,6 +5141,30 @@ responseListFlowDefinitions =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListFlowDefinitions)
 
+responseListHubContentVersions :: ListHubContentVersionsResponse -> TestTree
+responseListHubContentVersions =
+  res
+    "ListHubContentVersionsResponse"
+    "fixture/ListHubContentVersionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListHubContentVersions)
+
+responseListHubContents :: ListHubContentsResponse -> TestTree
+responseListHubContents =
+  res
+    "ListHubContentsResponse"
+    "fixture/ListHubContentsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListHubContents)
+
+responseListHubs :: ListHubsResponse -> TestTree
+responseListHubs =
+  res
+    "ListHubsResponse"
+    "fixture/ListHubsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListHubs)
+
 responseListHumanTaskUis :: ListHumanTaskUisResponse -> TestTree
 responseListHumanTaskUis =
   res
@@ -4628,6 +5196,14 @@ responseListImages =
     "fixture/ListImagesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListImages)
+
+responseListInferenceExperiments :: ListInferenceExperimentsResponse -> TestTree
+responseListInferenceExperiments =
+  res
+    "ListInferenceExperimentsResponse"
+    "fixture/ListInferenceExperimentsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListInferenceExperiments)
 
 responseListInferenceRecommendationsJobSteps :: ListInferenceRecommendationsJobStepsResponse -> TestTree
 responseListInferenceRecommendationsJobSteps =
@@ -4677,6 +5253,30 @@ responseListModelBiasJobDefinitions =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListModelBiasJobDefinitions)
 
+responseListModelCardExportJobs :: ListModelCardExportJobsResponse -> TestTree
+responseListModelCardExportJobs =
+  res
+    "ListModelCardExportJobsResponse"
+    "fixture/ListModelCardExportJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListModelCardExportJobs)
+
+responseListModelCardVersions :: ListModelCardVersionsResponse -> TestTree
+responseListModelCardVersions =
+  res
+    "ListModelCardVersionsResponse"
+    "fixture/ListModelCardVersionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListModelCardVersions)
+
+responseListModelCards :: ListModelCardsResponse -> TestTree
+responseListModelCards =
+  res
+    "ListModelCardsResponse"
+    "fixture/ListModelCardsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListModelCards)
+
 responseListModelExplainabilityJobDefinitions :: ListModelExplainabilityJobDefinitionsResponse -> TestTree
 responseListModelExplainabilityJobDefinitions =
   res
@@ -4724,6 +5324,22 @@ responseListModels =
     "fixture/ListModelsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListModels)
+
+responseListMonitoringAlertHistory :: ListMonitoringAlertHistoryResponse -> TestTree
+responseListMonitoringAlertHistory =
+  res
+    "ListMonitoringAlertHistoryResponse"
+    "fixture/ListMonitoringAlertHistoryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListMonitoringAlertHistory)
+
+responseListMonitoringAlerts :: ListMonitoringAlertsResponse -> TestTree
+responseListMonitoringAlerts =
+  res
+    "ListMonitoringAlertsResponse"
+    "fixture/ListMonitoringAlertsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListMonitoringAlerts)
 
 responseListMonitoringExecutions :: ListMonitoringExecutionsResponse -> TestTree
 responseListMonitoringExecutions =
@@ -4804,6 +5420,14 @@ responseListProjects =
     "fixture/ListProjectsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListProjects)
+
+responseListSpaces :: ListSpacesResponse -> TestTree
+responseListSpaces =
+  res
+    "ListSpacesResponse"
+    "fixture/ListSpacesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSpaces)
 
 responseListStageDevices :: ListStageDevicesResponse -> TestTree
 responseListStageDevices =
@@ -4973,6 +5597,14 @@ responseStartEdgeDeploymentStage =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartEdgeDeploymentStage)
 
+responseStartInferenceExperiment :: StartInferenceExperimentResponse -> TestTree
+responseStartInferenceExperiment =
+  res
+    "StartInferenceExperimentResponse"
+    "fixture/StartInferenceExperimentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartInferenceExperiment)
+
 responseStartMonitoringSchedule :: StartMonitoringScheduleResponse -> TestTree
 responseStartMonitoringSchedule =
   res
@@ -5036,6 +5668,14 @@ responseStopHyperParameterTuningJob =
     "fixture/StopHyperParameterTuningJobResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StopHyperParameterTuningJob)
+
+responseStopInferenceExperiment :: StopInferenceExperimentResponse -> TestTree
+responseStopInferenceExperiment =
+  res
+    "StopInferenceExperimentResponse"
+    "fixture/StopInferenceExperimentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopInferenceExperiment)
 
 responseStopInferenceRecommendationsJob :: StopInferenceRecommendationsJobResponse -> TestTree
 responseStopInferenceRecommendationsJob =
@@ -5205,6 +5845,14 @@ responseUpdateFeatureMetadata =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateFeatureMetadata)
 
+responseUpdateHub :: UpdateHubResponse -> TestTree
+responseUpdateHub =
+  res
+    "UpdateHubResponse"
+    "fixture/UpdateHubResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateHub)
+
 responseUpdateImage :: UpdateImageResponse -> TestTree
 responseUpdateImage =
   res
@@ -5213,6 +5861,22 @@ responseUpdateImage =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateImage)
 
+responseUpdateInferenceExperiment :: UpdateInferenceExperimentResponse -> TestTree
+responseUpdateInferenceExperiment =
+  res
+    "UpdateInferenceExperimentResponse"
+    "fixture/UpdateInferenceExperimentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateInferenceExperiment)
+
+responseUpdateModelCard :: UpdateModelCardResponse -> TestTree
+responseUpdateModelCard =
+  res
+    "UpdateModelCardResponse"
+    "fixture/UpdateModelCardResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateModelCard)
+
 responseUpdateModelPackage :: UpdateModelPackageResponse -> TestTree
 responseUpdateModelPackage =
   res
@@ -5220,6 +5884,14 @@ responseUpdateModelPackage =
     "fixture/UpdateModelPackageResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateModelPackage)
+
+responseUpdateMonitoringAlert :: UpdateMonitoringAlertResponse -> TestTree
+responseUpdateMonitoringAlert =
+  res
+    "UpdateMonitoringAlertResponse"
+    "fixture/UpdateMonitoringAlertResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateMonitoringAlert)
 
 responseUpdateMonitoringSchedule :: UpdateMonitoringScheduleResponse -> TestTree
 responseUpdateMonitoringSchedule =
@@ -5268,6 +5940,14 @@ responseUpdateProject =
     "fixture/UpdateProjectResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateProject)
+
+responseUpdateSpace :: UpdateSpaceResponse -> TestTree
+responseUpdateSpace =
+  res
+    "UpdateSpaceResponse"
+    "fixture/UpdateSpaceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateSpace)
 
 responseUpdateTrainingJob :: UpdateTrainingJobResponse -> TestTree
 responseUpdateTrainingJob =

@@ -29,10 +29,10 @@ import Amazonka.SageMaker.Types.MetricsSource
 --
 -- /See:/ 'newBias' smart constructor.
 data Bias = Bias'
-  { -- | The pre-training bias report for a model.
-    preTrainingReport :: Prelude.Maybe MetricsSource,
-    -- | The post-training bias report for a model.
+  { -- | The post-training bias report for a model.
     postTrainingReport :: Prelude.Maybe MetricsSource,
+    -- | The pre-training bias report for a model.
+    preTrainingReport :: Prelude.Maybe MetricsSource,
     -- | The bias report for a model
     report :: Prelude.Maybe MetricsSource
   }
@@ -46,27 +46,27 @@ data Bias = Bias'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'preTrainingReport', 'bias_preTrainingReport' - The pre-training bias report for a model.
---
 -- 'postTrainingReport', 'bias_postTrainingReport' - The post-training bias report for a model.
+--
+-- 'preTrainingReport', 'bias_preTrainingReport' - The pre-training bias report for a model.
 --
 -- 'report', 'bias_report' - The bias report for a model
 newBias ::
   Bias
 newBias =
   Bias'
-    { preTrainingReport = Prelude.Nothing,
-      postTrainingReport = Prelude.Nothing,
+    { postTrainingReport = Prelude.Nothing,
+      preTrainingReport = Prelude.Nothing,
       report = Prelude.Nothing
     }
-
--- | The pre-training bias report for a model.
-bias_preTrainingReport :: Lens.Lens' Bias (Prelude.Maybe MetricsSource)
-bias_preTrainingReport = Lens.lens (\Bias' {preTrainingReport} -> preTrainingReport) (\s@Bias' {} a -> s {preTrainingReport = a} :: Bias)
 
 -- | The post-training bias report for a model.
 bias_postTrainingReport :: Lens.Lens' Bias (Prelude.Maybe MetricsSource)
 bias_postTrainingReport = Lens.lens (\Bias' {postTrainingReport} -> postTrainingReport) (\s@Bias' {} a -> s {postTrainingReport = a} :: Bias)
+
+-- | The pre-training bias report for a model.
+bias_preTrainingReport :: Lens.Lens' Bias (Prelude.Maybe MetricsSource)
+bias_preTrainingReport = Lens.lens (\Bias' {preTrainingReport} -> preTrainingReport) (\s@Bias' {} a -> s {preTrainingReport = a} :: Bias)
 
 -- | The bias report for a model
 bias_report :: Lens.Lens' Bias (Prelude.Maybe MetricsSource)
@@ -78,31 +78,31 @@ instance Data.FromJSON Bias where
       "Bias"
       ( \x ->
           Bias'
-            Prelude.<$> (x Data..:? "PreTrainingReport")
-            Prelude.<*> (x Data..:? "PostTrainingReport")
+            Prelude.<$> (x Data..:? "PostTrainingReport")
+            Prelude.<*> (x Data..:? "PreTrainingReport")
             Prelude.<*> (x Data..:? "Report")
       )
 
 instance Prelude.Hashable Bias where
   hashWithSalt _salt Bias' {..} =
-    _salt `Prelude.hashWithSalt` preTrainingReport
-      `Prelude.hashWithSalt` postTrainingReport
+    _salt `Prelude.hashWithSalt` postTrainingReport
+      `Prelude.hashWithSalt` preTrainingReport
       `Prelude.hashWithSalt` report
 
 instance Prelude.NFData Bias where
   rnf Bias' {..} =
-    Prelude.rnf preTrainingReport
-      `Prelude.seq` Prelude.rnf postTrainingReport
+    Prelude.rnf postTrainingReport
+      `Prelude.seq` Prelude.rnf preTrainingReport
       `Prelude.seq` Prelude.rnf report
 
 instance Data.ToJSON Bias where
   toJSON Bias' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PreTrainingReport" Data..=)
-              Prelude.<$> preTrainingReport,
-            ("PostTrainingReport" Data..=)
+          [ ("PostTrainingReport" Data..=)
               Prelude.<$> postTrainingReport,
+            ("PreTrainingReport" Data..=)
+              Prelude.<$> preTrainingReport,
             ("Report" Data..=) Prelude.<$> report
           ]
       )

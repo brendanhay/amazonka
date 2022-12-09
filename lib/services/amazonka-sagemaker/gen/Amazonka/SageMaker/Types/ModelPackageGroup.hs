@@ -31,15 +31,15 @@ import Amazonka.SageMaker.Types.UserContext
 --
 -- /See:/ 'newModelPackageGroup' smart constructor.
 data ModelPackageGroup = ModelPackageGroup'
-  { -- | A list of the tags associated with the model group. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
-    -- in the /Amazon Web Services General Reference Guide/.
-    tags :: Prelude.Maybe [Tag],
-    -- | The name of the model group.
-    modelPackageGroupName :: Prelude.Maybe Prelude.Text,
+  { createdBy :: Prelude.Maybe UserContext,
+    -- | The time that the model group was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the model group.
     modelPackageGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | The description for the model group.
+    modelPackageGroupDescription :: Prelude.Maybe Prelude.Text,
+    -- | The name of the model group.
+    modelPackageGroupName :: Prelude.Maybe Prelude.Text,
     -- | The status of the model group. This can be one of the following values.
     --
     -- -   @PENDING@ - The model group is pending being created.
@@ -54,11 +54,11 @@ data ModelPackageGroup = ModelPackageGroup'
     --
     -- -   @DELETE_FAILED@ - SageMaker failed to delete the model group.
     modelPackageGroupStatus :: Prelude.Maybe ModelPackageGroupStatus,
-    -- | The description for the model group.
-    modelPackageGroupDescription :: Prelude.Maybe Prelude.Text,
-    -- | The time that the model group was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
-    createdBy :: Prelude.Maybe UserContext
+    -- | A list of the tags associated with the model group. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+    -- in the /Amazon Web Services General Reference Guide/.
+    tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,14 +70,15 @@ data ModelPackageGroup = ModelPackageGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'modelPackageGroup_tags' - A list of the tags associated with the model group. For more
--- information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
--- in the /Amazon Web Services General Reference Guide/.
+-- 'createdBy', 'modelPackageGroup_createdBy' - Undocumented member.
 --
--- 'modelPackageGroupName', 'modelPackageGroup_modelPackageGroupName' - The name of the model group.
+-- 'creationTime', 'modelPackageGroup_creationTime' - The time that the model group was created.
 --
 -- 'modelPackageGroupArn', 'modelPackageGroup_modelPackageGroupArn' - The Amazon Resource Name (ARN) of the model group.
+--
+-- 'modelPackageGroupDescription', 'modelPackageGroup_modelPackageGroupDescription' - The description for the model group.
+--
+-- 'modelPackageGroupName', 'modelPackageGroup_modelPackageGroupName' - The name of the model group.
 --
 -- 'modelPackageGroupStatus', 'modelPackageGroup_modelPackageGroupStatus' - The status of the model group. This can be one of the following values.
 --
@@ -93,38 +94,42 @@ data ModelPackageGroup = ModelPackageGroup'
 --
 -- -   @DELETE_FAILED@ - SageMaker failed to delete the model group.
 --
--- 'modelPackageGroupDescription', 'modelPackageGroup_modelPackageGroupDescription' - The description for the model group.
---
--- 'creationTime', 'modelPackageGroup_creationTime' - The time that the model group was created.
---
--- 'createdBy', 'modelPackageGroup_createdBy' - Undocumented member.
+-- 'tags', 'modelPackageGroup_tags' - A list of the tags associated with the model group. For more
+-- information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference Guide/.
 newModelPackageGroup ::
   ModelPackageGroup
 newModelPackageGroup =
   ModelPackageGroup'
-    { tags = Prelude.Nothing,
-      modelPackageGroupName = Prelude.Nothing,
-      modelPackageGroupArn = Prelude.Nothing,
-      modelPackageGroupStatus = Prelude.Nothing,
-      modelPackageGroupDescription = Prelude.Nothing,
+    { createdBy = Prelude.Nothing,
       creationTime = Prelude.Nothing,
-      createdBy = Prelude.Nothing
+      modelPackageGroupArn = Prelude.Nothing,
+      modelPackageGroupDescription = Prelude.Nothing,
+      modelPackageGroupName = Prelude.Nothing,
+      modelPackageGroupStatus = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
 
--- | A list of the tags associated with the model group. For more
--- information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
--- in the /Amazon Web Services General Reference Guide/.
-modelPackageGroup_tags :: Lens.Lens' ModelPackageGroup (Prelude.Maybe [Tag])
-modelPackageGroup_tags = Lens.lens (\ModelPackageGroup' {tags} -> tags) (\s@ModelPackageGroup' {} a -> s {tags = a} :: ModelPackageGroup) Prelude.. Lens.mapping Lens.coerced
+-- | Undocumented member.
+modelPackageGroup_createdBy :: Lens.Lens' ModelPackageGroup (Prelude.Maybe UserContext)
+modelPackageGroup_createdBy = Lens.lens (\ModelPackageGroup' {createdBy} -> createdBy) (\s@ModelPackageGroup' {} a -> s {createdBy = a} :: ModelPackageGroup)
 
--- | The name of the model group.
-modelPackageGroup_modelPackageGroupName :: Lens.Lens' ModelPackageGroup (Prelude.Maybe Prelude.Text)
-modelPackageGroup_modelPackageGroupName = Lens.lens (\ModelPackageGroup' {modelPackageGroupName} -> modelPackageGroupName) (\s@ModelPackageGroup' {} a -> s {modelPackageGroupName = a} :: ModelPackageGroup)
+-- | The time that the model group was created.
+modelPackageGroup_creationTime :: Lens.Lens' ModelPackageGroup (Prelude.Maybe Prelude.UTCTime)
+modelPackageGroup_creationTime = Lens.lens (\ModelPackageGroup' {creationTime} -> creationTime) (\s@ModelPackageGroup' {} a -> s {creationTime = a} :: ModelPackageGroup) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the model group.
 modelPackageGroup_modelPackageGroupArn :: Lens.Lens' ModelPackageGroup (Prelude.Maybe Prelude.Text)
 modelPackageGroup_modelPackageGroupArn = Lens.lens (\ModelPackageGroup' {modelPackageGroupArn} -> modelPackageGroupArn) (\s@ModelPackageGroup' {} a -> s {modelPackageGroupArn = a} :: ModelPackageGroup)
+
+-- | The description for the model group.
+modelPackageGroup_modelPackageGroupDescription :: Lens.Lens' ModelPackageGroup (Prelude.Maybe Prelude.Text)
+modelPackageGroup_modelPackageGroupDescription = Lens.lens (\ModelPackageGroup' {modelPackageGroupDescription} -> modelPackageGroupDescription) (\s@ModelPackageGroup' {} a -> s {modelPackageGroupDescription = a} :: ModelPackageGroup)
+
+-- | The name of the model group.
+modelPackageGroup_modelPackageGroupName :: Lens.Lens' ModelPackageGroup (Prelude.Maybe Prelude.Text)
+modelPackageGroup_modelPackageGroupName = Lens.lens (\ModelPackageGroup' {modelPackageGroupName} -> modelPackageGroupName) (\s@ModelPackageGroup' {} a -> s {modelPackageGroupName = a} :: ModelPackageGroup)
 
 -- | The status of the model group. This can be one of the following values.
 --
@@ -142,17 +147,12 @@ modelPackageGroup_modelPackageGroupArn = Lens.lens (\ModelPackageGroup' {modelPa
 modelPackageGroup_modelPackageGroupStatus :: Lens.Lens' ModelPackageGroup (Prelude.Maybe ModelPackageGroupStatus)
 modelPackageGroup_modelPackageGroupStatus = Lens.lens (\ModelPackageGroup' {modelPackageGroupStatus} -> modelPackageGroupStatus) (\s@ModelPackageGroup' {} a -> s {modelPackageGroupStatus = a} :: ModelPackageGroup)
 
--- | The description for the model group.
-modelPackageGroup_modelPackageGroupDescription :: Lens.Lens' ModelPackageGroup (Prelude.Maybe Prelude.Text)
-modelPackageGroup_modelPackageGroupDescription = Lens.lens (\ModelPackageGroup' {modelPackageGroupDescription} -> modelPackageGroupDescription) (\s@ModelPackageGroup' {} a -> s {modelPackageGroupDescription = a} :: ModelPackageGroup)
-
--- | The time that the model group was created.
-modelPackageGroup_creationTime :: Lens.Lens' ModelPackageGroup (Prelude.Maybe Prelude.UTCTime)
-modelPackageGroup_creationTime = Lens.lens (\ModelPackageGroup' {creationTime} -> creationTime) (\s@ModelPackageGroup' {} a -> s {creationTime = a} :: ModelPackageGroup) Prelude.. Lens.mapping Data._Time
-
--- | Undocumented member.
-modelPackageGroup_createdBy :: Lens.Lens' ModelPackageGroup (Prelude.Maybe UserContext)
-modelPackageGroup_createdBy = Lens.lens (\ModelPackageGroup' {createdBy} -> createdBy) (\s@ModelPackageGroup' {} a -> s {createdBy = a} :: ModelPackageGroup)
+-- | A list of the tags associated with the model group. For more
+-- information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference Guide/.
+modelPackageGroup_tags :: Lens.Lens' ModelPackageGroup (Prelude.Maybe [Tag])
+modelPackageGroup_tags = Lens.lens (\ModelPackageGroup' {tags} -> tags) (\s@ModelPackageGroup' {} a -> s {tags = a} :: ModelPackageGroup) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON ModelPackageGroup where
   parseJSON =
@@ -160,31 +160,31 @@ instance Data.FromJSON ModelPackageGroup where
       "ModelPackageGroup"
       ( \x ->
           ModelPackageGroup'
-            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "ModelPackageGroupName")
-            Prelude.<*> (x Data..:? "ModelPackageGroupArn")
-            Prelude.<*> (x Data..:? "ModelPackageGroupStatus")
-            Prelude.<*> (x Data..:? "ModelPackageGroupDescription")
+            Prelude.<$> (x Data..:? "CreatedBy")
             Prelude.<*> (x Data..:? "CreationTime")
-            Prelude.<*> (x Data..:? "CreatedBy")
+            Prelude.<*> (x Data..:? "ModelPackageGroupArn")
+            Prelude.<*> (x Data..:? "ModelPackageGroupDescription")
+            Prelude.<*> (x Data..:? "ModelPackageGroupName")
+            Prelude.<*> (x Data..:? "ModelPackageGroupStatus")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable ModelPackageGroup where
   hashWithSalt _salt ModelPackageGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` modelPackageGroupName
-      `Prelude.hashWithSalt` modelPackageGroupArn
-      `Prelude.hashWithSalt` modelPackageGroupStatus
-      `Prelude.hashWithSalt` modelPackageGroupDescription
+    _salt `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` createdBy
+      `Prelude.hashWithSalt` modelPackageGroupArn
+      `Prelude.hashWithSalt` modelPackageGroupDescription
+      `Prelude.hashWithSalt` modelPackageGroupName
+      `Prelude.hashWithSalt` modelPackageGroupStatus
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData ModelPackageGroup where
   rnf ModelPackageGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf modelPackageGroupName
-      `Prelude.seq` Prelude.rnf modelPackageGroupArn
-      `Prelude.seq` Prelude.rnf modelPackageGroupStatus
-      `Prelude.seq` Prelude.rnf modelPackageGroupDescription
+    Prelude.rnf createdBy
       `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf modelPackageGroupArn
+      `Prelude.seq` Prelude.rnf modelPackageGroupDescription
+      `Prelude.seq` Prelude.rnf modelPackageGroupName
+      `Prelude.seq` Prelude.rnf modelPackageGroupStatus
+      `Prelude.seq` Prelude.rnf tags

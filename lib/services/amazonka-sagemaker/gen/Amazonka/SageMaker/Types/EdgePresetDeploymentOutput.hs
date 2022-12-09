@@ -30,10 +30,10 @@ import Amazonka.SageMaker.Types.EdgePresetDeploymentType
 --
 -- /See:/ 'newEdgePresetDeploymentOutput' smart constructor.
 data EdgePresetDeploymentOutput = EdgePresetDeploymentOutput'
-  { -- | The status of the deployable resource.
-    status :: Prelude.Maybe EdgePresetDeploymentStatus,
-    -- | The Amazon Resource Name (ARN) of the generated deployable resource.
+  { -- | The Amazon Resource Name (ARN) of the generated deployable resource.
     artifact :: Prelude.Maybe Prelude.Text,
+    -- | The status of the deployable resource.
+    status :: Prelude.Maybe EdgePresetDeploymentStatus,
     -- | Returns a message describing the status of the deployed resource.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The deployment type created by SageMaker Edge Manager. Currently only
@@ -50,9 +50,9 @@ data EdgePresetDeploymentOutput = EdgePresetDeploymentOutput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'edgePresetDeploymentOutput_status' - The status of the deployable resource.
---
 -- 'artifact', 'edgePresetDeploymentOutput_artifact' - The Amazon Resource Name (ARN) of the generated deployable resource.
+--
+-- 'status', 'edgePresetDeploymentOutput_status' - The status of the deployable resource.
 --
 -- 'statusMessage', 'edgePresetDeploymentOutput_statusMessage' - Returns a message describing the status of the deployed resource.
 --
@@ -64,20 +64,20 @@ newEdgePresetDeploymentOutput ::
   EdgePresetDeploymentOutput
 newEdgePresetDeploymentOutput pType_ =
   EdgePresetDeploymentOutput'
-    { status =
+    { artifact =
         Prelude.Nothing,
-      artifact = Prelude.Nothing,
+      status = Prelude.Nothing,
       statusMessage = Prelude.Nothing,
       type' = pType_
     }
 
--- | The status of the deployable resource.
-edgePresetDeploymentOutput_status :: Lens.Lens' EdgePresetDeploymentOutput (Prelude.Maybe EdgePresetDeploymentStatus)
-edgePresetDeploymentOutput_status = Lens.lens (\EdgePresetDeploymentOutput' {status} -> status) (\s@EdgePresetDeploymentOutput' {} a -> s {status = a} :: EdgePresetDeploymentOutput)
-
 -- | The Amazon Resource Name (ARN) of the generated deployable resource.
 edgePresetDeploymentOutput_artifact :: Lens.Lens' EdgePresetDeploymentOutput (Prelude.Maybe Prelude.Text)
 edgePresetDeploymentOutput_artifact = Lens.lens (\EdgePresetDeploymentOutput' {artifact} -> artifact) (\s@EdgePresetDeploymentOutput' {} a -> s {artifact = a} :: EdgePresetDeploymentOutput)
+
+-- | The status of the deployable resource.
+edgePresetDeploymentOutput_status :: Lens.Lens' EdgePresetDeploymentOutput (Prelude.Maybe EdgePresetDeploymentStatus)
+edgePresetDeploymentOutput_status = Lens.lens (\EdgePresetDeploymentOutput' {status} -> status) (\s@EdgePresetDeploymentOutput' {} a -> s {status = a} :: EdgePresetDeploymentOutput)
 
 -- | Returns a message describing the status of the deployed resource.
 edgePresetDeploymentOutput_statusMessage :: Lens.Lens' EdgePresetDeploymentOutput (Prelude.Maybe Prelude.Text)
@@ -94,22 +94,22 @@ instance Data.FromJSON EdgePresetDeploymentOutput where
       "EdgePresetDeploymentOutput"
       ( \x ->
           EdgePresetDeploymentOutput'
-            Prelude.<$> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "Artifact")
+            Prelude.<$> (x Data..:? "Artifact")
+            Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "StatusMessage")
             Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable EdgePresetDeploymentOutput where
   hashWithSalt _salt EdgePresetDeploymentOutput' {..} =
-    _salt `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` artifact
+    _salt `Prelude.hashWithSalt` artifact
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData EdgePresetDeploymentOutput where
   rnf EdgePresetDeploymentOutput' {..} =
-    Prelude.rnf status
-      `Prelude.seq` Prelude.rnf artifact
+    Prelude.rnf artifact
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf type'

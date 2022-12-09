@@ -43,28 +43,28 @@ data Workforce = Workforce'
     -- workforce is created using and corresponds to a single
     -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html Amazon Cognito user pool>.
     cognitoConfig :: Prelude.Maybe CognitoConfig,
+    -- | The date that the workforce is created.
+    createDate :: Prelude.Maybe Data.POSIX,
+    -- | The reason your workforce failed.
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | The most recent date that was used to successfully add one or more IP
     -- address ranges
     -- (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs>)
     -- to a private workforce\'s allow list.
     lastUpdatedDate :: Prelude.Maybe Data.POSIX,
-    -- | The subdomain for your OIDC Identity Provider.
-    subDomain :: Prelude.Maybe Prelude.Text,
-    -- | The status of your workforce.
-    status :: Prelude.Maybe WorkforceStatus,
+    -- | The configuration of an OIDC Identity Provider (IdP) private workforce.
+    oidcConfig :: Prelude.Maybe OidcConfigForResponse,
     -- | A list of one to ten IP address ranges
     -- (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs>)
     -- to be added to the workforce allow list. By default, a workforce isn\'t
     -- restricted to specific IP addresses.
     sourceIpConfig :: Prelude.Maybe SourceIpConfig,
+    -- | The status of your workforce.
+    status :: Prelude.Maybe WorkforceStatus,
+    -- | The subdomain for your OIDC Identity Provider.
+    subDomain :: Prelude.Maybe Prelude.Text,
     -- | The configuration of a VPC workforce.
     workforceVpcConfig :: Prelude.Maybe WorkforceVpcConfigResponse,
-    -- | The date that the workforce is created.
-    createDate :: Prelude.Maybe Data.POSIX,
-    -- | The configuration of an OIDC Identity Provider (IdP) private workforce.
-    oidcConfig :: Prelude.Maybe OidcConfigForResponse,
-    -- | The reason your workforce failed.
-    failureReason :: Prelude.Maybe Prelude.Text,
     -- | The name of the private workforce.
     workforceName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the private workforce.
@@ -84,27 +84,27 @@ data Workforce = Workforce'
 -- workforce is created using and corresponds to a single
 -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html Amazon Cognito user pool>.
 --
+-- 'createDate', 'workforce_createDate' - The date that the workforce is created.
+--
+-- 'failureReason', 'workforce_failureReason' - The reason your workforce failed.
+--
 -- 'lastUpdatedDate', 'workforce_lastUpdatedDate' - The most recent date that was used to successfully add one or more IP
 -- address ranges
 -- (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs>)
 -- to a private workforce\'s allow list.
 --
--- 'subDomain', 'workforce_subDomain' - The subdomain for your OIDC Identity Provider.
---
--- 'status', 'workforce_status' - The status of your workforce.
+-- 'oidcConfig', 'workforce_oidcConfig' - The configuration of an OIDC Identity Provider (IdP) private workforce.
 --
 -- 'sourceIpConfig', 'workforce_sourceIpConfig' - A list of one to ten IP address ranges
 -- (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs>)
 -- to be added to the workforce allow list. By default, a workforce isn\'t
 -- restricted to specific IP addresses.
 --
+-- 'status', 'workforce_status' - The status of your workforce.
+--
+-- 'subDomain', 'workforce_subDomain' - The subdomain for your OIDC Identity Provider.
+--
 -- 'workforceVpcConfig', 'workforce_workforceVpcConfig' - The configuration of a VPC workforce.
---
--- 'createDate', 'workforce_createDate' - The date that the workforce is created.
---
--- 'oidcConfig', 'workforce_oidcConfig' - The configuration of an OIDC Identity Provider (IdP) private workforce.
---
--- 'failureReason', 'workforce_failureReason' - The reason your workforce failed.
 --
 -- 'workforceName', 'workforce_workforceName' - The name of the private workforce.
 --
@@ -118,14 +118,14 @@ newWorkforce ::
 newWorkforce pWorkforceName_ pWorkforceArn_ =
   Workforce'
     { cognitoConfig = Prelude.Nothing,
-      lastUpdatedDate = Prelude.Nothing,
-      subDomain = Prelude.Nothing,
-      status = Prelude.Nothing,
-      sourceIpConfig = Prelude.Nothing,
-      workforceVpcConfig = Prelude.Nothing,
       createDate = Prelude.Nothing,
-      oidcConfig = Prelude.Nothing,
       failureReason = Prelude.Nothing,
+      lastUpdatedDate = Prelude.Nothing,
+      oidcConfig = Prelude.Nothing,
+      sourceIpConfig = Prelude.Nothing,
+      status = Prelude.Nothing,
+      subDomain = Prelude.Nothing,
+      workforceVpcConfig = Prelude.Nothing,
       workforceName = pWorkforceName_,
       workforceArn = pWorkforceArn_
     }
@@ -136,6 +136,14 @@ newWorkforce pWorkforceName_ pWorkforceArn_ =
 workforce_cognitoConfig :: Lens.Lens' Workforce (Prelude.Maybe CognitoConfig)
 workforce_cognitoConfig = Lens.lens (\Workforce' {cognitoConfig} -> cognitoConfig) (\s@Workforce' {} a -> s {cognitoConfig = a} :: Workforce)
 
+-- | The date that the workforce is created.
+workforce_createDate :: Lens.Lens' Workforce (Prelude.Maybe Prelude.UTCTime)
+workforce_createDate = Lens.lens (\Workforce' {createDate} -> createDate) (\s@Workforce' {} a -> s {createDate = a} :: Workforce) Prelude.. Lens.mapping Data._Time
+
+-- | The reason your workforce failed.
+workforce_failureReason :: Lens.Lens' Workforce (Prelude.Maybe Prelude.Text)
+workforce_failureReason = Lens.lens (\Workforce' {failureReason} -> failureReason) (\s@Workforce' {} a -> s {failureReason = a} :: Workforce)
+
 -- | The most recent date that was used to successfully add one or more IP
 -- address ranges
 -- (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs>)
@@ -143,13 +151,9 @@ workforce_cognitoConfig = Lens.lens (\Workforce' {cognitoConfig} -> cognitoConfi
 workforce_lastUpdatedDate :: Lens.Lens' Workforce (Prelude.Maybe Prelude.UTCTime)
 workforce_lastUpdatedDate = Lens.lens (\Workforce' {lastUpdatedDate} -> lastUpdatedDate) (\s@Workforce' {} a -> s {lastUpdatedDate = a} :: Workforce) Prelude.. Lens.mapping Data._Time
 
--- | The subdomain for your OIDC Identity Provider.
-workforce_subDomain :: Lens.Lens' Workforce (Prelude.Maybe Prelude.Text)
-workforce_subDomain = Lens.lens (\Workforce' {subDomain} -> subDomain) (\s@Workforce' {} a -> s {subDomain = a} :: Workforce)
-
--- | The status of your workforce.
-workforce_status :: Lens.Lens' Workforce (Prelude.Maybe WorkforceStatus)
-workforce_status = Lens.lens (\Workforce' {status} -> status) (\s@Workforce' {} a -> s {status = a} :: Workforce)
+-- | The configuration of an OIDC Identity Provider (IdP) private workforce.
+workforce_oidcConfig :: Lens.Lens' Workforce (Prelude.Maybe OidcConfigForResponse)
+workforce_oidcConfig = Lens.lens (\Workforce' {oidcConfig} -> oidcConfig) (\s@Workforce' {} a -> s {oidcConfig = a} :: Workforce)
 
 -- | A list of one to ten IP address ranges
 -- (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs>)
@@ -158,21 +162,17 @@ workforce_status = Lens.lens (\Workforce' {status} -> status) (\s@Workforce' {} 
 workforce_sourceIpConfig :: Lens.Lens' Workforce (Prelude.Maybe SourceIpConfig)
 workforce_sourceIpConfig = Lens.lens (\Workforce' {sourceIpConfig} -> sourceIpConfig) (\s@Workforce' {} a -> s {sourceIpConfig = a} :: Workforce)
 
+-- | The status of your workforce.
+workforce_status :: Lens.Lens' Workforce (Prelude.Maybe WorkforceStatus)
+workforce_status = Lens.lens (\Workforce' {status} -> status) (\s@Workforce' {} a -> s {status = a} :: Workforce)
+
+-- | The subdomain for your OIDC Identity Provider.
+workforce_subDomain :: Lens.Lens' Workforce (Prelude.Maybe Prelude.Text)
+workforce_subDomain = Lens.lens (\Workforce' {subDomain} -> subDomain) (\s@Workforce' {} a -> s {subDomain = a} :: Workforce)
+
 -- | The configuration of a VPC workforce.
 workforce_workforceVpcConfig :: Lens.Lens' Workforce (Prelude.Maybe WorkforceVpcConfigResponse)
 workforce_workforceVpcConfig = Lens.lens (\Workforce' {workforceVpcConfig} -> workforceVpcConfig) (\s@Workforce' {} a -> s {workforceVpcConfig = a} :: Workforce)
-
--- | The date that the workforce is created.
-workforce_createDate :: Lens.Lens' Workforce (Prelude.Maybe Prelude.UTCTime)
-workforce_createDate = Lens.lens (\Workforce' {createDate} -> createDate) (\s@Workforce' {} a -> s {createDate = a} :: Workforce) Prelude.. Lens.mapping Data._Time
-
--- | The configuration of an OIDC Identity Provider (IdP) private workforce.
-workforce_oidcConfig :: Lens.Lens' Workforce (Prelude.Maybe OidcConfigForResponse)
-workforce_oidcConfig = Lens.lens (\Workforce' {oidcConfig} -> oidcConfig) (\s@Workforce' {} a -> s {oidcConfig = a} :: Workforce)
-
--- | The reason your workforce failed.
-workforce_failureReason :: Lens.Lens' Workforce (Prelude.Maybe Prelude.Text)
-workforce_failureReason = Lens.lens (\Workforce' {failureReason} -> failureReason) (\s@Workforce' {} a -> s {failureReason = a} :: Workforce)
 
 -- | The name of the private workforce.
 workforce_workforceName :: Lens.Lens' Workforce Prelude.Text
@@ -189,14 +189,14 @@ instance Data.FromJSON Workforce where
       ( \x ->
           Workforce'
             Prelude.<$> (x Data..:? "CognitoConfig")
-            Prelude.<*> (x Data..:? "LastUpdatedDate")
-            Prelude.<*> (x Data..:? "SubDomain")
-            Prelude.<*> (x Data..:? "Status")
-            Prelude.<*> (x Data..:? "SourceIpConfig")
-            Prelude.<*> (x Data..:? "WorkforceVpcConfig")
             Prelude.<*> (x Data..:? "CreateDate")
-            Prelude.<*> (x Data..:? "OidcConfig")
             Prelude.<*> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..:? "LastUpdatedDate")
+            Prelude.<*> (x Data..:? "OidcConfig")
+            Prelude.<*> (x Data..:? "SourceIpConfig")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "SubDomain")
+            Prelude.<*> (x Data..:? "WorkforceVpcConfig")
             Prelude.<*> (x Data..: "WorkforceName")
             Prelude.<*> (x Data..: "WorkforceArn")
       )
@@ -204,27 +204,27 @@ instance Data.FromJSON Workforce where
 instance Prelude.Hashable Workforce where
   hashWithSalt _salt Workforce' {..} =
     _salt `Prelude.hashWithSalt` cognitoConfig
-      `Prelude.hashWithSalt` lastUpdatedDate
-      `Prelude.hashWithSalt` subDomain
-      `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` sourceIpConfig
-      `Prelude.hashWithSalt` workforceVpcConfig
       `Prelude.hashWithSalt` createDate
-      `Prelude.hashWithSalt` oidcConfig
       `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` lastUpdatedDate
+      `Prelude.hashWithSalt` oidcConfig
+      `Prelude.hashWithSalt` sourceIpConfig
+      `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` subDomain
+      `Prelude.hashWithSalt` workforceVpcConfig
       `Prelude.hashWithSalt` workforceName
       `Prelude.hashWithSalt` workforceArn
 
 instance Prelude.NFData Workforce where
   rnf Workforce' {..} =
     Prelude.rnf cognitoConfig
-      `Prelude.seq` Prelude.rnf lastUpdatedDate
-      `Prelude.seq` Prelude.rnf subDomain
-      `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf sourceIpConfig
-      `Prelude.seq` Prelude.rnf workforceVpcConfig
       `Prelude.seq` Prelude.rnf createDate
-      `Prelude.seq` Prelude.rnf oidcConfig
       `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf lastUpdatedDate
+      `Prelude.seq` Prelude.rnf oidcConfig
+      `Prelude.seq` Prelude.rnf sourceIpConfig
+      `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf subDomain
+      `Prelude.seq` Prelude.rnf workforceVpcConfig
       `Prelude.seq` Prelude.rnf workforceName
       `Prelude.seq` Prelude.rnf workforceArn

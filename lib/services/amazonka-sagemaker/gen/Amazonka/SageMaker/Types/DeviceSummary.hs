@@ -29,21 +29,21 @@ import Amazonka.SageMaker.Types.EdgeModelSummary
 --
 -- /See:/ 'newDeviceSummary' smart constructor.
 data DeviceSummary = DeviceSummary'
-  { -- | Models on the device.
-    models :: Prelude.Maybe [EdgeModelSummary],
+  { -- | Edge Manager agent version.
+    agentVersion :: Prelude.Maybe Prelude.Text,
+    -- | A description of the device.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the fleet the device belongs to.
+    deviceFleetName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services Internet of Things (IoT) object thing name
     -- associated with the device..
     iotThingName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the fleet the device belongs to.
-    deviceFleetName :: Prelude.Maybe Prelude.Text,
-    -- | A description of the device.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp of the last registration or de-reregistration.
-    registrationTime :: Prelude.Maybe Data.POSIX,
     -- | The last heartbeat received from the device.
     latestHeartbeat :: Prelude.Maybe Data.POSIX,
-    -- | Edge Manager agent version.
-    agentVersion :: Prelude.Maybe Prelude.Text,
+    -- | Models on the device.
+    models :: Prelude.Maybe [EdgeModelSummary],
+    -- | The timestamp of the last registration or de-reregistration.
+    registrationTime :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier of the device.
     deviceName :: Prelude.Text,
     -- | Amazon Resource Name (ARN) of the device.
@@ -59,20 +59,20 @@ data DeviceSummary = DeviceSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'models', 'deviceSummary_models' - Models on the device.
+-- 'agentVersion', 'deviceSummary_agentVersion' - Edge Manager agent version.
+--
+-- 'description', 'deviceSummary_description' - A description of the device.
+--
+-- 'deviceFleetName', 'deviceSummary_deviceFleetName' - The name of the fleet the device belongs to.
 --
 -- 'iotThingName', 'deviceSummary_iotThingName' - The Amazon Web Services Internet of Things (IoT) object thing name
 -- associated with the device..
 --
--- 'deviceFleetName', 'deviceSummary_deviceFleetName' - The name of the fleet the device belongs to.
---
--- 'description', 'deviceSummary_description' - A description of the device.
---
--- 'registrationTime', 'deviceSummary_registrationTime' - The timestamp of the last registration or de-reregistration.
---
 -- 'latestHeartbeat', 'deviceSummary_latestHeartbeat' - The last heartbeat received from the device.
 --
--- 'agentVersion', 'deviceSummary_agentVersion' - Edge Manager agent version.
+-- 'models', 'deviceSummary_models' - Models on the device.
+--
+-- 'registrationTime', 'deviceSummary_registrationTime' - The timestamp of the last registration or de-reregistration.
 --
 -- 'deviceName', 'deviceSummary_deviceName' - The unique identifier of the device.
 --
@@ -85,45 +85,45 @@ newDeviceSummary ::
   DeviceSummary
 newDeviceSummary pDeviceName_ pDeviceArn_ =
   DeviceSummary'
-    { models = Prelude.Nothing,
-      iotThingName = Prelude.Nothing,
-      deviceFleetName = Prelude.Nothing,
+    { agentVersion = Prelude.Nothing,
       description = Prelude.Nothing,
-      registrationTime = Prelude.Nothing,
+      deviceFleetName = Prelude.Nothing,
+      iotThingName = Prelude.Nothing,
       latestHeartbeat = Prelude.Nothing,
-      agentVersion = Prelude.Nothing,
+      models = Prelude.Nothing,
+      registrationTime = Prelude.Nothing,
       deviceName = pDeviceName_,
       deviceArn = pDeviceArn_
     }
 
--- | Models on the device.
-deviceSummary_models :: Lens.Lens' DeviceSummary (Prelude.Maybe [EdgeModelSummary])
-deviceSummary_models = Lens.lens (\DeviceSummary' {models} -> models) (\s@DeviceSummary' {} a -> s {models = a} :: DeviceSummary) Prelude.. Lens.mapping Lens.coerced
+-- | Edge Manager agent version.
+deviceSummary_agentVersion :: Lens.Lens' DeviceSummary (Prelude.Maybe Prelude.Text)
+deviceSummary_agentVersion = Lens.lens (\DeviceSummary' {agentVersion} -> agentVersion) (\s@DeviceSummary' {} a -> s {agentVersion = a} :: DeviceSummary)
+
+-- | A description of the device.
+deviceSummary_description :: Lens.Lens' DeviceSummary (Prelude.Maybe Prelude.Text)
+deviceSummary_description = Lens.lens (\DeviceSummary' {description} -> description) (\s@DeviceSummary' {} a -> s {description = a} :: DeviceSummary)
+
+-- | The name of the fleet the device belongs to.
+deviceSummary_deviceFleetName :: Lens.Lens' DeviceSummary (Prelude.Maybe Prelude.Text)
+deviceSummary_deviceFleetName = Lens.lens (\DeviceSummary' {deviceFleetName} -> deviceFleetName) (\s@DeviceSummary' {} a -> s {deviceFleetName = a} :: DeviceSummary)
 
 -- | The Amazon Web Services Internet of Things (IoT) object thing name
 -- associated with the device..
 deviceSummary_iotThingName :: Lens.Lens' DeviceSummary (Prelude.Maybe Prelude.Text)
 deviceSummary_iotThingName = Lens.lens (\DeviceSummary' {iotThingName} -> iotThingName) (\s@DeviceSummary' {} a -> s {iotThingName = a} :: DeviceSummary)
 
--- | The name of the fleet the device belongs to.
-deviceSummary_deviceFleetName :: Lens.Lens' DeviceSummary (Prelude.Maybe Prelude.Text)
-deviceSummary_deviceFleetName = Lens.lens (\DeviceSummary' {deviceFleetName} -> deviceFleetName) (\s@DeviceSummary' {} a -> s {deviceFleetName = a} :: DeviceSummary)
-
--- | A description of the device.
-deviceSummary_description :: Lens.Lens' DeviceSummary (Prelude.Maybe Prelude.Text)
-deviceSummary_description = Lens.lens (\DeviceSummary' {description} -> description) (\s@DeviceSummary' {} a -> s {description = a} :: DeviceSummary)
-
--- | The timestamp of the last registration or de-reregistration.
-deviceSummary_registrationTime :: Lens.Lens' DeviceSummary (Prelude.Maybe Prelude.UTCTime)
-deviceSummary_registrationTime = Lens.lens (\DeviceSummary' {registrationTime} -> registrationTime) (\s@DeviceSummary' {} a -> s {registrationTime = a} :: DeviceSummary) Prelude.. Lens.mapping Data._Time
-
 -- | The last heartbeat received from the device.
 deviceSummary_latestHeartbeat :: Lens.Lens' DeviceSummary (Prelude.Maybe Prelude.UTCTime)
 deviceSummary_latestHeartbeat = Lens.lens (\DeviceSummary' {latestHeartbeat} -> latestHeartbeat) (\s@DeviceSummary' {} a -> s {latestHeartbeat = a} :: DeviceSummary) Prelude.. Lens.mapping Data._Time
 
--- | Edge Manager agent version.
-deviceSummary_agentVersion :: Lens.Lens' DeviceSummary (Prelude.Maybe Prelude.Text)
-deviceSummary_agentVersion = Lens.lens (\DeviceSummary' {agentVersion} -> agentVersion) (\s@DeviceSummary' {} a -> s {agentVersion = a} :: DeviceSummary)
+-- | Models on the device.
+deviceSummary_models :: Lens.Lens' DeviceSummary (Prelude.Maybe [EdgeModelSummary])
+deviceSummary_models = Lens.lens (\DeviceSummary' {models} -> models) (\s@DeviceSummary' {} a -> s {models = a} :: DeviceSummary) Prelude.. Lens.mapping Lens.coerced
+
+-- | The timestamp of the last registration or de-reregistration.
+deviceSummary_registrationTime :: Lens.Lens' DeviceSummary (Prelude.Maybe Prelude.UTCTime)
+deviceSummary_registrationTime = Lens.lens (\DeviceSummary' {registrationTime} -> registrationTime) (\s@DeviceSummary' {} a -> s {registrationTime = a} :: DeviceSummary) Prelude.. Lens.mapping Data._Time
 
 -- | The unique identifier of the device.
 deviceSummary_deviceName :: Lens.Lens' DeviceSummary Prelude.Text
@@ -139,37 +139,37 @@ instance Data.FromJSON DeviceSummary where
       "DeviceSummary"
       ( \x ->
           DeviceSummary'
-            Prelude.<$> (x Data..:? "Models" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "IotThingName")
-            Prelude.<*> (x Data..:? "DeviceFleetName")
+            Prelude.<$> (x Data..:? "AgentVersion")
             Prelude.<*> (x Data..:? "Description")
-            Prelude.<*> (x Data..:? "RegistrationTime")
+            Prelude.<*> (x Data..:? "DeviceFleetName")
+            Prelude.<*> (x Data..:? "IotThingName")
             Prelude.<*> (x Data..:? "LatestHeartbeat")
-            Prelude.<*> (x Data..:? "AgentVersion")
+            Prelude.<*> (x Data..:? "Models" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "RegistrationTime")
             Prelude.<*> (x Data..: "DeviceName")
             Prelude.<*> (x Data..: "DeviceArn")
       )
 
 instance Prelude.Hashable DeviceSummary where
   hashWithSalt _salt DeviceSummary' {..} =
-    _salt `Prelude.hashWithSalt` models
-      `Prelude.hashWithSalt` iotThingName
-      `Prelude.hashWithSalt` deviceFleetName
+    _salt `Prelude.hashWithSalt` agentVersion
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` registrationTime
+      `Prelude.hashWithSalt` deviceFleetName
+      `Prelude.hashWithSalt` iotThingName
       `Prelude.hashWithSalt` latestHeartbeat
-      `Prelude.hashWithSalt` agentVersion
+      `Prelude.hashWithSalt` models
+      `Prelude.hashWithSalt` registrationTime
       `Prelude.hashWithSalt` deviceName
       `Prelude.hashWithSalt` deviceArn
 
 instance Prelude.NFData DeviceSummary where
   rnf DeviceSummary' {..} =
-    Prelude.rnf models
-      `Prelude.seq` Prelude.rnf iotThingName
-      `Prelude.seq` Prelude.rnf deviceFleetName
+    Prelude.rnf agentVersion
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf registrationTime
+      `Prelude.seq` Prelude.rnf deviceFleetName
+      `Prelude.seq` Prelude.rnf iotThingName
       `Prelude.seq` Prelude.rnf latestHeartbeat
-      `Prelude.seq` Prelude.rnf agentVersion
+      `Prelude.seq` Prelude.rnf models
+      `Prelude.seq` Prelude.rnf registrationTime
       `Prelude.seq` Prelude.rnf deviceName
       `Prelude.seq` Prelude.rnf deviceArn

@@ -29,9 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3StorageConfig' smart constructor.
 data S3StorageConfig = S3StorageConfig'
-  { -- | The S3 path where offline records are written.
-    resolvedOutputS3Uri :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services Key Management Service (KMS) key ID of the key
+  { -- | The Amazon Web Services Key Management Service (KMS) key ID of the key
     -- used to encrypt any objects written into the @OfflineStore@ S3 location.
     --
     -- The IAM @roleARN@ that is passed as a parameter to @CreateFeatureGroup@
@@ -39,6 +37,8 @@ data S3StorageConfig = S3StorageConfig'
     --
     -- -   @\"kms:GenerateDataKey\"@
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The S3 path where offline records are written.
+    resolvedOutputS3Uri :: Prelude.Maybe Prelude.Text,
     -- | The S3 URI, or location in Amazon S3, of @OfflineStore@.
     --
     -- S3 URIs have a format similar to the following:
@@ -55,8 +55,6 @@ data S3StorageConfig = S3StorageConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resolvedOutputS3Uri', 's3StorageConfig_resolvedOutputS3Uri' - The S3 path where offline records are written.
---
 -- 'kmsKeyId', 's3StorageConfig_kmsKeyId' - The Amazon Web Services Key Management Service (KMS) key ID of the key
 -- used to encrypt any objects written into the @OfflineStore@ S3 location.
 --
@@ -64,6 +62,8 @@ data S3StorageConfig = S3StorageConfig'
 -- must have below permissions to the @KmsKeyId@:
 --
 -- -   @\"kms:GenerateDataKey\"@
+--
+-- 'resolvedOutputS3Uri', 's3StorageConfig_resolvedOutputS3Uri' - The S3 path where offline records are written.
 --
 -- 's3Uri', 's3StorageConfig_s3Uri' - The S3 URI, or location in Amazon S3, of @OfflineStore@.
 --
@@ -75,15 +75,10 @@ newS3StorageConfig ::
   S3StorageConfig
 newS3StorageConfig pS3Uri_ =
   S3StorageConfig'
-    { resolvedOutputS3Uri =
-        Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
+    { kmsKeyId = Prelude.Nothing,
+      resolvedOutputS3Uri = Prelude.Nothing,
       s3Uri = pS3Uri_
     }
-
--- | The S3 path where offline records are written.
-s3StorageConfig_resolvedOutputS3Uri :: Lens.Lens' S3StorageConfig (Prelude.Maybe Prelude.Text)
-s3StorageConfig_resolvedOutputS3Uri = Lens.lens (\S3StorageConfig' {resolvedOutputS3Uri} -> resolvedOutputS3Uri) (\s@S3StorageConfig' {} a -> s {resolvedOutputS3Uri = a} :: S3StorageConfig)
 
 -- | The Amazon Web Services Key Management Service (KMS) key ID of the key
 -- used to encrypt any objects written into the @OfflineStore@ S3 location.
@@ -94,6 +89,10 @@ s3StorageConfig_resolvedOutputS3Uri = Lens.lens (\S3StorageConfig' {resolvedOutp
 -- -   @\"kms:GenerateDataKey\"@
 s3StorageConfig_kmsKeyId :: Lens.Lens' S3StorageConfig (Prelude.Maybe Prelude.Text)
 s3StorageConfig_kmsKeyId = Lens.lens (\S3StorageConfig' {kmsKeyId} -> kmsKeyId) (\s@S3StorageConfig' {} a -> s {kmsKeyId = a} :: S3StorageConfig)
+
+-- | The S3 path where offline records are written.
+s3StorageConfig_resolvedOutputS3Uri :: Lens.Lens' S3StorageConfig (Prelude.Maybe Prelude.Text)
+s3StorageConfig_resolvedOutputS3Uri = Lens.lens (\S3StorageConfig' {resolvedOutputS3Uri} -> resolvedOutputS3Uri) (\s@S3StorageConfig' {} a -> s {resolvedOutputS3Uri = a} :: S3StorageConfig)
 
 -- | The S3 URI, or location in Amazon S3, of @OfflineStore@.
 --
@@ -108,30 +107,30 @@ instance Data.FromJSON S3StorageConfig where
       "S3StorageConfig"
       ( \x ->
           S3StorageConfig'
-            Prelude.<$> (x Data..:? "ResolvedOutputS3Uri")
-            Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<$> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "ResolvedOutputS3Uri")
             Prelude.<*> (x Data..: "S3Uri")
       )
 
 instance Prelude.Hashable S3StorageConfig where
   hashWithSalt _salt S3StorageConfig' {..} =
-    _salt `Prelude.hashWithSalt` resolvedOutputS3Uri
-      `Prelude.hashWithSalt` kmsKeyId
+    _salt `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` resolvedOutputS3Uri
       `Prelude.hashWithSalt` s3Uri
 
 instance Prelude.NFData S3StorageConfig where
   rnf S3StorageConfig' {..} =
-    Prelude.rnf resolvedOutputS3Uri
-      `Prelude.seq` Prelude.rnf kmsKeyId
+    Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf resolvedOutputS3Uri
       `Prelude.seq` Prelude.rnf s3Uri
 
 instance Data.ToJSON S3StorageConfig where
   toJSON S3StorageConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ResolvedOutputS3Uri" Data..=)
+          [ ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("ResolvedOutputS3Uri" Data..=)
               Prelude.<$> resolvedOutputS3Uri,
-            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
             Prelude.Just ("S3Uri" Data..= s3Uri)
           ]
       )

@@ -29,16 +29,16 @@ module Amazonka.SageMaker.ListEdgeDeploymentPlans
     newListEdgeDeploymentPlans,
 
     -- * Request Lenses
-    listEdgeDeploymentPlans_sortOrder,
-    listEdgeDeploymentPlans_nextToken,
-    listEdgeDeploymentPlans_lastModifiedTimeAfter,
-    listEdgeDeploymentPlans_nameContains,
-    listEdgeDeploymentPlans_lastModifiedTimeBefore,
-    listEdgeDeploymentPlans_creationTimeBefore,
-    listEdgeDeploymentPlans_sortBy,
-    listEdgeDeploymentPlans_maxResults,
-    listEdgeDeploymentPlans_deviceFleetNameContains,
     listEdgeDeploymentPlans_creationTimeAfter,
+    listEdgeDeploymentPlans_creationTimeBefore,
+    listEdgeDeploymentPlans_deviceFleetNameContains,
+    listEdgeDeploymentPlans_lastModifiedTimeAfter,
+    listEdgeDeploymentPlans_lastModifiedTimeBefore,
+    listEdgeDeploymentPlans_maxResults,
+    listEdgeDeploymentPlans_nameContains,
+    listEdgeDeploymentPlans_nextToken,
+    listEdgeDeploymentPlans_sortBy,
+    listEdgeDeploymentPlans_sortOrder,
 
     -- * Destructuring the Response
     ListEdgeDeploymentPlansResponse (..),
@@ -61,29 +61,29 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListEdgeDeploymentPlans' smart constructor.
 data ListEdgeDeploymentPlans = ListEdgeDeploymentPlans'
-  { -- | The direction of the sorting (ascending or descending).
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | The response from the last list when returning a list large enough to
-    -- need tokening.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Selects edge deployment plans that were last updated after this time.
-    lastModifiedTimeAfter :: Prelude.Maybe Data.POSIX,
-    -- | Selects edge deployment plans with names containing this name.
-    nameContains :: Prelude.Maybe Prelude.Text,
-    -- | Selects edge deployment plans that were last updated before this time.
-    lastModifiedTimeBefore :: Prelude.Maybe Data.POSIX,
+  { -- | Selects edge deployment plans created after this time.
+    creationTimeAfter :: Prelude.Maybe Data.POSIX,
     -- | Selects edge deployment plans created before this time.
     creationTimeBefore :: Prelude.Maybe Data.POSIX,
-    -- | The column by which to sort the edge deployment plans. Can be one of
-    -- @NAME@, @DEVICEFLEETNAME@, @CREATIONTIME@, @LASTMODIFIEDTIME@.
-    sortBy :: Prelude.Maybe ListEdgeDeploymentPlansSortBy,
-    -- | The maximum number of results to select (50 by default).
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | Selects edge deployment plans with a device fleet name containing this
     -- name.
     deviceFleetNameContains :: Prelude.Maybe Prelude.Text,
-    -- | Selects edge deployment plans created after this time.
-    creationTimeAfter :: Prelude.Maybe Data.POSIX
+    -- | Selects edge deployment plans that were last updated after this time.
+    lastModifiedTimeAfter :: Prelude.Maybe Data.POSIX,
+    -- | Selects edge deployment plans that were last updated before this time.
+    lastModifiedTimeBefore :: Prelude.Maybe Data.POSIX,
+    -- | The maximum number of results to select (50 by default).
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | Selects edge deployment plans with names containing this name.
+    nameContains :: Prelude.Maybe Prelude.Text,
+    -- | The response from the last list when returning a list large enough to
+    -- need tokening.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The column by which to sort the edge deployment plans. Can be one of
+    -- @NAME@, @DEVICEFLEETNAME@, @CREATIONTIME@, @LASTMODIFIEDTIME@.
+    sortBy :: Prelude.Maybe ListEdgeDeploymentPlansSortBy,
+    -- | The direction of the sorting (ascending or descending).
+    sortOrder :: Prelude.Maybe SortOrder
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -95,87 +95,87 @@ data ListEdgeDeploymentPlans = ListEdgeDeploymentPlans'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listEdgeDeploymentPlans_sortOrder' - The direction of the sorting (ascending or descending).
---
--- 'nextToken', 'listEdgeDeploymentPlans_nextToken' - The response from the last list when returning a list large enough to
--- need tokening.
---
--- 'lastModifiedTimeAfter', 'listEdgeDeploymentPlans_lastModifiedTimeAfter' - Selects edge deployment plans that were last updated after this time.
---
--- 'nameContains', 'listEdgeDeploymentPlans_nameContains' - Selects edge deployment plans with names containing this name.
---
--- 'lastModifiedTimeBefore', 'listEdgeDeploymentPlans_lastModifiedTimeBefore' - Selects edge deployment plans that were last updated before this time.
+-- 'creationTimeAfter', 'listEdgeDeploymentPlans_creationTimeAfter' - Selects edge deployment plans created after this time.
 --
 -- 'creationTimeBefore', 'listEdgeDeploymentPlans_creationTimeBefore' - Selects edge deployment plans created before this time.
---
--- 'sortBy', 'listEdgeDeploymentPlans_sortBy' - The column by which to sort the edge deployment plans. Can be one of
--- @NAME@, @DEVICEFLEETNAME@, @CREATIONTIME@, @LASTMODIFIEDTIME@.
---
--- 'maxResults', 'listEdgeDeploymentPlans_maxResults' - The maximum number of results to select (50 by default).
 --
 -- 'deviceFleetNameContains', 'listEdgeDeploymentPlans_deviceFleetNameContains' - Selects edge deployment plans with a device fleet name containing this
 -- name.
 --
--- 'creationTimeAfter', 'listEdgeDeploymentPlans_creationTimeAfter' - Selects edge deployment plans created after this time.
+-- 'lastModifiedTimeAfter', 'listEdgeDeploymentPlans_lastModifiedTimeAfter' - Selects edge deployment plans that were last updated after this time.
+--
+-- 'lastModifiedTimeBefore', 'listEdgeDeploymentPlans_lastModifiedTimeBefore' - Selects edge deployment plans that were last updated before this time.
+--
+-- 'maxResults', 'listEdgeDeploymentPlans_maxResults' - The maximum number of results to select (50 by default).
+--
+-- 'nameContains', 'listEdgeDeploymentPlans_nameContains' - Selects edge deployment plans with names containing this name.
+--
+-- 'nextToken', 'listEdgeDeploymentPlans_nextToken' - The response from the last list when returning a list large enough to
+-- need tokening.
+--
+-- 'sortBy', 'listEdgeDeploymentPlans_sortBy' - The column by which to sort the edge deployment plans. Can be one of
+-- @NAME@, @DEVICEFLEETNAME@, @CREATIONTIME@, @LASTMODIFIEDTIME@.
+--
+-- 'sortOrder', 'listEdgeDeploymentPlans_sortOrder' - The direction of the sorting (ascending or descending).
 newListEdgeDeploymentPlans ::
   ListEdgeDeploymentPlans
 newListEdgeDeploymentPlans =
   ListEdgeDeploymentPlans'
-    { sortOrder =
+    { creationTimeAfter =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      lastModifiedTimeAfter = Prelude.Nothing,
-      nameContains = Prelude.Nothing,
-      lastModifiedTimeBefore = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       deviceFleetNameContains = Prelude.Nothing,
-      creationTimeAfter = Prelude.Nothing
+      lastModifiedTimeAfter = Prelude.Nothing,
+      lastModifiedTimeBefore = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nameContains = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      sortOrder = Prelude.Nothing
     }
 
--- | The direction of the sorting (ascending or descending).
-listEdgeDeploymentPlans_sortOrder :: Lens.Lens' ListEdgeDeploymentPlans (Prelude.Maybe SortOrder)
-listEdgeDeploymentPlans_sortOrder = Lens.lens (\ListEdgeDeploymentPlans' {sortOrder} -> sortOrder) (\s@ListEdgeDeploymentPlans' {} a -> s {sortOrder = a} :: ListEdgeDeploymentPlans)
-
--- | The response from the last list when returning a list large enough to
--- need tokening.
-listEdgeDeploymentPlans_nextToken :: Lens.Lens' ListEdgeDeploymentPlans (Prelude.Maybe Prelude.Text)
-listEdgeDeploymentPlans_nextToken = Lens.lens (\ListEdgeDeploymentPlans' {nextToken} -> nextToken) (\s@ListEdgeDeploymentPlans' {} a -> s {nextToken = a} :: ListEdgeDeploymentPlans)
-
--- | Selects edge deployment plans that were last updated after this time.
-listEdgeDeploymentPlans_lastModifiedTimeAfter :: Lens.Lens' ListEdgeDeploymentPlans (Prelude.Maybe Prelude.UTCTime)
-listEdgeDeploymentPlans_lastModifiedTimeAfter = Lens.lens (\ListEdgeDeploymentPlans' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListEdgeDeploymentPlans' {} a -> s {lastModifiedTimeAfter = a} :: ListEdgeDeploymentPlans) Prelude.. Lens.mapping Data._Time
-
--- | Selects edge deployment plans with names containing this name.
-listEdgeDeploymentPlans_nameContains :: Lens.Lens' ListEdgeDeploymentPlans (Prelude.Maybe Prelude.Text)
-listEdgeDeploymentPlans_nameContains = Lens.lens (\ListEdgeDeploymentPlans' {nameContains} -> nameContains) (\s@ListEdgeDeploymentPlans' {} a -> s {nameContains = a} :: ListEdgeDeploymentPlans)
-
--- | Selects edge deployment plans that were last updated before this time.
-listEdgeDeploymentPlans_lastModifiedTimeBefore :: Lens.Lens' ListEdgeDeploymentPlans (Prelude.Maybe Prelude.UTCTime)
-listEdgeDeploymentPlans_lastModifiedTimeBefore = Lens.lens (\ListEdgeDeploymentPlans' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListEdgeDeploymentPlans' {} a -> s {lastModifiedTimeBefore = a} :: ListEdgeDeploymentPlans) Prelude.. Lens.mapping Data._Time
+-- | Selects edge deployment plans created after this time.
+listEdgeDeploymentPlans_creationTimeAfter :: Lens.Lens' ListEdgeDeploymentPlans (Prelude.Maybe Prelude.UTCTime)
+listEdgeDeploymentPlans_creationTimeAfter = Lens.lens (\ListEdgeDeploymentPlans' {creationTimeAfter} -> creationTimeAfter) (\s@ListEdgeDeploymentPlans' {} a -> s {creationTimeAfter = a} :: ListEdgeDeploymentPlans) Prelude.. Lens.mapping Data._Time
 
 -- | Selects edge deployment plans created before this time.
 listEdgeDeploymentPlans_creationTimeBefore :: Lens.Lens' ListEdgeDeploymentPlans (Prelude.Maybe Prelude.UTCTime)
 listEdgeDeploymentPlans_creationTimeBefore = Lens.lens (\ListEdgeDeploymentPlans' {creationTimeBefore} -> creationTimeBefore) (\s@ListEdgeDeploymentPlans' {} a -> s {creationTimeBefore = a} :: ListEdgeDeploymentPlans) Prelude.. Lens.mapping Data._Time
-
--- | The column by which to sort the edge deployment plans. Can be one of
--- @NAME@, @DEVICEFLEETNAME@, @CREATIONTIME@, @LASTMODIFIEDTIME@.
-listEdgeDeploymentPlans_sortBy :: Lens.Lens' ListEdgeDeploymentPlans (Prelude.Maybe ListEdgeDeploymentPlansSortBy)
-listEdgeDeploymentPlans_sortBy = Lens.lens (\ListEdgeDeploymentPlans' {sortBy} -> sortBy) (\s@ListEdgeDeploymentPlans' {} a -> s {sortBy = a} :: ListEdgeDeploymentPlans)
-
--- | The maximum number of results to select (50 by default).
-listEdgeDeploymentPlans_maxResults :: Lens.Lens' ListEdgeDeploymentPlans (Prelude.Maybe Prelude.Int)
-listEdgeDeploymentPlans_maxResults = Lens.lens (\ListEdgeDeploymentPlans' {maxResults} -> maxResults) (\s@ListEdgeDeploymentPlans' {} a -> s {maxResults = a} :: ListEdgeDeploymentPlans)
 
 -- | Selects edge deployment plans with a device fleet name containing this
 -- name.
 listEdgeDeploymentPlans_deviceFleetNameContains :: Lens.Lens' ListEdgeDeploymentPlans (Prelude.Maybe Prelude.Text)
 listEdgeDeploymentPlans_deviceFleetNameContains = Lens.lens (\ListEdgeDeploymentPlans' {deviceFleetNameContains} -> deviceFleetNameContains) (\s@ListEdgeDeploymentPlans' {} a -> s {deviceFleetNameContains = a} :: ListEdgeDeploymentPlans)
 
--- | Selects edge deployment plans created after this time.
-listEdgeDeploymentPlans_creationTimeAfter :: Lens.Lens' ListEdgeDeploymentPlans (Prelude.Maybe Prelude.UTCTime)
-listEdgeDeploymentPlans_creationTimeAfter = Lens.lens (\ListEdgeDeploymentPlans' {creationTimeAfter} -> creationTimeAfter) (\s@ListEdgeDeploymentPlans' {} a -> s {creationTimeAfter = a} :: ListEdgeDeploymentPlans) Prelude.. Lens.mapping Data._Time
+-- | Selects edge deployment plans that were last updated after this time.
+listEdgeDeploymentPlans_lastModifiedTimeAfter :: Lens.Lens' ListEdgeDeploymentPlans (Prelude.Maybe Prelude.UTCTime)
+listEdgeDeploymentPlans_lastModifiedTimeAfter = Lens.lens (\ListEdgeDeploymentPlans' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListEdgeDeploymentPlans' {} a -> s {lastModifiedTimeAfter = a} :: ListEdgeDeploymentPlans) Prelude.. Lens.mapping Data._Time
+
+-- | Selects edge deployment plans that were last updated before this time.
+listEdgeDeploymentPlans_lastModifiedTimeBefore :: Lens.Lens' ListEdgeDeploymentPlans (Prelude.Maybe Prelude.UTCTime)
+listEdgeDeploymentPlans_lastModifiedTimeBefore = Lens.lens (\ListEdgeDeploymentPlans' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListEdgeDeploymentPlans' {} a -> s {lastModifiedTimeBefore = a} :: ListEdgeDeploymentPlans) Prelude.. Lens.mapping Data._Time
+
+-- | The maximum number of results to select (50 by default).
+listEdgeDeploymentPlans_maxResults :: Lens.Lens' ListEdgeDeploymentPlans (Prelude.Maybe Prelude.Int)
+listEdgeDeploymentPlans_maxResults = Lens.lens (\ListEdgeDeploymentPlans' {maxResults} -> maxResults) (\s@ListEdgeDeploymentPlans' {} a -> s {maxResults = a} :: ListEdgeDeploymentPlans)
+
+-- | Selects edge deployment plans with names containing this name.
+listEdgeDeploymentPlans_nameContains :: Lens.Lens' ListEdgeDeploymentPlans (Prelude.Maybe Prelude.Text)
+listEdgeDeploymentPlans_nameContains = Lens.lens (\ListEdgeDeploymentPlans' {nameContains} -> nameContains) (\s@ListEdgeDeploymentPlans' {} a -> s {nameContains = a} :: ListEdgeDeploymentPlans)
+
+-- | The response from the last list when returning a list large enough to
+-- need tokening.
+listEdgeDeploymentPlans_nextToken :: Lens.Lens' ListEdgeDeploymentPlans (Prelude.Maybe Prelude.Text)
+listEdgeDeploymentPlans_nextToken = Lens.lens (\ListEdgeDeploymentPlans' {nextToken} -> nextToken) (\s@ListEdgeDeploymentPlans' {} a -> s {nextToken = a} :: ListEdgeDeploymentPlans)
+
+-- | The column by which to sort the edge deployment plans. Can be one of
+-- @NAME@, @DEVICEFLEETNAME@, @CREATIONTIME@, @LASTMODIFIEDTIME@.
+listEdgeDeploymentPlans_sortBy :: Lens.Lens' ListEdgeDeploymentPlans (Prelude.Maybe ListEdgeDeploymentPlansSortBy)
+listEdgeDeploymentPlans_sortBy = Lens.lens (\ListEdgeDeploymentPlans' {sortBy} -> sortBy) (\s@ListEdgeDeploymentPlans' {} a -> s {sortBy = a} :: ListEdgeDeploymentPlans)
+
+-- | The direction of the sorting (ascending or descending).
+listEdgeDeploymentPlans_sortOrder :: Lens.Lens' ListEdgeDeploymentPlans (Prelude.Maybe SortOrder)
+listEdgeDeploymentPlans_sortOrder = Lens.lens (\ListEdgeDeploymentPlans' {sortOrder} -> sortOrder) (\s@ListEdgeDeploymentPlans' {} a -> s {sortOrder = a} :: ListEdgeDeploymentPlans)
 
 instance Core.AWSPager ListEdgeDeploymentPlans where
   page rq rs
@@ -217,29 +217,29 @@ instance Core.AWSRequest ListEdgeDeploymentPlans where
 
 instance Prelude.Hashable ListEdgeDeploymentPlans where
   hashWithSalt _salt ListEdgeDeploymentPlans' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` lastModifiedTimeAfter
-      `Prelude.hashWithSalt` nameContains
-      `Prelude.hashWithSalt` lastModifiedTimeBefore
+    _salt `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
-      `Prelude.hashWithSalt` sortBy
-      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` deviceFleetNameContains
-      `Prelude.hashWithSalt` creationTimeAfter
+      `Prelude.hashWithSalt` lastModifiedTimeAfter
+      `Prelude.hashWithSalt` lastModifiedTimeBefore
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nameContains
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` sortOrder
 
 instance Prelude.NFData ListEdgeDeploymentPlans where
   rnf ListEdgeDeploymentPlans' {..} =
-    Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
-      `Prelude.seq` Prelude.rnf nameContains
-      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
+    Prelude.rnf creationTimeAfter
       `Prelude.seq` Prelude.rnf creationTimeBefore
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf deviceFleetNameContains
-      `Prelude.seq` Prelude.rnf creationTimeAfter
+      `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
+      `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nameContains
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf sortOrder
 
 instance Data.ToHeaders ListEdgeDeploymentPlans where
   toHeaders =
@@ -260,21 +260,21 @@ instance Data.ToJSON ListEdgeDeploymentPlans where
   toJSON ListEdgeDeploymentPlans' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
-            ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("LastModifiedTimeAfter" Data..=)
-              Prelude.<$> lastModifiedTimeAfter,
-            ("NameContains" Data..=) Prelude.<$> nameContains,
-            ("LastModifiedTimeBefore" Data..=)
-              Prelude.<$> lastModifiedTimeBefore,
+          [ ("CreationTimeAfter" Data..=)
+              Prelude.<$> creationTimeAfter,
             ("CreationTimeBefore" Data..=)
               Prelude.<$> creationTimeBefore,
-            ("SortBy" Data..=) Prelude.<$> sortBy,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("DeviceFleetNameContains" Data..=)
               Prelude.<$> deviceFleetNameContains,
-            ("CreationTimeAfter" Data..=)
-              Prelude.<$> creationTimeAfter
+            ("LastModifiedTimeAfter" Data..=)
+              Prelude.<$> lastModifiedTimeAfter,
+            ("LastModifiedTimeBefore" Data..=)
+              Prelude.<$> lastModifiedTimeBefore,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NameContains" Data..=) Prelude.<$> nameContains,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("SortOrder" Data..=) Prelude.<$> sortOrder
           ]
       )
 

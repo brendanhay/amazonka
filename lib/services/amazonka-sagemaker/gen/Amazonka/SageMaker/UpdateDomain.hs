@@ -27,8 +27,9 @@ module Amazonka.SageMaker.UpdateDomain
     newUpdateDomain,
 
     -- * Request Lenses
-    updateDomain_domainSettingsForUpdate,
+    updateDomain_defaultSpaceSettings,
     updateDomain_defaultUserSettings,
+    updateDomain_domainSettingsForUpdate,
     updateDomain_domainId,
 
     -- * Destructuring the Response
@@ -51,10 +52,12 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newUpdateDomain' smart constructor.
 data UpdateDomain = UpdateDomain'
-  { -- | A collection of @DomainSettings@ configuration values to update.
-    domainSettingsForUpdate :: Prelude.Maybe DomainSettingsForUpdate,
+  { -- | The default settings used to create a space within the Domain.
+    defaultSpaceSettings :: Prelude.Maybe DefaultSpaceSettings,
     -- | A collection of settings.
     defaultUserSettings :: Prelude.Maybe UserSettings,
+    -- | A collection of @DomainSettings@ configuration values to update.
+    domainSettingsForUpdate :: Prelude.Maybe DomainSettingsForUpdate,
     -- | The ID of the domain to be updated.
     domainId :: Prelude.Text
   }
@@ -68,9 +71,11 @@ data UpdateDomain = UpdateDomain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainSettingsForUpdate', 'updateDomain_domainSettingsForUpdate' - A collection of @DomainSettings@ configuration values to update.
+-- 'defaultSpaceSettings', 'updateDomain_defaultSpaceSettings' - The default settings used to create a space within the Domain.
 --
 -- 'defaultUserSettings', 'updateDomain_defaultUserSettings' - A collection of settings.
+--
+-- 'domainSettingsForUpdate', 'updateDomain_domainSettingsForUpdate' - A collection of @DomainSettings@ configuration values to update.
 --
 -- 'domainId', 'updateDomain_domainId' - The ID of the domain to be updated.
 newUpdateDomain ::
@@ -79,19 +84,24 @@ newUpdateDomain ::
   UpdateDomain
 newUpdateDomain pDomainId_ =
   UpdateDomain'
-    { domainSettingsForUpdate =
+    { defaultSpaceSettings =
         Prelude.Nothing,
       defaultUserSettings = Prelude.Nothing,
+      domainSettingsForUpdate = Prelude.Nothing,
       domainId = pDomainId_
     }
 
--- | A collection of @DomainSettings@ configuration values to update.
-updateDomain_domainSettingsForUpdate :: Lens.Lens' UpdateDomain (Prelude.Maybe DomainSettingsForUpdate)
-updateDomain_domainSettingsForUpdate = Lens.lens (\UpdateDomain' {domainSettingsForUpdate} -> domainSettingsForUpdate) (\s@UpdateDomain' {} a -> s {domainSettingsForUpdate = a} :: UpdateDomain)
+-- | The default settings used to create a space within the Domain.
+updateDomain_defaultSpaceSettings :: Lens.Lens' UpdateDomain (Prelude.Maybe DefaultSpaceSettings)
+updateDomain_defaultSpaceSettings = Lens.lens (\UpdateDomain' {defaultSpaceSettings} -> defaultSpaceSettings) (\s@UpdateDomain' {} a -> s {defaultSpaceSettings = a} :: UpdateDomain)
 
 -- | A collection of settings.
 updateDomain_defaultUserSettings :: Lens.Lens' UpdateDomain (Prelude.Maybe UserSettings)
 updateDomain_defaultUserSettings = Lens.lens (\UpdateDomain' {defaultUserSettings} -> defaultUserSettings) (\s@UpdateDomain' {} a -> s {defaultUserSettings = a} :: UpdateDomain)
+
+-- | A collection of @DomainSettings@ configuration values to update.
+updateDomain_domainSettingsForUpdate :: Lens.Lens' UpdateDomain (Prelude.Maybe DomainSettingsForUpdate)
+updateDomain_domainSettingsForUpdate = Lens.lens (\UpdateDomain' {domainSettingsForUpdate} -> domainSettingsForUpdate) (\s@UpdateDomain' {} a -> s {domainSettingsForUpdate = a} :: UpdateDomain)
 
 -- | The ID of the domain to be updated.
 updateDomain_domainId :: Lens.Lens' UpdateDomain Prelude.Text
@@ -111,15 +121,16 @@ instance Core.AWSRequest UpdateDomain where
 
 instance Prelude.Hashable UpdateDomain where
   hashWithSalt _salt UpdateDomain' {..} =
-    _salt
-      `Prelude.hashWithSalt` domainSettingsForUpdate
+    _salt `Prelude.hashWithSalt` defaultSpaceSettings
       `Prelude.hashWithSalt` defaultUserSettings
+      `Prelude.hashWithSalt` domainSettingsForUpdate
       `Prelude.hashWithSalt` domainId
 
 instance Prelude.NFData UpdateDomain where
   rnf UpdateDomain' {..} =
-    Prelude.rnf domainSettingsForUpdate
+    Prelude.rnf defaultSpaceSettings
       `Prelude.seq` Prelude.rnf defaultUserSettings
+      `Prelude.seq` Prelude.rnf domainSettingsForUpdate
       `Prelude.seq` Prelude.rnf domainId
 
 instance Data.ToHeaders UpdateDomain where
@@ -139,10 +150,12 @@ instance Data.ToJSON UpdateDomain where
   toJSON UpdateDomain' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DomainSettingsForUpdate" Data..=)
-              Prelude.<$> domainSettingsForUpdate,
+          [ ("DefaultSpaceSettings" Data..=)
+              Prelude.<$> defaultSpaceSettings,
             ("DefaultUserSettings" Data..=)
               Prelude.<$> defaultUserSettings,
+            ("DomainSettingsForUpdate" Data..=)
+              Prelude.<$> domainSettingsForUpdate,
             Prelude.Just ("DomainId" Data..= domainId)
           ]
       )

@@ -27,9 +27,9 @@ module Amazonka.SageMaker.CreateFlowDefinition
     newCreateFlowDefinition,
 
     -- * Request Lenses
-    createFlowDefinition_tags,
     createFlowDefinition_humanLoopActivationConfig,
     createFlowDefinition_humanLoopRequestSource,
+    createFlowDefinition_tags,
     createFlowDefinition_flowDefinitionName,
     createFlowDefinition_humanLoopConfig,
     createFlowDefinition_outputConfig,
@@ -55,17 +55,17 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateFlowDefinition' smart constructor.
 data CreateFlowDefinition = CreateFlowDefinition'
-  { -- | An array of key-value pairs that contain metadata to help you categorize
-    -- and organize a flow definition. Each tag consists of a key and a value,
-    -- both of which you define.
-    tags :: Prelude.Maybe [Tag],
-    -- | An object containing information about the events that trigger a human
+  { -- | An object containing information about the events that trigger a human
     -- workflow.
     humanLoopActivationConfig :: Prelude.Maybe HumanLoopActivationConfig,
     -- | Container for configuring the source of human task requests. Use to
     -- specify if Amazon Rekognition or Amazon Textract is used as an
     -- integration source.
     humanLoopRequestSource :: Prelude.Maybe HumanLoopRequestSource,
+    -- | An array of key-value pairs that contain metadata to help you categorize
+    -- and organize a flow definition. Each tag consists of a key and a value,
+    -- both of which you define.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of your flow definition.
     flowDefinitionName :: Prelude.Text,
     -- | An object containing information about the tasks the human reviewers
@@ -89,16 +89,16 @@ data CreateFlowDefinition = CreateFlowDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createFlowDefinition_tags' - An array of key-value pairs that contain metadata to help you categorize
--- and organize a flow definition. Each tag consists of a key and a value,
--- both of which you define.
---
 -- 'humanLoopActivationConfig', 'createFlowDefinition_humanLoopActivationConfig' - An object containing information about the events that trigger a human
 -- workflow.
 --
 -- 'humanLoopRequestSource', 'createFlowDefinition_humanLoopRequestSource' - Container for configuring the source of human task requests. Use to
 -- specify if Amazon Rekognition or Amazon Textract is used as an
 -- integration source.
+--
+-- 'tags', 'createFlowDefinition_tags' - An array of key-value pairs that contain metadata to help you categorize
+-- and organize a flow definition. Each tag consists of a key and a value,
+-- both of which you define.
 --
 -- 'flowDefinitionName', 'createFlowDefinition_flowDefinitionName' - The name of your flow definition.
 --
@@ -127,20 +127,15 @@ newCreateFlowDefinition
   pOutputConfig_
   pRoleArn_ =
     CreateFlowDefinition'
-      { tags = Prelude.Nothing,
-        humanLoopActivationConfig = Prelude.Nothing,
+      { humanLoopActivationConfig =
+          Prelude.Nothing,
         humanLoopRequestSource = Prelude.Nothing,
+        tags = Prelude.Nothing,
         flowDefinitionName = pFlowDefinitionName_,
         humanLoopConfig = pHumanLoopConfig_,
         outputConfig = pOutputConfig_,
         roleArn = pRoleArn_
       }
-
--- | An array of key-value pairs that contain metadata to help you categorize
--- and organize a flow definition. Each tag consists of a key and a value,
--- both of which you define.
-createFlowDefinition_tags :: Lens.Lens' CreateFlowDefinition (Prelude.Maybe [Tag])
-createFlowDefinition_tags = Lens.lens (\CreateFlowDefinition' {tags} -> tags) (\s@CreateFlowDefinition' {} a -> s {tags = a} :: CreateFlowDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | An object containing information about the events that trigger a human
 -- workflow.
@@ -152,6 +147,12 @@ createFlowDefinition_humanLoopActivationConfig = Lens.lens (\CreateFlowDefinitio
 -- integration source.
 createFlowDefinition_humanLoopRequestSource :: Lens.Lens' CreateFlowDefinition (Prelude.Maybe HumanLoopRequestSource)
 createFlowDefinition_humanLoopRequestSource = Lens.lens (\CreateFlowDefinition' {humanLoopRequestSource} -> humanLoopRequestSource) (\s@CreateFlowDefinition' {} a -> s {humanLoopRequestSource = a} :: CreateFlowDefinition)
+
+-- | An array of key-value pairs that contain metadata to help you categorize
+-- and organize a flow definition. Each tag consists of a key and a value,
+-- both of which you define.
+createFlowDefinition_tags :: Lens.Lens' CreateFlowDefinition (Prelude.Maybe [Tag])
+createFlowDefinition_tags = Lens.lens (\CreateFlowDefinition' {tags} -> tags) (\s@CreateFlowDefinition' {} a -> s {tags = a} :: CreateFlowDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of your flow definition.
 createFlowDefinition_flowDefinitionName :: Lens.Lens' CreateFlowDefinition Prelude.Text
@@ -189,9 +190,10 @@ instance Core.AWSRequest CreateFlowDefinition where
 
 instance Prelude.Hashable CreateFlowDefinition where
   hashWithSalt _salt CreateFlowDefinition' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
       `Prelude.hashWithSalt` humanLoopActivationConfig
       `Prelude.hashWithSalt` humanLoopRequestSource
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` flowDefinitionName
       `Prelude.hashWithSalt` humanLoopConfig
       `Prelude.hashWithSalt` outputConfig
@@ -199,9 +201,9 @@ instance Prelude.Hashable CreateFlowDefinition where
 
 instance Prelude.NFData CreateFlowDefinition where
   rnf CreateFlowDefinition' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf humanLoopActivationConfig
+    Prelude.rnf humanLoopActivationConfig
       `Prelude.seq` Prelude.rnf humanLoopRequestSource
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf flowDefinitionName
       `Prelude.seq` Prelude.rnf humanLoopConfig
       `Prelude.seq` Prelude.rnf outputConfig
@@ -226,11 +228,11 @@ instance Data.ToJSON CreateFlowDefinition where
   toJSON CreateFlowDefinition' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("HumanLoopActivationConfig" Data..=)
+          [ ("HumanLoopActivationConfig" Data..=)
               Prelude.<$> humanLoopActivationConfig,
             ("HumanLoopRequestSource" Data..=)
               Prelude.<$> humanLoopRequestSource,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("FlowDefinitionName" Data..= flowDefinitionName),
             Prelude.Just

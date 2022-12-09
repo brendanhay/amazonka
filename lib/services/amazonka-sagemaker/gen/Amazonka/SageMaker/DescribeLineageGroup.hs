@@ -37,14 +37,14 @@ module Amazonka.SageMaker.DescribeLineageGroup
     newDescribeLineageGroupResponse,
 
     -- * Response Lenses
-    describeLineageGroupResponse_lineageGroupName,
-    describeLineageGroupResponse_displayName,
+    describeLineageGroupResponse_createdBy,
+    describeLineageGroupResponse_creationTime,
     describeLineageGroupResponse_description,
+    describeLineageGroupResponse_displayName,
+    describeLineageGroupResponse_lastModifiedBy,
     describeLineageGroupResponse_lastModifiedTime,
     describeLineageGroupResponse_lineageGroupArn,
-    describeLineageGroupResponse_creationTime,
-    describeLineageGroupResponse_lastModifiedBy,
-    describeLineageGroupResponse_createdBy,
+    describeLineageGroupResponse_lineageGroupName,
     describeLineageGroupResponse_httpStatus,
   )
 where
@@ -97,14 +97,14 @@ instance Core.AWSRequest DescribeLineageGroup where
     Response.receiveJSON
       ( \s h x ->
           DescribeLineageGroupResponse'
-            Prelude.<$> (x Data..?> "LineageGroupName")
-            Prelude.<*> (x Data..?> "DisplayName")
+            Prelude.<$> (x Data..?> "CreatedBy")
+            Prelude.<*> (x Data..?> "CreationTime")
             Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "DisplayName")
+            Prelude.<*> (x Data..?> "LastModifiedBy")
             Prelude.<*> (x Data..?> "LastModifiedTime")
             Prelude.<*> (x Data..?> "LineageGroupArn")
-            Prelude.<*> (x Data..?> "CreationTime")
-            Prelude.<*> (x Data..?> "LastModifiedBy")
-            Prelude.<*> (x Data..?> "CreatedBy")
+            Prelude.<*> (x Data..?> "LineageGroupName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,20 +148,20 @@ instance Data.ToQuery DescribeLineageGroup where
 
 -- | /See:/ 'newDescribeLineageGroupResponse' smart constructor.
 data DescribeLineageGroupResponse = DescribeLineageGroupResponse'
-  { -- | The name of the lineage group.
-    lineageGroupName :: Prelude.Maybe Prelude.Text,
-    -- | The display name of the lineage group.
-    displayName :: Prelude.Maybe Prelude.Text,
+  { createdBy :: Prelude.Maybe UserContext,
+    -- | The creation time of lineage group.
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | The description of the lineage group.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The display name of the lineage group.
+    displayName :: Prelude.Maybe Prelude.Text,
+    lastModifiedBy :: Prelude.Maybe UserContext,
     -- | The last modified time of the lineage group.
     lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the lineage group.
     lineageGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | The creation time of lineage group.
-    creationTime :: Prelude.Maybe Data.POSIX,
-    lastModifiedBy :: Prelude.Maybe UserContext,
-    createdBy :: Prelude.Maybe UserContext,
+    -- | The name of the lineage group.
+    lineageGroupName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -175,21 +175,21 @@ data DescribeLineageGroupResponse = DescribeLineageGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lineageGroupName', 'describeLineageGroupResponse_lineageGroupName' - The name of the lineage group.
+-- 'createdBy', 'describeLineageGroupResponse_createdBy' - Undocumented member.
+--
+-- 'creationTime', 'describeLineageGroupResponse_creationTime' - The creation time of lineage group.
+--
+-- 'description', 'describeLineageGroupResponse_description' - The description of the lineage group.
 --
 -- 'displayName', 'describeLineageGroupResponse_displayName' - The display name of the lineage group.
 --
--- 'description', 'describeLineageGroupResponse_description' - The description of the lineage group.
+-- 'lastModifiedBy', 'describeLineageGroupResponse_lastModifiedBy' - Undocumented member.
 --
 -- 'lastModifiedTime', 'describeLineageGroupResponse_lastModifiedTime' - The last modified time of the lineage group.
 --
 -- 'lineageGroupArn', 'describeLineageGroupResponse_lineageGroupArn' - The Amazon Resource Name (ARN) of the lineage group.
 --
--- 'creationTime', 'describeLineageGroupResponse_creationTime' - The creation time of lineage group.
---
--- 'lastModifiedBy', 'describeLineageGroupResponse_lastModifiedBy' - Undocumented member.
---
--- 'createdBy', 'describeLineageGroupResponse_createdBy' - Undocumented member.
+-- 'lineageGroupName', 'describeLineageGroupResponse_lineageGroupName' - The name of the lineage group.
 --
 -- 'httpStatus', 'describeLineageGroupResponse_httpStatus' - The response's http status code.
 newDescribeLineageGroupResponse ::
@@ -198,29 +198,37 @@ newDescribeLineageGroupResponse ::
   DescribeLineageGroupResponse
 newDescribeLineageGroupResponse pHttpStatus_ =
   DescribeLineageGroupResponse'
-    { lineageGroupName =
+    { createdBy =
         Prelude.Nothing,
-      displayName = Prelude.Nothing,
+      creationTime = Prelude.Nothing,
       description = Prelude.Nothing,
+      displayName = Prelude.Nothing,
+      lastModifiedBy = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
       lineageGroupArn = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      lastModifiedBy = Prelude.Nothing,
-      createdBy = Prelude.Nothing,
+      lineageGroupName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The name of the lineage group.
-describeLineageGroupResponse_lineageGroupName :: Lens.Lens' DescribeLineageGroupResponse (Prelude.Maybe Prelude.Text)
-describeLineageGroupResponse_lineageGroupName = Lens.lens (\DescribeLineageGroupResponse' {lineageGroupName} -> lineageGroupName) (\s@DescribeLineageGroupResponse' {} a -> s {lineageGroupName = a} :: DescribeLineageGroupResponse)
+-- | Undocumented member.
+describeLineageGroupResponse_createdBy :: Lens.Lens' DescribeLineageGroupResponse (Prelude.Maybe UserContext)
+describeLineageGroupResponse_createdBy = Lens.lens (\DescribeLineageGroupResponse' {createdBy} -> createdBy) (\s@DescribeLineageGroupResponse' {} a -> s {createdBy = a} :: DescribeLineageGroupResponse)
+
+-- | The creation time of lineage group.
+describeLineageGroupResponse_creationTime :: Lens.Lens' DescribeLineageGroupResponse (Prelude.Maybe Prelude.UTCTime)
+describeLineageGroupResponse_creationTime = Lens.lens (\DescribeLineageGroupResponse' {creationTime} -> creationTime) (\s@DescribeLineageGroupResponse' {} a -> s {creationTime = a} :: DescribeLineageGroupResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The description of the lineage group.
+describeLineageGroupResponse_description :: Lens.Lens' DescribeLineageGroupResponse (Prelude.Maybe Prelude.Text)
+describeLineageGroupResponse_description = Lens.lens (\DescribeLineageGroupResponse' {description} -> description) (\s@DescribeLineageGroupResponse' {} a -> s {description = a} :: DescribeLineageGroupResponse)
 
 -- | The display name of the lineage group.
 describeLineageGroupResponse_displayName :: Lens.Lens' DescribeLineageGroupResponse (Prelude.Maybe Prelude.Text)
 describeLineageGroupResponse_displayName = Lens.lens (\DescribeLineageGroupResponse' {displayName} -> displayName) (\s@DescribeLineageGroupResponse' {} a -> s {displayName = a} :: DescribeLineageGroupResponse)
 
--- | The description of the lineage group.
-describeLineageGroupResponse_description :: Lens.Lens' DescribeLineageGroupResponse (Prelude.Maybe Prelude.Text)
-describeLineageGroupResponse_description = Lens.lens (\DescribeLineageGroupResponse' {description} -> description) (\s@DescribeLineageGroupResponse' {} a -> s {description = a} :: DescribeLineageGroupResponse)
+-- | Undocumented member.
+describeLineageGroupResponse_lastModifiedBy :: Lens.Lens' DescribeLineageGroupResponse (Prelude.Maybe UserContext)
+describeLineageGroupResponse_lastModifiedBy = Lens.lens (\DescribeLineageGroupResponse' {lastModifiedBy} -> lastModifiedBy) (\s@DescribeLineageGroupResponse' {} a -> s {lastModifiedBy = a} :: DescribeLineageGroupResponse)
 
 -- | The last modified time of the lineage group.
 describeLineageGroupResponse_lastModifiedTime :: Lens.Lens' DescribeLineageGroupResponse (Prelude.Maybe Prelude.UTCTime)
@@ -230,17 +238,9 @@ describeLineageGroupResponse_lastModifiedTime = Lens.lens (\DescribeLineageGroup
 describeLineageGroupResponse_lineageGroupArn :: Lens.Lens' DescribeLineageGroupResponse (Prelude.Maybe Prelude.Text)
 describeLineageGroupResponse_lineageGroupArn = Lens.lens (\DescribeLineageGroupResponse' {lineageGroupArn} -> lineageGroupArn) (\s@DescribeLineageGroupResponse' {} a -> s {lineageGroupArn = a} :: DescribeLineageGroupResponse)
 
--- | The creation time of lineage group.
-describeLineageGroupResponse_creationTime :: Lens.Lens' DescribeLineageGroupResponse (Prelude.Maybe Prelude.UTCTime)
-describeLineageGroupResponse_creationTime = Lens.lens (\DescribeLineageGroupResponse' {creationTime} -> creationTime) (\s@DescribeLineageGroupResponse' {} a -> s {creationTime = a} :: DescribeLineageGroupResponse) Prelude.. Lens.mapping Data._Time
-
--- | Undocumented member.
-describeLineageGroupResponse_lastModifiedBy :: Lens.Lens' DescribeLineageGroupResponse (Prelude.Maybe UserContext)
-describeLineageGroupResponse_lastModifiedBy = Lens.lens (\DescribeLineageGroupResponse' {lastModifiedBy} -> lastModifiedBy) (\s@DescribeLineageGroupResponse' {} a -> s {lastModifiedBy = a} :: DescribeLineageGroupResponse)
-
--- | Undocumented member.
-describeLineageGroupResponse_createdBy :: Lens.Lens' DescribeLineageGroupResponse (Prelude.Maybe UserContext)
-describeLineageGroupResponse_createdBy = Lens.lens (\DescribeLineageGroupResponse' {createdBy} -> createdBy) (\s@DescribeLineageGroupResponse' {} a -> s {createdBy = a} :: DescribeLineageGroupResponse)
+-- | The name of the lineage group.
+describeLineageGroupResponse_lineageGroupName :: Lens.Lens' DescribeLineageGroupResponse (Prelude.Maybe Prelude.Text)
+describeLineageGroupResponse_lineageGroupName = Lens.lens (\DescribeLineageGroupResponse' {lineageGroupName} -> lineageGroupName) (\s@DescribeLineageGroupResponse' {} a -> s {lineageGroupName = a} :: DescribeLineageGroupResponse)
 
 -- | The response's http status code.
 describeLineageGroupResponse_httpStatus :: Lens.Lens' DescribeLineageGroupResponse Prelude.Int
@@ -248,12 +248,12 @@ describeLineageGroupResponse_httpStatus = Lens.lens (\DescribeLineageGroupRespon
 
 instance Prelude.NFData DescribeLineageGroupResponse where
   rnf DescribeLineageGroupResponse' {..} =
-    Prelude.rnf lineageGroupName
-      `Prelude.seq` Prelude.rnf displayName
+    Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf lastModifiedBy
       `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf lineageGroupArn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf lastModifiedBy
-      `Prelude.seq` Prelude.rnf createdBy
+      `Prelude.seq` Prelude.rnf lineageGroupName
       `Prelude.seq` Prelude.rnf httpStatus

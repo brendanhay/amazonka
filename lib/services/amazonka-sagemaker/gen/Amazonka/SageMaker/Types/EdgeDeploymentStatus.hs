@@ -29,10 +29,10 @@ import Amazonka.SageMaker.Types.StageStatus
 --
 -- /See:/ 'newEdgeDeploymentStatus' smart constructor.
 data EdgeDeploymentStatus = EdgeDeploymentStatus'
-  { -- | A detailed message about deployment status in current stage.
-    edgeDeploymentStatusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The time when the deployment API started.
+  { -- | The time when the deployment API started.
     edgeDeploymentStageStartTime :: Prelude.Maybe Data.POSIX,
+    -- | A detailed message about deployment status in current stage.
+    edgeDeploymentStatusMessage :: Prelude.Maybe Prelude.Text,
     -- | The general status of the current stage.
     stageStatus :: StageStatus,
     -- | The number of edge devices with the successful deployment in the current
@@ -54,9 +54,9 @@ data EdgeDeploymentStatus = EdgeDeploymentStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'edgeDeploymentStatusMessage', 'edgeDeploymentStatus_edgeDeploymentStatusMessage' - A detailed message about deployment status in current stage.
---
 -- 'edgeDeploymentStageStartTime', 'edgeDeploymentStatus_edgeDeploymentStageStartTime' - The time when the deployment API started.
+--
+-- 'edgeDeploymentStatusMessage', 'edgeDeploymentStatus_edgeDeploymentStatusMessage' - A detailed message about deployment status in current stage.
 --
 -- 'stageStatus', 'edgeDeploymentStatus_stageStatus' - The general status of the current stage.
 --
@@ -83,9 +83,9 @@ newEdgeDeploymentStatus
   pEdgeDeploymentPendingInStage_
   pEdgeDeploymentFailedInStage_ =
     EdgeDeploymentStatus'
-      { edgeDeploymentStatusMessage =
+      { edgeDeploymentStageStartTime =
           Prelude.Nothing,
-        edgeDeploymentStageStartTime = Prelude.Nothing,
+        edgeDeploymentStatusMessage = Prelude.Nothing,
         stageStatus = pStageStatus_,
         edgeDeploymentSuccessInStage =
           pEdgeDeploymentSuccessInStage_,
@@ -95,13 +95,13 @@ newEdgeDeploymentStatus
           pEdgeDeploymentFailedInStage_
       }
 
--- | A detailed message about deployment status in current stage.
-edgeDeploymentStatus_edgeDeploymentStatusMessage :: Lens.Lens' EdgeDeploymentStatus (Prelude.Maybe Prelude.Text)
-edgeDeploymentStatus_edgeDeploymentStatusMessage = Lens.lens (\EdgeDeploymentStatus' {edgeDeploymentStatusMessage} -> edgeDeploymentStatusMessage) (\s@EdgeDeploymentStatus' {} a -> s {edgeDeploymentStatusMessage = a} :: EdgeDeploymentStatus)
-
 -- | The time when the deployment API started.
 edgeDeploymentStatus_edgeDeploymentStageStartTime :: Lens.Lens' EdgeDeploymentStatus (Prelude.Maybe Prelude.UTCTime)
 edgeDeploymentStatus_edgeDeploymentStageStartTime = Lens.lens (\EdgeDeploymentStatus' {edgeDeploymentStageStartTime} -> edgeDeploymentStageStartTime) (\s@EdgeDeploymentStatus' {} a -> s {edgeDeploymentStageStartTime = a} :: EdgeDeploymentStatus) Prelude.. Lens.mapping Data._Time
+
+-- | A detailed message about deployment status in current stage.
+edgeDeploymentStatus_edgeDeploymentStatusMessage :: Lens.Lens' EdgeDeploymentStatus (Prelude.Maybe Prelude.Text)
+edgeDeploymentStatus_edgeDeploymentStatusMessage = Lens.lens (\EdgeDeploymentStatus' {edgeDeploymentStatusMessage} -> edgeDeploymentStatusMessage) (\s@EdgeDeploymentStatus' {} a -> s {edgeDeploymentStatusMessage = a} :: EdgeDeploymentStatus)
 
 -- | The general status of the current stage.
 edgeDeploymentStatus_stageStatus :: Lens.Lens' EdgeDeploymentStatus StageStatus
@@ -127,8 +127,8 @@ instance Data.FromJSON EdgeDeploymentStatus where
       "EdgeDeploymentStatus"
       ( \x ->
           EdgeDeploymentStatus'
-            Prelude.<$> (x Data..:? "EdgeDeploymentStatusMessage")
-            Prelude.<*> (x Data..:? "EdgeDeploymentStageStartTime")
+            Prelude.<$> (x Data..:? "EdgeDeploymentStageStartTime")
+            Prelude.<*> (x Data..:? "EdgeDeploymentStatusMessage")
             Prelude.<*> (x Data..: "StageStatus")
             Prelude.<*> (x Data..: "EdgeDeploymentSuccessInStage")
             Prelude.<*> (x Data..: "EdgeDeploymentPendingInStage")
@@ -138,8 +138,8 @@ instance Data.FromJSON EdgeDeploymentStatus where
 instance Prelude.Hashable EdgeDeploymentStatus where
   hashWithSalt _salt EdgeDeploymentStatus' {..} =
     _salt
-      `Prelude.hashWithSalt` edgeDeploymentStatusMessage
       `Prelude.hashWithSalt` edgeDeploymentStageStartTime
+      `Prelude.hashWithSalt` edgeDeploymentStatusMessage
       `Prelude.hashWithSalt` stageStatus
       `Prelude.hashWithSalt` edgeDeploymentSuccessInStage
       `Prelude.hashWithSalt` edgeDeploymentPendingInStage
@@ -147,8 +147,8 @@ instance Prelude.Hashable EdgeDeploymentStatus where
 
 instance Prelude.NFData EdgeDeploymentStatus where
   rnf EdgeDeploymentStatus' {..} =
-    Prelude.rnf edgeDeploymentStatusMessage
-      `Prelude.seq` Prelude.rnf edgeDeploymentStageStartTime
+    Prelude.rnf edgeDeploymentStageStartTime
+      `Prelude.seq` Prelude.rnf edgeDeploymentStatusMessage
       `Prelude.seq` Prelude.rnf stageStatus
       `Prelude.seq` Prelude.rnf edgeDeploymentSuccessInStage
       `Prelude.seq` Prelude.rnf edgeDeploymentPendingInStage

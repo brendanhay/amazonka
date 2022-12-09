@@ -39,30 +39,10 @@ import Amazonka.SageMaker.Types.Tag
 --
 -- /See:/ 'newFeatureGroup' smart constructor.
 data FeatureGroup = FeatureGroup'
-  { -- | Tags used to define a @FeatureGroup@.
-    tags :: Prelude.Maybe [Tag],
-    -- | The name of the @Feature@ whose value uniquely identifies a @Record@
-    -- defined in the @FeatureGroup@ @FeatureDefinitions@.
-    recordIdentifierFeatureName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the IAM execution role used to create
-    -- the feature group.
-    roleArn :: Prelude.Maybe Prelude.Text,
+  { -- | The time a @FeatureGroup@ was created.
+    creationTime :: Prelude.Maybe Data.POSIX,
     -- | A free form description of a @FeatureGroup@.
     description :: Prelude.Maybe Prelude.Text,
-    offlineStoreStatus :: Prelude.Maybe OfflineStoreStatus,
-    onlineStoreConfig :: Prelude.Maybe OnlineStoreConfig,
-    -- | A timestamp indicating the last time you updated the feature group.
-    lastModifiedTime :: Prelude.Maybe Data.POSIX,
-    -- | The name of the @FeatureGroup@.
-    featureGroupName :: Prelude.Maybe Prelude.Text,
-    -- | A value that indicates whether the feature group was updated
-    -- successfully.
-    lastUpdateStatus :: Prelude.Maybe LastUpdateStatus,
-    -- | The time a @FeatureGroup@ was created.
-    creationTime :: Prelude.Maybe Data.POSIX,
-    -- | A @FeatureGroup@ status.
-    featureGroupStatus :: Prelude.Maybe FeatureGroupStatus,
-    offlineStoreConfig :: Prelude.Maybe OfflineStoreConfig,
     -- | The name of the feature that stores the @EventTime@ of a Record in a
     -- @FeatureGroup@.
     --
@@ -70,8 +50,6 @@ data FeatureGroup = FeatureGroup'
     -- to the creation or update of a @Record@ in @FeatureGroup@. All @Records@
     -- in the @FeatureGroup@ must have a corresponding @EventTime@.
     eventTimeFeatureName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of a @FeatureGroup@.
-    featureGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The reason that the @FeatureGroup@ failed to be replicated in the
     -- @OfflineStore@. This is failure may be due to a failure to create a
     -- @FeatureGroup@ in or delete a @FeatureGroup@ from the @OfflineStore@.
@@ -85,7 +63,29 @@ data FeatureGroup = FeatureGroup'
     -- @write_time@, @api_invocation_time@.
     --
     -- You can create up to 2,500 @FeatureDefinition@s per @FeatureGroup@.
-    featureDefinitions :: Prelude.Maybe (Prelude.NonEmpty FeatureDefinition)
+    featureDefinitions :: Prelude.Maybe (Prelude.NonEmpty FeatureDefinition),
+    -- | The Amazon Resource Name (ARN) of a @FeatureGroup@.
+    featureGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the @FeatureGroup@.
+    featureGroupName :: Prelude.Maybe Prelude.Text,
+    -- | A @FeatureGroup@ status.
+    featureGroupStatus :: Prelude.Maybe FeatureGroupStatus,
+    -- | A timestamp indicating the last time you updated the feature group.
+    lastModifiedTime :: Prelude.Maybe Data.POSIX,
+    -- | A value that indicates whether the feature group was updated
+    -- successfully.
+    lastUpdateStatus :: Prelude.Maybe LastUpdateStatus,
+    offlineStoreConfig :: Prelude.Maybe OfflineStoreConfig,
+    offlineStoreStatus :: Prelude.Maybe OfflineStoreStatus,
+    onlineStoreConfig :: Prelude.Maybe OnlineStoreConfig,
+    -- | The name of the @Feature@ whose value uniquely identifies a @Record@
+    -- defined in the @FeatureGroup@ @FeatureDefinitions@.
+    recordIdentifierFeatureName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM execution role used to create
+    -- the feature group.
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | Tags used to define a @FeatureGroup@.
+    tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -97,32 +97,9 @@ data FeatureGroup = FeatureGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'featureGroup_tags' - Tags used to define a @FeatureGroup@.
---
--- 'recordIdentifierFeatureName', 'featureGroup_recordIdentifierFeatureName' - The name of the @Feature@ whose value uniquely identifies a @Record@
--- defined in the @FeatureGroup@ @FeatureDefinitions@.
---
--- 'roleArn', 'featureGroup_roleArn' - The Amazon Resource Name (ARN) of the IAM execution role used to create
--- the feature group.
---
--- 'description', 'featureGroup_description' - A free form description of a @FeatureGroup@.
---
--- 'offlineStoreStatus', 'featureGroup_offlineStoreStatus' - Undocumented member.
---
--- 'onlineStoreConfig', 'featureGroup_onlineStoreConfig' - Undocumented member.
---
--- 'lastModifiedTime', 'featureGroup_lastModifiedTime' - A timestamp indicating the last time you updated the feature group.
---
--- 'featureGroupName', 'featureGroup_featureGroupName' - The name of the @FeatureGroup@.
---
--- 'lastUpdateStatus', 'featureGroup_lastUpdateStatus' - A value that indicates whether the feature group was updated
--- successfully.
---
 -- 'creationTime', 'featureGroup_creationTime' - The time a @FeatureGroup@ was created.
 --
--- 'featureGroupStatus', 'featureGroup_featureGroupStatus' - A @FeatureGroup@ status.
---
--- 'offlineStoreConfig', 'featureGroup_offlineStoreConfig' - Undocumented member.
+-- 'description', 'featureGroup_description' - A free form description of a @FeatureGroup@.
 --
 -- 'eventTimeFeatureName', 'featureGroup_eventTimeFeatureName' - The name of the feature that stores the @EventTime@ of a Record in a
 -- @FeatureGroup@.
@@ -130,8 +107,6 @@ data FeatureGroup = FeatureGroup'
 -- A @EventTime@ is point in time when a new event occurs that corresponds
 -- to the creation or update of a @Record@ in @FeatureGroup@. All @Records@
 -- in the @FeatureGroup@ must have a corresponding @EventTime@.
---
--- 'featureGroupArn', 'featureGroup_featureGroupArn' - The Amazon Resource Name (ARN) of a @FeatureGroup@.
 --
 -- 'failureReason', 'featureGroup_failureReason' - The reason that the @FeatureGroup@ failed to be replicated in the
 -- @OfflineStore@. This is failure may be due to a failure to create a
@@ -146,78 +121,60 @@ data FeatureGroup = FeatureGroup'
 -- @write_time@, @api_invocation_time@.
 --
 -- You can create up to 2,500 @FeatureDefinition@s per @FeatureGroup@.
+--
+-- 'featureGroupArn', 'featureGroup_featureGroupArn' - The Amazon Resource Name (ARN) of a @FeatureGroup@.
+--
+-- 'featureGroupName', 'featureGroup_featureGroupName' - The name of the @FeatureGroup@.
+--
+-- 'featureGroupStatus', 'featureGroup_featureGroupStatus' - A @FeatureGroup@ status.
+--
+-- 'lastModifiedTime', 'featureGroup_lastModifiedTime' - A timestamp indicating the last time you updated the feature group.
+--
+-- 'lastUpdateStatus', 'featureGroup_lastUpdateStatus' - A value that indicates whether the feature group was updated
+-- successfully.
+--
+-- 'offlineStoreConfig', 'featureGroup_offlineStoreConfig' - Undocumented member.
+--
+-- 'offlineStoreStatus', 'featureGroup_offlineStoreStatus' - Undocumented member.
+--
+-- 'onlineStoreConfig', 'featureGroup_onlineStoreConfig' - Undocumented member.
+--
+-- 'recordIdentifierFeatureName', 'featureGroup_recordIdentifierFeatureName' - The name of the @Feature@ whose value uniquely identifies a @Record@
+-- defined in the @FeatureGroup@ @FeatureDefinitions@.
+--
+-- 'roleArn', 'featureGroup_roleArn' - The Amazon Resource Name (ARN) of the IAM execution role used to create
+-- the feature group.
+--
+-- 'tags', 'featureGroup_tags' - Tags used to define a @FeatureGroup@.
 newFeatureGroup ::
   FeatureGroup
 newFeatureGroup =
   FeatureGroup'
-    { tags = Prelude.Nothing,
-      recordIdentifierFeatureName = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
+    { creationTime = Prelude.Nothing,
       description = Prelude.Nothing,
+      eventTimeFeatureName = Prelude.Nothing,
+      failureReason = Prelude.Nothing,
+      featureDefinitions = Prelude.Nothing,
+      featureGroupArn = Prelude.Nothing,
+      featureGroupName = Prelude.Nothing,
+      featureGroupStatus = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      lastUpdateStatus = Prelude.Nothing,
+      offlineStoreConfig = Prelude.Nothing,
       offlineStoreStatus = Prelude.Nothing,
       onlineStoreConfig = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
-      featureGroupName = Prelude.Nothing,
-      lastUpdateStatus = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      featureGroupStatus = Prelude.Nothing,
-      offlineStoreConfig = Prelude.Nothing,
-      eventTimeFeatureName = Prelude.Nothing,
-      featureGroupArn = Prelude.Nothing,
-      failureReason = Prelude.Nothing,
-      featureDefinitions = Prelude.Nothing
+      recordIdentifierFeatureName = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
-
--- | Tags used to define a @FeatureGroup@.
-featureGroup_tags :: Lens.Lens' FeatureGroup (Prelude.Maybe [Tag])
-featureGroup_tags = Lens.lens (\FeatureGroup' {tags} -> tags) (\s@FeatureGroup' {} a -> s {tags = a} :: FeatureGroup) Prelude.. Lens.mapping Lens.coerced
-
--- | The name of the @Feature@ whose value uniquely identifies a @Record@
--- defined in the @FeatureGroup@ @FeatureDefinitions@.
-featureGroup_recordIdentifierFeatureName :: Lens.Lens' FeatureGroup (Prelude.Maybe Prelude.Text)
-featureGroup_recordIdentifierFeatureName = Lens.lens (\FeatureGroup' {recordIdentifierFeatureName} -> recordIdentifierFeatureName) (\s@FeatureGroup' {} a -> s {recordIdentifierFeatureName = a} :: FeatureGroup)
-
--- | The Amazon Resource Name (ARN) of the IAM execution role used to create
--- the feature group.
-featureGroup_roleArn :: Lens.Lens' FeatureGroup (Prelude.Maybe Prelude.Text)
-featureGroup_roleArn = Lens.lens (\FeatureGroup' {roleArn} -> roleArn) (\s@FeatureGroup' {} a -> s {roleArn = a} :: FeatureGroup)
-
--- | A free form description of a @FeatureGroup@.
-featureGroup_description :: Lens.Lens' FeatureGroup (Prelude.Maybe Prelude.Text)
-featureGroup_description = Lens.lens (\FeatureGroup' {description} -> description) (\s@FeatureGroup' {} a -> s {description = a} :: FeatureGroup)
-
--- | Undocumented member.
-featureGroup_offlineStoreStatus :: Lens.Lens' FeatureGroup (Prelude.Maybe OfflineStoreStatus)
-featureGroup_offlineStoreStatus = Lens.lens (\FeatureGroup' {offlineStoreStatus} -> offlineStoreStatus) (\s@FeatureGroup' {} a -> s {offlineStoreStatus = a} :: FeatureGroup)
-
--- | Undocumented member.
-featureGroup_onlineStoreConfig :: Lens.Lens' FeatureGroup (Prelude.Maybe OnlineStoreConfig)
-featureGroup_onlineStoreConfig = Lens.lens (\FeatureGroup' {onlineStoreConfig} -> onlineStoreConfig) (\s@FeatureGroup' {} a -> s {onlineStoreConfig = a} :: FeatureGroup)
-
--- | A timestamp indicating the last time you updated the feature group.
-featureGroup_lastModifiedTime :: Lens.Lens' FeatureGroup (Prelude.Maybe Prelude.UTCTime)
-featureGroup_lastModifiedTime = Lens.lens (\FeatureGroup' {lastModifiedTime} -> lastModifiedTime) (\s@FeatureGroup' {} a -> s {lastModifiedTime = a} :: FeatureGroup) Prelude.. Lens.mapping Data._Time
-
--- | The name of the @FeatureGroup@.
-featureGroup_featureGroupName :: Lens.Lens' FeatureGroup (Prelude.Maybe Prelude.Text)
-featureGroup_featureGroupName = Lens.lens (\FeatureGroup' {featureGroupName} -> featureGroupName) (\s@FeatureGroup' {} a -> s {featureGroupName = a} :: FeatureGroup)
-
--- | A value that indicates whether the feature group was updated
--- successfully.
-featureGroup_lastUpdateStatus :: Lens.Lens' FeatureGroup (Prelude.Maybe LastUpdateStatus)
-featureGroup_lastUpdateStatus = Lens.lens (\FeatureGroup' {lastUpdateStatus} -> lastUpdateStatus) (\s@FeatureGroup' {} a -> s {lastUpdateStatus = a} :: FeatureGroup)
 
 -- | The time a @FeatureGroup@ was created.
 featureGroup_creationTime :: Lens.Lens' FeatureGroup (Prelude.Maybe Prelude.UTCTime)
 featureGroup_creationTime = Lens.lens (\FeatureGroup' {creationTime} -> creationTime) (\s@FeatureGroup' {} a -> s {creationTime = a} :: FeatureGroup) Prelude.. Lens.mapping Data._Time
 
--- | A @FeatureGroup@ status.
-featureGroup_featureGroupStatus :: Lens.Lens' FeatureGroup (Prelude.Maybe FeatureGroupStatus)
-featureGroup_featureGroupStatus = Lens.lens (\FeatureGroup' {featureGroupStatus} -> featureGroupStatus) (\s@FeatureGroup' {} a -> s {featureGroupStatus = a} :: FeatureGroup)
-
--- | Undocumented member.
-featureGroup_offlineStoreConfig :: Lens.Lens' FeatureGroup (Prelude.Maybe OfflineStoreConfig)
-featureGroup_offlineStoreConfig = Lens.lens (\FeatureGroup' {offlineStoreConfig} -> offlineStoreConfig) (\s@FeatureGroup' {} a -> s {offlineStoreConfig = a} :: FeatureGroup)
+-- | A free form description of a @FeatureGroup@.
+featureGroup_description :: Lens.Lens' FeatureGroup (Prelude.Maybe Prelude.Text)
+featureGroup_description = Lens.lens (\FeatureGroup' {description} -> description) (\s@FeatureGroup' {} a -> s {description = a} :: FeatureGroup)
 
 -- | The name of the feature that stores the @EventTime@ of a Record in a
 -- @FeatureGroup@.
@@ -227,10 +184,6 @@ featureGroup_offlineStoreConfig = Lens.lens (\FeatureGroup' {offlineStoreConfig}
 -- in the @FeatureGroup@ must have a corresponding @EventTime@.
 featureGroup_eventTimeFeatureName :: Lens.Lens' FeatureGroup (Prelude.Maybe Prelude.Text)
 featureGroup_eventTimeFeatureName = Lens.lens (\FeatureGroup' {eventTimeFeatureName} -> eventTimeFeatureName) (\s@FeatureGroup' {} a -> s {eventTimeFeatureName = a} :: FeatureGroup)
-
--- | The Amazon Resource Name (ARN) of a @FeatureGroup@.
-featureGroup_featureGroupArn :: Lens.Lens' FeatureGroup (Prelude.Maybe Prelude.Text)
-featureGroup_featureGroupArn = Lens.lens (\FeatureGroup' {featureGroupArn} -> featureGroupArn) (\s@FeatureGroup' {} a -> s {featureGroupArn = a} :: FeatureGroup)
 
 -- | The reason that the @FeatureGroup@ failed to be replicated in the
 -- @OfflineStore@. This is failure may be due to a failure to create a
@@ -250,64 +203,111 @@ featureGroup_failureReason = Lens.lens (\FeatureGroup' {failureReason} -> failur
 featureGroup_featureDefinitions :: Lens.Lens' FeatureGroup (Prelude.Maybe (Prelude.NonEmpty FeatureDefinition))
 featureGroup_featureDefinitions = Lens.lens (\FeatureGroup' {featureDefinitions} -> featureDefinitions) (\s@FeatureGroup' {} a -> s {featureDefinitions = a} :: FeatureGroup) Prelude.. Lens.mapping Lens.coerced
 
+-- | The Amazon Resource Name (ARN) of a @FeatureGroup@.
+featureGroup_featureGroupArn :: Lens.Lens' FeatureGroup (Prelude.Maybe Prelude.Text)
+featureGroup_featureGroupArn = Lens.lens (\FeatureGroup' {featureGroupArn} -> featureGroupArn) (\s@FeatureGroup' {} a -> s {featureGroupArn = a} :: FeatureGroup)
+
+-- | The name of the @FeatureGroup@.
+featureGroup_featureGroupName :: Lens.Lens' FeatureGroup (Prelude.Maybe Prelude.Text)
+featureGroup_featureGroupName = Lens.lens (\FeatureGroup' {featureGroupName} -> featureGroupName) (\s@FeatureGroup' {} a -> s {featureGroupName = a} :: FeatureGroup)
+
+-- | A @FeatureGroup@ status.
+featureGroup_featureGroupStatus :: Lens.Lens' FeatureGroup (Prelude.Maybe FeatureGroupStatus)
+featureGroup_featureGroupStatus = Lens.lens (\FeatureGroup' {featureGroupStatus} -> featureGroupStatus) (\s@FeatureGroup' {} a -> s {featureGroupStatus = a} :: FeatureGroup)
+
+-- | A timestamp indicating the last time you updated the feature group.
+featureGroup_lastModifiedTime :: Lens.Lens' FeatureGroup (Prelude.Maybe Prelude.UTCTime)
+featureGroup_lastModifiedTime = Lens.lens (\FeatureGroup' {lastModifiedTime} -> lastModifiedTime) (\s@FeatureGroup' {} a -> s {lastModifiedTime = a} :: FeatureGroup) Prelude.. Lens.mapping Data._Time
+
+-- | A value that indicates whether the feature group was updated
+-- successfully.
+featureGroup_lastUpdateStatus :: Lens.Lens' FeatureGroup (Prelude.Maybe LastUpdateStatus)
+featureGroup_lastUpdateStatus = Lens.lens (\FeatureGroup' {lastUpdateStatus} -> lastUpdateStatus) (\s@FeatureGroup' {} a -> s {lastUpdateStatus = a} :: FeatureGroup)
+
+-- | Undocumented member.
+featureGroup_offlineStoreConfig :: Lens.Lens' FeatureGroup (Prelude.Maybe OfflineStoreConfig)
+featureGroup_offlineStoreConfig = Lens.lens (\FeatureGroup' {offlineStoreConfig} -> offlineStoreConfig) (\s@FeatureGroup' {} a -> s {offlineStoreConfig = a} :: FeatureGroup)
+
+-- | Undocumented member.
+featureGroup_offlineStoreStatus :: Lens.Lens' FeatureGroup (Prelude.Maybe OfflineStoreStatus)
+featureGroup_offlineStoreStatus = Lens.lens (\FeatureGroup' {offlineStoreStatus} -> offlineStoreStatus) (\s@FeatureGroup' {} a -> s {offlineStoreStatus = a} :: FeatureGroup)
+
+-- | Undocumented member.
+featureGroup_onlineStoreConfig :: Lens.Lens' FeatureGroup (Prelude.Maybe OnlineStoreConfig)
+featureGroup_onlineStoreConfig = Lens.lens (\FeatureGroup' {onlineStoreConfig} -> onlineStoreConfig) (\s@FeatureGroup' {} a -> s {onlineStoreConfig = a} :: FeatureGroup)
+
+-- | The name of the @Feature@ whose value uniquely identifies a @Record@
+-- defined in the @FeatureGroup@ @FeatureDefinitions@.
+featureGroup_recordIdentifierFeatureName :: Lens.Lens' FeatureGroup (Prelude.Maybe Prelude.Text)
+featureGroup_recordIdentifierFeatureName = Lens.lens (\FeatureGroup' {recordIdentifierFeatureName} -> recordIdentifierFeatureName) (\s@FeatureGroup' {} a -> s {recordIdentifierFeatureName = a} :: FeatureGroup)
+
+-- | The Amazon Resource Name (ARN) of the IAM execution role used to create
+-- the feature group.
+featureGroup_roleArn :: Lens.Lens' FeatureGroup (Prelude.Maybe Prelude.Text)
+featureGroup_roleArn = Lens.lens (\FeatureGroup' {roleArn} -> roleArn) (\s@FeatureGroup' {} a -> s {roleArn = a} :: FeatureGroup)
+
+-- | Tags used to define a @FeatureGroup@.
+featureGroup_tags :: Lens.Lens' FeatureGroup (Prelude.Maybe [Tag])
+featureGroup_tags = Lens.lens (\FeatureGroup' {tags} -> tags) (\s@FeatureGroup' {} a -> s {tags = a} :: FeatureGroup) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON FeatureGroup where
   parseJSON =
     Data.withObject
       "FeatureGroup"
       ( \x ->
           FeatureGroup'
-            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "RecordIdentifierFeatureName")
-            Prelude.<*> (x Data..:? "RoleArn")
+            Prelude.<$> (x Data..:? "CreationTime")
             Prelude.<*> (x Data..:? "Description")
-            Prelude.<*> (x Data..:? "OfflineStoreStatus")
-            Prelude.<*> (x Data..:? "OnlineStoreConfig")
-            Prelude.<*> (x Data..:? "LastModifiedTime")
-            Prelude.<*> (x Data..:? "FeatureGroupName")
-            Prelude.<*> (x Data..:? "LastUpdateStatus")
-            Prelude.<*> (x Data..:? "CreationTime")
-            Prelude.<*> (x Data..:? "FeatureGroupStatus")
-            Prelude.<*> (x Data..:? "OfflineStoreConfig")
             Prelude.<*> (x Data..:? "EventTimeFeatureName")
-            Prelude.<*> (x Data..:? "FeatureGroupArn")
             Prelude.<*> (x Data..:? "FailureReason")
             Prelude.<*> (x Data..:? "FeatureDefinitions")
+            Prelude.<*> (x Data..:? "FeatureGroupArn")
+            Prelude.<*> (x Data..:? "FeatureGroupName")
+            Prelude.<*> (x Data..:? "FeatureGroupStatus")
+            Prelude.<*> (x Data..:? "LastModifiedTime")
+            Prelude.<*> (x Data..:? "LastUpdateStatus")
+            Prelude.<*> (x Data..:? "OfflineStoreConfig")
+            Prelude.<*> (x Data..:? "OfflineStoreStatus")
+            Prelude.<*> (x Data..:? "OnlineStoreConfig")
+            Prelude.<*> (x Data..:? "RecordIdentifierFeatureName")
+            Prelude.<*> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable FeatureGroup where
   hashWithSalt _salt FeatureGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` recordIdentifierFeatureName
-      `Prelude.hashWithSalt` roleArn
+    _salt `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` offlineStoreStatus
-      `Prelude.hashWithSalt` onlineStoreConfig
-      `Prelude.hashWithSalt` lastModifiedTime
-      `Prelude.hashWithSalt` featureGroupName
-      `Prelude.hashWithSalt` lastUpdateStatus
-      `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` featureGroupStatus
-      `Prelude.hashWithSalt` offlineStoreConfig
       `Prelude.hashWithSalt` eventTimeFeatureName
-      `Prelude.hashWithSalt` featureGroupArn
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` featureDefinitions
+      `Prelude.hashWithSalt` featureGroupArn
+      `Prelude.hashWithSalt` featureGroupName
+      `Prelude.hashWithSalt` featureGroupStatus
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` lastUpdateStatus
+      `Prelude.hashWithSalt` offlineStoreConfig
+      `Prelude.hashWithSalt` offlineStoreStatus
+      `Prelude.hashWithSalt` onlineStoreConfig
+      `Prelude.hashWithSalt` recordIdentifierFeatureName
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData FeatureGroup where
   rnf FeatureGroup' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf recordIdentifierFeatureName
-      `Prelude.seq` Prelude.rnf roleArn
+    Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf offlineStoreStatus
-      `Prelude.seq` Prelude.rnf onlineStoreConfig
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf featureGroupName
-      `Prelude.seq` Prelude.rnf lastUpdateStatus
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf featureGroupStatus
-      `Prelude.seq` Prelude.rnf offlineStoreConfig
       `Prelude.seq` Prelude.rnf eventTimeFeatureName
-      `Prelude.seq` Prelude.rnf featureGroupArn
       `Prelude.seq` Prelude.rnf failureReason
       `Prelude.seq` Prelude.rnf featureDefinitions
+      `Prelude.seq` Prelude.rnf featureGroupArn
+      `Prelude.seq` Prelude.rnf featureGroupName
+      `Prelude.seq` Prelude.rnf featureGroupStatus
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf lastUpdateStatus
+      `Prelude.seq` Prelude.rnf offlineStoreConfig
+      `Prelude.seq` Prelude.rnf offlineStoreStatus
+      `Prelude.seq` Prelude.rnf onlineStoreConfig
+      `Prelude.seq` Prelude.rnf recordIdentifierFeatureName
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf tags

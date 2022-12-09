@@ -29,22 +29,22 @@ module Amazonka.SageMaker.ListArtifacts
     newListArtifacts,
 
     -- * Request Lenses
-    listArtifacts_sortOrder,
-    listArtifacts_nextToken,
-    listArtifacts_sourceUri,
     listArtifacts_artifactType,
-    listArtifacts_createdBefore,
-    listArtifacts_sortBy,
-    listArtifacts_maxResults,
     listArtifacts_createdAfter,
+    listArtifacts_createdBefore,
+    listArtifacts_maxResults,
+    listArtifacts_nextToken,
+    listArtifacts_sortBy,
+    listArtifacts_sortOrder,
+    listArtifacts_sourceUri,
 
     -- * Destructuring the Response
     ListArtifactsResponse (..),
     newListArtifactsResponse,
 
     -- * Response Lenses
-    listArtifactsResponse_nextToken,
     listArtifactsResponse_artifactSummaries,
+    listArtifactsResponse_nextToken,
     listArtifactsResponse_httpStatus,
   )
 where
@@ -59,27 +59,27 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListArtifacts' smart constructor.
 data ListArtifacts = ListArtifacts'
-  { -- | The sort order. The default value is @Descending@.
-    sortOrder :: Prelude.Maybe SortOrder,
+  { -- | A filter that returns only artifacts of the specified type.
+    artifactType :: Prelude.Maybe Prelude.Text,
+    -- | A filter that returns only artifacts created on or after the specified
+    -- time.
+    createdAfter :: Prelude.Maybe Data.POSIX,
+    -- | A filter that returns only artifacts created on or before the specified
+    -- time.
+    createdBefore :: Prelude.Maybe Data.POSIX,
+    -- | The maximum number of artifacts to return in the response. The default
+    -- value is 10.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | If the previous call to @ListArtifacts@ didn\'t return the full set of
     -- artifacts, the call returns a token for getting the next set of
     -- artifacts.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A filter that returns only artifacts with the specified source URI.
-    sourceUri :: Prelude.Maybe Prelude.Text,
-    -- | A filter that returns only artifacts of the specified type.
-    artifactType :: Prelude.Maybe Prelude.Text,
-    -- | A filter that returns only artifacts created on or before the specified
-    -- time.
-    createdBefore :: Prelude.Maybe Data.POSIX,
     -- | The property used to sort results. The default value is @CreationTime@.
     sortBy :: Prelude.Maybe SortArtifactsBy,
-    -- | The maximum number of artifacts to return in the response. The default
-    -- value is 10.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | A filter that returns only artifacts created on or after the specified
-    -- time.
-    createdAfter :: Prelude.Maybe Data.POSIX
+    -- | The sort order. The default value is @Descending@.
+    sortOrder :: Prelude.Maybe SortOrder,
+    -- | A filter that returns only artifacts with the specified source URI.
+    sourceUri :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,43 +91,58 @@ data ListArtifacts = ListArtifacts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listArtifacts_sortOrder' - The sort order. The default value is @Descending@.
+-- 'artifactType', 'listArtifacts_artifactType' - A filter that returns only artifacts of the specified type.
+--
+-- 'createdAfter', 'listArtifacts_createdAfter' - A filter that returns only artifacts created on or after the specified
+-- time.
+--
+-- 'createdBefore', 'listArtifacts_createdBefore' - A filter that returns only artifacts created on or before the specified
+-- time.
+--
+-- 'maxResults', 'listArtifacts_maxResults' - The maximum number of artifacts to return in the response. The default
+-- value is 10.
 --
 -- 'nextToken', 'listArtifacts_nextToken' - If the previous call to @ListArtifacts@ didn\'t return the full set of
 -- artifacts, the call returns a token for getting the next set of
 -- artifacts.
 --
--- 'sourceUri', 'listArtifacts_sourceUri' - A filter that returns only artifacts with the specified source URI.
---
--- 'artifactType', 'listArtifacts_artifactType' - A filter that returns only artifacts of the specified type.
---
--- 'createdBefore', 'listArtifacts_createdBefore' - A filter that returns only artifacts created on or before the specified
--- time.
---
 -- 'sortBy', 'listArtifacts_sortBy' - The property used to sort results. The default value is @CreationTime@.
 --
--- 'maxResults', 'listArtifacts_maxResults' - The maximum number of artifacts to return in the response. The default
--- value is 10.
+-- 'sortOrder', 'listArtifacts_sortOrder' - The sort order. The default value is @Descending@.
 --
--- 'createdAfter', 'listArtifacts_createdAfter' - A filter that returns only artifacts created on or after the specified
--- time.
+-- 'sourceUri', 'listArtifacts_sourceUri' - A filter that returns only artifacts with the specified source URI.
 newListArtifacts ::
   ListArtifacts
 newListArtifacts =
   ListArtifacts'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      sourceUri = Prelude.Nothing,
-      artifactType = Prelude.Nothing,
+    { artifactType = Prelude.Nothing,
+      createdAfter = Prelude.Nothing,
       createdBefore = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      createdAfter = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
+      sourceUri = Prelude.Nothing
     }
 
--- | The sort order. The default value is @Descending@.
-listArtifacts_sortOrder :: Lens.Lens' ListArtifacts (Prelude.Maybe SortOrder)
-listArtifacts_sortOrder = Lens.lens (\ListArtifacts' {sortOrder} -> sortOrder) (\s@ListArtifacts' {} a -> s {sortOrder = a} :: ListArtifacts)
+-- | A filter that returns only artifacts of the specified type.
+listArtifacts_artifactType :: Lens.Lens' ListArtifacts (Prelude.Maybe Prelude.Text)
+listArtifacts_artifactType = Lens.lens (\ListArtifacts' {artifactType} -> artifactType) (\s@ListArtifacts' {} a -> s {artifactType = a} :: ListArtifacts)
+
+-- | A filter that returns only artifacts created on or after the specified
+-- time.
+listArtifacts_createdAfter :: Lens.Lens' ListArtifacts (Prelude.Maybe Prelude.UTCTime)
+listArtifacts_createdAfter = Lens.lens (\ListArtifacts' {createdAfter} -> createdAfter) (\s@ListArtifacts' {} a -> s {createdAfter = a} :: ListArtifacts) Prelude.. Lens.mapping Data._Time
+
+-- | A filter that returns only artifacts created on or before the specified
+-- time.
+listArtifacts_createdBefore :: Lens.Lens' ListArtifacts (Prelude.Maybe Prelude.UTCTime)
+listArtifacts_createdBefore = Lens.lens (\ListArtifacts' {createdBefore} -> createdBefore) (\s@ListArtifacts' {} a -> s {createdBefore = a} :: ListArtifacts) Prelude.. Lens.mapping Data._Time
+
+-- | The maximum number of artifacts to return in the response. The default
+-- value is 10.
+listArtifacts_maxResults :: Lens.Lens' ListArtifacts (Prelude.Maybe Prelude.Natural)
+listArtifacts_maxResults = Lens.lens (\ListArtifacts' {maxResults} -> maxResults) (\s@ListArtifacts' {} a -> s {maxResults = a} :: ListArtifacts)
 
 -- | If the previous call to @ListArtifacts@ didn\'t return the full set of
 -- artifacts, the call returns a token for getting the next set of
@@ -135,32 +150,17 @@ listArtifacts_sortOrder = Lens.lens (\ListArtifacts' {sortOrder} -> sortOrder) (
 listArtifacts_nextToken :: Lens.Lens' ListArtifacts (Prelude.Maybe Prelude.Text)
 listArtifacts_nextToken = Lens.lens (\ListArtifacts' {nextToken} -> nextToken) (\s@ListArtifacts' {} a -> s {nextToken = a} :: ListArtifacts)
 
--- | A filter that returns only artifacts with the specified source URI.
-listArtifacts_sourceUri :: Lens.Lens' ListArtifacts (Prelude.Maybe Prelude.Text)
-listArtifacts_sourceUri = Lens.lens (\ListArtifacts' {sourceUri} -> sourceUri) (\s@ListArtifacts' {} a -> s {sourceUri = a} :: ListArtifacts)
-
--- | A filter that returns only artifacts of the specified type.
-listArtifacts_artifactType :: Lens.Lens' ListArtifacts (Prelude.Maybe Prelude.Text)
-listArtifacts_artifactType = Lens.lens (\ListArtifacts' {artifactType} -> artifactType) (\s@ListArtifacts' {} a -> s {artifactType = a} :: ListArtifacts)
-
--- | A filter that returns only artifacts created on or before the specified
--- time.
-listArtifacts_createdBefore :: Lens.Lens' ListArtifacts (Prelude.Maybe Prelude.UTCTime)
-listArtifacts_createdBefore = Lens.lens (\ListArtifacts' {createdBefore} -> createdBefore) (\s@ListArtifacts' {} a -> s {createdBefore = a} :: ListArtifacts) Prelude.. Lens.mapping Data._Time
-
 -- | The property used to sort results. The default value is @CreationTime@.
 listArtifacts_sortBy :: Lens.Lens' ListArtifacts (Prelude.Maybe SortArtifactsBy)
 listArtifacts_sortBy = Lens.lens (\ListArtifacts' {sortBy} -> sortBy) (\s@ListArtifacts' {} a -> s {sortBy = a} :: ListArtifacts)
 
--- | The maximum number of artifacts to return in the response. The default
--- value is 10.
-listArtifacts_maxResults :: Lens.Lens' ListArtifacts (Prelude.Maybe Prelude.Natural)
-listArtifacts_maxResults = Lens.lens (\ListArtifacts' {maxResults} -> maxResults) (\s@ListArtifacts' {} a -> s {maxResults = a} :: ListArtifacts)
+-- | The sort order. The default value is @Descending@.
+listArtifacts_sortOrder :: Lens.Lens' ListArtifacts (Prelude.Maybe SortOrder)
+listArtifacts_sortOrder = Lens.lens (\ListArtifacts' {sortOrder} -> sortOrder) (\s@ListArtifacts' {} a -> s {sortOrder = a} :: ListArtifacts)
 
--- | A filter that returns only artifacts created on or after the specified
--- time.
-listArtifacts_createdAfter :: Lens.Lens' ListArtifacts (Prelude.Maybe Prelude.UTCTime)
-listArtifacts_createdAfter = Lens.lens (\ListArtifacts' {createdAfter} -> createdAfter) (\s@ListArtifacts' {} a -> s {createdAfter = a} :: ListArtifacts) Prelude.. Lens.mapping Data._Time
+-- | A filter that returns only artifacts with the specified source URI.
+listArtifacts_sourceUri :: Lens.Lens' ListArtifacts (Prelude.Maybe Prelude.Text)
+listArtifacts_sourceUri = Lens.lens (\ListArtifacts' {sourceUri} -> sourceUri) (\s@ListArtifacts' {} a -> s {sourceUri = a} :: ListArtifacts)
 
 instance Core.AWSPager ListArtifacts where
   page rq rs
@@ -192,34 +192,34 @@ instance Core.AWSRequest ListArtifacts where
     Response.receiveJSON
       ( \s h x ->
           ListArtifactsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ArtifactSummaries"
+            Prelude.<$> ( x Data..?> "ArtifactSummaries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListArtifacts where
   hashWithSalt _salt ListArtifacts' {..} =
-    _salt `Prelude.hashWithSalt` sortOrder
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` sourceUri
-      `Prelude.hashWithSalt` artifactType
-      `Prelude.hashWithSalt` createdBefore
-      `Prelude.hashWithSalt` sortBy
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` artifactType
       `Prelude.hashWithSalt` createdAfter
+      `Prelude.hashWithSalt` createdBefore
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` sortBy
+      `Prelude.hashWithSalt` sortOrder
+      `Prelude.hashWithSalt` sourceUri
 
 instance Prelude.NFData ListArtifacts where
   rnf ListArtifacts' {..} =
-    Prelude.rnf sortOrder
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf sourceUri
-      `Prelude.seq` Prelude.rnf artifactType
-      `Prelude.seq` Prelude.rnf createdBefore
-      `Prelude.seq` Prelude.rnf sortBy
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf artifactType
       `Prelude.seq` Prelude.rnf createdAfter
+      `Prelude.seq` Prelude.rnf createdBefore
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sortBy
+      `Prelude.seq` Prelude.rnf sortOrder
+      `Prelude.seq` Prelude.rnf sourceUri
 
 instance Data.ToHeaders ListArtifacts where
   toHeaders =
@@ -238,14 +238,14 @@ instance Data.ToJSON ListArtifacts where
   toJSON ListArtifacts' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Data..=) Prelude.<$> sortOrder,
-            ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("SourceUri" Data..=) Prelude.<$> sourceUri,
-            ("ArtifactType" Data..=) Prelude.<$> artifactType,
+          [ ("ArtifactType" Data..=) Prelude.<$> artifactType,
+            ("CreatedAfter" Data..=) Prelude.<$> createdAfter,
             ("CreatedBefore" Data..=) Prelude.<$> createdBefore,
-            ("SortBy" Data..=) Prelude.<$> sortBy,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("CreatedAfter" Data..=) Prelude.<$> createdAfter
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("SortBy" Data..=) Prelude.<$> sortBy,
+            ("SortOrder" Data..=) Prelude.<$> sortOrder,
+            ("SourceUri" Data..=) Prelude.<$> sourceUri
           ]
       )
 
@@ -257,10 +257,10 @@ instance Data.ToQuery ListArtifacts where
 
 -- | /See:/ 'newListArtifactsResponse' smart constructor.
 data ListArtifactsResponse = ListArtifactsResponse'
-  { -- | A token for getting the next set of artifacts, if there are any.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of artifacts and their properties.
+  { -- | A list of artifacts and their properties.
     artifactSummaries :: Prelude.Maybe [ArtifactSummary],
+    -- | A token for getting the next set of artifacts, if there are any.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -274,9 +274,9 @@ data ListArtifactsResponse = ListArtifactsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listArtifactsResponse_nextToken' - A token for getting the next set of artifacts, if there are any.
---
 -- 'artifactSummaries', 'listArtifactsResponse_artifactSummaries' - A list of artifacts and their properties.
+--
+-- 'nextToken', 'listArtifactsResponse_nextToken' - A token for getting the next set of artifacts, if there are any.
 --
 -- 'httpStatus', 'listArtifactsResponse_httpStatus' - The response's http status code.
 newListArtifactsResponse ::
@@ -285,18 +285,19 @@ newListArtifactsResponse ::
   ListArtifactsResponse
 newListArtifactsResponse pHttpStatus_ =
   ListArtifactsResponse'
-    { nextToken = Prelude.Nothing,
-      artifactSummaries = Prelude.Nothing,
+    { artifactSummaries =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A token for getting the next set of artifacts, if there are any.
-listArtifactsResponse_nextToken :: Lens.Lens' ListArtifactsResponse (Prelude.Maybe Prelude.Text)
-listArtifactsResponse_nextToken = Lens.lens (\ListArtifactsResponse' {nextToken} -> nextToken) (\s@ListArtifactsResponse' {} a -> s {nextToken = a} :: ListArtifactsResponse)
 
 -- | A list of artifacts and their properties.
 listArtifactsResponse_artifactSummaries :: Lens.Lens' ListArtifactsResponse (Prelude.Maybe [ArtifactSummary])
 listArtifactsResponse_artifactSummaries = Lens.lens (\ListArtifactsResponse' {artifactSummaries} -> artifactSummaries) (\s@ListArtifactsResponse' {} a -> s {artifactSummaries = a} :: ListArtifactsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A token for getting the next set of artifacts, if there are any.
+listArtifactsResponse_nextToken :: Lens.Lens' ListArtifactsResponse (Prelude.Maybe Prelude.Text)
+listArtifactsResponse_nextToken = Lens.lens (\ListArtifactsResponse' {nextToken} -> nextToken) (\s@ListArtifactsResponse' {} a -> s {nextToken = a} :: ListArtifactsResponse)
 
 -- | The response's http status code.
 listArtifactsResponse_httpStatus :: Lens.Lens' ListArtifactsResponse Prelude.Int
@@ -304,6 +305,6 @@ listArtifactsResponse_httpStatus = Lens.lens (\ListArtifactsResponse' {httpStatu
 
 instance Prelude.NFData ListArtifactsResponse where
   rnf ListArtifactsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf artifactSummaries
+    Prelude.rnf artifactSummaries
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

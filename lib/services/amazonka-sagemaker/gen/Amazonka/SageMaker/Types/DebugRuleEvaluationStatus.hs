@@ -29,16 +29,16 @@ import Amazonka.SageMaker.Types.RuleEvaluationStatus
 --
 -- /See:/ 'newDebugRuleEvaluationStatus' smart constructor.
 data DebugRuleEvaluationStatus = DebugRuleEvaluationStatus'
-  { -- | Details from the rule evaluation.
-    statusDetails :: Prelude.Maybe Prelude.Text,
-    -- | Timestamp when the rule evaluation status was last modified.
+  { -- | Timestamp when the rule evaluation status was last modified.
     lastModifiedTime :: Prelude.Maybe Data.POSIX,
-    -- | The Amazon Resource Name (ARN) of the rule evaluation job.
-    ruleEvaluationJobArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the rule configuration.
     ruleConfigurationName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the rule evaluation job.
+    ruleEvaluationJobArn :: Prelude.Maybe Prelude.Text,
     -- | Status of the rule evaluation.
-    ruleEvaluationStatus :: Prelude.Maybe RuleEvaluationStatus
+    ruleEvaluationStatus :: Prelude.Maybe RuleEvaluationStatus,
+    -- | Details from the rule evaluation.
+    statusDetails :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,46 +50,46 @@ data DebugRuleEvaluationStatus = DebugRuleEvaluationStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusDetails', 'debugRuleEvaluationStatus_statusDetails' - Details from the rule evaluation.
---
 -- 'lastModifiedTime', 'debugRuleEvaluationStatus_lastModifiedTime' - Timestamp when the rule evaluation status was last modified.
---
--- 'ruleEvaluationJobArn', 'debugRuleEvaluationStatus_ruleEvaluationJobArn' - The Amazon Resource Name (ARN) of the rule evaluation job.
 --
 -- 'ruleConfigurationName', 'debugRuleEvaluationStatus_ruleConfigurationName' - The name of the rule configuration.
 --
+-- 'ruleEvaluationJobArn', 'debugRuleEvaluationStatus_ruleEvaluationJobArn' - The Amazon Resource Name (ARN) of the rule evaluation job.
+--
 -- 'ruleEvaluationStatus', 'debugRuleEvaluationStatus_ruleEvaluationStatus' - Status of the rule evaluation.
+--
+-- 'statusDetails', 'debugRuleEvaluationStatus_statusDetails' - Details from the rule evaluation.
 newDebugRuleEvaluationStatus ::
   DebugRuleEvaluationStatus
 newDebugRuleEvaluationStatus =
   DebugRuleEvaluationStatus'
-    { statusDetails =
+    { lastModifiedTime =
         Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
-      ruleEvaluationJobArn = Prelude.Nothing,
       ruleConfigurationName = Prelude.Nothing,
-      ruleEvaluationStatus = Prelude.Nothing
+      ruleEvaluationJobArn = Prelude.Nothing,
+      ruleEvaluationStatus = Prelude.Nothing,
+      statusDetails = Prelude.Nothing
     }
-
--- | Details from the rule evaluation.
-debugRuleEvaluationStatus_statusDetails :: Lens.Lens' DebugRuleEvaluationStatus (Prelude.Maybe Prelude.Text)
-debugRuleEvaluationStatus_statusDetails = Lens.lens (\DebugRuleEvaluationStatus' {statusDetails} -> statusDetails) (\s@DebugRuleEvaluationStatus' {} a -> s {statusDetails = a} :: DebugRuleEvaluationStatus)
 
 -- | Timestamp when the rule evaluation status was last modified.
 debugRuleEvaluationStatus_lastModifiedTime :: Lens.Lens' DebugRuleEvaluationStatus (Prelude.Maybe Prelude.UTCTime)
 debugRuleEvaluationStatus_lastModifiedTime = Lens.lens (\DebugRuleEvaluationStatus' {lastModifiedTime} -> lastModifiedTime) (\s@DebugRuleEvaluationStatus' {} a -> s {lastModifiedTime = a} :: DebugRuleEvaluationStatus) Prelude.. Lens.mapping Data._Time
 
--- | The Amazon Resource Name (ARN) of the rule evaluation job.
-debugRuleEvaluationStatus_ruleEvaluationJobArn :: Lens.Lens' DebugRuleEvaluationStatus (Prelude.Maybe Prelude.Text)
-debugRuleEvaluationStatus_ruleEvaluationJobArn = Lens.lens (\DebugRuleEvaluationStatus' {ruleEvaluationJobArn} -> ruleEvaluationJobArn) (\s@DebugRuleEvaluationStatus' {} a -> s {ruleEvaluationJobArn = a} :: DebugRuleEvaluationStatus)
-
 -- | The name of the rule configuration.
 debugRuleEvaluationStatus_ruleConfigurationName :: Lens.Lens' DebugRuleEvaluationStatus (Prelude.Maybe Prelude.Text)
 debugRuleEvaluationStatus_ruleConfigurationName = Lens.lens (\DebugRuleEvaluationStatus' {ruleConfigurationName} -> ruleConfigurationName) (\s@DebugRuleEvaluationStatus' {} a -> s {ruleConfigurationName = a} :: DebugRuleEvaluationStatus)
 
+-- | The Amazon Resource Name (ARN) of the rule evaluation job.
+debugRuleEvaluationStatus_ruleEvaluationJobArn :: Lens.Lens' DebugRuleEvaluationStatus (Prelude.Maybe Prelude.Text)
+debugRuleEvaluationStatus_ruleEvaluationJobArn = Lens.lens (\DebugRuleEvaluationStatus' {ruleEvaluationJobArn} -> ruleEvaluationJobArn) (\s@DebugRuleEvaluationStatus' {} a -> s {ruleEvaluationJobArn = a} :: DebugRuleEvaluationStatus)
+
 -- | Status of the rule evaluation.
 debugRuleEvaluationStatus_ruleEvaluationStatus :: Lens.Lens' DebugRuleEvaluationStatus (Prelude.Maybe RuleEvaluationStatus)
 debugRuleEvaluationStatus_ruleEvaluationStatus = Lens.lens (\DebugRuleEvaluationStatus' {ruleEvaluationStatus} -> ruleEvaluationStatus) (\s@DebugRuleEvaluationStatus' {} a -> s {ruleEvaluationStatus = a} :: DebugRuleEvaluationStatus)
+
+-- | Details from the rule evaluation.
+debugRuleEvaluationStatus_statusDetails :: Lens.Lens' DebugRuleEvaluationStatus (Prelude.Maybe Prelude.Text)
+debugRuleEvaluationStatus_statusDetails = Lens.lens (\DebugRuleEvaluationStatus' {statusDetails} -> statusDetails) (\s@DebugRuleEvaluationStatus' {} a -> s {statusDetails = a} :: DebugRuleEvaluationStatus)
 
 instance Data.FromJSON DebugRuleEvaluationStatus where
   parseJSON =
@@ -97,25 +97,25 @@ instance Data.FromJSON DebugRuleEvaluationStatus where
       "DebugRuleEvaluationStatus"
       ( \x ->
           DebugRuleEvaluationStatus'
-            Prelude.<$> (x Data..:? "StatusDetails")
-            Prelude.<*> (x Data..:? "LastModifiedTime")
-            Prelude.<*> (x Data..:? "RuleEvaluationJobArn")
+            Prelude.<$> (x Data..:? "LastModifiedTime")
             Prelude.<*> (x Data..:? "RuleConfigurationName")
+            Prelude.<*> (x Data..:? "RuleEvaluationJobArn")
             Prelude.<*> (x Data..:? "RuleEvaluationStatus")
+            Prelude.<*> (x Data..:? "StatusDetails")
       )
 
 instance Prelude.Hashable DebugRuleEvaluationStatus where
   hashWithSalt _salt DebugRuleEvaluationStatus' {..} =
-    _salt `Prelude.hashWithSalt` statusDetails
-      `Prelude.hashWithSalt` lastModifiedTime
-      `Prelude.hashWithSalt` ruleEvaluationJobArn
+    _salt `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` ruleConfigurationName
+      `Prelude.hashWithSalt` ruleEvaluationJobArn
       `Prelude.hashWithSalt` ruleEvaluationStatus
+      `Prelude.hashWithSalt` statusDetails
 
 instance Prelude.NFData DebugRuleEvaluationStatus where
   rnf DebugRuleEvaluationStatus' {..} =
-    Prelude.rnf statusDetails
-      `Prelude.seq` Prelude.rnf lastModifiedTime
-      `Prelude.seq` Prelude.rnf ruleEvaluationJobArn
+    Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf ruleConfigurationName
+      `Prelude.seq` Prelude.rnf ruleEvaluationJobArn
       `Prelude.seq` Prelude.rnf ruleEvaluationStatus
+      `Prelude.seq` Prelude.rnf statusDetails

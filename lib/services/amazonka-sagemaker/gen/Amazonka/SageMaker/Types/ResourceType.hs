@@ -27,6 +27,8 @@ module Amazonka.SageMaker.Types.ResourceType
         ResourceType_FeatureGroup,
         ResourceType_FeatureMetadata,
         ResourceType_HyperParameterTuningJob,
+        ResourceType_Model,
+        ResourceType_ModelCard,
         ResourceType_ModelPackage,
         ResourceType_ModelPackageGroup,
         ResourceType_Pipeline,
@@ -90,6 +92,12 @@ pattern ResourceType_FeatureMetadata = ResourceType' "FeatureMetadata"
 pattern ResourceType_HyperParameterTuningJob :: ResourceType
 pattern ResourceType_HyperParameterTuningJob = ResourceType' "HyperParameterTuningJob"
 
+pattern ResourceType_Model :: ResourceType
+pattern ResourceType_Model = ResourceType' "Model"
+
+pattern ResourceType_ModelCard :: ResourceType
+pattern ResourceType_ModelCard = ResourceType' "ModelCard"
+
 pattern ResourceType_ModelPackage :: ResourceType
 pattern ResourceType_ModelPackage = ResourceType' "ModelPackage"
 
@@ -116,6 +124,8 @@ pattern ResourceType_TrainingJob = ResourceType' "TrainingJob"
   ResourceType_FeatureGroup,
   ResourceType_FeatureMetadata,
   ResourceType_HyperParameterTuningJob,
+  ResourceType_Model,
+  ResourceType_ModelCard,
   ResourceType_ModelPackage,
   ResourceType_ModelPackageGroup,
   ResourceType_Pipeline,

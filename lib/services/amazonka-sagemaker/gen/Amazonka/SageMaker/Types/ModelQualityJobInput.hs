@@ -32,9 +32,9 @@ import Amazonka.SageMaker.Types.MonitoringGroundTruthS3Input
 --
 -- /See:/ 'newModelQualityJobInput' smart constructor.
 data ModelQualityJobInput = ModelQualityJobInput'
-  { endpointInput :: Prelude.Maybe EndpointInput,
-    -- | Input object for the batch transform job.
+  { -- | Input object for the batch transform job.
     batchTransformInput :: Prelude.Maybe BatchTransformInput,
+    endpointInput :: Prelude.Maybe EndpointInput,
     -- | The ground truth label provided for the model.
     groundTruthS3Input :: MonitoringGroundTruthS3Input
   }
@@ -48,9 +48,9 @@ data ModelQualityJobInput = ModelQualityJobInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'endpointInput', 'modelQualityJobInput_endpointInput' - Undocumented member.
---
 -- 'batchTransformInput', 'modelQualityJobInput_batchTransformInput' - Input object for the batch transform job.
+--
+-- 'endpointInput', 'modelQualityJobInput_endpointInput' - Undocumented member.
 --
 -- 'groundTruthS3Input', 'modelQualityJobInput_groundTruthS3Input' - The ground truth label provided for the model.
 newModelQualityJobInput ::
@@ -59,19 +59,19 @@ newModelQualityJobInput ::
   ModelQualityJobInput
 newModelQualityJobInput pGroundTruthS3Input_ =
   ModelQualityJobInput'
-    { endpointInput =
+    { batchTransformInput =
         Prelude.Nothing,
-      batchTransformInput = Prelude.Nothing,
+      endpointInput = Prelude.Nothing,
       groundTruthS3Input = pGroundTruthS3Input_
     }
-
--- | Undocumented member.
-modelQualityJobInput_endpointInput :: Lens.Lens' ModelQualityJobInput (Prelude.Maybe EndpointInput)
-modelQualityJobInput_endpointInput = Lens.lens (\ModelQualityJobInput' {endpointInput} -> endpointInput) (\s@ModelQualityJobInput' {} a -> s {endpointInput = a} :: ModelQualityJobInput)
 
 -- | Input object for the batch transform job.
 modelQualityJobInput_batchTransformInput :: Lens.Lens' ModelQualityJobInput (Prelude.Maybe BatchTransformInput)
 modelQualityJobInput_batchTransformInput = Lens.lens (\ModelQualityJobInput' {batchTransformInput} -> batchTransformInput) (\s@ModelQualityJobInput' {} a -> s {batchTransformInput = a} :: ModelQualityJobInput)
+
+-- | Undocumented member.
+modelQualityJobInput_endpointInput :: Lens.Lens' ModelQualityJobInput (Prelude.Maybe EndpointInput)
+modelQualityJobInput_endpointInput = Lens.lens (\ModelQualityJobInput' {endpointInput} -> endpointInput) (\s@ModelQualityJobInput' {} a -> s {endpointInput = a} :: ModelQualityJobInput)
 
 -- | The ground truth label provided for the model.
 modelQualityJobInput_groundTruthS3Input :: Lens.Lens' ModelQualityJobInput MonitoringGroundTruthS3Input
@@ -83,30 +83,30 @@ instance Data.FromJSON ModelQualityJobInput where
       "ModelQualityJobInput"
       ( \x ->
           ModelQualityJobInput'
-            Prelude.<$> (x Data..:? "EndpointInput")
-            Prelude.<*> (x Data..:? "BatchTransformInput")
+            Prelude.<$> (x Data..:? "BatchTransformInput")
+            Prelude.<*> (x Data..:? "EndpointInput")
             Prelude.<*> (x Data..: "GroundTruthS3Input")
       )
 
 instance Prelude.Hashable ModelQualityJobInput where
   hashWithSalt _salt ModelQualityJobInput' {..} =
-    _salt `Prelude.hashWithSalt` endpointInput
-      `Prelude.hashWithSalt` batchTransformInput
+    _salt `Prelude.hashWithSalt` batchTransformInput
+      `Prelude.hashWithSalt` endpointInput
       `Prelude.hashWithSalt` groundTruthS3Input
 
 instance Prelude.NFData ModelQualityJobInput where
   rnf ModelQualityJobInput' {..} =
-    Prelude.rnf endpointInput
-      `Prelude.seq` Prelude.rnf batchTransformInput
+    Prelude.rnf batchTransformInput
+      `Prelude.seq` Prelude.rnf endpointInput
       `Prelude.seq` Prelude.rnf groundTruthS3Input
 
 instance Data.ToJSON ModelQualityJobInput where
   toJSON ModelQualityJobInput' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("EndpointInput" Data..=) Prelude.<$> endpointInput,
-            ("BatchTransformInput" Data..=)
+          [ ("BatchTransformInput" Data..=)
               Prelude.<$> batchTransformInput,
+            ("EndpointInput" Data..=) Prelude.<$> endpointInput,
             Prelude.Just
               ("GroundTruthS3Input" Data..= groundTruthS3Input)
           ]

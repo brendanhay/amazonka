@@ -29,7 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchDataCaptureConfig' smart constructor.
 data BatchDataCaptureConfig = BatchDataCaptureConfig'
-  { -- | The Amazon Resource Name (ARN) of a Amazon Web Services Key Management
+  { -- | Flag that indicates whether to append inference id to the output.
+    generateInferenceId :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Resource Name (ARN) of a Amazon Web Services Key Management
     -- Service key that SageMaker uses to encrypt data on the storage volume
     -- attached to the ML compute instance that hosts the batch transform job.
     --
@@ -45,8 +47,6 @@ data BatchDataCaptureConfig = BatchDataCaptureConfig'
     -- -   Alias name ARN:
     --     @arn:aws:kms:us-west-2:111122223333:alias\/ExampleAlias@
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | Flag that indicates whether to append inference id to the output.
-    generateInferenceId :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon S3 location being used to capture the data.
     destinationS3Uri :: Prelude.Text
   }
@@ -59,6 +59,8 @@ data BatchDataCaptureConfig = BatchDataCaptureConfig'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'generateInferenceId', 'batchDataCaptureConfig_generateInferenceId' - Flag that indicates whether to append inference id to the output.
 --
 -- 'kmsKeyId', 'batchDataCaptureConfig_kmsKeyId' - The Amazon Resource Name (ARN) of a Amazon Web Services Key Management
 -- Service key that SageMaker uses to encrypt data on the storage volume
@@ -76,8 +78,6 @@ data BatchDataCaptureConfig = BatchDataCaptureConfig'
 -- -   Alias name ARN:
 --     @arn:aws:kms:us-west-2:111122223333:alias\/ExampleAlias@
 --
--- 'generateInferenceId', 'batchDataCaptureConfig_generateInferenceId' - Flag that indicates whether to append inference id to the output.
---
 -- 'destinationS3Uri', 'batchDataCaptureConfig_destinationS3Uri' - The Amazon S3 location being used to capture the data.
 newBatchDataCaptureConfig ::
   -- | 'destinationS3Uri'
@@ -85,10 +85,15 @@ newBatchDataCaptureConfig ::
   BatchDataCaptureConfig
 newBatchDataCaptureConfig pDestinationS3Uri_ =
   BatchDataCaptureConfig'
-    { kmsKeyId = Prelude.Nothing,
-      generateInferenceId = Prelude.Nothing,
+    { generateInferenceId =
+        Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
       destinationS3Uri = pDestinationS3Uri_
     }
+
+-- | Flag that indicates whether to append inference id to the output.
+batchDataCaptureConfig_generateInferenceId :: Lens.Lens' BatchDataCaptureConfig (Prelude.Maybe Prelude.Bool)
+batchDataCaptureConfig_generateInferenceId = Lens.lens (\BatchDataCaptureConfig' {generateInferenceId} -> generateInferenceId) (\s@BatchDataCaptureConfig' {} a -> s {generateInferenceId = a} :: BatchDataCaptureConfig)
 
 -- | The Amazon Resource Name (ARN) of a Amazon Web Services Key Management
 -- Service key that SageMaker uses to encrypt data on the storage volume
@@ -108,10 +113,6 @@ newBatchDataCaptureConfig pDestinationS3Uri_ =
 batchDataCaptureConfig_kmsKeyId :: Lens.Lens' BatchDataCaptureConfig (Prelude.Maybe Prelude.Text)
 batchDataCaptureConfig_kmsKeyId = Lens.lens (\BatchDataCaptureConfig' {kmsKeyId} -> kmsKeyId) (\s@BatchDataCaptureConfig' {} a -> s {kmsKeyId = a} :: BatchDataCaptureConfig)
 
--- | Flag that indicates whether to append inference id to the output.
-batchDataCaptureConfig_generateInferenceId :: Lens.Lens' BatchDataCaptureConfig (Prelude.Maybe Prelude.Bool)
-batchDataCaptureConfig_generateInferenceId = Lens.lens (\BatchDataCaptureConfig' {generateInferenceId} -> generateInferenceId) (\s@BatchDataCaptureConfig' {} a -> s {generateInferenceId = a} :: BatchDataCaptureConfig)
-
 -- | The Amazon S3 location being used to capture the data.
 batchDataCaptureConfig_destinationS3Uri :: Lens.Lens' BatchDataCaptureConfig Prelude.Text
 batchDataCaptureConfig_destinationS3Uri = Lens.lens (\BatchDataCaptureConfig' {destinationS3Uri} -> destinationS3Uri) (\s@BatchDataCaptureConfig' {} a -> s {destinationS3Uri = a} :: BatchDataCaptureConfig)
@@ -122,30 +123,30 @@ instance Data.FromJSON BatchDataCaptureConfig where
       "BatchDataCaptureConfig"
       ( \x ->
           BatchDataCaptureConfig'
-            Prelude.<$> (x Data..:? "KmsKeyId")
-            Prelude.<*> (x Data..:? "GenerateInferenceId")
+            Prelude.<$> (x Data..:? "GenerateInferenceId")
+            Prelude.<*> (x Data..:? "KmsKeyId")
             Prelude.<*> (x Data..: "DestinationS3Uri")
       )
 
 instance Prelude.Hashable BatchDataCaptureConfig where
   hashWithSalt _salt BatchDataCaptureConfig' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
-      `Prelude.hashWithSalt` generateInferenceId
+    _salt `Prelude.hashWithSalt` generateInferenceId
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` destinationS3Uri
 
 instance Prelude.NFData BatchDataCaptureConfig where
   rnf BatchDataCaptureConfig' {..} =
-    Prelude.rnf kmsKeyId
-      `Prelude.seq` Prelude.rnf generateInferenceId
+    Prelude.rnf generateInferenceId
+      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf destinationS3Uri
 
 instance Data.ToJSON BatchDataCaptureConfig where
   toJSON BatchDataCaptureConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
-            ("GenerateInferenceId" Data..=)
+          [ ("GenerateInferenceId" Data..=)
               Prelude.<$> generateInferenceId,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
             Prelude.Just
               ("DestinationS3Uri" Data..= destinationS3Uri)
           ]

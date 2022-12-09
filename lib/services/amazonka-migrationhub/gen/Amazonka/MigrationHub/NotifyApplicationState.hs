@@ -30,8 +30,8 @@ module Amazonka.MigrationHub.NotifyApplicationState
     newNotifyApplicationState,
 
     -- * Request Lenses
-    notifyApplicationState_updateDateTime,
     notifyApplicationState_dryRun,
+    notifyApplicationState_updateDateTime,
     notifyApplicationState_applicationId,
     notifyApplicationState_status,
 
@@ -54,11 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newNotifyApplicationState' smart constructor.
 data NotifyApplicationState = NotifyApplicationState'
-  { -- | The timestamp when the application state changed.
-    updateDateTime :: Prelude.Maybe Data.POSIX,
-    -- | Optional boolean flag to indicate whether any effect should take place.
+  { -- | Optional boolean flag to indicate whether any effect should take place.
     -- Used to test if the caller has permission to make the call.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The timestamp when the application state changed.
+    updateDateTime :: Prelude.Maybe Data.POSIX,
     -- | The configurationId in Application Discovery Service that uniquely
     -- identifies the grouped application.
     applicationId :: Prelude.Text,
@@ -75,10 +75,10 @@ data NotifyApplicationState = NotifyApplicationState'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'updateDateTime', 'notifyApplicationState_updateDateTime' - The timestamp when the application state changed.
---
 -- 'dryRun', 'notifyApplicationState_dryRun' - Optional boolean flag to indicate whether any effect should take place.
 -- Used to test if the caller has permission to make the call.
+--
+-- 'updateDateTime', 'notifyApplicationState_updateDateTime' - The timestamp when the application state changed.
 --
 -- 'applicationId', 'notifyApplicationState_applicationId' - The configurationId in Application Discovery Service that uniquely
 -- identifies the grouped application.
@@ -92,21 +92,20 @@ newNotifyApplicationState ::
   NotifyApplicationState
 newNotifyApplicationState pApplicationId_ pStatus_ =
   NotifyApplicationState'
-    { updateDateTime =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+    { dryRun = Prelude.Nothing,
+      updateDateTime = Prelude.Nothing,
       applicationId = pApplicationId_,
       status = pStatus_
     }
-
--- | The timestamp when the application state changed.
-notifyApplicationState_updateDateTime :: Lens.Lens' NotifyApplicationState (Prelude.Maybe Prelude.UTCTime)
-notifyApplicationState_updateDateTime = Lens.lens (\NotifyApplicationState' {updateDateTime} -> updateDateTime) (\s@NotifyApplicationState' {} a -> s {updateDateTime = a} :: NotifyApplicationState) Prelude.. Lens.mapping Data._Time
 
 -- | Optional boolean flag to indicate whether any effect should take place.
 -- Used to test if the caller has permission to make the call.
 notifyApplicationState_dryRun :: Lens.Lens' NotifyApplicationState (Prelude.Maybe Prelude.Bool)
 notifyApplicationState_dryRun = Lens.lens (\NotifyApplicationState' {dryRun} -> dryRun) (\s@NotifyApplicationState' {} a -> s {dryRun = a} :: NotifyApplicationState)
+
+-- | The timestamp when the application state changed.
+notifyApplicationState_updateDateTime :: Lens.Lens' NotifyApplicationState (Prelude.Maybe Prelude.UTCTime)
+notifyApplicationState_updateDateTime = Lens.lens (\NotifyApplicationState' {updateDateTime} -> updateDateTime) (\s@NotifyApplicationState' {} a -> s {updateDateTime = a} :: NotifyApplicationState) Prelude.. Lens.mapping Data._Time
 
 -- | The configurationId in Application Discovery Service that uniquely
 -- identifies the grouped application.
@@ -132,15 +131,15 @@ instance Core.AWSRequest NotifyApplicationState where
 
 instance Prelude.Hashable NotifyApplicationState where
   hashWithSalt _salt NotifyApplicationState' {..} =
-    _salt `Prelude.hashWithSalt` updateDateTime
-      `Prelude.hashWithSalt` dryRun
+    _salt `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` updateDateTime
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData NotifyApplicationState where
   rnf NotifyApplicationState' {..} =
-    Prelude.rnf updateDateTime
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf updateDateTime
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf status
 
@@ -163,9 +162,9 @@ instance Data.ToJSON NotifyApplicationState where
   toJSON NotifyApplicationState' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("UpdateDateTime" Data..=)
+          [ ("DryRun" Data..=) Prelude.<$> dryRun,
+            ("UpdateDateTime" Data..=)
               Prelude.<$> updateDateTime,
-            ("DryRun" Data..=) Prelude.<$> dryRun,
             Prelude.Just ("ApplicationId" Data..= applicationId),
             Prelude.Just ("Status" Data..= status)
           ]

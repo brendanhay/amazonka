@@ -34,8 +34,8 @@ module Amazonka.MigrationHub.DescribeApplicationState
     newDescribeApplicationStateResponse,
 
     -- * Response Lenses
-    describeApplicationStateResponse_lastUpdatedTime,
     describeApplicationStateResponse_applicationStatus,
+    describeApplicationStateResponse_lastUpdatedTime,
     describeApplicationStateResponse_httpStatus,
   )
 where
@@ -91,8 +91,8 @@ instance Core.AWSRequest DescribeApplicationState where
     Response.receiveJSON
       ( \s h x ->
           DescribeApplicationStateResponse'
-            Prelude.<$> (x Data..?> "LastUpdatedTime")
-            Prelude.<*> (x Data..?> "ApplicationStatus")
+            Prelude.<$> (x Data..?> "ApplicationStatus")
+            Prelude.<*> (x Data..?> "LastUpdatedTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,10 +136,10 @@ instance Data.ToQuery DescribeApplicationState where
 
 -- | /See:/ 'newDescribeApplicationStateResponse' smart constructor.
 data DescribeApplicationStateResponse = DescribeApplicationStateResponse'
-  { -- | The timestamp when the application status was last updated.
-    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
-    -- | Status of the application - Not Started, In-Progress, Complete.
+  { -- | Status of the application - Not Started, In-Progress, Complete.
     applicationStatus :: Prelude.Maybe ApplicationStatus,
+    -- | The timestamp when the application status was last updated.
+    lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -153,9 +153,9 @@ data DescribeApplicationStateResponse = DescribeApplicationStateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastUpdatedTime', 'describeApplicationStateResponse_lastUpdatedTime' - The timestamp when the application status was last updated.
---
 -- 'applicationStatus', 'describeApplicationStateResponse_applicationStatus' - Status of the application - Not Started, In-Progress, Complete.
+--
+-- 'lastUpdatedTime', 'describeApplicationStateResponse_lastUpdatedTime' - The timestamp when the application status was last updated.
 --
 -- 'httpStatus', 'describeApplicationStateResponse_httpStatus' - The response's http status code.
 newDescribeApplicationStateResponse ::
@@ -164,19 +164,19 @@ newDescribeApplicationStateResponse ::
   DescribeApplicationStateResponse
 newDescribeApplicationStateResponse pHttpStatus_ =
   DescribeApplicationStateResponse'
-    { lastUpdatedTime =
+    { applicationStatus =
         Prelude.Nothing,
-      applicationStatus = Prelude.Nothing,
+      lastUpdatedTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The timestamp when the application status was last updated.
-describeApplicationStateResponse_lastUpdatedTime :: Lens.Lens' DescribeApplicationStateResponse (Prelude.Maybe Prelude.UTCTime)
-describeApplicationStateResponse_lastUpdatedTime = Lens.lens (\DescribeApplicationStateResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DescribeApplicationStateResponse' {} a -> s {lastUpdatedTime = a} :: DescribeApplicationStateResponse) Prelude.. Lens.mapping Data._Time
 
 -- | Status of the application - Not Started, In-Progress, Complete.
 describeApplicationStateResponse_applicationStatus :: Lens.Lens' DescribeApplicationStateResponse (Prelude.Maybe ApplicationStatus)
 describeApplicationStateResponse_applicationStatus = Lens.lens (\DescribeApplicationStateResponse' {applicationStatus} -> applicationStatus) (\s@DescribeApplicationStateResponse' {} a -> s {applicationStatus = a} :: DescribeApplicationStateResponse)
+
+-- | The timestamp when the application status was last updated.
+describeApplicationStateResponse_lastUpdatedTime :: Lens.Lens' DescribeApplicationStateResponse (Prelude.Maybe Prelude.UTCTime)
+describeApplicationStateResponse_lastUpdatedTime = Lens.lens (\DescribeApplicationStateResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DescribeApplicationStateResponse' {} a -> s {lastUpdatedTime = a} :: DescribeApplicationStateResponse) Prelude.. Lens.mapping Data._Time
 
 -- | The response's http status code.
 describeApplicationStateResponse_httpStatus :: Lens.Lens' DescribeApplicationStateResponse Prelude.Int
@@ -187,6 +187,6 @@ instance
     DescribeApplicationStateResponse
   where
   rnf DescribeApplicationStateResponse' {..} =
-    Prelude.rnf lastUpdatedTime
-      `Prelude.seq` Prelude.rnf applicationStatus
+    Prelude.rnf applicationStatus
+      `Prelude.seq` Prelude.rnf lastUpdatedTime
       `Prelude.seq` Prelude.rnf httpStatus

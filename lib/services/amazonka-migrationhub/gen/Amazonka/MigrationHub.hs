@@ -25,35 +25,35 @@ module Amazonka.MigrationHub
     -- * Errors
     -- $errors
 
-    -- ** DryRunOperation
-    _DryRunOperation,
-
-    -- ** InvalidInputException
-    _InvalidInputException,
-
-    -- ** UnauthorizedOperation
-    _UnauthorizedOperation,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
+    -- ** DryRunOperation
+    _DryRunOperation,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** HomeRegionNotSetException
+    _HomeRegionNotSetException,
 
     -- ** InternalServerError
     _InternalServerError,
 
-    -- ** ThrottlingException
-    _ThrottlingException,
+    -- ** InvalidInputException
+    _InvalidInputException,
 
     -- ** PolicyErrorException
     _PolicyErrorException,
 
-    -- ** HomeRegionNotSetException
-    _HomeRegionNotSetException,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** UnauthorizedOperation
+    _UnauthorizedOperation,
 
     -- * Waiters
     -- $waiters

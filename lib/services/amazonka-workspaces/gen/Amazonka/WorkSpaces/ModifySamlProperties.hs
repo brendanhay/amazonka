@@ -30,8 +30,8 @@ module Amazonka.WorkSpaces.ModifySamlProperties
     newModifySamlProperties,
 
     -- * Request Lenses
-    modifySamlProperties_samlProperties,
     modifySamlProperties_propertiesToDelete,
+    modifySamlProperties_samlProperties,
     modifySamlProperties_resourceId,
 
     -- * Destructuring the Response
@@ -53,9 +53,7 @@ import Amazonka.WorkSpaces.Types
 
 -- | /See:/ 'newModifySamlProperties' smart constructor.
 data ModifySamlProperties = ModifySamlProperties'
-  { -- | The properties for configuring SAML 2.0 authentication.
-    samlProperties :: Prelude.Maybe SamlProperties,
-    -- | The SAML properties to delete as part of your request.
+  { -- | The SAML properties to delete as part of your request.
     --
     -- Specify one of the following options:
     --
@@ -64,6 +62,8 @@ data ModifySamlProperties = ModifySamlProperties'
     -- -   @SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME@ to delete the relay
     --     state parameter name.
     propertiesToDelete :: Prelude.Maybe [DeletableSamlProperty],
+    -- | The properties for configuring SAML 2.0 authentication.
+    samlProperties :: Prelude.Maybe SamlProperties,
     -- | The directory identifier for which you want to configure SAML
     -- properties.
     resourceId :: Prelude.Text
@@ -78,8 +78,6 @@ data ModifySamlProperties = ModifySamlProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'samlProperties', 'modifySamlProperties_samlProperties' - The properties for configuring SAML 2.0 authentication.
---
 -- 'propertiesToDelete', 'modifySamlProperties_propertiesToDelete' - The SAML properties to delete as part of your request.
 --
 -- Specify one of the following options:
@@ -89,6 +87,8 @@ data ModifySamlProperties = ModifySamlProperties'
 -- -   @SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME@ to delete the relay
 --     state parameter name.
 --
+-- 'samlProperties', 'modifySamlProperties_samlProperties' - The properties for configuring SAML 2.0 authentication.
+--
 -- 'resourceId', 'modifySamlProperties_resourceId' - The directory identifier for which you want to configure SAML
 -- properties.
 newModifySamlProperties ::
@@ -97,15 +97,11 @@ newModifySamlProperties ::
   ModifySamlProperties
 newModifySamlProperties pResourceId_ =
   ModifySamlProperties'
-    { samlProperties =
+    { propertiesToDelete =
         Prelude.Nothing,
-      propertiesToDelete = Prelude.Nothing,
+      samlProperties = Prelude.Nothing,
       resourceId = pResourceId_
     }
-
--- | The properties for configuring SAML 2.0 authentication.
-modifySamlProperties_samlProperties :: Lens.Lens' ModifySamlProperties (Prelude.Maybe SamlProperties)
-modifySamlProperties_samlProperties = Lens.lens (\ModifySamlProperties' {samlProperties} -> samlProperties) (\s@ModifySamlProperties' {} a -> s {samlProperties = a} :: ModifySamlProperties)
 
 -- | The SAML properties to delete as part of your request.
 --
@@ -117,6 +113,10 @@ modifySamlProperties_samlProperties = Lens.lens (\ModifySamlProperties' {samlPro
 --     state parameter name.
 modifySamlProperties_propertiesToDelete :: Lens.Lens' ModifySamlProperties (Prelude.Maybe [DeletableSamlProperty])
 modifySamlProperties_propertiesToDelete = Lens.lens (\ModifySamlProperties' {propertiesToDelete} -> propertiesToDelete) (\s@ModifySamlProperties' {} a -> s {propertiesToDelete = a} :: ModifySamlProperties) Prelude.. Lens.mapping Lens.coerced
+
+-- | The properties for configuring SAML 2.0 authentication.
+modifySamlProperties_samlProperties :: Lens.Lens' ModifySamlProperties (Prelude.Maybe SamlProperties)
+modifySamlProperties_samlProperties = Lens.lens (\ModifySamlProperties' {samlProperties} -> samlProperties) (\s@ModifySamlProperties' {} a -> s {samlProperties = a} :: ModifySamlProperties)
 
 -- | The directory identifier for which you want to configure SAML
 -- properties.
@@ -138,14 +138,14 @@ instance Core.AWSRequest ModifySamlProperties where
 
 instance Prelude.Hashable ModifySamlProperties where
   hashWithSalt _salt ModifySamlProperties' {..} =
-    _salt `Prelude.hashWithSalt` samlProperties
-      `Prelude.hashWithSalt` propertiesToDelete
+    _salt `Prelude.hashWithSalt` propertiesToDelete
+      `Prelude.hashWithSalt` samlProperties
       `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData ModifySamlProperties where
   rnf ModifySamlProperties' {..} =
-    Prelude.rnf samlProperties
-      `Prelude.seq` Prelude.rnf propertiesToDelete
+    Prelude.rnf propertiesToDelete
+      `Prelude.seq` Prelude.rnf samlProperties
       `Prelude.seq` Prelude.rnf resourceId
 
 instance Data.ToHeaders ModifySamlProperties where
@@ -167,10 +167,10 @@ instance Data.ToJSON ModifySamlProperties where
   toJSON ModifySamlProperties' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SamlProperties" Data..=)
-              Prelude.<$> samlProperties,
-            ("PropertiesToDelete" Data..=)
+          [ ("PropertiesToDelete" Data..=)
               Prelude.<$> propertiesToDelete,
+            ("SamlProperties" Data..=)
+              Prelude.<$> samlProperties,
             Prelude.Just ("ResourceId" Data..= resourceId)
           ]
       )

@@ -48,11 +48,11 @@ module Amazonka.WorkSpaces.ImportClientBranding
 
     -- * Request Lenses
     importClientBranding_deviceTypeAndroid,
-    importClientBranding_deviceTypeLinux,
-    importClientBranding_deviceTypeWeb,
-    importClientBranding_deviceTypeOsx,
-    importClientBranding_deviceTypeWindows,
     importClientBranding_deviceTypeIos,
+    importClientBranding_deviceTypeLinux,
+    importClientBranding_deviceTypeOsx,
+    importClientBranding_deviceTypeWeb,
+    importClientBranding_deviceTypeWindows,
     importClientBranding_resourceId,
 
     -- * Destructuring the Response
@@ -61,11 +61,11 @@ module Amazonka.WorkSpaces.ImportClientBranding
 
     -- * Response Lenses
     importClientBrandingResponse_deviceTypeAndroid,
-    importClientBrandingResponse_deviceTypeLinux,
-    importClientBrandingResponse_deviceTypeWeb,
-    importClientBrandingResponse_deviceTypeOsx,
-    importClientBrandingResponse_deviceTypeWindows,
     importClientBrandingResponse_deviceTypeIos,
+    importClientBrandingResponse_deviceTypeLinux,
+    importClientBrandingResponse_deviceTypeOsx,
+    importClientBrandingResponse_deviceTypeWeb,
+    importClientBrandingResponse_deviceTypeWindows,
     importClientBrandingResponse_httpStatus,
   )
 where
@@ -82,16 +82,16 @@ import Amazonka.WorkSpaces.Types
 data ImportClientBranding = ImportClientBranding'
   { -- | The branding information to import for Android devices.
     deviceTypeAndroid :: Prelude.Maybe DefaultImportClientBrandingAttributes,
-    -- | The branding information to import for Linux devices.
-    deviceTypeLinux :: Prelude.Maybe DefaultImportClientBrandingAttributes,
-    -- | The branding information to import for web access.
-    deviceTypeWeb :: Prelude.Maybe DefaultImportClientBrandingAttributes,
-    -- | The branding information to import for macOS devices.
-    deviceTypeOsx :: Prelude.Maybe DefaultImportClientBrandingAttributes,
-    -- | The branding information to import for Windows devices.
-    deviceTypeWindows :: Prelude.Maybe DefaultImportClientBrandingAttributes,
     -- | The branding information to import for iOS devices.
     deviceTypeIos :: Prelude.Maybe IosImportClientBrandingAttributes,
+    -- | The branding information to import for Linux devices.
+    deviceTypeLinux :: Prelude.Maybe DefaultImportClientBrandingAttributes,
+    -- | The branding information to import for macOS devices.
+    deviceTypeOsx :: Prelude.Maybe DefaultImportClientBrandingAttributes,
+    -- | The branding information to import for web access.
+    deviceTypeWeb :: Prelude.Maybe DefaultImportClientBrandingAttributes,
+    -- | The branding information to import for Windows devices.
+    deviceTypeWindows :: Prelude.Maybe DefaultImportClientBrandingAttributes,
     -- | The directory identifier of the WorkSpace for which you want to import
     -- client branding.
     resourceId :: Prelude.Text
@@ -108,15 +108,15 @@ data ImportClientBranding = ImportClientBranding'
 --
 -- 'deviceTypeAndroid', 'importClientBranding_deviceTypeAndroid' - The branding information to import for Android devices.
 --
--- 'deviceTypeLinux', 'importClientBranding_deviceTypeLinux' - The branding information to import for Linux devices.
+-- 'deviceTypeIos', 'importClientBranding_deviceTypeIos' - The branding information to import for iOS devices.
 --
--- 'deviceTypeWeb', 'importClientBranding_deviceTypeWeb' - The branding information to import for web access.
+-- 'deviceTypeLinux', 'importClientBranding_deviceTypeLinux' - The branding information to import for Linux devices.
 --
 -- 'deviceTypeOsx', 'importClientBranding_deviceTypeOsx' - The branding information to import for macOS devices.
 --
--- 'deviceTypeWindows', 'importClientBranding_deviceTypeWindows' - The branding information to import for Windows devices.
+-- 'deviceTypeWeb', 'importClientBranding_deviceTypeWeb' - The branding information to import for web access.
 --
--- 'deviceTypeIos', 'importClientBranding_deviceTypeIos' - The branding information to import for iOS devices.
+-- 'deviceTypeWindows', 'importClientBranding_deviceTypeWindows' - The branding information to import for Windows devices.
 --
 -- 'resourceId', 'importClientBranding_resourceId' - The directory identifier of the WorkSpace for which you want to import
 -- client branding.
@@ -128,11 +128,11 @@ newImportClientBranding pResourceId_ =
   ImportClientBranding'
     { deviceTypeAndroid =
         Prelude.Nothing,
-      deviceTypeLinux = Prelude.Nothing,
-      deviceTypeWeb = Prelude.Nothing,
-      deviceTypeOsx = Prelude.Nothing,
-      deviceTypeWindows = Prelude.Nothing,
       deviceTypeIos = Prelude.Nothing,
+      deviceTypeLinux = Prelude.Nothing,
+      deviceTypeOsx = Prelude.Nothing,
+      deviceTypeWeb = Prelude.Nothing,
+      deviceTypeWindows = Prelude.Nothing,
       resourceId = pResourceId_
     }
 
@@ -140,25 +140,25 @@ newImportClientBranding pResourceId_ =
 importClientBranding_deviceTypeAndroid :: Lens.Lens' ImportClientBranding (Prelude.Maybe DefaultImportClientBrandingAttributes)
 importClientBranding_deviceTypeAndroid = Lens.lens (\ImportClientBranding' {deviceTypeAndroid} -> deviceTypeAndroid) (\s@ImportClientBranding' {} a -> s {deviceTypeAndroid = a} :: ImportClientBranding)
 
+-- | The branding information to import for iOS devices.
+importClientBranding_deviceTypeIos :: Lens.Lens' ImportClientBranding (Prelude.Maybe IosImportClientBrandingAttributes)
+importClientBranding_deviceTypeIos = Lens.lens (\ImportClientBranding' {deviceTypeIos} -> deviceTypeIos) (\s@ImportClientBranding' {} a -> s {deviceTypeIos = a} :: ImportClientBranding)
+
 -- | The branding information to import for Linux devices.
 importClientBranding_deviceTypeLinux :: Lens.Lens' ImportClientBranding (Prelude.Maybe DefaultImportClientBrandingAttributes)
 importClientBranding_deviceTypeLinux = Lens.lens (\ImportClientBranding' {deviceTypeLinux} -> deviceTypeLinux) (\s@ImportClientBranding' {} a -> s {deviceTypeLinux = a} :: ImportClientBranding)
-
--- | The branding information to import for web access.
-importClientBranding_deviceTypeWeb :: Lens.Lens' ImportClientBranding (Prelude.Maybe DefaultImportClientBrandingAttributes)
-importClientBranding_deviceTypeWeb = Lens.lens (\ImportClientBranding' {deviceTypeWeb} -> deviceTypeWeb) (\s@ImportClientBranding' {} a -> s {deviceTypeWeb = a} :: ImportClientBranding)
 
 -- | The branding information to import for macOS devices.
 importClientBranding_deviceTypeOsx :: Lens.Lens' ImportClientBranding (Prelude.Maybe DefaultImportClientBrandingAttributes)
 importClientBranding_deviceTypeOsx = Lens.lens (\ImportClientBranding' {deviceTypeOsx} -> deviceTypeOsx) (\s@ImportClientBranding' {} a -> s {deviceTypeOsx = a} :: ImportClientBranding)
 
+-- | The branding information to import for web access.
+importClientBranding_deviceTypeWeb :: Lens.Lens' ImportClientBranding (Prelude.Maybe DefaultImportClientBrandingAttributes)
+importClientBranding_deviceTypeWeb = Lens.lens (\ImportClientBranding' {deviceTypeWeb} -> deviceTypeWeb) (\s@ImportClientBranding' {} a -> s {deviceTypeWeb = a} :: ImportClientBranding)
+
 -- | The branding information to import for Windows devices.
 importClientBranding_deviceTypeWindows :: Lens.Lens' ImportClientBranding (Prelude.Maybe DefaultImportClientBrandingAttributes)
 importClientBranding_deviceTypeWindows = Lens.lens (\ImportClientBranding' {deviceTypeWindows} -> deviceTypeWindows) (\s@ImportClientBranding' {} a -> s {deviceTypeWindows = a} :: ImportClientBranding)
-
--- | The branding information to import for iOS devices.
-importClientBranding_deviceTypeIos :: Lens.Lens' ImportClientBranding (Prelude.Maybe IosImportClientBrandingAttributes)
-importClientBranding_deviceTypeIos = Lens.lens (\ImportClientBranding' {deviceTypeIos} -> deviceTypeIos) (\s@ImportClientBranding' {} a -> s {deviceTypeIos = a} :: ImportClientBranding)
 
 -- | The directory identifier of the WorkSpace for which you want to import
 -- client branding.
@@ -176,32 +176,32 @@ instance Core.AWSRequest ImportClientBranding where
       ( \s h x ->
           ImportClientBrandingResponse'
             Prelude.<$> (x Data..?> "DeviceTypeAndroid")
-            Prelude.<*> (x Data..?> "DeviceTypeLinux")
-            Prelude.<*> (x Data..?> "DeviceTypeWeb")
-            Prelude.<*> (x Data..?> "DeviceTypeOsx")
-            Prelude.<*> (x Data..?> "DeviceTypeWindows")
             Prelude.<*> (x Data..?> "DeviceTypeIos")
+            Prelude.<*> (x Data..?> "DeviceTypeLinux")
+            Prelude.<*> (x Data..?> "DeviceTypeOsx")
+            Prelude.<*> (x Data..?> "DeviceTypeWeb")
+            Prelude.<*> (x Data..?> "DeviceTypeWindows")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ImportClientBranding where
   hashWithSalt _salt ImportClientBranding' {..} =
     _salt `Prelude.hashWithSalt` deviceTypeAndroid
-      `Prelude.hashWithSalt` deviceTypeLinux
-      `Prelude.hashWithSalt` deviceTypeWeb
-      `Prelude.hashWithSalt` deviceTypeOsx
-      `Prelude.hashWithSalt` deviceTypeWindows
       `Prelude.hashWithSalt` deviceTypeIos
+      `Prelude.hashWithSalt` deviceTypeLinux
+      `Prelude.hashWithSalt` deviceTypeOsx
+      `Prelude.hashWithSalt` deviceTypeWeb
+      `Prelude.hashWithSalt` deviceTypeWindows
       `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData ImportClientBranding where
   rnf ImportClientBranding' {..} =
     Prelude.rnf deviceTypeAndroid
-      `Prelude.seq` Prelude.rnf deviceTypeLinux
-      `Prelude.seq` Prelude.rnf deviceTypeWeb
-      `Prelude.seq` Prelude.rnf deviceTypeOsx
-      `Prelude.seq` Prelude.rnf deviceTypeWindows
       `Prelude.seq` Prelude.rnf deviceTypeIos
+      `Prelude.seq` Prelude.rnf deviceTypeLinux
+      `Prelude.seq` Prelude.rnf deviceTypeOsx
+      `Prelude.seq` Prelude.rnf deviceTypeWeb
+      `Prelude.seq` Prelude.rnf deviceTypeWindows
       `Prelude.seq` Prelude.rnf resourceId
 
 instance Data.ToHeaders ImportClientBranding where
@@ -225,13 +225,13 @@ instance Data.ToJSON ImportClientBranding where
       ( Prelude.catMaybes
           [ ("DeviceTypeAndroid" Data..=)
               Prelude.<$> deviceTypeAndroid,
+            ("DeviceTypeIos" Data..=) Prelude.<$> deviceTypeIos,
             ("DeviceTypeLinux" Data..=)
               Prelude.<$> deviceTypeLinux,
-            ("DeviceTypeWeb" Data..=) Prelude.<$> deviceTypeWeb,
             ("DeviceTypeOsx" Data..=) Prelude.<$> deviceTypeOsx,
+            ("DeviceTypeWeb" Data..=) Prelude.<$> deviceTypeWeb,
             ("DeviceTypeWindows" Data..=)
               Prelude.<$> deviceTypeWindows,
-            ("DeviceTypeIos" Data..=) Prelude.<$> deviceTypeIos,
             Prelude.Just ("ResourceId" Data..= resourceId)
           ]
       )
@@ -246,16 +246,16 @@ instance Data.ToQuery ImportClientBranding where
 data ImportClientBrandingResponse = ImportClientBrandingResponse'
   { -- | The branding information configured for Android devices.
     deviceTypeAndroid :: Prelude.Maybe DefaultClientBrandingAttributes,
-    -- | The branding information configured for Linux devices.
-    deviceTypeLinux :: Prelude.Maybe DefaultClientBrandingAttributes,
-    -- | The branding information configured for web access.
-    deviceTypeWeb :: Prelude.Maybe DefaultClientBrandingAttributes,
-    -- | The branding information configured for macOS devices.
-    deviceTypeOsx :: Prelude.Maybe DefaultClientBrandingAttributes,
-    -- | The branding information configured for Windows devices.
-    deviceTypeWindows :: Prelude.Maybe DefaultClientBrandingAttributes,
     -- | The branding information configured for iOS devices.
     deviceTypeIos :: Prelude.Maybe IosClientBrandingAttributes,
+    -- | The branding information configured for Linux devices.
+    deviceTypeLinux :: Prelude.Maybe DefaultClientBrandingAttributes,
+    -- | The branding information configured for macOS devices.
+    deviceTypeOsx :: Prelude.Maybe DefaultClientBrandingAttributes,
+    -- | The branding information configured for web access.
+    deviceTypeWeb :: Prelude.Maybe DefaultClientBrandingAttributes,
+    -- | The branding information configured for Windows devices.
+    deviceTypeWindows :: Prelude.Maybe DefaultClientBrandingAttributes,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -271,15 +271,15 @@ data ImportClientBrandingResponse = ImportClientBrandingResponse'
 --
 -- 'deviceTypeAndroid', 'importClientBrandingResponse_deviceTypeAndroid' - The branding information configured for Android devices.
 --
--- 'deviceTypeLinux', 'importClientBrandingResponse_deviceTypeLinux' - The branding information configured for Linux devices.
+-- 'deviceTypeIos', 'importClientBrandingResponse_deviceTypeIos' - The branding information configured for iOS devices.
 --
--- 'deviceTypeWeb', 'importClientBrandingResponse_deviceTypeWeb' - The branding information configured for web access.
+-- 'deviceTypeLinux', 'importClientBrandingResponse_deviceTypeLinux' - The branding information configured for Linux devices.
 --
 -- 'deviceTypeOsx', 'importClientBrandingResponse_deviceTypeOsx' - The branding information configured for macOS devices.
 --
--- 'deviceTypeWindows', 'importClientBrandingResponse_deviceTypeWindows' - The branding information configured for Windows devices.
+-- 'deviceTypeWeb', 'importClientBrandingResponse_deviceTypeWeb' - The branding information configured for web access.
 --
--- 'deviceTypeIos', 'importClientBrandingResponse_deviceTypeIos' - The branding information configured for iOS devices.
+-- 'deviceTypeWindows', 'importClientBrandingResponse_deviceTypeWindows' - The branding information configured for Windows devices.
 --
 -- 'httpStatus', 'importClientBrandingResponse_httpStatus' - The response's http status code.
 newImportClientBrandingResponse ::
@@ -290,11 +290,11 @@ newImportClientBrandingResponse pHttpStatus_ =
   ImportClientBrandingResponse'
     { deviceTypeAndroid =
         Prelude.Nothing,
-      deviceTypeLinux = Prelude.Nothing,
-      deviceTypeWeb = Prelude.Nothing,
-      deviceTypeOsx = Prelude.Nothing,
-      deviceTypeWindows = Prelude.Nothing,
       deviceTypeIos = Prelude.Nothing,
+      deviceTypeLinux = Prelude.Nothing,
+      deviceTypeOsx = Prelude.Nothing,
+      deviceTypeWeb = Prelude.Nothing,
+      deviceTypeWindows = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -302,25 +302,25 @@ newImportClientBrandingResponse pHttpStatus_ =
 importClientBrandingResponse_deviceTypeAndroid :: Lens.Lens' ImportClientBrandingResponse (Prelude.Maybe DefaultClientBrandingAttributes)
 importClientBrandingResponse_deviceTypeAndroid = Lens.lens (\ImportClientBrandingResponse' {deviceTypeAndroid} -> deviceTypeAndroid) (\s@ImportClientBrandingResponse' {} a -> s {deviceTypeAndroid = a} :: ImportClientBrandingResponse)
 
+-- | The branding information configured for iOS devices.
+importClientBrandingResponse_deviceTypeIos :: Lens.Lens' ImportClientBrandingResponse (Prelude.Maybe IosClientBrandingAttributes)
+importClientBrandingResponse_deviceTypeIos = Lens.lens (\ImportClientBrandingResponse' {deviceTypeIos} -> deviceTypeIos) (\s@ImportClientBrandingResponse' {} a -> s {deviceTypeIos = a} :: ImportClientBrandingResponse)
+
 -- | The branding information configured for Linux devices.
 importClientBrandingResponse_deviceTypeLinux :: Lens.Lens' ImportClientBrandingResponse (Prelude.Maybe DefaultClientBrandingAttributes)
 importClientBrandingResponse_deviceTypeLinux = Lens.lens (\ImportClientBrandingResponse' {deviceTypeLinux} -> deviceTypeLinux) (\s@ImportClientBrandingResponse' {} a -> s {deviceTypeLinux = a} :: ImportClientBrandingResponse)
-
--- | The branding information configured for web access.
-importClientBrandingResponse_deviceTypeWeb :: Lens.Lens' ImportClientBrandingResponse (Prelude.Maybe DefaultClientBrandingAttributes)
-importClientBrandingResponse_deviceTypeWeb = Lens.lens (\ImportClientBrandingResponse' {deviceTypeWeb} -> deviceTypeWeb) (\s@ImportClientBrandingResponse' {} a -> s {deviceTypeWeb = a} :: ImportClientBrandingResponse)
 
 -- | The branding information configured for macOS devices.
 importClientBrandingResponse_deviceTypeOsx :: Lens.Lens' ImportClientBrandingResponse (Prelude.Maybe DefaultClientBrandingAttributes)
 importClientBrandingResponse_deviceTypeOsx = Lens.lens (\ImportClientBrandingResponse' {deviceTypeOsx} -> deviceTypeOsx) (\s@ImportClientBrandingResponse' {} a -> s {deviceTypeOsx = a} :: ImportClientBrandingResponse)
 
+-- | The branding information configured for web access.
+importClientBrandingResponse_deviceTypeWeb :: Lens.Lens' ImportClientBrandingResponse (Prelude.Maybe DefaultClientBrandingAttributes)
+importClientBrandingResponse_deviceTypeWeb = Lens.lens (\ImportClientBrandingResponse' {deviceTypeWeb} -> deviceTypeWeb) (\s@ImportClientBrandingResponse' {} a -> s {deviceTypeWeb = a} :: ImportClientBrandingResponse)
+
 -- | The branding information configured for Windows devices.
 importClientBrandingResponse_deviceTypeWindows :: Lens.Lens' ImportClientBrandingResponse (Prelude.Maybe DefaultClientBrandingAttributes)
 importClientBrandingResponse_deviceTypeWindows = Lens.lens (\ImportClientBrandingResponse' {deviceTypeWindows} -> deviceTypeWindows) (\s@ImportClientBrandingResponse' {} a -> s {deviceTypeWindows = a} :: ImportClientBrandingResponse)
-
--- | The branding information configured for iOS devices.
-importClientBrandingResponse_deviceTypeIos :: Lens.Lens' ImportClientBrandingResponse (Prelude.Maybe IosClientBrandingAttributes)
-importClientBrandingResponse_deviceTypeIos = Lens.lens (\ImportClientBrandingResponse' {deviceTypeIos} -> deviceTypeIos) (\s@ImportClientBrandingResponse' {} a -> s {deviceTypeIos = a} :: ImportClientBrandingResponse)
 
 -- | The response's http status code.
 importClientBrandingResponse_httpStatus :: Lens.Lens' ImportClientBrandingResponse Prelude.Int
@@ -329,9 +329,9 @@ importClientBrandingResponse_httpStatus = Lens.lens (\ImportClientBrandingRespon
 instance Prelude.NFData ImportClientBrandingResponse where
   rnf ImportClientBrandingResponse' {..} =
     Prelude.rnf deviceTypeAndroid
-      `Prelude.seq` Prelude.rnf deviceTypeLinux
-      `Prelude.seq` Prelude.rnf deviceTypeWeb
-      `Prelude.seq` Prelude.rnf deviceTypeOsx
-      `Prelude.seq` Prelude.rnf deviceTypeWindows
       `Prelude.seq` Prelude.rnf deviceTypeIos
+      `Prelude.seq` Prelude.rnf deviceTypeLinux
+      `Prelude.seq` Prelude.rnf deviceTypeOsx
+      `Prelude.seq` Prelude.rnf deviceTypeWeb
+      `Prelude.seq` Prelude.rnf deviceTypeWindows
       `Prelude.seq` Prelude.rnf httpStatus

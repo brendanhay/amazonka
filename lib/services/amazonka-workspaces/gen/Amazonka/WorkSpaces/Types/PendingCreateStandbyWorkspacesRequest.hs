@@ -31,6 +31,8 @@ import Amazonka.WorkSpaces.Types.WorkspaceState
 data PendingCreateStandbyWorkspacesRequest = PendingCreateStandbyWorkspacesRequest'
   { -- | The identifier of the directory for the Standby WorkSpace.
     directoryId :: Prelude.Maybe Prelude.Text,
+    -- | The operational state of the Standby WorkSpace.
+    state :: Prelude.Maybe WorkspaceState,
     -- | Describes the Standby WorkSpace that was created.
     --
     -- Because this operation is asynchronous, the identifier returned is not
@@ -40,8 +42,6 @@ data PendingCreateStandbyWorkspacesRequest = PendingCreateStandbyWorkspacesReque
     -- before the WorkSpace is created, the information returned can be
     -- incomplete.
     userName :: Prelude.Maybe Prelude.Text,
-    -- | The operational state of the Standby WorkSpace.
-    state :: Prelude.Maybe WorkspaceState,
     -- | The identifier of the Standby WorkSpace.
     workspaceId :: Prelude.Maybe Prelude.Text
   }
@@ -57,6 +57,8 @@ data PendingCreateStandbyWorkspacesRequest = PendingCreateStandbyWorkspacesReque
 --
 -- 'directoryId', 'pendingCreateStandbyWorkspacesRequest_directoryId' - The identifier of the directory for the Standby WorkSpace.
 --
+-- 'state', 'pendingCreateStandbyWorkspacesRequest_state' - The operational state of the Standby WorkSpace.
+--
 -- 'userName', 'pendingCreateStandbyWorkspacesRequest_userName' - Describes the Standby WorkSpace that was created.
 --
 -- Because this operation is asynchronous, the identifier returned is not
@@ -66,8 +68,6 @@ data PendingCreateStandbyWorkspacesRequest = PendingCreateStandbyWorkspacesReque
 -- before the WorkSpace is created, the information returned can be
 -- incomplete.
 --
--- 'state', 'pendingCreateStandbyWorkspacesRequest_state' - The operational state of the Standby WorkSpace.
---
 -- 'workspaceId', 'pendingCreateStandbyWorkspacesRequest_workspaceId' - The identifier of the Standby WorkSpace.
 newPendingCreateStandbyWorkspacesRequest ::
   PendingCreateStandbyWorkspacesRequest
@@ -75,14 +75,18 @@ newPendingCreateStandbyWorkspacesRequest =
   PendingCreateStandbyWorkspacesRequest'
     { directoryId =
         Prelude.Nothing,
-      userName = Prelude.Nothing,
       state = Prelude.Nothing,
+      userName = Prelude.Nothing,
       workspaceId = Prelude.Nothing
     }
 
 -- | The identifier of the directory for the Standby WorkSpace.
 pendingCreateStandbyWorkspacesRequest_directoryId :: Lens.Lens' PendingCreateStandbyWorkspacesRequest (Prelude.Maybe Prelude.Text)
 pendingCreateStandbyWorkspacesRequest_directoryId = Lens.lens (\PendingCreateStandbyWorkspacesRequest' {directoryId} -> directoryId) (\s@PendingCreateStandbyWorkspacesRequest' {} a -> s {directoryId = a} :: PendingCreateStandbyWorkspacesRequest)
+
+-- | The operational state of the Standby WorkSpace.
+pendingCreateStandbyWorkspacesRequest_state :: Lens.Lens' PendingCreateStandbyWorkspacesRequest (Prelude.Maybe WorkspaceState)
+pendingCreateStandbyWorkspacesRequest_state = Lens.lens (\PendingCreateStandbyWorkspacesRequest' {state} -> state) (\s@PendingCreateStandbyWorkspacesRequest' {} a -> s {state = a} :: PendingCreateStandbyWorkspacesRequest)
 
 -- | Describes the Standby WorkSpace that was created.
 --
@@ -94,10 +98,6 @@ pendingCreateStandbyWorkspacesRequest_directoryId = Lens.lens (\PendingCreateSta
 -- incomplete.
 pendingCreateStandbyWorkspacesRequest_userName :: Lens.Lens' PendingCreateStandbyWorkspacesRequest (Prelude.Maybe Prelude.Text)
 pendingCreateStandbyWorkspacesRequest_userName = Lens.lens (\PendingCreateStandbyWorkspacesRequest' {userName} -> userName) (\s@PendingCreateStandbyWorkspacesRequest' {} a -> s {userName = a} :: PendingCreateStandbyWorkspacesRequest)
-
--- | The operational state of the Standby WorkSpace.
-pendingCreateStandbyWorkspacesRequest_state :: Lens.Lens' PendingCreateStandbyWorkspacesRequest (Prelude.Maybe WorkspaceState)
-pendingCreateStandbyWorkspacesRequest_state = Lens.lens (\PendingCreateStandbyWorkspacesRequest' {state} -> state) (\s@PendingCreateStandbyWorkspacesRequest' {} a -> s {state = a} :: PendingCreateStandbyWorkspacesRequest)
 
 -- | The identifier of the Standby WorkSpace.
 pendingCreateStandbyWorkspacesRequest_workspaceId :: Lens.Lens' PendingCreateStandbyWorkspacesRequest (Prelude.Maybe Prelude.Text)
@@ -113,8 +113,8 @@ instance
       ( \x ->
           PendingCreateStandbyWorkspacesRequest'
             Prelude.<$> (x Data..:? "DirectoryId")
-            Prelude.<*> (x Data..:? "UserName")
             Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "UserName")
             Prelude.<*> (x Data..:? "WorkspaceId")
       )
 
@@ -126,8 +126,8 @@ instance
     _salt
     PendingCreateStandbyWorkspacesRequest' {..} =
       _salt `Prelude.hashWithSalt` directoryId
-        `Prelude.hashWithSalt` userName
         `Prelude.hashWithSalt` state
+        `Prelude.hashWithSalt` userName
         `Prelude.hashWithSalt` workspaceId
 
 instance
@@ -136,6 +136,6 @@ instance
   where
   rnf PendingCreateStandbyWorkspacesRequest' {..} =
     Prelude.rnf directoryId
-      `Prelude.seq` Prelude.rnf userName
       `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf userName
       `Prelude.seq` Prelude.rnf workspaceId

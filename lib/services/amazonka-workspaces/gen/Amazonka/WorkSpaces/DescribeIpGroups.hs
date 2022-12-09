@@ -29,9 +29,9 @@ module Amazonka.WorkSpaces.DescribeIpGroups
     newDescribeIpGroups,
 
     -- * Request Lenses
-    describeIpGroups_nextToken,
-    describeIpGroups_maxResults,
     describeIpGroups_groupIds,
+    describeIpGroups_maxResults,
+    describeIpGroups_nextToken,
 
     -- * Destructuring the Response
     DescribeIpGroupsResponse (..),
@@ -54,13 +54,13 @@ import Amazonka.WorkSpaces.Types
 
 -- | /See:/ 'newDescribeIpGroups' smart constructor.
 data DescribeIpGroups = DescribeIpGroups'
-  { -- | If you received a @NextToken@ from a previous call that was paginated,
-    -- provide this token to receive the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The identifiers of one or more IP access control groups.
+    groupIds :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of items to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The identifiers of one or more IP access control groups.
-    groupIds :: Prelude.Maybe [Prelude.Text]
+    -- | If you received a @NextToken@ from a previous call that was paginated,
+    -- provide this token to receive the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,33 +72,33 @@ data DescribeIpGroups = DescribeIpGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeIpGroups_nextToken' - If you received a @NextToken@ from a previous call that was paginated,
--- provide this token to receive the next set of results.
+-- 'groupIds', 'describeIpGroups_groupIds' - The identifiers of one or more IP access control groups.
 --
 -- 'maxResults', 'describeIpGroups_maxResults' - The maximum number of items to return.
 --
--- 'groupIds', 'describeIpGroups_groupIds' - The identifiers of one or more IP access control groups.
+-- 'nextToken', 'describeIpGroups_nextToken' - If you received a @NextToken@ from a previous call that was paginated,
+-- provide this token to receive the next set of results.
 newDescribeIpGroups ::
   DescribeIpGroups
 newDescribeIpGroups =
   DescribeIpGroups'
-    { nextToken = Prelude.Nothing,
+    { groupIds = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      groupIds = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
 
--- | If you received a @NextToken@ from a previous call that was paginated,
--- provide this token to receive the next set of results.
-describeIpGroups_nextToken :: Lens.Lens' DescribeIpGroups (Prelude.Maybe Prelude.Text)
-describeIpGroups_nextToken = Lens.lens (\DescribeIpGroups' {nextToken} -> nextToken) (\s@DescribeIpGroups' {} a -> s {nextToken = a} :: DescribeIpGroups)
+-- | The identifiers of one or more IP access control groups.
+describeIpGroups_groupIds :: Lens.Lens' DescribeIpGroups (Prelude.Maybe [Prelude.Text])
+describeIpGroups_groupIds = Lens.lens (\DescribeIpGroups' {groupIds} -> groupIds) (\s@DescribeIpGroups' {} a -> s {groupIds = a} :: DescribeIpGroups) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of items to return.
 describeIpGroups_maxResults :: Lens.Lens' DescribeIpGroups (Prelude.Maybe Prelude.Natural)
 describeIpGroups_maxResults = Lens.lens (\DescribeIpGroups' {maxResults} -> maxResults) (\s@DescribeIpGroups' {} a -> s {maxResults = a} :: DescribeIpGroups)
 
--- | The identifiers of one or more IP access control groups.
-describeIpGroups_groupIds :: Lens.Lens' DescribeIpGroups (Prelude.Maybe [Prelude.Text])
-describeIpGroups_groupIds = Lens.lens (\DescribeIpGroups' {groupIds} -> groupIds) (\s@DescribeIpGroups' {} a -> s {groupIds = a} :: DescribeIpGroups) Prelude.. Lens.mapping Lens.coerced
+-- | If you received a @NextToken@ from a previous call that was paginated,
+-- provide this token to receive the next set of results.
+describeIpGroups_nextToken :: Lens.Lens' DescribeIpGroups (Prelude.Maybe Prelude.Text)
+describeIpGroups_nextToken = Lens.lens (\DescribeIpGroups' {nextToken} -> nextToken) (\s@DescribeIpGroups' {} a -> s {nextToken = a} :: DescribeIpGroups)
 
 instance Core.AWSPager DescribeIpGroups where
   page rq rs
@@ -138,15 +138,15 @@ instance Core.AWSRequest DescribeIpGroups where
 
 instance Prelude.Hashable DescribeIpGroups where
   hashWithSalt _salt DescribeIpGroups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` groupIds
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` groupIds
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeIpGroups where
   rnf DescribeIpGroups' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf groupIds
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf groupIds
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeIpGroups where
   toHeaders =
@@ -167,9 +167,9 @@ instance Data.ToJSON DescribeIpGroups where
   toJSON DescribeIpGroups' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("GroupIds" Data..=) Prelude.<$> groupIds,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("GroupIds" Data..=) Prelude.<$> groupIds
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

@@ -30,17 +30,17 @@ import Amazonka.WorkSpaces.Types.WorkspaceProperties
 --
 -- /See:/ 'newWorkspaceRequest' smart constructor.
 data WorkspaceRequest = WorkspaceRequest'
-  { -- | The tags for the WorkSpace.
+  { -- | Indicates whether the data stored on the root volume is encrypted.
+    rootVolumeEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The tags for the WorkSpace.
     tags :: Prelude.Maybe [Tag],
-    -- | The WorkSpace properties.
-    workspaceProperties :: Prelude.Maybe WorkspaceProperties,
+    -- | Indicates whether the data stored on the user volume is encrypted.
+    userVolumeEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The symmetric KMS key used to encrypt data stored on your WorkSpace.
     -- Amazon WorkSpaces does not support asymmetric KMS keys.
     volumeEncryptionKey :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the data stored on the user volume is encrypted.
-    userVolumeEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | Indicates whether the data stored on the root volume is encrypted.
-    rootVolumeEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The WorkSpace properties.
+    workspaceProperties :: Prelude.Maybe WorkspaceProperties,
     -- | The identifier of the Directory Service directory for the WorkSpace. You
     -- can use DescribeWorkspaceDirectories to list the available directories.
     directoryId :: Prelude.Text,
@@ -61,16 +61,16 @@ data WorkspaceRequest = WorkspaceRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'rootVolumeEncryptionEnabled', 'workspaceRequest_rootVolumeEncryptionEnabled' - Indicates whether the data stored on the root volume is encrypted.
+--
 -- 'tags', 'workspaceRequest_tags' - The tags for the WorkSpace.
 --
--- 'workspaceProperties', 'workspaceRequest_workspaceProperties' - The WorkSpace properties.
+-- 'userVolumeEncryptionEnabled', 'workspaceRequest_userVolumeEncryptionEnabled' - Indicates whether the data stored on the user volume is encrypted.
 --
 -- 'volumeEncryptionKey', 'workspaceRequest_volumeEncryptionKey' - The symmetric KMS key used to encrypt data stored on your WorkSpace.
 -- Amazon WorkSpaces does not support asymmetric KMS keys.
 --
--- 'userVolumeEncryptionEnabled', 'workspaceRequest_userVolumeEncryptionEnabled' - Indicates whether the data stored on the user volume is encrypted.
---
--- 'rootVolumeEncryptionEnabled', 'workspaceRequest_rootVolumeEncryptionEnabled' - Indicates whether the data stored on the root volume is encrypted.
+-- 'workspaceProperties', 'workspaceRequest_workspaceProperties' - The WorkSpace properties.
 --
 -- 'directoryId', 'workspaceRequest_directoryId' - The identifier of the Directory Service directory for the WorkSpace. You
 -- can use DescribeWorkspaceDirectories to list the available directories.
@@ -93,36 +93,37 @@ newWorkspaceRequest
   pUserName_
   pBundleId_ =
     WorkspaceRequest'
-      { tags = Prelude.Nothing,
-        workspaceProperties = Prelude.Nothing,
-        volumeEncryptionKey = Prelude.Nothing,
+      { rootVolumeEncryptionEnabled =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         userVolumeEncryptionEnabled = Prelude.Nothing,
-        rootVolumeEncryptionEnabled = Prelude.Nothing,
+        volumeEncryptionKey = Prelude.Nothing,
+        workspaceProperties = Prelude.Nothing,
         directoryId = pDirectoryId_,
         userName = pUserName_,
         bundleId = pBundleId_
       }
 
+-- | Indicates whether the data stored on the root volume is encrypted.
+workspaceRequest_rootVolumeEncryptionEnabled :: Lens.Lens' WorkspaceRequest (Prelude.Maybe Prelude.Bool)
+workspaceRequest_rootVolumeEncryptionEnabled = Lens.lens (\WorkspaceRequest' {rootVolumeEncryptionEnabled} -> rootVolumeEncryptionEnabled) (\s@WorkspaceRequest' {} a -> s {rootVolumeEncryptionEnabled = a} :: WorkspaceRequest)
+
 -- | The tags for the WorkSpace.
 workspaceRequest_tags :: Lens.Lens' WorkspaceRequest (Prelude.Maybe [Tag])
 workspaceRequest_tags = Lens.lens (\WorkspaceRequest' {tags} -> tags) (\s@WorkspaceRequest' {} a -> s {tags = a} :: WorkspaceRequest) Prelude.. Lens.mapping Lens.coerced
 
--- | The WorkSpace properties.
-workspaceRequest_workspaceProperties :: Lens.Lens' WorkspaceRequest (Prelude.Maybe WorkspaceProperties)
-workspaceRequest_workspaceProperties = Lens.lens (\WorkspaceRequest' {workspaceProperties} -> workspaceProperties) (\s@WorkspaceRequest' {} a -> s {workspaceProperties = a} :: WorkspaceRequest)
+-- | Indicates whether the data stored on the user volume is encrypted.
+workspaceRequest_userVolumeEncryptionEnabled :: Lens.Lens' WorkspaceRequest (Prelude.Maybe Prelude.Bool)
+workspaceRequest_userVolumeEncryptionEnabled = Lens.lens (\WorkspaceRequest' {userVolumeEncryptionEnabled} -> userVolumeEncryptionEnabled) (\s@WorkspaceRequest' {} a -> s {userVolumeEncryptionEnabled = a} :: WorkspaceRequest)
 
 -- | The symmetric KMS key used to encrypt data stored on your WorkSpace.
 -- Amazon WorkSpaces does not support asymmetric KMS keys.
 workspaceRequest_volumeEncryptionKey :: Lens.Lens' WorkspaceRequest (Prelude.Maybe Prelude.Text)
 workspaceRequest_volumeEncryptionKey = Lens.lens (\WorkspaceRequest' {volumeEncryptionKey} -> volumeEncryptionKey) (\s@WorkspaceRequest' {} a -> s {volumeEncryptionKey = a} :: WorkspaceRequest)
 
--- | Indicates whether the data stored on the user volume is encrypted.
-workspaceRequest_userVolumeEncryptionEnabled :: Lens.Lens' WorkspaceRequest (Prelude.Maybe Prelude.Bool)
-workspaceRequest_userVolumeEncryptionEnabled = Lens.lens (\WorkspaceRequest' {userVolumeEncryptionEnabled} -> userVolumeEncryptionEnabled) (\s@WorkspaceRequest' {} a -> s {userVolumeEncryptionEnabled = a} :: WorkspaceRequest)
-
--- | Indicates whether the data stored on the root volume is encrypted.
-workspaceRequest_rootVolumeEncryptionEnabled :: Lens.Lens' WorkspaceRequest (Prelude.Maybe Prelude.Bool)
-workspaceRequest_rootVolumeEncryptionEnabled = Lens.lens (\WorkspaceRequest' {rootVolumeEncryptionEnabled} -> rootVolumeEncryptionEnabled) (\s@WorkspaceRequest' {} a -> s {rootVolumeEncryptionEnabled = a} :: WorkspaceRequest)
+-- | The WorkSpace properties.
+workspaceRequest_workspaceProperties :: Lens.Lens' WorkspaceRequest (Prelude.Maybe WorkspaceProperties)
+workspaceRequest_workspaceProperties = Lens.lens (\WorkspaceRequest' {workspaceProperties} -> workspaceProperties) (\s@WorkspaceRequest' {} a -> s {workspaceProperties = a} :: WorkspaceRequest)
 
 -- | The identifier of the Directory Service directory for the WorkSpace. You
 -- can use DescribeWorkspaceDirectories to list the available directories.
@@ -145,11 +146,11 @@ instance Data.FromJSON WorkspaceRequest where
       "WorkspaceRequest"
       ( \x ->
           WorkspaceRequest'
-            Prelude.<$> (x Data..:? "Tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "WorkspaceProperties")
-            Prelude.<*> (x Data..:? "VolumeEncryptionKey")
+            Prelude.<$> (x Data..:? "RootVolumeEncryptionEnabled")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "UserVolumeEncryptionEnabled")
-            Prelude.<*> (x Data..:? "RootVolumeEncryptionEnabled")
+            Prelude.<*> (x Data..:? "VolumeEncryptionKey")
+            Prelude.<*> (x Data..:? "WorkspaceProperties")
             Prelude.<*> (x Data..: "DirectoryId")
             Prelude.<*> (x Data..: "UserName")
             Prelude.<*> (x Data..: "BundleId")
@@ -157,22 +158,23 @@ instance Data.FromJSON WorkspaceRequest where
 
 instance Prelude.Hashable WorkspaceRequest where
   hashWithSalt _salt WorkspaceRequest' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` workspaceProperties
-      `Prelude.hashWithSalt` volumeEncryptionKey
-      `Prelude.hashWithSalt` userVolumeEncryptionEnabled
+    _salt
       `Prelude.hashWithSalt` rootVolumeEncryptionEnabled
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` userVolumeEncryptionEnabled
+      `Prelude.hashWithSalt` volumeEncryptionKey
+      `Prelude.hashWithSalt` workspaceProperties
       `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` bundleId
 
 instance Prelude.NFData WorkspaceRequest where
   rnf WorkspaceRequest' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf workspaceProperties
-      `Prelude.seq` Prelude.rnf volumeEncryptionKey
+    Prelude.rnf rootVolumeEncryptionEnabled
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf userVolumeEncryptionEnabled
-      `Prelude.seq` Prelude.rnf rootVolumeEncryptionEnabled
+      `Prelude.seq` Prelude.rnf volumeEncryptionKey
+      `Prelude.seq` Prelude.rnf workspaceProperties
       `Prelude.seq` Prelude.rnf directoryId
       `Prelude.seq` Prelude.rnf userName
       `Prelude.seq` Prelude.rnf bundleId
@@ -181,15 +183,15 @@ instance Data.ToJSON WorkspaceRequest where
   toJSON WorkspaceRequest' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("WorkspaceProperties" Data..=)
-              Prelude.<$> workspaceProperties,
-            ("VolumeEncryptionKey" Data..=)
-              Prelude.<$> volumeEncryptionKey,
+          [ ("RootVolumeEncryptionEnabled" Data..=)
+              Prelude.<$> rootVolumeEncryptionEnabled,
+            ("Tags" Data..=) Prelude.<$> tags,
             ("UserVolumeEncryptionEnabled" Data..=)
               Prelude.<$> userVolumeEncryptionEnabled,
-            ("RootVolumeEncryptionEnabled" Data..=)
-              Prelude.<$> rootVolumeEncryptionEnabled,
+            ("VolumeEncryptionKey" Data..=)
+              Prelude.<$> volumeEncryptionKey,
+            ("WorkspaceProperties" Data..=)
+              Prelude.<$> workspaceProperties,
             Prelude.Just ("DirectoryId" Data..= directoryId),
             Prelude.Just ("UserName" Data..= userName),
             Prelude.Just ("BundleId" Data..= bundleId)

@@ -44,8 +44,8 @@ module Amazonka.WorkSpaces.CopyWorkspaceImage
     newCopyWorkspaceImage,
 
     -- * Request Lenses
-    copyWorkspaceImage_tags,
     copyWorkspaceImage_description,
+    copyWorkspaceImage_tags,
     copyWorkspaceImage_name,
     copyWorkspaceImage_sourceImageId,
     copyWorkspaceImage_sourceRegion,
@@ -70,10 +70,10 @@ import Amazonka.WorkSpaces.Types
 
 -- | /See:/ 'newCopyWorkspaceImage' smart constructor.
 data CopyWorkspaceImage = CopyWorkspaceImage'
-  { -- | The tags for the image.
-    tags :: Prelude.Maybe [Tag],
-    -- | A description of the image.
+  { -- | A description of the image.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The tags for the image.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the image.
     name :: Prelude.Text,
     -- | The identifier of the source image.
@@ -91,9 +91,9 @@ data CopyWorkspaceImage = CopyWorkspaceImage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'copyWorkspaceImage_tags' - The tags for the image.
---
 -- 'description', 'copyWorkspaceImage_description' - A description of the image.
+--
+-- 'tags', 'copyWorkspaceImage_tags' - The tags for the image.
 --
 -- 'name', 'copyWorkspaceImage_name' - The name of the image.
 --
@@ -113,20 +113,20 @@ newCopyWorkspaceImage
   pSourceImageId_
   pSourceRegion_ =
     CopyWorkspaceImage'
-      { tags = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { description = Prelude.Nothing,
+        tags = Prelude.Nothing,
         name = pName_,
         sourceImageId = pSourceImageId_,
         sourceRegion = pSourceRegion_
       }
 
--- | The tags for the image.
-copyWorkspaceImage_tags :: Lens.Lens' CopyWorkspaceImage (Prelude.Maybe [Tag])
-copyWorkspaceImage_tags = Lens.lens (\CopyWorkspaceImage' {tags} -> tags) (\s@CopyWorkspaceImage' {} a -> s {tags = a} :: CopyWorkspaceImage) Prelude.. Lens.mapping Lens.coerced
-
 -- | A description of the image.
 copyWorkspaceImage_description :: Lens.Lens' CopyWorkspaceImage (Prelude.Maybe Prelude.Text)
 copyWorkspaceImage_description = Lens.lens (\CopyWorkspaceImage' {description} -> description) (\s@CopyWorkspaceImage' {} a -> s {description = a} :: CopyWorkspaceImage)
+
+-- | The tags for the image.
+copyWorkspaceImage_tags :: Lens.Lens' CopyWorkspaceImage (Prelude.Maybe [Tag])
+copyWorkspaceImage_tags = Lens.lens (\CopyWorkspaceImage' {tags} -> tags) (\s@CopyWorkspaceImage' {} a -> s {tags = a} :: CopyWorkspaceImage) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the image.
 copyWorkspaceImage_name :: Lens.Lens' CopyWorkspaceImage Prelude.Text
@@ -156,16 +156,16 @@ instance Core.AWSRequest CopyWorkspaceImage where
 
 instance Prelude.Hashable CopyWorkspaceImage where
   hashWithSalt _salt CopyWorkspaceImage' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sourceImageId
       `Prelude.hashWithSalt` sourceRegion
 
 instance Prelude.NFData CopyWorkspaceImage where
   rnf CopyWorkspaceImage' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf sourceImageId
       `Prelude.seq` Prelude.rnf sourceRegion
@@ -189,8 +189,8 @@ instance Data.ToJSON CopyWorkspaceImage where
   toJSON CopyWorkspaceImage' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("SourceImageId" Data..= sourceImageId),
             Prelude.Just ("SourceRegion" Data..= sourceRegion)

@@ -29,13 +29,13 @@ import Amazonka.WorkSpaces.Types.WorkspaceRequest
 --
 -- /See:/ 'newFailedCreateWorkspaceRequest' smart constructor.
 data FailedCreateWorkspaceRequest = FailedCreateWorkspaceRequest'
-  { -- | The text of the error message that is returned if the WorkSpace cannot
+  { -- | The error code that is returned if the WorkSpace cannot be created.
+    errorCode :: Prelude.Maybe Prelude.Text,
+    -- | The text of the error message that is returned if the WorkSpace cannot
     -- be created.
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | Information about the WorkSpace.
-    workspaceRequest :: Prelude.Maybe WorkspaceRequest,
-    -- | The error code that is returned if the WorkSpace cannot be created.
-    errorCode :: Prelude.Maybe Prelude.Text
+    workspaceRequest :: Prelude.Maybe WorkspaceRequest
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,21 +47,25 @@ data FailedCreateWorkspaceRequest = FailedCreateWorkspaceRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'errorCode', 'failedCreateWorkspaceRequest_errorCode' - The error code that is returned if the WorkSpace cannot be created.
+--
 -- 'errorMessage', 'failedCreateWorkspaceRequest_errorMessage' - The text of the error message that is returned if the WorkSpace cannot
 -- be created.
 --
 -- 'workspaceRequest', 'failedCreateWorkspaceRequest_workspaceRequest' - Information about the WorkSpace.
---
--- 'errorCode', 'failedCreateWorkspaceRequest_errorCode' - The error code that is returned if the WorkSpace cannot be created.
 newFailedCreateWorkspaceRequest ::
   FailedCreateWorkspaceRequest
 newFailedCreateWorkspaceRequest =
   FailedCreateWorkspaceRequest'
-    { errorMessage =
+    { errorCode =
         Prelude.Nothing,
-      workspaceRequest = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+      errorMessage = Prelude.Nothing,
+      workspaceRequest = Prelude.Nothing
     }
+
+-- | The error code that is returned if the WorkSpace cannot be created.
+failedCreateWorkspaceRequest_errorCode :: Lens.Lens' FailedCreateWorkspaceRequest (Prelude.Maybe Prelude.Text)
+failedCreateWorkspaceRequest_errorCode = Lens.lens (\FailedCreateWorkspaceRequest' {errorCode} -> errorCode) (\s@FailedCreateWorkspaceRequest' {} a -> s {errorCode = a} :: FailedCreateWorkspaceRequest)
 
 -- | The text of the error message that is returned if the WorkSpace cannot
 -- be created.
@@ -72,19 +76,15 @@ failedCreateWorkspaceRequest_errorMessage = Lens.lens (\FailedCreateWorkspaceReq
 failedCreateWorkspaceRequest_workspaceRequest :: Lens.Lens' FailedCreateWorkspaceRequest (Prelude.Maybe WorkspaceRequest)
 failedCreateWorkspaceRequest_workspaceRequest = Lens.lens (\FailedCreateWorkspaceRequest' {workspaceRequest} -> workspaceRequest) (\s@FailedCreateWorkspaceRequest' {} a -> s {workspaceRequest = a} :: FailedCreateWorkspaceRequest)
 
--- | The error code that is returned if the WorkSpace cannot be created.
-failedCreateWorkspaceRequest_errorCode :: Lens.Lens' FailedCreateWorkspaceRequest (Prelude.Maybe Prelude.Text)
-failedCreateWorkspaceRequest_errorCode = Lens.lens (\FailedCreateWorkspaceRequest' {errorCode} -> errorCode) (\s@FailedCreateWorkspaceRequest' {} a -> s {errorCode = a} :: FailedCreateWorkspaceRequest)
-
 instance Data.FromJSON FailedCreateWorkspaceRequest where
   parseJSON =
     Data.withObject
       "FailedCreateWorkspaceRequest"
       ( \x ->
           FailedCreateWorkspaceRequest'
-            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<$> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "ErrorMessage")
             Prelude.<*> (x Data..:? "WorkspaceRequest")
-            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance
@@ -92,12 +92,12 @@ instance
     FailedCreateWorkspaceRequest
   where
   hashWithSalt _salt FailedCreateWorkspaceRequest' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` workspaceRequest
-      `Prelude.hashWithSalt` errorCode
 
 instance Prelude.NFData FailedCreateWorkspaceRequest where
   rnf FailedCreateWorkspaceRequest' {..} =
-    Prelude.rnf errorMessage
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf workspaceRequest
-      `Prelude.seq` Prelude.rnf errorCode

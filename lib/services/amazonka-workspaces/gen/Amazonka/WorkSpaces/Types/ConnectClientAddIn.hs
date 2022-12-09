@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConnectClientAddIn' smart constructor.
 data ConnectClientAddIn = ConnectClientAddIn'
-  { -- | The directory identifier for which the client add-in is configured.
-    resourceId :: Prelude.Maybe Prelude.Text,
+  { -- | The client add-in identifier.
+    addInId :: Prelude.Maybe Prelude.Text,
     -- | The name of the client add in.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The client add-in identifier.
-    addInId :: Prelude.Maybe Prelude.Text,
+    -- | The directory identifier for which the client add-in is configured.
+    resourceId :: Prelude.Maybe Prelude.Text,
     -- | The endpoint URL of the client add-in.
     url :: Prelude.Maybe Prelude.Text
   }
@@ -47,34 +47,34 @@ data ConnectClientAddIn = ConnectClientAddIn'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceId', 'connectClientAddIn_resourceId' - The directory identifier for which the client add-in is configured.
+-- 'addInId', 'connectClientAddIn_addInId' - The client add-in identifier.
 --
 -- 'name', 'connectClientAddIn_name' - The name of the client add in.
 --
--- 'addInId', 'connectClientAddIn_addInId' - The client add-in identifier.
+-- 'resourceId', 'connectClientAddIn_resourceId' - The directory identifier for which the client add-in is configured.
 --
 -- 'url', 'connectClientAddIn_url' - The endpoint URL of the client add-in.
 newConnectClientAddIn ::
   ConnectClientAddIn
 newConnectClientAddIn =
   ConnectClientAddIn'
-    { resourceId = Prelude.Nothing,
+    { addInId = Prelude.Nothing,
       name = Prelude.Nothing,
-      addInId = Prelude.Nothing,
+      resourceId = Prelude.Nothing,
       url = Prelude.Nothing
     }
 
--- | The directory identifier for which the client add-in is configured.
-connectClientAddIn_resourceId :: Lens.Lens' ConnectClientAddIn (Prelude.Maybe Prelude.Text)
-connectClientAddIn_resourceId = Lens.lens (\ConnectClientAddIn' {resourceId} -> resourceId) (\s@ConnectClientAddIn' {} a -> s {resourceId = a} :: ConnectClientAddIn)
+-- | The client add-in identifier.
+connectClientAddIn_addInId :: Lens.Lens' ConnectClientAddIn (Prelude.Maybe Prelude.Text)
+connectClientAddIn_addInId = Lens.lens (\ConnectClientAddIn' {addInId} -> addInId) (\s@ConnectClientAddIn' {} a -> s {addInId = a} :: ConnectClientAddIn)
 
 -- | The name of the client add in.
 connectClientAddIn_name :: Lens.Lens' ConnectClientAddIn (Prelude.Maybe Prelude.Text)
 connectClientAddIn_name = Lens.lens (\ConnectClientAddIn' {name} -> name) (\s@ConnectClientAddIn' {} a -> s {name = a} :: ConnectClientAddIn)
 
--- | The client add-in identifier.
-connectClientAddIn_addInId :: Lens.Lens' ConnectClientAddIn (Prelude.Maybe Prelude.Text)
-connectClientAddIn_addInId = Lens.lens (\ConnectClientAddIn' {addInId} -> addInId) (\s@ConnectClientAddIn' {} a -> s {addInId = a} :: ConnectClientAddIn)
+-- | The directory identifier for which the client add-in is configured.
+connectClientAddIn_resourceId :: Lens.Lens' ConnectClientAddIn (Prelude.Maybe Prelude.Text)
+connectClientAddIn_resourceId = Lens.lens (\ConnectClientAddIn' {resourceId} -> resourceId) (\s@ConnectClientAddIn' {} a -> s {resourceId = a} :: ConnectClientAddIn)
 
 -- | The endpoint URL of the client add-in.
 connectClientAddIn_url :: Lens.Lens' ConnectClientAddIn (Prelude.Maybe Prelude.Text)
@@ -86,22 +86,22 @@ instance Data.FromJSON ConnectClientAddIn where
       "ConnectClientAddIn"
       ( \x ->
           ConnectClientAddIn'
-            Prelude.<$> (x Data..:? "ResourceId")
+            Prelude.<$> (x Data..:? "AddInId")
             Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "AddInId")
+            Prelude.<*> (x Data..:? "ResourceId")
             Prelude.<*> (x Data..:? "URL")
       )
 
 instance Prelude.Hashable ConnectClientAddIn where
   hashWithSalt _salt ConnectClientAddIn' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
+    _salt `Prelude.hashWithSalt` addInId
       `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` addInId
+      `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` url
 
 instance Prelude.NFData ConnectClientAddIn where
   rnf ConnectClientAddIn' {..} =
-    Prelude.rnf resourceId
+    Prelude.rnf addInId
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf addInId
+      `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf url

@@ -40,9 +40,9 @@ module Amazonka.WorkSpaces.CreateIpGroup
     newCreateIpGroup,
 
     -- * Request Lenses
+    createIpGroup_groupDesc,
     createIpGroup_tags,
     createIpGroup_userRules,
-    createIpGroup_groupDesc,
     createIpGroup_groupName,
 
     -- * Destructuring the Response
@@ -65,12 +65,12 @@ import Amazonka.WorkSpaces.Types
 
 -- | /See:/ 'newCreateIpGroup' smart constructor.
 data CreateIpGroup = CreateIpGroup'
-  { -- | The tags. Each WorkSpaces resource can have a maximum of 50 tags.
+  { -- | The description of the group.
+    groupDesc :: Prelude.Maybe Prelude.Text,
+    -- | The tags. Each WorkSpaces resource can have a maximum of 50 tags.
     tags :: Prelude.Maybe [Tag],
     -- | The rules to add to the group.
     userRules :: Prelude.Maybe [IpRuleItem],
-    -- | The description of the group.
-    groupDesc :: Prelude.Maybe Prelude.Text,
     -- | The name of the group.
     groupName :: Prelude.Text
   }
@@ -84,11 +84,11 @@ data CreateIpGroup = CreateIpGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'groupDesc', 'createIpGroup_groupDesc' - The description of the group.
+--
 -- 'tags', 'createIpGroup_tags' - The tags. Each WorkSpaces resource can have a maximum of 50 tags.
 --
 -- 'userRules', 'createIpGroup_userRules' - The rules to add to the group.
---
--- 'groupDesc', 'createIpGroup_groupDesc' - The description of the group.
 --
 -- 'groupName', 'createIpGroup_groupName' - The name of the group.
 newCreateIpGroup ::
@@ -97,11 +97,15 @@ newCreateIpGroup ::
   CreateIpGroup
 newCreateIpGroup pGroupName_ =
   CreateIpGroup'
-    { tags = Prelude.Nothing,
+    { groupDesc = Prelude.Nothing,
+      tags = Prelude.Nothing,
       userRules = Prelude.Nothing,
-      groupDesc = Prelude.Nothing,
       groupName = pGroupName_
     }
+
+-- | The description of the group.
+createIpGroup_groupDesc :: Lens.Lens' CreateIpGroup (Prelude.Maybe Prelude.Text)
+createIpGroup_groupDesc = Lens.lens (\CreateIpGroup' {groupDesc} -> groupDesc) (\s@CreateIpGroup' {} a -> s {groupDesc = a} :: CreateIpGroup)
 
 -- | The tags. Each WorkSpaces resource can have a maximum of 50 tags.
 createIpGroup_tags :: Lens.Lens' CreateIpGroup (Prelude.Maybe [Tag])
@@ -110,10 +114,6 @@ createIpGroup_tags = Lens.lens (\CreateIpGroup' {tags} -> tags) (\s@CreateIpGrou
 -- | The rules to add to the group.
 createIpGroup_userRules :: Lens.Lens' CreateIpGroup (Prelude.Maybe [IpRuleItem])
 createIpGroup_userRules = Lens.lens (\CreateIpGroup' {userRules} -> userRules) (\s@CreateIpGroup' {} a -> s {userRules = a} :: CreateIpGroup) Prelude.. Lens.mapping Lens.coerced
-
--- | The description of the group.
-createIpGroup_groupDesc :: Lens.Lens' CreateIpGroup (Prelude.Maybe Prelude.Text)
-createIpGroup_groupDesc = Lens.lens (\CreateIpGroup' {groupDesc} -> groupDesc) (\s@CreateIpGroup' {} a -> s {groupDesc = a} :: CreateIpGroup)
 
 -- | The name of the group.
 createIpGroup_groupName :: Lens.Lens' CreateIpGroup Prelude.Text
@@ -135,16 +135,16 @@ instance Core.AWSRequest CreateIpGroup where
 
 instance Prelude.Hashable CreateIpGroup where
   hashWithSalt _salt CreateIpGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` groupDesc
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` userRules
-      `Prelude.hashWithSalt` groupDesc
       `Prelude.hashWithSalt` groupName
 
 instance Prelude.NFData CreateIpGroup where
   rnf CreateIpGroup' {..} =
-    Prelude.rnf tags
+    Prelude.rnf groupDesc
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf userRules
-      `Prelude.seq` Prelude.rnf groupDesc
       `Prelude.seq` Prelude.rnf groupName
 
 instance Data.ToHeaders CreateIpGroup where
@@ -166,9 +166,9 @@ instance Data.ToJSON CreateIpGroup where
   toJSON CreateIpGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("GroupDesc" Data..=) Prelude.<$> groupDesc,
+            ("Tags" Data..=) Prelude.<$> tags,
             ("UserRules" Data..=) Prelude.<$> userRules,
-            ("GroupDesc" Data..=) Prelude.<$> groupDesc,
             Prelude.Just ("GroupName" Data..= groupName)
           ]
       )

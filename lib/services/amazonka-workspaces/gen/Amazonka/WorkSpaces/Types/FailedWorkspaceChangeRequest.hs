@@ -31,13 +31,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFailedWorkspaceChangeRequest' smart constructor.
 data FailedWorkspaceChangeRequest = FailedWorkspaceChangeRequest'
-  { -- | The text of the error message that is returned if the WorkSpace cannot
+  { -- | The error code that is returned if the WorkSpace cannot be rebooted.
+    errorCode :: Prelude.Maybe Prelude.Text,
+    -- | The text of the error message that is returned if the WorkSpace cannot
     -- be rebooted.
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the WorkSpace.
-    workspaceId :: Prelude.Maybe Prelude.Text,
-    -- | The error code that is returned if the WorkSpace cannot be rebooted.
-    errorCode :: Prelude.Maybe Prelude.Text
+    workspaceId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,21 +49,25 @@ data FailedWorkspaceChangeRequest = FailedWorkspaceChangeRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'errorCode', 'failedWorkspaceChangeRequest_errorCode' - The error code that is returned if the WorkSpace cannot be rebooted.
+--
 -- 'errorMessage', 'failedWorkspaceChangeRequest_errorMessage' - The text of the error message that is returned if the WorkSpace cannot
 -- be rebooted.
 --
 -- 'workspaceId', 'failedWorkspaceChangeRequest_workspaceId' - The identifier of the WorkSpace.
---
--- 'errorCode', 'failedWorkspaceChangeRequest_errorCode' - The error code that is returned if the WorkSpace cannot be rebooted.
 newFailedWorkspaceChangeRequest ::
   FailedWorkspaceChangeRequest
 newFailedWorkspaceChangeRequest =
   FailedWorkspaceChangeRequest'
-    { errorMessage =
+    { errorCode =
         Prelude.Nothing,
-      workspaceId = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+      errorMessage = Prelude.Nothing,
+      workspaceId = Prelude.Nothing
     }
+
+-- | The error code that is returned if the WorkSpace cannot be rebooted.
+failedWorkspaceChangeRequest_errorCode :: Lens.Lens' FailedWorkspaceChangeRequest (Prelude.Maybe Prelude.Text)
+failedWorkspaceChangeRequest_errorCode = Lens.lens (\FailedWorkspaceChangeRequest' {errorCode} -> errorCode) (\s@FailedWorkspaceChangeRequest' {} a -> s {errorCode = a} :: FailedWorkspaceChangeRequest)
 
 -- | The text of the error message that is returned if the WorkSpace cannot
 -- be rebooted.
@@ -74,19 +78,15 @@ failedWorkspaceChangeRequest_errorMessage = Lens.lens (\FailedWorkspaceChangeReq
 failedWorkspaceChangeRequest_workspaceId :: Lens.Lens' FailedWorkspaceChangeRequest (Prelude.Maybe Prelude.Text)
 failedWorkspaceChangeRequest_workspaceId = Lens.lens (\FailedWorkspaceChangeRequest' {workspaceId} -> workspaceId) (\s@FailedWorkspaceChangeRequest' {} a -> s {workspaceId = a} :: FailedWorkspaceChangeRequest)
 
--- | The error code that is returned if the WorkSpace cannot be rebooted.
-failedWorkspaceChangeRequest_errorCode :: Lens.Lens' FailedWorkspaceChangeRequest (Prelude.Maybe Prelude.Text)
-failedWorkspaceChangeRequest_errorCode = Lens.lens (\FailedWorkspaceChangeRequest' {errorCode} -> errorCode) (\s@FailedWorkspaceChangeRequest' {} a -> s {errorCode = a} :: FailedWorkspaceChangeRequest)
-
 instance Data.FromJSON FailedWorkspaceChangeRequest where
   parseJSON =
     Data.withObject
       "FailedWorkspaceChangeRequest"
       ( \x ->
           FailedWorkspaceChangeRequest'
-            Prelude.<$> (x Data..:? "ErrorMessage")
+            Prelude.<$> (x Data..:? "ErrorCode")
+            Prelude.<*> (x Data..:? "ErrorMessage")
             Prelude.<*> (x Data..:? "WorkspaceId")
-            Prelude.<*> (x Data..:? "ErrorCode")
       )
 
 instance
@@ -94,12 +94,12 @@ instance
     FailedWorkspaceChangeRequest
   where
   hashWithSalt _salt FailedWorkspaceChangeRequest' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
+    _salt `Prelude.hashWithSalt` errorCode
+      `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` workspaceId
-      `Prelude.hashWithSalt` errorCode
 
 instance Prelude.NFData FailedWorkspaceChangeRequest where
   rnf FailedWorkspaceChangeRequest' {..} =
-    Prelude.rnf errorMessage
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf workspaceId
-      `Prelude.seq` Prelude.rnf errorCode

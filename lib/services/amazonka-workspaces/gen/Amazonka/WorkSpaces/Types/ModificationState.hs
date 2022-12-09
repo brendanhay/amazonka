@@ -30,10 +30,10 @@ import Amazonka.WorkSpaces.Types.ModificationStateEnum
 --
 -- /See:/ 'newModificationState' smart constructor.
 data ModificationState = ModificationState'
-  { -- | The modification state.
-    state :: Prelude.Maybe ModificationStateEnum,
-    -- | The resource.
-    resource :: Prelude.Maybe ModificationResourceEnum
+  { -- | The resource.
+    resource :: Prelude.Maybe ModificationResourceEnum,
+    -- | The modification state.
+    state :: Prelude.Maybe ModificationStateEnum
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data ModificationState = ModificationState'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'modificationState_state' - The modification state.
---
 -- 'resource', 'modificationState_resource' - The resource.
+--
+-- 'state', 'modificationState_state' - The modification state.
 newModificationState ::
   ModificationState
 newModificationState =
   ModificationState'
-    { state = Prelude.Nothing,
-      resource = Prelude.Nothing
+    { resource = Prelude.Nothing,
+      state = Prelude.Nothing
     }
-
--- | The modification state.
-modificationState_state :: Lens.Lens' ModificationState (Prelude.Maybe ModificationStateEnum)
-modificationState_state = Lens.lens (\ModificationState' {state} -> state) (\s@ModificationState' {} a -> s {state = a} :: ModificationState)
 
 -- | The resource.
 modificationState_resource :: Lens.Lens' ModificationState (Prelude.Maybe ModificationResourceEnum)
 modificationState_resource = Lens.lens (\ModificationState' {resource} -> resource) (\s@ModificationState' {} a -> s {resource = a} :: ModificationState)
+
+-- | The modification state.
+modificationState_state :: Lens.Lens' ModificationState (Prelude.Maybe ModificationStateEnum)
+modificationState_state = Lens.lens (\ModificationState' {state} -> state) (\s@ModificationState' {} a -> s {state = a} :: ModificationState)
 
 instance Data.FromJSON ModificationState where
   parseJSON =
@@ -70,16 +70,16 @@ instance Data.FromJSON ModificationState where
       "ModificationState"
       ( \x ->
           ModificationState'
-            Prelude.<$> (x Data..:? "State")
-            Prelude.<*> (x Data..:? "Resource")
+            Prelude.<$> (x Data..:? "Resource")
+            Prelude.<*> (x Data..:? "State")
       )
 
 instance Prelude.Hashable ModificationState where
   hashWithSalt _salt ModificationState' {..} =
-    _salt `Prelude.hashWithSalt` state
-      `Prelude.hashWithSalt` resource
+    _salt `Prelude.hashWithSalt` resource
+      `Prelude.hashWithSalt` state
 
 instance Prelude.NFData ModificationState where
   rnf ModificationState' {..} =
-    Prelude.rnf state
-      `Prelude.seq` Prelude.rnf resource
+    Prelude.rnf resource
+      `Prelude.seq` Prelude.rnf state

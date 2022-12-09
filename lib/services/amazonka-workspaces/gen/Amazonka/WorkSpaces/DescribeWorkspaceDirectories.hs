@@ -30,17 +30,17 @@ module Amazonka.WorkSpaces.DescribeWorkspaceDirectories
     newDescribeWorkspaceDirectories,
 
     -- * Request Lenses
-    describeWorkspaceDirectories_nextToken,
     describeWorkspaceDirectories_directoryIds,
     describeWorkspaceDirectories_limit,
+    describeWorkspaceDirectories_nextToken,
 
     -- * Destructuring the Response
     DescribeWorkspaceDirectoriesResponse (..),
     newDescribeWorkspaceDirectoriesResponse,
 
     -- * Response Lenses
-    describeWorkspaceDirectoriesResponse_nextToken,
     describeWorkspaceDirectoriesResponse_directories,
+    describeWorkspaceDirectoriesResponse_nextToken,
     describeWorkspaceDirectoriesResponse_httpStatus,
   )
 where
@@ -55,14 +55,14 @@ import Amazonka.WorkSpaces.Types
 
 -- | /See:/ 'newDescribeWorkspaceDirectories' smart constructor.
 data DescribeWorkspaceDirectories = DescribeWorkspaceDirectories'
-  { -- | If you received a @NextToken@ from a previous call that was paginated,
-    -- provide this token to receive the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifiers of the directories. If the value is null, all
+  { -- | The identifiers of the directories. If the value is null, all
     -- directories are retrieved.
     directoryIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The maximum number of directories to return.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | If you received a @NextToken@ from a previous call that was paginated,
+    -- provide this token to receive the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,27 +74,22 @@ data DescribeWorkspaceDirectories = DescribeWorkspaceDirectories'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeWorkspaceDirectories_nextToken' - If you received a @NextToken@ from a previous call that was paginated,
--- provide this token to receive the next set of results.
---
 -- 'directoryIds', 'describeWorkspaceDirectories_directoryIds' - The identifiers of the directories. If the value is null, all
 -- directories are retrieved.
 --
 -- 'limit', 'describeWorkspaceDirectories_limit' - The maximum number of directories to return.
+--
+-- 'nextToken', 'describeWorkspaceDirectories_nextToken' - If you received a @NextToken@ from a previous call that was paginated,
+-- provide this token to receive the next set of results.
 newDescribeWorkspaceDirectories ::
   DescribeWorkspaceDirectories
 newDescribeWorkspaceDirectories =
   DescribeWorkspaceDirectories'
-    { nextToken =
+    { directoryIds =
         Prelude.Nothing,
-      directoryIds = Prelude.Nothing,
-      limit = Prelude.Nothing
+      limit = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | If you received a @NextToken@ from a previous call that was paginated,
--- provide this token to receive the next set of results.
-describeWorkspaceDirectories_nextToken :: Lens.Lens' DescribeWorkspaceDirectories (Prelude.Maybe Prelude.Text)
-describeWorkspaceDirectories_nextToken = Lens.lens (\DescribeWorkspaceDirectories' {nextToken} -> nextToken) (\s@DescribeWorkspaceDirectories' {} a -> s {nextToken = a} :: DescribeWorkspaceDirectories)
 
 -- | The identifiers of the directories. If the value is null, all
 -- directories are retrieved.
@@ -104,6 +99,11 @@ describeWorkspaceDirectories_directoryIds = Lens.lens (\DescribeWorkspaceDirecto
 -- | The maximum number of directories to return.
 describeWorkspaceDirectories_limit :: Lens.Lens' DescribeWorkspaceDirectories (Prelude.Maybe Prelude.Natural)
 describeWorkspaceDirectories_limit = Lens.lens (\DescribeWorkspaceDirectories' {limit} -> limit) (\s@DescribeWorkspaceDirectories' {} a -> s {limit = a} :: DescribeWorkspaceDirectories)
+
+-- | If you received a @NextToken@ from a previous call that was paginated,
+-- provide this token to receive the next set of results.
+describeWorkspaceDirectories_nextToken :: Lens.Lens' DescribeWorkspaceDirectories (Prelude.Maybe Prelude.Text)
+describeWorkspaceDirectories_nextToken = Lens.lens (\DescribeWorkspaceDirectories' {nextToken} -> nextToken) (\s@DescribeWorkspaceDirectories' {} a -> s {nextToken = a} :: DescribeWorkspaceDirectories)
 
 instance Core.AWSPager DescribeWorkspaceDirectories where
   page rq rs
@@ -137,8 +137,8 @@ instance Core.AWSRequest DescribeWorkspaceDirectories where
     Response.receiveJSON
       ( \s h x ->
           DescribeWorkspaceDirectoriesResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> (x Data..?> "Directories" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "Directories" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,15 +147,15 @@ instance
     DescribeWorkspaceDirectories
   where
   hashWithSalt _salt DescribeWorkspaceDirectories' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` directoryIds
+    _salt `Prelude.hashWithSalt` directoryIds
       `Prelude.hashWithSalt` limit
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeWorkspaceDirectories where
   rnf DescribeWorkspaceDirectories' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf directoryIds
+    Prelude.rnf directoryIds
       `Prelude.seq` Prelude.rnf limit
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders DescribeWorkspaceDirectories where
   toHeaders =
@@ -176,9 +176,9 @@ instance Data.ToJSON DescribeWorkspaceDirectories where
   toJSON DescribeWorkspaceDirectories' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("DirectoryIds" Data..=) Prelude.<$> directoryIds,
-            ("Limit" Data..=) Prelude.<$> limit
+          [ ("DirectoryIds" Data..=) Prelude.<$> directoryIds,
+            ("Limit" Data..=) Prelude.<$> limit,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -190,11 +190,11 @@ instance Data.ToQuery DescribeWorkspaceDirectories where
 
 -- | /See:/ 'newDescribeWorkspaceDirectoriesResponse' smart constructor.
 data DescribeWorkspaceDirectoriesResponse = DescribeWorkspaceDirectoriesResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
+  { -- | Information about the directories.
+    directories :: Prelude.Maybe [WorkspaceDirectory],
+    -- | The token to use to retrieve the next page of results. This value is
     -- null when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the directories.
-    directories :: Prelude.Maybe [WorkspaceDirectory],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -208,10 +208,10 @@ data DescribeWorkspaceDirectoriesResponse = DescribeWorkspaceDirectoriesResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'directories', 'describeWorkspaceDirectoriesResponse_directories' - Information about the directories.
+--
 -- 'nextToken', 'describeWorkspaceDirectoriesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- null when there are no more results to return.
---
--- 'directories', 'describeWorkspaceDirectoriesResponse_directories' - Information about the directories.
 --
 -- 'httpStatus', 'describeWorkspaceDirectoriesResponse_httpStatus' - The response's http status code.
 newDescribeWorkspaceDirectoriesResponse ::
@@ -220,20 +220,20 @@ newDescribeWorkspaceDirectoriesResponse ::
   DescribeWorkspaceDirectoriesResponse
 newDescribeWorkspaceDirectoriesResponse pHttpStatus_ =
   DescribeWorkspaceDirectoriesResponse'
-    { nextToken =
+    { directories =
         Prelude.Nothing,
-      directories = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the directories.
+describeWorkspaceDirectoriesResponse_directories :: Lens.Lens' DescribeWorkspaceDirectoriesResponse (Prelude.Maybe [WorkspaceDirectory])
+describeWorkspaceDirectoriesResponse_directories = Lens.lens (\DescribeWorkspaceDirectoriesResponse' {directories} -> directories) (\s@DescribeWorkspaceDirectoriesResponse' {} a -> s {directories = a} :: DescribeWorkspaceDirectoriesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- null when there are no more results to return.
 describeWorkspaceDirectoriesResponse_nextToken :: Lens.Lens' DescribeWorkspaceDirectoriesResponse (Prelude.Maybe Prelude.Text)
 describeWorkspaceDirectoriesResponse_nextToken = Lens.lens (\DescribeWorkspaceDirectoriesResponse' {nextToken} -> nextToken) (\s@DescribeWorkspaceDirectoriesResponse' {} a -> s {nextToken = a} :: DescribeWorkspaceDirectoriesResponse)
-
--- | Information about the directories.
-describeWorkspaceDirectoriesResponse_directories :: Lens.Lens' DescribeWorkspaceDirectoriesResponse (Prelude.Maybe [WorkspaceDirectory])
-describeWorkspaceDirectoriesResponse_directories = Lens.lens (\DescribeWorkspaceDirectoriesResponse' {directories} -> directories) (\s@DescribeWorkspaceDirectoriesResponse' {} a -> s {directories = a} :: DescribeWorkspaceDirectoriesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeWorkspaceDirectoriesResponse_httpStatus :: Lens.Lens' DescribeWorkspaceDirectoriesResponse Prelude.Int
@@ -244,6 +244,6 @@ instance
     DescribeWorkspaceDirectoriesResponse
   where
   rnf DescribeWorkspaceDirectoriesResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf directories
+    Prelude.rnf directories
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

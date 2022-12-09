@@ -37,14 +37,14 @@ module Amazonka.WorkSpaces.CreateWorkspaceImage
     newCreateWorkspaceImageResponse,
 
     -- * Response Lenses
-    createWorkspaceImageResponse_operatingSystem,
-    createWorkspaceImageResponse_name,
     createWorkspaceImageResponse_created,
-    createWorkspaceImageResponse_state,
     createWorkspaceImageResponse_description,
-    createWorkspaceImageResponse_requiredTenancy,
-    createWorkspaceImageResponse_ownerAccountId,
     createWorkspaceImageResponse_imageId,
+    createWorkspaceImageResponse_name,
+    createWorkspaceImageResponse_operatingSystem,
+    createWorkspaceImageResponse_ownerAccountId,
+    createWorkspaceImageResponse_requiredTenancy,
+    createWorkspaceImageResponse_state,
     createWorkspaceImageResponse_httpStatus,
   )
 where
@@ -136,14 +136,14 @@ instance Core.AWSRequest CreateWorkspaceImage where
     Response.receiveJSON
       ( \s h x ->
           CreateWorkspaceImageResponse'
-            Prelude.<$> (x Data..?> "OperatingSystem")
-            Prelude.<*> (x Data..?> "Name")
-            Prelude.<*> (x Data..?> "Created")
-            Prelude.<*> (x Data..?> "State")
+            Prelude.<$> (x Data..?> "Created")
             Prelude.<*> (x Data..?> "Description")
-            Prelude.<*> (x Data..?> "RequiredTenancy")
-            Prelude.<*> (x Data..?> "OwnerAccountId")
             Prelude.<*> (x Data..?> "ImageId")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "OperatingSystem")
+            Prelude.<*> (x Data..?> "OwnerAccountId")
+            Prelude.<*> (x Data..?> "RequiredTenancy")
+            Prelude.<*> (x Data..?> "State")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -195,25 +195,25 @@ instance Data.ToQuery CreateWorkspaceImage where
 
 -- | /See:/ 'newCreateWorkspaceImageResponse' smart constructor.
 data CreateWorkspaceImageResponse = CreateWorkspaceImageResponse'
-  { -- | The operating system that the image is running.
-    operatingSystem :: Prelude.Maybe OperatingSystem,
-    -- | The name of the image.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The date when the image was created.
+  { -- | The date when the image was created.
     created :: Prelude.Maybe Data.POSIX,
-    -- | The availability status of the image.
-    state :: Prelude.Maybe WorkspaceImageState,
     -- | The description of the image.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the new WorkSpace image.
+    imageId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the image.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The operating system that the image is running.
+    operatingSystem :: Prelude.Maybe OperatingSystem,
+    -- | The identifier of the Amazon Web Services account that owns the image.
+    ownerAccountId :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the image is running on dedicated hardware. When Bring
     -- Your Own License (BYOL) is enabled, this value is set to DEDICATED. For
     -- more information, see
     -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.htm Bring Your Own Windows Desktop Images.>.
     requiredTenancy :: Prelude.Maybe WorkspaceImageRequiredTenancy,
-    -- | The identifier of the Amazon Web Services account that owns the image.
-    ownerAccountId :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the new WorkSpace image.
-    imageId :: Prelude.Maybe Prelude.Text,
+    -- | The availability status of the image.
+    state :: Prelude.Maybe WorkspaceImageState,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -227,24 +227,24 @@ data CreateWorkspaceImageResponse = CreateWorkspaceImageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'operatingSystem', 'createWorkspaceImageResponse_operatingSystem' - The operating system that the image is running.
+-- 'created', 'createWorkspaceImageResponse_created' - The date when the image was created.
+--
+-- 'description', 'createWorkspaceImageResponse_description' - The description of the image.
+--
+-- 'imageId', 'createWorkspaceImageResponse_imageId' - The identifier of the new WorkSpace image.
 --
 -- 'name', 'createWorkspaceImageResponse_name' - The name of the image.
 --
--- 'created', 'createWorkspaceImageResponse_created' - The date when the image was created.
+-- 'operatingSystem', 'createWorkspaceImageResponse_operatingSystem' - The operating system that the image is running.
 --
--- 'state', 'createWorkspaceImageResponse_state' - The availability status of the image.
---
--- 'description', 'createWorkspaceImageResponse_description' - The description of the image.
+-- 'ownerAccountId', 'createWorkspaceImageResponse_ownerAccountId' - The identifier of the Amazon Web Services account that owns the image.
 --
 -- 'requiredTenancy', 'createWorkspaceImageResponse_requiredTenancy' - Specifies whether the image is running on dedicated hardware. When Bring
 -- Your Own License (BYOL) is enabled, this value is set to DEDICATED. For
 -- more information, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.htm Bring Your Own Windows Desktop Images.>.
 --
--- 'ownerAccountId', 'createWorkspaceImageResponse_ownerAccountId' - The identifier of the Amazon Web Services account that owns the image.
---
--- 'imageId', 'createWorkspaceImageResponse_imageId' - The identifier of the new WorkSpace image.
+-- 'state', 'createWorkspaceImageResponse_state' - The availability status of the image.
 --
 -- 'httpStatus', 'createWorkspaceImageResponse_httpStatus' - The response's http status code.
 newCreateWorkspaceImageResponse ::
@@ -253,37 +253,41 @@ newCreateWorkspaceImageResponse ::
   CreateWorkspaceImageResponse
 newCreateWorkspaceImageResponse pHttpStatus_ =
   CreateWorkspaceImageResponse'
-    { operatingSystem =
+    { created =
         Prelude.Nothing,
-      name = Prelude.Nothing,
-      created = Prelude.Nothing,
-      state = Prelude.Nothing,
       description = Prelude.Nothing,
-      requiredTenancy = Prelude.Nothing,
-      ownerAccountId = Prelude.Nothing,
       imageId = Prelude.Nothing,
+      name = Prelude.Nothing,
+      operatingSystem = Prelude.Nothing,
+      ownerAccountId = Prelude.Nothing,
+      requiredTenancy = Prelude.Nothing,
+      state = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The operating system that the image is running.
-createWorkspaceImageResponse_operatingSystem :: Lens.Lens' CreateWorkspaceImageResponse (Prelude.Maybe OperatingSystem)
-createWorkspaceImageResponse_operatingSystem = Lens.lens (\CreateWorkspaceImageResponse' {operatingSystem} -> operatingSystem) (\s@CreateWorkspaceImageResponse' {} a -> s {operatingSystem = a} :: CreateWorkspaceImageResponse)
-
--- | The name of the image.
-createWorkspaceImageResponse_name :: Lens.Lens' CreateWorkspaceImageResponse (Prelude.Maybe Prelude.Text)
-createWorkspaceImageResponse_name = Lens.lens (\CreateWorkspaceImageResponse' {name} -> name) (\s@CreateWorkspaceImageResponse' {} a -> s {name = a} :: CreateWorkspaceImageResponse)
 
 -- | The date when the image was created.
 createWorkspaceImageResponse_created :: Lens.Lens' CreateWorkspaceImageResponse (Prelude.Maybe Prelude.UTCTime)
 createWorkspaceImageResponse_created = Lens.lens (\CreateWorkspaceImageResponse' {created} -> created) (\s@CreateWorkspaceImageResponse' {} a -> s {created = a} :: CreateWorkspaceImageResponse) Prelude.. Lens.mapping Data._Time
 
--- | The availability status of the image.
-createWorkspaceImageResponse_state :: Lens.Lens' CreateWorkspaceImageResponse (Prelude.Maybe WorkspaceImageState)
-createWorkspaceImageResponse_state = Lens.lens (\CreateWorkspaceImageResponse' {state} -> state) (\s@CreateWorkspaceImageResponse' {} a -> s {state = a} :: CreateWorkspaceImageResponse)
-
 -- | The description of the image.
 createWorkspaceImageResponse_description :: Lens.Lens' CreateWorkspaceImageResponse (Prelude.Maybe Prelude.Text)
 createWorkspaceImageResponse_description = Lens.lens (\CreateWorkspaceImageResponse' {description} -> description) (\s@CreateWorkspaceImageResponse' {} a -> s {description = a} :: CreateWorkspaceImageResponse)
+
+-- | The identifier of the new WorkSpace image.
+createWorkspaceImageResponse_imageId :: Lens.Lens' CreateWorkspaceImageResponse (Prelude.Maybe Prelude.Text)
+createWorkspaceImageResponse_imageId = Lens.lens (\CreateWorkspaceImageResponse' {imageId} -> imageId) (\s@CreateWorkspaceImageResponse' {} a -> s {imageId = a} :: CreateWorkspaceImageResponse)
+
+-- | The name of the image.
+createWorkspaceImageResponse_name :: Lens.Lens' CreateWorkspaceImageResponse (Prelude.Maybe Prelude.Text)
+createWorkspaceImageResponse_name = Lens.lens (\CreateWorkspaceImageResponse' {name} -> name) (\s@CreateWorkspaceImageResponse' {} a -> s {name = a} :: CreateWorkspaceImageResponse)
+
+-- | The operating system that the image is running.
+createWorkspaceImageResponse_operatingSystem :: Lens.Lens' CreateWorkspaceImageResponse (Prelude.Maybe OperatingSystem)
+createWorkspaceImageResponse_operatingSystem = Lens.lens (\CreateWorkspaceImageResponse' {operatingSystem} -> operatingSystem) (\s@CreateWorkspaceImageResponse' {} a -> s {operatingSystem = a} :: CreateWorkspaceImageResponse)
+
+-- | The identifier of the Amazon Web Services account that owns the image.
+createWorkspaceImageResponse_ownerAccountId :: Lens.Lens' CreateWorkspaceImageResponse (Prelude.Maybe Prelude.Text)
+createWorkspaceImageResponse_ownerAccountId = Lens.lens (\CreateWorkspaceImageResponse' {ownerAccountId} -> ownerAccountId) (\s@CreateWorkspaceImageResponse' {} a -> s {ownerAccountId = a} :: CreateWorkspaceImageResponse)
 
 -- | Specifies whether the image is running on dedicated hardware. When Bring
 -- Your Own License (BYOL) is enabled, this value is set to DEDICATED. For
@@ -292,13 +296,9 @@ createWorkspaceImageResponse_description = Lens.lens (\CreateWorkspaceImageRespo
 createWorkspaceImageResponse_requiredTenancy :: Lens.Lens' CreateWorkspaceImageResponse (Prelude.Maybe WorkspaceImageRequiredTenancy)
 createWorkspaceImageResponse_requiredTenancy = Lens.lens (\CreateWorkspaceImageResponse' {requiredTenancy} -> requiredTenancy) (\s@CreateWorkspaceImageResponse' {} a -> s {requiredTenancy = a} :: CreateWorkspaceImageResponse)
 
--- | The identifier of the Amazon Web Services account that owns the image.
-createWorkspaceImageResponse_ownerAccountId :: Lens.Lens' CreateWorkspaceImageResponse (Prelude.Maybe Prelude.Text)
-createWorkspaceImageResponse_ownerAccountId = Lens.lens (\CreateWorkspaceImageResponse' {ownerAccountId} -> ownerAccountId) (\s@CreateWorkspaceImageResponse' {} a -> s {ownerAccountId = a} :: CreateWorkspaceImageResponse)
-
--- | The identifier of the new WorkSpace image.
-createWorkspaceImageResponse_imageId :: Lens.Lens' CreateWorkspaceImageResponse (Prelude.Maybe Prelude.Text)
-createWorkspaceImageResponse_imageId = Lens.lens (\CreateWorkspaceImageResponse' {imageId} -> imageId) (\s@CreateWorkspaceImageResponse' {} a -> s {imageId = a} :: CreateWorkspaceImageResponse)
+-- | The availability status of the image.
+createWorkspaceImageResponse_state :: Lens.Lens' CreateWorkspaceImageResponse (Prelude.Maybe WorkspaceImageState)
+createWorkspaceImageResponse_state = Lens.lens (\CreateWorkspaceImageResponse' {state} -> state) (\s@CreateWorkspaceImageResponse' {} a -> s {state = a} :: CreateWorkspaceImageResponse)
 
 -- | The response's http status code.
 createWorkspaceImageResponse_httpStatus :: Lens.Lens' CreateWorkspaceImageResponse Prelude.Int
@@ -306,12 +306,12 @@ createWorkspaceImageResponse_httpStatus = Lens.lens (\CreateWorkspaceImageRespon
 
 instance Prelude.NFData CreateWorkspaceImageResponse where
   rnf CreateWorkspaceImageResponse' {..} =
-    Prelude.rnf operatingSystem
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf created
-      `Prelude.seq` Prelude.rnf state
+    Prelude.rnf created
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf requiredTenancy
-      `Prelude.seq` Prelude.rnf ownerAccountId
       `Prelude.seq` Prelude.rnf imageId
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf operatingSystem
+      `Prelude.seq` Prelude.rnf ownerAccountId
+      `Prelude.seq` Prelude.rnf requiredTenancy
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf httpStatus

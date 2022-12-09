@@ -30,8 +30,8 @@ module Amazonka.WorkSpaces.DescribeConnectionAliasPermissions
     newDescribeConnectionAliasPermissions,
 
     -- * Request Lenses
-    describeConnectionAliasPermissions_nextToken,
     describeConnectionAliasPermissions_maxResults,
+    describeConnectionAliasPermissions_nextToken,
     describeConnectionAliasPermissions_aliasId,
 
     -- * Destructuring the Response
@@ -39,9 +39,9 @@ module Amazonka.WorkSpaces.DescribeConnectionAliasPermissions
     newDescribeConnectionAliasPermissionsResponse,
 
     -- * Response Lenses
-    describeConnectionAliasPermissionsResponse_nextToken,
     describeConnectionAliasPermissionsResponse_aliasId,
     describeConnectionAliasPermissionsResponse_connectionAliasPermissions,
+    describeConnectionAliasPermissionsResponse_nextToken,
     describeConnectionAliasPermissionsResponse_httpStatus,
   )
 where
@@ -56,11 +56,11 @@ import Amazonka.WorkSpaces.Types
 
 -- | /See:/ 'newDescribeConnectionAliasPermissions' smart constructor.
 data DescribeConnectionAliasPermissions = DescribeConnectionAliasPermissions'
-  { -- | If you received a @NextToken@ from a previous call that was paginated,
+  { -- | The maximum number of results to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | If you received a @NextToken@ from a previous call that was paginated,
     -- provide this token to receive the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the connection alias.
     aliasId :: Prelude.Text
   }
@@ -74,10 +74,10 @@ data DescribeConnectionAliasPermissions = DescribeConnectionAliasPermissions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'describeConnectionAliasPermissions_maxResults' - The maximum number of results to return.
+--
 -- 'nextToken', 'describeConnectionAliasPermissions_nextToken' - If you received a @NextToken@ from a previous call that was paginated,
 -- provide this token to receive the next set of results.
---
--- 'maxResults', 'describeConnectionAliasPermissions_maxResults' - The maximum number of results to return.
 --
 -- 'aliasId', 'describeConnectionAliasPermissions_aliasId' - The identifier of the connection alias.
 newDescribeConnectionAliasPermissions ::
@@ -86,20 +86,20 @@ newDescribeConnectionAliasPermissions ::
   DescribeConnectionAliasPermissions
 newDescribeConnectionAliasPermissions pAliasId_ =
   DescribeConnectionAliasPermissions'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       aliasId = pAliasId_
     }
+
+-- | The maximum number of results to return.
+describeConnectionAliasPermissions_maxResults :: Lens.Lens' DescribeConnectionAliasPermissions (Prelude.Maybe Prelude.Natural)
+describeConnectionAliasPermissions_maxResults = Lens.lens (\DescribeConnectionAliasPermissions' {maxResults} -> maxResults) (\s@DescribeConnectionAliasPermissions' {} a -> s {maxResults = a} :: DescribeConnectionAliasPermissions)
 
 -- | If you received a @NextToken@ from a previous call that was paginated,
 -- provide this token to receive the next set of results.
 describeConnectionAliasPermissions_nextToken :: Lens.Lens' DescribeConnectionAliasPermissions (Prelude.Maybe Prelude.Text)
 describeConnectionAliasPermissions_nextToken = Lens.lens (\DescribeConnectionAliasPermissions' {nextToken} -> nextToken) (\s@DescribeConnectionAliasPermissions' {} a -> s {nextToken = a} :: DescribeConnectionAliasPermissions)
-
--- | The maximum number of results to return.
-describeConnectionAliasPermissions_maxResults :: Lens.Lens' DescribeConnectionAliasPermissions (Prelude.Maybe Prelude.Natural)
-describeConnectionAliasPermissions_maxResults = Lens.lens (\DescribeConnectionAliasPermissions' {maxResults} -> maxResults) (\s@DescribeConnectionAliasPermissions' {} a -> s {maxResults = a} :: DescribeConnectionAliasPermissions)
 
 -- | The identifier of the connection alias.
 describeConnectionAliasPermissions_aliasId :: Lens.Lens' DescribeConnectionAliasPermissions Prelude.Text
@@ -118,9 +118,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeConnectionAliasPermissionsResponse'
-            Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> (x Data..?> "AliasId")
+            Prelude.<$> (x Data..?> "AliasId")
               Prelude.<*> (x Data..?> "ConnectionAliasPermissions")
+              Prelude.<*> (x Data..?> "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,8 +131,8 @@ instance
   hashWithSalt
     _salt
     DescribeConnectionAliasPermissions' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
-        `Prelude.hashWithSalt` maxResults
+      _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` aliasId
 
 instance
@@ -140,8 +140,8 @@ instance
     DescribeConnectionAliasPermissions
   where
   rnf DescribeConnectionAliasPermissions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf aliasId
 
 instance
@@ -169,8 +169,8 @@ instance
   toJSON DescribeConnectionAliasPermissions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("AliasId" Data..= aliasId)
           ]
       )
@@ -189,13 +189,13 @@ instance
 
 -- | /See:/ 'newDescribeConnectionAliasPermissionsResponse' smart constructor.
 data DescribeConnectionAliasPermissionsResponse = DescribeConnectionAliasPermissionsResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
-    -- null when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the connection alias.
+  { -- | The identifier of the connection alias.
     aliasId :: Prelude.Maybe Prelude.Text,
     -- | The permissions associated with a connection alias.
     connectionAliasPermissions :: Prelude.Maybe (Prelude.NonEmpty ConnectionAliasPermission),
+    -- | The token to use to retrieve the next page of results. This value is
+    -- null when there are no more results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -209,12 +209,12 @@ data DescribeConnectionAliasPermissionsResponse = DescribeConnectionAliasPermiss
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeConnectionAliasPermissionsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
--- null when there are no more results to return.
---
 -- 'aliasId', 'describeConnectionAliasPermissionsResponse_aliasId' - The identifier of the connection alias.
 --
 -- 'connectionAliasPermissions', 'describeConnectionAliasPermissionsResponse_connectionAliasPermissions' - The permissions associated with a connection alias.
+--
+-- 'nextToken', 'describeConnectionAliasPermissionsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
+-- null when there are no more results to return.
 --
 -- 'httpStatus', 'describeConnectionAliasPermissionsResponse_httpStatus' - The response's http status code.
 newDescribeConnectionAliasPermissionsResponse ::
@@ -224,18 +224,13 @@ newDescribeConnectionAliasPermissionsResponse ::
 newDescribeConnectionAliasPermissionsResponse
   pHttpStatus_ =
     DescribeConnectionAliasPermissionsResponse'
-      { nextToken =
+      { aliasId =
           Prelude.Nothing,
-        aliasId = Prelude.Nothing,
         connectionAliasPermissions =
           Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The token to use to retrieve the next page of results. This value is
--- null when there are no more results to return.
-describeConnectionAliasPermissionsResponse_nextToken :: Lens.Lens' DescribeConnectionAliasPermissionsResponse (Prelude.Maybe Prelude.Text)
-describeConnectionAliasPermissionsResponse_nextToken = Lens.lens (\DescribeConnectionAliasPermissionsResponse' {nextToken} -> nextToken) (\s@DescribeConnectionAliasPermissionsResponse' {} a -> s {nextToken = a} :: DescribeConnectionAliasPermissionsResponse)
 
 -- | The identifier of the connection alias.
 describeConnectionAliasPermissionsResponse_aliasId :: Lens.Lens' DescribeConnectionAliasPermissionsResponse (Prelude.Maybe Prelude.Text)
@@ -244,6 +239,11 @@ describeConnectionAliasPermissionsResponse_aliasId = Lens.lens (\DescribeConnect
 -- | The permissions associated with a connection alias.
 describeConnectionAliasPermissionsResponse_connectionAliasPermissions :: Lens.Lens' DescribeConnectionAliasPermissionsResponse (Prelude.Maybe (Prelude.NonEmpty ConnectionAliasPermission))
 describeConnectionAliasPermissionsResponse_connectionAliasPermissions = Lens.lens (\DescribeConnectionAliasPermissionsResponse' {connectionAliasPermissions} -> connectionAliasPermissions) (\s@DescribeConnectionAliasPermissionsResponse' {} a -> s {connectionAliasPermissions = a} :: DescribeConnectionAliasPermissionsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to use to retrieve the next page of results. This value is
+-- null when there are no more results to return.
+describeConnectionAliasPermissionsResponse_nextToken :: Lens.Lens' DescribeConnectionAliasPermissionsResponse (Prelude.Maybe Prelude.Text)
+describeConnectionAliasPermissionsResponse_nextToken = Lens.lens (\DescribeConnectionAliasPermissionsResponse' {nextToken} -> nextToken) (\s@DescribeConnectionAliasPermissionsResponse' {} a -> s {nextToken = a} :: DescribeConnectionAliasPermissionsResponse)
 
 -- | The response's http status code.
 describeConnectionAliasPermissionsResponse_httpStatus :: Lens.Lens' DescribeConnectionAliasPermissionsResponse Prelude.Int
@@ -254,7 +254,7 @@ instance
     DescribeConnectionAliasPermissionsResponse
   where
   rnf DescribeConnectionAliasPermissionsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf aliasId
+    Prelude.rnf aliasId
       `Prelude.seq` Prelude.rnf connectionAliasPermissions
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

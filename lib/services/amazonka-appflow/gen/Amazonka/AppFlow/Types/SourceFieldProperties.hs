@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSourceFieldProperties' smart constructor.
 data SourceFieldProperties = SourceFieldProperties'
-  { -- | Indicates whether the field can be returned in a search result.
+  { -- | Indicates if the field can be queried.
+    isQueryable :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates whether the field can be returned in a search result.
     isRetrievable :: Prelude.Maybe Prelude.Bool,
     -- | Indicates if this timestamp field can be used for incremental queries.
-    isTimestampFieldForIncrementalQueries :: Prelude.Maybe Prelude.Bool,
-    -- | Indicates if the field can be queried.
-    isQueryable :: Prelude.Maybe Prelude.Bool
+    isTimestampFieldForIncrementalQueries :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,21 +46,25 @@ data SourceFieldProperties = SourceFieldProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'isQueryable', 'sourceFieldProperties_isQueryable' - Indicates if the field can be queried.
+--
 -- 'isRetrievable', 'sourceFieldProperties_isRetrievable' - Indicates whether the field can be returned in a search result.
 --
 -- 'isTimestampFieldForIncrementalQueries', 'sourceFieldProperties_isTimestampFieldForIncrementalQueries' - Indicates if this timestamp field can be used for incremental queries.
---
--- 'isQueryable', 'sourceFieldProperties_isQueryable' - Indicates if the field can be queried.
 newSourceFieldProperties ::
   SourceFieldProperties
 newSourceFieldProperties =
   SourceFieldProperties'
-    { isRetrievable =
+    { isQueryable =
         Prelude.Nothing,
+      isRetrievable = Prelude.Nothing,
       isTimestampFieldForIncrementalQueries =
-        Prelude.Nothing,
-      isQueryable = Prelude.Nothing
+        Prelude.Nothing
     }
+
+-- | Indicates if the field can be queried.
+sourceFieldProperties_isQueryable :: Lens.Lens' SourceFieldProperties (Prelude.Maybe Prelude.Bool)
+sourceFieldProperties_isQueryable = Lens.lens (\SourceFieldProperties' {isQueryable} -> isQueryable) (\s@SourceFieldProperties' {} a -> s {isQueryable = a} :: SourceFieldProperties)
 
 -- | Indicates whether the field can be returned in a search result.
 sourceFieldProperties_isRetrievable :: Lens.Lens' SourceFieldProperties (Prelude.Maybe Prelude.Bool)
@@ -70,29 +74,25 @@ sourceFieldProperties_isRetrievable = Lens.lens (\SourceFieldProperties' {isRetr
 sourceFieldProperties_isTimestampFieldForIncrementalQueries :: Lens.Lens' SourceFieldProperties (Prelude.Maybe Prelude.Bool)
 sourceFieldProperties_isTimestampFieldForIncrementalQueries = Lens.lens (\SourceFieldProperties' {isTimestampFieldForIncrementalQueries} -> isTimestampFieldForIncrementalQueries) (\s@SourceFieldProperties' {} a -> s {isTimestampFieldForIncrementalQueries = a} :: SourceFieldProperties)
 
--- | Indicates if the field can be queried.
-sourceFieldProperties_isQueryable :: Lens.Lens' SourceFieldProperties (Prelude.Maybe Prelude.Bool)
-sourceFieldProperties_isQueryable = Lens.lens (\SourceFieldProperties' {isQueryable} -> isQueryable) (\s@SourceFieldProperties' {} a -> s {isQueryable = a} :: SourceFieldProperties)
-
 instance Data.FromJSON SourceFieldProperties where
   parseJSON =
     Data.withObject
       "SourceFieldProperties"
       ( \x ->
           SourceFieldProperties'
-            Prelude.<$> (x Data..:? "isRetrievable")
+            Prelude.<$> (x Data..:? "isQueryable")
+            Prelude.<*> (x Data..:? "isRetrievable")
             Prelude.<*> (x Data..:? "isTimestampFieldForIncrementalQueries")
-            Prelude.<*> (x Data..:? "isQueryable")
       )
 
 instance Prelude.Hashable SourceFieldProperties where
   hashWithSalt _salt SourceFieldProperties' {..} =
-    _salt `Prelude.hashWithSalt` isRetrievable
+    _salt `Prelude.hashWithSalt` isQueryable
+      `Prelude.hashWithSalt` isRetrievable
       `Prelude.hashWithSalt` isTimestampFieldForIncrementalQueries
-      `Prelude.hashWithSalt` isQueryable
 
 instance Prelude.NFData SourceFieldProperties where
   rnf SourceFieldProperties' {..} =
-    Prelude.rnf isRetrievable
+    Prelude.rnf isQueryable
+      `Prelude.seq` Prelude.rnf isRetrievable
       `Prelude.seq` Prelude.rnf isTimestampFieldForIncrementalQueries
-      `Prelude.seq` Prelude.rnf isQueryable

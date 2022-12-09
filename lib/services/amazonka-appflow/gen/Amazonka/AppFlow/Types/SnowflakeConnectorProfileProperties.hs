@@ -28,16 +28,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSnowflakeConnectorProfileProperties' smart constructor.
 data SnowflakeConnectorProfileProperties = SnowflakeConnectorProfileProperties'
-  { -- | The bucket path that refers to the Amazon S3 bucket associated with
+  { -- | The name of the account.
+    accountName :: Prelude.Maybe Prelude.Text,
+    -- | The bucket path that refers to the Amazon S3 bucket associated with
     -- Snowflake.
     bucketPrefix :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services Region of the Snowflake account.
-    region :: Prelude.Maybe Prelude.Text,
-    -- | The name of the account.
-    accountName :: Prelude.Maybe Prelude.Text,
     -- | The Snowflake Private Link service name to be used for private data
     -- transfers.
     privateLinkServiceName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services Region of the Snowflake account.
+    region :: Prelude.Maybe Prelude.Text,
     -- | The name of the Snowflake warehouse.
     warehouse :: Prelude.Text,
     -- | The name of the Amazon S3 stage that was created while setting up an
@@ -57,15 +57,15 @@ data SnowflakeConnectorProfileProperties = SnowflakeConnectorProfileProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accountName', 'snowflakeConnectorProfileProperties_accountName' - The name of the account.
+--
 -- 'bucketPrefix', 'snowflakeConnectorProfileProperties_bucketPrefix' - The bucket path that refers to the Amazon S3 bucket associated with
 -- Snowflake.
 --
--- 'region', 'snowflakeConnectorProfileProperties_region' - The Amazon Web Services Region of the Snowflake account.
---
--- 'accountName', 'snowflakeConnectorProfileProperties_accountName' - The name of the account.
---
 -- 'privateLinkServiceName', 'snowflakeConnectorProfileProperties_privateLinkServiceName' - The Snowflake Private Link service name to be used for private data
 -- transfers.
+--
+-- 'region', 'snowflakeConnectorProfileProperties_region' - The Amazon Web Services Region of the Snowflake account.
 --
 -- 'warehouse', 'snowflakeConnectorProfileProperties_warehouse' - The name of the Snowflake warehouse.
 --
@@ -87,34 +87,34 @@ newSnowflakeConnectorProfileProperties
   pStage_
   pBucketName_ =
     SnowflakeConnectorProfileProperties'
-      { bucketPrefix =
+      { accountName =
           Prelude.Nothing,
-        region = Prelude.Nothing,
-        accountName = Prelude.Nothing,
+        bucketPrefix = Prelude.Nothing,
         privateLinkServiceName =
           Prelude.Nothing,
+        region = Prelude.Nothing,
         warehouse = pWarehouse_,
         stage = pStage_,
         bucketName = pBucketName_
       }
+
+-- | The name of the account.
+snowflakeConnectorProfileProperties_accountName :: Lens.Lens' SnowflakeConnectorProfileProperties (Prelude.Maybe Prelude.Text)
+snowflakeConnectorProfileProperties_accountName = Lens.lens (\SnowflakeConnectorProfileProperties' {accountName} -> accountName) (\s@SnowflakeConnectorProfileProperties' {} a -> s {accountName = a} :: SnowflakeConnectorProfileProperties)
 
 -- | The bucket path that refers to the Amazon S3 bucket associated with
 -- Snowflake.
 snowflakeConnectorProfileProperties_bucketPrefix :: Lens.Lens' SnowflakeConnectorProfileProperties (Prelude.Maybe Prelude.Text)
 snowflakeConnectorProfileProperties_bucketPrefix = Lens.lens (\SnowflakeConnectorProfileProperties' {bucketPrefix} -> bucketPrefix) (\s@SnowflakeConnectorProfileProperties' {} a -> s {bucketPrefix = a} :: SnowflakeConnectorProfileProperties)
 
--- | The Amazon Web Services Region of the Snowflake account.
-snowflakeConnectorProfileProperties_region :: Lens.Lens' SnowflakeConnectorProfileProperties (Prelude.Maybe Prelude.Text)
-snowflakeConnectorProfileProperties_region = Lens.lens (\SnowflakeConnectorProfileProperties' {region} -> region) (\s@SnowflakeConnectorProfileProperties' {} a -> s {region = a} :: SnowflakeConnectorProfileProperties)
-
--- | The name of the account.
-snowflakeConnectorProfileProperties_accountName :: Lens.Lens' SnowflakeConnectorProfileProperties (Prelude.Maybe Prelude.Text)
-snowflakeConnectorProfileProperties_accountName = Lens.lens (\SnowflakeConnectorProfileProperties' {accountName} -> accountName) (\s@SnowflakeConnectorProfileProperties' {} a -> s {accountName = a} :: SnowflakeConnectorProfileProperties)
-
 -- | The Snowflake Private Link service name to be used for private data
 -- transfers.
 snowflakeConnectorProfileProperties_privateLinkServiceName :: Lens.Lens' SnowflakeConnectorProfileProperties (Prelude.Maybe Prelude.Text)
 snowflakeConnectorProfileProperties_privateLinkServiceName = Lens.lens (\SnowflakeConnectorProfileProperties' {privateLinkServiceName} -> privateLinkServiceName) (\s@SnowflakeConnectorProfileProperties' {} a -> s {privateLinkServiceName = a} :: SnowflakeConnectorProfileProperties)
+
+-- | The Amazon Web Services Region of the Snowflake account.
+snowflakeConnectorProfileProperties_region :: Lens.Lens' SnowflakeConnectorProfileProperties (Prelude.Maybe Prelude.Text)
+snowflakeConnectorProfileProperties_region = Lens.lens (\SnowflakeConnectorProfileProperties' {region} -> region) (\s@SnowflakeConnectorProfileProperties' {} a -> s {region = a} :: SnowflakeConnectorProfileProperties)
 
 -- | The name of the Snowflake warehouse.
 snowflakeConnectorProfileProperties_warehouse :: Lens.Lens' SnowflakeConnectorProfileProperties Prelude.Text
@@ -139,10 +139,10 @@ instance
       "SnowflakeConnectorProfileProperties"
       ( \x ->
           SnowflakeConnectorProfileProperties'
-            Prelude.<$> (x Data..:? "bucketPrefix")
-            Prelude.<*> (x Data..:? "region")
-            Prelude.<*> (x Data..:? "accountName")
+            Prelude.<$> (x Data..:? "accountName")
+            Prelude.<*> (x Data..:? "bucketPrefix")
             Prelude.<*> (x Data..:? "privateLinkServiceName")
+            Prelude.<*> (x Data..:? "region")
             Prelude.<*> (x Data..: "warehouse")
             Prelude.<*> (x Data..: "stage")
             Prelude.<*> (x Data..: "bucketName")
@@ -155,10 +155,10 @@ instance
   hashWithSalt
     _salt
     SnowflakeConnectorProfileProperties' {..} =
-      _salt `Prelude.hashWithSalt` bucketPrefix
-        `Prelude.hashWithSalt` region
-        `Prelude.hashWithSalt` accountName
+      _salt `Prelude.hashWithSalt` accountName
+        `Prelude.hashWithSalt` bucketPrefix
         `Prelude.hashWithSalt` privateLinkServiceName
+        `Prelude.hashWithSalt` region
         `Prelude.hashWithSalt` warehouse
         `Prelude.hashWithSalt` stage
         `Prelude.hashWithSalt` bucketName
@@ -168,10 +168,10 @@ instance
     SnowflakeConnectorProfileProperties
   where
   rnf SnowflakeConnectorProfileProperties' {..} =
-    Prelude.rnf bucketPrefix
-      `Prelude.seq` Prelude.rnf region
-      `Prelude.seq` Prelude.rnf accountName
+    Prelude.rnf accountName
+      `Prelude.seq` Prelude.rnf bucketPrefix
       `Prelude.seq` Prelude.rnf privateLinkServiceName
+      `Prelude.seq` Prelude.rnf region
       `Prelude.seq` Prelude.rnf warehouse
       `Prelude.seq` Prelude.rnf stage
       `Prelude.seq` Prelude.rnf bucketName
@@ -183,11 +183,11 @@ instance
   toJSON SnowflakeConnectorProfileProperties' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("bucketPrefix" Data..=) Prelude.<$> bucketPrefix,
-            ("region" Data..=) Prelude.<$> region,
-            ("accountName" Data..=) Prelude.<$> accountName,
+          [ ("accountName" Data..=) Prelude.<$> accountName,
+            ("bucketPrefix" Data..=) Prelude.<$> bucketPrefix,
             ("privateLinkServiceName" Data..=)
               Prelude.<$> privateLinkServiceName,
+            ("region" Data..=) Prelude.<$> region,
             Prelude.Just ("warehouse" Data..= warehouse),
             Prelude.Just ("stage" Data..= stage),
             Prelude.Just ("bucketName" Data..= bucketName)

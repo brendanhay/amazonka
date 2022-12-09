@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSAPODataConnectorProfileProperties' smart constructor.
 data SAPODataConnectorProfileProperties = SAPODataConnectorProfileProperties'
-  { -- | The SAPOData OAuth properties required for OAuth type authentication.
-    oAuthProperties :: Prelude.Maybe OAuthProperties,
-    -- | The logon language of SAPOData instance.
+  { -- | The logon language of SAPOData instance.
     logonLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The SAPOData OAuth properties required for OAuth type authentication.
+    oAuthProperties :: Prelude.Maybe OAuthProperties,
     -- | The SAPOData Private Link service name to be used for private data
     -- transfers.
     privateLinkServiceName :: Prelude.Maybe Prelude.Text,
@@ -55,9 +55,9 @@ data SAPODataConnectorProfileProperties = SAPODataConnectorProfileProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'oAuthProperties', 'sAPODataConnectorProfileProperties_oAuthProperties' - The SAPOData OAuth properties required for OAuth type authentication.
---
 -- 'logonLanguage', 'sAPODataConnectorProfileProperties_logonLanguage' - The logon language of SAPOData instance.
+--
+-- 'oAuthProperties', 'sAPODataConnectorProfileProperties_oAuthProperties' - The SAPOData OAuth properties required for OAuth type authentication.
 --
 -- 'privateLinkServiceName', 'sAPODataConnectorProfileProperties_privateLinkServiceName' - The SAPOData Private Link service name to be used for private data
 -- transfers.
@@ -85,9 +85,9 @@ newSAPODataConnectorProfileProperties
   pPortNumber_
   pClientNumber_ =
     SAPODataConnectorProfileProperties'
-      { oAuthProperties =
+      { logonLanguage =
           Prelude.Nothing,
-        logonLanguage = Prelude.Nothing,
+        oAuthProperties = Prelude.Nothing,
         privateLinkServiceName =
           Prelude.Nothing,
         applicationHostUrl =
@@ -98,13 +98,13 @@ newSAPODataConnectorProfileProperties
         clientNumber = pClientNumber_
       }
 
--- | The SAPOData OAuth properties required for OAuth type authentication.
-sAPODataConnectorProfileProperties_oAuthProperties :: Lens.Lens' SAPODataConnectorProfileProperties (Prelude.Maybe OAuthProperties)
-sAPODataConnectorProfileProperties_oAuthProperties = Lens.lens (\SAPODataConnectorProfileProperties' {oAuthProperties} -> oAuthProperties) (\s@SAPODataConnectorProfileProperties' {} a -> s {oAuthProperties = a} :: SAPODataConnectorProfileProperties)
-
 -- | The logon language of SAPOData instance.
 sAPODataConnectorProfileProperties_logonLanguage :: Lens.Lens' SAPODataConnectorProfileProperties (Prelude.Maybe Prelude.Text)
 sAPODataConnectorProfileProperties_logonLanguage = Lens.lens (\SAPODataConnectorProfileProperties' {logonLanguage} -> logonLanguage) (\s@SAPODataConnectorProfileProperties' {} a -> s {logonLanguage = a} :: SAPODataConnectorProfileProperties)
+
+-- | The SAPOData OAuth properties required for OAuth type authentication.
+sAPODataConnectorProfileProperties_oAuthProperties :: Lens.Lens' SAPODataConnectorProfileProperties (Prelude.Maybe OAuthProperties)
+sAPODataConnectorProfileProperties_oAuthProperties = Lens.lens (\SAPODataConnectorProfileProperties' {oAuthProperties} -> oAuthProperties) (\s@SAPODataConnectorProfileProperties' {} a -> s {oAuthProperties = a} :: SAPODataConnectorProfileProperties)
 
 -- | The SAPOData Private Link service name to be used for private data
 -- transfers.
@@ -136,8 +136,8 @@ instance
       "SAPODataConnectorProfileProperties"
       ( \x ->
           SAPODataConnectorProfileProperties'
-            Prelude.<$> (x Data..:? "oAuthProperties")
-            Prelude.<*> (x Data..:? "logonLanguage")
+            Prelude.<$> (x Data..:? "logonLanguage")
+            Prelude.<*> (x Data..:? "oAuthProperties")
             Prelude.<*> (x Data..:? "privateLinkServiceName")
             Prelude.<*> (x Data..: "applicationHostUrl")
             Prelude.<*> (x Data..: "applicationServicePath")
@@ -152,8 +152,8 @@ instance
   hashWithSalt
     _salt
     SAPODataConnectorProfileProperties' {..} =
-      _salt `Prelude.hashWithSalt` oAuthProperties
-        `Prelude.hashWithSalt` logonLanguage
+      _salt `Prelude.hashWithSalt` logonLanguage
+        `Prelude.hashWithSalt` oAuthProperties
         `Prelude.hashWithSalt` privateLinkServiceName
         `Prelude.hashWithSalt` applicationHostUrl
         `Prelude.hashWithSalt` applicationServicePath
@@ -165,8 +165,8 @@ instance
     SAPODataConnectorProfileProperties
   where
   rnf SAPODataConnectorProfileProperties' {..} =
-    Prelude.rnf oAuthProperties
-      `Prelude.seq` Prelude.rnf logonLanguage
+    Prelude.rnf logonLanguage
+      `Prelude.seq` Prelude.rnf oAuthProperties
       `Prelude.seq` Prelude.rnf privateLinkServiceName
       `Prelude.seq` Prelude.rnf applicationHostUrl
       `Prelude.seq` Prelude.rnf applicationServicePath
@@ -180,9 +180,9 @@ instance
   toJSON SAPODataConnectorProfileProperties' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("oAuthProperties" Data..=)
+          [ ("logonLanguage" Data..=) Prelude.<$> logonLanguage,
+            ("oAuthProperties" Data..=)
               Prelude.<$> oAuthProperties,
-            ("logonLanguage" Data..=) Prelude.<$> logonLanguage,
             ("privateLinkServiceName" Data..=)
               Prelude.<$> privateLinkServiceName,
             Prelude.Just

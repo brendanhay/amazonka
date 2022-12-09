@@ -39,11 +39,11 @@ data RegistrationOutput = RegistrationOutput'
   { -- | Explains the status of the registration attempt from Amazon AppFlow. If
     -- the attempt fails, the message explains why.
     message :: Prelude.Maybe Prelude.Text,
-    -- | Indicates the status of the registration attempt from Amazon AppFlow.
-    status :: Prelude.Maybe ExecutionStatus,
     -- | Indicates the number of resources that Amazon AppFlow created or
     -- updated. Possible resources include metadata tables and data partitions.
-    result :: Prelude.Maybe Prelude.Text
+    result :: Prelude.Maybe Prelude.Text,
+    -- | Indicates the status of the registration attempt from Amazon AppFlow.
+    status :: Prelude.Maybe ExecutionStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,17 +58,17 @@ data RegistrationOutput = RegistrationOutput'
 -- 'message', 'registrationOutput_message' - Explains the status of the registration attempt from Amazon AppFlow. If
 -- the attempt fails, the message explains why.
 --
--- 'status', 'registrationOutput_status' - Indicates the status of the registration attempt from Amazon AppFlow.
---
 -- 'result', 'registrationOutput_result' - Indicates the number of resources that Amazon AppFlow created or
 -- updated. Possible resources include metadata tables and data partitions.
+--
+-- 'status', 'registrationOutput_status' - Indicates the status of the registration attempt from Amazon AppFlow.
 newRegistrationOutput ::
   RegistrationOutput
 newRegistrationOutput =
   RegistrationOutput'
     { message = Prelude.Nothing,
-      status = Prelude.Nothing,
-      result = Prelude.Nothing
+      result = Prelude.Nothing,
+      status = Prelude.Nothing
     }
 
 -- | Explains the status of the registration attempt from Amazon AppFlow. If
@@ -76,14 +76,14 @@ newRegistrationOutput =
 registrationOutput_message :: Lens.Lens' RegistrationOutput (Prelude.Maybe Prelude.Text)
 registrationOutput_message = Lens.lens (\RegistrationOutput' {message} -> message) (\s@RegistrationOutput' {} a -> s {message = a} :: RegistrationOutput)
 
--- | Indicates the status of the registration attempt from Amazon AppFlow.
-registrationOutput_status :: Lens.Lens' RegistrationOutput (Prelude.Maybe ExecutionStatus)
-registrationOutput_status = Lens.lens (\RegistrationOutput' {status} -> status) (\s@RegistrationOutput' {} a -> s {status = a} :: RegistrationOutput)
-
 -- | Indicates the number of resources that Amazon AppFlow created or
 -- updated. Possible resources include metadata tables and data partitions.
 registrationOutput_result :: Lens.Lens' RegistrationOutput (Prelude.Maybe Prelude.Text)
 registrationOutput_result = Lens.lens (\RegistrationOutput' {result} -> result) (\s@RegistrationOutput' {} a -> s {result = a} :: RegistrationOutput)
+
+-- | Indicates the status of the registration attempt from Amazon AppFlow.
+registrationOutput_status :: Lens.Lens' RegistrationOutput (Prelude.Maybe ExecutionStatus)
+registrationOutput_status = Lens.lens (\RegistrationOutput' {status} -> status) (\s@RegistrationOutput' {} a -> s {status = a} :: RegistrationOutput)
 
 instance Data.FromJSON RegistrationOutput where
   parseJSON =
@@ -92,18 +92,18 @@ instance Data.FromJSON RegistrationOutput where
       ( \x ->
           RegistrationOutput'
             Prelude.<$> (x Data..:? "message")
-            Prelude.<*> (x Data..:? "status")
             Prelude.<*> (x Data..:? "result")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable RegistrationOutput where
   hashWithSalt _salt RegistrationOutput' {..} =
     _salt `Prelude.hashWithSalt` message
-      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` result
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData RegistrationOutput where
   rnf RegistrationOutput' {..} =
     Prelude.rnf message
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf result
+      `Prelude.seq` Prelude.rnf status

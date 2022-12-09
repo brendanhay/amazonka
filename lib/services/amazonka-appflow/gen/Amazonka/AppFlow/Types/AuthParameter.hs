@@ -28,19 +28,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAuthParameter' smart constructor.
 data AuthParameter = AuthParameter'
-  { -- | The authentication key required to authenticate with the connector.
-    key :: Prelude.Maybe Prelude.Text,
-    -- | Contains default values for this authentication parameter that are
+  { -- | Contains default values for this authentication parameter that are
     -- supplied by the connector.
     connectorSuppliedValues :: Prelude.Maybe [Prelude.Text],
-    -- | Label used for authentication parameter.
-    label :: Prelude.Maybe Prelude.Text,
     -- | A description about the authentication parameter.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether this authentication parameter is required.
+    isRequired :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether this authentication parameter is a sensitive field.
     isSensitiveField :: Prelude.Maybe Prelude.Bool,
-    -- | Indicates whether this authentication parameter is required.
-    isRequired :: Prelude.Maybe Prelude.Bool
+    -- | The authentication key required to authenticate with the connector.
+    key :: Prelude.Maybe Prelude.Text,
+    -- | Label used for authentication parameter.
+    label :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,54 +52,55 @@ data AuthParameter = AuthParameter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'authParameter_key' - The authentication key required to authenticate with the connector.
---
 -- 'connectorSuppliedValues', 'authParameter_connectorSuppliedValues' - Contains default values for this authentication parameter that are
 -- supplied by the connector.
 --
--- 'label', 'authParameter_label' - Label used for authentication parameter.
---
 -- 'description', 'authParameter_description' - A description about the authentication parameter.
+--
+-- 'isRequired', 'authParameter_isRequired' - Indicates whether this authentication parameter is required.
 --
 -- 'isSensitiveField', 'authParameter_isSensitiveField' - Indicates whether this authentication parameter is a sensitive field.
 --
--- 'isRequired', 'authParameter_isRequired' - Indicates whether this authentication parameter is required.
+-- 'key', 'authParameter_key' - The authentication key required to authenticate with the connector.
+--
+-- 'label', 'authParameter_label' - Label used for authentication parameter.
 newAuthParameter ::
   AuthParameter
 newAuthParameter =
   AuthParameter'
-    { key = Prelude.Nothing,
-      connectorSuppliedValues = Prelude.Nothing,
-      label = Prelude.Nothing,
+    { connectorSuppliedValues =
+        Prelude.Nothing,
       description = Prelude.Nothing,
+      isRequired = Prelude.Nothing,
       isSensitiveField = Prelude.Nothing,
-      isRequired = Prelude.Nothing
+      key = Prelude.Nothing,
+      label = Prelude.Nothing
     }
-
--- | The authentication key required to authenticate with the connector.
-authParameter_key :: Lens.Lens' AuthParameter (Prelude.Maybe Prelude.Text)
-authParameter_key = Lens.lens (\AuthParameter' {key} -> key) (\s@AuthParameter' {} a -> s {key = a} :: AuthParameter)
 
 -- | Contains default values for this authentication parameter that are
 -- supplied by the connector.
 authParameter_connectorSuppliedValues :: Lens.Lens' AuthParameter (Prelude.Maybe [Prelude.Text])
 authParameter_connectorSuppliedValues = Lens.lens (\AuthParameter' {connectorSuppliedValues} -> connectorSuppliedValues) (\s@AuthParameter' {} a -> s {connectorSuppliedValues = a} :: AuthParameter) Prelude.. Lens.mapping Lens.coerced
 
--- | Label used for authentication parameter.
-authParameter_label :: Lens.Lens' AuthParameter (Prelude.Maybe Prelude.Text)
-authParameter_label = Lens.lens (\AuthParameter' {label} -> label) (\s@AuthParameter' {} a -> s {label = a} :: AuthParameter)
-
 -- | A description about the authentication parameter.
 authParameter_description :: Lens.Lens' AuthParameter (Prelude.Maybe Prelude.Text)
 authParameter_description = Lens.lens (\AuthParameter' {description} -> description) (\s@AuthParameter' {} a -> s {description = a} :: AuthParameter)
+
+-- | Indicates whether this authentication parameter is required.
+authParameter_isRequired :: Lens.Lens' AuthParameter (Prelude.Maybe Prelude.Bool)
+authParameter_isRequired = Lens.lens (\AuthParameter' {isRequired} -> isRequired) (\s@AuthParameter' {} a -> s {isRequired = a} :: AuthParameter)
 
 -- | Indicates whether this authentication parameter is a sensitive field.
 authParameter_isSensitiveField :: Lens.Lens' AuthParameter (Prelude.Maybe Prelude.Bool)
 authParameter_isSensitiveField = Lens.lens (\AuthParameter' {isSensitiveField} -> isSensitiveField) (\s@AuthParameter' {} a -> s {isSensitiveField = a} :: AuthParameter)
 
--- | Indicates whether this authentication parameter is required.
-authParameter_isRequired :: Lens.Lens' AuthParameter (Prelude.Maybe Prelude.Bool)
-authParameter_isRequired = Lens.lens (\AuthParameter' {isRequired} -> isRequired) (\s@AuthParameter' {} a -> s {isRequired = a} :: AuthParameter)
+-- | The authentication key required to authenticate with the connector.
+authParameter_key :: Lens.Lens' AuthParameter (Prelude.Maybe Prelude.Text)
+authParameter_key = Lens.lens (\AuthParameter' {key} -> key) (\s@AuthParameter' {} a -> s {key = a} :: AuthParameter)
+
+-- | Label used for authentication parameter.
+authParameter_label :: Lens.Lens' AuthParameter (Prelude.Maybe Prelude.Text)
+authParameter_label = Lens.lens (\AuthParameter' {label} -> label) (\s@AuthParameter' {} a -> s {label = a} :: AuthParameter)
 
 instance Data.FromJSON AuthParameter where
   parseJSON =
@@ -107,30 +108,31 @@ instance Data.FromJSON AuthParameter where
       "AuthParameter"
       ( \x ->
           AuthParameter'
-            Prelude.<$> (x Data..:? "key")
-            Prelude.<*> ( x Data..:? "connectorSuppliedValues"
+            Prelude.<$> ( x Data..:? "connectorSuppliedValues"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "label")
             Prelude.<*> (x Data..:? "description")
-            Prelude.<*> (x Data..:? "isSensitiveField")
             Prelude.<*> (x Data..:? "isRequired")
+            Prelude.<*> (x Data..:? "isSensitiveField")
+            Prelude.<*> (x Data..:? "key")
+            Prelude.<*> (x Data..:? "label")
       )
 
 instance Prelude.Hashable AuthParameter where
   hashWithSalt _salt AuthParameter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
       `Prelude.hashWithSalt` connectorSuppliedValues
-      `Prelude.hashWithSalt` label
       `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` isSensitiveField
       `Prelude.hashWithSalt` isRequired
+      `Prelude.hashWithSalt` isSensitiveField
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` label
 
 instance Prelude.NFData AuthParameter where
   rnf AuthParameter' {..} =
-    Prelude.rnf key
-      `Prelude.seq` Prelude.rnf connectorSuppliedValues
-      `Prelude.seq` Prelude.rnf label
+    Prelude.rnf connectorSuppliedValues
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf isSensitiveField
       `Prelude.seq` Prelude.rnf isRequired
+      `Prelude.seq` Prelude.rnf isSensitiveField
+      `Prelude.seq` Prelude.rnf key
+      `Prelude.seq` Prelude.rnf label

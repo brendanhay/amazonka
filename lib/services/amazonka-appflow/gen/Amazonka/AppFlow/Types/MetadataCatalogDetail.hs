@@ -31,27 +31,27 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMetadataCatalogDetail' smart constructor.
 data MetadataCatalogDetail = MetadataCatalogDetail'
-  { -- | The name of the table that stores the metadata for the associated flow
-    -- run. The table stores metadata that represents the data that the flow
-    -- transferred. Amazon AppFlow stores the table in the metadata catalog.
-    tableName :: Prelude.Maybe Prelude.Text,
-    -- | Describes the status of the attempt from Amazon AppFlow to register the
-    -- metadata table with the metadata catalog. Amazon AppFlow creates or
-    -- updates this table for the associated flow run.
-    tableRegistrationOutput :: Prelude.Maybe RegistrationOutput,
+  { -- | The type of metadata catalog that Amazon AppFlow used for the associated
+    -- flow run. This parameter returns the following value:
+    --
+    -- [GLUE]
+    --     The metadata catalog is provided by the Glue Data Catalog. Glue
+    --     includes the Glue Data Catalog as a component.
+    catalogType :: Prelude.Maybe CatalogType,
     -- | Describes the status of the attempt from Amazon AppFlow to register the
     -- data partitions with the metadata catalog. The data partitions organize
     -- the flow output into a hierarchical path, such as a folder path in an S3
     -- bucket. Amazon AppFlow creates the partitions (if they don\'t already
     -- exist) based on your flow configuration.
     partitionRegistrationOutput :: Prelude.Maybe RegistrationOutput,
-    -- | The type of metadata catalog that Amazon AppFlow used for the associated
-    -- flow run. This parameter returns the following value:
-    --
-    -- [GLUE]
-    --     The metadata catalog is provided by the Glue Data Catalog. Glue
-    --     includes the Glue Data Catalog as a component.
-    catalogType :: Prelude.Maybe CatalogType
+    -- | The name of the table that stores the metadata for the associated flow
+    -- run. The table stores metadata that represents the data that the flow
+    -- transferred. Amazon AppFlow stores the table in the metadata catalog.
+    tableName :: Prelude.Maybe Prelude.Text,
+    -- | Describes the status of the attempt from Amazon AppFlow to register the
+    -- metadata table with the metadata catalog. Amazon AppFlow creates or
+    -- updates this table for the associated flow run.
+    tableRegistrationOutput :: Prelude.Maybe RegistrationOutput
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,13 +63,12 @@ data MetadataCatalogDetail = MetadataCatalogDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tableName', 'metadataCatalogDetail_tableName' - The name of the table that stores the metadata for the associated flow
--- run. The table stores metadata that represents the data that the flow
--- transferred. Amazon AppFlow stores the table in the metadata catalog.
+-- 'catalogType', 'metadataCatalogDetail_catalogType' - The type of metadata catalog that Amazon AppFlow used for the associated
+-- flow run. This parameter returns the following value:
 --
--- 'tableRegistrationOutput', 'metadataCatalogDetail_tableRegistrationOutput' - Describes the status of the attempt from Amazon AppFlow to register the
--- metadata table with the metadata catalog. Amazon AppFlow creates or
--- updates this table for the associated flow run.
+-- [GLUE]
+--     The metadata catalog is provided by the Glue Data Catalog. Glue
+--     includes the Glue Data Catalog as a component.
 --
 -- 'partitionRegistrationOutput', 'metadataCatalogDetail_partitionRegistrationOutput' - Describes the status of the attempt from Amazon AppFlow to register the
 -- data partitions with the metadata catalog. The data partitions organize
@@ -77,21 +76,40 @@ data MetadataCatalogDetail = MetadataCatalogDetail'
 -- bucket. Amazon AppFlow creates the partitions (if they don\'t already
 -- exist) based on your flow configuration.
 --
--- 'catalogType', 'metadataCatalogDetail_catalogType' - The type of metadata catalog that Amazon AppFlow used for the associated
+-- 'tableName', 'metadataCatalogDetail_tableName' - The name of the table that stores the metadata for the associated flow
+-- run. The table stores metadata that represents the data that the flow
+-- transferred. Amazon AppFlow stores the table in the metadata catalog.
+--
+-- 'tableRegistrationOutput', 'metadataCatalogDetail_tableRegistrationOutput' - Describes the status of the attempt from Amazon AppFlow to register the
+-- metadata table with the metadata catalog. Amazon AppFlow creates or
+-- updates this table for the associated flow run.
+newMetadataCatalogDetail ::
+  MetadataCatalogDetail
+newMetadataCatalogDetail =
+  MetadataCatalogDetail'
+    { catalogType =
+        Prelude.Nothing,
+      partitionRegistrationOutput = Prelude.Nothing,
+      tableName = Prelude.Nothing,
+      tableRegistrationOutput = Prelude.Nothing
+    }
+
+-- | The type of metadata catalog that Amazon AppFlow used for the associated
 -- flow run. This parameter returns the following value:
 --
 -- [GLUE]
 --     The metadata catalog is provided by the Glue Data Catalog. Glue
 --     includes the Glue Data Catalog as a component.
-newMetadataCatalogDetail ::
-  MetadataCatalogDetail
-newMetadataCatalogDetail =
-  MetadataCatalogDetail'
-    { tableName = Prelude.Nothing,
-      tableRegistrationOutput = Prelude.Nothing,
-      partitionRegistrationOutput = Prelude.Nothing,
-      catalogType = Prelude.Nothing
-    }
+metadataCatalogDetail_catalogType :: Lens.Lens' MetadataCatalogDetail (Prelude.Maybe CatalogType)
+metadataCatalogDetail_catalogType = Lens.lens (\MetadataCatalogDetail' {catalogType} -> catalogType) (\s@MetadataCatalogDetail' {} a -> s {catalogType = a} :: MetadataCatalogDetail)
+
+-- | Describes the status of the attempt from Amazon AppFlow to register the
+-- data partitions with the metadata catalog. The data partitions organize
+-- the flow output into a hierarchical path, such as a folder path in an S3
+-- bucket. Amazon AppFlow creates the partitions (if they don\'t already
+-- exist) based on your flow configuration.
+metadataCatalogDetail_partitionRegistrationOutput :: Lens.Lens' MetadataCatalogDetail (Prelude.Maybe RegistrationOutput)
+metadataCatalogDetail_partitionRegistrationOutput = Lens.lens (\MetadataCatalogDetail' {partitionRegistrationOutput} -> partitionRegistrationOutput) (\s@MetadataCatalogDetail' {} a -> s {partitionRegistrationOutput = a} :: MetadataCatalogDetail)
 
 -- | The name of the table that stores the metadata for the associated flow
 -- run. The table stores metadata that represents the data that the flow
@@ -105,45 +123,28 @@ metadataCatalogDetail_tableName = Lens.lens (\MetadataCatalogDetail' {tableName}
 metadataCatalogDetail_tableRegistrationOutput :: Lens.Lens' MetadataCatalogDetail (Prelude.Maybe RegistrationOutput)
 metadataCatalogDetail_tableRegistrationOutput = Lens.lens (\MetadataCatalogDetail' {tableRegistrationOutput} -> tableRegistrationOutput) (\s@MetadataCatalogDetail' {} a -> s {tableRegistrationOutput = a} :: MetadataCatalogDetail)
 
--- | Describes the status of the attempt from Amazon AppFlow to register the
--- data partitions with the metadata catalog. The data partitions organize
--- the flow output into a hierarchical path, such as a folder path in an S3
--- bucket. Amazon AppFlow creates the partitions (if they don\'t already
--- exist) based on your flow configuration.
-metadataCatalogDetail_partitionRegistrationOutput :: Lens.Lens' MetadataCatalogDetail (Prelude.Maybe RegistrationOutput)
-metadataCatalogDetail_partitionRegistrationOutput = Lens.lens (\MetadataCatalogDetail' {partitionRegistrationOutput} -> partitionRegistrationOutput) (\s@MetadataCatalogDetail' {} a -> s {partitionRegistrationOutput = a} :: MetadataCatalogDetail)
-
--- | The type of metadata catalog that Amazon AppFlow used for the associated
--- flow run. This parameter returns the following value:
---
--- [GLUE]
---     The metadata catalog is provided by the Glue Data Catalog. Glue
---     includes the Glue Data Catalog as a component.
-metadataCatalogDetail_catalogType :: Lens.Lens' MetadataCatalogDetail (Prelude.Maybe CatalogType)
-metadataCatalogDetail_catalogType = Lens.lens (\MetadataCatalogDetail' {catalogType} -> catalogType) (\s@MetadataCatalogDetail' {} a -> s {catalogType = a} :: MetadataCatalogDetail)
-
 instance Data.FromJSON MetadataCatalogDetail where
   parseJSON =
     Data.withObject
       "MetadataCatalogDetail"
       ( \x ->
           MetadataCatalogDetail'
-            Prelude.<$> (x Data..:? "tableName")
-            Prelude.<*> (x Data..:? "tableRegistrationOutput")
+            Prelude.<$> (x Data..:? "catalogType")
             Prelude.<*> (x Data..:? "partitionRegistrationOutput")
-            Prelude.<*> (x Data..:? "catalogType")
+            Prelude.<*> (x Data..:? "tableName")
+            Prelude.<*> (x Data..:? "tableRegistrationOutput")
       )
 
 instance Prelude.Hashable MetadataCatalogDetail where
   hashWithSalt _salt MetadataCatalogDetail' {..} =
-    _salt `Prelude.hashWithSalt` tableName
-      `Prelude.hashWithSalt` tableRegistrationOutput
+    _salt `Prelude.hashWithSalt` catalogType
       `Prelude.hashWithSalt` partitionRegistrationOutput
-      `Prelude.hashWithSalt` catalogType
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` tableRegistrationOutput
 
 instance Prelude.NFData MetadataCatalogDetail where
   rnf MetadataCatalogDetail' {..} =
-    Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf tableRegistrationOutput
+    Prelude.rnf catalogType
       `Prelude.seq` Prelude.rnf partitionRegistrationOutput
-      `Prelude.seq` Prelude.rnf catalogType
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf tableRegistrationOutput

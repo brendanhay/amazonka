@@ -32,10 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSuccessResponseHandlingConfig' smart constructor.
 data SuccessResponseHandlingConfig = SuccessResponseHandlingConfig'
-  { -- | The Amazon S3 bucket prefix.
-    bucketPrefix :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Amazon S3 bucket.
-    bucketName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the Amazon S3 bucket.
+    bucketName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon S3 bucket prefix.
+    bucketPrefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,25 +47,25 @@ data SuccessResponseHandlingConfig = SuccessResponseHandlingConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bucketPrefix', 'successResponseHandlingConfig_bucketPrefix' - The Amazon S3 bucket prefix.
---
 -- 'bucketName', 'successResponseHandlingConfig_bucketName' - The name of the Amazon S3 bucket.
+--
+-- 'bucketPrefix', 'successResponseHandlingConfig_bucketPrefix' - The Amazon S3 bucket prefix.
 newSuccessResponseHandlingConfig ::
   SuccessResponseHandlingConfig
 newSuccessResponseHandlingConfig =
   SuccessResponseHandlingConfig'
-    { bucketPrefix =
+    { bucketName =
         Prelude.Nothing,
-      bucketName = Prelude.Nothing
+      bucketPrefix = Prelude.Nothing
     }
-
--- | The Amazon S3 bucket prefix.
-successResponseHandlingConfig_bucketPrefix :: Lens.Lens' SuccessResponseHandlingConfig (Prelude.Maybe Prelude.Text)
-successResponseHandlingConfig_bucketPrefix = Lens.lens (\SuccessResponseHandlingConfig' {bucketPrefix} -> bucketPrefix) (\s@SuccessResponseHandlingConfig' {} a -> s {bucketPrefix = a} :: SuccessResponseHandlingConfig)
 
 -- | The name of the Amazon S3 bucket.
 successResponseHandlingConfig_bucketName :: Lens.Lens' SuccessResponseHandlingConfig (Prelude.Maybe Prelude.Text)
 successResponseHandlingConfig_bucketName = Lens.lens (\SuccessResponseHandlingConfig' {bucketName} -> bucketName) (\s@SuccessResponseHandlingConfig' {} a -> s {bucketName = a} :: SuccessResponseHandlingConfig)
+
+-- | The Amazon S3 bucket prefix.
+successResponseHandlingConfig_bucketPrefix :: Lens.Lens' SuccessResponseHandlingConfig (Prelude.Maybe Prelude.Text)
+successResponseHandlingConfig_bucketPrefix = Lens.lens (\SuccessResponseHandlingConfig' {bucketPrefix} -> bucketPrefix) (\s@SuccessResponseHandlingConfig' {} a -> s {bucketPrefix = a} :: SuccessResponseHandlingConfig)
 
 instance Data.FromJSON SuccessResponseHandlingConfig where
   parseJSON =
@@ -73,8 +73,8 @@ instance Data.FromJSON SuccessResponseHandlingConfig where
       "SuccessResponseHandlingConfig"
       ( \x ->
           SuccessResponseHandlingConfig'
-            Prelude.<$> (x Data..:? "bucketPrefix")
-            Prelude.<*> (x Data..:? "bucketName")
+            Prelude.<$> (x Data..:? "bucketName")
+            Prelude.<*> (x Data..:? "bucketPrefix")
       )
 
 instance
@@ -82,19 +82,19 @@ instance
     SuccessResponseHandlingConfig
   where
   hashWithSalt _salt SuccessResponseHandlingConfig' {..} =
-    _salt `Prelude.hashWithSalt` bucketPrefix
-      `Prelude.hashWithSalt` bucketName
+    _salt `Prelude.hashWithSalt` bucketName
+      `Prelude.hashWithSalt` bucketPrefix
 
 instance Prelude.NFData SuccessResponseHandlingConfig where
   rnf SuccessResponseHandlingConfig' {..} =
-    Prelude.rnf bucketPrefix
-      `Prelude.seq` Prelude.rnf bucketName
+    Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf bucketPrefix
 
 instance Data.ToJSON SuccessResponseHandlingConfig where
   toJSON SuccessResponseHandlingConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("bucketPrefix" Data..=) Prelude.<$> bucketPrefix,
-            ("bucketName" Data..=) Prelude.<$> bucketName
+          [ ("bucketName" Data..=) Prelude.<$> bucketName,
+            ("bucketPrefix" Data..=) Prelude.<$> bucketPrefix
           ]
       )

@@ -30,16 +30,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOAuth2Defaults' smart constructor.
 data OAuth2Defaults = OAuth2Defaults'
-  { -- | Token URLs that can be used for OAuth 2.0 authentication.
-    tokenUrls :: Prelude.Maybe [Prelude.Text],
-    -- | Auth code URLs that can be used for OAuth 2.0 authentication.
+  { -- | Auth code URLs that can be used for OAuth 2.0 authentication.
     authCodeUrls :: Prelude.Maybe [Prelude.Text],
     -- | List of custom parameters required for OAuth 2.0 authentication.
     oauth2CustomProperties :: Prelude.Maybe [OAuth2CustomParameter],
     -- | OAuth 2.0 grant types supported by the connector.
     oauth2GrantTypesSupported :: Prelude.Maybe [OAuth2GrantType],
     -- | OAuth 2.0 scopes that the connector supports.
-    oauthScopes :: Prelude.Maybe [Prelude.Text]
+    oauthScopes :: Prelude.Maybe [Prelude.Text],
+    -- | Token URLs that can be used for OAuth 2.0 authentication.
+    tokenUrls :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,8 +51,6 @@ data OAuth2Defaults = OAuth2Defaults'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tokenUrls', 'oAuth2Defaults_tokenUrls' - Token URLs that can be used for OAuth 2.0 authentication.
---
 -- 'authCodeUrls', 'oAuth2Defaults_authCodeUrls' - Auth code URLs that can be used for OAuth 2.0 authentication.
 --
 -- 'oauth2CustomProperties', 'oAuth2Defaults_oauth2CustomProperties' - List of custom parameters required for OAuth 2.0 authentication.
@@ -60,20 +58,18 @@ data OAuth2Defaults = OAuth2Defaults'
 -- 'oauth2GrantTypesSupported', 'oAuth2Defaults_oauth2GrantTypesSupported' - OAuth 2.0 grant types supported by the connector.
 --
 -- 'oauthScopes', 'oAuth2Defaults_oauthScopes' - OAuth 2.0 scopes that the connector supports.
+--
+-- 'tokenUrls', 'oAuth2Defaults_tokenUrls' - Token URLs that can be used for OAuth 2.0 authentication.
 newOAuth2Defaults ::
   OAuth2Defaults
 newOAuth2Defaults =
   OAuth2Defaults'
-    { tokenUrls = Prelude.Nothing,
-      authCodeUrls = Prelude.Nothing,
+    { authCodeUrls = Prelude.Nothing,
       oauth2CustomProperties = Prelude.Nothing,
       oauth2GrantTypesSupported = Prelude.Nothing,
-      oauthScopes = Prelude.Nothing
+      oauthScopes = Prelude.Nothing,
+      tokenUrls = Prelude.Nothing
     }
-
--- | Token URLs that can be used for OAuth 2.0 authentication.
-oAuth2Defaults_tokenUrls :: Lens.Lens' OAuth2Defaults (Prelude.Maybe [Prelude.Text])
-oAuth2Defaults_tokenUrls = Lens.lens (\OAuth2Defaults' {tokenUrls} -> tokenUrls) (\s@OAuth2Defaults' {} a -> s {tokenUrls = a} :: OAuth2Defaults) Prelude.. Lens.mapping Lens.coerced
 
 -- | Auth code URLs that can be used for OAuth 2.0 authentication.
 oAuth2Defaults_authCodeUrls :: Lens.Lens' OAuth2Defaults (Prelude.Maybe [Prelude.Text])
@@ -91,14 +87,17 @@ oAuth2Defaults_oauth2GrantTypesSupported = Lens.lens (\OAuth2Defaults' {oauth2Gr
 oAuth2Defaults_oauthScopes :: Lens.Lens' OAuth2Defaults (Prelude.Maybe [Prelude.Text])
 oAuth2Defaults_oauthScopes = Lens.lens (\OAuth2Defaults' {oauthScopes} -> oauthScopes) (\s@OAuth2Defaults' {} a -> s {oauthScopes = a} :: OAuth2Defaults) Prelude.. Lens.mapping Lens.coerced
 
+-- | Token URLs that can be used for OAuth 2.0 authentication.
+oAuth2Defaults_tokenUrls :: Lens.Lens' OAuth2Defaults (Prelude.Maybe [Prelude.Text])
+oAuth2Defaults_tokenUrls = Lens.lens (\OAuth2Defaults' {tokenUrls} -> tokenUrls) (\s@OAuth2Defaults' {} a -> s {tokenUrls = a} :: OAuth2Defaults) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON OAuth2Defaults where
   parseJSON =
     Data.withObject
       "OAuth2Defaults"
       ( \x ->
           OAuth2Defaults'
-            Prelude.<$> (x Data..:? "tokenUrls" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "authCodeUrls" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "authCodeUrls" Data..!= Prelude.mempty)
             Prelude.<*> ( x Data..:? "oauth2CustomProperties"
                             Data..!= Prelude.mempty
                         )
@@ -106,20 +105,21 @@ instance Data.FromJSON OAuth2Defaults where
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "oauthScopes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "tokenUrls" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable OAuth2Defaults where
   hashWithSalt _salt OAuth2Defaults' {..} =
-    _salt `Prelude.hashWithSalt` tokenUrls
-      `Prelude.hashWithSalt` authCodeUrls
+    _salt `Prelude.hashWithSalt` authCodeUrls
       `Prelude.hashWithSalt` oauth2CustomProperties
       `Prelude.hashWithSalt` oauth2GrantTypesSupported
       `Prelude.hashWithSalt` oauthScopes
+      `Prelude.hashWithSalt` tokenUrls
 
 instance Prelude.NFData OAuth2Defaults where
   rnf OAuth2Defaults' {..} =
-    Prelude.rnf tokenUrls
-      `Prelude.seq` Prelude.rnf authCodeUrls
+    Prelude.rnf authCodeUrls
       `Prelude.seq` Prelude.rnf oauth2CustomProperties
       `Prelude.seq` Prelude.rnf oauth2GrantTypesSupported
       `Prelude.seq` Prelude.rnf oauthScopes
+      `Prelude.seq` Prelude.rnf tokenUrls

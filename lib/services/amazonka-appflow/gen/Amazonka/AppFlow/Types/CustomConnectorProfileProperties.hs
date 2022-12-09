@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCustomConnectorProfileProperties' smart constructor.
 data CustomConnectorProfileProperties = CustomConnectorProfileProperties'
-  { -- | A map of properties that are required to create a profile for the custom
+  { oAuth2Properties :: Prelude.Maybe OAuth2Properties,
+    -- | A map of properties that are required to create a profile for the custom
     -- connector.
-    profileProperties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    oAuth2Properties :: Prelude.Maybe OAuth2Properties
+    profileProperties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,27 +44,27 @@ data CustomConnectorProfileProperties = CustomConnectorProfileProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'oAuth2Properties', 'customConnectorProfileProperties_oAuth2Properties' - Undocumented member.
+--
 -- 'profileProperties', 'customConnectorProfileProperties_profileProperties' - A map of properties that are required to create a profile for the custom
 -- connector.
---
--- 'oAuth2Properties', 'customConnectorProfileProperties_oAuth2Properties' - Undocumented member.
 newCustomConnectorProfileProperties ::
   CustomConnectorProfileProperties
 newCustomConnectorProfileProperties =
   CustomConnectorProfileProperties'
-    { profileProperties =
+    { oAuth2Properties =
         Prelude.Nothing,
-      oAuth2Properties = Prelude.Nothing
+      profileProperties = Prelude.Nothing
     }
+
+-- | Undocumented member.
+customConnectorProfileProperties_oAuth2Properties :: Lens.Lens' CustomConnectorProfileProperties (Prelude.Maybe OAuth2Properties)
+customConnectorProfileProperties_oAuth2Properties = Lens.lens (\CustomConnectorProfileProperties' {oAuth2Properties} -> oAuth2Properties) (\s@CustomConnectorProfileProperties' {} a -> s {oAuth2Properties = a} :: CustomConnectorProfileProperties)
 
 -- | A map of properties that are required to create a profile for the custom
 -- connector.
 customConnectorProfileProperties_profileProperties :: Lens.Lens' CustomConnectorProfileProperties (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 customConnectorProfileProperties_profileProperties = Lens.lens (\CustomConnectorProfileProperties' {profileProperties} -> profileProperties) (\s@CustomConnectorProfileProperties' {} a -> s {profileProperties = a} :: CustomConnectorProfileProperties) Prelude.. Lens.mapping Lens.coerced
-
--- | Undocumented member.
-customConnectorProfileProperties_oAuth2Properties :: Lens.Lens' CustomConnectorProfileProperties (Prelude.Maybe OAuth2Properties)
-customConnectorProfileProperties_oAuth2Properties = Lens.lens (\CustomConnectorProfileProperties' {oAuth2Properties} -> oAuth2Properties) (\s@CustomConnectorProfileProperties' {} a -> s {oAuth2Properties = a} :: CustomConnectorProfileProperties)
 
 instance
   Data.FromJSON
@@ -75,10 +75,10 @@ instance
       "CustomConnectorProfileProperties"
       ( \x ->
           CustomConnectorProfileProperties'
-            Prelude.<$> ( x Data..:? "profileProperties"
+            Prelude.<$> (x Data..:? "oAuth2Properties")
+            Prelude.<*> ( x Data..:? "profileProperties"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "oAuth2Properties")
       )
 
 instance
@@ -88,24 +88,24 @@ instance
   hashWithSalt
     _salt
     CustomConnectorProfileProperties' {..} =
-      _salt `Prelude.hashWithSalt` profileProperties
-        `Prelude.hashWithSalt` oAuth2Properties
+      _salt `Prelude.hashWithSalt` oAuth2Properties
+        `Prelude.hashWithSalt` profileProperties
 
 instance
   Prelude.NFData
     CustomConnectorProfileProperties
   where
   rnf CustomConnectorProfileProperties' {..} =
-    Prelude.rnf profileProperties
-      `Prelude.seq` Prelude.rnf oAuth2Properties
+    Prelude.rnf oAuth2Properties
+      `Prelude.seq` Prelude.rnf profileProperties
 
 instance Data.ToJSON CustomConnectorProfileProperties where
   toJSON CustomConnectorProfileProperties' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("profileProperties" Data..=)
-              Prelude.<$> profileProperties,
-            ("oAuth2Properties" Data..=)
-              Prelude.<$> oAuth2Properties
+          [ ("oAuth2Properties" Data..=)
+              Prelude.<$> oAuth2Properties,
+            ("profileProperties" Data..=)
+              Prelude.<$> profileProperties
           ]
       )

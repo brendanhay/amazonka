@@ -27,8 +27,8 @@ module Amazonka.AppFlow.UpdateFlow
     newUpdateFlow,
 
     -- * Request Lenses
-    updateFlow_metadataCatalogConfig,
     updateFlow_description,
+    updateFlow_metadataCatalogConfig,
     updateFlow_flowName,
     updateFlow_triggerConfig,
     updateFlow_sourceFlowConfig,
@@ -55,12 +55,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateFlow' smart constructor.
 data UpdateFlow = UpdateFlow'
-  { -- | Specifies the configuration that Amazon AppFlow uses when it catalogs
+  { -- | A description of the flow.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the configuration that Amazon AppFlow uses when it catalogs
     -- the data that\'s transferred by the associated flow. When Amazon AppFlow
     -- catalogs the data from a flow, it stores metadata in a data catalog.
     metadataCatalogConfig :: Prelude.Maybe MetadataCatalogConfig,
-    -- | A description of the flow.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The specified name of the flow. Spaces are not allowed. Use underscores
     -- (_) or hyphens (-) only.
     flowName :: Prelude.Text,
@@ -84,11 +84,11 @@ data UpdateFlow = UpdateFlow'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'updateFlow_description' - A description of the flow.
+--
 -- 'metadataCatalogConfig', 'updateFlow_metadataCatalogConfig' - Specifies the configuration that Amazon AppFlow uses when it catalogs
 -- the data that\'s transferred by the associated flow. When Amazon AppFlow
 -- catalogs the data from a flow, it stores metadata in a data catalog.
---
--- 'description', 'updateFlow_description' - A description of the flow.
 --
 -- 'flowName', 'updateFlow_flowName' - The specified name of the flow. Spaces are not allowed. Use underscores
 -- (_) or hyphens (-) only.
@@ -115,9 +115,8 @@ newUpdateFlow
   pTriggerConfig_
   pSourceFlowConfig_ =
     UpdateFlow'
-      { metadataCatalogConfig =
-          Prelude.Nothing,
-        description = Prelude.Nothing,
+      { description = Prelude.Nothing,
+        metadataCatalogConfig = Prelude.Nothing,
         flowName = pFlowName_,
         triggerConfig = pTriggerConfig_,
         sourceFlowConfig = pSourceFlowConfig_,
@@ -125,15 +124,15 @@ newUpdateFlow
         tasks = Prelude.mempty
       }
 
+-- | A description of the flow.
+updateFlow_description :: Lens.Lens' UpdateFlow (Prelude.Maybe Prelude.Text)
+updateFlow_description = Lens.lens (\UpdateFlow' {description} -> description) (\s@UpdateFlow' {} a -> s {description = a} :: UpdateFlow)
+
 -- | Specifies the configuration that Amazon AppFlow uses when it catalogs
 -- the data that\'s transferred by the associated flow. When Amazon AppFlow
 -- catalogs the data from a flow, it stores metadata in a data catalog.
 updateFlow_metadataCatalogConfig :: Lens.Lens' UpdateFlow (Prelude.Maybe MetadataCatalogConfig)
 updateFlow_metadataCatalogConfig = Lens.lens (\UpdateFlow' {metadataCatalogConfig} -> metadataCatalogConfig) (\s@UpdateFlow' {} a -> s {metadataCatalogConfig = a} :: UpdateFlow)
-
--- | A description of the flow.
-updateFlow_description :: Lens.Lens' UpdateFlow (Prelude.Maybe Prelude.Text)
-updateFlow_description = Lens.lens (\UpdateFlow' {description} -> description) (\s@UpdateFlow' {} a -> s {description = a} :: UpdateFlow)
 
 -- | The specified name of the flow. Spaces are not allowed. Use underscores
 -- (_) or hyphens (-) only.
@@ -172,8 +171,8 @@ instance Core.AWSRequest UpdateFlow where
 
 instance Prelude.Hashable UpdateFlow where
   hashWithSalt _salt UpdateFlow' {..} =
-    _salt `Prelude.hashWithSalt` metadataCatalogConfig
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` metadataCatalogConfig
       `Prelude.hashWithSalt` flowName
       `Prelude.hashWithSalt` triggerConfig
       `Prelude.hashWithSalt` sourceFlowConfig
@@ -182,8 +181,8 @@ instance Prelude.Hashable UpdateFlow where
 
 instance Prelude.NFData UpdateFlow where
   rnf UpdateFlow' {..} =
-    Prelude.rnf metadataCatalogConfig
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf metadataCatalogConfig
       `Prelude.seq` Prelude.rnf flowName
       `Prelude.seq` Prelude.rnf triggerConfig
       `Prelude.seq` Prelude.rnf sourceFlowConfig
@@ -205,9 +204,9 @@ instance Data.ToJSON UpdateFlow where
   toJSON UpdateFlow' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("metadataCatalogConfig" Data..=)
+          [ ("description" Data..=) Prelude.<$> description,
+            ("metadataCatalogConfig" Data..=)
               Prelude.<$> metadataCatalogConfig,
-            ("description" Data..=) Prelude.<$> description,
             Prelude.Just ("flowName" Data..= flowName),
             Prelude.Just ("triggerConfig" Data..= triggerConfig),
             Prelude.Just

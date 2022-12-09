@@ -27,8 +27,8 @@ module Amazonka.AppFlow.DescribeFlowExecutionRecords
     newDescribeFlowExecutionRecords,
 
     -- * Request Lenses
-    describeFlowExecutionRecords_nextToken,
     describeFlowExecutionRecords_maxResults,
+    describeFlowExecutionRecords_nextToken,
     describeFlowExecutionRecords_flowName,
 
     -- * Destructuring the Response
@@ -52,12 +52,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeFlowExecutionRecords' smart constructor.
 data DescribeFlowExecutionRecords = DescribeFlowExecutionRecords'
-  { -- | The pagination token for the next page of data.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the maximum number of items that should be returned in the
+  { -- | Specifies the maximum number of items that should be returned in the
     -- result set. The default for @maxResults@ is 20 (for all paginated API
     -- operations).
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The pagination token for the next page of data.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The specified name of the flow. Spaces are not allowed. Use underscores
     -- (_) or hyphens (-) only.
     flowName :: Prelude.Text
@@ -72,11 +72,11 @@ data DescribeFlowExecutionRecords = DescribeFlowExecutionRecords'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeFlowExecutionRecords_nextToken' - The pagination token for the next page of data.
---
 -- 'maxResults', 'describeFlowExecutionRecords_maxResults' - Specifies the maximum number of items that should be returned in the
 -- result set. The default for @maxResults@ is 20 (for all paginated API
 -- operations).
+--
+-- 'nextToken', 'describeFlowExecutionRecords_nextToken' - The pagination token for the next page of data.
 --
 -- 'flowName', 'describeFlowExecutionRecords_flowName' - The specified name of the flow. Spaces are not allowed. Use underscores
 -- (_) or hyphens (-) only.
@@ -86,21 +86,21 @@ newDescribeFlowExecutionRecords ::
   DescribeFlowExecutionRecords
 newDescribeFlowExecutionRecords pFlowName_ =
   DescribeFlowExecutionRecords'
-    { nextToken =
+    { maxResults =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       flowName = pFlowName_
     }
-
--- | The pagination token for the next page of data.
-describeFlowExecutionRecords_nextToken :: Lens.Lens' DescribeFlowExecutionRecords (Prelude.Maybe Prelude.Text)
-describeFlowExecutionRecords_nextToken = Lens.lens (\DescribeFlowExecutionRecords' {nextToken} -> nextToken) (\s@DescribeFlowExecutionRecords' {} a -> s {nextToken = a} :: DescribeFlowExecutionRecords)
 
 -- | Specifies the maximum number of items that should be returned in the
 -- result set. The default for @maxResults@ is 20 (for all paginated API
 -- operations).
 describeFlowExecutionRecords_maxResults :: Lens.Lens' DescribeFlowExecutionRecords (Prelude.Maybe Prelude.Natural)
 describeFlowExecutionRecords_maxResults = Lens.lens (\DescribeFlowExecutionRecords' {maxResults} -> maxResults) (\s@DescribeFlowExecutionRecords' {} a -> s {maxResults = a} :: DescribeFlowExecutionRecords)
+
+-- | The pagination token for the next page of data.
+describeFlowExecutionRecords_nextToken :: Lens.Lens' DescribeFlowExecutionRecords (Prelude.Maybe Prelude.Text)
+describeFlowExecutionRecords_nextToken = Lens.lens (\DescribeFlowExecutionRecords' {nextToken} -> nextToken) (\s@DescribeFlowExecutionRecords' {} a -> s {nextToken = a} :: DescribeFlowExecutionRecords)
 
 -- | The specified name of the flow. Spaces are not allowed. Use underscores
 -- (_) or hyphens (-) only.
@@ -127,14 +127,14 @@ instance
     DescribeFlowExecutionRecords
   where
   hashWithSalt _salt DescribeFlowExecutionRecords' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` flowName
 
 instance Prelude.NFData DescribeFlowExecutionRecords where
   rnf DescribeFlowExecutionRecords' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf flowName
 
 instance Data.ToHeaders DescribeFlowExecutionRecords where
@@ -152,8 +152,8 @@ instance Data.ToJSON DescribeFlowExecutionRecords where
   toJSON DescribeFlowExecutionRecords' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("flowName" Data..= flowName)
           ]
       )

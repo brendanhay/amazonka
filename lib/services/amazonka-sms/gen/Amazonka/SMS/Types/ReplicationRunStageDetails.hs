@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReplicationRunStageDetails' smart constructor.
 data ReplicationRunStageDetails = ReplicationRunStageDetails'
-  { -- | The progress of the current stage of a replication run.
-    stageProgress :: Prelude.Maybe Prelude.Text,
-    -- | The current stage of a replication run.
-    stage :: Prelude.Maybe Prelude.Text
+  { -- | The current stage of a replication run.
+    stage :: Prelude.Maybe Prelude.Text,
+    -- | The progress of the current stage of a replication run.
+    stageProgress :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data ReplicationRunStageDetails = ReplicationRunStageDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stageProgress', 'replicationRunStageDetails_stageProgress' - The progress of the current stage of a replication run.
---
 -- 'stage', 'replicationRunStageDetails_stage' - The current stage of a replication run.
+--
+-- 'stageProgress', 'replicationRunStageDetails_stageProgress' - The progress of the current stage of a replication run.
 newReplicationRunStageDetails ::
   ReplicationRunStageDetails
 newReplicationRunStageDetails =
   ReplicationRunStageDetails'
-    { stageProgress =
+    { stage =
         Prelude.Nothing,
-      stage = Prelude.Nothing
+      stageProgress = Prelude.Nothing
     }
-
--- | The progress of the current stage of a replication run.
-replicationRunStageDetails_stageProgress :: Lens.Lens' ReplicationRunStageDetails (Prelude.Maybe Prelude.Text)
-replicationRunStageDetails_stageProgress = Lens.lens (\ReplicationRunStageDetails' {stageProgress} -> stageProgress) (\s@ReplicationRunStageDetails' {} a -> s {stageProgress = a} :: ReplicationRunStageDetails)
 
 -- | The current stage of a replication run.
 replicationRunStageDetails_stage :: Lens.Lens' ReplicationRunStageDetails (Prelude.Maybe Prelude.Text)
 replicationRunStageDetails_stage = Lens.lens (\ReplicationRunStageDetails' {stage} -> stage) (\s@ReplicationRunStageDetails' {} a -> s {stage = a} :: ReplicationRunStageDetails)
+
+-- | The progress of the current stage of a replication run.
+replicationRunStageDetails_stageProgress :: Lens.Lens' ReplicationRunStageDetails (Prelude.Maybe Prelude.Text)
+replicationRunStageDetails_stageProgress = Lens.lens (\ReplicationRunStageDetails' {stageProgress} -> stageProgress) (\s@ReplicationRunStageDetails' {} a -> s {stageProgress = a} :: ReplicationRunStageDetails)
 
 instance Data.FromJSON ReplicationRunStageDetails where
   parseJSON =
@@ -69,16 +69,16 @@ instance Data.FromJSON ReplicationRunStageDetails where
       "ReplicationRunStageDetails"
       ( \x ->
           ReplicationRunStageDetails'
-            Prelude.<$> (x Data..:? "stageProgress")
-            Prelude.<*> (x Data..:? "stage")
+            Prelude.<$> (x Data..:? "stage")
+            Prelude.<*> (x Data..:? "stageProgress")
       )
 
 instance Prelude.Hashable ReplicationRunStageDetails where
   hashWithSalt _salt ReplicationRunStageDetails' {..} =
-    _salt `Prelude.hashWithSalt` stageProgress
-      `Prelude.hashWithSalt` stage
+    _salt `Prelude.hashWithSalt` stage
+      `Prelude.hashWithSalt` stageProgress
 
 instance Prelude.NFData ReplicationRunStageDetails where
   rnf ReplicationRunStageDetails' {..} =
-    Prelude.rnf stageProgress
-      `Prelude.seq` Prelude.rnf stage
+    Prelude.rnf stage
+      `Prelude.seq` Prelude.rnf stageProgress

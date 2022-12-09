@@ -29,17 +29,17 @@ module Amazonka.SMS.ListApps
     newListApps,
 
     -- * Request Lenses
-    listApps_nextToken,
     listApps_appIds,
     listApps_maxResults,
+    listApps_nextToken,
 
     -- * Destructuring the Response
     ListAppsResponse (..),
     newListAppsResponse,
 
     -- * Response Lenses
-    listAppsResponse_nextToken,
     listAppsResponse_apps,
+    listAppsResponse_nextToken,
     listAppsResponse_httpStatus,
   )
 where
@@ -54,14 +54,14 @@ import Amazonka.SMS.Types
 
 -- | /See:/ 'newListApps' smart constructor.
 data ListApps = ListApps'
-  { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The unique application IDs.
+  { -- | The unique application IDs.
     appIds :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to return in a single call. The default
     -- value is 100. To retrieve the remaining results, make another call with
     -- the returned @NextToken@ value.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,25 +73,21 @@ data ListApps = ListApps'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listApps_nextToken' - The token for the next set of results.
---
 -- 'appIds', 'listApps_appIds' - The unique application IDs.
 --
 -- 'maxResults', 'listApps_maxResults' - The maximum number of results to return in a single call. The default
 -- value is 100. To retrieve the remaining results, make another call with
 -- the returned @NextToken@ value.
+--
+-- 'nextToken', 'listApps_nextToken' - The token for the next set of results.
 newListApps ::
   ListApps
 newListApps =
   ListApps'
-    { nextToken = Prelude.Nothing,
-      appIds = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { appIds = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | The token for the next set of results.
-listApps_nextToken :: Lens.Lens' ListApps (Prelude.Maybe Prelude.Text)
-listApps_nextToken = Lens.lens (\ListApps' {nextToken} -> nextToken) (\s@ListApps' {} a -> s {nextToken = a} :: ListApps)
 
 -- | The unique application IDs.
 listApps_appIds :: Lens.Lens' ListApps (Prelude.Maybe [Prelude.Text])
@@ -102,6 +98,10 @@ listApps_appIds = Lens.lens (\ListApps' {appIds} -> appIds) (\s@ListApps' {} a -
 -- the returned @NextToken@ value.
 listApps_maxResults :: Lens.Lens' ListApps (Prelude.Maybe Prelude.Int)
 listApps_maxResults = Lens.lens (\ListApps' {maxResults} -> maxResults) (\s@ListApps' {} a -> s {maxResults = a} :: ListApps)
+
+-- | The token for the next set of results.
+listApps_nextToken :: Lens.Lens' ListApps (Prelude.Maybe Prelude.Text)
+listApps_nextToken = Lens.lens (\ListApps' {nextToken} -> nextToken) (\s@ListApps' {} a -> s {nextToken = a} :: ListApps)
 
 instance Core.AWSPager ListApps where
   page rq rs
@@ -130,22 +130,22 @@ instance Core.AWSRequest ListApps where
     Response.receiveJSON
       ( \s h x ->
           ListAppsResponse'
-            Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (x Data..?> "apps" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Data..?> "apps" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListApps where
   hashWithSalt _salt ListApps' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` appIds
+    _salt `Prelude.hashWithSalt` appIds
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListApps where
   rnf ListApps' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf appIds
+    Prelude.rnf appIds
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListApps where
   toHeaders =
@@ -166,9 +166,9 @@ instance Data.ToJSON ListApps where
   toJSON ListApps' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("appIds" Data..=) Prelude.<$> appIds,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+          [ ("appIds" Data..=) Prelude.<$> appIds,
+            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 
@@ -180,11 +180,11 @@ instance Data.ToQuery ListApps where
 
 -- | /See:/ 'newListAppsResponse' smart constructor.
 data ListAppsResponse = ListAppsResponse'
-  { -- | The token required to retrieve the next set of results. This value is
+  { -- | The application summaries.
+    apps :: Prelude.Maybe [AppSummary],
+    -- | The token required to retrieve the next set of results. This value is
     -- null when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The application summaries.
-    apps :: Prelude.Maybe [AppSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -198,10 +198,10 @@ data ListAppsResponse = ListAppsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'apps', 'listAppsResponse_apps' - The application summaries.
+--
 -- 'nextToken', 'listAppsResponse_nextToken' - The token required to retrieve the next set of results. This value is
 -- null when there are no more results to return.
---
--- 'apps', 'listAppsResponse_apps' - The application summaries.
 --
 -- 'httpStatus', 'listAppsResponse_httpStatus' - The response's http status code.
 newListAppsResponse ::
@@ -210,19 +210,19 @@ newListAppsResponse ::
   ListAppsResponse
 newListAppsResponse pHttpStatus_ =
   ListAppsResponse'
-    { nextToken = Prelude.Nothing,
-      apps = Prelude.Nothing,
+    { apps = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The application summaries.
+listAppsResponse_apps :: Lens.Lens' ListAppsResponse (Prelude.Maybe [AppSummary])
+listAppsResponse_apps = Lens.lens (\ListAppsResponse' {apps} -> apps) (\s@ListAppsResponse' {} a -> s {apps = a} :: ListAppsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token required to retrieve the next set of results. This value is
 -- null when there are no more results to return.
 listAppsResponse_nextToken :: Lens.Lens' ListAppsResponse (Prelude.Maybe Prelude.Text)
 listAppsResponse_nextToken = Lens.lens (\ListAppsResponse' {nextToken} -> nextToken) (\s@ListAppsResponse' {} a -> s {nextToken = a} :: ListAppsResponse)
-
--- | The application summaries.
-listAppsResponse_apps :: Lens.Lens' ListAppsResponse (Prelude.Maybe [AppSummary])
-listAppsResponse_apps = Lens.lens (\ListAppsResponse' {apps} -> apps) (\s@ListAppsResponse' {} a -> s {apps = a} :: ListAppsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAppsResponse_httpStatus :: Lens.Lens' ListAppsResponse Prelude.Int
@@ -230,6 +230,6 @@ listAppsResponse_httpStatus = Lens.lens (\ListAppsResponse' {httpStatus} -> http
 
 instance Prelude.NFData ListAppsResponse where
   rnf ListAppsResponse' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf apps
+    Prelude.rnf apps
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf httpStatus

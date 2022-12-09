@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLaunchDetails' smart constructor.
 data LaunchDetails = LaunchDetails'
-  { -- | The ID of the latest stack launched for this application.
-    stackId :: Prelude.Maybe Prelude.Text,
-    -- | The latest time that this application was launched successfully.
+  { -- | The latest time that this application was launched successfully.
     latestLaunchTime :: Prelude.Maybe Data.POSIX,
+    -- | The ID of the latest stack launched for this application.
+    stackId :: Prelude.Maybe Prelude.Text,
     -- | The name of the latest stack launched for this application.
     stackName :: Prelude.Maybe Prelude.Text
   }
@@ -45,27 +45,27 @@ data LaunchDetails = LaunchDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stackId', 'launchDetails_stackId' - The ID of the latest stack launched for this application.
---
 -- 'latestLaunchTime', 'launchDetails_latestLaunchTime' - The latest time that this application was launched successfully.
+--
+-- 'stackId', 'launchDetails_stackId' - The ID of the latest stack launched for this application.
 --
 -- 'stackName', 'launchDetails_stackName' - The name of the latest stack launched for this application.
 newLaunchDetails ::
   LaunchDetails
 newLaunchDetails =
   LaunchDetails'
-    { stackId = Prelude.Nothing,
-      latestLaunchTime = Prelude.Nothing,
+    { latestLaunchTime = Prelude.Nothing,
+      stackId = Prelude.Nothing,
       stackName = Prelude.Nothing
     }
-
--- | The ID of the latest stack launched for this application.
-launchDetails_stackId :: Lens.Lens' LaunchDetails (Prelude.Maybe Prelude.Text)
-launchDetails_stackId = Lens.lens (\LaunchDetails' {stackId} -> stackId) (\s@LaunchDetails' {} a -> s {stackId = a} :: LaunchDetails)
 
 -- | The latest time that this application was launched successfully.
 launchDetails_latestLaunchTime :: Lens.Lens' LaunchDetails (Prelude.Maybe Prelude.UTCTime)
 launchDetails_latestLaunchTime = Lens.lens (\LaunchDetails' {latestLaunchTime} -> latestLaunchTime) (\s@LaunchDetails' {} a -> s {latestLaunchTime = a} :: LaunchDetails) Prelude.. Lens.mapping Data._Time
+
+-- | The ID of the latest stack launched for this application.
+launchDetails_stackId :: Lens.Lens' LaunchDetails (Prelude.Maybe Prelude.Text)
+launchDetails_stackId = Lens.lens (\LaunchDetails' {stackId} -> stackId) (\s@LaunchDetails' {} a -> s {stackId = a} :: LaunchDetails)
 
 -- | The name of the latest stack launched for this application.
 launchDetails_stackName :: Lens.Lens' LaunchDetails (Prelude.Maybe Prelude.Text)
@@ -77,19 +77,19 @@ instance Data.FromJSON LaunchDetails where
       "LaunchDetails"
       ( \x ->
           LaunchDetails'
-            Prelude.<$> (x Data..:? "stackId")
-            Prelude.<*> (x Data..:? "latestLaunchTime")
+            Prelude.<$> (x Data..:? "latestLaunchTime")
+            Prelude.<*> (x Data..:? "stackId")
             Prelude.<*> (x Data..:? "stackName")
       )
 
 instance Prelude.Hashable LaunchDetails where
   hashWithSalt _salt LaunchDetails' {..} =
-    _salt `Prelude.hashWithSalt` stackId
-      `Prelude.hashWithSalt` latestLaunchTime
+    _salt `Prelude.hashWithSalt` latestLaunchTime
+      `Prelude.hashWithSalt` stackId
       `Prelude.hashWithSalt` stackName
 
 instance Prelude.NFData LaunchDetails where
   rnf LaunchDetails' {..} =
-    Prelude.rnf stackId
-      `Prelude.seq` Prelude.rnf latestLaunchTime
+    Prelude.rnf latestLaunchTime
+      `Prelude.seq` Prelude.rnf stackId
       `Prelude.seq` Prelude.rnf stackName

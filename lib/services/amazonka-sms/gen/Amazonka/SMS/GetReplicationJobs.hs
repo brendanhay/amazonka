@@ -29,9 +29,9 @@ module Amazonka.SMS.GetReplicationJobs
     newGetReplicationJobs,
 
     -- * Request Lenses
+    getReplicationJobs_maxResults,
     getReplicationJobs_nextToken,
     getReplicationJobs_replicationJobId,
-    getReplicationJobs_maxResults,
 
     -- * Destructuring the Response
     GetReplicationJobsResponse (..),
@@ -54,14 +54,14 @@ import Amazonka.SMS.Types
 
 -- | /See:/ 'newGetReplicationJobs' smart constructor.
 data GetReplicationJobs = GetReplicationJobs'
-  { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the replication job.
-    replicationJobId :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in a single call. The default
+  { -- | The maximum number of results to return in a single call. The default
     -- value is 50. To retrieve the remaining results, make another call with
     -- the returned @NextToken@ value.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the replication job.
+    replicationJobId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,21 +73,27 @@ data GetReplicationJobs = GetReplicationJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getReplicationJobs_nextToken' - The token for the next set of results.
---
--- 'replicationJobId', 'getReplicationJobs_replicationJobId' - The ID of the replication job.
---
 -- 'maxResults', 'getReplicationJobs_maxResults' - The maximum number of results to return in a single call. The default
 -- value is 50. To retrieve the remaining results, make another call with
 -- the returned @NextToken@ value.
+--
+-- 'nextToken', 'getReplicationJobs_nextToken' - The token for the next set of results.
+--
+-- 'replicationJobId', 'getReplicationJobs_replicationJobId' - The ID of the replication job.
 newGetReplicationJobs ::
   GetReplicationJobs
 newGetReplicationJobs =
   GetReplicationJobs'
-    { nextToken = Prelude.Nothing,
-      replicationJobId = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      replicationJobId = Prelude.Nothing
     }
+
+-- | The maximum number of results to return in a single call. The default
+-- value is 50. To retrieve the remaining results, make another call with
+-- the returned @NextToken@ value.
+getReplicationJobs_maxResults :: Lens.Lens' GetReplicationJobs (Prelude.Maybe Prelude.Int)
+getReplicationJobs_maxResults = Lens.lens (\GetReplicationJobs' {maxResults} -> maxResults) (\s@GetReplicationJobs' {} a -> s {maxResults = a} :: GetReplicationJobs)
 
 -- | The token for the next set of results.
 getReplicationJobs_nextToken :: Lens.Lens' GetReplicationJobs (Prelude.Maybe Prelude.Text)
@@ -96,12 +102,6 @@ getReplicationJobs_nextToken = Lens.lens (\GetReplicationJobs' {nextToken} -> ne
 -- | The ID of the replication job.
 getReplicationJobs_replicationJobId :: Lens.Lens' GetReplicationJobs (Prelude.Maybe Prelude.Text)
 getReplicationJobs_replicationJobId = Lens.lens (\GetReplicationJobs' {replicationJobId} -> replicationJobId) (\s@GetReplicationJobs' {} a -> s {replicationJobId = a} :: GetReplicationJobs)
-
--- | The maximum number of results to return in a single call. The default
--- value is 50. To retrieve the remaining results, make another call with
--- the returned @NextToken@ value.
-getReplicationJobs_maxResults :: Lens.Lens' GetReplicationJobs (Prelude.Maybe Prelude.Int)
-getReplicationJobs_maxResults = Lens.lens (\GetReplicationJobs' {maxResults} -> maxResults) (\s@GetReplicationJobs' {} a -> s {maxResults = a} :: GetReplicationJobs)
 
 instance Core.AWSPager GetReplicationJobs where
   page rq rs
@@ -144,15 +144,15 @@ instance Core.AWSRequest GetReplicationJobs where
 
 instance Prelude.Hashable GetReplicationJobs where
   hashWithSalt _salt GetReplicationJobs' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` replicationJobId
-      `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData GetReplicationJobs where
   rnf GetReplicationJobs' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf replicationJobId
-      `Prelude.seq` Prelude.rnf maxResults
 
 instance Data.ToHeaders GetReplicationJobs where
   toHeaders =
@@ -173,10 +173,10 @@ instance Data.ToJSON GetReplicationJobs where
   toJSON GetReplicationJobs' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("nextToken" Data..=) Prelude.<$> nextToken,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
             ("replicationJobId" Data..=)
-              Prelude.<$> replicationJobId,
-            ("maxResults" Data..=) Prelude.<$> maxResults
+              Prelude.<$> replicationJobId
           ]
       )
 

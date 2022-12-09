@@ -18,18 +18,18 @@ module Amazonka.SMS.Types
     defaultService,
 
     -- * Errors
-    _ServerCannotBeReplicatedException,
-    _NoConnectorsAvailableException,
-    _UnauthorizedOperationException,
+    _DryRunOperationException,
     _InternalError,
+    _InvalidParameterException,
     _MissingRequiredParameterException,
+    _NoConnectorsAvailableException,
+    _OperationNotPermittedException,
     _ReplicationJobAlreadyExistsException,
     _ReplicationJobNotFoundException,
-    _TemporarilyUnavailableException,
-    _OperationNotPermittedException,
-    _DryRunOperationException,
     _ReplicationRunLimitExceededException,
-    _InvalidParameterException,
+    _ServerCannotBeReplicatedException,
+    _TemporarilyUnavailableException,
+    _UnauthorizedOperationException,
 
     -- * AppLaunchConfigurationStatus
     AppLaunchConfigurationStatus (..),
@@ -91,32 +91,32 @@ module Amazonka.SMS.Types
     -- * AppSummary
     AppSummary (..),
     newAppSummary,
-    appSummary_launchStatus,
-    appSummary_replicationConfigurationStatus,
-    appSummary_name,
-    appSummary_roleName,
-    appSummary_replicationStatusMessage,
-    appSummary_totalServerGroups,
-    appSummary_launchDetails,
-    appSummary_replicationStatus,
-    appSummary_totalServers,
-    appSummary_status,
-    appSummary_description,
-    appSummary_latestReplicationTime,
-    appSummary_lastModified,
-    appSummary_creationTime,
-    appSummary_launchConfigurationStatus,
-    appSummary_launchStatusMessage,
-    appSummary_importedAppId,
-    appSummary_statusMessage,
     appSummary_appId,
+    appSummary_creationTime,
+    appSummary_description,
+    appSummary_importedAppId,
+    appSummary_lastModified,
+    appSummary_latestReplicationTime,
+    appSummary_launchConfigurationStatus,
+    appSummary_launchDetails,
+    appSummary_launchStatus,
+    appSummary_launchStatusMessage,
+    appSummary_name,
+    appSummary_replicationConfigurationStatus,
+    appSummary_replicationStatus,
+    appSummary_replicationStatusMessage,
+    appSummary_roleName,
+    appSummary_status,
+    appSummary_statusMessage,
+    appSummary_totalServerGroups,
+    appSummary_totalServers,
 
     -- * AppValidationConfiguration
     AppValidationConfiguration (..),
     newAppValidationConfiguration,
+    appValidationConfiguration_appValidationStrategy,
     appValidationConfiguration_name,
     appValidationConfiguration_ssmValidationParameters,
-    appValidationConfiguration_appValidationStrategy,
     appValidationConfiguration_validationId,
 
     -- * AppValidationOutput
@@ -128,78 +128,78 @@ module Amazonka.SMS.Types
     Connector (..),
     newConnector,
     connector_associatedOn,
-    connector_vmManagerName,
-    connector_vmManagerId,
-    connector_connectorId,
     connector_capabilityList,
-    connector_status,
-    connector_macAddress,
-    connector_vmManagerType,
-    connector_version,
+    connector_connectorId,
     connector_ipAddress,
+    connector_macAddress,
+    connector_status,
+    connector_version,
+    connector_vmManagerId,
+    connector_vmManagerName,
+    connector_vmManagerType,
 
     -- * LaunchDetails
     LaunchDetails (..),
     newLaunchDetails,
-    launchDetails_stackId,
     launchDetails_latestLaunchTime,
+    launchDetails_stackId,
     launchDetails_stackName,
 
     -- * NotificationContext
     NotificationContext (..),
     newNotificationContext,
-    notificationContext_validationId,
     notificationContext_status,
     notificationContext_statusMessage,
+    notificationContext_validationId,
 
     -- * ReplicationJob
     ReplicationJob (..),
     newReplicationJob,
+    replicationJob_description,
+    replicationJob_encrypted,
+    replicationJob_frequency,
+    replicationJob_kmsKeyId,
+    replicationJob_latestAmiId,
+    replicationJob_licenseType,
+    replicationJob_nextReplicationRunStartTime,
+    replicationJob_numberOfRecentAmisToKeep,
+    replicationJob_replicationJobId,
     replicationJob_replicationRunList,
     replicationJob_roleName,
-    replicationJob_licenseType,
-    replicationJob_frequency,
     replicationJob_runOnce,
-    replicationJob_state,
-    replicationJob_latestAmiId,
-    replicationJob_description,
-    replicationJob_serverType,
-    replicationJob_replicationJobId,
-    replicationJob_encrypted,
     replicationJob_seedReplicationTime,
-    replicationJob_kmsKeyId,
     replicationJob_serverId,
-    replicationJob_vmServer,
-    replicationJob_nextReplicationRunStartTime,
+    replicationJob_serverType,
+    replicationJob_state,
     replicationJob_statusMessage,
-    replicationJob_numberOfRecentAmisToKeep,
+    replicationJob_vmServer,
 
     -- * ReplicationRun
     ReplicationRun (..),
     newReplicationRun,
-    replicationRun_scheduledStartTime,
     replicationRun_amiId,
-    replicationRun_type,
     replicationRun_completedTime,
-    replicationRun_state,
-    replicationRun_stageDetails,
     replicationRun_description,
-    replicationRun_replicationRunId,
     replicationRun_encrypted,
     replicationRun_kmsKeyId,
+    replicationRun_replicationRunId,
+    replicationRun_scheduledStartTime,
+    replicationRun_stageDetails,
+    replicationRun_state,
     replicationRun_statusMessage,
+    replicationRun_type,
 
     -- * ReplicationRunStageDetails
     ReplicationRunStageDetails (..),
     newReplicationRunStageDetails,
-    replicationRunStageDetails_stageProgress,
     replicationRunStageDetails_stage,
+    replicationRunStageDetails_stageProgress,
 
     -- * S3Location
     S3Location (..),
     newS3Location,
-    s3Location_key,
     s3Location_bucket,
+    s3Location_key,
 
     -- * SSMOutput
     SSMOutput (..),
@@ -210,20 +210,20 @@ module Amazonka.SMS.Types
     SSMValidationParameters (..),
     newSSMValidationParameters,
     sSMValidationParameters_command,
-    sSMValidationParameters_instanceId,
-    sSMValidationParameters_source,
     sSMValidationParameters_executionTimeoutSeconds,
-    sSMValidationParameters_scriptType,
+    sSMValidationParameters_instanceId,
     sSMValidationParameters_outputS3BucketName,
+    sSMValidationParameters_scriptType,
+    sSMValidationParameters_source,
 
     -- * Server
     Server (..),
     newServer,
-    server_serverType,
     server_replicationJobId,
-    server_serverId,
-    server_vmServer,
     server_replicationJobTerminated,
+    server_serverId,
+    server_serverType,
+    server_vmServer,
 
     -- * ServerGroup
     ServerGroup (..),
@@ -235,15 +235,15 @@ module Amazonka.SMS.Types
     -- * ServerGroupLaunchConfiguration
     ServerGroupLaunchConfiguration (..),
     newServerGroupLaunchConfiguration,
+    serverGroupLaunchConfiguration_launchOrder,
     serverGroupLaunchConfiguration_serverGroupId,
     serverGroupLaunchConfiguration_serverLaunchConfigurations,
-    serverGroupLaunchConfiguration_launchOrder,
 
     -- * ServerGroupReplicationConfiguration
     ServerGroupReplicationConfiguration (..),
     newServerGroupReplicationConfiguration,
-    serverGroupReplicationConfiguration_serverReplicationConfigurations,
     serverGroupReplicationConfiguration_serverGroupId,
+    serverGroupReplicationConfiguration_serverReplicationConfigurations,
 
     -- * ServerGroupValidationConfiguration
     ServerGroupValidationConfiguration (..),
@@ -254,44 +254,44 @@ module Amazonka.SMS.Types
     -- * ServerLaunchConfiguration
     ServerLaunchConfiguration (..),
     newServerLaunchConfiguration,
-    serverLaunchConfiguration_ec2KeyName,
-    serverLaunchConfiguration_vpc,
-    serverLaunchConfiguration_userData,
     serverLaunchConfiguration_associatePublicIpAddress,
-    serverLaunchConfiguration_securityGroup,
-    serverLaunchConfiguration_configureScriptType,
-    serverLaunchConfiguration_instanceType,
-    serverLaunchConfiguration_server,
-    serverLaunchConfiguration_logicalId,
-    serverLaunchConfiguration_subnet,
-    serverLaunchConfiguration_iamInstanceProfileName,
     serverLaunchConfiguration_configureScript,
+    serverLaunchConfiguration_configureScriptType,
+    serverLaunchConfiguration_ec2KeyName,
+    serverLaunchConfiguration_iamInstanceProfileName,
+    serverLaunchConfiguration_instanceType,
+    serverLaunchConfiguration_logicalId,
+    serverLaunchConfiguration_securityGroup,
+    serverLaunchConfiguration_server,
+    serverLaunchConfiguration_subnet,
+    serverLaunchConfiguration_userData,
+    serverLaunchConfiguration_vpc,
 
     -- * ServerReplicationConfiguration
     ServerReplicationConfiguration (..),
     newServerReplicationConfiguration,
-    serverReplicationConfiguration_serverReplicationParameters,
     serverReplicationConfiguration_server,
+    serverReplicationConfiguration_serverReplicationParameters,
 
     -- * ServerReplicationParameters
     ServerReplicationParameters (..),
     newServerReplicationParameters,
-    serverReplicationParameters_seedTime,
-    serverReplicationParameters_licenseType,
-    serverReplicationParameters_frequency,
-    serverReplicationParameters_runOnce,
     serverReplicationParameters_encrypted,
+    serverReplicationParameters_frequency,
     serverReplicationParameters_kmsKeyId,
+    serverReplicationParameters_licenseType,
     serverReplicationParameters_numberOfRecentAmisToKeep,
+    serverReplicationParameters_runOnce,
+    serverReplicationParameters_seedTime,
 
     -- * ServerValidationConfiguration
     ServerValidationConfiguration (..),
     newServerValidationConfiguration,
     serverValidationConfiguration_name,
+    serverValidationConfiguration_server,
+    serverValidationConfiguration_serverValidationStrategy,
     serverValidationConfiguration_userDataValidationParameters,
     serverValidationConfiguration_validationId,
-    serverValidationConfiguration_serverValidationStrategy,
-    serverValidationConfiguration_server,
 
     -- * ServerValidationOutput
     ServerValidationOutput (..),
@@ -317,34 +317,34 @@ module Amazonka.SMS.Types
     -- * UserDataValidationParameters
     UserDataValidationParameters (..),
     newUserDataValidationParameters,
-    userDataValidationParameters_source,
     userDataValidationParameters_scriptType,
+    userDataValidationParameters_source,
 
     -- * ValidationOutput
     ValidationOutput (..),
     newValidationOutput,
-    validationOutput_name,
-    validationOutput_validationId,
-    validationOutput_status,
-    validationOutput_serverValidationOutput,
     validationOutput_appValidationOutput,
-    validationOutput_statusMessage,
     validationOutput_latestValidationTime,
+    validationOutput_name,
+    validationOutput_serverValidationOutput,
+    validationOutput_status,
+    validationOutput_statusMessage,
+    validationOutput_validationId,
 
     -- * VmServer
     VmServer (..),
     newVmServer,
-    vmServer_vmServerAddress,
     vmServer_vmManagerName,
-    vmServer_vmName,
     vmServer_vmManagerType,
+    vmServer_vmName,
     vmServer_vmPath,
+    vmServer_vmServerAddress,
 
     -- * VmServerAddress
     VmServerAddress (..),
     newVmServerAddress,
-    vmServerAddress_vmManagerId,
     vmServerAddress_vmId,
+    vmServerAddress_vmManagerId,
   )
 where
 
@@ -426,28 +426,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -455,13 +449,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -469,29 +467,17 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The specified server cannot be replicated.
-_ServerCannotBeReplicatedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServerCannotBeReplicatedException =
+-- | The user has the required permissions, so the request would have
+-- succeeded, but a dry run was performed.
+_DryRunOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DryRunOperationException =
   Core._MatchServiceError
     defaultService
-    "ServerCannotBeReplicatedException"
-
--- | There are no connectors available.
-_NoConnectorsAvailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NoConnectorsAvailableException =
-  Core._MatchServiceError
-    defaultService
-    "NoConnectorsAvailableException"
-
--- | You lack permissions needed to perform this operation. Check your IAM
--- policies, and ensure that you are using the correct access keys.
-_UnauthorizedOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnauthorizedOperationException =
-  Core._MatchServiceError
-    defaultService
-    "UnauthorizedOperationException"
+    "DryRunOperationException"
 
 -- | An internal error occurred.
 _InternalError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -500,12 +486,33 @@ _InternalError =
     defaultService
     "InternalError"
 
+-- | A specified parameter is not valid.
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidParameterException"
+
 -- | A required parameter is missing.
 _MissingRequiredParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _MissingRequiredParameterException =
   Core._MatchServiceError
     defaultService
     "MissingRequiredParameterException"
+
+-- | There are no connectors available.
+_NoConnectorsAvailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoConnectorsAvailableException =
+  Core._MatchServiceError
+    defaultService
+    "NoConnectorsAvailableException"
+
+-- | This operation is not allowed.
+_OperationNotPermittedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OperationNotPermittedException =
+  Core._MatchServiceError
+    defaultService
+    "OperationNotPermittedException"
 
 -- | The specified replication job already exists.
 _ReplicationJobAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -521,28 +528,6 @@ _ReplicationJobNotFoundException =
     defaultService
     "ReplicationJobNotFoundException"
 
--- | The service is temporarily unavailable.
-_TemporarilyUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TemporarilyUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "TemporarilyUnavailableException"
-
--- | This operation is not allowed.
-_OperationNotPermittedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OperationNotPermittedException =
-  Core._MatchServiceError
-    defaultService
-    "OperationNotPermittedException"
-
--- | The user has the required permissions, so the request would have
--- succeeded, but a dry run was performed.
-_DryRunOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DryRunOperationException =
-  Core._MatchServiceError
-    defaultService
-    "DryRunOperationException"
-
 -- | You have exceeded the number of on-demand replication runs you can
 -- request in a 24-hour period.
 _ReplicationRunLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -551,9 +536,24 @@ _ReplicationRunLimitExceededException =
     defaultService
     "ReplicationRunLimitExceededException"
 
--- | A specified parameter is not valid.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterException =
+-- | The specified server cannot be replicated.
+_ServerCannotBeReplicatedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServerCannotBeReplicatedException =
   Core._MatchServiceError
     defaultService
-    "InvalidParameterException"
+    "ServerCannotBeReplicatedException"
+
+-- | The service is temporarily unavailable.
+_TemporarilyUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TemporarilyUnavailableException =
+  Core._MatchServiceError
+    defaultService
+    "TemporarilyUnavailableException"
+
+-- | You lack permissions needed to perform this operation. Check your IAM
+-- policies, and ensure that you are using the correct access keys.
+_UnauthorizedOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedOperationException =
+  Core._MatchServiceError
+    defaultService
+    "UnauthorizedOperationException"

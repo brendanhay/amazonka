@@ -29,13 +29,13 @@ import Amazonka.SMS.Types.ServerLaunchConfiguration
 --
 -- /See:/ 'newServerGroupLaunchConfiguration' smart constructor.
 data ServerGroupLaunchConfiguration = ServerGroupLaunchConfiguration'
-  { -- | The ID of the server group with which the launch configuration is
+  { -- | The launch order of servers in the server group.
+    launchOrder :: Prelude.Maybe Prelude.Int,
+    -- | The ID of the server group with which the launch configuration is
     -- associated.
     serverGroupId :: Prelude.Maybe Prelude.Text,
     -- | The launch configuration for servers in the server group.
-    serverLaunchConfigurations :: Prelude.Maybe [ServerLaunchConfiguration],
-    -- | The launch order of servers in the server group.
-    launchOrder :: Prelude.Maybe Prelude.Int
+    serverLaunchConfigurations :: Prelude.Maybe [ServerLaunchConfiguration]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,22 +47,26 @@ data ServerGroupLaunchConfiguration = ServerGroupLaunchConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'launchOrder', 'serverGroupLaunchConfiguration_launchOrder' - The launch order of servers in the server group.
+--
 -- 'serverGroupId', 'serverGroupLaunchConfiguration_serverGroupId' - The ID of the server group with which the launch configuration is
 -- associated.
 --
 -- 'serverLaunchConfigurations', 'serverGroupLaunchConfiguration_serverLaunchConfigurations' - The launch configuration for servers in the server group.
---
--- 'launchOrder', 'serverGroupLaunchConfiguration_launchOrder' - The launch order of servers in the server group.
 newServerGroupLaunchConfiguration ::
   ServerGroupLaunchConfiguration
 newServerGroupLaunchConfiguration =
   ServerGroupLaunchConfiguration'
-    { serverGroupId =
+    { launchOrder =
         Prelude.Nothing,
+      serverGroupId = Prelude.Nothing,
       serverLaunchConfigurations =
-        Prelude.Nothing,
-      launchOrder = Prelude.Nothing
+        Prelude.Nothing
     }
+
+-- | The launch order of servers in the server group.
+serverGroupLaunchConfiguration_launchOrder :: Lens.Lens' ServerGroupLaunchConfiguration (Prelude.Maybe Prelude.Int)
+serverGroupLaunchConfiguration_launchOrder = Lens.lens (\ServerGroupLaunchConfiguration' {launchOrder} -> launchOrder) (\s@ServerGroupLaunchConfiguration' {} a -> s {launchOrder = a} :: ServerGroupLaunchConfiguration)
 
 -- | The ID of the server group with which the launch configuration is
 -- associated.
@@ -73,21 +77,17 @@ serverGroupLaunchConfiguration_serverGroupId = Lens.lens (\ServerGroupLaunchConf
 serverGroupLaunchConfiguration_serverLaunchConfigurations :: Lens.Lens' ServerGroupLaunchConfiguration (Prelude.Maybe [ServerLaunchConfiguration])
 serverGroupLaunchConfiguration_serverLaunchConfigurations = Lens.lens (\ServerGroupLaunchConfiguration' {serverLaunchConfigurations} -> serverLaunchConfigurations) (\s@ServerGroupLaunchConfiguration' {} a -> s {serverLaunchConfigurations = a} :: ServerGroupLaunchConfiguration) Prelude.. Lens.mapping Lens.coerced
 
--- | The launch order of servers in the server group.
-serverGroupLaunchConfiguration_launchOrder :: Lens.Lens' ServerGroupLaunchConfiguration (Prelude.Maybe Prelude.Int)
-serverGroupLaunchConfiguration_launchOrder = Lens.lens (\ServerGroupLaunchConfiguration' {launchOrder} -> launchOrder) (\s@ServerGroupLaunchConfiguration' {} a -> s {launchOrder = a} :: ServerGroupLaunchConfiguration)
-
 instance Data.FromJSON ServerGroupLaunchConfiguration where
   parseJSON =
     Data.withObject
       "ServerGroupLaunchConfiguration"
       ( \x ->
           ServerGroupLaunchConfiguration'
-            Prelude.<$> (x Data..:? "serverGroupId")
+            Prelude.<$> (x Data..:? "launchOrder")
+            Prelude.<*> (x Data..:? "serverGroupId")
             Prelude.<*> ( x Data..:? "serverLaunchConfigurations"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "launchOrder")
       )
 
 instance
@@ -97,26 +97,26 @@ instance
   hashWithSalt
     _salt
     ServerGroupLaunchConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` serverGroupId
+      _salt `Prelude.hashWithSalt` launchOrder
+        `Prelude.hashWithSalt` serverGroupId
         `Prelude.hashWithSalt` serverLaunchConfigurations
-        `Prelude.hashWithSalt` launchOrder
 
 instance
   Prelude.NFData
     ServerGroupLaunchConfiguration
   where
   rnf ServerGroupLaunchConfiguration' {..} =
-    Prelude.rnf serverGroupId
+    Prelude.rnf launchOrder
+      `Prelude.seq` Prelude.rnf serverGroupId
       `Prelude.seq` Prelude.rnf serverLaunchConfigurations
-      `Prelude.seq` Prelude.rnf launchOrder
 
 instance Data.ToJSON ServerGroupLaunchConfiguration where
   toJSON ServerGroupLaunchConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("serverGroupId" Data..=) Prelude.<$> serverGroupId,
+          [ ("launchOrder" Data..=) Prelude.<$> launchOrder,
+            ("serverGroupId" Data..=) Prelude.<$> serverGroupId,
             ("serverLaunchConfigurations" Data..=)
-              Prelude.<$> serverLaunchConfigurations,
-            ("launchOrder" Data..=) Prelude.<$> launchOrder
+              Prelude.<$> serverLaunchConfigurations
           ]
       )

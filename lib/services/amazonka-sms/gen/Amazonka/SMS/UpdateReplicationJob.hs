@@ -27,14 +27,14 @@ module Amazonka.SMS.UpdateReplicationJob
     newUpdateReplicationJob,
 
     -- * Request Lenses
-    updateReplicationJob_roleName,
-    updateReplicationJob_licenseType,
-    updateReplicationJob_frequency,
     updateReplicationJob_description,
     updateReplicationJob_encrypted,
+    updateReplicationJob_frequency,
     updateReplicationJob_kmsKeyId,
+    updateReplicationJob_licenseType,
     updateReplicationJob_nextReplicationRunStartTime,
     updateReplicationJob_numberOfRecentAmisToKeep,
+    updateReplicationJob_roleName,
     updateReplicationJob_replicationJobId,
 
     -- * Destructuring the Response
@@ -56,18 +56,13 @@ import Amazonka.SMS.Types
 
 -- | /See:/ 'newUpdateReplicationJob' smart constructor.
 data UpdateReplicationJob = UpdateReplicationJob'
-  { -- | The name of the IAM role to be used by Server Migration Service.
-    roleName :: Prelude.Maybe Prelude.Text,
-    -- | The license type to be used for the AMI created by a successful
-    -- replication run.
-    licenseType :: Prelude.Maybe LicenseType,
-    -- | The time between consecutive replication runs, in hours.
-    frequency :: Prelude.Maybe Prelude.Int,
-    -- | The description of the replication job.
+  { -- | The description of the replication job.
     description :: Prelude.Maybe Prelude.Text,
     -- | When true, the replication job produces encrypted AMIs. For more
     -- information, @KmsKeyId@.
     encrypted :: Prelude.Maybe Prelude.Bool,
+    -- | The time between consecutive replication runs, in hours.
+    frequency :: Prelude.Maybe Prelude.Int,
     -- | The ID of the KMS key for replication jobs that produce encrypted AMIs.
     -- This value can be any of the following:
     --
@@ -82,11 +77,16 @@ data UpdateReplicationJob = UpdateReplicationJob'
     -- If encrypted is enabled but a KMS key ID is not specified, the
     -- customer\'s default KMS key for Amazon EBS is used.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The license type to be used for the AMI created by a successful
+    -- replication run.
+    licenseType :: Prelude.Maybe LicenseType,
     -- | The start time of the next replication run.
     nextReplicationRunStartTime :: Prelude.Maybe Data.POSIX,
     -- | The maximum number of SMS-created AMIs to retain. The oldest is deleted
     -- after the maximum number is reached and a new AMI is created.
     numberOfRecentAmisToKeep :: Prelude.Maybe Prelude.Int,
+    -- | The name of the IAM role to be used by Server Migration Service.
+    roleName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the replication job.
     replicationJobId :: Prelude.Text
   }
@@ -100,17 +100,12 @@ data UpdateReplicationJob = UpdateReplicationJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleName', 'updateReplicationJob_roleName' - The name of the IAM role to be used by Server Migration Service.
---
--- 'licenseType', 'updateReplicationJob_licenseType' - The license type to be used for the AMI created by a successful
--- replication run.
---
--- 'frequency', 'updateReplicationJob_frequency' - The time between consecutive replication runs, in hours.
---
 -- 'description', 'updateReplicationJob_description' - The description of the replication job.
 --
 -- 'encrypted', 'updateReplicationJob_encrypted' - When true, the replication job produces encrypted AMIs. For more
 -- information, @KmsKeyId@.
+--
+-- 'frequency', 'updateReplicationJob_frequency' - The time between consecutive replication runs, in hours.
 --
 -- 'kmsKeyId', 'updateReplicationJob_kmsKeyId' - The ID of the KMS key for replication jobs that produce encrypted AMIs.
 -- This value can be any of the following:
@@ -126,10 +121,15 @@ data UpdateReplicationJob = UpdateReplicationJob'
 -- If encrypted is enabled but a KMS key ID is not specified, the
 -- customer\'s default KMS key for Amazon EBS is used.
 --
+-- 'licenseType', 'updateReplicationJob_licenseType' - The license type to be used for the AMI created by a successful
+-- replication run.
+--
 -- 'nextReplicationRunStartTime', 'updateReplicationJob_nextReplicationRunStartTime' - The start time of the next replication run.
 --
 -- 'numberOfRecentAmisToKeep', 'updateReplicationJob_numberOfRecentAmisToKeep' - The maximum number of SMS-created AMIs to retain. The oldest is deleted
 -- after the maximum number is reached and a new AMI is created.
+--
+-- 'roleName', 'updateReplicationJob_roleName' - The name of the IAM role to be used by Server Migration Service.
 --
 -- 'replicationJobId', 'updateReplicationJob_replicationJobId' - The ID of the replication job.
 newUpdateReplicationJob ::
@@ -138,29 +138,17 @@ newUpdateReplicationJob ::
   UpdateReplicationJob
 newUpdateReplicationJob pReplicationJobId_ =
   UpdateReplicationJob'
-    { roleName = Prelude.Nothing,
-      licenseType = Prelude.Nothing,
-      frequency = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description =
+        Prelude.Nothing,
       encrypted = Prelude.Nothing,
+      frequency = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
+      licenseType = Prelude.Nothing,
       nextReplicationRunStartTime = Prelude.Nothing,
       numberOfRecentAmisToKeep = Prelude.Nothing,
+      roleName = Prelude.Nothing,
       replicationJobId = pReplicationJobId_
     }
-
--- | The name of the IAM role to be used by Server Migration Service.
-updateReplicationJob_roleName :: Lens.Lens' UpdateReplicationJob (Prelude.Maybe Prelude.Text)
-updateReplicationJob_roleName = Lens.lens (\UpdateReplicationJob' {roleName} -> roleName) (\s@UpdateReplicationJob' {} a -> s {roleName = a} :: UpdateReplicationJob)
-
--- | The license type to be used for the AMI created by a successful
--- replication run.
-updateReplicationJob_licenseType :: Lens.Lens' UpdateReplicationJob (Prelude.Maybe LicenseType)
-updateReplicationJob_licenseType = Lens.lens (\UpdateReplicationJob' {licenseType} -> licenseType) (\s@UpdateReplicationJob' {} a -> s {licenseType = a} :: UpdateReplicationJob)
-
--- | The time between consecutive replication runs, in hours.
-updateReplicationJob_frequency :: Lens.Lens' UpdateReplicationJob (Prelude.Maybe Prelude.Int)
-updateReplicationJob_frequency = Lens.lens (\UpdateReplicationJob' {frequency} -> frequency) (\s@UpdateReplicationJob' {} a -> s {frequency = a} :: UpdateReplicationJob)
 
 -- | The description of the replication job.
 updateReplicationJob_description :: Lens.Lens' UpdateReplicationJob (Prelude.Maybe Prelude.Text)
@@ -170,6 +158,10 @@ updateReplicationJob_description = Lens.lens (\UpdateReplicationJob' {descriptio
 -- information, @KmsKeyId@.
 updateReplicationJob_encrypted :: Lens.Lens' UpdateReplicationJob (Prelude.Maybe Prelude.Bool)
 updateReplicationJob_encrypted = Lens.lens (\UpdateReplicationJob' {encrypted} -> encrypted) (\s@UpdateReplicationJob' {} a -> s {encrypted = a} :: UpdateReplicationJob)
+
+-- | The time between consecutive replication runs, in hours.
+updateReplicationJob_frequency :: Lens.Lens' UpdateReplicationJob (Prelude.Maybe Prelude.Int)
+updateReplicationJob_frequency = Lens.lens (\UpdateReplicationJob' {frequency} -> frequency) (\s@UpdateReplicationJob' {} a -> s {frequency = a} :: UpdateReplicationJob)
 
 -- | The ID of the KMS key for replication jobs that produce encrypted AMIs.
 -- This value can be any of the following:
@@ -187,6 +179,11 @@ updateReplicationJob_encrypted = Lens.lens (\UpdateReplicationJob' {encrypted} -
 updateReplicationJob_kmsKeyId :: Lens.Lens' UpdateReplicationJob (Prelude.Maybe Prelude.Text)
 updateReplicationJob_kmsKeyId = Lens.lens (\UpdateReplicationJob' {kmsKeyId} -> kmsKeyId) (\s@UpdateReplicationJob' {} a -> s {kmsKeyId = a} :: UpdateReplicationJob)
 
+-- | The license type to be used for the AMI created by a successful
+-- replication run.
+updateReplicationJob_licenseType :: Lens.Lens' UpdateReplicationJob (Prelude.Maybe LicenseType)
+updateReplicationJob_licenseType = Lens.lens (\UpdateReplicationJob' {licenseType} -> licenseType) (\s@UpdateReplicationJob' {} a -> s {licenseType = a} :: UpdateReplicationJob)
+
 -- | The start time of the next replication run.
 updateReplicationJob_nextReplicationRunStartTime :: Lens.Lens' UpdateReplicationJob (Prelude.Maybe Prelude.UTCTime)
 updateReplicationJob_nextReplicationRunStartTime = Lens.lens (\UpdateReplicationJob' {nextReplicationRunStartTime} -> nextReplicationRunStartTime) (\s@UpdateReplicationJob' {} a -> s {nextReplicationRunStartTime = a} :: UpdateReplicationJob) Prelude.. Lens.mapping Data._Time
@@ -195,6 +192,10 @@ updateReplicationJob_nextReplicationRunStartTime = Lens.lens (\UpdateReplication
 -- after the maximum number is reached and a new AMI is created.
 updateReplicationJob_numberOfRecentAmisToKeep :: Lens.Lens' UpdateReplicationJob (Prelude.Maybe Prelude.Int)
 updateReplicationJob_numberOfRecentAmisToKeep = Lens.lens (\UpdateReplicationJob' {numberOfRecentAmisToKeep} -> numberOfRecentAmisToKeep) (\s@UpdateReplicationJob' {} a -> s {numberOfRecentAmisToKeep = a} :: UpdateReplicationJob)
+
+-- | The name of the IAM role to be used by Server Migration Service.
+updateReplicationJob_roleName :: Lens.Lens' UpdateReplicationJob (Prelude.Maybe Prelude.Text)
+updateReplicationJob_roleName = Lens.lens (\UpdateReplicationJob' {roleName} -> roleName) (\s@UpdateReplicationJob' {} a -> s {roleName = a} :: UpdateReplicationJob)
 
 -- | The ID of the replication job.
 updateReplicationJob_replicationJobId :: Lens.Lens' UpdateReplicationJob Prelude.Text
@@ -215,26 +216,26 @@ instance Core.AWSRequest UpdateReplicationJob where
 
 instance Prelude.Hashable UpdateReplicationJob where
   hashWithSalt _salt UpdateReplicationJob' {..} =
-    _salt `Prelude.hashWithSalt` roleName
-      `Prelude.hashWithSalt` licenseType
-      `Prelude.hashWithSalt` frequency
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` encrypted
+      `Prelude.hashWithSalt` frequency
       `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` licenseType
       `Prelude.hashWithSalt` nextReplicationRunStartTime
       `Prelude.hashWithSalt` numberOfRecentAmisToKeep
+      `Prelude.hashWithSalt` roleName
       `Prelude.hashWithSalt` replicationJobId
 
 instance Prelude.NFData UpdateReplicationJob where
   rnf UpdateReplicationJob' {..} =
-    Prelude.rnf roleName
-      `Prelude.seq` Prelude.rnf licenseType
-      `Prelude.seq` Prelude.rnf frequency
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
       `Prelude.seq` Prelude.rnf encrypted
+      `Prelude.seq` Prelude.rnf frequency
       `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf licenseType
       `Prelude.seq` Prelude.rnf nextReplicationRunStartTime
       `Prelude.seq` Prelude.rnf numberOfRecentAmisToKeep
+      `Prelude.seq` Prelude.rnf roleName
       `Prelude.seq` Prelude.rnf replicationJobId
 
 instance Data.ToHeaders UpdateReplicationJob where
@@ -256,16 +257,16 @@ instance Data.ToJSON UpdateReplicationJob where
   toJSON UpdateReplicationJob' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("roleName" Data..=) Prelude.<$> roleName,
-            ("licenseType" Data..=) Prelude.<$> licenseType,
-            ("frequency" Data..=) Prelude.<$> frequency,
-            ("description" Data..=) Prelude.<$> description,
+          [ ("description" Data..=) Prelude.<$> description,
             ("encrypted" Data..=) Prelude.<$> encrypted,
+            ("frequency" Data..=) Prelude.<$> frequency,
             ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("licenseType" Data..=) Prelude.<$> licenseType,
             ("nextReplicationRunStartTime" Data..=)
               Prelude.<$> nextReplicationRunStartTime,
             ("numberOfRecentAmisToKeep" Data..=)
               Prelude.<$> numberOfRecentAmisToKeep,
+            ("roleName" Data..=) Prelude.<$> roleName,
             Prelude.Just
               ("replicationJobId" Data..= replicationJobId)
           ]

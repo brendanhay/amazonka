@@ -29,8 +29,8 @@ module Amazonka.SMS.GenerateTemplate
     newGenerateTemplate,
 
     -- * Request Lenses
-    generateTemplate_templateFormat,
     generateTemplate_appId,
+    generateTemplate_templateFormat,
 
     -- * Destructuring the Response
     GenerateTemplateResponse (..),
@@ -52,10 +52,10 @@ import Amazonka.SMS.Types
 
 -- | /See:/ 'newGenerateTemplate' smart constructor.
 data GenerateTemplate = GenerateTemplate'
-  { -- | The format for generating the CloudFormation template.
-    templateFormat :: Prelude.Maybe OutputFormat,
-    -- | The ID of the application associated with the CloudFormation template.
-    appId :: Prelude.Maybe Prelude.Text
+  { -- | The ID of the application associated with the CloudFormation template.
+    appId :: Prelude.Maybe Prelude.Text,
+    -- | The format for generating the CloudFormation template.
+    templateFormat :: Prelude.Maybe OutputFormat
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,24 +67,24 @@ data GenerateTemplate = GenerateTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'templateFormat', 'generateTemplate_templateFormat' - The format for generating the CloudFormation template.
---
 -- 'appId', 'generateTemplate_appId' - The ID of the application associated with the CloudFormation template.
+--
+-- 'templateFormat', 'generateTemplate_templateFormat' - The format for generating the CloudFormation template.
 newGenerateTemplate ::
   GenerateTemplate
 newGenerateTemplate =
   GenerateTemplate'
-    { templateFormat = Prelude.Nothing,
-      appId = Prelude.Nothing
+    { appId = Prelude.Nothing,
+      templateFormat = Prelude.Nothing
     }
-
--- | The format for generating the CloudFormation template.
-generateTemplate_templateFormat :: Lens.Lens' GenerateTemplate (Prelude.Maybe OutputFormat)
-generateTemplate_templateFormat = Lens.lens (\GenerateTemplate' {templateFormat} -> templateFormat) (\s@GenerateTemplate' {} a -> s {templateFormat = a} :: GenerateTemplate)
 
 -- | The ID of the application associated with the CloudFormation template.
 generateTemplate_appId :: Lens.Lens' GenerateTemplate (Prelude.Maybe Prelude.Text)
 generateTemplate_appId = Lens.lens (\GenerateTemplate' {appId} -> appId) (\s@GenerateTemplate' {} a -> s {appId = a} :: GenerateTemplate)
+
+-- | The format for generating the CloudFormation template.
+generateTemplate_templateFormat :: Lens.Lens' GenerateTemplate (Prelude.Maybe OutputFormat)
+generateTemplate_templateFormat = Lens.lens (\GenerateTemplate' {templateFormat} -> templateFormat) (\s@GenerateTemplate' {} a -> s {templateFormat = a} :: GenerateTemplate)
 
 instance Core.AWSRequest GenerateTemplate where
   type
@@ -102,13 +102,13 @@ instance Core.AWSRequest GenerateTemplate where
 
 instance Prelude.Hashable GenerateTemplate where
   hashWithSalt _salt GenerateTemplate' {..} =
-    _salt `Prelude.hashWithSalt` templateFormat
-      `Prelude.hashWithSalt` appId
+    _salt `Prelude.hashWithSalt` appId
+      `Prelude.hashWithSalt` templateFormat
 
 instance Prelude.NFData GenerateTemplate where
   rnf GenerateTemplate' {..} =
-    Prelude.rnf templateFormat
-      `Prelude.seq` Prelude.rnf appId
+    Prelude.rnf appId
+      `Prelude.seq` Prelude.rnf templateFormat
 
 instance Data.ToHeaders GenerateTemplate where
   toHeaders =
@@ -129,9 +129,9 @@ instance Data.ToJSON GenerateTemplate where
   toJSON GenerateTemplate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("templateFormat" Data..=)
-              Prelude.<$> templateFormat,
-            ("appId" Data..=) Prelude.<$> appId
+          [ ("appId" Data..=) Prelude.<$> appId,
+            ("templateFormat" Data..=)
+              Prelude.<$> templateFormat
           ]
       )
 

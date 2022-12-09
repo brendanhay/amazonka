@@ -33,13 +33,13 @@ import Amazonka.SMS.Types.UserDataValidationParameters
 data ServerValidationConfiguration = ServerValidationConfiguration'
   { -- | The name of the configuration.
     name :: Prelude.Maybe Prelude.Text,
+    server :: Prelude.Maybe Server,
+    -- | The validation strategy.
+    serverValidationStrategy :: Prelude.Maybe ServerValidationStrategy,
     -- | The validation parameters.
     userDataValidationParameters :: Prelude.Maybe UserDataValidationParameters,
     -- | The ID of the validation.
-    validationId :: Prelude.Maybe Prelude.Text,
-    -- | The validation strategy.
-    serverValidationStrategy :: Prelude.Maybe ServerValidationStrategy,
-    server :: Prelude.Maybe Server
+    validationId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,29 +53,37 @@ data ServerValidationConfiguration = ServerValidationConfiguration'
 --
 -- 'name', 'serverValidationConfiguration_name' - The name of the configuration.
 --
--- 'userDataValidationParameters', 'serverValidationConfiguration_userDataValidationParameters' - The validation parameters.
---
--- 'validationId', 'serverValidationConfiguration_validationId' - The ID of the validation.
+-- 'server', 'serverValidationConfiguration_server' - Undocumented member.
 --
 -- 'serverValidationStrategy', 'serverValidationConfiguration_serverValidationStrategy' - The validation strategy.
 --
--- 'server', 'serverValidationConfiguration_server' - Undocumented member.
+-- 'userDataValidationParameters', 'serverValidationConfiguration_userDataValidationParameters' - The validation parameters.
+--
+-- 'validationId', 'serverValidationConfiguration_validationId' - The ID of the validation.
 newServerValidationConfiguration ::
   ServerValidationConfiguration
 newServerValidationConfiguration =
   ServerValidationConfiguration'
     { name =
         Prelude.Nothing,
+      server = Prelude.Nothing,
+      serverValidationStrategy = Prelude.Nothing,
       userDataValidationParameters =
         Prelude.Nothing,
-      validationId = Prelude.Nothing,
-      serverValidationStrategy = Prelude.Nothing,
-      server = Prelude.Nothing
+      validationId = Prelude.Nothing
     }
 
 -- | The name of the configuration.
 serverValidationConfiguration_name :: Lens.Lens' ServerValidationConfiguration (Prelude.Maybe Prelude.Text)
 serverValidationConfiguration_name = Lens.lens (\ServerValidationConfiguration' {name} -> name) (\s@ServerValidationConfiguration' {} a -> s {name = a} :: ServerValidationConfiguration)
+
+-- | Undocumented member.
+serverValidationConfiguration_server :: Lens.Lens' ServerValidationConfiguration (Prelude.Maybe Server)
+serverValidationConfiguration_server = Lens.lens (\ServerValidationConfiguration' {server} -> server) (\s@ServerValidationConfiguration' {} a -> s {server = a} :: ServerValidationConfiguration)
+
+-- | The validation strategy.
+serverValidationConfiguration_serverValidationStrategy :: Lens.Lens' ServerValidationConfiguration (Prelude.Maybe ServerValidationStrategy)
+serverValidationConfiguration_serverValidationStrategy = Lens.lens (\ServerValidationConfiguration' {serverValidationStrategy} -> serverValidationStrategy) (\s@ServerValidationConfiguration' {} a -> s {serverValidationStrategy = a} :: ServerValidationConfiguration)
 
 -- | The validation parameters.
 serverValidationConfiguration_userDataValidationParameters :: Lens.Lens' ServerValidationConfiguration (Prelude.Maybe UserDataValidationParameters)
@@ -85,14 +93,6 @@ serverValidationConfiguration_userDataValidationParameters = Lens.lens (\ServerV
 serverValidationConfiguration_validationId :: Lens.Lens' ServerValidationConfiguration (Prelude.Maybe Prelude.Text)
 serverValidationConfiguration_validationId = Lens.lens (\ServerValidationConfiguration' {validationId} -> validationId) (\s@ServerValidationConfiguration' {} a -> s {validationId = a} :: ServerValidationConfiguration)
 
--- | The validation strategy.
-serverValidationConfiguration_serverValidationStrategy :: Lens.Lens' ServerValidationConfiguration (Prelude.Maybe ServerValidationStrategy)
-serverValidationConfiguration_serverValidationStrategy = Lens.lens (\ServerValidationConfiguration' {serverValidationStrategy} -> serverValidationStrategy) (\s@ServerValidationConfiguration' {} a -> s {serverValidationStrategy = a} :: ServerValidationConfiguration)
-
--- | Undocumented member.
-serverValidationConfiguration_server :: Lens.Lens' ServerValidationConfiguration (Prelude.Maybe Server)
-serverValidationConfiguration_server = Lens.lens (\ServerValidationConfiguration' {server} -> server) (\s@ServerValidationConfiguration' {} a -> s {server = a} :: ServerValidationConfiguration)
-
 instance Data.FromJSON ServerValidationConfiguration where
   parseJSON =
     Data.withObject
@@ -100,10 +100,10 @@ instance Data.FromJSON ServerValidationConfiguration where
       ( \x ->
           ServerValidationConfiguration'
             Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "server")
+            Prelude.<*> (x Data..:? "serverValidationStrategy")
             Prelude.<*> (x Data..:? "userDataValidationParameters")
             Prelude.<*> (x Data..:? "validationId")
-            Prelude.<*> (x Data..:? "serverValidationStrategy")
-            Prelude.<*> (x Data..:? "server")
       )
 
 instance
@@ -112,29 +112,29 @@ instance
   where
   hashWithSalt _salt ServerValidationConfiguration' {..} =
     _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` server
+      `Prelude.hashWithSalt` serverValidationStrategy
       `Prelude.hashWithSalt` userDataValidationParameters
       `Prelude.hashWithSalt` validationId
-      `Prelude.hashWithSalt` serverValidationStrategy
-      `Prelude.hashWithSalt` server
 
 instance Prelude.NFData ServerValidationConfiguration where
   rnf ServerValidationConfiguration' {..} =
     Prelude.rnf name
+      `Prelude.seq` Prelude.rnf server
+      `Prelude.seq` Prelude.rnf serverValidationStrategy
       `Prelude.seq` Prelude.rnf userDataValidationParameters
       `Prelude.seq` Prelude.rnf validationId
-      `Prelude.seq` Prelude.rnf serverValidationStrategy
-      `Prelude.seq` Prelude.rnf server
 
 instance Data.ToJSON ServerValidationConfiguration where
   toJSON ServerValidationConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("name" Data..=) Prelude.<$> name,
-            ("userDataValidationParameters" Data..=)
-              Prelude.<$> userDataValidationParameters,
-            ("validationId" Data..=) Prelude.<$> validationId,
+            ("server" Data..=) Prelude.<$> server,
             ("serverValidationStrategy" Data..=)
               Prelude.<$> serverValidationStrategy,
-            ("server" Data..=) Prelude.<$> server
+            ("userDataValidationParameters" Data..=)
+              Prelude.<$> userDataValidationParameters,
+            ("validationId" Data..=) Prelude.<$> validationId
           ]
       )

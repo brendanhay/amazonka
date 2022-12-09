@@ -30,11 +30,11 @@ import Amazonka.SMS.Types.ServerReplicationParameters
 --
 -- /See:/ 'newServerReplicationConfiguration' smart constructor.
 data ServerReplicationConfiguration = ServerReplicationConfiguration'
-  { -- | The parameters for replicating the server.
-    serverReplicationParameters :: Prelude.Maybe ServerReplicationParameters,
-    -- | The ID of the server with which this replication configuration is
+  { -- | The ID of the server with which this replication configuration is
     -- associated.
-    server :: Prelude.Maybe Server
+    server :: Prelude.Maybe Server,
+    -- | The parameters for replicating the server.
+    serverReplicationParameters :: Prelude.Maybe ServerReplicationParameters
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,27 +46,28 @@ data ServerReplicationConfiguration = ServerReplicationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serverReplicationParameters', 'serverReplicationConfiguration_serverReplicationParameters' - The parameters for replicating the server.
---
 -- 'server', 'serverReplicationConfiguration_server' - The ID of the server with which this replication configuration is
 -- associated.
+--
+-- 'serverReplicationParameters', 'serverReplicationConfiguration_serverReplicationParameters' - The parameters for replicating the server.
 newServerReplicationConfiguration ::
   ServerReplicationConfiguration
 newServerReplicationConfiguration =
   ServerReplicationConfiguration'
-    { serverReplicationParameters =
+    { server =
         Prelude.Nothing,
-      server = Prelude.Nothing
+      serverReplicationParameters =
+        Prelude.Nothing
     }
-
--- | The parameters for replicating the server.
-serverReplicationConfiguration_serverReplicationParameters :: Lens.Lens' ServerReplicationConfiguration (Prelude.Maybe ServerReplicationParameters)
-serverReplicationConfiguration_serverReplicationParameters = Lens.lens (\ServerReplicationConfiguration' {serverReplicationParameters} -> serverReplicationParameters) (\s@ServerReplicationConfiguration' {} a -> s {serverReplicationParameters = a} :: ServerReplicationConfiguration)
 
 -- | The ID of the server with which this replication configuration is
 -- associated.
 serverReplicationConfiguration_server :: Lens.Lens' ServerReplicationConfiguration (Prelude.Maybe Server)
 serverReplicationConfiguration_server = Lens.lens (\ServerReplicationConfiguration' {server} -> server) (\s@ServerReplicationConfiguration' {} a -> s {server = a} :: ServerReplicationConfiguration)
+
+-- | The parameters for replicating the server.
+serverReplicationConfiguration_serverReplicationParameters :: Lens.Lens' ServerReplicationConfiguration (Prelude.Maybe ServerReplicationParameters)
+serverReplicationConfiguration_serverReplicationParameters = Lens.lens (\ServerReplicationConfiguration' {serverReplicationParameters} -> serverReplicationParameters) (\s@ServerReplicationConfiguration' {} a -> s {serverReplicationParameters = a} :: ServerReplicationConfiguration)
 
 instance Data.FromJSON ServerReplicationConfiguration where
   parseJSON =
@@ -74,8 +75,8 @@ instance Data.FromJSON ServerReplicationConfiguration where
       "ServerReplicationConfiguration"
       ( \x ->
           ServerReplicationConfiguration'
-            Prelude.<$> (x Data..:? "serverReplicationParameters")
-            Prelude.<*> (x Data..:? "server")
+            Prelude.<$> (x Data..:? "server")
+            Prelude.<*> (x Data..:? "serverReplicationParameters")
       )
 
 instance
@@ -85,24 +86,23 @@ instance
   hashWithSalt
     _salt
     ServerReplicationConfiguration' {..} =
-      _salt
+      _salt `Prelude.hashWithSalt` server
         `Prelude.hashWithSalt` serverReplicationParameters
-        `Prelude.hashWithSalt` server
 
 instance
   Prelude.NFData
     ServerReplicationConfiguration
   where
   rnf ServerReplicationConfiguration' {..} =
-    Prelude.rnf serverReplicationParameters
-      `Prelude.seq` Prelude.rnf server
+    Prelude.rnf server
+      `Prelude.seq` Prelude.rnf serverReplicationParameters
 
 instance Data.ToJSON ServerReplicationConfiguration where
   toJSON ServerReplicationConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("serverReplicationParameters" Data..=)
-              Prelude.<$> serverReplicationParameters,
-            ("server" Data..=) Prelude.<$> server
+          [ ("server" Data..=) Prelude.<$> server,
+            ("serverReplicationParameters" Data..=)
+              Prelude.<$> serverReplicationParameters
           ]
       )

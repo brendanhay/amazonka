@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLFTagError' smart constructor.
 data LFTagError = LFTagError'
-  { -- | The key-name of the LF-tag.
-    lFTag :: Prelude.Maybe LFTagPair,
-    -- | An error that occurred with the attachment or detachment of the LF-tag.
-    error :: Prelude.Maybe ErrorDetail
+  { -- | An error that occurred with the attachment or detachment of the LF-tag.
+    error :: Prelude.Maybe ErrorDetail,
+    -- | The key-name of the LF-tag.
+    lFTag :: Prelude.Maybe LFTagPair
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,24 +46,24 @@ data LFTagError = LFTagError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lFTag', 'lFTagError_lFTag' - The key-name of the LF-tag.
---
 -- 'error', 'lFTagError_error' - An error that occurred with the attachment or detachment of the LF-tag.
+--
+-- 'lFTag', 'lFTagError_lFTag' - The key-name of the LF-tag.
 newLFTagError ::
   LFTagError
 newLFTagError =
   LFTagError'
-    { lFTag = Prelude.Nothing,
-      error = Prelude.Nothing
+    { error = Prelude.Nothing,
+      lFTag = Prelude.Nothing
     }
-
--- | The key-name of the LF-tag.
-lFTagError_lFTag :: Lens.Lens' LFTagError (Prelude.Maybe LFTagPair)
-lFTagError_lFTag = Lens.lens (\LFTagError' {lFTag} -> lFTag) (\s@LFTagError' {} a -> s {lFTag = a} :: LFTagError)
 
 -- | An error that occurred with the attachment or detachment of the LF-tag.
 lFTagError_error :: Lens.Lens' LFTagError (Prelude.Maybe ErrorDetail)
 lFTagError_error = Lens.lens (\LFTagError' {error} -> error) (\s@LFTagError' {} a -> s {error = a} :: LFTagError)
+
+-- | The key-name of the LF-tag.
+lFTagError_lFTag :: Lens.Lens' LFTagError (Prelude.Maybe LFTagPair)
+lFTagError_lFTag = Lens.lens (\LFTagError' {lFTag} -> lFTag) (\s@LFTagError' {} a -> s {lFTag = a} :: LFTagError)
 
 instance Data.FromJSON LFTagError where
   parseJSON =
@@ -71,15 +71,15 @@ instance Data.FromJSON LFTagError where
       "LFTagError"
       ( \x ->
           LFTagError'
-            Prelude.<$> (x Data..:? "LFTag")
-            Prelude.<*> (x Data..:? "Error")
+            Prelude.<$> (x Data..:? "Error")
+            Prelude.<*> (x Data..:? "LFTag")
       )
 
 instance Prelude.Hashable LFTagError where
   hashWithSalt _salt LFTagError' {..} =
-    _salt `Prelude.hashWithSalt` lFTag
-      `Prelude.hashWithSalt` error
+    _salt `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` lFTag
 
 instance Prelude.NFData LFTagError where
   rnf LFTagError' {..} =
-    Prelude.rnf lFTag `Prelude.seq` Prelude.rnf error
+    Prelude.rnf error `Prelude.seq` Prelude.rnf lFTag

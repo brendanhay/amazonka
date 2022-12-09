@@ -30,14 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDataCellsFilter' smart constructor.
 data DataCellsFilter = DataCellsFilter'
-  { -- | A PartiQL predicate.
-    rowFilter :: Prelude.Maybe RowFilter,
-    -- | A list of column names.
+  { -- | A list of column names.
     columnNames :: Prelude.Maybe [Prelude.Text],
     -- | A wildcard with exclusions.
     --
     -- You must specify either a @ColumnNames@ list or the @ColumnWildCard@.
     columnWildcard :: Prelude.Maybe ColumnWildcard,
+    -- | A PartiQL predicate.
+    rowFilter :: Prelude.Maybe RowFilter,
     -- | The ID of the catalog to which the table belongs.
     tableCatalogId :: Prelude.Text,
     -- | A database in the Glue Data Catalog.
@@ -57,13 +57,13 @@ data DataCellsFilter = DataCellsFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rowFilter', 'dataCellsFilter_rowFilter' - A PartiQL predicate.
---
 -- 'columnNames', 'dataCellsFilter_columnNames' - A list of column names.
 --
 -- 'columnWildcard', 'dataCellsFilter_columnWildcard' - A wildcard with exclusions.
 --
 -- You must specify either a @ColumnNames@ list or the @ColumnWildCard@.
+--
+-- 'rowFilter', 'dataCellsFilter_rowFilter' - A PartiQL predicate.
 --
 -- 'tableCatalogId', 'dataCellsFilter_tableCatalogId' - The ID of the catalog to which the table belongs.
 --
@@ -88,18 +88,14 @@ newDataCellsFilter
   pTableName_
   pName_ =
     DataCellsFilter'
-      { rowFilter = Prelude.Nothing,
-        columnNames = Prelude.Nothing,
+      { columnNames = Prelude.Nothing,
         columnWildcard = Prelude.Nothing,
+        rowFilter = Prelude.Nothing,
         tableCatalogId = pTableCatalogId_,
         databaseName = pDatabaseName_,
         tableName = pTableName_,
         name = pName_
       }
-
--- | A PartiQL predicate.
-dataCellsFilter_rowFilter :: Lens.Lens' DataCellsFilter (Prelude.Maybe RowFilter)
-dataCellsFilter_rowFilter = Lens.lens (\DataCellsFilter' {rowFilter} -> rowFilter) (\s@DataCellsFilter' {} a -> s {rowFilter = a} :: DataCellsFilter)
 
 -- | A list of column names.
 dataCellsFilter_columnNames :: Lens.Lens' DataCellsFilter (Prelude.Maybe [Prelude.Text])
@@ -110,6 +106,10 @@ dataCellsFilter_columnNames = Lens.lens (\DataCellsFilter' {columnNames} -> colu
 -- You must specify either a @ColumnNames@ list or the @ColumnWildCard@.
 dataCellsFilter_columnWildcard :: Lens.Lens' DataCellsFilter (Prelude.Maybe ColumnWildcard)
 dataCellsFilter_columnWildcard = Lens.lens (\DataCellsFilter' {columnWildcard} -> columnWildcard) (\s@DataCellsFilter' {} a -> s {columnWildcard = a} :: DataCellsFilter)
+
+-- | A PartiQL predicate.
+dataCellsFilter_rowFilter :: Lens.Lens' DataCellsFilter (Prelude.Maybe RowFilter)
+dataCellsFilter_rowFilter = Lens.lens (\DataCellsFilter' {rowFilter} -> rowFilter) (\s@DataCellsFilter' {} a -> s {rowFilter = a} :: DataCellsFilter)
 
 -- | The ID of the catalog to which the table belongs.
 dataCellsFilter_tableCatalogId :: Lens.Lens' DataCellsFilter Prelude.Text
@@ -133,9 +133,9 @@ instance Data.FromJSON DataCellsFilter where
       "DataCellsFilter"
       ( \x ->
           DataCellsFilter'
-            Prelude.<$> (x Data..:? "RowFilter")
-            Prelude.<*> (x Data..:? "ColumnNames" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "ColumnNames" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ColumnWildcard")
+            Prelude.<*> (x Data..:? "RowFilter")
             Prelude.<*> (x Data..: "TableCatalogId")
             Prelude.<*> (x Data..: "DatabaseName")
             Prelude.<*> (x Data..: "TableName")
@@ -144,9 +144,9 @@ instance Data.FromJSON DataCellsFilter where
 
 instance Prelude.Hashable DataCellsFilter where
   hashWithSalt _salt DataCellsFilter' {..} =
-    _salt `Prelude.hashWithSalt` rowFilter
-      `Prelude.hashWithSalt` columnNames
+    _salt `Prelude.hashWithSalt` columnNames
       `Prelude.hashWithSalt` columnWildcard
+      `Prelude.hashWithSalt` rowFilter
       `Prelude.hashWithSalt` tableCatalogId
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName
@@ -154,9 +154,9 @@ instance Prelude.Hashable DataCellsFilter where
 
 instance Prelude.NFData DataCellsFilter where
   rnf DataCellsFilter' {..} =
-    Prelude.rnf rowFilter
-      `Prelude.seq` Prelude.rnf columnNames
+    Prelude.rnf columnNames
       `Prelude.seq` Prelude.rnf columnWildcard
+      `Prelude.seq` Prelude.rnf rowFilter
       `Prelude.seq` Prelude.rnf tableCatalogId
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tableName
@@ -166,10 +166,10 @@ instance Data.ToJSON DataCellsFilter where
   toJSON DataCellsFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("RowFilter" Data..=) Prelude.<$> rowFilter,
-            ("ColumnNames" Data..=) Prelude.<$> columnNames,
+          [ ("ColumnNames" Data..=) Prelude.<$> columnNames,
             ("ColumnWildcard" Data..=)
               Prelude.<$> columnWildcard,
+            ("RowFilter" Data..=) Prelude.<$> rowFilter,
             Prelude.Just
               ("TableCatalogId" Data..= tableCatalogId),
             Prelude.Just ("DatabaseName" Data..= databaseName),

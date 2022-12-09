@@ -32,9 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPrincipalResourcePermissions' smart constructor.
 data PrincipalResourcePermissions = PrincipalResourcePermissions'
-  { -- | The Data Lake principal to be granted or revoked permissions.
-    principal :: Prelude.Maybe DataLakePrincipal,
-    -- | This attribute can be used to return any additional details of
+  { -- | This attribute can be used to return any additional details of
     -- @PrincipalResourcePermissions@. Currently returns only as a RAM resource
     -- share ARN.
     additionalDetails :: Prelude.Maybe DetailsMap,
@@ -43,6 +41,8 @@ data PrincipalResourcePermissions = PrincipalResourcePermissions'
     -- | Indicates whether to grant the ability to grant permissions (as a subset
     -- of permissions granted).
     permissionsWithGrantOption :: Prelude.Maybe [Permission],
+    -- | The Data Lake principal to be granted or revoked permissions.
+    principal :: Prelude.Maybe DataLakePrincipal,
     -- | The resource where permissions are to be granted or revoked.
     resource :: Prelude.Maybe Resource
   }
@@ -56,8 +56,6 @@ data PrincipalResourcePermissions = PrincipalResourcePermissions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'principal', 'principalResourcePermissions_principal' - The Data Lake principal to be granted or revoked permissions.
---
 -- 'additionalDetails', 'principalResourcePermissions_additionalDetails' - This attribute can be used to return any additional details of
 -- @PrincipalResourcePermissions@. Currently returns only as a RAM resource
 -- share ARN.
@@ -67,22 +65,20 @@ data PrincipalResourcePermissions = PrincipalResourcePermissions'
 -- 'permissionsWithGrantOption', 'principalResourcePermissions_permissionsWithGrantOption' - Indicates whether to grant the ability to grant permissions (as a subset
 -- of permissions granted).
 --
+-- 'principal', 'principalResourcePermissions_principal' - The Data Lake principal to be granted or revoked permissions.
+--
 -- 'resource', 'principalResourcePermissions_resource' - The resource where permissions are to be granted or revoked.
 newPrincipalResourcePermissions ::
   PrincipalResourcePermissions
 newPrincipalResourcePermissions =
   PrincipalResourcePermissions'
-    { principal =
+    { additionalDetails =
         Prelude.Nothing,
-      additionalDetails = Prelude.Nothing,
       permissions = Prelude.Nothing,
       permissionsWithGrantOption = Prelude.Nothing,
+      principal = Prelude.Nothing,
       resource = Prelude.Nothing
     }
-
--- | The Data Lake principal to be granted or revoked permissions.
-principalResourcePermissions_principal :: Lens.Lens' PrincipalResourcePermissions (Prelude.Maybe DataLakePrincipal)
-principalResourcePermissions_principal = Lens.lens (\PrincipalResourcePermissions' {principal} -> principal) (\s@PrincipalResourcePermissions' {} a -> s {principal = a} :: PrincipalResourcePermissions)
 
 -- | This attribute can be used to return any additional details of
 -- @PrincipalResourcePermissions@. Currently returns only as a RAM resource
@@ -99,6 +95,10 @@ principalResourcePermissions_permissions = Lens.lens (\PrincipalResourcePermissi
 principalResourcePermissions_permissionsWithGrantOption :: Lens.Lens' PrincipalResourcePermissions (Prelude.Maybe [Permission])
 principalResourcePermissions_permissionsWithGrantOption = Lens.lens (\PrincipalResourcePermissions' {permissionsWithGrantOption} -> permissionsWithGrantOption) (\s@PrincipalResourcePermissions' {} a -> s {permissionsWithGrantOption = a} :: PrincipalResourcePermissions) Prelude.. Lens.mapping Lens.coerced
 
+-- | The Data Lake principal to be granted or revoked permissions.
+principalResourcePermissions_principal :: Lens.Lens' PrincipalResourcePermissions (Prelude.Maybe DataLakePrincipal)
+principalResourcePermissions_principal = Lens.lens (\PrincipalResourcePermissions' {principal} -> principal) (\s@PrincipalResourcePermissions' {} a -> s {principal = a} :: PrincipalResourcePermissions)
+
 -- | The resource where permissions are to be granted or revoked.
 principalResourcePermissions_resource :: Lens.Lens' PrincipalResourcePermissions (Prelude.Maybe Resource)
 principalResourcePermissions_resource = Lens.lens (\PrincipalResourcePermissions' {resource} -> resource) (\s@PrincipalResourcePermissions' {} a -> s {resource = a} :: PrincipalResourcePermissions)
@@ -109,12 +109,12 @@ instance Data.FromJSON PrincipalResourcePermissions where
       "PrincipalResourcePermissions"
       ( \x ->
           PrincipalResourcePermissions'
-            Prelude.<$> (x Data..:? "Principal")
-            Prelude.<*> (x Data..:? "AdditionalDetails")
+            Prelude.<$> (x Data..:? "AdditionalDetails")
             Prelude.<*> (x Data..:? "Permissions" Data..!= Prelude.mempty)
             Prelude.<*> ( x Data..:? "PermissionsWithGrantOption"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "Principal")
             Prelude.<*> (x Data..:? "Resource")
       )
 
@@ -123,16 +123,16 @@ instance
     PrincipalResourcePermissions
   where
   hashWithSalt _salt PrincipalResourcePermissions' {..} =
-    _salt `Prelude.hashWithSalt` principal
-      `Prelude.hashWithSalt` additionalDetails
+    _salt `Prelude.hashWithSalt` additionalDetails
       `Prelude.hashWithSalt` permissions
       `Prelude.hashWithSalt` permissionsWithGrantOption
+      `Prelude.hashWithSalt` principal
       `Prelude.hashWithSalt` resource
 
 instance Prelude.NFData PrincipalResourcePermissions where
   rnf PrincipalResourcePermissions' {..} =
-    Prelude.rnf principal
-      `Prelude.seq` Prelude.rnf additionalDetails
+    Prelude.rnf additionalDetails
       `Prelude.seq` Prelude.rnf permissions
       `Prelude.seq` Prelude.rnf permissionsWithGrantOption
+      `Prelude.seq` Prelude.rnf principal
       `Prelude.seq` Prelude.rnf resource

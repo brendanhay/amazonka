@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchPermissionsFailureEntry' smart constructor.
 data BatchPermissionsFailureEntry = BatchPermissionsFailureEntry'
-  { -- | An identifier for an entry of the batch request.
-    requestEntry :: Prelude.Maybe BatchPermissionsRequestEntry,
-    -- | An error message that applies to the failure of the entry.
-    error :: Prelude.Maybe ErrorDetail
+  { -- | An error message that applies to the failure of the entry.
+    error :: Prelude.Maybe ErrorDetail,
+    -- | An identifier for an entry of the batch request.
+    requestEntry :: Prelude.Maybe BatchPermissionsRequestEntry
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,25 +46,25 @@ data BatchPermissionsFailureEntry = BatchPermissionsFailureEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestEntry', 'batchPermissionsFailureEntry_requestEntry' - An identifier for an entry of the batch request.
---
 -- 'error', 'batchPermissionsFailureEntry_error' - An error message that applies to the failure of the entry.
+--
+-- 'requestEntry', 'batchPermissionsFailureEntry_requestEntry' - An identifier for an entry of the batch request.
 newBatchPermissionsFailureEntry ::
   BatchPermissionsFailureEntry
 newBatchPermissionsFailureEntry =
   BatchPermissionsFailureEntry'
-    { requestEntry =
+    { error =
         Prelude.Nothing,
-      error = Prelude.Nothing
+      requestEntry = Prelude.Nothing
     }
-
--- | An identifier for an entry of the batch request.
-batchPermissionsFailureEntry_requestEntry :: Lens.Lens' BatchPermissionsFailureEntry (Prelude.Maybe BatchPermissionsRequestEntry)
-batchPermissionsFailureEntry_requestEntry = Lens.lens (\BatchPermissionsFailureEntry' {requestEntry} -> requestEntry) (\s@BatchPermissionsFailureEntry' {} a -> s {requestEntry = a} :: BatchPermissionsFailureEntry)
 
 -- | An error message that applies to the failure of the entry.
 batchPermissionsFailureEntry_error :: Lens.Lens' BatchPermissionsFailureEntry (Prelude.Maybe ErrorDetail)
 batchPermissionsFailureEntry_error = Lens.lens (\BatchPermissionsFailureEntry' {error} -> error) (\s@BatchPermissionsFailureEntry' {} a -> s {error = a} :: BatchPermissionsFailureEntry)
+
+-- | An identifier for an entry of the batch request.
+batchPermissionsFailureEntry_requestEntry :: Lens.Lens' BatchPermissionsFailureEntry (Prelude.Maybe BatchPermissionsRequestEntry)
+batchPermissionsFailureEntry_requestEntry = Lens.lens (\BatchPermissionsFailureEntry' {requestEntry} -> requestEntry) (\s@BatchPermissionsFailureEntry' {} a -> s {requestEntry = a} :: BatchPermissionsFailureEntry)
 
 instance Data.FromJSON BatchPermissionsFailureEntry where
   parseJSON =
@@ -72,8 +72,8 @@ instance Data.FromJSON BatchPermissionsFailureEntry where
       "BatchPermissionsFailureEntry"
       ( \x ->
           BatchPermissionsFailureEntry'
-            Prelude.<$> (x Data..:? "RequestEntry")
-            Prelude.<*> (x Data..:? "Error")
+            Prelude.<$> (x Data..:? "Error")
+            Prelude.<*> (x Data..:? "RequestEntry")
       )
 
 instance
@@ -81,10 +81,10 @@ instance
     BatchPermissionsFailureEntry
   where
   hashWithSalt _salt BatchPermissionsFailureEntry' {..} =
-    _salt `Prelude.hashWithSalt` requestEntry
-      `Prelude.hashWithSalt` error
+    _salt `Prelude.hashWithSalt` error
+      `Prelude.hashWithSalt` requestEntry
 
 instance Prelude.NFData BatchPermissionsFailureEntry where
   rnf BatchPermissionsFailureEntry' {..} =
-    Prelude.rnf requestEntry
-      `Prelude.seq` Prelude.rnf error
+    Prelude.rnf error
+      `Prelude.seq` Prelude.rnf requestEntry

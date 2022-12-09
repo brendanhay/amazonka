@@ -32,8 +32,8 @@ module Amazonka.LakeFormation.GetTemporaryGlueTableCredentials
 
     -- * Request Lenses
     getTemporaryGlueTableCredentials_auditContext,
-    getTemporaryGlueTableCredentials_permissions,
     getTemporaryGlueTableCredentials_durationSeconds,
+    getTemporaryGlueTableCredentials_permissions,
     getTemporaryGlueTableCredentials_tableArn,
     getTemporaryGlueTableCredentials_supportedPermissionTypes,
 
@@ -42,10 +42,10 @@ module Amazonka.LakeFormation.GetTemporaryGlueTableCredentials
     newGetTemporaryGlueTableCredentialsResponse,
 
     -- * Response Lenses
-    getTemporaryGlueTableCredentialsResponse_sessionToken,
+    getTemporaryGlueTableCredentialsResponse_accessKeyId,
     getTemporaryGlueTableCredentialsResponse_expiration,
     getTemporaryGlueTableCredentialsResponse_secretAccessKey,
-    getTemporaryGlueTableCredentialsResponse_accessKeyId,
+    getTemporaryGlueTableCredentialsResponse_sessionToken,
     getTemporaryGlueTableCredentialsResponse_httpStatus,
   )
 where
@@ -63,12 +63,12 @@ data GetTemporaryGlueTableCredentials = GetTemporaryGlueTableCredentials'
   { -- | A structure representing context to access a resource (column names,
     -- query ID, etc).
     auditContext :: Prelude.Maybe AuditContext,
-    -- | Filters the request based on the user having been granted a list of
-    -- specified permissions on the requested resource(s).
-    permissions :: Prelude.Maybe [Permission],
     -- | The time period, between 900 and 21,600 seconds, for the timeout of the
     -- temporary credentials.
     durationSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | Filters the request based on the user having been granted a list of
+    -- specified permissions on the requested resource(s).
+    permissions :: Prelude.Maybe [Permission],
     -- | The ARN identifying a table in the Data Catalog for the temporary
     -- credentials request.
     tableArn :: Prelude.Text,
@@ -89,11 +89,11 @@ data GetTemporaryGlueTableCredentials = GetTemporaryGlueTableCredentials'
 -- 'auditContext', 'getTemporaryGlueTableCredentials_auditContext' - A structure representing context to access a resource (column names,
 -- query ID, etc).
 --
--- 'permissions', 'getTemporaryGlueTableCredentials_permissions' - Filters the request based on the user having been granted a list of
--- specified permissions on the requested resource(s).
---
 -- 'durationSeconds', 'getTemporaryGlueTableCredentials_durationSeconds' - The time period, between 900 and 21,600 seconds, for the timeout of the
 -- temporary credentials.
+--
+-- 'permissions', 'getTemporaryGlueTableCredentials_permissions' - Filters the request based on the user having been granted a list of
+-- specified permissions on the requested resource(s).
 --
 -- 'tableArn', 'getTemporaryGlueTableCredentials_tableArn' - The ARN identifying a table in the Data Catalog for the temporary
 -- credentials request.
@@ -112,8 +112,8 @@ newGetTemporaryGlueTableCredentials
     GetTemporaryGlueTableCredentials'
       { auditContext =
           Prelude.Nothing,
-        permissions = Prelude.Nothing,
         durationSeconds = Prelude.Nothing,
+        permissions = Prelude.Nothing,
         tableArn = pTableArn_,
         supportedPermissionTypes =
           Lens.coerced
@@ -125,15 +125,15 @@ newGetTemporaryGlueTableCredentials
 getTemporaryGlueTableCredentials_auditContext :: Lens.Lens' GetTemporaryGlueTableCredentials (Prelude.Maybe AuditContext)
 getTemporaryGlueTableCredentials_auditContext = Lens.lens (\GetTemporaryGlueTableCredentials' {auditContext} -> auditContext) (\s@GetTemporaryGlueTableCredentials' {} a -> s {auditContext = a} :: GetTemporaryGlueTableCredentials)
 
--- | Filters the request based on the user having been granted a list of
--- specified permissions on the requested resource(s).
-getTemporaryGlueTableCredentials_permissions :: Lens.Lens' GetTemporaryGlueTableCredentials (Prelude.Maybe [Permission])
-getTemporaryGlueTableCredentials_permissions = Lens.lens (\GetTemporaryGlueTableCredentials' {permissions} -> permissions) (\s@GetTemporaryGlueTableCredentials' {} a -> s {permissions = a} :: GetTemporaryGlueTableCredentials) Prelude.. Lens.mapping Lens.coerced
-
 -- | The time period, between 900 and 21,600 seconds, for the timeout of the
 -- temporary credentials.
 getTemporaryGlueTableCredentials_durationSeconds :: Lens.Lens' GetTemporaryGlueTableCredentials (Prelude.Maybe Prelude.Natural)
 getTemporaryGlueTableCredentials_durationSeconds = Lens.lens (\GetTemporaryGlueTableCredentials' {durationSeconds} -> durationSeconds) (\s@GetTemporaryGlueTableCredentials' {} a -> s {durationSeconds = a} :: GetTemporaryGlueTableCredentials)
+
+-- | Filters the request based on the user having been granted a list of
+-- specified permissions on the requested resource(s).
+getTemporaryGlueTableCredentials_permissions :: Lens.Lens' GetTemporaryGlueTableCredentials (Prelude.Maybe [Permission])
+getTemporaryGlueTableCredentials_permissions = Lens.lens (\GetTemporaryGlueTableCredentials' {permissions} -> permissions) (\s@GetTemporaryGlueTableCredentials' {} a -> s {permissions = a} :: GetTemporaryGlueTableCredentials) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN identifying a table in the Data Catalog for the temporary
 -- credentials request.
@@ -158,10 +158,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetTemporaryGlueTableCredentialsResponse'
-            Prelude.<$> (x Data..?> "SessionToken")
+            Prelude.<$> (x Data..?> "AccessKeyId")
             Prelude.<*> (x Data..?> "Expiration")
             Prelude.<*> (x Data..?> "SecretAccessKey")
-            Prelude.<*> (x Data..?> "AccessKeyId")
+            Prelude.<*> (x Data..?> "SessionToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,8 +173,8 @@ instance
     _salt
     GetTemporaryGlueTableCredentials' {..} =
       _salt `Prelude.hashWithSalt` auditContext
-        `Prelude.hashWithSalt` permissions
         `Prelude.hashWithSalt` durationSeconds
+        `Prelude.hashWithSalt` permissions
         `Prelude.hashWithSalt` tableArn
         `Prelude.hashWithSalt` supportedPermissionTypes
 
@@ -184,8 +184,8 @@ instance
   where
   rnf GetTemporaryGlueTableCredentials' {..} =
     Prelude.rnf auditContext
-      `Prelude.seq` Prelude.rnf permissions
       `Prelude.seq` Prelude.rnf durationSeconds
+      `Prelude.seq` Prelude.rnf permissions
       `Prelude.seq` Prelude.rnf tableArn
       `Prelude.seq` Prelude.rnf supportedPermissionTypes
 
@@ -208,9 +208,9 @@ instance Data.ToJSON GetTemporaryGlueTableCredentials where
     Data.object
       ( Prelude.catMaybes
           [ ("AuditContext" Data..=) Prelude.<$> auditContext,
-            ("Permissions" Data..=) Prelude.<$> permissions,
             ("DurationSeconds" Data..=)
               Prelude.<$> durationSeconds,
+            ("Permissions" Data..=) Prelude.<$> permissions,
             Prelude.Just ("TableArn" Data..= tableArn),
             Prelude.Just
               ( "SupportedPermissionTypes"
@@ -231,14 +231,14 @@ instance
 
 -- | /See:/ 'newGetTemporaryGlueTableCredentialsResponse' smart constructor.
 data GetTemporaryGlueTableCredentialsResponse = GetTemporaryGlueTableCredentialsResponse'
-  { -- | The session token for the temporary credentials.
-    sessionToken :: Prelude.Maybe Prelude.Text,
+  { -- | The access key ID for the temporary credentials.
+    accessKeyId :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the temporary credentials expire.
     expiration :: Prelude.Maybe Data.POSIX,
     -- | The secret key for the temporary credentials.
     secretAccessKey :: Prelude.Maybe Prelude.Text,
-    -- | The access key ID for the temporary credentials.
-    accessKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The session token for the temporary credentials.
+    sessionToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -252,13 +252,13 @@ data GetTemporaryGlueTableCredentialsResponse = GetTemporaryGlueTableCredentials
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sessionToken', 'getTemporaryGlueTableCredentialsResponse_sessionToken' - The session token for the temporary credentials.
+-- 'accessKeyId', 'getTemporaryGlueTableCredentialsResponse_accessKeyId' - The access key ID for the temporary credentials.
 --
 -- 'expiration', 'getTemporaryGlueTableCredentialsResponse_expiration' - The date and time when the temporary credentials expire.
 --
 -- 'secretAccessKey', 'getTemporaryGlueTableCredentialsResponse_secretAccessKey' - The secret key for the temporary credentials.
 --
--- 'accessKeyId', 'getTemporaryGlueTableCredentialsResponse_accessKeyId' - The access key ID for the temporary credentials.
+-- 'sessionToken', 'getTemporaryGlueTableCredentialsResponse_sessionToken' - The session token for the temporary credentials.
 --
 -- 'httpStatus', 'getTemporaryGlueTableCredentialsResponse_httpStatus' - The response's http status code.
 newGetTemporaryGlueTableCredentialsResponse ::
@@ -268,17 +268,17 @@ newGetTemporaryGlueTableCredentialsResponse ::
 newGetTemporaryGlueTableCredentialsResponse
   pHttpStatus_ =
     GetTemporaryGlueTableCredentialsResponse'
-      { sessionToken =
+      { accessKeyId =
           Prelude.Nothing,
         expiration = Prelude.Nothing,
         secretAccessKey = Prelude.Nothing,
-        accessKeyId = Prelude.Nothing,
+        sessionToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
--- | The session token for the temporary credentials.
-getTemporaryGlueTableCredentialsResponse_sessionToken :: Lens.Lens' GetTemporaryGlueTableCredentialsResponse (Prelude.Maybe Prelude.Text)
-getTemporaryGlueTableCredentialsResponse_sessionToken = Lens.lens (\GetTemporaryGlueTableCredentialsResponse' {sessionToken} -> sessionToken) (\s@GetTemporaryGlueTableCredentialsResponse' {} a -> s {sessionToken = a} :: GetTemporaryGlueTableCredentialsResponse)
+-- | The access key ID for the temporary credentials.
+getTemporaryGlueTableCredentialsResponse_accessKeyId :: Lens.Lens' GetTemporaryGlueTableCredentialsResponse (Prelude.Maybe Prelude.Text)
+getTemporaryGlueTableCredentialsResponse_accessKeyId = Lens.lens (\GetTemporaryGlueTableCredentialsResponse' {accessKeyId} -> accessKeyId) (\s@GetTemporaryGlueTableCredentialsResponse' {} a -> s {accessKeyId = a} :: GetTemporaryGlueTableCredentialsResponse)
 
 -- | The date and time when the temporary credentials expire.
 getTemporaryGlueTableCredentialsResponse_expiration :: Lens.Lens' GetTemporaryGlueTableCredentialsResponse (Prelude.Maybe Prelude.UTCTime)
@@ -288,9 +288,9 @@ getTemporaryGlueTableCredentialsResponse_expiration = Lens.lens (\GetTemporaryGl
 getTemporaryGlueTableCredentialsResponse_secretAccessKey :: Lens.Lens' GetTemporaryGlueTableCredentialsResponse (Prelude.Maybe Prelude.Text)
 getTemporaryGlueTableCredentialsResponse_secretAccessKey = Lens.lens (\GetTemporaryGlueTableCredentialsResponse' {secretAccessKey} -> secretAccessKey) (\s@GetTemporaryGlueTableCredentialsResponse' {} a -> s {secretAccessKey = a} :: GetTemporaryGlueTableCredentialsResponse)
 
--- | The access key ID for the temporary credentials.
-getTemporaryGlueTableCredentialsResponse_accessKeyId :: Lens.Lens' GetTemporaryGlueTableCredentialsResponse (Prelude.Maybe Prelude.Text)
-getTemporaryGlueTableCredentialsResponse_accessKeyId = Lens.lens (\GetTemporaryGlueTableCredentialsResponse' {accessKeyId} -> accessKeyId) (\s@GetTemporaryGlueTableCredentialsResponse' {} a -> s {accessKeyId = a} :: GetTemporaryGlueTableCredentialsResponse)
+-- | The session token for the temporary credentials.
+getTemporaryGlueTableCredentialsResponse_sessionToken :: Lens.Lens' GetTemporaryGlueTableCredentialsResponse (Prelude.Maybe Prelude.Text)
+getTemporaryGlueTableCredentialsResponse_sessionToken = Lens.lens (\GetTemporaryGlueTableCredentialsResponse' {sessionToken} -> sessionToken) (\s@GetTemporaryGlueTableCredentialsResponse' {} a -> s {sessionToken = a} :: GetTemporaryGlueTableCredentialsResponse)
 
 -- | The response's http status code.
 getTemporaryGlueTableCredentialsResponse_httpStatus :: Lens.Lens' GetTemporaryGlueTableCredentialsResponse Prelude.Int
@@ -301,8 +301,8 @@ instance
     GetTemporaryGlueTableCredentialsResponse
   where
   rnf GetTemporaryGlueTableCredentialsResponse' {..} =
-    Prelude.rnf sessionToken
+    Prelude.rnf accessKeyId
       `Prelude.seq` Prelude.rnf expiration
       `Prelude.seq` Prelude.rnf secretAccessKey
-      `Prelude.seq` Prelude.rnf accessKeyId
+      `Prelude.seq` Prelude.rnf sessionToken
       `Prelude.seq` Prelude.rnf httpStatus

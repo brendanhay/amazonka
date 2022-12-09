@@ -18,24 +18,24 @@ module Amazonka.LakeFormation.Types
     defaultService,
 
     -- * Errors
-    _InvalidInputException,
-    _ResourceNumberLimitExceededException,
-    _ResourceNotReadyException,
-    _ConcurrentModificationException,
     _AccessDeniedException,
-    _WorkUnitsNotReadyYetException,
-    _TransactionCommittedException,
-    _TransactionCommitInProgressException,
-    _StatisticsNotReadyYetException,
     _AlreadyExistsException,
-    _TransactionCanceledException,
-    _PermissionTypeMismatchException,
-    _GlueEncryptionException,
+    _ConcurrentModificationException,
     _EntityNotFoundException,
     _ExpiredException,
+    _GlueEncryptionException,
     _InternalServiceException,
+    _InvalidInputException,
     _OperationTimeoutException,
+    _PermissionTypeMismatchException,
+    _ResourceNotReadyException,
+    _ResourceNumberLimitExceededException,
+    _StatisticsNotReadyYetException,
     _ThrottledException,
+    _TransactionCanceledException,
+    _TransactionCommitInProgressException,
+    _TransactionCommittedException,
+    _WorkUnitsNotReadyYetException,
 
     -- * ComparisonOperator
     ComparisonOperator (..),
@@ -93,15 +93,15 @@ module Amazonka.LakeFormation.Types
     -- * BatchPermissionsFailureEntry
     BatchPermissionsFailureEntry (..),
     newBatchPermissionsFailureEntry,
-    batchPermissionsFailureEntry_requestEntry,
     batchPermissionsFailureEntry_error,
+    batchPermissionsFailureEntry_requestEntry,
 
     -- * BatchPermissionsRequestEntry
     BatchPermissionsRequestEntry (..),
     newBatchPermissionsRequestEntry,
-    batchPermissionsRequestEntry_principal,
     batchPermissionsRequestEntry_permissions,
     batchPermissionsRequestEntry_permissionsWithGrantOption,
+    batchPermissionsRequestEntry_principal,
     batchPermissionsRequestEntry_resource,
     batchPermissionsRequestEntry_id,
 
@@ -112,8 +112,8 @@ module Amazonka.LakeFormation.Types
     -- * ColumnLFTag
     ColumnLFTag (..),
     newColumnLFTag,
-    columnLFTag_name,
     columnLFTag_lFTags,
+    columnLFTag_name,
 
     -- * ColumnWildcard
     ColumnWildcard (..),
@@ -123,9 +123,9 @@ module Amazonka.LakeFormation.Types
     -- * DataCellsFilter
     DataCellsFilter (..),
     newDataCellsFilter,
-    dataCellsFilter_rowFilter,
     dataCellsFilter_columnNames,
     dataCellsFilter_columnWildcard,
+    dataCellsFilter_rowFilter,
     dataCellsFilter_tableCatalogId,
     dataCellsFilter_databaseName,
     dataCellsFilter_tableName,
@@ -134,10 +134,10 @@ module Amazonka.LakeFormation.Types
     -- * DataCellsFilterResource
     DataCellsFilterResource (..),
     newDataCellsFilterResource,
-    dataCellsFilterResource_tableName,
-    dataCellsFilterResource_name,
     dataCellsFilterResource_databaseName,
+    dataCellsFilterResource_name,
     dataCellsFilterResource_tableCatalogId,
+    dataCellsFilterResource_tableName,
 
     -- * DataLakePrincipal
     DataLakePrincipal (..),
@@ -147,14 +147,14 @@ module Amazonka.LakeFormation.Types
     -- * DataLakeSettings
     DataLakeSettings (..),
     newDataLakeSettings,
-    dataLakeSettings_dataLakeAdmins,
-    dataLakeSettings_createDatabaseDefaultPermissions,
     dataLakeSettings_allowExternalDataFiltering,
-    dataLakeSettings_trustedResourceOwners,
     dataLakeSettings_authorizedSessionTagValueList,
+    dataLakeSettings_createDatabaseDefaultPermissions,
     dataLakeSettings_createTableDefaultPermissions,
+    dataLakeSettings_dataLakeAdmins,
     dataLakeSettings_externalDataFilteringAllowList,
     dataLakeSettings_parameters,
+    dataLakeSettings_trustedResourceOwners,
 
     -- * DataLocationResource
     DataLocationResource (..),
@@ -171,8 +171,8 @@ module Amazonka.LakeFormation.Types
     -- * DeleteObjectInput
     DeleteObjectInput (..),
     newDeleteObjectInput,
-    deleteObjectInput_partitionValues,
     deleteObjectInput_eTag,
+    deleteObjectInput_partitionValues,
     deleteObjectInput_uri,
 
     -- * DetailsMap
@@ -183,21 +183,21 @@ module Amazonka.LakeFormation.Types
     -- * ErrorDetail
     ErrorDetail (..),
     newErrorDetail,
-    errorDetail_errorMessage,
     errorDetail_errorCode,
+    errorDetail_errorMessage,
 
     -- * ExecutionStatistics
     ExecutionStatistics (..),
     newExecutionStatistics,
-    executionStatistics_workUnitsExecutedCount,
     executionStatistics_averageExecutionTimeMillis,
     executionStatistics_dataScannedBytes,
+    executionStatistics_workUnitsExecutedCount,
 
     -- * FilterCondition
     FilterCondition (..),
     newFilterCondition,
-    filterCondition_field,
     filterCondition_comparisonOperator,
+    filterCondition_field,
     filterCondition_stringValueList,
 
     -- * LFTag
@@ -209,8 +209,8 @@ module Amazonka.LakeFormation.Types
     -- * LFTagError
     LFTagError (..),
     newLFTagError,
-    lFTagError_lFTag,
     lFTagError_error,
+    lFTagError_lFTag,
 
     -- * LFTagKeyResource
     LFTagKeyResource (..),
@@ -247,53 +247,53 @@ module Amazonka.LakeFormation.Types
     -- * PlanningStatistics
     PlanningStatistics (..),
     newPlanningStatistics,
-    planningStatistics_planningTimeMillis,
-    planningStatistics_workUnitsGeneratedCount,
     planningStatistics_estimatedDataToScanBytes,
+    planningStatistics_planningTimeMillis,
     planningStatistics_queueTimeMillis,
+    planningStatistics_workUnitsGeneratedCount,
 
     -- * PrincipalPermissions
     PrincipalPermissions (..),
     newPrincipalPermissions,
-    principalPermissions_principal,
     principalPermissions_permissions,
+    principalPermissions_principal,
 
     -- * PrincipalResourcePermissions
     PrincipalResourcePermissions (..),
     newPrincipalResourcePermissions,
-    principalResourcePermissions_principal,
     principalResourcePermissions_additionalDetails,
     principalResourcePermissions_permissions,
     principalResourcePermissions_permissionsWithGrantOption,
+    principalResourcePermissions_principal,
     principalResourcePermissions_resource,
 
     -- * QueryPlanningContext
     QueryPlanningContext (..),
     newQueryPlanningContext,
+    queryPlanningContext_catalogId,
     queryPlanningContext_queryAsOfTime,
     queryPlanningContext_queryParameters,
-    queryPlanningContext_catalogId,
     queryPlanningContext_transactionId,
     queryPlanningContext_databaseName,
 
     -- * Resource
     Resource (..),
     newResource,
-    resource_tableWithColumns,
     resource_catalog,
+    resource_dataCellsFilter,
+    resource_dataLocation,
+    resource_database,
     resource_lFTag,
     resource_lFTagPolicy,
-    resource_dataCellsFilter,
-    resource_database,
-    resource_dataLocation,
     resource_table,
+    resource_tableWithColumns,
 
     -- * ResourceInfo
     ResourceInfo (..),
     newResourceInfo,
-    resourceInfo_roleArn,
     resourceInfo_lastModified,
     resourceInfo_resourceArn,
+    resourceInfo_roleArn,
 
     -- * RowFilter
     RowFilter (..),
@@ -304,25 +304,25 @@ module Amazonka.LakeFormation.Types
     -- * StorageOptimizer
     StorageOptimizer (..),
     newStorageOptimizer,
-    storageOptimizer_storageOptimizerType,
-    storageOptimizer_errorMessage,
-    storageOptimizer_warnings,
-    storageOptimizer_lastRunDetails,
     storageOptimizer_config,
+    storageOptimizer_errorMessage,
+    storageOptimizer_lastRunDetails,
+    storageOptimizer_storageOptimizerType,
+    storageOptimizer_warnings,
 
     -- * TableObject
     TableObject (..),
     newTableObject,
+    tableObject_eTag,
     tableObject_size,
     tableObject_uri,
-    tableObject_eTag,
 
     -- * TableResource
     TableResource (..),
     newTableResource,
+    tableResource_catalogId,
     tableResource_name,
     tableResource_tableWildcard,
-    tableResource_catalogId,
     tableResource_databaseName,
 
     -- * TableWildcard
@@ -332,33 +332,33 @@ module Amazonka.LakeFormation.Types
     -- * TableWithColumnsResource
     TableWithColumnsResource (..),
     newTableWithColumnsResource,
+    tableWithColumnsResource_catalogId,
     tableWithColumnsResource_columnNames,
     tableWithColumnsResource_columnWildcard,
-    tableWithColumnsResource_catalogId,
     tableWithColumnsResource_databaseName,
     tableWithColumnsResource_name,
 
     -- * TaggedDatabase
     TaggedDatabase (..),
     newTaggedDatabase,
-    taggedDatabase_lFTags,
     taggedDatabase_database,
+    taggedDatabase_lFTags,
 
     -- * TaggedTable
     TaggedTable (..),
     newTaggedTable,
-    taggedTable_lFTagsOnTable,
-    taggedTable_table,
     taggedTable_lFTagOnDatabase,
     taggedTable_lFTagsOnColumns,
+    taggedTable_lFTagsOnTable,
+    taggedTable_table,
 
     -- * TransactionDescription
     TransactionDescription (..),
     newTransactionDescription,
-    transactionDescription_transactionStartTime,
-    transactionDescription_transactionId,
-    transactionDescription_transactionStatus,
     transactionDescription_transactionEndTime,
+    transactionDescription_transactionId,
+    transactionDescription_transactionStartTime,
+    transactionDescription_transactionStatus,
 
     -- * VirtualObject
     VirtualObject (..),
@@ -376,8 +376,8 @@ module Amazonka.LakeFormation.Types
     -- * WriteOperation
     WriteOperation (..),
     newWriteOperation,
-    writeOperation_deleteObject,
     writeOperation_addObject,
+    writeOperation_deleteObject,
   )
 where
 
@@ -467,28 +467,22 @@ defaultService =
           Core.check = check
         }
     check e
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "Throttling"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throttling"
       | Lens.has (Core.hasStatus 503) e =
         Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
@@ -496,13 +490,17 @@ defaultService =
           e =
         Prelude.Just "throttled_exception"
       | Lens.has
+          ( Core.hasCode "Throttling"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttling_exception"
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
@@ -510,38 +508,9 @@ defaultService =
           )
           e =
         Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The input provided was not valid.
-_InvalidInputException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidInputException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidInputException"
-    Prelude.. Core.hasStatus 400
-
--- | A resource numerical limit was exceeded.
-_ResourceNumberLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNumberLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNumberLimitExceededException"
-
--- | Contains details about an error related to a resource which is not ready
--- for a transaction.
-_ResourceNotReadyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotReadyException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotReadyException"
-    Prelude.. Core.hasStatus 400
-
--- | Two processes are trying to modify a resource simultaneously.
-_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConcurrentModificationException =
-  Core._MatchServiceError
-    defaultService
-    "ConcurrentModificationException"
 
 -- | Access to a resource was denied.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -551,40 +520,6 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
--- | Contains details about an error related to work units not being ready.
-_WorkUnitsNotReadyYetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_WorkUnitsNotReadyYetException =
-  Core._MatchServiceError
-    defaultService
-    "WorkUnitsNotReadyYetException"
-    Prelude.. Core.hasStatus 420
-
--- | Contains details about an error where the specified transaction has
--- already been committed and cannot be used for @UpdateTableObjects@.
-_TransactionCommittedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TransactionCommittedException =
-  Core._MatchServiceError
-    defaultService
-    "TransactionCommittedException"
-    Prelude.. Core.hasStatus 400
-
--- | Contains details about an error related to a transaction commit that was
--- in progress.
-_TransactionCommitInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TransactionCommitInProgressException =
-  Core._MatchServiceError
-    defaultService
-    "TransactionCommitInProgressException"
-    Prelude.. Core.hasStatus 400
-
--- | Contains details about an error related to statistics not being ready.
-_StatisticsNotReadyYetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_StatisticsNotReadyYetException =
-  Core._MatchServiceError
-    defaultService
-    "StatisticsNotReadyYetException"
-    Prelude.. Core.hasStatus 420
-
 -- | A resource to be created or added already exists.
 _AlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AlreadyExistsException =
@@ -592,32 +527,12 @@ _AlreadyExistsException =
     defaultService
     "AlreadyExistsException"
 
--- | Contains details about an error related to a transaction that was
--- cancelled.
-_TransactionCanceledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TransactionCanceledException =
+-- | Two processes are trying to modify a resource simultaneously.
+_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
-    "TransactionCanceledException"
-    Prelude.. Core.hasStatus 400
-
--- | The engine does not support filtering data based on the enforced
--- permissions. For example, if you call the
--- @GetTemporaryGlueTableCredentials@ operation with
--- @SupportedPermissionType@ equal to @ColumnPermission@, but cell-level
--- permissions exist on the table, this exception is thrown.
-_PermissionTypeMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PermissionTypeMismatchException =
-  Core._MatchServiceError
-    defaultService
-    "PermissionTypeMismatchException"
-
--- | An encryption operation failed.
-_GlueEncryptionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_GlueEncryptionException =
-  Core._MatchServiceError
-    defaultService
-    "GlueEncryptionException"
+    "ConcurrentModificationException"
 
 -- | A specified entity does not exist
 _EntityNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -634,6 +549,13 @@ _ExpiredException =
     "ExpiredException"
     Prelude.. Core.hasStatus 410
 
+-- | An encryption operation failed.
+_GlueEncryptionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_GlueEncryptionException =
+  Core._MatchServiceError
+    defaultService
+    "GlueEncryptionException"
+
 -- | An internal service error occurred.
 _InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalServiceException =
@@ -642,12 +564,55 @@ _InternalServiceException =
     "InternalServiceException"
     Prelude.. Core.hasStatus 500
 
+-- | The input provided was not valid.
+_InvalidInputException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidInputException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidInputException"
+    Prelude.. Core.hasStatus 400
+
 -- | The operation timed out.
 _OperationTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _OperationTimeoutException =
   Core._MatchServiceError
     defaultService
     "OperationTimeoutException"
+
+-- | The engine does not support filtering data based on the enforced
+-- permissions. For example, if you call the
+-- @GetTemporaryGlueTableCredentials@ operation with
+-- @SupportedPermissionType@ equal to @ColumnPermission@, but cell-level
+-- permissions exist on the table, this exception is thrown.
+_PermissionTypeMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PermissionTypeMismatchException =
+  Core._MatchServiceError
+    defaultService
+    "PermissionTypeMismatchException"
+
+-- | Contains details about an error related to a resource which is not ready
+-- for a transaction.
+_ResourceNotReadyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotReadyException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotReadyException"
+    Prelude.. Core.hasStatus 400
+
+-- | A resource numerical limit was exceeded.
+_ResourceNumberLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNumberLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNumberLimitExceededException"
+
+-- | Contains details about an error related to statistics not being ready.
+_StatisticsNotReadyYetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_StatisticsNotReadyYetException =
+  Core._MatchServiceError
+    defaultService
+    "StatisticsNotReadyYetException"
+    Prelude.. Core.hasStatus 420
 
 -- | Contains details about an error where the query request was throttled.
 _ThrottledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -656,3 +621,38 @@ _ThrottledException =
     defaultService
     "ThrottledException"
     Prelude.. Core.hasStatus 429
+
+-- | Contains details about an error related to a transaction that was
+-- cancelled.
+_TransactionCanceledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TransactionCanceledException =
+  Core._MatchServiceError
+    defaultService
+    "TransactionCanceledException"
+    Prelude.. Core.hasStatus 400
+
+-- | Contains details about an error related to a transaction commit that was
+-- in progress.
+_TransactionCommitInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TransactionCommitInProgressException =
+  Core._MatchServiceError
+    defaultService
+    "TransactionCommitInProgressException"
+    Prelude.. Core.hasStatus 400
+
+-- | Contains details about an error where the specified transaction has
+-- already been committed and cannot be used for @UpdateTableObjects@.
+_TransactionCommittedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TransactionCommittedException =
+  Core._MatchServiceError
+    defaultService
+    "TransactionCommittedException"
+    Prelude.. Core.hasStatus 400
+
+-- | Contains details about an error related to work units not being ready.
+_WorkUnitsNotReadyYetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_WorkUnitsNotReadyYetException =
+  Core._MatchServiceError
+    defaultService
+    "WorkUnitsNotReadyYetException"
+    Prelude.. Core.hasStatus 420

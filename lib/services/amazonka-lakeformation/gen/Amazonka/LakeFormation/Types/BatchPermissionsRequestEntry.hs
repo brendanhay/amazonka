@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchPermissionsRequestEntry' smart constructor.
 data BatchPermissionsRequestEntry = BatchPermissionsRequestEntry'
-  { -- | The principal to be granted a permission.
-    principal :: Prelude.Maybe DataLakePrincipal,
-    -- | The permissions to be granted.
+  { -- | The permissions to be granted.
     permissions :: Prelude.Maybe [Permission],
     -- | Indicates if the option to pass permissions is granted.
     permissionsWithGrantOption :: Prelude.Maybe [Permission],
+    -- | The principal to be granted a permission.
+    principal :: Prelude.Maybe DataLakePrincipal,
     -- | The resource to which the principal is to be granted a permission.
     resource :: Prelude.Maybe Resource,
     -- | A unique identifier for the batch permissions request entry.
@@ -52,11 +52,11 @@ data BatchPermissionsRequestEntry = BatchPermissionsRequestEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'principal', 'batchPermissionsRequestEntry_principal' - The principal to be granted a permission.
---
 -- 'permissions', 'batchPermissionsRequestEntry_permissions' - The permissions to be granted.
 --
 -- 'permissionsWithGrantOption', 'batchPermissionsRequestEntry_permissionsWithGrantOption' - Indicates if the option to pass permissions is granted.
+--
+-- 'principal', 'batchPermissionsRequestEntry_principal' - The principal to be granted a permission.
 --
 -- 'resource', 'batchPermissionsRequestEntry_resource' - The resource to which the principal is to be granted a permission.
 --
@@ -67,17 +67,13 @@ newBatchPermissionsRequestEntry ::
   BatchPermissionsRequestEntry
 newBatchPermissionsRequestEntry pId_ =
   BatchPermissionsRequestEntry'
-    { principal =
+    { permissions =
         Prelude.Nothing,
-      permissions = Prelude.Nothing,
       permissionsWithGrantOption = Prelude.Nothing,
+      principal = Prelude.Nothing,
       resource = Prelude.Nothing,
       id = pId_
     }
-
--- | The principal to be granted a permission.
-batchPermissionsRequestEntry_principal :: Lens.Lens' BatchPermissionsRequestEntry (Prelude.Maybe DataLakePrincipal)
-batchPermissionsRequestEntry_principal = Lens.lens (\BatchPermissionsRequestEntry' {principal} -> principal) (\s@BatchPermissionsRequestEntry' {} a -> s {principal = a} :: BatchPermissionsRequestEntry)
 
 -- | The permissions to be granted.
 batchPermissionsRequestEntry_permissions :: Lens.Lens' BatchPermissionsRequestEntry (Prelude.Maybe [Permission])
@@ -86,6 +82,10 @@ batchPermissionsRequestEntry_permissions = Lens.lens (\BatchPermissionsRequestEn
 -- | Indicates if the option to pass permissions is granted.
 batchPermissionsRequestEntry_permissionsWithGrantOption :: Lens.Lens' BatchPermissionsRequestEntry (Prelude.Maybe [Permission])
 batchPermissionsRequestEntry_permissionsWithGrantOption = Lens.lens (\BatchPermissionsRequestEntry' {permissionsWithGrantOption} -> permissionsWithGrantOption) (\s@BatchPermissionsRequestEntry' {} a -> s {permissionsWithGrantOption = a} :: BatchPermissionsRequestEntry) Prelude.. Lens.mapping Lens.coerced
+
+-- | The principal to be granted a permission.
+batchPermissionsRequestEntry_principal :: Lens.Lens' BatchPermissionsRequestEntry (Prelude.Maybe DataLakePrincipal)
+batchPermissionsRequestEntry_principal = Lens.lens (\BatchPermissionsRequestEntry' {principal} -> principal) (\s@BatchPermissionsRequestEntry' {} a -> s {principal = a} :: BatchPermissionsRequestEntry)
 
 -- | The resource to which the principal is to be granted a permission.
 batchPermissionsRequestEntry_resource :: Lens.Lens' BatchPermissionsRequestEntry (Prelude.Maybe Resource)
@@ -101,11 +101,11 @@ instance Data.FromJSON BatchPermissionsRequestEntry where
       "BatchPermissionsRequestEntry"
       ( \x ->
           BatchPermissionsRequestEntry'
-            Prelude.<$> (x Data..:? "Principal")
-            Prelude.<*> (x Data..:? "Permissions" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Permissions" Data..!= Prelude.mempty)
             Prelude.<*> ( x Data..:? "PermissionsWithGrantOption"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "Principal")
             Prelude.<*> (x Data..:? "Resource")
             Prelude.<*> (x Data..: "Id")
       )
@@ -115,17 +115,17 @@ instance
     BatchPermissionsRequestEntry
   where
   hashWithSalt _salt BatchPermissionsRequestEntry' {..} =
-    _salt `Prelude.hashWithSalt` principal
-      `Prelude.hashWithSalt` permissions
+    _salt `Prelude.hashWithSalt` permissions
       `Prelude.hashWithSalt` permissionsWithGrantOption
+      `Prelude.hashWithSalt` principal
       `Prelude.hashWithSalt` resource
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData BatchPermissionsRequestEntry where
   rnf BatchPermissionsRequestEntry' {..} =
-    Prelude.rnf principal
-      `Prelude.seq` Prelude.rnf permissions
+    Prelude.rnf permissions
       `Prelude.seq` Prelude.rnf permissionsWithGrantOption
+      `Prelude.seq` Prelude.rnf principal
       `Prelude.seq` Prelude.rnf resource
       `Prelude.seq` Prelude.rnf id
 
@@ -133,10 +133,10 @@ instance Data.ToJSON BatchPermissionsRequestEntry where
   toJSON BatchPermissionsRequestEntry' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Principal" Data..=) Prelude.<$> principal,
-            ("Permissions" Data..=) Prelude.<$> permissions,
+          [ ("Permissions" Data..=) Prelude.<$> permissions,
             ("PermissionsWithGrantOption" Data..=)
               Prelude.<$> permissionsWithGrantOption,
+            ("Principal" Data..=) Prelude.<$> principal,
             ("Resource" Data..=) Prelude.<$> resource,
             Prelude.Just ("Id" Data..= id)
           ]

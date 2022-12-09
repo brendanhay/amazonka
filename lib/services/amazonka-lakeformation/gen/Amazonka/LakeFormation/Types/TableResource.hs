@@ -31,16 +31,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTableResource' smart constructor.
 data TableResource = TableResource'
-  { -- | The name of the table.
+  { -- | The identifier for the Data Catalog. By default, it is the account ID of
+    -- the caller.
+    catalogId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the table.
     name :: Prelude.Maybe Prelude.Text,
     -- | A wildcard object representing every table under a database.
     --
     -- At least one of @TableResource$Name@ or @TableResource$TableWildcard@ is
     -- required.
     tableWildcard :: Prelude.Maybe TableWildcard,
-    -- | The identifier for the Data Catalog. By default, it is the account ID of
-    -- the caller.
-    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the database for the table. Unique to a Data Catalog. A
     -- database is a set of associated table definitions organized into a
     -- logical group. You can Grant and Revoke database privileges to a
@@ -57,15 +57,15 @@ data TableResource = TableResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'catalogId', 'tableResource_catalogId' - The identifier for the Data Catalog. By default, it is the account ID of
+-- the caller.
+--
 -- 'name', 'tableResource_name' - The name of the table.
 --
 -- 'tableWildcard', 'tableResource_tableWildcard' - A wildcard object representing every table under a database.
 --
 -- At least one of @TableResource$Name@ or @TableResource$TableWildcard@ is
 -- required.
---
--- 'catalogId', 'tableResource_catalogId' - The identifier for the Data Catalog. By default, it is the account ID of
--- the caller.
 --
 -- 'databaseName', 'tableResource_databaseName' - The name of the database for the table. Unique to a Data Catalog. A
 -- database is a set of associated table definitions organized into a
@@ -77,11 +77,16 @@ newTableResource ::
   TableResource
 newTableResource pDatabaseName_ =
   TableResource'
-    { name = Prelude.Nothing,
+    { catalogId = Prelude.Nothing,
+      name = Prelude.Nothing,
       tableWildcard = Prelude.Nothing,
-      catalogId = Prelude.Nothing,
       databaseName = pDatabaseName_
     }
+
+-- | The identifier for the Data Catalog. By default, it is the account ID of
+-- the caller.
+tableResource_catalogId :: Lens.Lens' TableResource (Prelude.Maybe Prelude.Text)
+tableResource_catalogId = Lens.lens (\TableResource' {catalogId} -> catalogId) (\s@TableResource' {} a -> s {catalogId = a} :: TableResource)
 
 -- | The name of the table.
 tableResource_name :: Lens.Lens' TableResource (Prelude.Maybe Prelude.Text)
@@ -93,11 +98,6 @@ tableResource_name = Lens.lens (\TableResource' {name} -> name) (\s@TableResourc
 -- required.
 tableResource_tableWildcard :: Lens.Lens' TableResource (Prelude.Maybe TableWildcard)
 tableResource_tableWildcard = Lens.lens (\TableResource' {tableWildcard} -> tableWildcard) (\s@TableResource' {} a -> s {tableWildcard = a} :: TableResource)
-
--- | The identifier for the Data Catalog. By default, it is the account ID of
--- the caller.
-tableResource_catalogId :: Lens.Lens' TableResource (Prelude.Maybe Prelude.Text)
-tableResource_catalogId = Lens.lens (\TableResource' {catalogId} -> catalogId) (\s@TableResource' {} a -> s {catalogId = a} :: TableResource)
 
 -- | The name of the database for the table. Unique to a Data Catalog. A
 -- database is a set of associated table definitions organized into a
@@ -112,33 +112,33 @@ instance Data.FromJSON TableResource where
       "TableResource"
       ( \x ->
           TableResource'
-            Prelude.<$> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "CatalogId")
+            Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "TableWildcard")
-            Prelude.<*> (x Data..:? "CatalogId")
             Prelude.<*> (x Data..: "DatabaseName")
       )
 
 instance Prelude.Hashable TableResource where
   hashWithSalt _salt TableResource' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tableWildcard
-      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` databaseName
 
 instance Prelude.NFData TableResource where
   rnf TableResource' {..} =
-    Prelude.rnf name
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf tableWildcard
-      `Prelude.seq` Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf databaseName
 
 instance Data.ToJSON TableResource where
   toJSON TableResource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Name" Data..=) Prelude.<$> name,
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            ("Name" Data..=) Prelude.<$> name,
             ("TableWildcard" Data..=) Prelude.<$> tableWildcard,
-            ("CatalogId" Data..=) Prelude.<$> catalogId,
             Prelude.Just ("DatabaseName" Data..= databaseName)
           ]
       )

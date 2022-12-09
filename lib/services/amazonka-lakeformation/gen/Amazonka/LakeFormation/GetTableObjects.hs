@@ -29,11 +29,11 @@ module Amazonka.LakeFormation.GetTableObjects
     newGetTableObjects,
 
     -- * Request Lenses
+    getTableObjects_catalogId,
+    getTableObjects_maxResults,
     getTableObjects_nextToken,
     getTableObjects_partitionPredicate,
     getTableObjects_queryAsOfTime,
-    getTableObjects_maxResults,
-    getTableObjects_catalogId,
     getTableObjects_transactionId,
     getTableObjects_databaseName,
     getTableObjects_tableName,
@@ -59,7 +59,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetTableObjects' smart constructor.
 data GetTableObjects = GetTableObjects'
-  { -- | A continuation token if this is not the first call to retrieve these
+  { -- | The catalog containing the governed table. Defaults to the caller’s
+    -- account.
+    catalogId :: Prelude.Maybe Prelude.Text,
+    -- | Specifies how many values to return in a page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A continuation token if this is not the first call to retrieve these
     -- objects.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A predicate to filter the objects returned based on the partition keys
@@ -77,11 +82,6 @@ data GetTableObjects = GetTableObjects'
     -- most recent transaction commit time is used. Cannot be specified along
     -- with @TransactionId@.
     queryAsOfTime :: Prelude.Maybe Data.POSIX,
-    -- | Specifies how many values to return in a page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The catalog containing the governed table. Defaults to the caller’s
-    -- account.
-    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The transaction ID at which to read the governed table contents. If this
     -- transaction has aborted, an error is returned. If not set, defaults to
     -- the most recent committed transaction. Cannot be specified along with
@@ -102,6 +102,11 @@ data GetTableObjects = GetTableObjects'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'catalogId', 'getTableObjects_catalogId' - The catalog containing the governed table. Defaults to the caller’s
+-- account.
+--
+-- 'maxResults', 'getTableObjects_maxResults' - Specifies how many values to return in a page.
+--
 -- 'nextToken', 'getTableObjects_nextToken' - A continuation token if this is not the first call to retrieve these
 -- objects.
 --
@@ -120,11 +125,6 @@ data GetTableObjects = GetTableObjects'
 -- most recent transaction commit time is used. Cannot be specified along
 -- with @TransactionId@.
 --
--- 'maxResults', 'getTableObjects_maxResults' - Specifies how many values to return in a page.
---
--- 'catalogId', 'getTableObjects_catalogId' - The catalog containing the governed table. Defaults to the caller’s
--- account.
---
 -- 'transactionId', 'getTableObjects_transactionId' - The transaction ID at which to read the governed table contents. If this
 -- transaction has aborted, an error is returned. If not set, defaults to
 -- the most recent committed transaction. Cannot be specified along with
@@ -141,15 +141,24 @@ newGetTableObjects ::
   GetTableObjects
 newGetTableObjects pDatabaseName_ pTableName_ =
   GetTableObjects'
-    { nextToken = Prelude.Nothing,
+    { catalogId = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       partitionPredicate = Prelude.Nothing,
       queryAsOfTime = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      catalogId = Prelude.Nothing,
       transactionId = Prelude.Nothing,
       databaseName = pDatabaseName_,
       tableName = pTableName_
     }
+
+-- | The catalog containing the governed table. Defaults to the caller’s
+-- account.
+getTableObjects_catalogId :: Lens.Lens' GetTableObjects (Prelude.Maybe Prelude.Text)
+getTableObjects_catalogId = Lens.lens (\GetTableObjects' {catalogId} -> catalogId) (\s@GetTableObjects' {} a -> s {catalogId = a} :: GetTableObjects)
+
+-- | Specifies how many values to return in a page.
+getTableObjects_maxResults :: Lens.Lens' GetTableObjects (Prelude.Maybe Prelude.Natural)
+getTableObjects_maxResults = Lens.lens (\GetTableObjects' {maxResults} -> maxResults) (\s@GetTableObjects' {} a -> s {maxResults = a} :: GetTableObjects)
 
 -- | A continuation token if this is not the first call to retrieve these
 -- objects.
@@ -174,15 +183,6 @@ getTableObjects_partitionPredicate = Lens.lens (\GetTableObjects' {partitionPred
 -- with @TransactionId@.
 getTableObjects_queryAsOfTime :: Lens.Lens' GetTableObjects (Prelude.Maybe Prelude.UTCTime)
 getTableObjects_queryAsOfTime = Lens.lens (\GetTableObjects' {queryAsOfTime} -> queryAsOfTime) (\s@GetTableObjects' {} a -> s {queryAsOfTime = a} :: GetTableObjects) Prelude.. Lens.mapping Data._Time
-
--- | Specifies how many values to return in a page.
-getTableObjects_maxResults :: Lens.Lens' GetTableObjects (Prelude.Maybe Prelude.Natural)
-getTableObjects_maxResults = Lens.lens (\GetTableObjects' {maxResults} -> maxResults) (\s@GetTableObjects' {} a -> s {maxResults = a} :: GetTableObjects)
-
--- | The catalog containing the governed table. Defaults to the caller’s
--- account.
-getTableObjects_catalogId :: Lens.Lens' GetTableObjects (Prelude.Maybe Prelude.Text)
-getTableObjects_catalogId = Lens.lens (\GetTableObjects' {catalogId} -> catalogId) (\s@GetTableObjects' {} a -> s {catalogId = a} :: GetTableObjects)
 
 -- | The transaction ID at which to read the governed table contents. If this
 -- transaction has aborted, an error is returned. If not set, defaults to
@@ -216,22 +216,22 @@ instance Core.AWSRequest GetTableObjects where
 
 instance Prelude.Hashable GetTableObjects where
   hashWithSalt _salt GetTableObjects' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` partitionPredicate
       `Prelude.hashWithSalt` queryAsOfTime
-      `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` transactionId
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName
 
 instance Prelude.NFData GetTableObjects where
   rnf GetTableObjects' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf partitionPredicate
       `Prelude.seq` Prelude.rnf queryAsOfTime
-      `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf transactionId
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tableName
@@ -251,12 +251,12 @@ instance Data.ToJSON GetTableObjects where
   toJSON GetTableObjects' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("PartitionPredicate" Data..=)
               Prelude.<$> partitionPredicate,
             ("QueryAsOfTime" Data..=) Prelude.<$> queryAsOfTime,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("CatalogId" Data..=) Prelude.<$> catalogId,
             ("TransactionId" Data..=) Prelude.<$> transactionId,
             Prelude.Just ("DatabaseName" Data..= databaseName),
             Prelude.Just ("TableName" Data..= tableName)

@@ -27,9 +27,9 @@ module Amazonka.LakeFormation.ListResources
     newListResources,
 
     -- * Request Lenses
-    listResources_nextToken,
     listResources_filterConditionList,
     listResources_maxResults,
+    listResources_nextToken,
 
     -- * Destructuring the Response
     ListResourcesResponse (..),
@@ -52,14 +52,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListResources' smart constructor.
 data ListResources = ListResources'
-  { -- | A continuation token, if this is not the first call to retrieve these
-    -- resources.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Any applicable row-level and\/or column-level filtering conditions for
+  { -- | Any applicable row-level and\/or column-level filtering conditions for
     -- the resources.
     filterConditionList :: Prelude.Maybe (Prelude.NonEmpty FilterCondition),
     -- | The maximum number of resource results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A continuation token, if this is not the first call to retrieve these
+    -- resources.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,26 +71,22 @@ data ListResources = ListResources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listResources_nextToken' - A continuation token, if this is not the first call to retrieve these
--- resources.
---
 -- 'filterConditionList', 'listResources_filterConditionList' - Any applicable row-level and\/or column-level filtering conditions for
 -- the resources.
 --
 -- 'maxResults', 'listResources_maxResults' - The maximum number of resource results.
+--
+-- 'nextToken', 'listResources_nextToken' - A continuation token, if this is not the first call to retrieve these
+-- resources.
 newListResources ::
   ListResources
 newListResources =
   ListResources'
-    { nextToken = Prelude.Nothing,
-      filterConditionList = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { filterConditionList =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | A continuation token, if this is not the first call to retrieve these
--- resources.
-listResources_nextToken :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Text)
-listResources_nextToken = Lens.lens (\ListResources' {nextToken} -> nextToken) (\s@ListResources' {} a -> s {nextToken = a} :: ListResources)
 
 -- | Any applicable row-level and\/or column-level filtering conditions for
 -- the resources.
@@ -100,6 +96,11 @@ listResources_filterConditionList = Lens.lens (\ListResources' {filterConditionL
 -- | The maximum number of resource results.
 listResources_maxResults :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Natural)
 listResources_maxResults = Lens.lens (\ListResources' {maxResults} -> maxResults) (\s@ListResources' {} a -> s {maxResults = a} :: ListResources)
+
+-- | A continuation token, if this is not the first call to retrieve these
+-- resources.
+listResources_nextToken :: Lens.Lens' ListResources (Prelude.Maybe Prelude.Text)
+listResources_nextToken = Lens.lens (\ListResources' {nextToken} -> nextToken) (\s@ListResources' {} a -> s {nextToken = a} :: ListResources)
 
 instance Core.AWSRequest ListResources where
   type
@@ -120,15 +121,15 @@ instance Core.AWSRequest ListResources where
 
 instance Prelude.Hashable ListResources where
   hashWithSalt _salt ListResources' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` filterConditionList
+    _salt `Prelude.hashWithSalt` filterConditionList
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListResources where
   rnf ListResources' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf filterConditionList
+    Prelude.rnf filterConditionList
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListResources where
   toHeaders =
@@ -145,10 +146,10 @@ instance Data.ToJSON ListResources where
   toJSON ListResources' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("FilterConditionList" Data..=)
+          [ ("FilterConditionList" Data..=)
               Prelude.<$> filterConditionList,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

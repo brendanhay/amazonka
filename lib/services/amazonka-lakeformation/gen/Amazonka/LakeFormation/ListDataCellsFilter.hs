@@ -29,8 +29,8 @@ module Amazonka.LakeFormation.ListDataCellsFilter
     newListDataCellsFilter,
 
     -- * Request Lenses
-    listDataCellsFilter_nextToken,
     listDataCellsFilter_maxResults,
+    listDataCellsFilter_nextToken,
     listDataCellsFilter_table,
 
     -- * Destructuring the Response
@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDataCellsFilter' smart constructor.
 data ListDataCellsFilter = ListDataCellsFilter'
-  { -- | A continuation token, if this is a continuation call.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum size of the response.
+  { -- | The maximum size of the response.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A continuation token, if this is a continuation call.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A table in the Glue Data Catalog.
     table :: Prelude.Maybe TableResource
   }
@@ -71,27 +71,27 @@ data ListDataCellsFilter = ListDataCellsFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDataCellsFilter_nextToken' - A continuation token, if this is a continuation call.
---
 -- 'maxResults', 'listDataCellsFilter_maxResults' - The maximum size of the response.
+--
+-- 'nextToken', 'listDataCellsFilter_nextToken' - A continuation token, if this is a continuation call.
 --
 -- 'table', 'listDataCellsFilter_table' - A table in the Glue Data Catalog.
 newListDataCellsFilter ::
   ListDataCellsFilter
 newListDataCellsFilter =
   ListDataCellsFilter'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       table = Prelude.Nothing
     }
-
--- | A continuation token, if this is a continuation call.
-listDataCellsFilter_nextToken :: Lens.Lens' ListDataCellsFilter (Prelude.Maybe Prelude.Text)
-listDataCellsFilter_nextToken = Lens.lens (\ListDataCellsFilter' {nextToken} -> nextToken) (\s@ListDataCellsFilter' {} a -> s {nextToken = a} :: ListDataCellsFilter)
 
 -- | The maximum size of the response.
 listDataCellsFilter_maxResults :: Lens.Lens' ListDataCellsFilter (Prelude.Maybe Prelude.Natural)
 listDataCellsFilter_maxResults = Lens.lens (\ListDataCellsFilter' {maxResults} -> maxResults) (\s@ListDataCellsFilter' {} a -> s {maxResults = a} :: ListDataCellsFilter)
+
+-- | A continuation token, if this is a continuation call.
+listDataCellsFilter_nextToken :: Lens.Lens' ListDataCellsFilter (Prelude.Maybe Prelude.Text)
+listDataCellsFilter_nextToken = Lens.lens (\ListDataCellsFilter' {nextToken} -> nextToken) (\s@ListDataCellsFilter' {} a -> s {nextToken = a} :: ListDataCellsFilter)
 
 -- | A table in the Glue Data Catalog.
 listDataCellsFilter_table :: Lens.Lens' ListDataCellsFilter (Prelude.Maybe TableResource)
@@ -138,14 +138,14 @@ instance Core.AWSRequest ListDataCellsFilter where
 
 instance Prelude.Hashable ListDataCellsFilter where
   hashWithSalt _salt ListDataCellsFilter' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` table
 
 instance Prelude.NFData ListDataCellsFilter where
   rnf ListDataCellsFilter' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf table
 
 instance Data.ToHeaders ListDataCellsFilter where
@@ -163,8 +163,8 @@ instance Data.ToJSON ListDataCellsFilter where
   toJSON ListDataCellsFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("Table" Data..=) Prelude.<$> table
           ]
       )

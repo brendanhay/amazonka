@@ -31,14 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTaggedTable' smart constructor.
 data TaggedTable = TaggedTable'
-  { -- | A list of LF-tags attached to the table.
-    lFTagsOnTable :: Prelude.Maybe (Prelude.NonEmpty LFTagPair),
-    -- | A table that has LF-tags attached to it.
-    table :: Prelude.Maybe TableResource,
-    -- | A list of LF-tags attached to the database where the table resides.
+  { -- | A list of LF-tags attached to the database where the table resides.
     lFTagOnDatabase :: Prelude.Maybe (Prelude.NonEmpty LFTagPair),
     -- | A list of LF-tags attached to columns in the table.
-    lFTagsOnColumns :: Prelude.Maybe [ColumnLFTag]
+    lFTagsOnColumns :: Prelude.Maybe [ColumnLFTag],
+    -- | A list of LF-tags attached to the table.
+    lFTagsOnTable :: Prelude.Maybe (Prelude.NonEmpty LFTagPair),
+    -- | A table that has LF-tags attached to it.
+    table :: Prelude.Maybe TableResource
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,30 +50,22 @@ data TaggedTable = TaggedTable'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lFTagsOnTable', 'taggedTable_lFTagsOnTable' - A list of LF-tags attached to the table.
---
--- 'table', 'taggedTable_table' - A table that has LF-tags attached to it.
---
 -- 'lFTagOnDatabase', 'taggedTable_lFTagOnDatabase' - A list of LF-tags attached to the database where the table resides.
 --
 -- 'lFTagsOnColumns', 'taggedTable_lFTagsOnColumns' - A list of LF-tags attached to columns in the table.
+--
+-- 'lFTagsOnTable', 'taggedTable_lFTagsOnTable' - A list of LF-tags attached to the table.
+--
+-- 'table', 'taggedTable_table' - A table that has LF-tags attached to it.
 newTaggedTable ::
   TaggedTable
 newTaggedTable =
   TaggedTable'
-    { lFTagsOnTable = Prelude.Nothing,
-      table = Prelude.Nothing,
-      lFTagOnDatabase = Prelude.Nothing,
-      lFTagsOnColumns = Prelude.Nothing
+    { lFTagOnDatabase = Prelude.Nothing,
+      lFTagsOnColumns = Prelude.Nothing,
+      lFTagsOnTable = Prelude.Nothing,
+      table = Prelude.Nothing
     }
-
--- | A list of LF-tags attached to the table.
-taggedTable_lFTagsOnTable :: Lens.Lens' TaggedTable (Prelude.Maybe (Prelude.NonEmpty LFTagPair))
-taggedTable_lFTagsOnTable = Lens.lens (\TaggedTable' {lFTagsOnTable} -> lFTagsOnTable) (\s@TaggedTable' {} a -> s {lFTagsOnTable = a} :: TaggedTable) Prelude.. Lens.mapping Lens.coerced
-
--- | A table that has LF-tags attached to it.
-taggedTable_table :: Lens.Lens' TaggedTable (Prelude.Maybe TableResource)
-taggedTable_table = Lens.lens (\TaggedTable' {table} -> table) (\s@TaggedTable' {} a -> s {table = a} :: TaggedTable)
 
 -- | A list of LF-tags attached to the database where the table resides.
 taggedTable_lFTagOnDatabase :: Lens.Lens' TaggedTable (Prelude.Maybe (Prelude.NonEmpty LFTagPair))
@@ -83,30 +75,38 @@ taggedTable_lFTagOnDatabase = Lens.lens (\TaggedTable' {lFTagOnDatabase} -> lFTa
 taggedTable_lFTagsOnColumns :: Lens.Lens' TaggedTable (Prelude.Maybe [ColumnLFTag])
 taggedTable_lFTagsOnColumns = Lens.lens (\TaggedTable' {lFTagsOnColumns} -> lFTagsOnColumns) (\s@TaggedTable' {} a -> s {lFTagsOnColumns = a} :: TaggedTable) Prelude.. Lens.mapping Lens.coerced
 
+-- | A list of LF-tags attached to the table.
+taggedTable_lFTagsOnTable :: Lens.Lens' TaggedTable (Prelude.Maybe (Prelude.NonEmpty LFTagPair))
+taggedTable_lFTagsOnTable = Lens.lens (\TaggedTable' {lFTagsOnTable} -> lFTagsOnTable) (\s@TaggedTable' {} a -> s {lFTagsOnTable = a} :: TaggedTable) Prelude.. Lens.mapping Lens.coerced
+
+-- | A table that has LF-tags attached to it.
+taggedTable_table :: Lens.Lens' TaggedTable (Prelude.Maybe TableResource)
+taggedTable_table = Lens.lens (\TaggedTable' {table} -> table) (\s@TaggedTable' {} a -> s {table = a} :: TaggedTable)
+
 instance Data.FromJSON TaggedTable where
   parseJSON =
     Data.withObject
       "TaggedTable"
       ( \x ->
           TaggedTable'
-            Prelude.<$> (x Data..:? "LFTagsOnTable")
-            Prelude.<*> (x Data..:? "Table")
-            Prelude.<*> (x Data..:? "LFTagOnDatabase")
+            Prelude.<$> (x Data..:? "LFTagOnDatabase")
             Prelude.<*> ( x Data..:? "LFTagsOnColumns"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "LFTagsOnTable")
+            Prelude.<*> (x Data..:? "Table")
       )
 
 instance Prelude.Hashable TaggedTable where
   hashWithSalt _salt TaggedTable' {..} =
-    _salt `Prelude.hashWithSalt` lFTagsOnTable
-      `Prelude.hashWithSalt` table
-      `Prelude.hashWithSalt` lFTagOnDatabase
+    _salt `Prelude.hashWithSalt` lFTagOnDatabase
       `Prelude.hashWithSalt` lFTagsOnColumns
+      `Prelude.hashWithSalt` lFTagsOnTable
+      `Prelude.hashWithSalt` table
 
 instance Prelude.NFData TaggedTable where
   rnf TaggedTable' {..} =
-    Prelude.rnf lFTagsOnTable
-      `Prelude.seq` Prelude.rnf table
-      `Prelude.seq` Prelude.rnf lFTagOnDatabase
+    Prelude.rnf lFTagOnDatabase
       `Prelude.seq` Prelude.rnf lFTagsOnColumns
+      `Prelude.seq` Prelude.rnf lFTagsOnTable
+      `Prelude.seq` Prelude.rnf table

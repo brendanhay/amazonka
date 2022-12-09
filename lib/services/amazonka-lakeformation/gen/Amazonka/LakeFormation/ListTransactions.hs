@@ -32,9 +32,9 @@ module Amazonka.LakeFormation.ListTransactions
     newListTransactions,
 
     -- * Request Lenses
-    listTransactions_nextToken,
-    listTransactions_maxResults,
     listTransactions_catalogId,
+    listTransactions_maxResults,
+    listTransactions_nextToken,
     listTransactions_statusFilter,
 
     -- * Destructuring the Response
@@ -58,14 +58,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTransactions' smart constructor.
 data ListTransactions = ListTransactions'
-  { -- | A continuation token if this is not the first call to retrieve
-    -- transactions.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of transactions to return in a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The catalog for which to list transactions. Defaults to the account ID
+  { -- | The catalog for which to list transactions. Defaults to the account ID
     -- of the caller.
     catalogId :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of transactions to return in a single call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A continuation token if this is not the first call to retrieve
+    -- transactions.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A filter indicating the status of transactions to return. Options are
     -- ALL | COMPLETED | COMMITTED | ABORTED | ACTIVE. The default is @ALL@.
     statusFilter :: Prelude.Maybe TransactionStatusFilter
@@ -80,13 +80,13 @@ data ListTransactions = ListTransactions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTransactions_nextToken' - A continuation token if this is not the first call to retrieve
--- transactions.
+-- 'catalogId', 'listTransactions_catalogId' - The catalog for which to list transactions. Defaults to the account ID
+-- of the caller.
 --
 -- 'maxResults', 'listTransactions_maxResults' - The maximum number of transactions to return in a single call.
 --
--- 'catalogId', 'listTransactions_catalogId' - The catalog for which to list transactions. Defaults to the account ID
--- of the caller.
+-- 'nextToken', 'listTransactions_nextToken' - A continuation token if this is not the first call to retrieve
+-- transactions.
 --
 -- 'statusFilter', 'listTransactions_statusFilter' - A filter indicating the status of transactions to return. Options are
 -- ALL | COMPLETED | COMMITTED | ABORTED | ACTIVE. The default is @ALL@.
@@ -94,25 +94,25 @@ newListTransactions ::
   ListTransactions
 newListTransactions =
   ListTransactions'
-    { nextToken = Prelude.Nothing,
+    { catalogId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      catalogId = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       statusFilter = Prelude.Nothing
     }
-
--- | A continuation token if this is not the first call to retrieve
--- transactions.
-listTransactions_nextToken :: Lens.Lens' ListTransactions (Prelude.Maybe Prelude.Text)
-listTransactions_nextToken = Lens.lens (\ListTransactions' {nextToken} -> nextToken) (\s@ListTransactions' {} a -> s {nextToken = a} :: ListTransactions)
-
--- | The maximum number of transactions to return in a single call.
-listTransactions_maxResults :: Lens.Lens' ListTransactions (Prelude.Maybe Prelude.Natural)
-listTransactions_maxResults = Lens.lens (\ListTransactions' {maxResults} -> maxResults) (\s@ListTransactions' {} a -> s {maxResults = a} :: ListTransactions)
 
 -- | The catalog for which to list transactions. Defaults to the account ID
 -- of the caller.
 listTransactions_catalogId :: Lens.Lens' ListTransactions (Prelude.Maybe Prelude.Text)
 listTransactions_catalogId = Lens.lens (\ListTransactions' {catalogId} -> catalogId) (\s@ListTransactions' {} a -> s {catalogId = a} :: ListTransactions)
+
+-- | The maximum number of transactions to return in a single call.
+listTransactions_maxResults :: Lens.Lens' ListTransactions (Prelude.Maybe Prelude.Natural)
+listTransactions_maxResults = Lens.lens (\ListTransactions' {maxResults} -> maxResults) (\s@ListTransactions' {} a -> s {maxResults = a} :: ListTransactions)
+
+-- | A continuation token if this is not the first call to retrieve
+-- transactions.
+listTransactions_nextToken :: Lens.Lens' ListTransactions (Prelude.Maybe Prelude.Text)
+listTransactions_nextToken = Lens.lens (\ListTransactions' {nextToken} -> nextToken) (\s@ListTransactions' {} a -> s {nextToken = a} :: ListTransactions)
 
 -- | A filter indicating the status of transactions to return. Options are
 -- ALL | COMPLETED | COMMITTED | ABORTED | ACTIVE. The default is @ALL@.
@@ -136,16 +136,16 @@ instance Core.AWSRequest ListTransactions where
 
 instance Prelude.Hashable ListTransactions where
   hashWithSalt _salt ListTransactions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` statusFilter
 
 instance Prelude.NFData ListTransactions where
   rnf ListTransactions' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf statusFilter
 
 instance Data.ToHeaders ListTransactions where
@@ -163,9 +163,9 @@ instance Data.ToJSON ListTransactions where
   toJSON ListTransactions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("CatalogId" Data..=) Prelude.<$> catalogId,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             ("StatusFilter" Data..=) Prelude.<$> statusFilter
           ]
       )

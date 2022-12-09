@@ -21,44 +21,14 @@ module Amazonka.LakeFormation
     -- * Errors
     -- $errors
 
-    -- ** InvalidInputException
-    _InvalidInputException,
-
-    -- ** ResourceNumberLimitExceededException
-    _ResourceNumberLimitExceededException,
-
-    -- ** ResourceNotReadyException
-    _ResourceNotReadyException,
-
-    -- ** ConcurrentModificationException
-    _ConcurrentModificationException,
-
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** WorkUnitsNotReadyYetException
-    _WorkUnitsNotReadyYetException,
-
-    -- ** TransactionCommittedException
-    _TransactionCommittedException,
-
-    -- ** TransactionCommitInProgressException
-    _TransactionCommitInProgressException,
-
-    -- ** StatisticsNotReadyYetException
-    _StatisticsNotReadyYetException,
 
     -- ** AlreadyExistsException
     _AlreadyExistsException,
 
-    -- ** TransactionCanceledException
-    _TransactionCanceledException,
-
-    -- ** PermissionTypeMismatchException
-    _PermissionTypeMismatchException,
-
-    -- ** GlueEncryptionException
-    _GlueEncryptionException,
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
 
     -- ** EntityNotFoundException
     _EntityNotFoundException,
@@ -66,14 +36,44 @@ module Amazonka.LakeFormation
     -- ** ExpiredException
     _ExpiredException,
 
+    -- ** GlueEncryptionException
+    _GlueEncryptionException,
+
     -- ** InternalServiceException
     _InternalServiceException,
+
+    -- ** InvalidInputException
+    _InvalidInputException,
 
     -- ** OperationTimeoutException
     _OperationTimeoutException,
 
+    -- ** PermissionTypeMismatchException
+    _PermissionTypeMismatchException,
+
+    -- ** ResourceNotReadyException
+    _ResourceNotReadyException,
+
+    -- ** ResourceNumberLimitExceededException
+    _ResourceNumberLimitExceededException,
+
+    -- ** StatisticsNotReadyYetException
+    _StatisticsNotReadyYetException,
+
     -- ** ThrottledException
     _ThrottledException,
+
+    -- ** TransactionCanceledException
+    _TransactionCanceledException,
+
+    -- ** TransactionCommitInProgressException
+    _TransactionCommitInProgressException,
+
+    -- ** TransactionCommittedException
+    _TransactionCommittedException,
+
+    -- ** WorkUnitsNotReadyYetException
+    _WorkUnitsNotReadyYetException,
 
     -- * Waiters
     -- $waiters

@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeleteObjectInput' smart constructor.
 data DeleteObjectInput = DeleteObjectInput'
-  { -- | A list of partition values for the object. A value must be specified for
-    -- each partition key associated with the governed table.
-    partitionValues :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The Amazon S3 ETag of the object. Returned by @GetTableObjects@ for
+  { -- | The Amazon S3 ETag of the object. Returned by @GetTableObjects@ for
     -- validation and used to identify changes to the underlying data.
     eTag :: Prelude.Maybe Prelude.Text,
+    -- | A list of partition values for the object. A value must be specified for
+    -- each partition key associated with the governed table.
+    partitionValues :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The Amazon S3 location of the object to delete.
     uri :: Prelude.Text
   }
@@ -47,11 +47,11 @@ data DeleteObjectInput = DeleteObjectInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'partitionValues', 'deleteObjectInput_partitionValues' - A list of partition values for the object. A value must be specified for
--- each partition key associated with the governed table.
---
 -- 'eTag', 'deleteObjectInput_eTag' - The Amazon S3 ETag of the object. Returned by @GetTableObjects@ for
 -- validation and used to identify changes to the underlying data.
+--
+-- 'partitionValues', 'deleteObjectInput_partitionValues' - A list of partition values for the object. A value must be specified for
+-- each partition key associated with the governed table.
 --
 -- 'uri', 'deleteObjectInput_uri' - The Amazon S3 location of the object to delete.
 newDeleteObjectInput ::
@@ -60,21 +60,20 @@ newDeleteObjectInput ::
   DeleteObjectInput
 newDeleteObjectInput pUri_ =
   DeleteObjectInput'
-    { partitionValues =
-        Prelude.Nothing,
-      eTag = Prelude.Nothing,
+    { eTag = Prelude.Nothing,
+      partitionValues = Prelude.Nothing,
       uri = pUri_
     }
-
--- | A list of partition values for the object. A value must be specified for
--- each partition key associated with the governed table.
-deleteObjectInput_partitionValues :: Lens.Lens' DeleteObjectInput (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-deleteObjectInput_partitionValues = Lens.lens (\DeleteObjectInput' {partitionValues} -> partitionValues) (\s@DeleteObjectInput' {} a -> s {partitionValues = a} :: DeleteObjectInput) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon S3 ETag of the object. Returned by @GetTableObjects@ for
 -- validation and used to identify changes to the underlying data.
 deleteObjectInput_eTag :: Lens.Lens' DeleteObjectInput (Prelude.Maybe Prelude.Text)
 deleteObjectInput_eTag = Lens.lens (\DeleteObjectInput' {eTag} -> eTag) (\s@DeleteObjectInput' {} a -> s {eTag = a} :: DeleteObjectInput)
+
+-- | A list of partition values for the object. A value must be specified for
+-- each partition key associated with the governed table.
+deleteObjectInput_partitionValues :: Lens.Lens' DeleteObjectInput (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+deleteObjectInput_partitionValues = Lens.lens (\DeleteObjectInput' {partitionValues} -> partitionValues) (\s@DeleteObjectInput' {} a -> s {partitionValues = a} :: DeleteObjectInput) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon S3 location of the object to delete.
 deleteObjectInput_uri :: Lens.Lens' DeleteObjectInput Prelude.Text
@@ -82,23 +81,23 @@ deleteObjectInput_uri = Lens.lens (\DeleteObjectInput' {uri} -> uri) (\s@DeleteO
 
 instance Prelude.Hashable DeleteObjectInput where
   hashWithSalt _salt DeleteObjectInput' {..} =
-    _salt `Prelude.hashWithSalt` partitionValues
-      `Prelude.hashWithSalt` eTag
+    _salt `Prelude.hashWithSalt` eTag
+      `Prelude.hashWithSalt` partitionValues
       `Prelude.hashWithSalt` uri
 
 instance Prelude.NFData DeleteObjectInput where
   rnf DeleteObjectInput' {..} =
-    Prelude.rnf partitionValues
-      `Prelude.seq` Prelude.rnf eTag
+    Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf partitionValues
       `Prelude.seq` Prelude.rnf uri
 
 instance Data.ToJSON DeleteObjectInput where
   toJSON DeleteObjectInput' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("PartitionValues" Data..=)
+          [ ("ETag" Data..=) Prelude.<$> eTag,
+            ("PartitionValues" Data..=)
               Prelude.<$> partitionValues,
-            ("ETag" Data..=) Prelude.<$> eTag,
             Prelude.Just ("Uri" Data..= uri)
           ]
       )

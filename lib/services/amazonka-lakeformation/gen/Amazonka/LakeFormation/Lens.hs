@@ -26,10 +26,10 @@ module Amazonka.LakeFormation.Lens
     assumeDecoratedRoleWithSAML_sAMLAssertion,
     assumeDecoratedRoleWithSAML_roleArn,
     assumeDecoratedRoleWithSAML_principalArn,
-    assumeDecoratedRoleWithSAMLResponse_sessionToken,
+    assumeDecoratedRoleWithSAMLResponse_accessKeyId,
     assumeDecoratedRoleWithSAMLResponse_expiration,
     assumeDecoratedRoleWithSAMLResponse_secretAccessKey,
-    assumeDecoratedRoleWithSAMLResponse_accessKeyId,
+    assumeDecoratedRoleWithSAMLResponse_sessionToken,
     assumeDecoratedRoleWithSAMLResponse_httpStatus,
 
     -- ** BatchGrantPermissions
@@ -64,10 +64,10 @@ module Amazonka.LakeFormation.Lens
     createLFTagResponse_httpStatus,
 
     -- ** DeleteDataCellsFilter
-    deleteDataCellsFilter_tableName,
-    deleteDataCellsFilter_name,
     deleteDataCellsFilter_databaseName,
+    deleteDataCellsFilter_name,
     deleteDataCellsFilter_tableCatalogId,
+    deleteDataCellsFilter_tableName,
     deleteDataCellsFilterResponse_httpStatus,
 
     -- ** DeleteLFTag
@@ -107,9 +107,9 @@ module Amazonka.LakeFormation.Lens
     getDataLakeSettingsResponse_httpStatus,
 
     -- ** GetEffectivePermissionsForPath
-    getEffectivePermissionsForPath_nextToken,
-    getEffectivePermissionsForPath_maxResults,
     getEffectivePermissionsForPath_catalogId,
+    getEffectivePermissionsForPath_maxResults,
+    getEffectivePermissionsForPath_nextToken,
     getEffectivePermissionsForPath_resourceArn,
     getEffectivePermissionsForPathResponse_nextToken,
     getEffectivePermissionsForPathResponse_permissions,
@@ -118,9 +118,9 @@ module Amazonka.LakeFormation.Lens
     -- ** GetLFTag
     getLFTag_catalogId,
     getLFTag_tagKey,
-    getLFTagResponse_tagValues,
-    getLFTagResponse_tagKey,
     getLFTagResponse_catalogId,
+    getLFTagResponse_tagKey,
+    getLFTagResponse_tagValues,
     getLFTagResponse_httpStatus,
 
     -- ** GetQueryState
@@ -131,26 +131,26 @@ module Amazonka.LakeFormation.Lens
 
     -- ** GetQueryStatistics
     getQueryStatistics_queryId,
-    getQueryStatisticsResponse_querySubmissionTime,
     getQueryStatisticsResponse_executionStatistics,
     getQueryStatisticsResponse_planningStatistics,
+    getQueryStatisticsResponse_querySubmissionTime,
     getQueryStatisticsResponse_httpStatus,
 
     -- ** GetResourceLFTags
     getResourceLFTags_catalogId,
     getResourceLFTags_showAssignedLFTags,
     getResourceLFTags_resource,
-    getResourceLFTagsResponse_lFTagsOnTable,
     getResourceLFTagsResponse_lFTagOnDatabase,
     getResourceLFTagsResponse_lFTagsOnColumns,
+    getResourceLFTagsResponse_lFTagsOnTable,
     getResourceLFTagsResponse_httpStatus,
 
     -- ** GetTableObjects
+    getTableObjects_catalogId,
+    getTableObjects_maxResults,
     getTableObjects_nextToken,
     getTableObjects_partitionPredicate,
     getTableObjects_queryAsOfTime,
-    getTableObjects_maxResults,
-    getTableObjects_catalogId,
     getTableObjects_transactionId,
     getTableObjects_databaseName,
     getTableObjects_tableName,
@@ -160,27 +160,27 @@ module Amazonka.LakeFormation.Lens
 
     -- ** GetTemporaryGluePartitionCredentials
     getTemporaryGluePartitionCredentials_auditContext,
-    getTemporaryGluePartitionCredentials_permissions,
     getTemporaryGluePartitionCredentials_durationSeconds,
+    getTemporaryGluePartitionCredentials_permissions,
     getTemporaryGluePartitionCredentials_tableArn,
     getTemporaryGluePartitionCredentials_partition,
     getTemporaryGluePartitionCredentials_supportedPermissionTypes,
-    getTemporaryGluePartitionCredentialsResponse_sessionToken,
+    getTemporaryGluePartitionCredentialsResponse_accessKeyId,
     getTemporaryGluePartitionCredentialsResponse_expiration,
     getTemporaryGluePartitionCredentialsResponse_secretAccessKey,
-    getTemporaryGluePartitionCredentialsResponse_accessKeyId,
+    getTemporaryGluePartitionCredentialsResponse_sessionToken,
     getTemporaryGluePartitionCredentialsResponse_httpStatus,
 
     -- ** GetTemporaryGlueTableCredentials
     getTemporaryGlueTableCredentials_auditContext,
-    getTemporaryGlueTableCredentials_permissions,
     getTemporaryGlueTableCredentials_durationSeconds,
+    getTemporaryGlueTableCredentials_permissions,
     getTemporaryGlueTableCredentials_tableArn,
     getTemporaryGlueTableCredentials_supportedPermissionTypes,
-    getTemporaryGlueTableCredentialsResponse_sessionToken,
+    getTemporaryGlueTableCredentialsResponse_accessKeyId,
     getTemporaryGlueTableCredentialsResponse_expiration,
     getTemporaryGlueTableCredentialsResponse_secretAccessKey,
-    getTemporaryGlueTableCredentialsResponse_accessKeyId,
+    getTemporaryGlueTableCredentialsResponse_sessionToken,
     getTemporaryGlueTableCredentialsResponse_httpStatus,
 
     -- ** GetWorkUnitResults
@@ -208,47 +208,47 @@ module Amazonka.LakeFormation.Lens
     grantPermissionsResponse_httpStatus,
 
     -- ** ListDataCellsFilter
-    listDataCellsFilter_nextToken,
     listDataCellsFilter_maxResults,
+    listDataCellsFilter_nextToken,
     listDataCellsFilter_table,
     listDataCellsFilterResponse_dataCellsFilters,
     listDataCellsFilterResponse_nextToken,
     listDataCellsFilterResponse_httpStatus,
 
     -- ** ListLFTags
+    listLFTags_catalogId,
+    listLFTags_maxResults,
     listLFTags_nextToken,
     listLFTags_resourceShareType,
-    listLFTags_maxResults,
-    listLFTags_catalogId,
-    listLFTagsResponse_nextToken,
     listLFTagsResponse_lFTags,
+    listLFTagsResponse_nextToken,
     listLFTagsResponse_httpStatus,
 
     -- ** ListPermissions
-    listPermissions_principal,
-    listPermissions_resourceType,
-    listPermissions_nextToken,
+    listPermissions_catalogId,
     listPermissions_includeRelated,
     listPermissions_maxResults,
-    listPermissions_catalogId,
+    listPermissions_nextToken,
+    listPermissions_principal,
     listPermissions_resource,
+    listPermissions_resourceType,
     listPermissionsResponse_nextToken,
     listPermissionsResponse_principalResourcePermissions,
     listPermissionsResponse_httpStatus,
 
     -- ** ListResources
-    listResources_nextToken,
     listResources_filterConditionList,
     listResources_maxResults,
+    listResources_nextToken,
     listResourcesResponse_nextToken,
     listResourcesResponse_resourceInfoList,
     listResourcesResponse_httpStatus,
 
     -- ** ListTableStorageOptimizers
-    listTableStorageOptimizers_storageOptimizerType,
-    listTableStorageOptimizers_nextToken,
-    listTableStorageOptimizers_maxResults,
     listTableStorageOptimizers_catalogId,
+    listTableStorageOptimizers_maxResults,
+    listTableStorageOptimizers_nextToken,
+    listTableStorageOptimizers_storageOptimizerType,
     listTableStorageOptimizers_databaseName,
     listTableStorageOptimizers_tableName,
     listTableStorageOptimizersResponse_nextToken,
@@ -256,9 +256,9 @@ module Amazonka.LakeFormation.Lens
     listTableStorageOptimizersResponse_httpStatus,
 
     -- ** ListTransactions
-    listTransactions_nextToken,
-    listTransactions_maxResults,
     listTransactions_catalogId,
+    listTransactions_maxResults,
+    listTransactions_nextToken,
     listTransactions_statusFilter,
     listTransactionsResponse_nextToken,
     listTransactionsResponse_transactions,
@@ -291,18 +291,18 @@ module Amazonka.LakeFormation.Lens
     revokePermissionsResponse_httpStatus,
 
     -- ** SearchDatabasesByLFTags
-    searchDatabasesByLFTags_nextToken,
-    searchDatabasesByLFTags_maxResults,
     searchDatabasesByLFTags_catalogId,
+    searchDatabasesByLFTags_maxResults,
+    searchDatabasesByLFTags_nextToken,
     searchDatabasesByLFTags_expression,
-    searchDatabasesByLFTagsResponse_nextToken,
     searchDatabasesByLFTagsResponse_databaseList,
+    searchDatabasesByLFTagsResponse_nextToken,
     searchDatabasesByLFTagsResponse_httpStatus,
 
     -- ** SearchTablesByLFTags
-    searchTablesByLFTags_nextToken,
-    searchTablesByLFTags_maxResults,
     searchTablesByLFTags_catalogId,
+    searchTablesByLFTags_maxResults,
+    searchTablesByLFTags_nextToken,
     searchTablesByLFTags_expression,
     searchTablesByLFTagsResponse_nextToken,
     searchTablesByLFTagsResponse_tableList,
@@ -321,8 +321,8 @@ module Amazonka.LakeFormation.Lens
 
     -- ** UpdateLFTag
     updateLFTag_catalogId,
-    updateLFTag_tagValuesToDelete,
     updateLFTag_tagValuesToAdd,
+    updateLFTag_tagValuesToDelete,
     updateLFTag_tagKey,
     updateLFTagResponse_httpStatus,
 
@@ -361,52 +361,52 @@ module Amazonka.LakeFormation.Lens
     auditContext_additionalAuditContext,
 
     -- ** BatchPermissionsFailureEntry
-    batchPermissionsFailureEntry_requestEntry,
     batchPermissionsFailureEntry_error,
+    batchPermissionsFailureEntry_requestEntry,
 
     -- ** BatchPermissionsRequestEntry
-    batchPermissionsRequestEntry_principal,
     batchPermissionsRequestEntry_permissions,
     batchPermissionsRequestEntry_permissionsWithGrantOption,
+    batchPermissionsRequestEntry_principal,
     batchPermissionsRequestEntry_resource,
     batchPermissionsRequestEntry_id,
 
     -- ** CatalogResource
 
     -- ** ColumnLFTag
-    columnLFTag_name,
     columnLFTag_lFTags,
+    columnLFTag_name,
 
     -- ** ColumnWildcard
     columnWildcard_excludedColumnNames,
 
     -- ** DataCellsFilter
-    dataCellsFilter_rowFilter,
     dataCellsFilter_columnNames,
     dataCellsFilter_columnWildcard,
+    dataCellsFilter_rowFilter,
     dataCellsFilter_tableCatalogId,
     dataCellsFilter_databaseName,
     dataCellsFilter_tableName,
     dataCellsFilter_name,
 
     -- ** DataCellsFilterResource
-    dataCellsFilterResource_tableName,
-    dataCellsFilterResource_name,
     dataCellsFilterResource_databaseName,
+    dataCellsFilterResource_name,
     dataCellsFilterResource_tableCatalogId,
+    dataCellsFilterResource_tableName,
 
     -- ** DataLakePrincipal
     dataLakePrincipal_dataLakePrincipalIdentifier,
 
     -- ** DataLakeSettings
-    dataLakeSettings_dataLakeAdmins,
-    dataLakeSettings_createDatabaseDefaultPermissions,
     dataLakeSettings_allowExternalDataFiltering,
-    dataLakeSettings_trustedResourceOwners,
     dataLakeSettings_authorizedSessionTagValueList,
+    dataLakeSettings_createDatabaseDefaultPermissions,
     dataLakeSettings_createTableDefaultPermissions,
+    dataLakeSettings_dataLakeAdmins,
     dataLakeSettings_externalDataFilteringAllowList,
     dataLakeSettings_parameters,
+    dataLakeSettings_trustedResourceOwners,
 
     -- ** DataLocationResource
     dataLocationResource_catalogId,
@@ -417,25 +417,25 @@ module Amazonka.LakeFormation.Lens
     databaseResource_name,
 
     -- ** DeleteObjectInput
-    deleteObjectInput_partitionValues,
     deleteObjectInput_eTag,
+    deleteObjectInput_partitionValues,
     deleteObjectInput_uri,
 
     -- ** DetailsMap
     detailsMap_resourceShare,
 
     -- ** ErrorDetail
-    errorDetail_errorMessage,
     errorDetail_errorCode,
+    errorDetail_errorMessage,
 
     -- ** ExecutionStatistics
-    executionStatistics_workUnitsExecutedCount,
     executionStatistics_averageExecutionTimeMillis,
     executionStatistics_dataScannedBytes,
+    executionStatistics_workUnitsExecutedCount,
 
     -- ** FilterCondition
-    filterCondition_field,
     filterCondition_comparisonOperator,
+    filterCondition_field,
     filterCondition_stringValueList,
 
     -- ** LFTag
@@ -443,8 +443,8 @@ module Amazonka.LakeFormation.Lens
     lFTag_tagValues,
 
     -- ** LFTagError
-    lFTagError_lFTag,
     lFTagError_error,
+    lFTagError_lFTag,
 
     -- ** LFTagKeyResource
     lFTagKeyResource_catalogId,
@@ -469,90 +469,90 @@ module Amazonka.LakeFormation.Lens
     partitionValueList_values,
 
     -- ** PlanningStatistics
-    planningStatistics_planningTimeMillis,
-    planningStatistics_workUnitsGeneratedCount,
     planningStatistics_estimatedDataToScanBytes,
+    planningStatistics_planningTimeMillis,
     planningStatistics_queueTimeMillis,
+    planningStatistics_workUnitsGeneratedCount,
 
     -- ** PrincipalPermissions
-    principalPermissions_principal,
     principalPermissions_permissions,
+    principalPermissions_principal,
 
     -- ** PrincipalResourcePermissions
-    principalResourcePermissions_principal,
     principalResourcePermissions_additionalDetails,
     principalResourcePermissions_permissions,
     principalResourcePermissions_permissionsWithGrantOption,
+    principalResourcePermissions_principal,
     principalResourcePermissions_resource,
 
     -- ** QueryPlanningContext
+    queryPlanningContext_catalogId,
     queryPlanningContext_queryAsOfTime,
     queryPlanningContext_queryParameters,
-    queryPlanningContext_catalogId,
     queryPlanningContext_transactionId,
     queryPlanningContext_databaseName,
 
     -- ** Resource
-    resource_tableWithColumns,
     resource_catalog,
+    resource_dataCellsFilter,
+    resource_dataLocation,
+    resource_database,
     resource_lFTag,
     resource_lFTagPolicy,
-    resource_dataCellsFilter,
-    resource_database,
-    resource_dataLocation,
     resource_table,
+    resource_tableWithColumns,
 
     -- ** ResourceInfo
-    resourceInfo_roleArn,
     resourceInfo_lastModified,
     resourceInfo_resourceArn,
+    resourceInfo_roleArn,
 
     -- ** RowFilter
     rowFilter_allRowsWildcard,
     rowFilter_filterExpression,
 
     -- ** StorageOptimizer
-    storageOptimizer_storageOptimizerType,
-    storageOptimizer_errorMessage,
-    storageOptimizer_warnings,
-    storageOptimizer_lastRunDetails,
     storageOptimizer_config,
+    storageOptimizer_errorMessage,
+    storageOptimizer_lastRunDetails,
+    storageOptimizer_storageOptimizerType,
+    storageOptimizer_warnings,
 
     -- ** TableObject
+    tableObject_eTag,
     tableObject_size,
     tableObject_uri,
-    tableObject_eTag,
 
     -- ** TableResource
+    tableResource_catalogId,
     tableResource_name,
     tableResource_tableWildcard,
-    tableResource_catalogId,
     tableResource_databaseName,
 
     -- ** TableWildcard
 
     -- ** TableWithColumnsResource
+    tableWithColumnsResource_catalogId,
     tableWithColumnsResource_columnNames,
     tableWithColumnsResource_columnWildcard,
-    tableWithColumnsResource_catalogId,
     tableWithColumnsResource_databaseName,
     tableWithColumnsResource_name,
 
     -- ** TaggedDatabase
-    taggedDatabase_lFTags,
     taggedDatabase_database,
+    taggedDatabase_lFTags,
 
     -- ** TaggedTable
-    taggedTable_lFTagsOnTable,
-    taggedTable_table,
     taggedTable_lFTagOnDatabase,
     taggedTable_lFTagsOnColumns,
+    taggedTable_lFTagsOnTable,
+    taggedTable_table,
 
     -- ** TransactionDescription
-    transactionDescription_transactionStartTime,
-    transactionDescription_transactionId,
-    transactionDescription_transactionStatus,
     transactionDescription_transactionEndTime,
+    transactionDescription_transactionId,
+    transactionDescription_transactionStartTime,
+    transactionDescription_transactionStatus,
 
     -- ** VirtualObject
     virtualObject_eTag,
@@ -564,8 +564,8 @@ module Amazonka.LakeFormation.Lens
     workUnitRange_workUnitToken,
 
     -- ** WriteOperation
-    writeOperation_deleteObject,
     writeOperation_addObject,
+    writeOperation_deleteObject,
   )
 where
 

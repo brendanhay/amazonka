@@ -30,10 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newColumnLFTag' smart constructor.
 data ColumnLFTag = ColumnLFTag'
-  { -- | The name of a column resource.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The LF-tags attached to a column resource.
-    lFTags :: Prelude.Maybe (Prelude.NonEmpty LFTagPair)
+  { -- | The LF-tags attached to a column resource.
+    lFTags :: Prelude.Maybe (Prelude.NonEmpty LFTagPair),
+    -- | The name of a column resource.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data ColumnLFTag = ColumnLFTag'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'columnLFTag_name' - The name of a column resource.
---
 -- 'lFTags', 'columnLFTag_lFTags' - The LF-tags attached to a column resource.
+--
+-- 'name', 'columnLFTag_name' - The name of a column resource.
 newColumnLFTag ::
   ColumnLFTag
 newColumnLFTag =
   ColumnLFTag'
-    { name = Prelude.Nothing,
-      lFTags = Prelude.Nothing
+    { lFTags = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of a column resource.
-columnLFTag_name :: Lens.Lens' ColumnLFTag (Prelude.Maybe Prelude.Text)
-columnLFTag_name = Lens.lens (\ColumnLFTag' {name} -> name) (\s@ColumnLFTag' {} a -> s {name = a} :: ColumnLFTag)
 
 -- | The LF-tags attached to a column resource.
 columnLFTag_lFTags :: Lens.Lens' ColumnLFTag (Prelude.Maybe (Prelude.NonEmpty LFTagPair))
 columnLFTag_lFTags = Lens.lens (\ColumnLFTag' {lFTags} -> lFTags) (\s@ColumnLFTag' {} a -> s {lFTags = a} :: ColumnLFTag) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of a column resource.
+columnLFTag_name :: Lens.Lens' ColumnLFTag (Prelude.Maybe Prelude.Text)
+columnLFTag_name = Lens.lens (\ColumnLFTag' {name} -> name) (\s@ColumnLFTag' {} a -> s {name = a} :: ColumnLFTag)
 
 instance Data.FromJSON ColumnLFTag where
   parseJSON =
@@ -70,15 +70,15 @@ instance Data.FromJSON ColumnLFTag where
       "ColumnLFTag"
       ( \x ->
           ColumnLFTag'
-            Prelude.<$> (x Data..:? "Name")
-            Prelude.<*> (x Data..:? "LFTags")
+            Prelude.<$> (x Data..:? "LFTags")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable ColumnLFTag where
   hashWithSalt _salt ColumnLFTag' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` lFTags
+    _salt `Prelude.hashWithSalt` lFTags
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ColumnLFTag where
   rnf ColumnLFTag' {..} =
-    Prelude.rnf name `Prelude.seq` Prelude.rnf lFTags
+    Prelude.rnf lFTags `Prelude.seq` Prelude.rnf name

@@ -27,10 +27,10 @@ module Amazonka.LakeFormation.DeleteDataCellsFilter
     newDeleteDataCellsFilter,
 
     -- * Request Lenses
-    deleteDataCellsFilter_tableName,
-    deleteDataCellsFilter_name,
     deleteDataCellsFilter_databaseName,
+    deleteDataCellsFilter_name,
     deleteDataCellsFilter_tableCatalogId,
+    deleteDataCellsFilter_tableName,
 
     -- * Destructuring the Response
     DeleteDataCellsFilterResponse (..),
@@ -51,14 +51,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteDataCellsFilter' smart constructor.
 data DeleteDataCellsFilter = DeleteDataCellsFilter'
-  { -- | A table in the database.
-    tableName :: Prelude.Maybe Prelude.Text,
+  { -- | A database in the Glue Data Catalog.
+    databaseName :: Prelude.Maybe Prelude.Text,
     -- | The name given by the user to the data filter cell.
     name :: Prelude.Maybe Prelude.Text,
-    -- | A database in the Glue Data Catalog.
-    databaseName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the catalog to which the table belongs.
-    tableCatalogId :: Prelude.Maybe Prelude.Text
+    tableCatalogId :: Prelude.Maybe Prelude.Text,
+    -- | A table in the database.
+    tableName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,38 +70,39 @@ data DeleteDataCellsFilter = DeleteDataCellsFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tableName', 'deleteDataCellsFilter_tableName' - A table in the database.
+-- 'databaseName', 'deleteDataCellsFilter_databaseName' - A database in the Glue Data Catalog.
 --
 -- 'name', 'deleteDataCellsFilter_name' - The name given by the user to the data filter cell.
 --
--- 'databaseName', 'deleteDataCellsFilter_databaseName' - A database in the Glue Data Catalog.
---
 -- 'tableCatalogId', 'deleteDataCellsFilter_tableCatalogId' - The ID of the catalog to which the table belongs.
+--
+-- 'tableName', 'deleteDataCellsFilter_tableName' - A table in the database.
 newDeleteDataCellsFilter ::
   DeleteDataCellsFilter
 newDeleteDataCellsFilter =
   DeleteDataCellsFilter'
-    { tableName = Prelude.Nothing,
+    { databaseName =
+        Prelude.Nothing,
       name = Prelude.Nothing,
-      databaseName = Prelude.Nothing,
-      tableCatalogId = Prelude.Nothing
+      tableCatalogId = Prelude.Nothing,
+      tableName = Prelude.Nothing
     }
-
--- | A table in the database.
-deleteDataCellsFilter_tableName :: Lens.Lens' DeleteDataCellsFilter (Prelude.Maybe Prelude.Text)
-deleteDataCellsFilter_tableName = Lens.lens (\DeleteDataCellsFilter' {tableName} -> tableName) (\s@DeleteDataCellsFilter' {} a -> s {tableName = a} :: DeleteDataCellsFilter)
-
--- | The name given by the user to the data filter cell.
-deleteDataCellsFilter_name :: Lens.Lens' DeleteDataCellsFilter (Prelude.Maybe Prelude.Text)
-deleteDataCellsFilter_name = Lens.lens (\DeleteDataCellsFilter' {name} -> name) (\s@DeleteDataCellsFilter' {} a -> s {name = a} :: DeleteDataCellsFilter)
 
 -- | A database in the Glue Data Catalog.
 deleteDataCellsFilter_databaseName :: Lens.Lens' DeleteDataCellsFilter (Prelude.Maybe Prelude.Text)
 deleteDataCellsFilter_databaseName = Lens.lens (\DeleteDataCellsFilter' {databaseName} -> databaseName) (\s@DeleteDataCellsFilter' {} a -> s {databaseName = a} :: DeleteDataCellsFilter)
 
+-- | The name given by the user to the data filter cell.
+deleteDataCellsFilter_name :: Lens.Lens' DeleteDataCellsFilter (Prelude.Maybe Prelude.Text)
+deleteDataCellsFilter_name = Lens.lens (\DeleteDataCellsFilter' {name} -> name) (\s@DeleteDataCellsFilter' {} a -> s {name = a} :: DeleteDataCellsFilter)
+
 -- | The ID of the catalog to which the table belongs.
 deleteDataCellsFilter_tableCatalogId :: Lens.Lens' DeleteDataCellsFilter (Prelude.Maybe Prelude.Text)
 deleteDataCellsFilter_tableCatalogId = Lens.lens (\DeleteDataCellsFilter' {tableCatalogId} -> tableCatalogId) (\s@DeleteDataCellsFilter' {} a -> s {tableCatalogId = a} :: DeleteDataCellsFilter)
+
+-- | A table in the database.
+deleteDataCellsFilter_tableName :: Lens.Lens' DeleteDataCellsFilter (Prelude.Maybe Prelude.Text)
+deleteDataCellsFilter_tableName = Lens.lens (\DeleteDataCellsFilter' {tableName} -> tableName) (\s@DeleteDataCellsFilter' {} a -> s {tableName = a} :: DeleteDataCellsFilter)
 
 instance Core.AWSRequest DeleteDataCellsFilter where
   type
@@ -118,17 +119,17 @@ instance Core.AWSRequest DeleteDataCellsFilter where
 
 instance Prelude.Hashable DeleteDataCellsFilter where
   hashWithSalt _salt DeleteDataCellsFilter' {..} =
-    _salt `Prelude.hashWithSalt` tableName
+    _salt `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableCatalogId
+      `Prelude.hashWithSalt` tableName
 
 instance Prelude.NFData DeleteDataCellsFilter where
   rnf DeleteDataCellsFilter' {..} =
-    Prelude.rnf tableName
+    Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tableCatalogId
+      `Prelude.seq` Prelude.rnf tableName
 
 instance Data.ToHeaders DeleteDataCellsFilter where
   toHeaders =
@@ -145,11 +146,11 @@ instance Data.ToJSON DeleteDataCellsFilter where
   toJSON DeleteDataCellsFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TableName" Data..=) Prelude.<$> tableName,
+          [ ("DatabaseName" Data..=) Prelude.<$> databaseName,
             ("Name" Data..=) Prelude.<$> name,
-            ("DatabaseName" Data..=) Prelude.<$> databaseName,
             ("TableCatalogId" Data..=)
-              Prelude.<$> tableCatalogId
+              Prelude.<$> tableCatalogId,
+            ("TableName" Data..=) Prelude.<$> tableName
           ]
       )
 

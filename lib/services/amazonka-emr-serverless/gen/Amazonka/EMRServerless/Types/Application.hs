@@ -36,30 +36,30 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newApplication' smart constructor.
 data Application = Application'
-  { -- | The tags assigned to the application.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The name of the application.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The configuration for an application to automatically stop after a
-    -- certain amount of time being idle.
-    autoStopConfiguration :: Prelude.Maybe AutoStopConfig,
-    -- | The state details of the application.
-    stateDetails :: Prelude.Maybe Prelude.Text,
-    -- | The initial capacity of the application.
-    initialCapacity :: Prelude.Maybe (Prelude.HashMap Prelude.Text InitialCapacityConfig),
-    -- | The network configuration for customer VPC connectivity for the
-    -- application.
-    networkConfiguration :: Prelude.Maybe NetworkConfiguration,
+  { -- | The CPU architecture of an application.
+    architecture :: Prelude.Maybe Architecture,
     -- | The configuration for an application to automatically start on job
     -- submission.
     autoStartConfiguration :: Prelude.Maybe AutoStartConfig,
+    -- | The configuration for an application to automatically stop after a
+    -- certain amount of time being idle.
+    autoStopConfiguration :: Prelude.Maybe AutoStopConfig,
+    -- | The initial capacity of the application.
+    initialCapacity :: Prelude.Maybe (Prelude.HashMap Prelude.Text InitialCapacityConfig),
     -- | The maximum capacity of the application. This is cumulative across all
     -- workers at any given point in time during the lifespan of the
     -- application is created. No new resources will be created once any one of
     -- the defined limits is hit.
     maximumCapacity :: Prelude.Maybe MaximumAllowedResources,
-    -- | The CPU architecture of an application.
-    architecture :: Prelude.Maybe Architecture,
+    -- | The name of the application.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The network configuration for customer VPC connectivity for the
+    -- application.
+    networkConfiguration :: Prelude.Maybe NetworkConfiguration,
+    -- | The state details of the application.
+    stateDetails :: Prelude.Maybe Prelude.Text,
+    -- | The tags assigned to the application.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ID of the application.
     applicationId :: Prelude.Text,
     -- | The ARN of the application.
@@ -85,29 +85,29 @@ data Application = Application'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'application_tags' - The tags assigned to the application.
+-- 'architecture', 'application_architecture' - The CPU architecture of an application.
 --
--- 'name', 'application_name' - The name of the application.
+-- 'autoStartConfiguration', 'application_autoStartConfiguration' - The configuration for an application to automatically start on job
+-- submission.
 --
 -- 'autoStopConfiguration', 'application_autoStopConfiguration' - The configuration for an application to automatically stop after a
 -- certain amount of time being idle.
 --
--- 'stateDetails', 'application_stateDetails' - The state details of the application.
---
 -- 'initialCapacity', 'application_initialCapacity' - The initial capacity of the application.
---
--- 'networkConfiguration', 'application_networkConfiguration' - The network configuration for customer VPC connectivity for the
--- application.
---
--- 'autoStartConfiguration', 'application_autoStartConfiguration' - The configuration for an application to automatically start on job
--- submission.
 --
 -- 'maximumCapacity', 'application_maximumCapacity' - The maximum capacity of the application. This is cumulative across all
 -- workers at any given point in time during the lifespan of the
 -- application is created. No new resources will be created once any one of
 -- the defined limits is hit.
 --
--- 'architecture', 'application_architecture' - The CPU architecture of an application.
+-- 'name', 'application_name' - The name of the application.
+--
+-- 'networkConfiguration', 'application_networkConfiguration' - The network configuration for customer VPC connectivity for the
+-- application.
+--
+-- 'stateDetails', 'application_stateDetails' - The state details of the application.
+--
+-- 'tags', 'application_tags' - The tags assigned to the application.
 --
 -- 'applicationId', 'application_applicationId' - The ID of the application.
 --
@@ -147,15 +147,15 @@ newApplication
   pCreatedAt_
   pUpdatedAt_ =
     Application'
-      { tags = Prelude.Nothing,
-        name = Prelude.Nothing,
-        autoStopConfiguration = Prelude.Nothing,
-        stateDetails = Prelude.Nothing,
-        initialCapacity = Prelude.Nothing,
-        networkConfiguration = Prelude.Nothing,
+      { architecture = Prelude.Nothing,
         autoStartConfiguration = Prelude.Nothing,
+        autoStopConfiguration = Prelude.Nothing,
+        initialCapacity = Prelude.Nothing,
         maximumCapacity = Prelude.Nothing,
-        architecture = Prelude.Nothing,
+        name = Prelude.Nothing,
+        networkConfiguration = Prelude.Nothing,
+        stateDetails = Prelude.Nothing,
+        tags = Prelude.Nothing,
         applicationId = pApplicationId_,
         arn = pArn_,
         releaseLabel = pReleaseLabel_,
@@ -165,36 +165,23 @@ newApplication
         updatedAt = Data._Time Lens.# pUpdatedAt_
       }
 
--- | The tags assigned to the application.
-application_tags :: Lens.Lens' Application (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-application_tags = Lens.lens (\Application' {tags} -> tags) (\s@Application' {} a -> s {tags = a} :: Application) Prelude.. Lens.mapping Lens.coerced
+-- | The CPU architecture of an application.
+application_architecture :: Lens.Lens' Application (Prelude.Maybe Architecture)
+application_architecture = Lens.lens (\Application' {architecture} -> architecture) (\s@Application' {} a -> s {architecture = a} :: Application)
 
--- | The name of the application.
-application_name :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
-application_name = Lens.lens (\Application' {name} -> name) (\s@Application' {} a -> s {name = a} :: Application)
+-- | The configuration for an application to automatically start on job
+-- submission.
+application_autoStartConfiguration :: Lens.Lens' Application (Prelude.Maybe AutoStartConfig)
+application_autoStartConfiguration = Lens.lens (\Application' {autoStartConfiguration} -> autoStartConfiguration) (\s@Application' {} a -> s {autoStartConfiguration = a} :: Application)
 
 -- | The configuration for an application to automatically stop after a
 -- certain amount of time being idle.
 application_autoStopConfiguration :: Lens.Lens' Application (Prelude.Maybe AutoStopConfig)
 application_autoStopConfiguration = Lens.lens (\Application' {autoStopConfiguration} -> autoStopConfiguration) (\s@Application' {} a -> s {autoStopConfiguration = a} :: Application)
 
--- | The state details of the application.
-application_stateDetails :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
-application_stateDetails = Lens.lens (\Application' {stateDetails} -> stateDetails) (\s@Application' {} a -> s {stateDetails = a} :: Application)
-
 -- | The initial capacity of the application.
 application_initialCapacity :: Lens.Lens' Application (Prelude.Maybe (Prelude.HashMap Prelude.Text InitialCapacityConfig))
 application_initialCapacity = Lens.lens (\Application' {initialCapacity} -> initialCapacity) (\s@Application' {} a -> s {initialCapacity = a} :: Application) Prelude.. Lens.mapping Lens.coerced
-
--- | The network configuration for customer VPC connectivity for the
--- application.
-application_networkConfiguration :: Lens.Lens' Application (Prelude.Maybe NetworkConfiguration)
-application_networkConfiguration = Lens.lens (\Application' {networkConfiguration} -> networkConfiguration) (\s@Application' {} a -> s {networkConfiguration = a} :: Application)
-
--- | The configuration for an application to automatically start on job
--- submission.
-application_autoStartConfiguration :: Lens.Lens' Application (Prelude.Maybe AutoStartConfig)
-application_autoStartConfiguration = Lens.lens (\Application' {autoStartConfiguration} -> autoStartConfiguration) (\s@Application' {} a -> s {autoStartConfiguration = a} :: Application)
 
 -- | The maximum capacity of the application. This is cumulative across all
 -- workers at any given point in time during the lifespan of the
@@ -203,9 +190,22 @@ application_autoStartConfiguration = Lens.lens (\Application' {autoStartConfigur
 application_maximumCapacity :: Lens.Lens' Application (Prelude.Maybe MaximumAllowedResources)
 application_maximumCapacity = Lens.lens (\Application' {maximumCapacity} -> maximumCapacity) (\s@Application' {} a -> s {maximumCapacity = a} :: Application)
 
--- | The CPU architecture of an application.
-application_architecture :: Lens.Lens' Application (Prelude.Maybe Architecture)
-application_architecture = Lens.lens (\Application' {architecture} -> architecture) (\s@Application' {} a -> s {architecture = a} :: Application)
+-- | The name of the application.
+application_name :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
+application_name = Lens.lens (\Application' {name} -> name) (\s@Application' {} a -> s {name = a} :: Application)
+
+-- | The network configuration for customer VPC connectivity for the
+-- application.
+application_networkConfiguration :: Lens.Lens' Application (Prelude.Maybe NetworkConfiguration)
+application_networkConfiguration = Lens.lens (\Application' {networkConfiguration} -> networkConfiguration) (\s@Application' {} a -> s {networkConfiguration = a} :: Application)
+
+-- | The state details of the application.
+application_stateDetails :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
+application_stateDetails = Lens.lens (\Application' {stateDetails} -> stateDetails) (\s@Application' {} a -> s {stateDetails = a} :: Application)
+
+-- | The tags assigned to the application.
+application_tags :: Lens.Lens' Application (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+application_tags = Lens.lens (\Application' {tags} -> tags) (\s@Application' {} a -> s {tags = a} :: Application) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the application.
 application_applicationId :: Lens.Lens' Application Prelude.Text
@@ -241,17 +241,17 @@ instance Data.FromJSON Application where
       "Application"
       ( \x ->
           Application'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "architecture")
+            Prelude.<*> (x Data..:? "autoStartConfiguration")
             Prelude.<*> (x Data..:? "autoStopConfiguration")
-            Prelude.<*> (x Data..:? "stateDetails")
             Prelude.<*> ( x Data..:? "initialCapacity"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> (x Data..:? "networkConfiguration")
-            Prelude.<*> (x Data..:? "autoStartConfiguration")
             Prelude.<*> (x Data..:? "maximumCapacity")
-            Prelude.<*> (x Data..:? "architecture")
+            Prelude.<*> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "networkConfiguration")
+            Prelude.<*> (x Data..:? "stateDetails")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "applicationId")
             Prelude.<*> (x Data..: "arn")
             Prelude.<*> (x Data..: "releaseLabel")
@@ -263,15 +263,15 @@ instance Data.FromJSON Application where
 
 instance Prelude.Hashable Application where
   hashWithSalt _salt Application' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` autoStopConfiguration
-      `Prelude.hashWithSalt` stateDetails
-      `Prelude.hashWithSalt` initialCapacity
-      `Prelude.hashWithSalt` networkConfiguration
+    _salt `Prelude.hashWithSalt` architecture
       `Prelude.hashWithSalt` autoStartConfiguration
+      `Prelude.hashWithSalt` autoStopConfiguration
+      `Prelude.hashWithSalt` initialCapacity
       `Prelude.hashWithSalt` maximumCapacity
-      `Prelude.hashWithSalt` architecture
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` networkConfiguration
+      `Prelude.hashWithSalt` stateDetails
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` releaseLabel
@@ -282,15 +282,15 @@ instance Prelude.Hashable Application where
 
 instance Prelude.NFData Application where
   rnf Application' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf autoStopConfiguration
-      `Prelude.seq` Prelude.rnf stateDetails
-      `Prelude.seq` Prelude.rnf initialCapacity
-      `Prelude.seq` Prelude.rnf networkConfiguration
+    Prelude.rnf architecture
       `Prelude.seq` Prelude.rnf autoStartConfiguration
+      `Prelude.seq` Prelude.rnf autoStopConfiguration
+      `Prelude.seq` Prelude.rnf initialCapacity
       `Prelude.seq` Prelude.rnf maximumCapacity
-      `Prelude.seq` Prelude.rnf architecture
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf networkConfiguration
+      `Prelude.seq` Prelude.rnf stateDetails
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf releaseLabel

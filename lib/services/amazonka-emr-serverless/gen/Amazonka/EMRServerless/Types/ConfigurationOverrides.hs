@@ -36,7 +36,7 @@ data ConfigurationOverrides = ConfigurationOverrides'
     -- | The override configurations for monitoring.
     monitoringConfiguration :: Prelude.Maybe MonitoringConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConfigurationOverrides' with all optional fields omitted.

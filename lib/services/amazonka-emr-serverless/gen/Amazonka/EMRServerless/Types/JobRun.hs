@@ -35,14 +35,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJobRun' smart constructor.
 data JobRun = JobRun'
-  { -- | The tags assigned to the job run.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+  { -- | The configuration settings that are used to override default
+    -- configuration.
+    configurationOverrides :: Prelude.Maybe ConfigurationOverrides,
     -- | The optional job run name. This doesn\'t have to be unique.
     name :: Prelude.Maybe Prelude.Text,
     networkConfiguration :: Prelude.Maybe NetworkConfiguration,
-    -- | The configuration settings that are used to override default
-    -- configuration.
-    configurationOverrides :: Prelude.Maybe ConfigurationOverrides,
+    -- | The tags assigned to the job run.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The job run total execution duration in seconds. This field is only
     -- available for job runs in a @COMPLETED@, @FAILED@, or @CANCELLED@ state.
     totalExecutionDurationSeconds :: Prelude.Maybe Prelude.Int,
@@ -84,14 +84,14 @@ data JobRun = JobRun'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'jobRun_tags' - The tags assigned to the job run.
+-- 'configurationOverrides', 'jobRun_configurationOverrides' - The configuration settings that are used to override default
+-- configuration.
 --
 -- 'name', 'jobRun_name' - The optional job run name. This doesn\'t have to be unique.
 --
 -- 'networkConfiguration', 'jobRun_networkConfiguration' - Undocumented member.
 --
--- 'configurationOverrides', 'jobRun_configurationOverrides' - The configuration settings that are used to override default
--- configuration.
+-- 'tags', 'jobRun_tags' - The tags assigned to the job run.
 --
 -- 'totalExecutionDurationSeconds', 'jobRun_totalExecutionDurationSeconds' - The job run total execution duration in seconds. This field is only
 -- available for job runs in a @COMPLETED@, @FAILED@, or @CANCELLED@ state.
@@ -159,10 +159,10 @@ newJobRun
   pReleaseLabel_
   pJobDriver_ =
     JobRun'
-      { tags = Prelude.Nothing,
+      { configurationOverrides = Prelude.Nothing,
         name = Prelude.Nothing,
         networkConfiguration = Prelude.Nothing,
-        configurationOverrides = Prelude.Nothing,
+        tags = Prelude.Nothing,
         totalExecutionDurationSeconds = Prelude.Nothing,
         totalResourceUtilization = Prelude.Nothing,
         applicationId = pApplicationId_,
@@ -178,9 +178,10 @@ newJobRun
         jobDriver = pJobDriver_
       }
 
--- | The tags assigned to the job run.
-jobRun_tags :: Lens.Lens' JobRun (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-jobRun_tags = Lens.lens (\JobRun' {tags} -> tags) (\s@JobRun' {} a -> s {tags = a} :: JobRun) Prelude.. Lens.mapping Lens.coerced
+-- | The configuration settings that are used to override default
+-- configuration.
+jobRun_configurationOverrides :: Lens.Lens' JobRun (Prelude.Maybe ConfigurationOverrides)
+jobRun_configurationOverrides = Lens.lens (\JobRun' {configurationOverrides} -> configurationOverrides) (\s@JobRun' {} a -> s {configurationOverrides = a} :: JobRun)
 
 -- | The optional job run name. This doesn\'t have to be unique.
 jobRun_name :: Lens.Lens' JobRun (Prelude.Maybe Prelude.Text)
@@ -190,10 +191,9 @@ jobRun_name = Lens.lens (\JobRun' {name} -> name) (\s@JobRun' {} a -> s {name = 
 jobRun_networkConfiguration :: Lens.Lens' JobRun (Prelude.Maybe NetworkConfiguration)
 jobRun_networkConfiguration = Lens.lens (\JobRun' {networkConfiguration} -> networkConfiguration) (\s@JobRun' {} a -> s {networkConfiguration = a} :: JobRun)
 
--- | The configuration settings that are used to override default
--- configuration.
-jobRun_configurationOverrides :: Lens.Lens' JobRun (Prelude.Maybe ConfigurationOverrides)
-jobRun_configurationOverrides = Lens.lens (\JobRun' {configurationOverrides} -> configurationOverrides) (\s@JobRun' {} a -> s {configurationOverrides = a} :: JobRun)
+-- | The tags assigned to the job run.
+jobRun_tags :: Lens.Lens' JobRun (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+jobRun_tags = Lens.lens (\JobRun' {tags} -> tags) (\s@JobRun' {} a -> s {tags = a} :: JobRun) Prelude.. Lens.mapping Lens.coerced
 
 -- | The job run total execution duration in seconds. This field is only
 -- available for job runs in a @COMPLETED@, @FAILED@, or @CANCELLED@ state.
@@ -257,10 +257,10 @@ instance Data.FromJSON JobRun where
       "JobRun"
       ( \x ->
           JobRun'
-            Prelude.<$> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "configurationOverrides")
             Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "networkConfiguration")
-            Prelude.<*> (x Data..:? "configurationOverrides")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "totalExecutionDurationSeconds")
             Prelude.<*> (x Data..:? "totalResourceUtilization")
             Prelude.<*> (x Data..: "applicationId")
@@ -278,10 +278,10 @@ instance Data.FromJSON JobRun where
 
 instance Prelude.Hashable JobRun where
   hashWithSalt _salt JobRun' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt `Prelude.hashWithSalt` configurationOverrides
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` networkConfiguration
-      `Prelude.hashWithSalt` configurationOverrides
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` totalExecutionDurationSeconds
       `Prelude.hashWithSalt` totalResourceUtilization
       `Prelude.hashWithSalt` applicationId
@@ -298,10 +298,10 @@ instance Prelude.Hashable JobRun where
 
 instance Prelude.NFData JobRun where
   rnf JobRun' {..} =
-    Prelude.rnf tags
+    Prelude.rnf configurationOverrides
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf networkConfiguration
-      `Prelude.seq` Prelude.rnf configurationOverrides
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf totalExecutionDurationSeconds
       `Prelude.seq` Prelude.rnf totalResourceUtilization
       `Prelude.seq` Prelude.rnf applicationId

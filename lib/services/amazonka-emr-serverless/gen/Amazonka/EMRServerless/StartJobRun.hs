@@ -27,11 +27,11 @@ module Amazonka.EMRServerless.StartJobRun
     newStartJobRun,
 
     -- * Request Lenses
-    startJobRun_tags,
-    startJobRun_name,
-    startJobRun_jobDriver,
     startJobRun_configurationOverrides,
     startJobRun_executionTimeoutMinutes,
+    startJobRun_jobDriver,
+    startJobRun_name,
+    startJobRun_tags,
     startJobRun_applicationId,
     startJobRun_clientToken,
     startJobRun_executionRoleArn,
@@ -58,17 +58,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartJobRun' smart constructor.
 data StartJobRun = StartJobRun'
-  { -- | The tags assigned to the job run.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The optional job run name. This doesn\'t have to be unique.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The job driver for the job run.
-    jobDriver :: Prelude.Maybe JobDriver,
-    -- | The configuration overrides for the job run.
+  { -- | The configuration overrides for the job run.
     configurationOverrides :: Prelude.Maybe ConfigurationOverrides,
     -- | The maximum duration for the job run to run. If the job run runs beyond
     -- this duration, it will be automatically cancelled.
     executionTimeoutMinutes :: Prelude.Maybe Prelude.Natural,
+    -- | The job driver for the job run.
+    jobDriver :: Prelude.Maybe JobDriver,
+    -- | The optional job run name. This doesn\'t have to be unique.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The tags assigned to the job run.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ID of the application on which to run the job.
     applicationId :: Prelude.Text,
     -- | The client idempotency token of the job run to start. Its value must be
@@ -87,16 +87,16 @@ data StartJobRun = StartJobRun'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'startJobRun_tags' - The tags assigned to the job run.
---
--- 'name', 'startJobRun_name' - The optional job run name. This doesn\'t have to be unique.
---
--- 'jobDriver', 'startJobRun_jobDriver' - The job driver for the job run.
---
 -- 'configurationOverrides', 'startJobRun_configurationOverrides' - The configuration overrides for the job run.
 --
 -- 'executionTimeoutMinutes', 'startJobRun_executionTimeoutMinutes' - The maximum duration for the job run to run. If the job run runs beyond
 -- this duration, it will be automatically cancelled.
+--
+-- 'jobDriver', 'startJobRun_jobDriver' - The job driver for the job run.
+--
+-- 'name', 'startJobRun_name' - The optional job run name. This doesn\'t have to be unique.
+--
+-- 'tags', 'startJobRun_tags' - The tags assigned to the job run.
 --
 -- 'applicationId', 'startJobRun_applicationId' - The ID of the application on which to run the job.
 --
@@ -117,27 +117,16 @@ newStartJobRun
   pClientToken_
   pExecutionRoleArn_ =
     StartJobRun'
-      { tags = Prelude.Nothing,
-        name = Prelude.Nothing,
-        jobDriver = Prelude.Nothing,
-        configurationOverrides = Prelude.Nothing,
+      { configurationOverrides =
+          Prelude.Nothing,
         executionTimeoutMinutes = Prelude.Nothing,
+        jobDriver = Prelude.Nothing,
+        name = Prelude.Nothing,
+        tags = Prelude.Nothing,
         applicationId = pApplicationId_,
         clientToken = pClientToken_,
         executionRoleArn = pExecutionRoleArn_
       }
-
--- | The tags assigned to the job run.
-startJobRun_tags :: Lens.Lens' StartJobRun (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-startJobRun_tags = Lens.lens (\StartJobRun' {tags} -> tags) (\s@StartJobRun' {} a -> s {tags = a} :: StartJobRun) Prelude.. Lens.mapping Lens.coerced
-
--- | The optional job run name. This doesn\'t have to be unique.
-startJobRun_name :: Lens.Lens' StartJobRun (Prelude.Maybe Prelude.Text)
-startJobRun_name = Lens.lens (\StartJobRun' {name} -> name) (\s@StartJobRun' {} a -> s {name = a} :: StartJobRun)
-
--- | The job driver for the job run.
-startJobRun_jobDriver :: Lens.Lens' StartJobRun (Prelude.Maybe JobDriver)
-startJobRun_jobDriver = Lens.lens (\StartJobRun' {jobDriver} -> jobDriver) (\s@StartJobRun' {} a -> s {jobDriver = a} :: StartJobRun)
 
 -- | The configuration overrides for the job run.
 startJobRun_configurationOverrides :: Lens.Lens' StartJobRun (Prelude.Maybe ConfigurationOverrides)
@@ -147,6 +136,18 @@ startJobRun_configurationOverrides = Lens.lens (\StartJobRun' {configurationOver
 -- this duration, it will be automatically cancelled.
 startJobRun_executionTimeoutMinutes :: Lens.Lens' StartJobRun (Prelude.Maybe Prelude.Natural)
 startJobRun_executionTimeoutMinutes = Lens.lens (\StartJobRun' {executionTimeoutMinutes} -> executionTimeoutMinutes) (\s@StartJobRun' {} a -> s {executionTimeoutMinutes = a} :: StartJobRun)
+
+-- | The job driver for the job run.
+startJobRun_jobDriver :: Lens.Lens' StartJobRun (Prelude.Maybe JobDriver)
+startJobRun_jobDriver = Lens.lens (\StartJobRun' {jobDriver} -> jobDriver) (\s@StartJobRun' {} a -> s {jobDriver = a} :: StartJobRun)
+
+-- | The optional job run name. This doesn\'t have to be unique.
+startJobRun_name :: Lens.Lens' StartJobRun (Prelude.Maybe Prelude.Text)
+startJobRun_name = Lens.lens (\StartJobRun' {name} -> name) (\s@StartJobRun' {} a -> s {name = a} :: StartJobRun)
+
+-- | The tags assigned to the job run.
+startJobRun_tags :: Lens.Lens' StartJobRun (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+startJobRun_tags = Lens.lens (\StartJobRun' {tags} -> tags) (\s@StartJobRun' {} a -> s {tags = a} :: StartJobRun) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the application on which to run the job.
 startJobRun_applicationId :: Lens.Lens' StartJobRun Prelude.Text
@@ -177,22 +178,22 @@ instance Core.AWSRequest StartJobRun where
 
 instance Prelude.Hashable StartJobRun where
   hashWithSalt _salt StartJobRun' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` jobDriver
-      `Prelude.hashWithSalt` configurationOverrides
+    _salt `Prelude.hashWithSalt` configurationOverrides
       `Prelude.hashWithSalt` executionTimeoutMinutes
+      `Prelude.hashWithSalt` jobDriver
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` executionRoleArn
 
 instance Prelude.NFData StartJobRun where
   rnf StartJobRun' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
-      `Prelude.seq` Prelude.rnf jobDriver
-      `Prelude.seq` Prelude.rnf configurationOverrides
+    Prelude.rnf configurationOverrides
       `Prelude.seq` Prelude.rnf executionTimeoutMinutes
+      `Prelude.seq` Prelude.rnf jobDriver
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf executionRoleArn
@@ -212,13 +213,13 @@ instance Data.ToJSON StartJobRun where
   toJSON StartJobRun' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("name" Data..=) Prelude.<$> name,
-            ("jobDriver" Data..=) Prelude.<$> jobDriver,
-            ("configurationOverrides" Data..=)
+          [ ("configurationOverrides" Data..=)
               Prelude.<$> configurationOverrides,
             ("executionTimeoutMinutes" Data..=)
               Prelude.<$> executionTimeoutMinutes,
+            ("jobDriver" Data..=) Prelude.<$> jobDriver,
+            ("name" Data..=) Prelude.<$> name,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("clientToken" Data..= clientToken),
             Prelude.Just
               ("executionRoleArn" Data..= executionRoleArn)

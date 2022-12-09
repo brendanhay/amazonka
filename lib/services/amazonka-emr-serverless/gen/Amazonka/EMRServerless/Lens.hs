@@ -22,14 +22,14 @@ module Amazonka.EMRServerless.Lens
     cancelJobRunResponse_jobRunId,
 
     -- ** CreateApplication
-    createApplication_tags,
-    createApplication_name,
+    createApplication_architecture,
+    createApplication_autoStartConfiguration,
     createApplication_autoStopConfiguration,
     createApplication_initialCapacity,
-    createApplication_networkConfiguration,
-    createApplication_autoStartConfiguration,
     createApplication_maximumCapacity,
-    createApplication_architecture,
+    createApplication_name,
+    createApplication_networkConfiguration,
+    createApplication_tags,
     createApplication_releaseLabel,
     createApplication_type,
     createApplication_clientToken,
@@ -60,18 +60,18 @@ module Amazonka.EMRServerless.Lens
     getJobRunResponse_jobRun,
 
     -- ** ListApplications
-    listApplications_nextToken,
     listApplications_maxResults,
+    listApplications_nextToken,
     listApplications_states,
     listApplicationsResponse_nextToken,
     listApplicationsResponse_httpStatus,
     listApplicationsResponse_applications,
 
     -- ** ListJobRuns
-    listJobRuns_nextToken,
-    listJobRuns_maxResults,
     listJobRuns_createdAtAfter,
     listJobRuns_createdAtBefore,
+    listJobRuns_maxResults,
+    listJobRuns_nextToken,
     listJobRuns_states,
     listJobRuns_applicationId,
     listJobRunsResponse_nextToken,
@@ -88,11 +88,11 @@ module Amazonka.EMRServerless.Lens
     startApplicationResponse_httpStatus,
 
     -- ** StartJobRun
-    startJobRun_tags,
-    startJobRun_name,
-    startJobRun_jobDriver,
     startJobRun_configurationOverrides,
     startJobRun_executionTimeoutMinutes,
+    startJobRun_jobDriver,
+    startJobRun_name,
+    startJobRun_tags,
     startJobRun_applicationId,
     startJobRun_clientToken,
     startJobRun_executionRoleArn,
@@ -116,12 +116,12 @@ module Amazonka.EMRServerless.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateApplication
+    updateApplication_architecture,
+    updateApplication_autoStartConfiguration,
     updateApplication_autoStopConfiguration,
     updateApplication_initialCapacity,
-    updateApplication_networkConfiguration,
-    updateApplication_autoStartConfiguration,
     updateApplication_maximumCapacity,
-    updateApplication_architecture,
+    updateApplication_networkConfiguration,
     updateApplication_applicationId,
     updateApplication_clientToken,
     updateApplicationResponse_httpStatus,
@@ -130,15 +130,15 @@ module Amazonka.EMRServerless.Lens
     -- * Types
 
     -- ** Application
-    application_tags,
-    application_name,
-    application_autoStopConfiguration,
-    application_stateDetails,
-    application_initialCapacity,
-    application_networkConfiguration,
-    application_autoStartConfiguration,
-    application_maximumCapacity,
     application_architecture,
+    application_autoStartConfiguration,
+    application_autoStopConfiguration,
+    application_initialCapacity,
+    application_maximumCapacity,
+    application_name,
+    application_networkConfiguration,
+    application_stateDetails,
+    application_tags,
     application_applicationId,
     application_arn,
     application_releaseLabel,
@@ -148,9 +148,9 @@ module Amazonka.EMRServerless.Lens
     application_updatedAt,
 
     -- ** ApplicationSummary
+    applicationSummary_architecture,
     applicationSummary_name,
     applicationSummary_stateDetails,
-    applicationSummary_architecture,
     applicationSummary_id,
     applicationSummary_arn,
     applicationSummary_releaseLabel,
@@ -163,12 +163,12 @@ module Amazonka.EMRServerless.Lens
     autoStartConfig_enabled,
 
     -- ** AutoStopConfig
-    autoStopConfig_idleTimeoutMinutes,
     autoStopConfig_enabled,
+    autoStopConfig_idleTimeoutMinutes,
 
     -- ** Configuration
-    configuration_properties,
     configuration_configurations,
+    configuration_properties,
     configuration_classification,
 
     -- ** ConfigurationOverrides
@@ -189,10 +189,10 @@ module Amazonka.EMRServerless.Lens
     jobDriver_sparkSubmit,
 
     -- ** JobRun
-    jobRun_tags,
+    jobRun_configurationOverrides,
     jobRun_name,
     jobRun_networkConfiguration,
-    jobRun_configurationOverrides,
+    jobRun_tags,
     jobRun_totalExecutionDurationSeconds,
     jobRun_totalResourceUtilization,
     jobRun_applicationId,
@@ -222,8 +222,8 @@ module Amazonka.EMRServerless.Lens
     jobRunSummary_releaseLabel,
 
     -- ** ManagedPersistenceMonitoringConfiguration
-    managedPersistenceMonitoringConfiguration_encryptionKeyArn,
     managedPersistenceMonitoringConfiguration_enabled,
+    managedPersistenceMonitoringConfiguration_encryptionKeyArn,
 
     -- ** MaximumAllowedResources
     maximumAllowedResources_disk,
@@ -248,8 +248,8 @@ module Amazonka.EMRServerless.Lens
     sparkSubmit_entryPoint,
 
     -- ** TotalResourceUtilization
-    totalResourceUtilization_storageGBHour,
     totalResourceUtilization_memoryGBHour,
+    totalResourceUtilization_storageGBHour,
     totalResourceUtilization_vCPUHour,
 
     -- ** WorkerResourceConfig

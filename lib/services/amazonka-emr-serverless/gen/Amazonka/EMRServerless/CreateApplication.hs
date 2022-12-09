@@ -27,14 +27,14 @@ module Amazonka.EMRServerless.CreateApplication
     newCreateApplication,
 
     -- * Request Lenses
-    createApplication_tags,
-    createApplication_name,
+    createApplication_architecture,
+    createApplication_autoStartConfiguration,
     createApplication_autoStopConfiguration,
     createApplication_initialCapacity,
-    createApplication_networkConfiguration,
-    createApplication_autoStartConfiguration,
     createApplication_maximumCapacity,
-    createApplication_architecture,
+    createApplication_name,
+    createApplication_networkConfiguration,
+    createApplication_tags,
     createApplication_releaseLabel,
     createApplication_type,
     createApplication_clientToken,
@@ -61,27 +61,27 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateApplication' smart constructor.
 data CreateApplication = CreateApplication'
-  { -- | The tags assigned to the application.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The name of the application.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | The CPU architecture of an application.
+    architecture :: Prelude.Maybe Architecture,
+    -- | The configuration for an application to automatically start on job
+    -- submission.
+    autoStartConfiguration :: Prelude.Maybe AutoStartConfig,
     -- | The configuration for an application to automatically stop after a
     -- certain amount of time being idle.
     autoStopConfiguration :: Prelude.Maybe AutoStopConfig,
     -- | The capacity to initialize when the application is created.
     initialCapacity :: Prelude.Maybe (Prelude.HashMap Prelude.Text InitialCapacityConfig),
-    -- | The network configuration for customer VPC connectivity.
-    networkConfiguration :: Prelude.Maybe NetworkConfiguration,
-    -- | The configuration for an application to automatically start on job
-    -- submission.
-    autoStartConfiguration :: Prelude.Maybe AutoStartConfig,
     -- | The maximum capacity to allocate when the application is created. This
     -- is cumulative across all workers at any given point in time, not just
     -- when an application is created. No new resources will be created once
     -- any one of the defined limits is hit.
     maximumCapacity :: Prelude.Maybe MaximumAllowedResources,
-    -- | The CPU architecture of an application.
-    architecture :: Prelude.Maybe Architecture,
+    -- | The name of the application.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The network configuration for customer VPC connectivity.
+    networkConfiguration :: Prelude.Maybe NetworkConfiguration,
+    -- | The tags assigned to the application.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The EMR release version associated with the application.
     releaseLabel :: Prelude.Text,
     -- | The type of application you want to start, such as Spark or Hive.
@@ -100,26 +100,26 @@ data CreateApplication = CreateApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createApplication_tags' - The tags assigned to the application.
+-- 'architecture', 'createApplication_architecture' - The CPU architecture of an application.
 --
--- 'name', 'createApplication_name' - The name of the application.
+-- 'autoStartConfiguration', 'createApplication_autoStartConfiguration' - The configuration for an application to automatically start on job
+-- submission.
 --
 -- 'autoStopConfiguration', 'createApplication_autoStopConfiguration' - The configuration for an application to automatically stop after a
 -- certain amount of time being idle.
 --
 -- 'initialCapacity', 'createApplication_initialCapacity' - The capacity to initialize when the application is created.
 --
--- 'networkConfiguration', 'createApplication_networkConfiguration' - The network configuration for customer VPC connectivity.
---
--- 'autoStartConfiguration', 'createApplication_autoStartConfiguration' - The configuration for an application to automatically start on job
--- submission.
---
 -- 'maximumCapacity', 'createApplication_maximumCapacity' - The maximum capacity to allocate when the application is created. This
 -- is cumulative across all workers at any given point in time, not just
 -- when an application is created. No new resources will be created once
 -- any one of the defined limits is hit.
 --
--- 'architecture', 'createApplication_architecture' - The CPU architecture of an application.
+-- 'name', 'createApplication_name' - The name of the application.
+--
+-- 'networkConfiguration', 'createApplication_networkConfiguration' - The network configuration for customer VPC connectivity.
+--
+-- 'tags', 'createApplication_tags' - The tags assigned to the application.
 --
 -- 'releaseLabel', 'createApplication_releaseLabel' - The EMR release version associated with the application.
 --
@@ -140,26 +140,27 @@ newCreateApplication
   pType_
   pClientToken_ =
     CreateApplication'
-      { tags = Prelude.Nothing,
-        name = Prelude.Nothing,
+      { architecture = Prelude.Nothing,
+        autoStartConfiguration = Prelude.Nothing,
         autoStopConfiguration = Prelude.Nothing,
         initialCapacity = Prelude.Nothing,
-        networkConfiguration = Prelude.Nothing,
-        autoStartConfiguration = Prelude.Nothing,
         maximumCapacity = Prelude.Nothing,
-        architecture = Prelude.Nothing,
+        name = Prelude.Nothing,
+        networkConfiguration = Prelude.Nothing,
+        tags = Prelude.Nothing,
         releaseLabel = pReleaseLabel_,
         type' = pType_,
         clientToken = pClientToken_
       }
 
--- | The tags assigned to the application.
-createApplication_tags :: Lens.Lens' CreateApplication (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createApplication_tags = Lens.lens (\CreateApplication' {tags} -> tags) (\s@CreateApplication' {} a -> s {tags = a} :: CreateApplication) Prelude.. Lens.mapping Lens.coerced
+-- | The CPU architecture of an application.
+createApplication_architecture :: Lens.Lens' CreateApplication (Prelude.Maybe Architecture)
+createApplication_architecture = Lens.lens (\CreateApplication' {architecture} -> architecture) (\s@CreateApplication' {} a -> s {architecture = a} :: CreateApplication)
 
--- | The name of the application.
-createApplication_name :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
-createApplication_name = Lens.lens (\CreateApplication' {name} -> name) (\s@CreateApplication' {} a -> s {name = a} :: CreateApplication)
+-- | The configuration for an application to automatically start on job
+-- submission.
+createApplication_autoStartConfiguration :: Lens.Lens' CreateApplication (Prelude.Maybe AutoStartConfig)
+createApplication_autoStartConfiguration = Lens.lens (\CreateApplication' {autoStartConfiguration} -> autoStartConfiguration) (\s@CreateApplication' {} a -> s {autoStartConfiguration = a} :: CreateApplication)
 
 -- | The configuration for an application to automatically stop after a
 -- certain amount of time being idle.
@@ -170,15 +171,6 @@ createApplication_autoStopConfiguration = Lens.lens (\CreateApplication' {autoSt
 createApplication_initialCapacity :: Lens.Lens' CreateApplication (Prelude.Maybe (Prelude.HashMap Prelude.Text InitialCapacityConfig))
 createApplication_initialCapacity = Lens.lens (\CreateApplication' {initialCapacity} -> initialCapacity) (\s@CreateApplication' {} a -> s {initialCapacity = a} :: CreateApplication) Prelude.. Lens.mapping Lens.coerced
 
--- | The network configuration for customer VPC connectivity.
-createApplication_networkConfiguration :: Lens.Lens' CreateApplication (Prelude.Maybe NetworkConfiguration)
-createApplication_networkConfiguration = Lens.lens (\CreateApplication' {networkConfiguration} -> networkConfiguration) (\s@CreateApplication' {} a -> s {networkConfiguration = a} :: CreateApplication)
-
--- | The configuration for an application to automatically start on job
--- submission.
-createApplication_autoStartConfiguration :: Lens.Lens' CreateApplication (Prelude.Maybe AutoStartConfig)
-createApplication_autoStartConfiguration = Lens.lens (\CreateApplication' {autoStartConfiguration} -> autoStartConfiguration) (\s@CreateApplication' {} a -> s {autoStartConfiguration = a} :: CreateApplication)
-
 -- | The maximum capacity to allocate when the application is created. This
 -- is cumulative across all workers at any given point in time, not just
 -- when an application is created. No new resources will be created once
@@ -186,9 +178,17 @@ createApplication_autoStartConfiguration = Lens.lens (\CreateApplication' {autoS
 createApplication_maximumCapacity :: Lens.Lens' CreateApplication (Prelude.Maybe MaximumAllowedResources)
 createApplication_maximumCapacity = Lens.lens (\CreateApplication' {maximumCapacity} -> maximumCapacity) (\s@CreateApplication' {} a -> s {maximumCapacity = a} :: CreateApplication)
 
--- | The CPU architecture of an application.
-createApplication_architecture :: Lens.Lens' CreateApplication (Prelude.Maybe Architecture)
-createApplication_architecture = Lens.lens (\CreateApplication' {architecture} -> architecture) (\s@CreateApplication' {} a -> s {architecture = a} :: CreateApplication)
+-- | The name of the application.
+createApplication_name :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
+createApplication_name = Lens.lens (\CreateApplication' {name} -> name) (\s@CreateApplication' {} a -> s {name = a} :: CreateApplication)
+
+-- | The network configuration for customer VPC connectivity.
+createApplication_networkConfiguration :: Lens.Lens' CreateApplication (Prelude.Maybe NetworkConfiguration)
+createApplication_networkConfiguration = Lens.lens (\CreateApplication' {networkConfiguration} -> networkConfiguration) (\s@CreateApplication' {} a -> s {networkConfiguration = a} :: CreateApplication)
+
+-- | The tags assigned to the application.
+createApplication_tags :: Lens.Lens' CreateApplication (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createApplication_tags = Lens.lens (\CreateApplication' {tags} -> tags) (\s@CreateApplication' {} a -> s {tags = a} :: CreateApplication) Prelude.. Lens.mapping Lens.coerced
 
 -- | The EMR release version associated with the application.
 createApplication_releaseLabel :: Lens.Lens' CreateApplication Prelude.Text
@@ -221,28 +221,28 @@ instance Core.AWSRequest CreateApplication where
 
 instance Prelude.Hashable CreateApplication where
   hashWithSalt _salt CreateApplication' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` architecture
+      `Prelude.hashWithSalt` autoStartConfiguration
       `Prelude.hashWithSalt` autoStopConfiguration
       `Prelude.hashWithSalt` initialCapacity
-      `Prelude.hashWithSalt` networkConfiguration
-      `Prelude.hashWithSalt` autoStartConfiguration
       `Prelude.hashWithSalt` maximumCapacity
-      `Prelude.hashWithSalt` architecture
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` networkConfiguration
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` releaseLabel
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` clientToken
 
 instance Prelude.NFData CreateApplication where
   rnf CreateApplication' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf architecture
+      `Prelude.seq` Prelude.rnf autoStartConfiguration
       `Prelude.seq` Prelude.rnf autoStopConfiguration
       `Prelude.seq` Prelude.rnf initialCapacity
-      `Prelude.seq` Prelude.rnf networkConfiguration
-      `Prelude.seq` Prelude.rnf autoStartConfiguration
       `Prelude.seq` Prelude.rnf maximumCapacity
-      `Prelude.seq` Prelude.rnf architecture
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf networkConfiguration
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf releaseLabel
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf clientToken
@@ -262,19 +262,19 @@ instance Data.ToJSON CreateApplication where
   toJSON CreateApplication' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
-            ("name" Data..=) Prelude.<$> name,
+          [ ("architecture" Data..=) Prelude.<$> architecture,
+            ("autoStartConfiguration" Data..=)
+              Prelude.<$> autoStartConfiguration,
             ("autoStopConfiguration" Data..=)
               Prelude.<$> autoStopConfiguration,
             ("initialCapacity" Data..=)
               Prelude.<$> initialCapacity,
-            ("networkConfiguration" Data..=)
-              Prelude.<$> networkConfiguration,
-            ("autoStartConfiguration" Data..=)
-              Prelude.<$> autoStartConfiguration,
             ("maximumCapacity" Data..=)
               Prelude.<$> maximumCapacity,
-            ("architecture" Data..=) Prelude.<$> architecture,
+            ("name" Data..=) Prelude.<$> name,
+            ("networkConfiguration" Data..=)
+              Prelude.<$> networkConfiguration,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("releaseLabel" Data..= releaseLabel),
             Prelude.Just ("type" Data..= type'),
             Prelude.Just ("clientToken" Data..= clientToken)

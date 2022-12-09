@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newApplicationSummary' smart constructor.
 data ApplicationSummary = ApplicationSummary'
-  { -- | The name of the application.
+  { -- | The CPU architecture of an application.
+    architecture :: Prelude.Maybe Architecture,
+    -- | The name of the application.
     name :: Prelude.Maybe Prelude.Text,
     -- | The state details of the application.
     stateDetails :: Prelude.Maybe Prelude.Text,
-    -- | The CPU architecture of an application.
-    architecture :: Prelude.Maybe Architecture,
     -- | The ID of the application.
     id :: Prelude.Text,
     -- | The ARN of the application.
@@ -61,11 +61,11 @@ data ApplicationSummary = ApplicationSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'architecture', 'applicationSummary_architecture' - The CPU architecture of an application.
+--
 -- 'name', 'applicationSummary_name' - The name of the application.
 --
 -- 'stateDetails', 'applicationSummary_stateDetails' - The state details of the application.
---
--- 'architecture', 'applicationSummary_architecture' - The CPU architecture of an application.
 --
 -- 'id', 'applicationSummary_id' - The ID of the application.
 --
@@ -105,9 +105,9 @@ newApplicationSummary
   pCreatedAt_
   pUpdatedAt_ =
     ApplicationSummary'
-      { name = Prelude.Nothing,
+      { architecture = Prelude.Nothing,
+        name = Prelude.Nothing,
         stateDetails = Prelude.Nothing,
-        architecture = Prelude.Nothing,
         id = pId_,
         arn = pArn_,
         releaseLabel = pReleaseLabel_,
@@ -117,6 +117,10 @@ newApplicationSummary
         updatedAt = Data._Time Lens.# pUpdatedAt_
       }
 
+-- | The CPU architecture of an application.
+applicationSummary_architecture :: Lens.Lens' ApplicationSummary (Prelude.Maybe Architecture)
+applicationSummary_architecture = Lens.lens (\ApplicationSummary' {architecture} -> architecture) (\s@ApplicationSummary' {} a -> s {architecture = a} :: ApplicationSummary)
+
 -- | The name of the application.
 applicationSummary_name :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.Text)
 applicationSummary_name = Lens.lens (\ApplicationSummary' {name} -> name) (\s@ApplicationSummary' {} a -> s {name = a} :: ApplicationSummary)
@@ -124,10 +128,6 @@ applicationSummary_name = Lens.lens (\ApplicationSummary' {name} -> name) (\s@Ap
 -- | The state details of the application.
 applicationSummary_stateDetails :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.Text)
 applicationSummary_stateDetails = Lens.lens (\ApplicationSummary' {stateDetails} -> stateDetails) (\s@ApplicationSummary' {} a -> s {stateDetails = a} :: ApplicationSummary)
-
--- | The CPU architecture of an application.
-applicationSummary_architecture :: Lens.Lens' ApplicationSummary (Prelude.Maybe Architecture)
-applicationSummary_architecture = Lens.lens (\ApplicationSummary' {architecture} -> architecture) (\s@ApplicationSummary' {} a -> s {architecture = a} :: ApplicationSummary)
 
 -- | The ID of the application.
 applicationSummary_id :: Lens.Lens' ApplicationSummary Prelude.Text
@@ -163,9 +163,9 @@ instance Data.FromJSON ApplicationSummary where
       "ApplicationSummary"
       ( \x ->
           ApplicationSummary'
-            Prelude.<$> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "architecture")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "stateDetails")
-            Prelude.<*> (x Data..:? "architecture")
             Prelude.<*> (x Data..: "id")
             Prelude.<*> (x Data..: "arn")
             Prelude.<*> (x Data..: "releaseLabel")
@@ -177,9 +177,9 @@ instance Data.FromJSON ApplicationSummary where
 
 instance Prelude.Hashable ApplicationSummary where
   hashWithSalt _salt ApplicationSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` architecture
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` stateDetails
-      `Prelude.hashWithSalt` architecture
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` releaseLabel
@@ -190,9 +190,9 @@ instance Prelude.Hashable ApplicationSummary where
 
 instance Prelude.NFData ApplicationSummary where
   rnf ApplicationSummary' {..} =
-    Prelude.rnf name
+    Prelude.rnf architecture
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf stateDetails
-      `Prelude.seq` Prelude.rnf architecture
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf releaseLabel

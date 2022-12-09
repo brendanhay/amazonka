@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newManagedPersistenceMonitoringConfiguration' smart constructor.
 data ManagedPersistenceMonitoringConfiguration = ManagedPersistenceMonitoringConfiguration'
-  { -- | The KMS key ARN to encrypt the logs stored in managed log persistence.
-    encryptionKeyArn :: Prelude.Maybe Prelude.Text,
-    -- | Enables managed logging and defaults to true. If set to false, managed
+  { -- | Enables managed logging and defaults to true. If set to false, managed
     -- logging will be turned off.
-    enabled :: Prelude.Maybe Prelude.Bool
+    enabled :: Prelude.Maybe Prelude.Bool,
+    -- | The KMS key ARN to encrypt the logs stored in managed log persistence.
+    encryptionKeyArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,27 +44,28 @@ data ManagedPersistenceMonitoringConfiguration = ManagedPersistenceMonitoringCon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'encryptionKeyArn', 'managedPersistenceMonitoringConfiguration_encryptionKeyArn' - The KMS key ARN to encrypt the logs stored in managed log persistence.
---
 -- 'enabled', 'managedPersistenceMonitoringConfiguration_enabled' - Enables managed logging and defaults to true. If set to false, managed
 -- logging will be turned off.
+--
+-- 'encryptionKeyArn', 'managedPersistenceMonitoringConfiguration_encryptionKeyArn' - The KMS key ARN to encrypt the logs stored in managed log persistence.
 newManagedPersistenceMonitoringConfiguration ::
   ManagedPersistenceMonitoringConfiguration
 newManagedPersistenceMonitoringConfiguration =
   ManagedPersistenceMonitoringConfiguration'
-    { encryptionKeyArn =
+    { enabled =
         Prelude.Nothing,
-      enabled = Prelude.Nothing
+      encryptionKeyArn =
+        Prelude.Nothing
     }
-
--- | The KMS key ARN to encrypt the logs stored in managed log persistence.
-managedPersistenceMonitoringConfiguration_encryptionKeyArn :: Lens.Lens' ManagedPersistenceMonitoringConfiguration (Prelude.Maybe Prelude.Text)
-managedPersistenceMonitoringConfiguration_encryptionKeyArn = Lens.lens (\ManagedPersistenceMonitoringConfiguration' {encryptionKeyArn} -> encryptionKeyArn) (\s@ManagedPersistenceMonitoringConfiguration' {} a -> s {encryptionKeyArn = a} :: ManagedPersistenceMonitoringConfiguration)
 
 -- | Enables managed logging and defaults to true. If set to false, managed
 -- logging will be turned off.
 managedPersistenceMonitoringConfiguration_enabled :: Lens.Lens' ManagedPersistenceMonitoringConfiguration (Prelude.Maybe Prelude.Bool)
 managedPersistenceMonitoringConfiguration_enabled = Lens.lens (\ManagedPersistenceMonitoringConfiguration' {enabled} -> enabled) (\s@ManagedPersistenceMonitoringConfiguration' {} a -> s {enabled = a} :: ManagedPersistenceMonitoringConfiguration)
+
+-- | The KMS key ARN to encrypt the logs stored in managed log persistence.
+managedPersistenceMonitoringConfiguration_encryptionKeyArn :: Lens.Lens' ManagedPersistenceMonitoringConfiguration (Prelude.Maybe Prelude.Text)
+managedPersistenceMonitoringConfiguration_encryptionKeyArn = Lens.lens (\ManagedPersistenceMonitoringConfiguration' {encryptionKeyArn} -> encryptionKeyArn) (\s@ManagedPersistenceMonitoringConfiguration' {} a -> s {encryptionKeyArn = a} :: ManagedPersistenceMonitoringConfiguration)
 
 instance
   Data.FromJSON
@@ -75,8 +76,8 @@ instance
       "ManagedPersistenceMonitoringConfiguration"
       ( \x ->
           ManagedPersistenceMonitoringConfiguration'
-            Prelude.<$> (x Data..:? "encryptionKeyArn")
-              Prelude.<*> (x Data..:? "enabled")
+            Prelude.<$> (x Data..:? "enabled")
+              Prelude.<*> (x Data..:? "encryptionKeyArn")
       )
 
 instance
@@ -86,16 +87,16 @@ instance
   hashWithSalt
     _salt
     ManagedPersistenceMonitoringConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` encryptionKeyArn
-        `Prelude.hashWithSalt` enabled
+      _salt `Prelude.hashWithSalt` enabled
+        `Prelude.hashWithSalt` encryptionKeyArn
 
 instance
   Prelude.NFData
     ManagedPersistenceMonitoringConfiguration
   where
   rnf ManagedPersistenceMonitoringConfiguration' {..} =
-    Prelude.rnf encryptionKeyArn
-      `Prelude.seq` Prelude.rnf enabled
+    Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf encryptionKeyArn
 
 instance
   Data.ToJSON
@@ -104,8 +105,8 @@ instance
   toJSON ManagedPersistenceMonitoringConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("encryptionKeyArn" Data..=)
-              Prelude.<$> encryptionKeyArn,
-            ("enabled" Data..=) Prelude.<$> enabled
+          [ ("enabled" Data..=) Prelude.<$> enabled,
+            ("encryptionKeyArn" Data..=)
+              Prelude.<$> encryptionKeyArn
           ]
       )

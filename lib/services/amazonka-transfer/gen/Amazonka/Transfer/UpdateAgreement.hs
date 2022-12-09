@@ -30,11 +30,11 @@ module Amazonka.Transfer.UpdateAgreement
 
     -- * Request Lenses
     updateAgreement_accessRole,
-    updateAgreement_status,
     updateAgreement_baseDirectory,
     updateAgreement_description,
     updateAgreement_localProfileId,
     updateAgreement_partnerProfileId,
+    updateAgreement_status,
     updateAgreement_agreementId,
     updateAgreement_serverId,
 
@@ -70,9 +70,6 @@ data UpdateAgreement = UpdateAgreement'
     -- Additionally, you need to provide read and write access to the parent
     -- directory of the files that you intend to send with @StartFileTransfer@.
     accessRole :: Prelude.Maybe Prelude.Text,
-    -- | You can update the status for the agreement, either activating an
-    -- inactive agreement or the reverse.
-    status :: Prelude.Maybe AgreementStatusType,
     -- | To change the landing directory (folder) for files that are transferred,
     -- provide the bucket folder that you want to use; for example,
     -- @\/DOC-EXAMPLE-BUCKET\/home\/mydirectory @.
@@ -87,6 +84,9 @@ data UpdateAgreement = UpdateAgreement'
     -- | A unique identifier for the partner profile. To change the partner
     -- profile identifier, provide a new value here.
     partnerProfileId :: Prelude.Maybe Prelude.Text,
+    -- | You can update the status for the agreement, either activating an
+    -- inactive agreement or the reverse.
+    status :: Prelude.Maybe AgreementStatusType,
     -- | A unique identifier for the agreement. This identifier is returned when
     -- you create an agreement.
     agreementId :: Prelude.Text,
@@ -116,9 +116,6 @@ data UpdateAgreement = UpdateAgreement'
 -- Additionally, you need to provide read and write access to the parent
 -- directory of the files that you intend to send with @StartFileTransfer@.
 --
--- 'status', 'updateAgreement_status' - You can update the status for the agreement, either activating an
--- inactive agreement or the reverse.
---
 -- 'baseDirectory', 'updateAgreement_baseDirectory' - To change the landing directory (folder) for files that are transferred,
 -- provide the bucket folder that you want to use; for example,
 -- @\/DOC-EXAMPLE-BUCKET\/home\/mydirectory @.
@@ -132,6 +129,9 @@ data UpdateAgreement = UpdateAgreement'
 --
 -- 'partnerProfileId', 'updateAgreement_partnerProfileId' - A unique identifier for the partner profile. To change the partner
 -- profile identifier, provide a new value here.
+--
+-- 'status', 'updateAgreement_status' - You can update the status for the agreement, either activating an
+-- inactive agreement or the reverse.
 --
 -- 'agreementId', 'updateAgreement_agreementId' - A unique identifier for the agreement. This identifier is returned when
 -- you create an agreement.
@@ -147,11 +147,11 @@ newUpdateAgreement ::
 newUpdateAgreement pAgreementId_ pServerId_ =
   UpdateAgreement'
     { accessRole = Prelude.Nothing,
-      status = Prelude.Nothing,
       baseDirectory = Prelude.Nothing,
       description = Prelude.Nothing,
       localProfileId = Prelude.Nothing,
       partnerProfileId = Prelude.Nothing,
+      status = Prelude.Nothing,
       agreementId = pAgreementId_,
       serverId = pServerId_
     }
@@ -169,11 +169,6 @@ newUpdateAgreement pAgreementId_ pServerId_ =
 -- directory of the files that you intend to send with @StartFileTransfer@.
 updateAgreement_accessRole :: Lens.Lens' UpdateAgreement (Prelude.Maybe Prelude.Text)
 updateAgreement_accessRole = Lens.lens (\UpdateAgreement' {accessRole} -> accessRole) (\s@UpdateAgreement' {} a -> s {accessRole = a} :: UpdateAgreement)
-
--- | You can update the status for the agreement, either activating an
--- inactive agreement or the reverse.
-updateAgreement_status :: Lens.Lens' UpdateAgreement (Prelude.Maybe AgreementStatusType)
-updateAgreement_status = Lens.lens (\UpdateAgreement' {status} -> status) (\s@UpdateAgreement' {} a -> s {status = a} :: UpdateAgreement)
 
 -- | To change the landing directory (folder) for files that are transferred,
 -- provide the bucket folder that you want to use; for example,
@@ -196,6 +191,11 @@ updateAgreement_localProfileId = Lens.lens (\UpdateAgreement' {localProfileId} -
 -- profile identifier, provide a new value here.
 updateAgreement_partnerProfileId :: Lens.Lens' UpdateAgreement (Prelude.Maybe Prelude.Text)
 updateAgreement_partnerProfileId = Lens.lens (\UpdateAgreement' {partnerProfileId} -> partnerProfileId) (\s@UpdateAgreement' {} a -> s {partnerProfileId = a} :: UpdateAgreement)
+
+-- | You can update the status for the agreement, either activating an
+-- inactive agreement or the reverse.
+updateAgreement_status :: Lens.Lens' UpdateAgreement (Prelude.Maybe AgreementStatusType)
+updateAgreement_status = Lens.lens (\UpdateAgreement' {status} -> status) (\s@UpdateAgreement' {} a -> s {status = a} :: UpdateAgreement)
 
 -- | A unique identifier for the agreement. This identifier is returned when
 -- you create an agreement.
@@ -224,22 +224,22 @@ instance Core.AWSRequest UpdateAgreement where
 instance Prelude.Hashable UpdateAgreement where
   hashWithSalt _salt UpdateAgreement' {..} =
     _salt `Prelude.hashWithSalt` accessRole
-      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` baseDirectory
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` localProfileId
       `Prelude.hashWithSalt` partnerProfileId
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` agreementId
       `Prelude.hashWithSalt` serverId
 
 instance Prelude.NFData UpdateAgreement where
   rnf UpdateAgreement' {..} =
     Prelude.rnf accessRole
-      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf baseDirectory
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf localProfileId
       `Prelude.seq` Prelude.rnf partnerProfileId
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf agreementId
       `Prelude.seq` Prelude.rnf serverId
 
@@ -263,13 +263,13 @@ instance Data.ToJSON UpdateAgreement where
     Data.object
       ( Prelude.catMaybes
           [ ("AccessRole" Data..=) Prelude.<$> accessRole,
-            ("Status" Data..=) Prelude.<$> status,
             ("BaseDirectory" Data..=) Prelude.<$> baseDirectory,
             ("Description" Data..=) Prelude.<$> description,
             ("LocalProfileId" Data..=)
               Prelude.<$> localProfileId,
             ("PartnerProfileId" Data..=)
               Prelude.<$> partnerProfileId,
+            ("Status" Data..=) Prelude.<$> status,
             Prelude.Just ("AgreementId" Data..= agreementId),
             Prelude.Just ("ServerId" Data..= serverId)
           ]

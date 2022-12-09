@@ -31,11 +31,7 @@ import Amazonka.Transfer.Types.Tag
 --
 -- /See:/ 'newDescribedConnector' smart constructor.
 data DescribedConnector = DescribedConnector'
-  { -- | Key-value pairs that can be used to group and search for connectors.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | The unique identifier for the connector.
-    connectorId :: Prelude.Maybe Prelude.Text,
-    -- | With AS2, you can send files by calling @StartFileTransfer@ and
+  { -- | With AS2, you can send files by calling @StartFileTransfer@ and
     -- specifying the file paths in the request parameter, @SendFilePaths@. We
     -- use the file’s parent directory (for example, for
     -- @--send-file-paths \/bucket\/dir\/file.txt@, parent directory is
@@ -47,15 +43,19 @@ data DescribedConnector = DescribedConnector'
     -- Additionally, you need to provide read and write access to the parent
     -- directory of the files that you intend to send with @StartFileTransfer@.
     accessRole :: Prelude.Maybe Prelude.Text,
-    -- | The URL of the partner\'s AS2 endpoint.
-    url :: Prelude.Maybe Prelude.Text,
     -- | A structure that contains the parameters for a connector object.
     as2Config :: Prelude.Maybe As2ConnectorConfig,
+    -- | The unique identifier for the connector.
+    connectorId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Identity and Access Management
     -- (IAM) role that allows a connector to turn on CloudWatch logging for
     -- Amazon S3 events. When set, you can view connector activity in your
     -- CloudWatch logs.
     loggingRole :: Prelude.Maybe Prelude.Text,
+    -- | Key-value pairs that can be used to group and search for connectors.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The URL of the partner\'s AS2 endpoint.
+    url :: Prelude.Maybe Prelude.Text,
     -- | The unique Amazon Resource Name (ARN) for the connector.
     arn :: Prelude.Text
   }
@@ -69,10 +69,6 @@ data DescribedConnector = DescribedConnector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'describedConnector_tags' - Key-value pairs that can be used to group and search for connectors.
---
--- 'connectorId', 'describedConnector_connectorId' - The unique identifier for the connector.
---
 -- 'accessRole', 'describedConnector_accessRole' - With AS2, you can send files by calling @StartFileTransfer@ and
 -- specifying the file paths in the request parameter, @SendFilePaths@. We
 -- use the file’s parent directory (for example, for
@@ -85,14 +81,18 @@ data DescribedConnector = DescribedConnector'
 -- Additionally, you need to provide read and write access to the parent
 -- directory of the files that you intend to send with @StartFileTransfer@.
 --
--- 'url', 'describedConnector_url' - The URL of the partner\'s AS2 endpoint.
---
 -- 'as2Config', 'describedConnector_as2Config' - A structure that contains the parameters for a connector object.
+--
+-- 'connectorId', 'describedConnector_connectorId' - The unique identifier for the connector.
 --
 -- 'loggingRole', 'describedConnector_loggingRole' - The Amazon Resource Name (ARN) of the Identity and Access Management
 -- (IAM) role that allows a connector to turn on CloudWatch logging for
 -- Amazon S3 events. When set, you can view connector activity in your
 -- CloudWatch logs.
+--
+-- 'tags', 'describedConnector_tags' - Key-value pairs that can be used to group and search for connectors.
+--
+-- 'url', 'describedConnector_url' - The URL of the partner\'s AS2 endpoint.
 --
 -- 'arn', 'describedConnector_arn' - The unique Amazon Resource Name (ARN) for the connector.
 newDescribedConnector ::
@@ -101,22 +101,14 @@ newDescribedConnector ::
   DescribedConnector
 newDescribedConnector pArn_ =
   DescribedConnector'
-    { tags = Prelude.Nothing,
-      connectorId = Prelude.Nothing,
-      accessRole = Prelude.Nothing,
-      url = Prelude.Nothing,
+    { accessRole = Prelude.Nothing,
       as2Config = Prelude.Nothing,
+      connectorId = Prelude.Nothing,
       loggingRole = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      url = Prelude.Nothing,
       arn = pArn_
     }
-
--- | Key-value pairs that can be used to group and search for connectors.
-describedConnector_tags :: Lens.Lens' DescribedConnector (Prelude.Maybe (Prelude.NonEmpty Tag))
-describedConnector_tags = Lens.lens (\DescribedConnector' {tags} -> tags) (\s@DescribedConnector' {} a -> s {tags = a} :: DescribedConnector) Prelude.. Lens.mapping Lens.coerced
-
--- | The unique identifier for the connector.
-describedConnector_connectorId :: Lens.Lens' DescribedConnector (Prelude.Maybe Prelude.Text)
-describedConnector_connectorId = Lens.lens (\DescribedConnector' {connectorId} -> connectorId) (\s@DescribedConnector' {} a -> s {connectorId = a} :: DescribedConnector)
 
 -- | With AS2, you can send files by calling @StartFileTransfer@ and
 -- specifying the file paths in the request parameter, @SendFilePaths@. We
@@ -132,13 +124,13 @@ describedConnector_connectorId = Lens.lens (\DescribedConnector' {connectorId} -
 describedConnector_accessRole :: Lens.Lens' DescribedConnector (Prelude.Maybe Prelude.Text)
 describedConnector_accessRole = Lens.lens (\DescribedConnector' {accessRole} -> accessRole) (\s@DescribedConnector' {} a -> s {accessRole = a} :: DescribedConnector)
 
--- | The URL of the partner\'s AS2 endpoint.
-describedConnector_url :: Lens.Lens' DescribedConnector (Prelude.Maybe Prelude.Text)
-describedConnector_url = Lens.lens (\DescribedConnector' {url} -> url) (\s@DescribedConnector' {} a -> s {url = a} :: DescribedConnector)
-
 -- | A structure that contains the parameters for a connector object.
 describedConnector_as2Config :: Lens.Lens' DescribedConnector (Prelude.Maybe As2ConnectorConfig)
 describedConnector_as2Config = Lens.lens (\DescribedConnector' {as2Config} -> as2Config) (\s@DescribedConnector' {} a -> s {as2Config = a} :: DescribedConnector)
+
+-- | The unique identifier for the connector.
+describedConnector_connectorId :: Lens.Lens' DescribedConnector (Prelude.Maybe Prelude.Text)
+describedConnector_connectorId = Lens.lens (\DescribedConnector' {connectorId} -> connectorId) (\s@DescribedConnector' {} a -> s {connectorId = a} :: DescribedConnector)
 
 -- | The Amazon Resource Name (ARN) of the Identity and Access Management
 -- (IAM) role that allows a connector to turn on CloudWatch logging for
@@ -146,6 +138,14 @@ describedConnector_as2Config = Lens.lens (\DescribedConnector' {as2Config} -> as
 -- CloudWatch logs.
 describedConnector_loggingRole :: Lens.Lens' DescribedConnector (Prelude.Maybe Prelude.Text)
 describedConnector_loggingRole = Lens.lens (\DescribedConnector' {loggingRole} -> loggingRole) (\s@DescribedConnector' {} a -> s {loggingRole = a} :: DescribedConnector)
+
+-- | Key-value pairs that can be used to group and search for connectors.
+describedConnector_tags :: Lens.Lens' DescribedConnector (Prelude.Maybe (Prelude.NonEmpty Tag))
+describedConnector_tags = Lens.lens (\DescribedConnector' {tags} -> tags) (\s@DescribedConnector' {} a -> s {tags = a} :: DescribedConnector) Prelude.. Lens.mapping Lens.coerced
+
+-- | The URL of the partner\'s AS2 endpoint.
+describedConnector_url :: Lens.Lens' DescribedConnector (Prelude.Maybe Prelude.Text)
+describedConnector_url = Lens.lens (\DescribedConnector' {url} -> url) (\s@DescribedConnector' {} a -> s {url = a} :: DescribedConnector)
 
 -- | The unique Amazon Resource Name (ARN) for the connector.
 describedConnector_arn :: Lens.Lens' DescribedConnector Prelude.Text
@@ -157,31 +157,31 @@ instance Data.FromJSON DescribedConnector where
       "DescribedConnector"
       ( \x ->
           DescribedConnector'
-            Prelude.<$> (x Data..:? "Tags")
-            Prelude.<*> (x Data..:? "ConnectorId")
-            Prelude.<*> (x Data..:? "AccessRole")
-            Prelude.<*> (x Data..:? "Url")
+            Prelude.<$> (x Data..:? "AccessRole")
             Prelude.<*> (x Data..:? "As2Config")
+            Prelude.<*> (x Data..:? "ConnectorId")
             Prelude.<*> (x Data..:? "LoggingRole")
+            Prelude.<*> (x Data..:? "Tags")
+            Prelude.<*> (x Data..:? "Url")
             Prelude.<*> (x Data..: "Arn")
       )
 
 instance Prelude.Hashable DescribedConnector where
   hashWithSalt _salt DescribedConnector' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` connectorId
-      `Prelude.hashWithSalt` accessRole
-      `Prelude.hashWithSalt` url
+    _salt `Prelude.hashWithSalt` accessRole
       `Prelude.hashWithSalt` as2Config
+      `Prelude.hashWithSalt` connectorId
       `Prelude.hashWithSalt` loggingRole
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` url
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData DescribedConnector where
   rnf DescribedConnector' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf connectorId
-      `Prelude.seq` Prelude.rnf accessRole
-      `Prelude.seq` Prelude.rnf url
+    Prelude.rnf accessRole
       `Prelude.seq` Prelude.rnf as2Config
+      `Prelude.seq` Prelude.rnf connectorId
       `Prelude.seq` Prelude.rnf loggingRole
+      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf url
       `Prelude.seq` Prelude.rnf arn

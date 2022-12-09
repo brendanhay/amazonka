@@ -29,12 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newListedWorkflow' smart constructor.
 data ListedWorkflow = ListedWorkflow'
-  { -- | A unique identifier for the workflow.
-    workflowId :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the unique Amazon Resource Name (ARN) for the workflow.
+  { -- | Specifies the unique Amazon Resource Name (ARN) for the workflow.
     arn :: Prelude.Maybe Prelude.Text,
     -- | Specifies the text description for the workflow.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the workflow.
+    workflowId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,23 +46,19 @@ data ListedWorkflow = ListedWorkflow'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'workflowId', 'listedWorkflow_workflowId' - A unique identifier for the workflow.
---
 -- 'arn', 'listedWorkflow_arn' - Specifies the unique Amazon Resource Name (ARN) for the workflow.
 --
 -- 'description', 'listedWorkflow_description' - Specifies the text description for the workflow.
+--
+-- 'workflowId', 'listedWorkflow_workflowId' - A unique identifier for the workflow.
 newListedWorkflow ::
   ListedWorkflow
 newListedWorkflow =
   ListedWorkflow'
-    { workflowId = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      description = Prelude.Nothing
+    { arn = Prelude.Nothing,
+      description = Prelude.Nothing,
+      workflowId = Prelude.Nothing
     }
-
--- | A unique identifier for the workflow.
-listedWorkflow_workflowId :: Lens.Lens' ListedWorkflow (Prelude.Maybe Prelude.Text)
-listedWorkflow_workflowId = Lens.lens (\ListedWorkflow' {workflowId} -> workflowId) (\s@ListedWorkflow' {} a -> s {workflowId = a} :: ListedWorkflow)
 
 -- | Specifies the unique Amazon Resource Name (ARN) for the workflow.
 listedWorkflow_arn :: Lens.Lens' ListedWorkflow (Prelude.Maybe Prelude.Text)
@@ -72,25 +68,29 @@ listedWorkflow_arn = Lens.lens (\ListedWorkflow' {arn} -> arn) (\s@ListedWorkflo
 listedWorkflow_description :: Lens.Lens' ListedWorkflow (Prelude.Maybe Prelude.Text)
 listedWorkflow_description = Lens.lens (\ListedWorkflow' {description} -> description) (\s@ListedWorkflow' {} a -> s {description = a} :: ListedWorkflow)
 
+-- | A unique identifier for the workflow.
+listedWorkflow_workflowId :: Lens.Lens' ListedWorkflow (Prelude.Maybe Prelude.Text)
+listedWorkflow_workflowId = Lens.lens (\ListedWorkflow' {workflowId} -> workflowId) (\s@ListedWorkflow' {} a -> s {workflowId = a} :: ListedWorkflow)
+
 instance Data.FromJSON ListedWorkflow where
   parseJSON =
     Data.withObject
       "ListedWorkflow"
       ( \x ->
           ListedWorkflow'
-            Prelude.<$> (x Data..:? "WorkflowId")
-            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "WorkflowId")
       )
 
 instance Prelude.Hashable ListedWorkflow where
   hashWithSalt _salt ListedWorkflow' {..} =
-    _salt `Prelude.hashWithSalt` workflowId
-      `Prelude.hashWithSalt` arn
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` workflowId
 
 instance Prelude.NFData ListedWorkflow where
   rnf ListedWorkflow' {..} =
-    Prelude.rnf workflowId
-      `Prelude.seq` Prelude.rnf arn
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf workflowId

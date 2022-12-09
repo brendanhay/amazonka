@@ -29,8 +29,8 @@ module Amazonka.Transfer.ListExecutions
     newListExecutions,
 
     -- * Request Lenses
-    listExecutions_nextToken,
     listExecutions_maxResults,
+    listExecutions_nextToken,
     listExecutions_workflowId,
 
     -- * Destructuring the Response
@@ -55,7 +55,9 @@ import Amazonka.Transfer.Types
 
 -- | /See:/ 'newListExecutions' smart constructor.
 data ListExecutions = ListExecutions'
-  { -- | @ListExecutions@ returns the @NextToken@ parameter in the output. You
+  { -- | Specifies the maximum number of executions to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | @ListExecutions@ returns the @NextToken@ parameter in the output. You
     -- can then pass the @NextToken@ parameter in a subsequent command to
     -- continue listing additional executions.
     --
@@ -75,8 +77,6 @@ data ListExecutions = ListExecutions'
     -- can then repeat the call until the details for all 100 executions have
     -- been returned.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the maximum number of executions to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A unique identifier for the workflow.
     workflowId :: Prelude.Text
   }
@@ -89,6 +89,8 @@ data ListExecutions = ListExecutions'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'maxResults', 'listExecutions_maxResults' - Specifies the maximum number of executions to return.
 --
 -- 'nextToken', 'listExecutions_nextToken' - @ListExecutions@ returns the @NextToken@ parameter in the output. You
 -- can then pass the @NextToken@ parameter in a subsequent command to
@@ -110,8 +112,6 @@ data ListExecutions = ListExecutions'
 -- can then repeat the call until the details for all 100 executions have
 -- been returned.
 --
--- 'maxResults', 'listExecutions_maxResults' - Specifies the maximum number of executions to return.
---
 -- 'workflowId', 'listExecutions_workflowId' - A unique identifier for the workflow.
 newListExecutions ::
   -- | 'workflowId'
@@ -119,10 +119,14 @@ newListExecutions ::
   ListExecutions
 newListExecutions pWorkflowId_ =
   ListExecutions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       workflowId = pWorkflowId_
     }
+
+-- | Specifies the maximum number of executions to return.
+listExecutions_maxResults :: Lens.Lens' ListExecutions (Prelude.Maybe Prelude.Natural)
+listExecutions_maxResults = Lens.lens (\ListExecutions' {maxResults} -> maxResults) (\s@ListExecutions' {} a -> s {maxResults = a} :: ListExecutions)
 
 -- | @ListExecutions@ returns the @NextToken@ parameter in the output. You
 -- can then pass the @NextToken@ parameter in a subsequent command to
@@ -145,10 +149,6 @@ newListExecutions pWorkflowId_ =
 -- been returned.
 listExecutions_nextToken :: Lens.Lens' ListExecutions (Prelude.Maybe Prelude.Text)
 listExecutions_nextToken = Lens.lens (\ListExecutions' {nextToken} -> nextToken) (\s@ListExecutions' {} a -> s {nextToken = a} :: ListExecutions)
-
--- | Specifies the maximum number of executions to return.
-listExecutions_maxResults :: Lens.Lens' ListExecutions (Prelude.Maybe Prelude.Natural)
-listExecutions_maxResults = Lens.lens (\ListExecutions' {maxResults} -> maxResults) (\s@ListExecutions' {} a -> s {maxResults = a} :: ListExecutions)
 
 -- | A unique identifier for the workflow.
 listExecutions_workflowId :: Lens.Lens' ListExecutions Prelude.Text
@@ -190,14 +190,14 @@ instance Core.AWSRequest ListExecutions where
 
 instance Prelude.Hashable ListExecutions where
   hashWithSalt _salt ListExecutions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` workflowId
 
 instance Prelude.NFData ListExecutions where
   rnf ListExecutions' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf workflowId
 
 instance Data.ToHeaders ListExecutions where
@@ -219,8 +219,8 @@ instance Data.ToJSON ListExecutions where
   toJSON ListExecutions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("WorkflowId" Data..= workflowId)
           ]
       )

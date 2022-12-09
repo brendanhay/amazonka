@@ -16,10 +16,10 @@ module Amazonka.Transfer.Lens
 
     -- ** CreateAccess
     createAccess_homeDirectory,
+    createAccess_homeDirectoryMappings,
+    createAccess_homeDirectoryType,
     createAccess_policy,
     createAccess_posixProfile,
-    createAccess_homeDirectoryType,
-    createAccess_homeDirectoryMappings,
     createAccess_role,
     createAccess_serverId,
     createAccess_externalId,
@@ -28,9 +28,9 @@ module Amazonka.Transfer.Lens
     createAccessResponse_externalId,
 
     -- ** CreateAgreement
-    createAgreement_tags,
-    createAgreement_status,
     createAgreement_description,
+    createAgreement_status,
+    createAgreement_tags,
     createAgreement_serverId,
     createAgreement_localProfileId,
     createAgreement_partnerProfileId,
@@ -40,8 +40,8 @@ module Amazonka.Transfer.Lens
     createAgreementResponse_agreementId,
 
     -- ** CreateConnector
-    createConnector_tags,
     createConnector_loggingRole,
+    createConnector_tags,
     createConnector_url,
     createConnector_as2Config,
     createConnector_accessRole,
@@ -49,40 +49,40 @@ module Amazonka.Transfer.Lens
     createConnectorResponse_connectorId,
 
     -- ** CreateProfile
-    createProfile_tags,
     createProfile_certificateIds,
+    createProfile_tags,
     createProfile_as2Id,
     createProfile_profileType,
     createProfileResponse_httpStatus,
     createProfileResponse_profileId,
 
     -- ** CreateServer
-    createServer_tags,
-    createServer_preAuthenticationLoginBanner,
-    createServer_protocolDetails,
-    createServer_identityProviderDetails,
-    createServer_domain,
-    createServer_identityProviderType,
-    createServer_securityPolicyName,
-    createServer_endpointDetails,
     createServer_certificate,
-    createServer_protocols,
+    createServer_domain,
+    createServer_endpointDetails,
     createServer_endpointType,
+    createServer_hostKey,
+    createServer_identityProviderDetails,
+    createServer_identityProviderType,
     createServer_loggingRole,
     createServer_postAuthenticationLoginBanner,
+    createServer_preAuthenticationLoginBanner,
+    createServer_protocolDetails,
+    createServer_protocols,
+    createServer_securityPolicyName,
+    createServer_tags,
     createServer_workflowDetails,
-    createServer_hostKey,
     createServerResponse_httpStatus,
     createServerResponse_serverId,
 
     -- ** CreateUser
-    createUser_tags,
     createUser_homeDirectory,
-    createUser_policy,
-    createUser_sshPublicKeyBody,
-    createUser_posixProfile,
-    createUser_homeDirectoryType,
     createUser_homeDirectoryMappings,
+    createUser_homeDirectoryType,
+    createUser_policy,
+    createUser_posixProfile,
+    createUser_sshPublicKeyBody,
+    createUser_tags,
     createUser_role,
     createUser_serverId,
     createUser_userName,
@@ -91,9 +91,9 @@ module Amazonka.Transfer.Lens
     createUserResponse_userName,
 
     -- ** CreateWorkflow
-    createWorkflow_tags,
     createWorkflow_description,
     createWorkflow_onExceptionSteps,
+    createWorkflow_tags,
     createWorkflow_steps,
     createWorkflowResponse_httpStatus,
     createWorkflowResponse_workflowId,
@@ -198,20 +198,20 @@ module Amazonka.Transfer.Lens
     describeWorkflowResponse_workflow,
 
     -- ** ImportCertificate
-    importCertificate_tags,
-    importCertificate_privateKey,
-    importCertificate_description,
     importCertificate_activeDate,
     importCertificate_certificateChain,
+    importCertificate_description,
     importCertificate_inactiveDate,
+    importCertificate_privateKey,
+    importCertificate_tags,
     importCertificate_usage,
     importCertificate_certificate,
     importCertificateResponse_httpStatus,
     importCertificateResponse_certificateId,
 
     -- ** ImportHostKey
-    importHostKey_tags,
     importHostKey_description,
+    importHostKey_tags,
     importHostKey_serverId,
     importHostKey_hostKeyBody,
     importHostKeyResponse_httpStatus,
@@ -228,8 +228,8 @@ module Amazonka.Transfer.Lens
     importSshPublicKeyResponse_userName,
 
     -- ** ListAccesses
-    listAccesses_nextToken,
     listAccesses_maxResults,
+    listAccesses_nextToken,
     listAccesses_serverId,
     listAccessesResponse_nextToken,
     listAccessesResponse_httpStatus,
@@ -237,30 +237,30 @@ module Amazonka.Transfer.Lens
     listAccessesResponse_accesses,
 
     -- ** ListAgreements
-    listAgreements_nextToken,
     listAgreements_maxResults,
+    listAgreements_nextToken,
     listAgreements_serverId,
     listAgreementsResponse_nextToken,
     listAgreementsResponse_httpStatus,
     listAgreementsResponse_agreements,
 
     -- ** ListCertificates
-    listCertificates_nextToken,
     listCertificates_maxResults,
+    listCertificates_nextToken,
     listCertificatesResponse_nextToken,
     listCertificatesResponse_httpStatus,
     listCertificatesResponse_certificates,
 
     -- ** ListConnectors
-    listConnectors_nextToken,
     listConnectors_maxResults,
+    listConnectors_nextToken,
     listConnectorsResponse_nextToken,
     listConnectorsResponse_httpStatus,
     listConnectorsResponse_connectors,
 
     -- ** ListExecutions
-    listExecutions_nextToken,
     listExecutions_maxResults,
+    listExecutions_nextToken,
     listExecutions_workflowId,
     listExecutionsResponse_nextToken,
     listExecutionsResponse_httpStatus,
@@ -268,8 +268,8 @@ module Amazonka.Transfer.Lens
     listExecutionsResponse_executions,
 
     -- ** ListHostKeys
-    listHostKeys_nextToken,
     listHostKeys_maxResults,
+    listHostKeys_nextToken,
     listHostKeys_serverId,
     listHostKeysResponse_nextToken,
     listHostKeysResponse_httpStatus,
@@ -277,39 +277,39 @@ module Amazonka.Transfer.Lens
     listHostKeysResponse_hostKeys,
 
     -- ** ListProfiles
-    listProfiles_nextToken,
     listProfiles_maxResults,
+    listProfiles_nextToken,
     listProfiles_profileType,
     listProfilesResponse_nextToken,
     listProfilesResponse_httpStatus,
     listProfilesResponse_profiles,
 
     -- ** ListSecurityPolicies
-    listSecurityPolicies_nextToken,
     listSecurityPolicies_maxResults,
+    listSecurityPolicies_nextToken,
     listSecurityPoliciesResponse_nextToken,
     listSecurityPoliciesResponse_httpStatus,
     listSecurityPoliciesResponse_securityPolicyNames,
 
     -- ** ListServers
-    listServers_nextToken,
     listServers_maxResults,
+    listServers_nextToken,
     listServersResponse_nextToken,
     listServersResponse_httpStatus,
     listServersResponse_servers,
 
     -- ** ListTagsForResource
-    listTagsForResource_nextToken,
     listTagsForResource_maxResults,
+    listTagsForResource_nextToken,
     listTagsForResource_arn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_nextToken,
     listTagsForResourceResponse_arn,
+    listTagsForResourceResponse_nextToken,
+    listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
 
     -- ** ListUsers
-    listUsers_nextToken,
     listUsers_maxResults,
+    listUsers_nextToken,
     listUsers_serverId,
     listUsersResponse_nextToken,
     listUsersResponse_httpStatus,
@@ -317,8 +317,8 @@ module Amazonka.Transfer.Lens
     listUsersResponse_users,
 
     -- ** ListWorkflows
-    listWorkflows_nextToken,
     listWorkflows_maxResults,
+    listWorkflows_nextToken,
     listWorkflowsResponse_nextToken,
     listWorkflowsResponse_httpStatus,
     listWorkflowsResponse_workflows,
@@ -364,11 +364,11 @@ module Amazonka.Transfer.Lens
 
     -- ** UpdateAccess
     updateAccess_homeDirectory,
+    updateAccess_homeDirectoryMappings,
+    updateAccess_homeDirectoryType,
     updateAccess_policy,
     updateAccess_posixProfile,
     updateAccess_role,
-    updateAccess_homeDirectoryType,
-    updateAccess_homeDirectoryMappings,
     updateAccess_serverId,
     updateAccess_externalId,
     updateAccessResponse_httpStatus,
@@ -377,19 +377,19 @@ module Amazonka.Transfer.Lens
 
     -- ** UpdateAgreement
     updateAgreement_accessRole,
-    updateAgreement_status,
     updateAgreement_baseDirectory,
     updateAgreement_description,
     updateAgreement_localProfileId,
     updateAgreement_partnerProfileId,
+    updateAgreement_status,
     updateAgreement_agreementId,
     updateAgreement_serverId,
     updateAgreementResponse_httpStatus,
     updateAgreementResponse_agreementId,
 
     -- ** UpdateCertificate
-    updateCertificate_description,
     updateCertificate_activeDate,
+    updateCertificate_description,
     updateCertificate_inactiveDate,
     updateCertificate_certificateId,
     updateCertificateResponse_httpStatus,
@@ -397,9 +397,9 @@ module Amazonka.Transfer.Lens
 
     -- ** UpdateConnector
     updateConnector_accessRole,
-    updateConnector_url,
     updateConnector_as2Config,
     updateConnector_loggingRole,
+    updateConnector_url,
     updateConnector_connectorId,
     updateConnectorResponse_httpStatus,
     updateConnectorResponse_connectorId,
@@ -419,29 +419,29 @@ module Amazonka.Transfer.Lens
     updateProfileResponse_profileId,
 
     -- ** UpdateServer
-    updateServer_preAuthenticationLoginBanner,
-    updateServer_protocolDetails,
-    updateServer_identityProviderDetails,
-    updateServer_securityPolicyName,
-    updateServer_endpointDetails,
     updateServer_certificate,
-    updateServer_protocols,
+    updateServer_endpointDetails,
     updateServer_endpointType,
+    updateServer_hostKey,
+    updateServer_identityProviderDetails,
     updateServer_loggingRole,
     updateServer_postAuthenticationLoginBanner,
+    updateServer_preAuthenticationLoginBanner,
+    updateServer_protocolDetails,
+    updateServer_protocols,
+    updateServer_securityPolicyName,
     updateServer_workflowDetails,
-    updateServer_hostKey,
     updateServer_serverId,
     updateServerResponse_httpStatus,
     updateServerResponse_serverId,
 
     -- ** UpdateUser
     updateUser_homeDirectory,
+    updateUser_homeDirectoryMappings,
+    updateUser_homeDirectoryType,
     updateUser_policy,
     updateUser_posixProfile,
     updateUser_role,
-    updateUser_homeDirectoryType,
-    updateUser_homeDirectoryMappings,
     updateUser_serverId,
     updateUser_userName,
     updateUserResponse_httpStatus,
@@ -451,180 +451,180 @@ module Amazonka.Transfer.Lens
     -- * Types
 
     -- ** As2ConnectorConfig
-    as2ConnectorConfig_encryptionAlgorithm,
     as2ConnectorConfig_compression,
-    as2ConnectorConfig_mdnSigningAlgorithm,
+    as2ConnectorConfig_encryptionAlgorithm,
     as2ConnectorConfig_localProfileId,
     as2ConnectorConfig_mdnResponse,
+    as2ConnectorConfig_mdnSigningAlgorithm,
     as2ConnectorConfig_messageSubject,
-    as2ConnectorConfig_signingAlgorithm,
     as2ConnectorConfig_partnerProfileId,
+    as2ConnectorConfig_signingAlgorithm,
 
     -- ** CopyStepDetails
+    copyStepDetails_destinationFileLocation,
     copyStepDetails_name,
     copyStepDetails_overwriteExisting,
     copyStepDetails_sourceFileLocation,
-    copyStepDetails_destinationFileLocation,
 
     -- ** CustomStepDetails
     customStepDetails_name,
-    customStepDetails_timeoutSeconds,
-    customStepDetails_target,
     customStepDetails_sourceFileLocation,
+    customStepDetails_target,
+    customStepDetails_timeoutSeconds,
 
     -- ** DeleteStepDetails
     deleteStepDetails_name,
     deleteStepDetails_sourceFileLocation,
 
     -- ** DescribedAccess
+    describedAccess_externalId,
     describedAccess_homeDirectory,
+    describedAccess_homeDirectoryMappings,
+    describedAccess_homeDirectoryType,
     describedAccess_policy,
     describedAccess_posixProfile,
-    describedAccess_externalId,
     describedAccess_role,
-    describedAccess_homeDirectoryType,
-    describedAccess_homeDirectoryMappings,
 
     -- ** DescribedAgreement
-    describedAgreement_tags,
     describedAgreement_accessRole,
-    describedAgreement_status,
+    describedAgreement_agreementId,
     describedAgreement_baseDirectory,
     describedAgreement_description,
     describedAgreement_localProfileId,
-    describedAgreement_agreementId,
-    describedAgreement_serverId,
     describedAgreement_partnerProfileId,
+    describedAgreement_serverId,
+    describedAgreement_status,
+    describedAgreement_tags,
     describedAgreement_arn,
 
     -- ** DescribedCertificate
-    describedCertificate_tags,
-    describedCertificate_usage,
-    describedCertificate_notBeforeDate,
-    describedCertificate_type,
-    describedCertificate_notAfterDate,
-    describedCertificate_serial,
-    describedCertificate_certificate,
-    describedCertificate_status,
-    describedCertificate_description,
-    describedCertificate_certificateId,
     describedCertificate_activeDate,
+    describedCertificate_certificate,
     describedCertificate_certificateChain,
+    describedCertificate_certificateId,
+    describedCertificate_description,
     describedCertificate_inactiveDate,
+    describedCertificate_notAfterDate,
+    describedCertificate_notBeforeDate,
+    describedCertificate_serial,
+    describedCertificate_status,
+    describedCertificate_tags,
+    describedCertificate_type,
+    describedCertificate_usage,
     describedCertificate_arn,
 
     -- ** DescribedConnector
-    describedConnector_tags,
-    describedConnector_connectorId,
     describedConnector_accessRole,
-    describedConnector_url,
     describedConnector_as2Config,
+    describedConnector_connectorId,
     describedConnector_loggingRole,
+    describedConnector_tags,
+    describedConnector_url,
     describedConnector_arn,
 
     -- ** DescribedExecution
-    describedExecution_executionRole,
-    describedExecution_serviceMetadata,
-    describedExecution_initialFileLocation,
-    describedExecution_posixProfile,
-    describedExecution_status,
     describedExecution_executionId,
-    describedExecution_results,
+    describedExecution_executionRole,
+    describedExecution_initialFileLocation,
     describedExecution_loggingConfiguration,
+    describedExecution_posixProfile,
+    describedExecution_results,
+    describedExecution_serviceMetadata,
+    describedExecution_status,
 
     -- ** DescribedHostKey
-    describedHostKey_tags,
-    describedHostKey_hostKeyId,
-    describedHostKey_type,
+    describedHostKey_dateImported,
     describedHostKey_description,
     describedHostKey_hostKeyFingerprint,
-    describedHostKey_dateImported,
+    describedHostKey_hostKeyId,
+    describedHostKey_tags,
+    describedHostKey_type,
     describedHostKey_arn,
 
     -- ** DescribedProfile
-    describedProfile_tags,
-    describedProfile_profileId,
-    describedProfile_certificateIds,
     describedProfile_as2Id,
+    describedProfile_certificateIds,
+    describedProfile_profileId,
     describedProfile_profileType,
+    describedProfile_tags,
     describedProfile_arn,
 
     -- ** DescribedSecurityPolicy
-    describedSecurityPolicy_tlsCiphers,
-    describedSecurityPolicy_sshKexs,
     describedSecurityPolicy_fips,
     describedSecurityPolicy_sshCiphers,
+    describedSecurityPolicy_sshKexs,
     describedSecurityPolicy_sshMacs,
+    describedSecurityPolicy_tlsCiphers,
     describedSecurityPolicy_securityPolicyName,
 
     -- ** DescribedServer
-    describedServer_tags,
-    describedServer_userCount,
-    describedServer_preAuthenticationLoginBanner,
-    describedServer_protocolDetails,
-    describedServer_identityProviderDetails,
-    describedServer_domain,
-    describedServer_identityProviderType,
-    describedServer_securityPolicyName,
-    describedServer_endpointDetails,
-    describedServer_state,
     describedServer_certificate,
-    describedServer_protocols,
+    describedServer_domain,
+    describedServer_endpointDetails,
     describedServer_endpointType,
     describedServer_hostKeyFingerprint,
+    describedServer_identityProviderDetails,
+    describedServer_identityProviderType,
     describedServer_loggingRole,
-    describedServer_serverId,
     describedServer_postAuthenticationLoginBanner,
+    describedServer_preAuthenticationLoginBanner,
+    describedServer_protocolDetails,
+    describedServer_protocols,
+    describedServer_securityPolicyName,
+    describedServer_serverId,
+    describedServer_state,
+    describedServer_tags,
+    describedServer_userCount,
     describedServer_workflowDetails,
     describedServer_arn,
 
     -- ** DescribedUser
-    describedUser_tags,
     describedUser_homeDirectory,
-    describedUser_policy,
-    describedUser_userName,
-    describedUser_posixProfile,
-    describedUser_sshPublicKeys,
-    describedUser_role,
-    describedUser_homeDirectoryType,
     describedUser_homeDirectoryMappings,
+    describedUser_homeDirectoryType,
+    describedUser_policy,
+    describedUser_posixProfile,
+    describedUser_role,
+    describedUser_sshPublicKeys,
+    describedUser_tags,
+    describedUser_userName,
     describedUser_arn,
 
     -- ** DescribedWorkflow
-    describedWorkflow_tags,
-    describedWorkflow_workflowId,
-    describedWorkflow_steps,
     describedWorkflow_description,
     describedWorkflow_onExceptionSteps,
+    describedWorkflow_steps,
+    describedWorkflow_tags,
+    describedWorkflow_workflowId,
     describedWorkflow_arn,
 
     -- ** EfsFileLocation
-    efsFileLocation_path,
     efsFileLocation_fileSystemId,
+    efsFileLocation_path,
 
     -- ** EndpointDetails
-    endpointDetails_securityGroupIds,
-    endpointDetails_vpcEndpointId,
     endpointDetails_addressAllocationIds,
-    endpointDetails_vpcId,
+    endpointDetails_securityGroupIds,
     endpointDetails_subnetIds,
+    endpointDetails_vpcEndpointId,
+    endpointDetails_vpcId,
 
     -- ** ExecutionError
     executionError_type,
     executionError_message,
 
     -- ** ExecutionResults
-    executionResults_steps,
     executionResults_onExceptionSteps,
+    executionResults_steps,
 
     -- ** ExecutionStepResult
+    executionStepResult_error,
     executionStepResult_outputs,
     executionStepResult_stepType,
-    executionStepResult_error,
 
     -- ** FileLocation
-    fileLocation_s3FileLocation,
     fileLocation_efsFileLocation,
+    fileLocation_s3FileLocation,
 
     -- ** HomeDirectoryMapEntry
     homeDirectoryMapEntry_entry,
@@ -632,90 +632,90 @@ module Amazonka.Transfer.Lens
 
     -- ** IdentityProviderDetails
     identityProviderDetails_directoryId,
-    identityProviderDetails_url,
-    identityProviderDetails_invocationRole,
     identityProviderDetails_function,
+    identityProviderDetails_invocationRole,
+    identityProviderDetails_url,
 
     -- ** InputFileLocation
-    inputFileLocation_s3FileLocation,
     inputFileLocation_efsFileLocation,
+    inputFileLocation_s3FileLocation,
 
     -- ** ListedAccess
-    listedAccess_homeDirectory,
     listedAccess_externalId,
-    listedAccess_role,
+    listedAccess_homeDirectory,
     listedAccess_homeDirectoryType,
+    listedAccess_role,
 
     -- ** ListedAgreement
+    listedAgreement_agreementId,
     listedAgreement_arn,
-    listedAgreement_status,
     listedAgreement_description,
     listedAgreement_localProfileId,
-    listedAgreement_agreementId,
-    listedAgreement_serverId,
     listedAgreement_partnerProfileId,
+    listedAgreement_serverId,
+    listedAgreement_status,
 
     -- ** ListedCertificate
-    listedCertificate_usage,
-    listedCertificate_type,
-    listedCertificate_arn,
-    listedCertificate_status,
-    listedCertificate_description,
-    listedCertificate_certificateId,
     listedCertificate_activeDate,
+    listedCertificate_arn,
+    listedCertificate_certificateId,
+    listedCertificate_description,
     listedCertificate_inactiveDate,
+    listedCertificate_status,
+    listedCertificate_type,
+    listedCertificate_usage,
 
     -- ** ListedConnector
-    listedConnector_connectorId,
     listedConnector_arn,
+    listedConnector_connectorId,
     listedConnector_url,
 
     -- ** ListedExecution
-    listedExecution_serviceMetadata,
-    listedExecution_initialFileLocation,
-    listedExecution_status,
     listedExecution_executionId,
+    listedExecution_initialFileLocation,
+    listedExecution_serviceMetadata,
+    listedExecution_status,
 
     -- ** ListedHostKey
-    listedHostKey_hostKeyId,
-    listedHostKey_type,
+    listedHostKey_dateImported,
     listedHostKey_description,
     listedHostKey_fingerprint,
-    listedHostKey_dateImported,
+    listedHostKey_hostKeyId,
+    listedHostKey_type,
     listedHostKey_arn,
 
     -- ** ListedProfile
-    listedProfile_profileId,
-    listedProfile_as2Id,
     listedProfile_arn,
+    listedProfile_as2Id,
+    listedProfile_profileId,
     listedProfile_profileType,
 
     -- ** ListedServer
-    listedServer_userCount,
     listedServer_domain,
-    listedServer_identityProviderType,
-    listedServer_state,
     listedServer_endpointType,
+    listedServer_identityProviderType,
     listedServer_loggingRole,
     listedServer_serverId,
+    listedServer_state,
+    listedServer_userCount,
     listedServer_arn,
 
     -- ** ListedUser
     listedUser_homeDirectory,
-    listedUser_userName,
-    listedUser_role,
     listedUser_homeDirectoryType,
+    listedUser_role,
     listedUser_sshPublicKeyCount,
+    listedUser_userName,
     listedUser_arn,
 
     -- ** ListedWorkflow
-    listedWorkflow_workflowId,
     listedWorkflow_arn,
     listedWorkflow_description,
+    listedWorkflow_workflowId,
 
     -- ** LoggingConfiguration
-    loggingConfiguration_loggingRole,
     loggingConfiguration_logGroupName,
+    loggingConfiguration_loggingRole,
 
     -- ** PosixProfile
     posixProfile_secondaryGids,
@@ -725,18 +725,18 @@ module Amazonka.Transfer.Lens
     -- ** ProtocolDetails
     protocolDetails_as2Transports,
     protocolDetails_passiveIp,
-    protocolDetails_tlsSessionResumptionMode,
     protocolDetails_setStatOption,
+    protocolDetails_tlsSessionResumptionMode,
 
     -- ** S3FileLocation
-    s3FileLocation_key,
     s3FileLocation_bucket,
     s3FileLocation_etag,
+    s3FileLocation_key,
     s3FileLocation_versionId,
 
     -- ** S3InputFileLocation
-    s3InputFileLocation_key,
     s3InputFileLocation_bucket,
+    s3InputFileLocation_key,
 
     -- ** S3Tag
     s3Tag_key,
@@ -755,9 +755,9 @@ module Amazonka.Transfer.Lens
     tag_value,
 
     -- ** TagStepDetails
-    tagStepDetails_tags,
     tagStepDetails_name,
     tagStepDetails_sourceFileLocation,
+    tagStepDetails_tags,
 
     -- ** UserDetails
     userDetails_sessionId,
@@ -773,11 +773,11 @@ module Amazonka.Transfer.Lens
     workflowDetails_onUpload,
 
     -- ** WorkflowStep
-    workflowStep_type,
-    workflowStep_tagStepDetails,
+    workflowStep_copyStepDetails,
     workflowStep_customStepDetails,
     workflowStep_deleteStepDetails,
-    workflowStep_copyStepDetails,
+    workflowStep_tagStepDetails,
+    workflowStep_type,
   )
 where
 

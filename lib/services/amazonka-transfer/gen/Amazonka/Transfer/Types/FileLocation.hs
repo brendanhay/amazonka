@@ -30,12 +30,12 @@ import Amazonka.Transfer.Types.S3FileLocation
 --
 -- /See:/ 'newFileLocation' smart constructor.
 data FileLocation = FileLocation'
-  { -- | Specifies the S3 details for the file being used, such as bucket, ETag,
-    -- and so forth.
-    s3FileLocation :: Prelude.Maybe S3FileLocation,
-    -- | Specifies the Amazon EFS identifier and the path for the file being
+  { -- | Specifies the Amazon EFS identifier and the path for the file being
     -- used.
-    efsFileLocation :: Prelude.Maybe EfsFileLocation
+    efsFileLocation :: Prelude.Maybe EfsFileLocation,
+    -- | Specifies the S3 details for the file being used, such as bucket, ETag,
+    -- and so forth.
+    s3FileLocation :: Prelude.Maybe S3FileLocation
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,28 +47,28 @@ data FileLocation = FileLocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3FileLocation', 'fileLocation_s3FileLocation' - Specifies the S3 details for the file being used, such as bucket, ETag,
--- and so forth.
---
 -- 'efsFileLocation', 'fileLocation_efsFileLocation' - Specifies the Amazon EFS identifier and the path for the file being
 -- used.
+--
+-- 's3FileLocation', 'fileLocation_s3FileLocation' - Specifies the S3 details for the file being used, such as bucket, ETag,
+-- and so forth.
 newFileLocation ::
   FileLocation
 newFileLocation =
   FileLocation'
-    { s3FileLocation = Prelude.Nothing,
-      efsFileLocation = Prelude.Nothing
+    { efsFileLocation = Prelude.Nothing,
+      s3FileLocation = Prelude.Nothing
     }
-
--- | Specifies the S3 details for the file being used, such as bucket, ETag,
--- and so forth.
-fileLocation_s3FileLocation :: Lens.Lens' FileLocation (Prelude.Maybe S3FileLocation)
-fileLocation_s3FileLocation = Lens.lens (\FileLocation' {s3FileLocation} -> s3FileLocation) (\s@FileLocation' {} a -> s {s3FileLocation = a} :: FileLocation)
 
 -- | Specifies the Amazon EFS identifier and the path for the file being
 -- used.
 fileLocation_efsFileLocation :: Lens.Lens' FileLocation (Prelude.Maybe EfsFileLocation)
 fileLocation_efsFileLocation = Lens.lens (\FileLocation' {efsFileLocation} -> efsFileLocation) (\s@FileLocation' {} a -> s {efsFileLocation = a} :: FileLocation)
+
+-- | Specifies the S3 details for the file being used, such as bucket, ETag,
+-- and so forth.
+fileLocation_s3FileLocation :: Lens.Lens' FileLocation (Prelude.Maybe S3FileLocation)
+fileLocation_s3FileLocation = Lens.lens (\FileLocation' {s3FileLocation} -> s3FileLocation) (\s@FileLocation' {} a -> s {s3FileLocation = a} :: FileLocation)
 
 instance Data.FromJSON FileLocation where
   parseJSON =
@@ -76,16 +76,16 @@ instance Data.FromJSON FileLocation where
       "FileLocation"
       ( \x ->
           FileLocation'
-            Prelude.<$> (x Data..:? "S3FileLocation")
-            Prelude.<*> (x Data..:? "EfsFileLocation")
+            Prelude.<$> (x Data..:? "EfsFileLocation")
+            Prelude.<*> (x Data..:? "S3FileLocation")
       )
 
 instance Prelude.Hashable FileLocation where
   hashWithSalt _salt FileLocation' {..} =
-    _salt `Prelude.hashWithSalt` s3FileLocation
-      `Prelude.hashWithSalt` efsFileLocation
+    _salt `Prelude.hashWithSalt` efsFileLocation
+      `Prelude.hashWithSalt` s3FileLocation
 
 instance Prelude.NFData FileLocation where
   rnf FileLocation' {..} =
-    Prelude.rnf s3FileLocation
-      `Prelude.seq` Prelude.rnf efsFileLocation
+    Prelude.rnf efsFileLocation
+      `Prelude.seq` Prelude.rnf s3FileLocation

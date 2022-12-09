@@ -29,8 +29,8 @@ module Amazonka.Transfer.ListConnectors
     newListConnectors,
 
     -- * Request Lenses
-    listConnectors_nextToken,
     listConnectors_maxResults,
+    listConnectors_nextToken,
 
     -- * Destructuring the Response
     ListConnectorsResponse (..),
@@ -53,13 +53,13 @@ import Amazonka.Transfer.Types
 
 -- | /See:/ 'newListConnectors' smart constructor.
 data ListConnectors = ListConnectors'
-  { -- | When you can get additional results from the @ListConnectors@ call, a
+  { -- | The maximum number of connectors to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | When you can get additional results from the @ListConnectors@ call, a
     -- @NextToken@ parameter is returned in the output. You can then pass in a
     -- subsequent command to the @NextToken@ parameter to continue listing
     -- additional connectors.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of connectors to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,19 +71,23 @@ data ListConnectors = ListConnectors'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listConnectors_maxResults' - The maximum number of connectors to return.
+--
 -- 'nextToken', 'listConnectors_nextToken' - When you can get additional results from the @ListConnectors@ call, a
 -- @NextToken@ parameter is returned in the output. You can then pass in a
 -- subsequent command to the @NextToken@ parameter to continue listing
 -- additional connectors.
---
--- 'maxResults', 'listConnectors_maxResults' - The maximum number of connectors to return.
 newListConnectors ::
   ListConnectors
 newListConnectors =
   ListConnectors'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of connectors to return.
+listConnectors_maxResults :: Lens.Lens' ListConnectors (Prelude.Maybe Prelude.Natural)
+listConnectors_maxResults = Lens.lens (\ListConnectors' {maxResults} -> maxResults) (\s@ListConnectors' {} a -> s {maxResults = a} :: ListConnectors)
 
 -- | When you can get additional results from the @ListConnectors@ call, a
 -- @NextToken@ parameter is returned in the output. You can then pass in a
@@ -91,10 +95,6 @@ newListConnectors =
 -- additional connectors.
 listConnectors_nextToken :: Lens.Lens' ListConnectors (Prelude.Maybe Prelude.Text)
 listConnectors_nextToken = Lens.lens (\ListConnectors' {nextToken} -> nextToken) (\s@ListConnectors' {} a -> s {nextToken = a} :: ListConnectors)
-
--- | The maximum number of connectors to return.
-listConnectors_maxResults :: Lens.Lens' ListConnectors (Prelude.Maybe Prelude.Natural)
-listConnectors_maxResults = Lens.lens (\ListConnectors' {maxResults} -> maxResults) (\s@ListConnectors' {} a -> s {maxResults = a} :: ListConnectors)
 
 instance Core.AWSPager ListConnectors where
   page rq rs
@@ -131,13 +131,13 @@ instance Core.AWSRequest ListConnectors where
 
 instance Prelude.Hashable ListConnectors where
   hashWithSalt _salt ListConnectors' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListConnectors where
   rnf ListConnectors' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListConnectors where
   toHeaders =
@@ -158,8 +158,8 @@ instance Data.ToJSON ListConnectors where
   toJSON ListConnectors' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

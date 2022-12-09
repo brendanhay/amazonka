@@ -30,8 +30,8 @@ module Amazonka.Transfer.ListUsers
     newListUsers,
 
     -- * Request Lenses
-    listUsers_nextToken,
     listUsers_maxResults,
+    listUsers_nextToken,
     listUsers_serverId,
 
     -- * Destructuring the Response
@@ -56,14 +56,14 @@ import Amazonka.Transfer.Types
 
 -- | /See:/ 'newListUsers' smart constructor.
 data ListUsers = ListUsers'
-  { -- | When you can get additional results from the @ListUsers@ call, a
+  { -- | Specifies the number of users to return as a response to the @ListUsers@
+    -- request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | When you can get additional results from the @ListUsers@ call, a
     -- @NextToken@ parameter is returned in the output. You can then pass in a
     -- subsequent command to the @NextToken@ parameter to continue listing
     -- additional users.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the number of users to return as a response to the @ListUsers@
-    -- request.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A system-assigned unique identifier for a server that has users assigned
     -- to it.
     serverId :: Prelude.Text
@@ -78,13 +78,13 @@ data ListUsers = ListUsers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listUsers_maxResults' - Specifies the number of users to return as a response to the @ListUsers@
+-- request.
+--
 -- 'nextToken', 'listUsers_nextToken' - When you can get additional results from the @ListUsers@ call, a
 -- @NextToken@ parameter is returned in the output. You can then pass in a
 -- subsequent command to the @NextToken@ parameter to continue listing
 -- additional users.
---
--- 'maxResults', 'listUsers_maxResults' - Specifies the number of users to return as a response to the @ListUsers@
--- request.
 --
 -- 'serverId', 'listUsers_serverId' - A system-assigned unique identifier for a server that has users assigned
 -- to it.
@@ -94,10 +94,15 @@ newListUsers ::
   ListUsers
 newListUsers pServerId_ =
   ListUsers'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       serverId = pServerId_
     }
+
+-- | Specifies the number of users to return as a response to the @ListUsers@
+-- request.
+listUsers_maxResults :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Natural)
+listUsers_maxResults = Lens.lens (\ListUsers' {maxResults} -> maxResults) (\s@ListUsers' {} a -> s {maxResults = a} :: ListUsers)
 
 -- | When you can get additional results from the @ListUsers@ call, a
 -- @NextToken@ parameter is returned in the output. You can then pass in a
@@ -105,11 +110,6 @@ newListUsers pServerId_ =
 -- additional users.
 listUsers_nextToken :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Text)
 listUsers_nextToken = Lens.lens (\ListUsers' {nextToken} -> nextToken) (\s@ListUsers' {} a -> s {nextToken = a} :: ListUsers)
-
--- | Specifies the number of users to return as a response to the @ListUsers@
--- request.
-listUsers_maxResults :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Natural)
-listUsers_maxResults = Lens.lens (\ListUsers' {maxResults} -> maxResults) (\s@ListUsers' {} a -> s {maxResults = a} :: ListUsers)
 
 -- | A system-assigned unique identifier for a server that has users assigned
 -- to it.
@@ -148,14 +148,14 @@ instance Core.AWSRequest ListUsers where
 
 instance Prelude.Hashable ListUsers where
   hashWithSalt _salt ListUsers' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` serverId
 
 instance Prelude.NFData ListUsers where
   rnf ListUsers' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf serverId
 
 instance Data.ToHeaders ListUsers where
@@ -175,8 +175,8 @@ instance Data.ToJSON ListUsers where
   toJSON ListUsers' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("ServerId" Data..= serverId)
           ]
       )

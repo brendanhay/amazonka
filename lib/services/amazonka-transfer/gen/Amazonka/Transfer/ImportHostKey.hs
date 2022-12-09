@@ -28,8 +28,8 @@ module Amazonka.Transfer.ImportHostKey
     newImportHostKey,
 
     -- * Request Lenses
-    importHostKey_tags,
     importHostKey_description,
+    importHostKey_tags,
     importHostKey_serverId,
     importHostKey_hostKeyBody,
 
@@ -54,10 +54,10 @@ import Amazonka.Transfer.Types
 
 -- | /See:/ 'newImportHostKey' smart constructor.
 data ImportHostKey = ImportHostKey'
-  { -- | Key-value pairs that can be used to group and search for host keys.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | The text description that identifies this host key.
+  { -- | The text description that identifies this host key.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Key-value pairs that can be used to group and search for host keys.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The identifier of the server that contains the host key that you are
     -- importing.
     serverId :: Prelude.Text,
@@ -76,9 +76,9 @@ data ImportHostKey = ImportHostKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'importHostKey_tags' - Key-value pairs that can be used to group and search for host keys.
---
 -- 'description', 'importHostKey_description' - The text description that identifies this host key.
+--
+-- 'tags', 'importHostKey_tags' - Key-value pairs that can be used to group and search for host keys.
 --
 -- 'serverId', 'importHostKey_serverId' - The identifier of the server that contains the host key that you are
 -- importing.
@@ -94,19 +94,19 @@ newImportHostKey ::
   ImportHostKey
 newImportHostKey pServerId_ pHostKeyBody_ =
   ImportHostKey'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       serverId = pServerId_,
       hostKeyBody = Data._Sensitive Lens.# pHostKeyBody_
     }
 
--- | Key-value pairs that can be used to group and search for host keys.
-importHostKey_tags :: Lens.Lens' ImportHostKey (Prelude.Maybe (Prelude.NonEmpty Tag))
-importHostKey_tags = Lens.lens (\ImportHostKey' {tags} -> tags) (\s@ImportHostKey' {} a -> s {tags = a} :: ImportHostKey) Prelude.. Lens.mapping Lens.coerced
-
 -- | The text description that identifies this host key.
 importHostKey_description :: Lens.Lens' ImportHostKey (Prelude.Maybe Prelude.Text)
 importHostKey_description = Lens.lens (\ImportHostKey' {description} -> description) (\s@ImportHostKey' {} a -> s {description = a} :: ImportHostKey)
+
+-- | Key-value pairs that can be used to group and search for host keys.
+importHostKey_tags :: Lens.Lens' ImportHostKey (Prelude.Maybe (Prelude.NonEmpty Tag))
+importHostKey_tags = Lens.lens (\ImportHostKey' {tags} -> tags) (\s@ImportHostKey' {} a -> s {tags = a} :: ImportHostKey) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the server that contains the host key that you are
 -- importing.
@@ -136,15 +136,15 @@ instance Core.AWSRequest ImportHostKey where
 
 instance Prelude.Hashable ImportHostKey where
   hashWithSalt _salt ImportHostKey' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` serverId
       `Prelude.hashWithSalt` hostKeyBody
 
 instance Prelude.NFData ImportHostKey where
   rnf ImportHostKey' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf description
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf serverId
       `Prelude.seq` Prelude.rnf hostKeyBody
 
@@ -167,8 +167,8 @@ instance Data.ToJSON ImportHostKey where
   toJSON ImportHostKey' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Description" Data..=) Prelude.<$> description,
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("ServerId" Data..= serverId),
             Prelude.Just ("HostKeyBody" Data..= hostKeyBody)
           ]

@@ -28,12 +28,12 @@ module Amazonka.Transfer.ImportCertificate
     newImportCertificate,
 
     -- * Request Lenses
-    importCertificate_tags,
-    importCertificate_privateKey,
-    importCertificate_description,
     importCertificate_activeDate,
     importCertificate_certificateChain,
+    importCertificate_description,
     importCertificate_inactiveDate,
+    importCertificate_privateKey,
+    importCertificate_tags,
     importCertificate_usage,
     importCertificate_certificate,
 
@@ -57,20 +57,20 @@ import Amazonka.Transfer.Types
 
 -- | /See:/ 'newImportCertificate' smart constructor.
 data ImportCertificate = ImportCertificate'
-  { -- | Key-value pairs that can be used to group and search for certificates.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | The file that contains the private key for the certificate that\'s being
-    -- imported.
-    privateKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A short description that helps identify the certificate.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | An optional date that specifies when the certificate becomes active.
+  { -- | An optional date that specifies when the certificate becomes active.
     activeDate :: Prelude.Maybe Data.POSIX,
     -- | An optional list of certificates that make up the chain for the
     -- certificate that\'s being imported.
     certificateChain :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | A short description that helps identify the certificate.
+    description :: Prelude.Maybe Prelude.Text,
     -- | An optional date that specifies when the certificate becomes inactive.
     inactiveDate :: Prelude.Maybe Data.POSIX,
+    -- | The file that contains the private key for the certificate that\'s being
+    -- imported.
+    privateKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | Key-value pairs that can be used to group and search for certificates.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | Specifies whether this certificate is used for signing or encryption.
     usage :: CertificateUsageType,
     -- | The file that contains the certificate to import.
@@ -86,19 +86,19 @@ data ImportCertificate = ImportCertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'importCertificate_tags' - Key-value pairs that can be used to group and search for certificates.
---
--- 'privateKey', 'importCertificate_privateKey' - The file that contains the private key for the certificate that\'s being
--- imported.
---
--- 'description', 'importCertificate_description' - A short description that helps identify the certificate.
---
 -- 'activeDate', 'importCertificate_activeDate' - An optional date that specifies when the certificate becomes active.
 --
 -- 'certificateChain', 'importCertificate_certificateChain' - An optional list of certificates that make up the chain for the
 -- certificate that\'s being imported.
 --
+-- 'description', 'importCertificate_description' - A short description that helps identify the certificate.
+--
 -- 'inactiveDate', 'importCertificate_inactiveDate' - An optional date that specifies when the certificate becomes inactive.
+--
+-- 'privateKey', 'importCertificate_privateKey' - The file that contains the private key for the certificate that\'s being
+-- imported.
+--
+-- 'tags', 'importCertificate_tags' - Key-value pairs that can be used to group and search for certificates.
 --
 -- 'usage', 'importCertificate_usage' - Specifies whether this certificate is used for signing or encryption.
 --
@@ -111,28 +111,15 @@ newImportCertificate ::
   ImportCertificate
 newImportCertificate pUsage_ pCertificate_ =
   ImportCertificate'
-    { tags = Prelude.Nothing,
-      privateKey = Prelude.Nothing,
-      description = Prelude.Nothing,
-      activeDate = Prelude.Nothing,
+    { activeDate = Prelude.Nothing,
       certificateChain = Prelude.Nothing,
+      description = Prelude.Nothing,
       inactiveDate = Prelude.Nothing,
+      privateKey = Prelude.Nothing,
+      tags = Prelude.Nothing,
       usage = pUsage_,
       certificate = Data._Sensitive Lens.# pCertificate_
     }
-
--- | Key-value pairs that can be used to group and search for certificates.
-importCertificate_tags :: Lens.Lens' ImportCertificate (Prelude.Maybe (Prelude.NonEmpty Tag))
-importCertificate_tags = Lens.lens (\ImportCertificate' {tags} -> tags) (\s@ImportCertificate' {} a -> s {tags = a} :: ImportCertificate) Prelude.. Lens.mapping Lens.coerced
-
--- | The file that contains the private key for the certificate that\'s being
--- imported.
-importCertificate_privateKey :: Lens.Lens' ImportCertificate (Prelude.Maybe Prelude.Text)
-importCertificate_privateKey = Lens.lens (\ImportCertificate' {privateKey} -> privateKey) (\s@ImportCertificate' {} a -> s {privateKey = a} :: ImportCertificate) Prelude.. Lens.mapping Data._Sensitive
-
--- | A short description that helps identify the certificate.
-importCertificate_description :: Lens.Lens' ImportCertificate (Prelude.Maybe Prelude.Text)
-importCertificate_description = Lens.lens (\ImportCertificate' {description} -> description) (\s@ImportCertificate' {} a -> s {description = a} :: ImportCertificate)
 
 -- | An optional date that specifies when the certificate becomes active.
 importCertificate_activeDate :: Lens.Lens' ImportCertificate (Prelude.Maybe Prelude.UTCTime)
@@ -143,9 +130,22 @@ importCertificate_activeDate = Lens.lens (\ImportCertificate' {activeDate} -> ac
 importCertificate_certificateChain :: Lens.Lens' ImportCertificate (Prelude.Maybe Prelude.Text)
 importCertificate_certificateChain = Lens.lens (\ImportCertificate' {certificateChain} -> certificateChain) (\s@ImportCertificate' {} a -> s {certificateChain = a} :: ImportCertificate) Prelude.. Lens.mapping Data._Sensitive
 
+-- | A short description that helps identify the certificate.
+importCertificate_description :: Lens.Lens' ImportCertificate (Prelude.Maybe Prelude.Text)
+importCertificate_description = Lens.lens (\ImportCertificate' {description} -> description) (\s@ImportCertificate' {} a -> s {description = a} :: ImportCertificate)
+
 -- | An optional date that specifies when the certificate becomes inactive.
 importCertificate_inactiveDate :: Lens.Lens' ImportCertificate (Prelude.Maybe Prelude.UTCTime)
 importCertificate_inactiveDate = Lens.lens (\ImportCertificate' {inactiveDate} -> inactiveDate) (\s@ImportCertificate' {} a -> s {inactiveDate = a} :: ImportCertificate) Prelude.. Lens.mapping Data._Time
+
+-- | The file that contains the private key for the certificate that\'s being
+-- imported.
+importCertificate_privateKey :: Lens.Lens' ImportCertificate (Prelude.Maybe Prelude.Text)
+importCertificate_privateKey = Lens.lens (\ImportCertificate' {privateKey} -> privateKey) (\s@ImportCertificate' {} a -> s {privateKey = a} :: ImportCertificate) Prelude.. Lens.mapping Data._Sensitive
+
+-- | Key-value pairs that can be used to group and search for certificates.
+importCertificate_tags :: Lens.Lens' ImportCertificate (Prelude.Maybe (Prelude.NonEmpty Tag))
+importCertificate_tags = Lens.lens (\ImportCertificate' {tags} -> tags) (\s@ImportCertificate' {} a -> s {tags = a} :: ImportCertificate) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies whether this certificate is used for signing or encryption.
 importCertificate_usage :: Lens.Lens' ImportCertificate CertificateUsageType
@@ -171,23 +171,23 @@ instance Core.AWSRequest ImportCertificate where
 
 instance Prelude.Hashable ImportCertificate where
   hashWithSalt _salt ImportCertificate' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` privateKey
-      `Prelude.hashWithSalt` description
-      `Prelude.hashWithSalt` activeDate
+    _salt `Prelude.hashWithSalt` activeDate
       `Prelude.hashWithSalt` certificateChain
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` inactiveDate
+      `Prelude.hashWithSalt` privateKey
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` usage
       `Prelude.hashWithSalt` certificate
 
 instance Prelude.NFData ImportCertificate where
   rnf ImportCertificate' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf privateKey
-      `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf activeDate
+    Prelude.rnf activeDate
       `Prelude.seq` Prelude.rnf certificateChain
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf inactiveDate
+      `Prelude.seq` Prelude.rnf privateKey
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf usage
       `Prelude.seq` Prelude.rnf certificate
 
@@ -210,13 +210,13 @@ instance Data.ToJSON ImportCertificate where
   toJSON ImportCertificate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("PrivateKey" Data..=) Prelude.<$> privateKey,
-            ("Description" Data..=) Prelude.<$> description,
-            ("ActiveDate" Data..=) Prelude.<$> activeDate,
+          [ ("ActiveDate" Data..=) Prelude.<$> activeDate,
             ("CertificateChain" Data..=)
               Prelude.<$> certificateChain,
+            ("Description" Data..=) Prelude.<$> description,
             ("InactiveDate" Data..=) Prelude.<$> inactiveDate,
+            ("PrivateKey" Data..=) Prelude.<$> privateKey,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Usage" Data..= usage),
             Prelude.Just ("Certificate" Data..= certificate)
           ]

@@ -30,8 +30,8 @@ module Amazonka.Transfer.ListSecurityPolicies
     newListSecurityPolicies,
 
     -- * Request Lenses
-    listSecurityPolicies_nextToken,
     listSecurityPolicies_maxResults,
+    listSecurityPolicies_nextToken,
 
     -- * Destructuring the Response
     ListSecurityPoliciesResponse (..),
@@ -54,14 +54,14 @@ import Amazonka.Transfer.Types
 
 -- | /See:/ 'newListSecurityPolicies' smart constructor.
 data ListSecurityPolicies = ListSecurityPolicies'
-  { -- | When additional results are obtained from the @ListSecurityPolicies@
+  { -- | Specifies the number of security policies to return as a response to the
+    -- @ListSecurityPolicies@ query.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | When additional results are obtained from the @ListSecurityPolicies@
     -- command, a @NextToken@ parameter is returned in the output. You can then
     -- pass the @NextToken@ parameter in a subsequent command to continue
     -- listing additional security policies.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the number of security policies to return as a response to the
-    -- @ListSecurityPolicies@ query.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,20 +73,25 @@ data ListSecurityPolicies = ListSecurityPolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listSecurityPolicies_maxResults' - Specifies the number of security policies to return as a response to the
+-- @ListSecurityPolicies@ query.
+--
 -- 'nextToken', 'listSecurityPolicies_nextToken' - When additional results are obtained from the @ListSecurityPolicies@
 -- command, a @NextToken@ parameter is returned in the output. You can then
 -- pass the @NextToken@ parameter in a subsequent command to continue
 -- listing additional security policies.
---
--- 'maxResults', 'listSecurityPolicies_maxResults' - Specifies the number of security policies to return as a response to the
--- @ListSecurityPolicies@ query.
 newListSecurityPolicies ::
   ListSecurityPolicies
 newListSecurityPolicies =
   ListSecurityPolicies'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | Specifies the number of security policies to return as a response to the
+-- @ListSecurityPolicies@ query.
+listSecurityPolicies_maxResults :: Lens.Lens' ListSecurityPolicies (Prelude.Maybe Prelude.Natural)
+listSecurityPolicies_maxResults = Lens.lens (\ListSecurityPolicies' {maxResults} -> maxResults) (\s@ListSecurityPolicies' {} a -> s {maxResults = a} :: ListSecurityPolicies)
 
 -- | When additional results are obtained from the @ListSecurityPolicies@
 -- command, a @NextToken@ parameter is returned in the output. You can then
@@ -94,11 +99,6 @@ newListSecurityPolicies =
 -- listing additional security policies.
 listSecurityPolicies_nextToken :: Lens.Lens' ListSecurityPolicies (Prelude.Maybe Prelude.Text)
 listSecurityPolicies_nextToken = Lens.lens (\ListSecurityPolicies' {nextToken} -> nextToken) (\s@ListSecurityPolicies' {} a -> s {nextToken = a} :: ListSecurityPolicies)
-
--- | Specifies the number of security policies to return as a response to the
--- @ListSecurityPolicies@ query.
-listSecurityPolicies_maxResults :: Lens.Lens' ListSecurityPolicies (Prelude.Maybe Prelude.Natural)
-listSecurityPolicies_maxResults = Lens.lens (\ListSecurityPolicies' {maxResults} -> maxResults) (\s@ListSecurityPolicies' {} a -> s {maxResults = a} :: ListSecurityPolicies)
 
 instance Core.AWSPager ListSecurityPolicies where
   page rq rs
@@ -140,13 +140,13 @@ instance Core.AWSRequest ListSecurityPolicies where
 
 instance Prelude.Hashable ListSecurityPolicies where
   hashWithSalt _salt ListSecurityPolicies' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListSecurityPolicies where
   rnf ListSecurityPolicies' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListSecurityPolicies where
   toHeaders =
@@ -167,8 +167,8 @@ instance Data.ToJSON ListSecurityPolicies where
   toJSON ListSecurityPolicies' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

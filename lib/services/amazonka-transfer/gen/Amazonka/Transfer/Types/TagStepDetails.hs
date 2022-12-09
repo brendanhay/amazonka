@@ -32,9 +32,7 @@ import Amazonka.Transfer.Types.S3Tag
 --
 -- /See:/ 'newTagStepDetails' smart constructor.
 data TagStepDetails = TagStepDetails'
-  { -- | Array that contains from 1 to 10 key\/value pairs.
-    tags :: Prelude.Maybe (Prelude.NonEmpty S3Tag),
-    -- | The name of the step, used as an identifier.
+  { -- | The name of the step, used as an identifier.
     name :: Prelude.Maybe Prelude.Text,
     -- | Specifies which file to use as input to the workflow step: either the
     -- output from the previous step, or the originally uploaded file for the
@@ -46,7 +44,9 @@ data TagStepDetails = TagStepDetails'
     --
     -- -   Enter @${original.file}@ to use the originally-uploaded file
     --     location as input for this step.
-    sourceFileLocation :: Prelude.Maybe Prelude.Text
+    sourceFileLocation :: Prelude.Maybe Prelude.Text,
+    -- | Array that contains from 1 to 10 key\/value pairs.
+    tags :: Prelude.Maybe (Prelude.NonEmpty S3Tag)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,8 +57,6 @@ data TagStepDetails = TagStepDetails'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'tags', 'tagStepDetails_tags' - Array that contains from 1 to 10 key\/value pairs.
 --
 -- 'name', 'tagStepDetails_name' - The name of the step, used as an identifier.
 --
@@ -72,18 +70,16 @@ data TagStepDetails = TagStepDetails'
 --
 -- -   Enter @${original.file}@ to use the originally-uploaded file
 --     location as input for this step.
+--
+-- 'tags', 'tagStepDetails_tags' - Array that contains from 1 to 10 key\/value pairs.
 newTagStepDetails ::
   TagStepDetails
 newTagStepDetails =
   TagStepDetails'
-    { tags = Prelude.Nothing,
-      name = Prelude.Nothing,
-      sourceFileLocation = Prelude.Nothing
+    { name = Prelude.Nothing,
+      sourceFileLocation = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
-
--- | Array that contains from 1 to 10 key\/value pairs.
-tagStepDetails_tags :: Lens.Lens' TagStepDetails (Prelude.Maybe (Prelude.NonEmpty S3Tag))
-tagStepDetails_tags = Lens.lens (\TagStepDetails' {tags} -> tags) (\s@TagStepDetails' {} a -> s {tags = a} :: TagStepDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the step, used as an identifier.
 tagStepDetails_name :: Lens.Lens' TagStepDetails (Prelude.Maybe Prelude.Text)
@@ -102,36 +98,40 @@ tagStepDetails_name = Lens.lens (\TagStepDetails' {name} -> name) (\s@TagStepDet
 tagStepDetails_sourceFileLocation :: Lens.Lens' TagStepDetails (Prelude.Maybe Prelude.Text)
 tagStepDetails_sourceFileLocation = Lens.lens (\TagStepDetails' {sourceFileLocation} -> sourceFileLocation) (\s@TagStepDetails' {} a -> s {sourceFileLocation = a} :: TagStepDetails)
 
+-- | Array that contains from 1 to 10 key\/value pairs.
+tagStepDetails_tags :: Lens.Lens' TagStepDetails (Prelude.Maybe (Prelude.NonEmpty S3Tag))
+tagStepDetails_tags = Lens.lens (\TagStepDetails' {tags} -> tags) (\s@TagStepDetails' {} a -> s {tags = a} :: TagStepDetails) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON TagStepDetails where
   parseJSON =
     Data.withObject
       "TagStepDetails"
       ( \x ->
           TagStepDetails'
-            Prelude.<$> (x Data..:? "Tags")
-            Prelude.<*> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "SourceFileLocation")
+            Prelude.<*> (x Data..:? "Tags")
       )
 
 instance Prelude.Hashable TagStepDetails where
   hashWithSalt _salt TagStepDetails' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sourceFileLocation
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagStepDetails where
   rnf TagStepDetails' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
+    Prelude.rnf name
       `Prelude.seq` Prelude.rnf sourceFileLocation
+      `Prelude.seq` Prelude.rnf tags
 
 instance Data.ToJSON TagStepDetails where
   toJSON TagStepDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
-            ("Name" Data..=) Prelude.<$> name,
+          [ ("Name" Data..=) Prelude.<$> name,
             ("SourceFileLocation" Data..=)
-              Prelude.<$> sourceFileLocation
+              Prelude.<$> sourceFileLocation,
+            ("Tags" Data..=) Prelude.<$> tags
           ]
       )

@@ -30,24 +30,24 @@ import Amazonka.Transfer.Types.Tag
 --
 -- /See:/ 'newDescribedProfile' smart constructor.
 data DescribedProfile = DescribedProfile'
-  { -- | Key-value pairs that can be used to group and search for profiles.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | A unique identifier for the local or partner AS2 profile.
-    profileId :: Prelude.Maybe Prelude.Text,
-    -- | An array of identifiers for the imported certificates. You use this
-    -- identifier for working with profiles and partner profiles.
-    certificateIds :: Prelude.Maybe [Prelude.Text],
-    -- | The @As2Id@ is the /AS2-name/, as defined in the
+  { -- | The @As2Id@ is the /AS2-name/, as defined in the
     -- <https://datatracker.ietf.org/doc/html/rfc4130 RFC 4130>. For inbound
     -- transfers, this is the @AS2-From@ header for the AS2 messages sent from
     -- the partner. For outbound connectors, this is the @AS2-To@ header for
     -- the AS2 messages sent to the partner using the @StartFileTransfer@ API
     -- operation. This ID cannot include spaces.
     as2Id :: Prelude.Maybe Prelude.Text,
+    -- | An array of identifiers for the imported certificates. You use this
+    -- identifier for working with profiles and partner profiles.
+    certificateIds :: Prelude.Maybe [Prelude.Text],
+    -- | A unique identifier for the local or partner AS2 profile.
+    profileId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether to list only @LOCAL@ type profiles or only @PARTNER@
     -- type profiles. If not supplied in the request, the command lists all
     -- types of profiles.
     profileType :: Prelude.Maybe ProfileType,
+    -- | Key-value pairs that can be used to group and search for profiles.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The unique Amazon Resource Name (ARN) for the profile.
     arn :: Prelude.Text
   }
@@ -61,13 +61,6 @@ data DescribedProfile = DescribedProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'describedProfile_tags' - Key-value pairs that can be used to group and search for profiles.
---
--- 'profileId', 'describedProfile_profileId' - A unique identifier for the local or partner AS2 profile.
---
--- 'certificateIds', 'describedProfile_certificateIds' - An array of identifiers for the imported certificates. You use this
--- identifier for working with profiles and partner profiles.
---
 -- 'as2Id', 'describedProfile_as2Id' - The @As2Id@ is the /AS2-name/, as defined in the
 -- <https://datatracker.ietf.org/doc/html/rfc4130 RFC 4130>. For inbound
 -- transfers, this is the @AS2-From@ header for the AS2 messages sent from
@@ -75,9 +68,16 @@ data DescribedProfile = DescribedProfile'
 -- the AS2 messages sent to the partner using the @StartFileTransfer@ API
 -- operation. This ID cannot include spaces.
 --
+-- 'certificateIds', 'describedProfile_certificateIds' - An array of identifiers for the imported certificates. You use this
+-- identifier for working with profiles and partner profiles.
+--
+-- 'profileId', 'describedProfile_profileId' - A unique identifier for the local or partner AS2 profile.
+--
 -- 'profileType', 'describedProfile_profileType' - Indicates whether to list only @LOCAL@ type profiles or only @PARTNER@
 -- type profiles. If not supplied in the request, the command lists all
 -- types of profiles.
+--
+-- 'tags', 'describedProfile_tags' - Key-value pairs that can be used to group and search for profiles.
 --
 -- 'arn', 'describedProfile_arn' - The unique Amazon Resource Name (ARN) for the profile.
 newDescribedProfile ::
@@ -86,26 +86,13 @@ newDescribedProfile ::
   DescribedProfile
 newDescribedProfile pArn_ =
   DescribedProfile'
-    { tags = Prelude.Nothing,
-      profileId = Prelude.Nothing,
+    { as2Id = Prelude.Nothing,
       certificateIds = Prelude.Nothing,
-      as2Id = Prelude.Nothing,
+      profileId = Prelude.Nothing,
       profileType = Prelude.Nothing,
+      tags = Prelude.Nothing,
       arn = pArn_
     }
-
--- | Key-value pairs that can be used to group and search for profiles.
-describedProfile_tags :: Lens.Lens' DescribedProfile (Prelude.Maybe (Prelude.NonEmpty Tag))
-describedProfile_tags = Lens.lens (\DescribedProfile' {tags} -> tags) (\s@DescribedProfile' {} a -> s {tags = a} :: DescribedProfile) Prelude.. Lens.mapping Lens.coerced
-
--- | A unique identifier for the local or partner AS2 profile.
-describedProfile_profileId :: Lens.Lens' DescribedProfile (Prelude.Maybe Prelude.Text)
-describedProfile_profileId = Lens.lens (\DescribedProfile' {profileId} -> profileId) (\s@DescribedProfile' {} a -> s {profileId = a} :: DescribedProfile)
-
--- | An array of identifiers for the imported certificates. You use this
--- identifier for working with profiles and partner profiles.
-describedProfile_certificateIds :: Lens.Lens' DescribedProfile (Prelude.Maybe [Prelude.Text])
-describedProfile_certificateIds = Lens.lens (\DescribedProfile' {certificateIds} -> certificateIds) (\s@DescribedProfile' {} a -> s {certificateIds = a} :: DescribedProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @As2Id@ is the /AS2-name/, as defined in the
 -- <https://datatracker.ietf.org/doc/html/rfc4130 RFC 4130>. For inbound
@@ -116,11 +103,24 @@ describedProfile_certificateIds = Lens.lens (\DescribedProfile' {certificateIds}
 describedProfile_as2Id :: Lens.Lens' DescribedProfile (Prelude.Maybe Prelude.Text)
 describedProfile_as2Id = Lens.lens (\DescribedProfile' {as2Id} -> as2Id) (\s@DescribedProfile' {} a -> s {as2Id = a} :: DescribedProfile)
 
+-- | An array of identifiers for the imported certificates. You use this
+-- identifier for working with profiles and partner profiles.
+describedProfile_certificateIds :: Lens.Lens' DescribedProfile (Prelude.Maybe [Prelude.Text])
+describedProfile_certificateIds = Lens.lens (\DescribedProfile' {certificateIds} -> certificateIds) (\s@DescribedProfile' {} a -> s {certificateIds = a} :: DescribedProfile) Prelude.. Lens.mapping Lens.coerced
+
+-- | A unique identifier for the local or partner AS2 profile.
+describedProfile_profileId :: Lens.Lens' DescribedProfile (Prelude.Maybe Prelude.Text)
+describedProfile_profileId = Lens.lens (\DescribedProfile' {profileId} -> profileId) (\s@DescribedProfile' {} a -> s {profileId = a} :: DescribedProfile)
+
 -- | Indicates whether to list only @LOCAL@ type profiles or only @PARTNER@
 -- type profiles. If not supplied in the request, the command lists all
 -- types of profiles.
 describedProfile_profileType :: Lens.Lens' DescribedProfile (Prelude.Maybe ProfileType)
 describedProfile_profileType = Lens.lens (\DescribedProfile' {profileType} -> profileType) (\s@DescribedProfile' {} a -> s {profileType = a} :: DescribedProfile)
+
+-- | Key-value pairs that can be used to group and search for profiles.
+describedProfile_tags :: Lens.Lens' DescribedProfile (Prelude.Maybe (Prelude.NonEmpty Tag))
+describedProfile_tags = Lens.lens (\DescribedProfile' {tags} -> tags) (\s@DescribedProfile' {} a -> s {tags = a} :: DescribedProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique Amazon Resource Name (ARN) for the profile.
 describedProfile_arn :: Lens.Lens' DescribedProfile Prelude.Text
@@ -132,28 +132,28 @@ instance Data.FromJSON DescribedProfile where
       "DescribedProfile"
       ( \x ->
           DescribedProfile'
-            Prelude.<$> (x Data..:? "Tags")
-            Prelude.<*> (x Data..:? "ProfileId")
+            Prelude.<$> (x Data..:? "As2Id")
             Prelude.<*> (x Data..:? "CertificateIds" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "As2Id")
+            Prelude.<*> (x Data..:? "ProfileId")
             Prelude.<*> (x Data..:? "ProfileType")
+            Prelude.<*> (x Data..:? "Tags")
             Prelude.<*> (x Data..: "Arn")
       )
 
 instance Prelude.Hashable DescribedProfile where
   hashWithSalt _salt DescribedProfile' {..} =
-    _salt `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` profileId
+    _salt `Prelude.hashWithSalt` as2Id
       `Prelude.hashWithSalt` certificateIds
-      `Prelude.hashWithSalt` as2Id
+      `Prelude.hashWithSalt` profileId
       `Prelude.hashWithSalt` profileType
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData DescribedProfile where
   rnf DescribedProfile' {..} =
-    Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf profileId
+    Prelude.rnf as2Id
       `Prelude.seq` Prelude.rnf certificateIds
-      `Prelude.seq` Prelude.rnf as2Id
+      `Prelude.seq` Prelude.rnf profileId
       `Prelude.seq` Prelude.rnf profileType
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf arn

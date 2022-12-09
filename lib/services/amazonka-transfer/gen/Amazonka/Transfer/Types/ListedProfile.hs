@@ -29,8 +29,8 @@ import Amazonka.Transfer.Types.ProfileType
 --
 -- /See:/ 'newListedProfile' smart constructor.
 data ListedProfile = ListedProfile'
-  { -- | A unique identifier for the local or partner AS2 profile.
-    profileId :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon Resource Name (ARN) of the specified profile.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The @As2Id@ is the /AS2-name/, as defined in the
     -- <https://datatracker.ietf.org/doc/html/rfc4130 RFC 4130>. For inbound
     -- transfers, this is the @AS2-From@ header for the AS2 messages sent from
@@ -38,8 +38,8 @@ data ListedProfile = ListedProfile'
     -- the AS2 messages sent to the partner using the @StartFileTransfer@ API
     -- operation. This ID cannot include spaces.
     as2Id :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the specified profile.
-    arn :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the local or partner AS2 profile.
+    profileId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether to list only @LOCAL@ type profiles or only @PARTNER@
     -- type profiles. If not supplied in the request, the command lists all
     -- types of profiles.
@@ -55,7 +55,7 @@ data ListedProfile = ListedProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'profileId', 'listedProfile_profileId' - A unique identifier for the local or partner AS2 profile.
+-- 'arn', 'listedProfile_arn' - The Amazon Resource Name (ARN) of the specified profile.
 --
 -- 'as2Id', 'listedProfile_as2Id' - The @As2Id@ is the /AS2-name/, as defined in the
 -- <https://datatracker.ietf.org/doc/html/rfc4130 RFC 4130>. For inbound
@@ -64,7 +64,7 @@ data ListedProfile = ListedProfile'
 -- the AS2 messages sent to the partner using the @StartFileTransfer@ API
 -- operation. This ID cannot include spaces.
 --
--- 'arn', 'listedProfile_arn' - The Amazon Resource Name (ARN) of the specified profile.
+-- 'profileId', 'listedProfile_profileId' - A unique identifier for the local or partner AS2 profile.
 --
 -- 'profileType', 'listedProfile_profileType' - Indicates whether to list only @LOCAL@ type profiles or only @PARTNER@
 -- type profiles. If not supplied in the request, the command lists all
@@ -73,15 +73,15 @@ newListedProfile ::
   ListedProfile
 newListedProfile =
   ListedProfile'
-    { profileId = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       as2Id = Prelude.Nothing,
-      arn = Prelude.Nothing,
+      profileId = Prelude.Nothing,
       profileType = Prelude.Nothing
     }
 
--- | A unique identifier for the local or partner AS2 profile.
-listedProfile_profileId :: Lens.Lens' ListedProfile (Prelude.Maybe Prelude.Text)
-listedProfile_profileId = Lens.lens (\ListedProfile' {profileId} -> profileId) (\s@ListedProfile' {} a -> s {profileId = a} :: ListedProfile)
+-- | The Amazon Resource Name (ARN) of the specified profile.
+listedProfile_arn :: Lens.Lens' ListedProfile (Prelude.Maybe Prelude.Text)
+listedProfile_arn = Lens.lens (\ListedProfile' {arn} -> arn) (\s@ListedProfile' {} a -> s {arn = a} :: ListedProfile)
 
 -- | The @As2Id@ is the /AS2-name/, as defined in the
 -- <https://datatracker.ietf.org/doc/html/rfc4130 RFC 4130>. For inbound
@@ -92,9 +92,9 @@ listedProfile_profileId = Lens.lens (\ListedProfile' {profileId} -> profileId) (
 listedProfile_as2Id :: Lens.Lens' ListedProfile (Prelude.Maybe Prelude.Text)
 listedProfile_as2Id = Lens.lens (\ListedProfile' {as2Id} -> as2Id) (\s@ListedProfile' {} a -> s {as2Id = a} :: ListedProfile)
 
--- | The Amazon Resource Name (ARN) of the specified profile.
-listedProfile_arn :: Lens.Lens' ListedProfile (Prelude.Maybe Prelude.Text)
-listedProfile_arn = Lens.lens (\ListedProfile' {arn} -> arn) (\s@ListedProfile' {} a -> s {arn = a} :: ListedProfile)
+-- | A unique identifier for the local or partner AS2 profile.
+listedProfile_profileId :: Lens.Lens' ListedProfile (Prelude.Maybe Prelude.Text)
+listedProfile_profileId = Lens.lens (\ListedProfile' {profileId} -> profileId) (\s@ListedProfile' {} a -> s {profileId = a} :: ListedProfile)
 
 -- | Indicates whether to list only @LOCAL@ type profiles or only @PARTNER@
 -- type profiles. If not supplied in the request, the command lists all
@@ -108,22 +108,22 @@ instance Data.FromJSON ListedProfile where
       "ListedProfile"
       ( \x ->
           ListedProfile'
-            Prelude.<$> (x Data..:? "ProfileId")
+            Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "As2Id")
-            Prelude.<*> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "ProfileId")
             Prelude.<*> (x Data..:? "ProfileType")
       )
 
 instance Prelude.Hashable ListedProfile where
   hashWithSalt _salt ListedProfile' {..} =
-    _salt `Prelude.hashWithSalt` profileId
+    _salt `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` as2Id
-      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` profileId
       `Prelude.hashWithSalt` profileType
 
 instance Prelude.NFData ListedProfile where
   rnf ListedProfile' {..} =
-    Prelude.rnf profileId
+    Prelude.rnf arn
       `Prelude.seq` Prelude.rnf as2Id
-      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf profileId
       `Prelude.seq` Prelude.rnf profileType

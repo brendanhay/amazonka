@@ -29,8 +29,8 @@ module Amazonka.Transfer.ListAccesses
     newListAccesses,
 
     -- * Request Lenses
-    listAccesses_nextToken,
     listAccesses_maxResults,
+    listAccesses_nextToken,
     listAccesses_serverId,
 
     -- * Destructuring the Response
@@ -55,13 +55,13 @@ import Amazonka.Transfer.Types
 
 -- | /See:/ 'newListAccesses' smart constructor.
 data ListAccesses = ListAccesses'
-  { -- | When you can get additional results from the @ListAccesses@ call, a
+  { -- | Specifies the maximum number of access SIDs to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | When you can get additional results from the @ListAccesses@ call, a
     -- @NextToken@ parameter is returned in the output. You can then pass in a
     -- subsequent command to the @NextToken@ parameter to continue listing
     -- additional accesses.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the maximum number of access SIDs to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A system-assigned unique identifier for a server that has users assigned
     -- to it.
     serverId :: Prelude.Text
@@ -76,12 +76,12 @@ data ListAccesses = ListAccesses'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listAccesses_maxResults' - Specifies the maximum number of access SIDs to return.
+--
 -- 'nextToken', 'listAccesses_nextToken' - When you can get additional results from the @ListAccesses@ call, a
 -- @NextToken@ parameter is returned in the output. You can then pass in a
 -- subsequent command to the @NextToken@ parameter to continue listing
 -- additional accesses.
---
--- 'maxResults', 'listAccesses_maxResults' - Specifies the maximum number of access SIDs to return.
 --
 -- 'serverId', 'listAccesses_serverId' - A system-assigned unique identifier for a server that has users assigned
 -- to it.
@@ -91,10 +91,14 @@ newListAccesses ::
   ListAccesses
 newListAccesses pServerId_ =
   ListAccesses'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       serverId = pServerId_
     }
+
+-- | Specifies the maximum number of access SIDs to return.
+listAccesses_maxResults :: Lens.Lens' ListAccesses (Prelude.Maybe Prelude.Natural)
+listAccesses_maxResults = Lens.lens (\ListAccesses' {maxResults} -> maxResults) (\s@ListAccesses' {} a -> s {maxResults = a} :: ListAccesses)
 
 -- | When you can get additional results from the @ListAccesses@ call, a
 -- @NextToken@ parameter is returned in the output. You can then pass in a
@@ -102,10 +106,6 @@ newListAccesses pServerId_ =
 -- additional accesses.
 listAccesses_nextToken :: Lens.Lens' ListAccesses (Prelude.Maybe Prelude.Text)
 listAccesses_nextToken = Lens.lens (\ListAccesses' {nextToken} -> nextToken) (\s@ListAccesses' {} a -> s {nextToken = a} :: ListAccesses)
-
--- | Specifies the maximum number of access SIDs to return.
-listAccesses_maxResults :: Lens.Lens' ListAccesses (Prelude.Maybe Prelude.Natural)
-listAccesses_maxResults = Lens.lens (\ListAccesses' {maxResults} -> maxResults) (\s@ListAccesses' {} a -> s {maxResults = a} :: ListAccesses)
 
 -- | A system-assigned unique identifier for a server that has users assigned
 -- to it.
@@ -145,14 +145,14 @@ instance Core.AWSRequest ListAccesses where
 
 instance Prelude.Hashable ListAccesses where
   hashWithSalt _salt ListAccesses' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` serverId
 
 instance Prelude.NFData ListAccesses where
   rnf ListAccesses' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf serverId
 
 instance Data.ToHeaders ListAccesses where
@@ -174,8 +174,8 @@ instance Data.ToJSON ListAccesses where
   toJSON ListAccesses' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("ServerId" Data..= serverId)
           ]
       )

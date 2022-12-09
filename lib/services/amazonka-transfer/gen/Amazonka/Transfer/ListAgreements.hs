@@ -34,8 +34,8 @@ module Amazonka.Transfer.ListAgreements
     newListAgreements,
 
     -- * Request Lenses
-    listAgreements_nextToken,
     listAgreements_maxResults,
+    listAgreements_nextToken,
     listAgreements_serverId,
 
     -- * Destructuring the Response
@@ -59,13 +59,13 @@ import Amazonka.Transfer.Types
 
 -- | /See:/ 'newListAgreements' smart constructor.
 data ListAgreements = ListAgreements'
-  { -- | When you can get additional results from the @ListAgreements@ call, a
+  { -- | The maximum number of agreements to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | When you can get additional results from the @ListAgreements@ call, a
     -- @NextToken@ parameter is returned in the output. You can then pass in a
     -- subsequent command to the @NextToken@ parameter to continue listing
     -- additional agreements.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of agreements to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the server for which you want a list of agreements.
     serverId :: Prelude.Text
   }
@@ -79,12 +79,12 @@ data ListAgreements = ListAgreements'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listAgreements_maxResults' - The maximum number of agreements to return.
+--
 -- 'nextToken', 'listAgreements_nextToken' - When you can get additional results from the @ListAgreements@ call, a
 -- @NextToken@ parameter is returned in the output. You can then pass in a
 -- subsequent command to the @NextToken@ parameter to continue listing
 -- additional agreements.
---
--- 'maxResults', 'listAgreements_maxResults' - The maximum number of agreements to return.
 --
 -- 'serverId', 'listAgreements_serverId' - The identifier of the server for which you want a list of agreements.
 newListAgreements ::
@@ -93,10 +93,14 @@ newListAgreements ::
   ListAgreements
 newListAgreements pServerId_ =
   ListAgreements'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       serverId = pServerId_
     }
+
+-- | The maximum number of agreements to return.
+listAgreements_maxResults :: Lens.Lens' ListAgreements (Prelude.Maybe Prelude.Natural)
+listAgreements_maxResults = Lens.lens (\ListAgreements' {maxResults} -> maxResults) (\s@ListAgreements' {} a -> s {maxResults = a} :: ListAgreements)
 
 -- | When you can get additional results from the @ListAgreements@ call, a
 -- @NextToken@ parameter is returned in the output. You can then pass in a
@@ -104,10 +108,6 @@ newListAgreements pServerId_ =
 -- additional agreements.
 listAgreements_nextToken :: Lens.Lens' ListAgreements (Prelude.Maybe Prelude.Text)
 listAgreements_nextToken = Lens.lens (\ListAgreements' {nextToken} -> nextToken) (\s@ListAgreements' {} a -> s {nextToken = a} :: ListAgreements)
-
--- | The maximum number of agreements to return.
-listAgreements_maxResults :: Lens.Lens' ListAgreements (Prelude.Maybe Prelude.Natural)
-listAgreements_maxResults = Lens.lens (\ListAgreements' {maxResults} -> maxResults) (\s@ListAgreements' {} a -> s {maxResults = a} :: ListAgreements)
 
 -- | The identifier of the server for which you want a list of agreements.
 listAgreements_serverId :: Lens.Lens' ListAgreements Prelude.Text
@@ -148,14 +148,14 @@ instance Core.AWSRequest ListAgreements where
 
 instance Prelude.Hashable ListAgreements where
   hashWithSalt _salt ListAgreements' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` serverId
 
 instance Prelude.NFData ListAgreements where
   rnf ListAgreements' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf serverId
 
 instance Data.ToHeaders ListAgreements where
@@ -177,8 +177,8 @@ instance Data.ToJSON ListAgreements where
   toJSON ListAgreements' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken,
             Prelude.Just ("ServerId" Data..= serverId)
           ]
       )

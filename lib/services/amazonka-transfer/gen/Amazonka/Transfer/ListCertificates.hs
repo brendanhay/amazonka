@@ -34,8 +34,8 @@ module Amazonka.Transfer.ListCertificates
     newListCertificates,
 
     -- * Request Lenses
-    listCertificates_nextToken,
     listCertificates_maxResults,
+    listCertificates_nextToken,
 
     -- * Destructuring the Response
     ListCertificatesResponse (..),
@@ -58,13 +58,13 @@ import Amazonka.Transfer.Types
 
 -- | /See:/ 'newListCertificates' smart constructor.
 data ListCertificates = ListCertificates'
-  { -- | When you can get additional results from the @ListCertificates@ call, a
+  { -- | The maximum number of certificates to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | When you can get additional results from the @ListCertificates@ call, a
     -- @NextToken@ parameter is returned in the output. You can then pass in a
     -- subsequent command to the @NextToken@ parameter to continue listing
     -- additional certificates.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of certificates to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,19 +76,23 @@ data ListCertificates = ListCertificates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxResults', 'listCertificates_maxResults' - The maximum number of certificates to return.
+--
 -- 'nextToken', 'listCertificates_nextToken' - When you can get additional results from the @ListCertificates@ call, a
 -- @NextToken@ parameter is returned in the output. You can then pass in a
 -- subsequent command to the @NextToken@ parameter to continue listing
 -- additional certificates.
---
--- 'maxResults', 'listCertificates_maxResults' - The maximum number of certificates to return.
 newListCertificates ::
   ListCertificates
 newListCertificates =
   ListCertificates'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
+
+-- | The maximum number of certificates to return.
+listCertificates_maxResults :: Lens.Lens' ListCertificates (Prelude.Maybe Prelude.Natural)
+listCertificates_maxResults = Lens.lens (\ListCertificates' {maxResults} -> maxResults) (\s@ListCertificates' {} a -> s {maxResults = a} :: ListCertificates)
 
 -- | When you can get additional results from the @ListCertificates@ call, a
 -- @NextToken@ parameter is returned in the output. You can then pass in a
@@ -96,10 +100,6 @@ newListCertificates =
 -- additional certificates.
 listCertificates_nextToken :: Lens.Lens' ListCertificates (Prelude.Maybe Prelude.Text)
 listCertificates_nextToken = Lens.lens (\ListCertificates' {nextToken} -> nextToken) (\s@ListCertificates' {} a -> s {nextToken = a} :: ListCertificates)
-
--- | The maximum number of certificates to return.
-listCertificates_maxResults :: Lens.Lens' ListCertificates (Prelude.Maybe Prelude.Natural)
-listCertificates_maxResults = Lens.lens (\ListCertificates' {maxResults} -> maxResults) (\s@ListCertificates' {} a -> s {maxResults = a} :: ListCertificates)
 
 instance Core.AWSPager ListCertificates where
   page rq rs
@@ -137,13 +137,13 @@ instance Core.AWSRequest ListCertificates where
 
 instance Prelude.Hashable ListCertificates where
   hashWithSalt _salt ListCertificates' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+    _salt `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListCertificates where
   rnf ListCertificates' {..} =
-    Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+    Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListCertificates where
   toHeaders =
@@ -164,8 +164,8 @@ instance Data.ToJSON ListCertificates where
   toJSON ListCertificates' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NextToken" Data..=) Prelude.<$> nextToken,
-            ("MaxResults" Data..=) Prelude.<$> maxResults
+          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("NextToken" Data..=) Prelude.<$> nextToken
           ]
       )
 

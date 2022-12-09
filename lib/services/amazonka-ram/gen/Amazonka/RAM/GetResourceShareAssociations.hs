@@ -30,12 +30,12 @@ module Amazonka.RAM.GetResourceShareAssociations
     newGetResourceShareAssociations,
 
     -- * Request Lenses
-    getResourceShareAssociations_principal,
-    getResourceShareAssociations_nextToken,
     getResourceShareAssociations_associationStatus,
     getResourceShareAssociations_maxResults,
-    getResourceShareAssociations_resourceShareArns,
+    getResourceShareAssociations_nextToken,
+    getResourceShareAssociations_principal,
     getResourceShareAssociations_resourceArn,
+    getResourceShareAssociations_resourceShareArns,
     getResourceShareAssociations_associationType,
 
     -- * Destructuring the Response
@@ -59,21 +59,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetResourceShareAssociations' smart constructor.
 data GetResourceShareAssociations = GetResourceShareAssociations'
-  { -- | Specifies the ID of the principal whose resource shares you want to
-    -- retrieve. This can be an Amazon Web Services account ID, an organization
-    -- ID, an organizational unit ID, or the
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
-    -- of an individual IAM user or role.
-    --
-    -- You cannot specify this parameter if the association type is @RESOURCE@.
-    principal :: Prelude.Maybe Prelude.Text,
-    -- | Specifies that you want to receive the next page of results. Valid only
-    -- if you received a @NextToken@ response in the previous request. If you
-    -- did, it indicates that more output is available. Set this parameter to
-    -- the value provided by the previous call\'s @NextToken@ response to
-    -- request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies that you want to retrieve only associations with this status.
+  { -- | Specifies that you want to retrieve only associations with this status.
     associationStatus :: Prelude.Maybe ResourceShareAssociationStatus,
     -- | Specifies the total number of results that you want included on each
     -- page of the response. If you do not include this parameter, it defaults
@@ -86,10 +72,20 @@ data GetResourceShareAssociations = GetResourceShareAssociations'
     -- should check @NextToken@ after every operation to ensure that you
     -- receive all of the results.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies a list of
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- of the resource share whose associations you want to retrieve.
-    resourceShareArns :: Prelude.Maybe [Prelude.Text],
+    -- | Specifies that you want to receive the next page of results. Valid only
+    -- if you received a @NextToken@ response in the previous request. If you
+    -- did, it indicates that more output is available. Set this parameter to
+    -- the value provided by the previous call\'s @NextToken@ response to
+    -- request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the ID of the principal whose resource shares you want to
+    -- retrieve. This can be an Amazon Web Services account ID, an organization
+    -- ID, an organizational unit ID, or the
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- of an individual IAM user or role.
+    --
+    -- You cannot specify this parameter if the association type is @RESOURCE@.
+    principal :: Prelude.Maybe Prelude.Text,
     -- | Specifies the
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
     -- of the resource whose resource shares you want to retrieve.
@@ -97,6 +93,10 @@ data GetResourceShareAssociations = GetResourceShareAssociations'
     -- You cannot specify this parameter if the association type is
     -- @PRINCIPAL@.
     resourceArn :: Prelude.Maybe Prelude.Text,
+    -- | Specifies a list of
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+    -- of the resource share whose associations you want to retrieve.
+    resourceShareArns :: Prelude.Maybe [Prelude.Text],
     -- | Specifies whether you want to retrieve the associations that involve a
     -- specified resource or principal.
     --
@@ -117,20 +117,6 @@ data GetResourceShareAssociations = GetResourceShareAssociations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'principal', 'getResourceShareAssociations_principal' - Specifies the ID of the principal whose resource shares you want to
--- retrieve. This can be an Amazon Web Services account ID, an organization
--- ID, an organizational unit ID, or the
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
--- of an individual IAM user or role.
---
--- You cannot specify this parameter if the association type is @RESOURCE@.
---
--- 'nextToken', 'getResourceShareAssociations_nextToken' - Specifies that you want to receive the next page of results. Valid only
--- if you received a @NextToken@ response in the previous request. If you
--- did, it indicates that more output is available. Set this parameter to
--- the value provided by the previous call\'s @NextToken@ response to
--- request the next page of results.
---
 -- 'associationStatus', 'getResourceShareAssociations_associationStatus' - Specifies that you want to retrieve only associations with this status.
 --
 -- 'maxResults', 'getResourceShareAssociations_maxResults' - Specifies the total number of results that you want included on each
@@ -144,9 +130,19 @@ data GetResourceShareAssociations = GetResourceShareAssociations'
 -- should check @NextToken@ after every operation to ensure that you
 -- receive all of the results.
 --
--- 'resourceShareArns', 'getResourceShareAssociations_resourceShareArns' - Specifies a list of
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- of the resource share whose associations you want to retrieve.
+-- 'nextToken', 'getResourceShareAssociations_nextToken' - Specifies that you want to receive the next page of results. Valid only
+-- if you received a @NextToken@ response in the previous request. If you
+-- did, it indicates that more output is available. Set this parameter to
+-- the value provided by the previous call\'s @NextToken@ response to
+-- request the next page of results.
+--
+-- 'principal', 'getResourceShareAssociations_principal' - Specifies the ID of the principal whose resource shares you want to
+-- retrieve. This can be an Amazon Web Services account ID, an organization
+-- ID, an organizational unit ID, or the
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of an individual IAM user or role.
+--
+-- You cannot specify this parameter if the association type is @RESOURCE@.
 --
 -- 'resourceArn', 'getResourceShareAssociations_resourceArn' - Specifies the
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
@@ -154,6 +150,10 @@ data GetResourceShareAssociations = GetResourceShareAssociations'
 --
 -- You cannot specify this parameter if the association type is
 -- @PRINCIPAL@.
+--
+-- 'resourceShareArns', 'getResourceShareAssociations_resourceShareArns' - Specifies a list of
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+-- of the resource share whose associations you want to retrieve.
 --
 -- 'associationType', 'getResourceShareAssociations_associationType' - Specifies whether you want to retrieve the associations that involve a
 -- specified resource or principal.
@@ -169,33 +169,15 @@ newGetResourceShareAssociations ::
   GetResourceShareAssociations
 newGetResourceShareAssociations pAssociationType_ =
   GetResourceShareAssociations'
-    { principal =
+    { associationStatus =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      associationStatus = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      resourceShareArns = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      principal = Prelude.Nothing,
       resourceArn = Prelude.Nothing,
+      resourceShareArns = Prelude.Nothing,
       associationType = pAssociationType_
     }
-
--- | Specifies the ID of the principal whose resource shares you want to
--- retrieve. This can be an Amazon Web Services account ID, an organization
--- ID, an organizational unit ID, or the
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
--- of an individual IAM user or role.
---
--- You cannot specify this parameter if the association type is @RESOURCE@.
-getResourceShareAssociations_principal :: Lens.Lens' GetResourceShareAssociations (Prelude.Maybe Prelude.Text)
-getResourceShareAssociations_principal = Lens.lens (\GetResourceShareAssociations' {principal} -> principal) (\s@GetResourceShareAssociations' {} a -> s {principal = a} :: GetResourceShareAssociations)
-
--- | Specifies that you want to receive the next page of results. Valid only
--- if you received a @NextToken@ response in the previous request. If you
--- did, it indicates that more output is available. Set this parameter to
--- the value provided by the previous call\'s @NextToken@ response to
--- request the next page of results.
-getResourceShareAssociations_nextToken :: Lens.Lens' GetResourceShareAssociations (Prelude.Maybe Prelude.Text)
-getResourceShareAssociations_nextToken = Lens.lens (\GetResourceShareAssociations' {nextToken} -> nextToken) (\s@GetResourceShareAssociations' {} a -> s {nextToken = a} :: GetResourceShareAssociations)
 
 -- | Specifies that you want to retrieve only associations with this status.
 getResourceShareAssociations_associationStatus :: Lens.Lens' GetResourceShareAssociations (Prelude.Maybe ResourceShareAssociationStatus)
@@ -214,11 +196,23 @@ getResourceShareAssociations_associationStatus = Lens.lens (\GetResourceShareAss
 getResourceShareAssociations_maxResults :: Lens.Lens' GetResourceShareAssociations (Prelude.Maybe Prelude.Natural)
 getResourceShareAssociations_maxResults = Lens.lens (\GetResourceShareAssociations' {maxResults} -> maxResults) (\s@GetResourceShareAssociations' {} a -> s {maxResults = a} :: GetResourceShareAssociations)
 
--- | Specifies a list of
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- of the resource share whose associations you want to retrieve.
-getResourceShareAssociations_resourceShareArns :: Lens.Lens' GetResourceShareAssociations (Prelude.Maybe [Prelude.Text])
-getResourceShareAssociations_resourceShareArns = Lens.lens (\GetResourceShareAssociations' {resourceShareArns} -> resourceShareArns) (\s@GetResourceShareAssociations' {} a -> s {resourceShareArns = a} :: GetResourceShareAssociations) Prelude.. Lens.mapping Lens.coerced
+-- | Specifies that you want to receive the next page of results. Valid only
+-- if you received a @NextToken@ response in the previous request. If you
+-- did, it indicates that more output is available. Set this parameter to
+-- the value provided by the previous call\'s @NextToken@ response to
+-- request the next page of results.
+getResourceShareAssociations_nextToken :: Lens.Lens' GetResourceShareAssociations (Prelude.Maybe Prelude.Text)
+getResourceShareAssociations_nextToken = Lens.lens (\GetResourceShareAssociations' {nextToken} -> nextToken) (\s@GetResourceShareAssociations' {} a -> s {nextToken = a} :: GetResourceShareAssociations)
+
+-- | Specifies the ID of the principal whose resource shares you want to
+-- retrieve. This can be an Amazon Web Services account ID, an organization
+-- ID, an organizational unit ID, or the
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of an individual IAM user or role.
+--
+-- You cannot specify this parameter if the association type is @RESOURCE@.
+getResourceShareAssociations_principal :: Lens.Lens' GetResourceShareAssociations (Prelude.Maybe Prelude.Text)
+getResourceShareAssociations_principal = Lens.lens (\GetResourceShareAssociations' {principal} -> principal) (\s@GetResourceShareAssociations' {} a -> s {principal = a} :: GetResourceShareAssociations)
 
 -- | Specifies the
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
@@ -228,6 +222,12 @@ getResourceShareAssociations_resourceShareArns = Lens.lens (\GetResourceShareAss
 -- @PRINCIPAL@.
 getResourceShareAssociations_resourceArn :: Lens.Lens' GetResourceShareAssociations (Prelude.Maybe Prelude.Text)
 getResourceShareAssociations_resourceArn = Lens.lens (\GetResourceShareAssociations' {resourceArn} -> resourceArn) (\s@GetResourceShareAssociations' {} a -> s {resourceArn = a} :: GetResourceShareAssociations)
+
+-- | Specifies a list of
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+-- of the resource share whose associations you want to retrieve.
+getResourceShareAssociations_resourceShareArns :: Lens.Lens' GetResourceShareAssociations (Prelude.Maybe [Prelude.Text])
+getResourceShareAssociations_resourceShareArns = Lens.lens (\GetResourceShareAssociations' {resourceShareArns} -> resourceShareArns) (\s@GetResourceShareAssociations' {} a -> s {resourceShareArns = a} :: GetResourceShareAssociations) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies whether you want to retrieve the associations that involve a
 -- specified resource or principal.
@@ -284,22 +284,22 @@ instance
     GetResourceShareAssociations
   where
   hashWithSalt _salt GetResourceShareAssociations' {..} =
-    _salt `Prelude.hashWithSalt` principal
-      `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` associationStatus
+    _salt `Prelude.hashWithSalt` associationStatus
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` resourceShareArns
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` principal
       `Prelude.hashWithSalt` resourceArn
+      `Prelude.hashWithSalt` resourceShareArns
       `Prelude.hashWithSalt` associationType
 
 instance Prelude.NFData GetResourceShareAssociations where
   rnf GetResourceShareAssociations' {..} =
-    Prelude.rnf principal
-      `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf associationStatus
+    Prelude.rnf associationStatus
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf resourceShareArns
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf principal
       `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf resourceShareArns
       `Prelude.seq` Prelude.rnf associationType
 
 instance Data.ToHeaders GetResourceShareAssociations where
@@ -317,14 +317,14 @@ instance Data.ToJSON GetResourceShareAssociations where
   toJSON GetResourceShareAssociations' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("principal" Data..=) Prelude.<$> principal,
-            ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("associationStatus" Data..=)
+          [ ("associationStatus" Data..=)
               Prelude.<$> associationStatus,
             ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("principal" Data..=) Prelude.<$> principal,
+            ("resourceArn" Data..=) Prelude.<$> resourceArn,
             ("resourceShareArns" Data..=)
               Prelude.<$> resourceShareArns,
-            ("resourceArn" Data..=) Prelude.<$> resourceArn,
             Prelude.Just
               ("associationType" Data..= associationType)
           ]

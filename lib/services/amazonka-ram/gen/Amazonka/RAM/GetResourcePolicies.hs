@@ -30,9 +30,9 @@ module Amazonka.RAM.GetResourcePolicies
     newGetResourcePolicies,
 
     -- * Request Lenses
-    getResourcePolicies_principal,
-    getResourcePolicies_nextToken,
     getResourcePolicies_maxResults,
+    getResourcePolicies_nextToken,
+    getResourcePolicies_principal,
     getResourcePolicies_resourceArns,
 
     -- * Destructuring the Response
@@ -56,15 +56,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetResourcePolicies' smart constructor.
 data GetResourcePolicies = GetResourcePolicies'
-  { -- | Specifies the principal.
-    principal :: Prelude.Maybe Prelude.Text,
-    -- | Specifies that you want to receive the next page of results. Valid only
-    -- if you received a @NextToken@ response in the previous request. If you
-    -- did, it indicates that more output is available. Set this parameter to
-    -- the value provided by the previous call\'s @NextToken@ response to
-    -- request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the total number of results that you want included on each
+  { -- | Specifies the total number of results that you want included on each
     -- page of the response. If you do not include this parameter, it defaults
     -- to a value that is specific to the operation. If additional items exist
     -- beyond the number you specify, the @NextToken@ response element is
@@ -75,6 +67,14 @@ data GetResourcePolicies = GetResourcePolicies'
     -- should check @NextToken@ after every operation to ensure that you
     -- receive all of the results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies that you want to receive the next page of results. Valid only
+    -- if you received a @NextToken@ response in the previous request. If you
+    -- did, it indicates that more output is available. Set this parameter to
+    -- the value provided by the previous call\'s @NextToken@ response to
+    -- request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the principal.
+    principal :: Prelude.Maybe Prelude.Text,
     -- | Specifies the
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- of the resources whose policies you want to retrieve.
@@ -90,14 +90,6 @@ data GetResourcePolicies = GetResourcePolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'principal', 'getResourcePolicies_principal' - Specifies the principal.
---
--- 'nextToken', 'getResourcePolicies_nextToken' - Specifies that you want to receive the next page of results. Valid only
--- if you received a @NextToken@ response in the previous request. If you
--- did, it indicates that more output is available. Set this parameter to
--- the value provided by the previous call\'s @NextToken@ response to
--- request the next page of results.
---
 -- 'maxResults', 'getResourcePolicies_maxResults' - Specifies the total number of results that you want included on each
 -- page of the response. If you do not include this parameter, it defaults
 -- to a value that is specific to the operation. If additional items exist
@@ -109,6 +101,14 @@ data GetResourcePolicies = GetResourcePolicies'
 -- should check @NextToken@ after every operation to ensure that you
 -- receive all of the results.
 --
+-- 'nextToken', 'getResourcePolicies_nextToken' - Specifies that you want to receive the next page of results. Valid only
+-- if you received a @NextToken@ response in the previous request. If you
+-- did, it indicates that more output is available. Set this parameter to
+-- the value provided by the previous call\'s @NextToken@ response to
+-- request the next page of results.
+--
+-- 'principal', 'getResourcePolicies_principal' - Specifies the principal.
+--
 -- 'resourceArns', 'getResourcePolicies_resourceArns' - Specifies the
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- of the resources whose policies you want to retrieve.
@@ -116,23 +116,11 @@ newGetResourcePolicies ::
   GetResourcePolicies
 newGetResourcePolicies =
   GetResourcePolicies'
-    { principal = Prelude.Nothing,
+    { maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      principal = Prelude.Nothing,
       resourceArns = Prelude.mempty
     }
-
--- | Specifies the principal.
-getResourcePolicies_principal :: Lens.Lens' GetResourcePolicies (Prelude.Maybe Prelude.Text)
-getResourcePolicies_principal = Lens.lens (\GetResourcePolicies' {principal} -> principal) (\s@GetResourcePolicies' {} a -> s {principal = a} :: GetResourcePolicies)
-
--- | Specifies that you want to receive the next page of results. Valid only
--- if you received a @NextToken@ response in the previous request. If you
--- did, it indicates that more output is available. Set this parameter to
--- the value provided by the previous call\'s @NextToken@ response to
--- request the next page of results.
-getResourcePolicies_nextToken :: Lens.Lens' GetResourcePolicies (Prelude.Maybe Prelude.Text)
-getResourcePolicies_nextToken = Lens.lens (\GetResourcePolicies' {nextToken} -> nextToken) (\s@GetResourcePolicies' {} a -> s {nextToken = a} :: GetResourcePolicies)
 
 -- | Specifies the total number of results that you want included on each
 -- page of the response. If you do not include this parameter, it defaults
@@ -146,6 +134,18 @@ getResourcePolicies_nextToken = Lens.lens (\GetResourcePolicies' {nextToken} -> 
 -- receive all of the results.
 getResourcePolicies_maxResults :: Lens.Lens' GetResourcePolicies (Prelude.Maybe Prelude.Natural)
 getResourcePolicies_maxResults = Lens.lens (\GetResourcePolicies' {maxResults} -> maxResults) (\s@GetResourcePolicies' {} a -> s {maxResults = a} :: GetResourcePolicies)
+
+-- | Specifies that you want to receive the next page of results. Valid only
+-- if you received a @NextToken@ response in the previous request. If you
+-- did, it indicates that more output is available. Set this parameter to
+-- the value provided by the previous call\'s @NextToken@ response to
+-- request the next page of results.
+getResourcePolicies_nextToken :: Lens.Lens' GetResourcePolicies (Prelude.Maybe Prelude.Text)
+getResourcePolicies_nextToken = Lens.lens (\GetResourcePolicies' {nextToken} -> nextToken) (\s@GetResourcePolicies' {} a -> s {nextToken = a} :: GetResourcePolicies)
+
+-- | Specifies the principal.
+getResourcePolicies_principal :: Lens.Lens' GetResourcePolicies (Prelude.Maybe Prelude.Text)
+getResourcePolicies_principal = Lens.lens (\GetResourcePolicies' {principal} -> principal) (\s@GetResourcePolicies' {} a -> s {principal = a} :: GetResourcePolicies)
 
 -- | Specifies the
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
@@ -192,16 +192,16 @@ instance Core.AWSRequest GetResourcePolicies where
 
 instance Prelude.Hashable GetResourcePolicies where
   hashWithSalt _salt GetResourcePolicies' {..} =
-    _salt `Prelude.hashWithSalt` principal
+    _salt `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
-      `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` principal
       `Prelude.hashWithSalt` resourceArns
 
 instance Prelude.NFData GetResourcePolicies where
   rnf GetResourcePolicies' {..} =
-    Prelude.rnf principal
+    Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf principal
       `Prelude.seq` Prelude.rnf resourceArns
 
 instance Data.ToHeaders GetResourcePolicies where
@@ -219,9 +219,9 @@ instance Data.ToJSON GetResourcePolicies where
   toJSON GetResourcePolicies' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("principal" Data..=) Prelude.<$> principal,
+          [ ("maxResults" Data..=) Prelude.<$> maxResults,
             ("nextToken" Data..=) Prelude.<$> nextToken,
-            ("maxResults" Data..=) Prelude.<$> maxResults,
+            ("principal" Data..=) Prelude.<$> principal,
             Prelude.Just ("resourceArns" Data..= resourceArns)
           ]
       )

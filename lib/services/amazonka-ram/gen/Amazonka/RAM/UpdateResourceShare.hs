@@ -27,9 +27,9 @@ module Amazonka.RAM.UpdateResourceShare
     newUpdateResourceShare,
 
     -- * Request Lenses
-    updateResourceShare_name,
-    updateResourceShare_clientToken,
     updateResourceShare_allowExternalPrincipals,
+    updateResourceShare_clientToken,
+    updateResourceShare_name,
     updateResourceShare_resourceShareArn,
 
     -- * Destructuring the Response
@@ -53,9 +53,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateResourceShare' smart constructor.
 data UpdateResourceShare = UpdateResourceShare'
-  { -- | If specified, the new name that you want to attach to the resource
-    -- share.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | Specifies whether principals outside your organization in Organizations
+    -- can be associated with a resource share.
+    allowExternalPrincipals :: Prelude.Maybe Prelude.Bool,
     -- | Specifies a unique, case-sensitive identifier that you provide to ensure
     -- the idempotency of the request. This lets you safely retry the request
     -- without accidentally performing the same operation a second time.
@@ -67,9 +67,9 @@ data UpdateResourceShare = UpdateResourceShare'
     -- If you don\'t provide this value, then Amazon Web Services generates a
     -- random one for you.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether principals outside your organization in Organizations
-    -- can be associated with a resource share.
-    allowExternalPrincipals :: Prelude.Maybe Prelude.Bool,
+    -- | If specified, the new name that you want to attach to the resource
+    -- share.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Specifies the
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
     -- of the resource share that you want to modify.
@@ -85,8 +85,8 @@ data UpdateResourceShare = UpdateResourceShare'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateResourceShare_name' - If specified, the new name that you want to attach to the resource
--- share.
+-- 'allowExternalPrincipals', 'updateResourceShare_allowExternalPrincipals' - Specifies whether principals outside your organization in Organizations
+-- can be associated with a resource share.
 --
 -- 'clientToken', 'updateResourceShare_clientToken' - Specifies a unique, case-sensitive identifier that you provide to ensure
 -- the idempotency of the request. This lets you safely retry the request
@@ -99,8 +99,8 @@ data UpdateResourceShare = UpdateResourceShare'
 -- If you don\'t provide this value, then Amazon Web Services generates a
 -- random one for you.
 --
--- 'allowExternalPrincipals', 'updateResourceShare_allowExternalPrincipals' - Specifies whether principals outside your organization in Organizations
--- can be associated with a resource share.
+-- 'name', 'updateResourceShare_name' - If specified, the new name that you want to attach to the resource
+-- share.
 --
 -- 'resourceShareArn', 'updateResourceShare_resourceShareArn' - Specifies the
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
@@ -111,16 +111,17 @@ newUpdateResourceShare ::
   UpdateResourceShare
 newUpdateResourceShare pResourceShareArn_ =
   UpdateResourceShare'
-    { name = Prelude.Nothing,
+    { allowExternalPrincipals =
+        Prelude.Nothing,
       clientToken = Prelude.Nothing,
-      allowExternalPrincipals = Prelude.Nothing,
+      name = Prelude.Nothing,
       resourceShareArn = pResourceShareArn_
     }
 
--- | If specified, the new name that you want to attach to the resource
--- share.
-updateResourceShare_name :: Lens.Lens' UpdateResourceShare (Prelude.Maybe Prelude.Text)
-updateResourceShare_name = Lens.lens (\UpdateResourceShare' {name} -> name) (\s@UpdateResourceShare' {} a -> s {name = a} :: UpdateResourceShare)
+-- | Specifies whether principals outside your organization in Organizations
+-- can be associated with a resource share.
+updateResourceShare_allowExternalPrincipals :: Lens.Lens' UpdateResourceShare (Prelude.Maybe Prelude.Bool)
+updateResourceShare_allowExternalPrincipals = Lens.lens (\UpdateResourceShare' {allowExternalPrincipals} -> allowExternalPrincipals) (\s@UpdateResourceShare' {} a -> s {allowExternalPrincipals = a} :: UpdateResourceShare)
 
 -- | Specifies a unique, case-sensitive identifier that you provide to ensure
 -- the idempotency of the request. This lets you safely retry the request
@@ -135,10 +136,10 @@ updateResourceShare_name = Lens.lens (\UpdateResourceShare' {name} -> name) (\s@
 updateResourceShare_clientToken :: Lens.Lens' UpdateResourceShare (Prelude.Maybe Prelude.Text)
 updateResourceShare_clientToken = Lens.lens (\UpdateResourceShare' {clientToken} -> clientToken) (\s@UpdateResourceShare' {} a -> s {clientToken = a} :: UpdateResourceShare)
 
--- | Specifies whether principals outside your organization in Organizations
--- can be associated with a resource share.
-updateResourceShare_allowExternalPrincipals :: Lens.Lens' UpdateResourceShare (Prelude.Maybe Prelude.Bool)
-updateResourceShare_allowExternalPrincipals = Lens.lens (\UpdateResourceShare' {allowExternalPrincipals} -> allowExternalPrincipals) (\s@UpdateResourceShare' {} a -> s {allowExternalPrincipals = a} :: UpdateResourceShare)
+-- | If specified, the new name that you want to attach to the resource
+-- share.
+updateResourceShare_name :: Lens.Lens' UpdateResourceShare (Prelude.Maybe Prelude.Text)
+updateResourceShare_name = Lens.lens (\UpdateResourceShare' {name} -> name) (\s@UpdateResourceShare' {} a -> s {name = a} :: UpdateResourceShare)
 
 -- | Specifies the
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
@@ -163,16 +164,17 @@ instance Core.AWSRequest UpdateResourceShare where
 
 instance Prelude.Hashable UpdateResourceShare where
   hashWithSalt _salt UpdateResourceShare' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` clientToken
+    _salt
       `Prelude.hashWithSalt` allowExternalPrincipals
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` resourceShareArn
 
 instance Prelude.NFData UpdateResourceShare where
   rnf UpdateResourceShare' {..} =
-    Prelude.rnf name
+    Prelude.rnf allowExternalPrincipals
       `Prelude.seq` Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf allowExternalPrincipals
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf resourceShareArn
 
 instance Data.ToHeaders UpdateResourceShare where
@@ -190,10 +192,10 @@ instance Data.ToJSON UpdateResourceShare where
   toJSON UpdateResourceShare' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("name" Data..=) Prelude.<$> name,
-            ("clientToken" Data..=) Prelude.<$> clientToken,
-            ("allowExternalPrincipals" Data..=)
+          [ ("allowExternalPrincipals" Data..=)
               Prelude.<$> allowExternalPrincipals,
+            ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("name" Data..=) Prelude.<$> name,
             Prelude.Just
               ("resourceShareArn" Data..= resourceShareArn)
           ]

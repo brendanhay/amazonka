@@ -36,12 +36,12 @@ module Amazonka.RAM.CreateResourceShare
     newCreateResourceShare,
 
     -- * Request Lenses
-    createResourceShare_tags,
+    createResourceShare_allowExternalPrincipals,
     createResourceShare_clientToken,
     createResourceShare_permissionArns,
     createResourceShare_principals,
     createResourceShare_resourceArns,
-    createResourceShare_allowExternalPrincipals,
+    createResourceShare_tags,
     createResourceShare_name,
 
     -- * Destructuring the Response
@@ -65,10 +65,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateResourceShare' smart constructor.
 data CreateResourceShare = CreateResourceShare'
-  { -- | Specifies one or more tags to attach to the resource share itself. It
-    -- doesn\'t attach the tags to the resources associated with the resource
-    -- share.
-    tags :: Prelude.Maybe [Tag],
+  { -- | Specifies whether principals outside your organization in Organizations
+    -- can be associated with a resource share. A value of @true@ lets you
+    -- share with individual Amazon Web Services accounts that are /not/ in
+    -- your organization. A value of @false@ only has meaning if your account
+    -- is a member of an Amazon Web Services Organization. The default value is
+    -- @true@.
+    allowExternalPrincipals :: Prelude.Maybe Prelude.Bool,
     -- | Specifies a unique, case-sensitive identifier that you provide to ensure
     -- the idempotency of the request. This lets you safely retry the request
     -- without accidentally performing the same operation a second time.
@@ -117,13 +120,10 @@ data CreateResourceShare = CreateResourceShare'
     -- | Specifies a list of one or more ARNs of the resources to associate with
     -- the resource share.
     resourceArns :: Prelude.Maybe [Prelude.Text],
-    -- | Specifies whether principals outside your organization in Organizations
-    -- can be associated with a resource share. A value of @true@ lets you
-    -- share with individual Amazon Web Services accounts that are /not/ in
-    -- your organization. A value of @false@ only has meaning if your account
-    -- is a member of an Amazon Web Services Organization. The default value is
-    -- @true@.
-    allowExternalPrincipals :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies one or more tags to attach to the resource share itself. It
+    -- doesn\'t attach the tags to the resources associated with the resource
+    -- share.
+    tags :: Prelude.Maybe [Tag],
     -- | Specifies the name of the resource share.
     name :: Prelude.Text
   }
@@ -137,9 +137,12 @@ data CreateResourceShare = CreateResourceShare'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createResourceShare_tags' - Specifies one or more tags to attach to the resource share itself. It
--- doesn\'t attach the tags to the resources associated with the resource
--- share.
+-- 'allowExternalPrincipals', 'createResourceShare_allowExternalPrincipals' - Specifies whether principals outside your organization in Organizations
+-- can be associated with a resource share. A value of @true@ lets you
+-- share with individual Amazon Web Services accounts that are /not/ in
+-- your organization. A value of @false@ only has meaning if your account
+-- is a member of an Amazon Web Services Organization. The default value is
+-- @true@.
 --
 -- 'clientToken', 'createResourceShare_clientToken' - Specifies a unique, case-sensitive identifier that you provide to ensure
 -- the idempotency of the request. This lets you safely retry the request
@@ -189,12 +192,9 @@ data CreateResourceShare = CreateResourceShare'
 -- 'resourceArns', 'createResourceShare_resourceArns' - Specifies a list of one or more ARNs of the resources to associate with
 -- the resource share.
 --
--- 'allowExternalPrincipals', 'createResourceShare_allowExternalPrincipals' - Specifies whether principals outside your organization in Organizations
--- can be associated with a resource share. A value of @true@ lets you
--- share with individual Amazon Web Services accounts that are /not/ in
--- your organization. A value of @false@ only has meaning if your account
--- is a member of an Amazon Web Services Organization. The default value is
--- @true@.
+-- 'tags', 'createResourceShare_tags' - Specifies one or more tags to attach to the resource share itself. It
+-- doesn\'t attach the tags to the resources associated with the resource
+-- share.
 --
 -- 'name', 'createResourceShare_name' - Specifies the name of the resource share.
 newCreateResourceShare ::
@@ -203,20 +203,24 @@ newCreateResourceShare ::
   CreateResourceShare
 newCreateResourceShare pName_ =
   CreateResourceShare'
-    { tags = Prelude.Nothing,
+    { allowExternalPrincipals =
+        Prelude.Nothing,
       clientToken = Prelude.Nothing,
       permissionArns = Prelude.Nothing,
       principals = Prelude.Nothing,
       resourceArns = Prelude.Nothing,
-      allowExternalPrincipals = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_
     }
 
--- | Specifies one or more tags to attach to the resource share itself. It
--- doesn\'t attach the tags to the resources associated with the resource
--- share.
-createResourceShare_tags :: Lens.Lens' CreateResourceShare (Prelude.Maybe [Tag])
-createResourceShare_tags = Lens.lens (\CreateResourceShare' {tags} -> tags) (\s@CreateResourceShare' {} a -> s {tags = a} :: CreateResourceShare) Prelude.. Lens.mapping Lens.coerced
+-- | Specifies whether principals outside your organization in Organizations
+-- can be associated with a resource share. A value of @true@ lets you
+-- share with individual Amazon Web Services accounts that are /not/ in
+-- your organization. A value of @false@ only has meaning if your account
+-- is a member of an Amazon Web Services Organization. The default value is
+-- @true@.
+createResourceShare_allowExternalPrincipals :: Lens.Lens' CreateResourceShare (Prelude.Maybe Prelude.Bool)
+createResourceShare_allowExternalPrincipals = Lens.lens (\CreateResourceShare' {allowExternalPrincipals} -> allowExternalPrincipals) (\s@CreateResourceShare' {} a -> s {allowExternalPrincipals = a} :: CreateResourceShare)
 
 -- | Specifies a unique, case-sensitive identifier that you provide to ensure
 -- the idempotency of the request. This lets you safely retry the request
@@ -274,14 +278,11 @@ createResourceShare_principals = Lens.lens (\CreateResourceShare' {principals} -
 createResourceShare_resourceArns :: Lens.Lens' CreateResourceShare (Prelude.Maybe [Prelude.Text])
 createResourceShare_resourceArns = Lens.lens (\CreateResourceShare' {resourceArns} -> resourceArns) (\s@CreateResourceShare' {} a -> s {resourceArns = a} :: CreateResourceShare) Prelude.. Lens.mapping Lens.coerced
 
--- | Specifies whether principals outside your organization in Organizations
--- can be associated with a resource share. A value of @true@ lets you
--- share with individual Amazon Web Services accounts that are /not/ in
--- your organization. A value of @false@ only has meaning if your account
--- is a member of an Amazon Web Services Organization. The default value is
--- @true@.
-createResourceShare_allowExternalPrincipals :: Lens.Lens' CreateResourceShare (Prelude.Maybe Prelude.Bool)
-createResourceShare_allowExternalPrincipals = Lens.lens (\CreateResourceShare' {allowExternalPrincipals} -> allowExternalPrincipals) (\s@CreateResourceShare' {} a -> s {allowExternalPrincipals = a} :: CreateResourceShare)
+-- | Specifies one or more tags to attach to the resource share itself. It
+-- doesn\'t attach the tags to the resources associated with the resource
+-- share.
+createResourceShare_tags :: Lens.Lens' CreateResourceShare (Prelude.Maybe [Tag])
+createResourceShare_tags = Lens.lens (\CreateResourceShare' {tags} -> tags) (\s@CreateResourceShare' {} a -> s {tags = a} :: CreateResourceShare) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the name of the resource share.
 createResourceShare_name :: Lens.Lens' CreateResourceShare Prelude.Text
@@ -304,22 +305,23 @@ instance Core.AWSRequest CreateResourceShare where
 
 instance Prelude.Hashable CreateResourceShare where
   hashWithSalt _salt CreateResourceShare' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` allowExternalPrincipals
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` permissionArns
       `Prelude.hashWithSalt` principals
       `Prelude.hashWithSalt` resourceArns
-      `Prelude.hashWithSalt` allowExternalPrincipals
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateResourceShare where
   rnf CreateResourceShare' {..} =
-    Prelude.rnf tags
+    Prelude.rnf allowExternalPrincipals
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf permissionArns
       `Prelude.seq` Prelude.rnf principals
       `Prelude.seq` Prelude.rnf resourceArns
-      `Prelude.seq` Prelude.rnf allowExternalPrincipals
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders CreateResourceShare where
@@ -337,14 +339,14 @@ instance Data.ToJSON CreateResourceShare where
   toJSON CreateResourceShare' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
+          [ ("allowExternalPrincipals" Data..=)
+              Prelude.<$> allowExternalPrincipals,
             ("clientToken" Data..=) Prelude.<$> clientToken,
             ("permissionArns" Data..=)
               Prelude.<$> permissionArns,
             ("principals" Data..=) Prelude.<$> principals,
             ("resourceArns" Data..=) Prelude.<$> resourceArns,
-            ("allowExternalPrincipals" Data..=)
-              Prelude.<$> allowExternalPrincipals,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name)
           ]
       )

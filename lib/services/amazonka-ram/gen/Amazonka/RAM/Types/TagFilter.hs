@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTagFilter' smart constructor.
 data TagFilter = TagFilter'
-  { -- | A list of zero or more tag values. If no values are provided, then the
+  { -- | The tag key. This must have a valid string value and can\'t be empty.
+    tagKey :: Prelude.Maybe Prelude.Text,
+    -- | A list of zero or more tag values. If no values are provided, then the
     -- filter matches any tag with the specified key, regardless of its value.
-    tagValues :: Prelude.Maybe [Prelude.Text],
-    -- | The tag key. This must have a valid string value and can\'t be empty.
-    tagKey :: Prelude.Maybe Prelude.Text
+    tagValues :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,42 +45,42 @@ data TagFilter = TagFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tagKey', 'tagFilter_tagKey' - The tag key. This must have a valid string value and can\'t be empty.
+--
 -- 'tagValues', 'tagFilter_tagValues' - A list of zero or more tag values. If no values are provided, then the
 -- filter matches any tag with the specified key, regardless of its value.
---
--- 'tagKey', 'tagFilter_tagKey' - The tag key. This must have a valid string value and can\'t be empty.
 newTagFilter ::
   TagFilter
 newTagFilter =
   TagFilter'
-    { tagValues = Prelude.Nothing,
-      tagKey = Prelude.Nothing
+    { tagKey = Prelude.Nothing,
+      tagValues = Prelude.Nothing
     }
+
+-- | The tag key. This must have a valid string value and can\'t be empty.
+tagFilter_tagKey :: Lens.Lens' TagFilter (Prelude.Maybe Prelude.Text)
+tagFilter_tagKey = Lens.lens (\TagFilter' {tagKey} -> tagKey) (\s@TagFilter' {} a -> s {tagKey = a} :: TagFilter)
 
 -- | A list of zero or more tag values. If no values are provided, then the
 -- filter matches any tag with the specified key, regardless of its value.
 tagFilter_tagValues :: Lens.Lens' TagFilter (Prelude.Maybe [Prelude.Text])
 tagFilter_tagValues = Lens.lens (\TagFilter' {tagValues} -> tagValues) (\s@TagFilter' {} a -> s {tagValues = a} :: TagFilter) Prelude.. Lens.mapping Lens.coerced
 
--- | The tag key. This must have a valid string value and can\'t be empty.
-tagFilter_tagKey :: Lens.Lens' TagFilter (Prelude.Maybe Prelude.Text)
-tagFilter_tagKey = Lens.lens (\TagFilter' {tagKey} -> tagKey) (\s@TagFilter' {} a -> s {tagKey = a} :: TagFilter)
-
 instance Prelude.Hashable TagFilter where
   hashWithSalt _salt TagFilter' {..} =
-    _salt `Prelude.hashWithSalt` tagValues
-      `Prelude.hashWithSalt` tagKey
+    _salt `Prelude.hashWithSalt` tagKey
+      `Prelude.hashWithSalt` tagValues
 
 instance Prelude.NFData TagFilter where
   rnf TagFilter' {..} =
-    Prelude.rnf tagValues
-      `Prelude.seq` Prelude.rnf tagKey
+    Prelude.rnf tagKey
+      `Prelude.seq` Prelude.rnf tagValues
 
 instance Data.ToJSON TagFilter where
   toJSON TagFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tagValues" Data..=) Prelude.<$> tagValues,
-            ("tagKey" Data..=) Prelude.<$> tagKey
+          [ ("tagKey" Data..=) Prelude.<$> tagKey,
+            ("tagValues" Data..=) Prelude.<$> tagValues
           ]
       )
